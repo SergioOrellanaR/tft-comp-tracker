@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TFT Compo Tracker</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #1c1c2b;
+      color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body { display: flex; flex-direction: row; }
+    #left, #right {
+      width: 20%;
+      padding: 0.5rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    #canvas-container { flex: 1; position: relative; }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+    .item {
+      padding: 4px 6px;
+      font-size: 0.75rem;
+      border: 1px solid #444;
+      margin: 2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      min-height: 30px;
+    }
+    .item:hover { background-color: #444; }
+    .selected {
+      background-color: #555 !important;
+      transform: scale(1.02);
+    }
+    .tier-header {
+      font-weight: bold;
+      margin-top: 8px;
+      background: #444;
+      padding: 6px;
+      border-radius: 5px;
+      text-align: center;
+      color: #ffd700;
+    }
+    h3 {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #00eaff;
+      border-bottom: 1px solid #555;
+      padding-bottom: 0.3em;
+    }
+    input[type="text"], input[type="file"] {
+      padding: 6px;
+      border-radius: 4px;
+      border: none;
+      margin-top: 10px;
+      background-color: #222;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px;
+      background: #00eaff;
+      border: none;
+      border-radius: 4px;
+      color: #1c1c2b;
+      font-weight: bold;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover { background: #00c4d6; }
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      #left, #right {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="left" style="display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h3 style="margin: 0;"><span style="font-size: 1.1em;">📋</span>Comps</h3>
+    </div>
+    <div id="compos"></div>
+    <input type="file" id="csvInput" accept=".csv" style="margin-top: 10px;" />
+  </div>
+  <div id="canvas-container">
+    <canvas id="lineCanvas"></canvas>
+  </div>
+  <div id="right">
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="margin: 0;"><span style="font-size: 1.1em;">👤</span>Players</h3>
+        <button id="toggleDoubleUp" onclick="toggleDoubleUpMode()">Double Up: OFF</button>
+      </div>
+      <div id="players"></div>
+      <div style="margin-top: 0.5rem;">
+  <button onclick="resetPlayers()" style="width: 100%;">Reset</button>
+</div>
+<div id="infoTableContainer"></div>
+</div>
+      
+    </div>
+    
+  </div>
+
+  <script>
+    const compsContainer = document.getElementById('compos');
+    const playersContainer = document.getElementById('players');
+    const canvas = document.getElementById('lineCanvas');
+    const ctx = canvas.getContext('2d');
+    const csvInput = document.getElementById('csvInput');
+    let selected = null;
+    const links = [];
+    const colors = ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffa14c', '#c74cff', '#4cffe9', '#ffee4c'];
+
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+      drawLines();
+      updateInfoTable();
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function tryLoadDefaultCSV() {
+      fetch("Comps.csv")
+        .then(response => response.text())
+        .then(data => loadCSVData(data));
+    }
+
+    function toggleDoubleUpMode() {
+      const btn = document.getElementById('toggleDoubleUp');
+      const active = document.body.classList.toggle('double-up');
+      btn.textContent = `Double Up: ${active ? 'ON' : 'OFF'}`;
+      resetPlayers();
+    }
+
+    function preloadPlayers() {
+      const isDoubleUp = document.body.classList.contains('double-up');
+      const defaultNames = isDoubleUp
+        ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
+        : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
+      playersContainer.innerHTML = '';
+      defaultNames.forEach((name, index) => {
+        const div = document.createElement('div');
+        div.className = 'item player';
+        const span = document.createElement('span');
+        span.textContent = name;
+        span.ondblclick = () => {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.value = '';
+          const original = span.textContent;
+          input.maxLength = 20;
+          input.style.width = '100%';
+input.style.border = '1px solid #444';
+input.style.backgroundColor = 'transparent';
+input.style.color = '#fff';
+input.style.fontSize = '0.75rem';
+input.style.borderRadius = '4px';
+input.style.padding = '2px 6px';
+          input.onblur = () => {
+            span.textContent = input.value.trim().substring(0, 20) || original;
+            span.style.display = 'inline';
+            input.remove();
+            drawLines();
+            updateInfoTable();
+          };
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              input.blur();
+            }
+          });
+          span.style.display = 'none';
+          span.parentElement.insertBefore(input, span);
+          input.focus();
+        };
+        div.appendChild(span);
+        const colorIndex = isDoubleUp ? Math.floor(index / 2) % colors.length : index % colors.length;
+        div.dataset.color = colors[colorIndex];
+        div.style.borderLeft = `10px solid ${div.dataset.color}`;
+        div.onclick = () => select(div, 'player');
+        const editIcon = document.createElement('span');
+editIcon.textContent = '✎';
+editIcon.style.marginLeft = '6px';
+editIcon.style.cursor = 'pointer';
+editIcon.onclick = (e) => {
+  e.stopPropagation();
+  span.ondblclick();
+};
+div.appendChild(editIcon);
+playersContainer.appendChild(div);
+      });
+    }
+
+    tryLoadDefaultCSV();
+    preloadPlayers();
+
+document.addEventListener('DOMContentLoaded', () => {
+  preloadPlayers();
+});
+  
+
+    function drawLines() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      document.querySelectorAll('.compo').forEach(c => {
+        c.style.background = '';
+        const oldBar = c.querySelector('.color-bar');
+        if (oldBar) oldBar.remove();
+      });
+
+      links.forEach(link => {
+        const start = getCenter(link.compo);
+        const end = getCenter(link.player);
+        const color = link.player.dataset.color || 'red';
+
+        ctx.beginPath();
+        ctx.moveTo(start.x, start.y);
+        ctx.lineTo(end.x, end.y);
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 3;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 4;
+        ctx.stroke();
+      });
+
+      const compoColorMap = {};
+      links.forEach(link => {
+        const { compo } = link;
+        const color = link.player.dataset.color;
+        const id = compo.dataset.id;
+        if (!compoColorMap[id]) compoColorMap[id] = { compo, colors: [] };
+        if (!compoColorMap[id].colors.includes(color)) compoColorMap[id].colors.push(color);
+      });
+
+      Object.values(compoColorMap).forEach(({ compo, colors }) => {
+        const part = 100 / colors.length;
+        const gradient = colors.map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`).join(', ');
+        compo.style.position = 'relative';
+        const bar = compo.querySelector('.color-bar') || compo.appendChild(document.createElement('div'));
+        bar.className = 'color-bar';
+        Object.assign(bar.style, {
+          position: 'absolute',
+          top: '0', right: '0', width: '6px', height: '100%',
+          borderRadius: '0 6px 6px 0',
+          background: `linear-gradient(to bottom, ${gradient})`
+        });
+      });
+    }
+
+    function getCenter(el) {
+      const rect = el.getBoundingClientRect();
+      const container = canvas.getBoundingClientRect();
+      const isPlayer = el.classList.contains('player');
+      return {
+        x: isPlayer ? rect.left - container.left : rect.right - container.left,
+        y: rect.top + rect.height / 2 - container.top
+      };
+    }
+
+    function updateInfoTable() {
+      const container = document.getElementById('infoTableContainer');
+      container.innerHTML = '';
+      const compoMap = new Map();
+      links.forEach(link => {
+        const compo = link.compo;
+        const estilo = compo.querySelectorAll('span')[1]?.innerText || '';
+        const name = compo.querySelector('span')?.innerText || '';
+        const player = link.player.querySelector('span')?.innerText || link.player.innerText;
+        if (!compoMap.has(estilo)) compoMap.set(estilo, new Map());
+        const entry = compoMap.get(estilo);
+        if (!entry.has(name)) entry.set(name, []);
+        entry.get(name).push(player);
+      });
+      if (compoMap.size === 0) return;
+      const table = document.createElement('table');
+      table.style.width = '100%';
+      table.style.marginTop = '1rem';
+      table.style.borderCollapse = 'collapse';
+      const thead = document.createElement('thead');
+      thead.innerHTML = `<tr style="background:#333;color:#ffd700">
+        <th style="padding:6px;border:1px solid #555">Style</th>
+        <th style="padding:6px;border:1px solid #555">Comp</th>
+        <th style="padding:6px;border:1px solid #555">Players</th>
+      </tr>`;
+      const tbody = document.createElement('tbody');
+
+      const sortedStyles = Array.from(compoMap.entries()).sort(([a], [b]) => {
+        const aNum = parseInt(a.substr(a.length - 1)) || 0;
+        const bNum = parseInt(b.substr(b.length - 1)) || 0;
+        return aNum - bNum;
+      });
+
+      sortedStyles.forEach(([estilo, compMap]) => {
+        const comps = Array.from(compMap.entries());
+        if (comps.length > 1) {
+          comps.forEach(([comp, players], index) => {
+            const row = document.createElement('tr');
+            if (index === 0) {
+              row.innerHTML = `<td style="padding:6px;border:1px solid #555" rowspan="${comps.length}">${estilo}</td>`;
+            }
+            row.innerHTML += `<td style="padding:6px;border:1px solid #555">${comp}</td>
+                              <td style="padding:6px;border:1px solid #555">${players.join(', ')}</td>`;
+            tbody.appendChild(row);
+          });
+        } else {
+          const [comp, players] = comps[0];
+          const row = document.createElement('tr');
+          row.innerHTML = `<td style="padding:6px;border:1px solid #555">${estilo}</td>
+                           <td style="padding:6px;border:1px solid #555">${comp}</td>
+                           <td style="padding:6px;border:1px solid #555">${players.join(', ')}</td>`;
+          tbody.appendChild(row);
+        }
+      });
+
+      table.appendChild(thead);
+      table.appendChild(tbody);
+      container.appendChild(table);
+    }
+
+    function select(el, type) {
+      if (selected && selected.type !== type) {
+        const a = type === 'player' ? selected.el : el;
+        const b = type === 'player' ? el : selected.el;
+        const exists = links.find(link => link.compo === a && link.player === b);
+        if (exists) links.splice(links.indexOf(exists), 1);
+        else links.push({ compo: a, player: b });
+        selected.el.classList.remove('selected');
+        selected = null;
+        drawLines();
+        updateInfoTable();
+      } else {
+        if (selected) selected.el.classList.remove('selected');
+        selected = { el, type };
+        el.classList.add('selected');
+      }
+    }
+
+    function resetPlayers() {
+      playersContainer.innerHTML = '';
+      links.length = 0;
+      drawLines();
+      updateInfoTable();
+      preloadPlayers();
+    }
+    csvInput.addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => loadCSVData(e.target.result);
+      reader.readAsText(file);
+    });
+
+function loadCSVData(csvText) {
+      const lines = csvText.split(/\r?\n/);
+      compsContainer.innerHTML = '';
+      const tiers = { S: [], A: [], B: [], C: [] };
+
+      lines.forEach((line, index) => {
+        if (index === 0 || !line.trim()) return;
+        const [comp, tier, estilo] = line.split(',').map(x => x.trim());
+        if (tiers[tier]) {
+          const div = document.createElement('div');
+          div.className = 'item compo';
+          div.dataset.id = 'compo-' + index;
+          div.innerHTML = `<span>${comp}</span><span style="opacity: 0.7; font-size: 0.9em;">${estilo}</span>`;
+          div.onclick = () => select(div, 'compo');
+          tiers[tier].push(div);
+        }
+      });
+
+      ['S', 'A', 'B', 'C'].forEach(t => {
+        if (tiers[t].length > 0) {
+          const header = document.createElement('div');
+          header.className = 'tier-header';
+          header.textContent = `Tier ${t}`;
+          compsContainer.appendChild(header);
+          tiers[t].forEach(div => compsContainer.appendChild(div));
+        }
+      });
+    }
+
+    canvas.addEventListener('click', e => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      for (let i = 0; i < links.length; i++) {
+        const start = getCenter(links[i].compo);
+        const end = getCenter(links[i].player);
+        const dist = distanceToSegment({x: clickX, y: clickY}, start, end);
+        if (dist < 6) {
+          links.splice(i, 1);
+          drawLines();
+          updateInfoTable();
+          return;
+        }
+      }
+    });
+
+    function distanceToSegment(p, v, w) {
+      const l2 = (v.x - w.x) ** 2 + (v.y - w.y) ** 2;
+      if (l2 === 0) return Math.hypot(p.x - v.x, p.y - v.y);
+      let t = ((p.x - v.x) * (w.x - v.x) + (p.y - v.y) * (w.y - v.y)) / l2;
+      t = Math.max(0, Math.min(1, t));
+      return Math.hypot(p.x - (v.x + t * (w.x - v.x)), p.y - (v.y + t * (w.y - v.y)));
+    }
+  </script>
+</body>
+</html>
