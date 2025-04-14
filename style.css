@@ -205,8 +205,9 @@ button:hover {
 
     #left,
     #right {
-        min-width: 240px;
+        min-width: 20px;
         width: 100%;
+		max-width: 100%;
         flex-direction: row;
         overflow-x: auto;
         flex-wrap: wrap;
@@ -214,8 +215,14 @@ button:hover {
     }
 
     #canvas-container {
-        min-width: 300px;
+        min-width: 150px;
     }
+	
+	table {
+    width: 100%;
+    overflow-x: auto;
+    display: block; /* importante para que pueda romper fila si es necesario */
+  }
 }
 
 /* Table (bottom right) */
@@ -267,4 +274,8 @@ th {
 .item.compo span:last-child {
   opacity: 0.7;
   font-size: 0.8em;
+}
+
+#right {
+    margin-left: 0;
 }

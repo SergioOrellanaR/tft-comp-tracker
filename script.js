@@ -18,7 +18,7 @@ window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 function tryLoadDefaultCSV() {
-    fetch("Comps.csv")
+    fetch("Data/Comps.csv")
         .then(response => response.text())
         .then(data => loadCSVData(data));
 }
@@ -237,6 +237,10 @@ tryLoadDefaultCSV();
 document.addEventListener('DOMContentLoaded', () => {
     preloadPlayers();
 });
+
+document.getElementById('left').addEventListener('scroll', drawLines);
+document.getElementById('right').addEventListener('scroll', drawLines);
+window.addEventListener('scroll', drawLines); // para scroll general en mobile
 
 var previousMultilines = {};
 function drawLines() {
@@ -549,10 +553,10 @@ function loadCSVData(csvText) {
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [] };
     const tierColors = {
-        S: '#ffaa00',
-        A: '#00e0ff',
-        B: '#c74cff',
-        C: '#b30000'
+        S: '#FFD700',
+        A: '#00BFFF',
+        B: '#7CFC00',
+        C: '#FFB347'
     };
 
     lines.forEach((line, index) => {
@@ -611,11 +615,22 @@ canvas.addEventListener('click', e => {
     const rect = canvas.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const clickY = e.clientY - rect.top;
+
     for (let i = 0; i < links.length; i++) {
         const start = getCenter(links[i].compo);
         const end = getCenter(links[i].player);
-        const dist = distanceToSegment({ x: clickX, y: clickY }, start, end);
-        if (dist < 6) {
+
+        const cp1x = (start.x + end.x) / 2;
+        const cp1y = start.y;
+        const cp2x = (start.x + end.x) / 2;
+        const cp2y = end.y;
+
+        const path = new Path2D();
+        path.moveTo(start.x, start.y);
+        path.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, end.x, end.y);
+
+        ctx.lineWidth = 15;
+        if (ctx.isPointInStroke(path, clickX, clickY)) {
             links.splice(i, 1);
             drawLines();
             updateInfoTable();
