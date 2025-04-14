@@ -19,23 +19,23 @@ body {
 }
 
 #toggleDoubleUp {
-  margin-bottom: 10px;
-  padding: 4px 10px;
-  background: #00eaff;
-  border: none;
-  border-radius: 6px;
-  color: #1c1c2b;
-  font-weight: bold;
-  font-size: 0.75rem;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    margin-bottom: 10px;
+    padding: 4px 10px;
+    background: #00eaff;
+    border: none;
+    border-radius: 6px;
+    color: #1c1c2b;
+    font-weight: bold;
+    font-size: 0.75rem;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 #toggleDoubleUp:hover {
-  background: #00c4d6;
+    background: #00c4d6;
 }
 
 #left,
@@ -63,23 +63,26 @@ canvas {
 }
 
 .custom-file-upload {
-  display: inline-flex;
-  margin-top: 5px;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05); /* más sutil */
-  border-radius: 8px;
-  cursor: pointer;
-  color: #00e0e0; /* menos brillante */
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* más suave */
-  transition: background 0.2s ease;
-  font-size: 0.9rem;
+    display: inline-flex;
+    margin-top: 5px;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    /* más sutil */
+    border-radius: 8px;
+    cursor: pointer;
+    color: #00e0e0;
+    /* menos brillante */
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* más suave */
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
 }
 
 .custom-file-upload:hover {
-  background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .item {
@@ -127,12 +130,13 @@ canvas {
 
 .tier-header {
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: 4px;
     background: #444;
-    padding: 6px;
-    border-radius: 5px;
+    padding: 3px 6px;
+    border-radius: 4px;
     text-align: center;
     color: #ffd700;
+    font-size: 0.7rem;
 }
 
 h3 {
@@ -170,10 +174,6 @@ button {
 
 button:hover {
     background: #00c4d6;
-}
-
-.dashed-line {
-    stroke-dasharray: 6;
 }
 
 /* Responsive layout */
@@ -239,4 +239,32 @@ td {
 th {
     background: rgba(0, 0, 0, 0.2);
     color: #00eaff;
+}
+
+
+.item.compo {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1px 10px; 
+  margin: 4px 0; 
+  color: #ddd;
+  font-size: 0.7rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.item.compo:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.02);
+  cursor: pointer;
+  color: #fff;
+}
+
+.item.compo span:last-child {
+  opacity: 0.7;
+  font-size: 0.8em;
 }
