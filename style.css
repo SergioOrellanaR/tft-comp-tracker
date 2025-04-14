@@ -42,6 +42,25 @@ canvas {
     height: 100% !important;
 }
 
+.custom-file-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05); /* más sutil */
+  border-radius: 8px;
+  cursor: pointer;
+  color: #00e0e0; /* menos brillante */
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* más suave */
+  transition: background 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.custom-file-upload:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .item {
     padding: 4px 6px;
     font-size: 0.75rem;
