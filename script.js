@@ -238,6 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadPlayers();
 });
 
+document.getElementById('left').addEventListener('scroll', drawLines);
+document.getElementById('right').addEventListener('scroll', drawLines);
+window.addEventListener('scroll', drawLines); // para scroll general en mobile
+
 var previousMultilines = {};
 function drawLines() {
     clearCanvasAndResetCompos();
