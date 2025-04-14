@@ -105,7 +105,73 @@
     }
     button:hover { background: #00c4d6; }
     @media (max-width: 768px) {
-      body { flex-direction: column; }
+  html {
+    font-size: 12px;
+  }
+  body {
+    overflow-x: auto;
+    position: relative;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(28,28,43,1), rgba(28,28,43,0));
+    pointer-events: none;
+    z-index: 9999;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(28,28,43,1), rgba(28,28,43,0));
+    pointer-events: none;
+    z-index: 9999;
+  }
+  #left, #right {
+    min-width: 240px;
+  }
+  #canvas-container {
+    min-width: 300px;
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+  body {
+    overflow-x: auto;
+  }
+  #left, #right {
+    min-width: 240px;
+  }
+  #canvas-container {
+    min-width: 300px;
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+  #left, #right {
+    min-width: 240px;
+  }
+  #canvas-container {
+    min-width: 300px;
+  }
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+}
+}
       #left, #right {
         width: 100%;
         height: auto;
