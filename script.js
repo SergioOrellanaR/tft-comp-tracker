@@ -584,11 +584,22 @@ canvas.addEventListener('contextmenu', e => {
     e.preventDefault();
     const clickX = e.offsetX;
     const clickY = e.offsetY;
+
     for (let i = 0; i < links.length; i++) {
         const start = getCenter(links[i].compo);
         const end = getCenter(links[i].player);
-        const dist = distanceToSegment({ x: clickX, y: clickY }, start, end);
-        if (dist < 6) {
+
+        const cp1x = (start.x + end.x) / 2;
+        const cp1y = start.y;
+        const cp2x = (start.x + end.x) / 2;
+        const cp2y = end.y;
+
+        const path = new Path2D();
+        path.moveTo(start.x, start.y);
+        path.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, end.x, end.y);
+
+        ctx.lineWidth = 15; // importante: el grosor que querés considerar como "clickeable"
+        if (ctx.isPointInStroke(path, clickX, clickY)) {
             links[i].manualDashed = !(links[i].manualDashed ?? links[i].dashed);
             drawLines();
             return;
