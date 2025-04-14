@@ -176,10 +176,6 @@ button:hover {
     background: #00c4d6;
 }
 
-.dashed-line {
-    stroke-dasharray: 6;
-}
-
 /* Responsive layout */
 @media (max-width: 768px) {
     html {

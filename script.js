@@ -304,7 +304,15 @@ function renderAllLines() {
         ctx.beginPath();
         setLineStyle(link.dashed, color);
         ctx.moveTo(start.x, start.y);
-        ctx.lineTo(end.x, end.y);
+
+// Punto de control para la curva
+const cp1x = (start.x + end.x) / 2;
+const cp1y = start.y;
+const cp2x = (start.x + end.x) / 2;
+const cp2y = end.y;
+
+// Dibuja una curva Bezier con 2 puntos de control (curva suave)
+ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, end.x, end.y);
         ctx.stroke();
     });
 }
@@ -321,8 +329,6 @@ function setLineStyle(dashed, color) {
 
     ctx.strokeStyle = color;
     ctx.lineWidth = 3;
-    ctx.shadowColor = color;
-    ctx.shadowBlur = 4;
 }
 
 // 6. Pintar barras de colores en compos
