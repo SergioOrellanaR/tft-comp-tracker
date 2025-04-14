@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
   preloadPlayers();
 });
   
-
+var previousMultilines = {};
     function drawLines() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       document.querySelectorAll('.compo').forEach(c => {
@@ -398,16 +398,26 @@ document.addEventListener('DOMContentLoaded', () => {
       links.forEach(link => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
         const count = playerLinkCounts[playerId];
+        console.log(previousMultilines);
         if (count > 1) {
-        link.dashed = true;
-        link.manualDashed = true;
-      } else {
-        if (typeof link.manualDashed === 'boolean') {
-          link.dashed = link.manualDashed;
+          link.dashed = true;
+          link.manualDashed = true;
+          previousMultilines[playerId] = true;
         } else {
-          link.dashed = false;
+          if(previousMultilines[playerId])
+            {
+              link.manualDashed = false;
+            }
+          if (typeof link.manualDashed === 'boolean') {
+              link.dashed = link.manualDashed;
+            }
+          else
+            {
+              link.dashed = false;
+              delete link.manualDashed;
+            }
+          previousMultilines[playerId] = false;
         }
-      }
         
         const start = getCenter(link.compo);
         const end = getCenter(link.player);
