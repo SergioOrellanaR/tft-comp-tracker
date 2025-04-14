@@ -542,6 +542,12 @@ function loadCSVData(csvText) {
     const lines = csvText.split(/\r?\n/);
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [] };
+    const tierColors = {
+        S: '#ffaa00',
+        A: '#00e0ff',
+        B: '#c74cff',
+        C: '#b30000'
+    };
 
     lines.forEach((line, index) => {
         if (index === 0 || !line.trim()) return;
@@ -561,6 +567,7 @@ function loadCSVData(csvText) {
             const header = document.createElement('div');
             header.className = 'tier-header';
             header.textContent = `Tier ${t}`;
+            header.style.color = tierColors[t]; // Aquí se aplica el color
             compsContainer.appendChild(header);
             tiers[t].forEach(div => compsContainer.appendChild(div));
         }
