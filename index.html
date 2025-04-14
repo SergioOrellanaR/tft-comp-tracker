@@ -23,6 +23,7 @@
     body {
       display: flex;
       flex-direction: row;
+      overflow-x: auto;
     }
 
     #left,
@@ -37,6 +38,7 @@
     #canvas-container {
       flex: 1;
       position: relative;
+      min-width: 300px;
     }
 
     canvas {
@@ -44,6 +46,8 @@
       top: 0;
       left: 0;
       z-index: 10;
+      width: 100% !important;
+      height: 100% !important;
     }
 
     .item {
@@ -55,16 +59,25 @@
       justify-content: space-between;
       align-items: center;
       background-color: #333;
-      transition: background-color 0.2s ease, background 0.3s ease, transform 0.2s ease;
       border-radius: 6px;
       cursor: pointer;
       position: relative;
       min-height: 30px;
+      transition: background-color 0.2s ease, background 0.3s ease, transform 0.2s ease;
+    }
+
+    .item:hover {
+      background-color: #444;
     }
 
     .item.player {
       width: 100%;
       flex: 1;
+    }
+
+    .selected {
+      background-color: #555 !important;
+      transform: scale(1.02);
     }
 
     .player-container {
@@ -78,15 +91,6 @@
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.03);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    }
-
-    .item:hover {
-      background-color: #444;
-    }
-
-    .selected {
-      background-color: #555 !important;
-      transform: scale(1.02);
     }
 
     .tier-header {
@@ -136,103 +140,50 @@
       background: #00c4d6;
     }
 
+    .dashed-line {
+      stroke-dasharray: 6;
+    }
+
+    /* Responsive layout */
     @media (max-width: 768px) {
       html {
         font-size: 12px;
       }
 
-      body {
-        overflow-x: auto;
-        position: relative;
-      }
-
-      body::after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 30px;
-        height: 100%;
-        background: linear-gradient(to right, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
-        pointer-events: none;
-        z-index: 9999;
-      }
-
+      body::after,
       body::before {
         content: '';
         position: fixed;
         top: 0;
-        right: 0;
         width: 30px;
         height: 100%;
-        background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
         pointer-events: none;
         z-index: 9999;
+      }
+
+      body::after {
+        left: 0;
+        background: linear-gradient(to right, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
+      }
+
+      body::before {
+        right: 0;
+        background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
       }
 
       #left,
       #right {
         min-width: 240px;
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        flex-wrap: wrap;
+        height: auto;
       }
 
       #canvas-container {
         min-width: 300px;
       }
-
-      canvas {
-        width: 100% !important;
-        height: 100% !important;
-      }
-    }
-
-    body {
-      overflow-x: auto;
-    }
-
-    #left,
-    #right {
-      min-width: 240px;
-    }
-
-    #canvas-container {
-      min-width: 300px;
-    }
-
-    canvas {
-      width: 100% !important;
-      height: 100% !important;
-    }
-    }
-
-    #left,
-    #right {
-      min-width: 240px;
-    }
-
-    #canvas-container {
-      min-width: 300px;
-    }
-
-    canvas {
-      width: 100% !important;
-      height: 100% !important;
-    }
-    }
-    }
-    }
-
-    #left,
-    #right {
-      width: 100%;
-      height: auto;
-      flex-direction: row;
-      overflow-x: auto;
-      flex-wrap: wrap;
-    }
-    }
-
-    .dashed-line {
-      stroke-dasharray: 6;
     }
   </style>
 </head>
