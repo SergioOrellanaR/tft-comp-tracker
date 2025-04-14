@@ -286,6 +286,16 @@
           input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
               input.blur();
+            } else if (e.key === 'Tab') {
+              e.preventDefault();
+              input.blur();
+              const next = div.parentElement?.querySelectorAll('.item.player');
+              if (next) {
+                const index = Array.from(next).indexOf(div);
+                const nextDiv = next[index + 1];
+                const nextSpan = nextDiv?.querySelector('span');
+                if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
+              }
             }
           });
           span.style.display = 'none';
