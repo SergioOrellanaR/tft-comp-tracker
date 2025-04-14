@@ -244,137 +244,198 @@
     }
 
     function preloadPlayers() {
-      const isDoubleUp = document.body.classList.contains('double-up');
-      const defaultNames = isDoubleUp
-        ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
-        : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
-      playersContainer.innerHTML = '';
-      defaultNames.forEach((name, index) => {
-        const teamIndex = Math.floor(index / 2);
-        const iconOptions = [
-          { name: 'Moon', color: '#c74cff', emoji: '🌙' },
-          { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
-          { name: 'Water', color: '#4cffe9', emoji: '💧' },
-          { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
-        ];
-        let currentIconIndex = teamIndex % iconOptions.length;
-        let currentIcon = iconOptions[currentIconIndex];
-        const div = document.createElement('div');
-        div.className = 'item player';
-        const span = document.createElement('span');
-        span.textContent = name;
-        span.ondblclick = () => {
-          const input = document.createElement('input');
-          input.type = 'text';
-          input.value = '';
-          const original = span.textContent;
-          input.maxLength = 20;
-          input.style.width = '100%';
-          input.style.border = '1px solid #444';
-          input.style.backgroundColor = 'transparent';
-          input.style.color = '#fff';
-          input.style.fontSize = '0.75rem';
-          input.style.borderRadius = '4px';
-          input.style.padding = '2px 6px';
-          input.onblur = () => {
-            span.textContent = input.value.trim().substring(0, 20) || original;
-            span.style.display = 'inline';
-            input.remove();
-            drawLines();
-            updateInfoTable();
-          };
-          input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-              input.blur();
-            } else if (e.key === 'Tab') {
-              e.preventDefault();
-              input.blur();
-              const allPlayers = Array.from(document.querySelectorAll('.item.player'));
-              const currentIndex = allPlayers.findIndex(p => p.contains(span));
-              const next = allPlayers[currentIndex + 1];
-              const nextSpan = next?.querySelector('span');
-              if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
-            }
-          });
-          span.style.display = 'none';
-          span.parentElement.insertBefore(input, span);
-          input.focus();
-        };
-        div.appendChild(span);
-        const colorIndex = isDoubleUp ? Math.floor(index / 2) % colors.length : index % colors.length;
-        div.dataset.color = isDoubleUp ? currentIcon.color : colors[colorIndex];
-        div.style.borderLeft = `10px solid ${div.dataset.color}`;
-        if (isDoubleUp && index % 2 === 1) {
-          const container = document.createElement('div');
-          container.style.display = 'flex';
-          container.style.flexDirection = 'column';
-          container.style.alignItems = 'center';
-          container.style.border = `1px solid ${currentIcon.color}`;
-          container.style.borderRadius = '12px';
-          container.style.padding = '8px';
-          container.style.marginBottom = '16px';
-          const previous = playersContainer.lastElementChild;
-          playersContainer.removeChild(previous);
-          const iconCircle = document.createElement('div');
-          iconCircle.className = 'icon-circle';
-          iconCircle.textContent = currentIcon.emoji;
-            if (container) {
-              container.style.border = `1px solid ${currentIcon.color}`;
-            }
-          iconCircle.title = currentIcon.name;
-          iconCircle.style.width = '20px';
-          iconCircle.style.height = '20px';
-          iconCircle.style.borderRadius = '50%';
-          iconCircle.style.display = 'flex';
-          iconCircle.style.alignItems = 'center';
-          iconCircle.style.justifyContent = 'center';
-          iconCircle.style.fontSize = '0.75rem';
-          iconCircle.style.backgroundColor = '#1c1c2b';
-          iconCircle.style.border = `2px solid ${div.dataset.color}`;
-          iconCircle.style.cursor = 'pointer';
-          iconCircle.style.margin = '4px 0';
-          iconCircle.onclick = (e) => {
-            e.stopPropagation();
-            currentIconIndex = (currentIconIndex + 1) % iconOptions.length;
-            currentIcon = iconOptions[currentIconIndex];
-            div.dataset.color = currentIcon.color;
-            previous.dataset.color = currentIcon.color;
-            div.style.borderLeft = `10px solid ${div.dataset.color}`;
-            previous.style.borderLeft = `10px solid ${previous.dataset.color}`;
-            iconCircle.textContent = currentIcon.emoji;
-            iconCircle.title = currentIcon.name;
-            iconCircle.style.border = `2px solid ${currentIcon.color}`;
-            const container = iconCircle.parentElement;
-            if (container) {
-              container.style.border = `1px solid ${currentIcon.color}`;
-            }
-            drawLines();
-            updateInfoTable();
-          };
-          container.appendChild(previous);
-          container.appendChild(iconCircle);
-          container.appendChild(div);
-          
-          playersContainer.appendChild(container);
-        }
-        div.onclick = () => select(div, 'player');
-        const editIcon = document.createElement('span');
-        editIcon.textContent = '✎';
-        editIcon.style.marginLeft = '6px';
-        editIcon.style.cursor = 'pointer';
-        editIcon.onclick = (e) => {
-          e.stopPropagation();
-          span.ondblclick();
-        };
-        div.appendChild(editIcon);
-        if (!(isDoubleUp && index % 2 === 1)) {
-          playersContainer.appendChild(div);
-        }
+  const isDoubleUp = document.body.classList.contains('double-up');
+  const defaultNames = getDefaultNames(isDoubleUp);
+  playersContainer.innerHTML = '';
 
-        
-      });
+  defaultNames.forEach((name, index) => {
+    const playerDiv = createPlayerDiv(name, index, isDoubleUp);
+    
+    if (isDoubleUp && index % 2 === 1) {
+      const previous = playersContainer.lastElementChild;
+      playersContainer.removeChild(previous);
+      const teamIconData = getTeamIcon(index);
+      const teamContainer = createTeamContainer(previous, playerDiv, teamIconData, index);
+      playersContainer.appendChild(teamContainer);
+    } else {
+      playersContainer.appendChild(playerDiv);
     }
+  });
+}
 
+// 1. Nombres por defecto
+function getDefaultNames(isDoubleUp) {
+  return isDoubleUp
+    ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
+    : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
+}
+
+// 2. Iconos para equipos
+function getTeamIcon(index) {
+  const iconOptions = [
+    { name: 'Moon', color: '#c74cff', emoji: '🌙' },
+    { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
+    { name: 'Water', color: '#4cffe9', emoji: '💧' },
+    { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
+  ];
+  const teamIndex = Math.floor(index / 2);
+  return iconOptions[teamIndex % iconOptions.length];
+}
+
+// 3. Crear contenedor para doble
+function createTeamContainer(player1, player2, icon, index) {
+  const container = document.createElement('div');
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.alignItems = 'center';
+  container.style.border = `1px solid ${icon.color}`;
+  container.style.borderRadius = '12px';
+  container.style.padding = '8px';
+  container.style.marginBottom = '16px';
+
+  const iconCircle = createTeamIcon(icon, player1, player2, container);
+  container.append(player1, iconCircle, player2);
+
+  return container;
+}
+
+// 4. Crear ícono central editable
+function createTeamIcon(icon, player1, player2, container) {
+  let currentIndex = 0;
+  const iconOptions = getTeamIcon(0); // Same list as getTeamIcon
+
+  const circle = document.createElement('div');
+  Object.assign(circle.style, {
+    width: '20px',
+    height: '20px',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: '0.75rem',
+    backgroundColor: '#1c1c2b',
+    border: `2px solid ${icon.color}`,
+    cursor: 'pointer',
+    margin: '4px 0',
+  });
+  circle.className = 'icon-circle';
+  circle.textContent = icon.emoji;
+  circle.title = icon.name;
+
+  circle.onclick = (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % 4;
+    const newIcon = getTeamIcon(currentIndex * 2);
+    updateIconColor(circle, newIcon, player1, player2, container);
+  };
+
+  return circle;
+}
+
+function updateIconColor(circle, icon, player1, player2, container) {
+  [player1, player2].forEach(p => {
+    p.dataset.color = icon.color;
+    p.style.borderLeft = `10px solid ${icon.color}`;
+  });
+  circle.textContent = icon.emoji;
+  circle.title = icon.name;
+  circle.style.border = `2px solid ${icon.color}`;
+  container.style.border = `1px solid ${icon.color}`;
+  drawLines();
+  updateInfoTable();
+}
+
+// 5. Crear div de jugador
+function createPlayerDiv(name, index, isDoubleUp) {
+  const div = document.createElement('div');
+  div.className = 'item player';
+
+  const span = createEditableSpan(name);
+  const editIcon = createEditIcon(span);
+
+  const color = getPlayerColor(index, isDoubleUp);
+  div.dataset.color = color;
+  div.style.borderLeft = `10px solid ${color}`;
+
+  div.append(span, editIcon);
+  div.onclick = () => select(div, 'player');
+
+  return div;
+}
+
+// 6. Color asignado a jugador
+function getPlayerColor(index, isDoubleUp) {
+  return isDoubleUp
+    ? getTeamIcon(index).color
+    : colors[index % colors.length];
+}
+
+// 7. Crear span editable
+function createEditableSpan(name) {
+  const span = document.createElement('span');
+  span.textContent = name;
+
+  span.ondblclick = () => {
+    const input = document.createElement('input');
+    const original = span.textContent;
+
+    Object.assign(input, {
+      type: 'text',
+      value: '',
+      maxLength: 20,
+    });
+    Object.assign(input.style, {
+      width: '100%',
+      border: '1px solid #444',
+      backgroundColor: 'transparent',
+      color: '#fff',
+      fontSize: '0.75rem',
+      borderRadius: '4px',
+      padding: '2px 6px',
+    });
+
+    input.onblur = () => {
+      span.textContent = input.value.trim().substring(0, 20) || original;
+      span.style.display = 'inline';
+      input.remove();
+      drawLines();
+      updateInfoTable();
+    };
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        input.blur();
+      } else if (e.key === 'Tab') {
+        e.preventDefault();
+        input.blur();
+        const allPlayers = Array.from(document.querySelectorAll('.item.player'));
+        const currentIndex = allPlayers.findIndex(p => p.contains(span));
+        const next = allPlayers[currentIndex + 1];
+        const nextSpan = next?.querySelector('span');
+        if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
+      }
+    });
+
+    span.style.display = 'none';
+    span.parentElement.insertBefore(input, span);
+    input.focus();
+  };
+
+  return span;
+}
+
+// 8. Crear ícono de edición
+function createEditIcon(span) {
+  const icon = document.createElement('span');
+  icon.textContent = '✎';
+  icon.style.marginLeft = '6px';
+  icon.style.cursor = 'pointer';
+  icon.onclick = (e) => {
+    e.stopPropagation();
+    span.ondblclick();
+  };
+  return icon;
+}
     tryLoadDefaultCSV();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -398,7 +459,6 @@ var previousMultilines = {};
       links.forEach(link => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
         const count = playerLinkCounts[playerId];
-        console.log(previousMultilines);
         if (count > 1) {
           link.dashed = true;
           link.manualDashed = true;
