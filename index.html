@@ -444,85 +444,129 @@ document.addEventListener('DOMContentLoaded', () => {
   
 var previousMultilines = {};
     function drawLines() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      document.querySelectorAll('.compo').forEach(c => {
-        c.style.background = '';
-        const oldBar = c.querySelector('.color-bar');
-        if (oldBar) oldBar.remove();
-      });
+  clearCanvasAndResetCompos();
+  const playerLinkCounts = countLinksPerPlayer();
+  updateLineStyles(playerLinkCounts);
+  renderAllLines();
+  updateCompoColorBars();
+}
 
-      const playerLinkCounts = {};
-      links.forEach(link => {
-        const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
-        playerLinkCounts[playerId] = (playerLinkCounts[playerId] || 0) + 1;
-      });
-      links.forEach(link => {
-        const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
-        const count = playerLinkCounts[playerId];
-        if (count > 1) {
-          link.dashed = true;
-          link.manualDashed = true;
-          previousMultilines[playerId] = true;
-        } else {
-          if(previousMultilines[playerId])
-            {
-              link.manualDashed = false;
-            }
-          if (typeof link.manualDashed === 'boolean') {
-              link.dashed = link.manualDashed;
-            }
-          else
-            {
-              link.dashed = false;
-              delete link.manualDashed;
-            }
-          previousMultilines[playerId] = false;
-        }
-        
-        const start = getCenter(link.compo);
-        const end = getCenter(link.player);
-        const color = link.player.dataset.color || 'red';
+// 1. Limpiar canvas y compos
+function clearCanvasAndResetCompos() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  document.querySelectorAll('.compo').forEach(c => {
+    c.style.background = '';
+    const oldBar = c.querySelector('.color-bar');
+    if (oldBar) oldBar.remove();
+  });
+}
 
-        ctx.beginPath();
-        if (link.dashed) {
-          ctx.setLineDash([6, 6]);
-          ctx.globalAlpha = 0.5;
-        } else {
-          ctx.setLineDash([]);
-          ctx.globalAlpha = 1;
-        }
-        ctx.moveTo(start.x, start.y);
-        ctx.lineTo(end.x, end.y);
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 3;
-        ctx.shadowColor = color;
-        ctx.shadowBlur = 4;
-        ctx.stroke();
-      });
+// 2. Contar links por jugador
+function countLinksPerPlayer() {
+  const counts = {};
+  links.forEach(link => {
+    const playerId = getPlayerId(link.player);
+    counts[playerId] = (counts[playerId] || 0) + 1;
+  });
+  return counts;
+}
 
-      const compoColorMap = {};
-      links.forEach(link => {
-        const { compo } = link;
-        const color = link.player.dataset.color;
-        const id = compo.dataset.id;
-        if (!compoColorMap[id]) compoColorMap[id] = { compo, colors: [] };
-        if (!compoColorMap[id].colors.includes(color)) compoColorMap[id].colors.push(color);
-      });
+// 3. Determinar líneas múltiples y setear estilo
+function updateLineStyles(playerLinkCounts) {
+  links.forEach(link => {
+    const playerId = getPlayerId(link.player);
+    const count = playerLinkCounts[playerId];
 
-      Object.values(compoColorMap).forEach(({ compo, colors }) => {
-        const part = 100 / colors.length;
-        const gradient = colors.map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`).join(', ');
-        compo.style.position = 'relative';
-        const bar = compo.querySelector('.color-bar') || compo.appendChild(document.createElement('div'));
-        bar.className = 'color-bar';
-        Object.assign(bar.style, {
-          position: 'absolute',
-          top: '0', right: '0', width: '6px', height: '100%',
-          borderRadius: '0 6px 6px 0',
-          background: `linear-gradient(to bottom, ${gradient})`
-        });
-      });
+    if (count > 1) {
+      link.dashed = true;
+      link.manualDashed = true;
+      previousMultilines[playerId] = true;
+    } else {
+      if (previousMultilines[playerId]) {
+        link.manualDashed = false;
+      }
+
+      if (typeof link.manualDashed === 'boolean') {
+        link.dashed = link.manualDashed;
+      } else {
+        link.dashed = false;
+        delete link.manualDashed;
+      }
+
+      previousMultilines[playerId] = false;
     }
+  });
+}
+
+// 4. Dibujar líneas entre compos y jugadores
+function renderAllLines() {
+  links.forEach(link => {
+    const start = getCenter(link.compo);
+    const end = getCenter(link.player);
+    const color = link.player.dataset.color || 'red';
+
+    ctx.beginPath();
+    setLineStyle(link.dashed, color);
+    ctx.moveTo(start.x, start.y);
+    ctx.lineTo(end.x, end.y);
+    ctx.stroke();
+  });
+}
+
+// 5. Configurar estilo de línea (dashed o normal)
+function setLineStyle(dashed, color) {
+  if (dashed) {
+    ctx.setLineDash([6, 6]);
+    ctx.globalAlpha = 0.5;
+  } else {
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  }
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 3;
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 4;
+}
+
+// 6. Pintar barras de colores en compos
+function updateCompoColorBars() {
+  const compoColorMap = {};
+
+  links.forEach(link => {
+    const compo = link.compo;
+    const color = link.player.dataset.color;
+    const id = compo.dataset.id;
+
+    if (!compoColorMap[id]) {
+      compoColorMap[id] = { compo, colors: new Set() };
+    }
+
+    compoColorMap[id].colors.add(color);
+  });
+
+  Object.values(compoColorMap).forEach(({ compo, colors }) => {
+    const colorArray = Array.from(colors);
+    const part = 100 / colorArray.length;
+    const gradient = colorArray.map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`).join(', ');
+
+    compo.style.position = 'relative';
+    const bar = compo.querySelector('.color-bar') || compo.appendChild(document.createElement('div'));
+    bar.className = 'color-bar';
+    Object.assign(bar.style, {
+      position: 'absolute',
+      top: '0', right: '0',
+      width: '6px', height: '100%',
+      borderRadius: '0 6px 6px 0',
+      background: `linear-gradient(to bottom, ${gradient})`
+    });
+  });
+}
+
+// 7. Obtener identificador único del jugador
+function getPlayerId(playerElement) {
+  return playerElement.querySelector('span')?.innerText || playerElement.innerText;
+}
 
     function getCenter(el) {
       const rect = el.getBoundingClientRect();
