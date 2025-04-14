@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TFT Comp Tracker</title>
   <style>
-    * { box-sizing: border-box; }
-    html, body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -14,21 +19,33 @@
       color: #f4f4f4;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    body { display: flex; flex-direction: row; }
-    #left, #right {
+
+    body {
+      display: flex;
+      flex-direction: row;
+    }
+
+    #left,
+    #right {
       width: 20%;
       padding: 0.5rem;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
     }
-    #canvas-container { flex: 1; position: relative; }
+
+    #canvas-container {
+      flex: 1;
+      position: relative;
+    }
+
     canvas {
       position: absolute;
       top: 0;
       left: 0;
       z-index: 10;
     }
+
     .item {
       padding: 4px 6px;
       font-size: 0.75rem;
@@ -44,10 +61,12 @@
       position: relative;
       min-height: 30px;
     }
+
     .item.player {
       width: 100%;
       flex: 1;
     }
+
     .player-container {
       display: flex;
       flex-direction: column;
@@ -60,11 +79,16 @@
       background: rgba(255, 255, 255, 0.03);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
-    .item:hover { background-color: #444; }
+
+    .item:hover {
+      background-color: #444;
+    }
+
     .selected {
       background-color: #555 !important;
       transform: scale(1.02);
     }
+
     .tier-header {
       font-weight: bold;
       margin-top: 8px;
@@ -74,6 +98,7 @@
       text-align: center;
       color: #ffd700;
     }
+
     h3 {
       display: flex;
       align-items: center;
@@ -82,7 +107,9 @@
       border-bottom: 1px solid #555;
       padding-bottom: 0.3em;
     }
-    input[type="text"], input[type="file"] {
+
+    input[type="text"],
+    input[type="file"] {
       padding: 6px;
       border-radius: 4px;
       border: none;
@@ -91,6 +118,7 @@
       color: #fff;
       font-size: 0.9rem;
     }
+
     button {
       margin-top: 10px;
       padding: 8px;
@@ -103,88 +131,112 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-    button:hover { background: #00c4d6; }
+
+    button:hover {
+      background: #00c4d6;
+    }
+
     @media (max-width: 768px) {
-  html {
-    font-size: 12px;
-  }
-  body {
-    overflow-x: auto;
-    position: relative;
-  }
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 30px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(28,28,43,1), rgba(28,28,43,0));
-    pointer-events: none;
-    z-index: 9999;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 30px;
-    height: 100%;
-    background: linear-gradient(to left, rgba(28,28,43,1), rgba(28,28,43,0));
-    pointer-events: none;
-    z-index: 9999;
-  }
-  #left, #right {
-    min-width: 240px;
-  }
-  #canvas-container {
-    min-width: 300px;
-  }
-  canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
-  body {
-    overflow-x: auto;
-  }
-  #left, #right {
-    min-width: 240px;
-  }
-  #canvas-container {
-    min-width: 300px;
-  }
-  canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
-  #left, #right {
-    min-width: 240px;
-  }
-  #canvas-container {
-    min-width: 300px;
-  }
-  canvas {
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
-}
-}
-      #left, #right {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
+      html {
+        font-size: 12px;
+      }
+
+      body {
         overflow-x: auto;
-        flex-wrap: wrap;
+        position: relative;
+      }
+
+      body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 100%;
+        background: linear-gradient(to right, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 100%;
+        background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      #left,
+      #right {
+        min-width: 240px;
+      }
+
+      #canvas-container {
+        min-width: 300px;
+      }
+
+      canvas {
+        width: 100% !important;
+        height: 100% !important;
       }
     }
+
+    body {
+      overflow-x: auto;
+    }
+
+    #left,
+    #right {
+      min-width: 240px;
+    }
+
+    #canvas-container {
+      min-width: 300px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    }
+
+    #left,
+    #right {
+      min-width: 240px;
+    }
+
+    #canvas-container {
+      min-width: 300px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    }
+    }
+    }
+
+    #left,
+    #right {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      overflow-x: auto;
+      flex-wrap: wrap;
+    }
+    }
+
     .dashed-line {
-    stroke-dasharray: 6;
-  }
-</style>
+      stroke-dasharray: 6;
+    }
+  </style>
 </head>
+
 <body>
   <div id="left" style="display: flex; flex-direction: column;">
     <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -204,12 +256,12 @@
       </div>
       <div id="players"></div>
       <div style="margin-top: 0.5rem;">
-		<button onclick="resetPlayers()" style="width: 100%;">Reset</button>
-	  </div>
-	  <div id="infoTableContainer"></div>
-	</div>
+        <button onclick="resetPlayers()" style="width: 100%;">Reset</button>
+      </div>
+      <div id="infoTableContainer"></div>
+    </div>
   </div>
-<script>
+  <script>
     const compsContainer = document.getElementById('compos');
     const playersContainer = document.getElementById('players');
     const canvas = document.getElementById('lineCanvas');
@@ -243,329 +295,329 @@
     }
 
     function preloadPlayers() {
-  const isDoubleUp = document.body.classList.contains('double-up');
-  const defaultNames = getDefaultNames(isDoubleUp);
-  playersContainer.innerHTML = '';
+      const isDoubleUp = document.body.classList.contains('double-up');
+      const defaultNames = getDefaultNames(isDoubleUp);
+      playersContainer.innerHTML = '';
 
-  defaultNames.forEach((name, index) => {
-    const playerDiv = createPlayerDiv(name, index, isDoubleUp);
-    
-    if (isDoubleUp && index % 2 === 1) {
-      const previous = playersContainer.lastElementChild;
-      playersContainer.removeChild(previous);
-      const teamIconData = getTeamIcon(index);
-      const teamContainer = createTeamContainer(previous, playerDiv, teamIconData, index);
-      playersContainer.appendChild(teamContainer);
-    } else {
-      playersContainer.appendChild(playerDiv);
+      defaultNames.forEach((name, index) => {
+        const playerDiv = createPlayerDiv(name, index, isDoubleUp);
+
+        if (isDoubleUp && index % 2 === 1) {
+          const previous = playersContainer.lastElementChild;
+          playersContainer.removeChild(previous);
+          const teamIconData = getTeamIcon(index);
+          const teamContainer = createTeamContainer(previous, playerDiv, teamIconData, index);
+          playersContainer.appendChild(teamContainer);
+        } else {
+          playersContainer.appendChild(playerDiv);
+        }
+      });
     }
-  });
-}
 
-// 1. Nombres por defecto
-function getDefaultNames(isDoubleUp) {
-  return isDoubleUp
-    ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
-    : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
-}
+    // 1. Nombres por defecto
+    function getDefaultNames(isDoubleUp) {
+      return isDoubleUp
+        ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
+        : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
+    }
 
-// 2. Iconos para equipos
-function getTeamIcon(index) {
-  const iconOptions = [
-    { name: 'Moon', color: '#c74cff', emoji: '🌙' },
-    { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
-    { name: 'Water', color: '#4cffe9', emoji: '💧' },
-    { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
-  ];
-  const teamIndex = Math.floor(index / 2);
-  return iconOptions[teamIndex % iconOptions.length];
-}
+    // 2. Iconos para equipos
+    function getTeamIcon(index) {
+      const iconOptions = [
+        { name: 'Moon', color: '#c74cff', emoji: '🌙' },
+        { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
+        { name: 'Water', color: '#4cffe9', emoji: '💧' },
+        { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
+      ];
+      const teamIndex = Math.floor(index / 2);
+      return iconOptions[teamIndex % iconOptions.length];
+    }
 
-// 3. Crear contenedor para doble
-function createTeamContainer(player1, player2, icon, index) {
-  const container = document.createElement('div');
-  container.style.display = 'flex';
-  container.style.flexDirection = 'column';
-  container.style.alignItems = 'center';
-  container.style.border = `1px solid ${icon.color}`;
-  container.style.borderRadius = '12px';
-  container.style.padding = '8px';
-  container.style.marginBottom = '16px';
+    // 3. Crear contenedor para doble
+    function createTeamContainer(player1, player2, icon, index) {
+      const container = document.createElement('div');
+      container.style.display = 'flex';
+      container.style.flexDirection = 'column';
+      container.style.alignItems = 'center';
+      container.style.border = `1px solid ${icon.color}`;
+      container.style.borderRadius = '12px';
+      container.style.padding = '8px';
+      container.style.marginBottom = '16px';
 
-  const iconCircle = createTeamIcon(icon, player1, player2, container);
-  container.append(player1, iconCircle, player2);
+      const iconCircle = createTeamIcon(icon, player1, player2, container);
+      container.append(player1, iconCircle, player2);
 
-  return container;
-}
+      return container;
+    }
 
-// 4. Crear ícono central editable
-function createTeamIcon(icon, player1, player2, container) {
-  let currentIndex = 0;
-  const iconOptions = getTeamIcon(0); // Same list as getTeamIcon
+    // 4. Crear ícono central editable
+    function createTeamIcon(icon, player1, player2, container) {
+      let currentIndex = 0;
+      const iconOptions = getTeamIcon(0); // Same list as getTeamIcon
 
-  const circle = document.createElement('div');
-  Object.assign(circle.style, {
-    width: '20px',
-    height: '20px',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '0.75rem',
-    backgroundColor: '#1c1c2b',
-    border: `2px solid ${icon.color}`,
-    cursor: 'pointer',
-    margin: '4px 0',
-  });
-  circle.className = 'icon-circle';
-  circle.textContent = icon.emoji;
-  circle.title = icon.name;
+      const circle = document.createElement('div');
+      Object.assign(circle.style, {
+        width: '20px',
+        height: '20px',
+        borderRadius: '50%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '0.75rem',
+        backgroundColor: '#1c1c2b',
+        border: `2px solid ${icon.color}`,
+        cursor: 'pointer',
+        margin: '4px 0',
+      });
+      circle.className = 'icon-circle';
+      circle.textContent = icon.emoji;
+      circle.title = icon.name;
 
-  circle.onclick = (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex + 1) % 4;
-    const newIcon = getTeamIcon(currentIndex * 2);
-    updateIconColor(circle, newIcon, player1, player2, container);
-  };
+      circle.onclick = (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % 4;
+        const newIcon = getTeamIcon(currentIndex * 2);
+        updateIconColor(circle, newIcon, player1, player2, container);
+      };
 
-  return circle;
-}
+      return circle;
+    }
 
-function updateIconColor(circle, icon, player1, player2, container) {
-  [player1, player2].forEach(p => {
-    p.dataset.color = icon.color;
-    p.style.borderLeft = `10px solid ${icon.color}`;
-  });
-  circle.textContent = icon.emoji;
-  circle.title = icon.name;
-  circle.style.border = `2px solid ${icon.color}`;
-  container.style.border = `1px solid ${icon.color}`;
-  drawLines();
-  updateInfoTable();
-}
-
-// 5. Crear div de jugador
-function createPlayerDiv(name, index, isDoubleUp) {
-  const div = document.createElement('div');
-  div.className = 'item player';
-
-  const span = createEditableSpan(name);
-  const editIcon = createEditIcon(span);
-
-  const color = getPlayerColor(index, isDoubleUp);
-  div.dataset.color = color;
-  div.style.borderLeft = `10px solid ${color}`;
-
-  div.append(span, editIcon);
-  div.onclick = () => select(div, 'player');
-
-  return div;
-}
-
-// 6. Color asignado a jugador
-function getPlayerColor(index, isDoubleUp) {
-  return isDoubleUp
-    ? getTeamIcon(index).color
-    : colors[index % colors.length];
-}
-
-// 7. Crear span editable
-function createEditableSpan(name) {
-  const span = document.createElement('span');
-  span.textContent = name;
-
-  span.ondblclick = () => {
-    const input = document.createElement('input');
-    const original = span.textContent;
-
-    Object.assign(input, {
-      type: 'text',
-      value: '',
-      maxLength: 20,
-    });
-    Object.assign(input.style, {
-      width: '100%',
-      border: '1px solid #444',
-      backgroundColor: 'transparent',
-      color: '#fff',
-      fontSize: '0.75rem',
-      borderRadius: '4px',
-      padding: '2px 6px',
-    });
-
-    input.onblur = () => {
-      span.textContent = input.value.trim().substring(0, 20) || original;
-      span.style.display = 'inline';
-      input.remove();
+    function updateIconColor(circle, icon, player1, player2, container) {
+      [player1, player2].forEach(p => {
+        p.dataset.color = icon.color;
+        p.style.borderLeft = `10px solid ${icon.color}`;
+      });
+      circle.textContent = icon.emoji;
+      circle.title = icon.name;
+      circle.style.border = `2px solid ${icon.color}`;
+      container.style.border = `1px solid ${icon.color}`;
       drawLines();
       updateInfoTable();
-    };
+    }
 
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        input.blur();
-      } else if (e.key === 'Tab') {
-        e.preventDefault();
-        input.blur();
-        const allPlayers = Array.from(document.querySelectorAll('.item.player'));
-        const currentIndex = allPlayers.findIndex(p => p.contains(span));
-        const next = allPlayers[currentIndex + 1];
-        const nextSpan = next?.querySelector('span');
-        if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
-      }
-    });
+    // 5. Crear div de jugador
+    function createPlayerDiv(name, index, isDoubleUp) {
+      const div = document.createElement('div');
+      div.className = 'item player';
 
-    span.style.display = 'none';
-    span.parentElement.insertBefore(input, span);
-    input.focus();
-  };
+      const span = createEditableSpan(name);
+      const editIcon = createEditIcon(span);
 
-  return span;
-}
+      const color = getPlayerColor(index, isDoubleUp);
+      div.dataset.color = color;
+      div.style.borderLeft = `10px solid ${color}`;
 
-// 8. Crear ícono de edición
-function createEditIcon(span) {
-  const icon = document.createElement('span');
-  icon.textContent = '✎';
-  icon.style.marginLeft = '6px';
-  icon.style.cursor = 'pointer';
-  icon.onclick = (e) => {
-    e.stopPropagation();
-    span.ondblclick();
-  };
-  return icon;
-}
+      div.append(span, editIcon);
+      div.onclick = () => select(div, 'player');
+
+      return div;
+    }
+
+    // 6. Color asignado a jugador
+    function getPlayerColor(index, isDoubleUp) {
+      return isDoubleUp
+        ? getTeamIcon(index).color
+        : colors[index % colors.length];
+    }
+
+    // 7. Crear span editable
+    function createEditableSpan(name) {
+      const span = document.createElement('span');
+      span.textContent = name;
+
+      span.ondblclick = () => {
+        const input = document.createElement('input');
+        const original = span.textContent;
+
+        Object.assign(input, {
+          type: 'text',
+          value: '',
+          maxLength: 20,
+        });
+        Object.assign(input.style, {
+          width: '100%',
+          border: '1px solid #444',
+          backgroundColor: 'transparent',
+          color: '#fff',
+          fontSize: '0.75rem',
+          borderRadius: '4px',
+          padding: '2px 6px',
+        });
+
+        input.onblur = () => {
+          span.textContent = input.value.trim().substring(0, 20) || original;
+          span.style.display = 'inline';
+          input.remove();
+          drawLines();
+          updateInfoTable();
+        };
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            input.blur();
+          } else if (e.key === 'Tab') {
+            e.preventDefault();
+            input.blur();
+            const allPlayers = Array.from(document.querySelectorAll('.item.player'));
+            const currentIndex = allPlayers.findIndex(p => p.contains(span));
+            const next = allPlayers[currentIndex + 1];
+            const nextSpan = next?.querySelector('span');
+            if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
+          }
+        });
+
+        span.style.display = 'none';
+        span.parentElement.insertBefore(input, span);
+        input.focus();
+      };
+
+      return span;
+    }
+
+    // 8. Crear ícono de edición
+    function createEditIcon(span) {
+      const icon = document.createElement('span');
+      icon.textContent = '✎';
+      icon.style.marginLeft = '6px';
+      icon.style.cursor = 'pointer';
+      icon.onclick = (e) => {
+        e.stopPropagation();
+        span.ondblclick();
+      };
+      return icon;
+    }
     tryLoadDefaultCSV();
 
-document.addEventListener('DOMContentLoaded', () => {
-  preloadPlayers();
-});
-  
-var previousMultilines = {};
-    function drawLines() {
-  clearCanvasAndResetCompos();
-  const playerLinkCounts = countLinksPerPlayer();
-  updateLineStyles(playerLinkCounts);
-  renderAllLines();
-  updateCompoColorBars();
-}
-
-// 1. Limpiar canvas y compos
-function clearCanvasAndResetCompos() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  document.querySelectorAll('.compo').forEach(c => {
-    c.style.background = '';
-    const oldBar = c.querySelector('.color-bar');
-    if (oldBar) oldBar.remove();
-  });
-}
-
-// 2. Contar links por jugador
-function countLinksPerPlayer() {
-  const counts = {};
-  links.forEach(link => {
-    const playerId = getPlayerId(link.player);
-    counts[playerId] = (counts[playerId] || 0) + 1;
-  });
-  return counts;
-}
-
-// 3. Determinar líneas múltiples y setear estilo
-function updateLineStyles(playerLinkCounts) {
-  links.forEach(link => {
-    const playerId = getPlayerId(link.player);
-    const count = playerLinkCounts[playerId];
-
-    if (count > 1) {
-      link.dashed = true;
-      link.manualDashed = true;
-      previousMultilines[playerId] = true;
-    } else {
-      if (previousMultilines[playerId]) {
-        link.manualDashed = false;
-      }
-
-      if (typeof link.manualDashed === 'boolean') {
-        link.dashed = link.manualDashed;
-      } else {
-        link.dashed = false;
-        delete link.manualDashed;
-      }
-
-      previousMultilines[playerId] = false;
-    }
-  });
-}
-
-// 4. Dibujar líneas entre compos y jugadores
-function renderAllLines() {
-  links.forEach(link => {
-    const start = getCenter(link.compo);
-    const end = getCenter(link.player);
-    const color = link.player.dataset.color || 'red';
-
-    ctx.beginPath();
-    setLineStyle(link.dashed, color);
-    ctx.moveTo(start.x, start.y);
-    ctx.lineTo(end.x, end.y);
-    ctx.stroke();
-  });
-}
-
-// 5. Configurar estilo de línea (dashed o normal)
-function setLineStyle(dashed, color) {
-  if (dashed) {
-    ctx.setLineDash([6, 6]);
-    ctx.globalAlpha = 0.5;
-  } else {
-    ctx.setLineDash([]);
-    ctx.globalAlpha = 1;
-  }
-
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 3;
-  ctx.shadowColor = color;
-  ctx.shadowBlur = 4;
-}
-
-// 6. Pintar barras de colores en compos
-function updateCompoColorBars() {
-  const compoColorMap = {};
-
-  links.forEach(link => {
-    const compo = link.compo;
-    const color = link.player.dataset.color;
-    const id = compo.dataset.id;
-
-    if (!compoColorMap[id]) {
-      compoColorMap[id] = { compo, colors: new Set() };
-    }
-
-    compoColorMap[id].colors.add(color);
-  });
-
-  Object.values(compoColorMap).forEach(({ compo, colors }) => {
-    const colorArray = Array.from(colors);
-    const part = 100 / colorArray.length;
-    const gradient = colorArray.map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`).join(', ');
-
-    compo.style.position = 'relative';
-    const bar = compo.querySelector('.color-bar') || compo.appendChild(document.createElement('div'));
-    bar.className = 'color-bar';
-    Object.assign(bar.style, {
-      position: 'absolute',
-      top: '0', right: '0',
-      width: '6px', height: '100%',
-      borderRadius: '0 6px 6px 0',
-      background: `linear-gradient(to bottom, ${gradient})`
+    document.addEventListener('DOMContentLoaded', () => {
+      preloadPlayers();
     });
-  });
-}
 
-// 7. Obtener identificador único del jugador
-function getPlayerId(playerElement) {
-  return playerElement.querySelector('span')?.innerText || playerElement.innerText;
-}
+    var previousMultilines = {};
+    function drawLines() {
+      clearCanvasAndResetCompos();
+      const playerLinkCounts = countLinksPerPlayer();
+      updateLineStyles(playerLinkCounts);
+      renderAllLines();
+      updateCompoColorBars();
+    }
+
+    // 1. Limpiar canvas y compos
+    function clearCanvasAndResetCompos() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      document.querySelectorAll('.compo').forEach(c => {
+        c.style.background = '';
+        const oldBar = c.querySelector('.color-bar');
+        if (oldBar) oldBar.remove();
+      });
+    }
+
+    // 2. Contar links por jugador
+    function countLinksPerPlayer() {
+      const counts = {};
+      links.forEach(link => {
+        const playerId = getPlayerId(link.player);
+        counts[playerId] = (counts[playerId] || 0) + 1;
+      });
+      return counts;
+    }
+
+    // 3. Determinar líneas múltiples y setear estilo
+    function updateLineStyles(playerLinkCounts) {
+      links.forEach(link => {
+        const playerId = getPlayerId(link.player);
+        const count = playerLinkCounts[playerId];
+
+        if (count > 1) {
+          link.dashed = true;
+          link.manualDashed = true;
+          previousMultilines[playerId] = true;
+        } else {
+          if (previousMultilines[playerId]) {
+            link.manualDashed = false;
+          }
+
+          if (typeof link.manualDashed === 'boolean') {
+            link.dashed = link.manualDashed;
+          } else {
+            link.dashed = false;
+            delete link.manualDashed;
+          }
+
+          previousMultilines[playerId] = false;
+        }
+      });
+    }
+
+    // 4. Dibujar líneas entre compos y jugadores
+    function renderAllLines() {
+      links.forEach(link => {
+        const start = getCenter(link.compo);
+        const end = getCenter(link.player);
+        const color = link.player.dataset.color || 'red';
+
+        ctx.beginPath();
+        setLineStyle(link.dashed, color);
+        ctx.moveTo(start.x, start.y);
+        ctx.lineTo(end.x, end.y);
+        ctx.stroke();
+      });
+    }
+
+    // 5. Configurar estilo de línea (dashed o normal)
+    function setLineStyle(dashed, color) {
+      if (dashed) {
+        ctx.setLineDash([6, 6]);
+        ctx.globalAlpha = 0.5;
+      } else {
+        ctx.setLineDash([]);
+        ctx.globalAlpha = 1;
+      }
+
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.shadowColor = color;
+      ctx.shadowBlur = 4;
+    }
+
+    // 6. Pintar barras de colores en compos
+    function updateCompoColorBars() {
+      const compoColorMap = {};
+
+      links.forEach(link => {
+        const compo = link.compo;
+        const color = link.player.dataset.color;
+        const id = compo.dataset.id;
+
+        if (!compoColorMap[id]) {
+          compoColorMap[id] = { compo, colors: new Set() };
+        }
+
+        compoColorMap[id].colors.add(color);
+      });
+
+      Object.values(compoColorMap).forEach(({ compo, colors }) => {
+        const colorArray = Array.from(colors);
+        const part = 100 / colorArray.length;
+        const gradient = colorArray.map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`).join(', ');
+
+        compo.style.position = 'relative';
+        const bar = compo.querySelector('.color-bar') || compo.appendChild(document.createElement('div'));
+        bar.className = 'color-bar';
+        Object.assign(bar.style, {
+          position: 'absolute',
+          top: '0', right: '0',
+          width: '6px', height: '100%',
+          borderRadius: '0 6px 6px 0',
+          background: `linear-gradient(to bottom, ${gradient})`
+        });
+      });
+    }
+
+    // 7. Obtener identificador único del jugador
+    function getPlayerId(playerElement) {
+      return playerElement.querySelector('span')?.innerText || playerElement.innerText;
+    }
 
     function getCenter(el) {
       const rect = el.getBoundingClientRect();
@@ -577,130 +629,130 @@ function getPlayerId(playerElement) {
       };
     }
 
-function updateInfoTable() {
-  const container = document.getElementById('infoTableContainer');
-  container.innerHTML = '';
+    function updateInfoTable() {
+      const container = document.getElementById('infoTableContainer');
+      container.innerHTML = '';
 
-  const compoMap = buildCompoMap();
-  if (compoMap.size === 0) return;
+      const compoMap = buildCompoMap();
+      if (compoMap.size === 0) return;
 
-  const table = createInfoTable(compoMap);
-  container.appendChild(table);
-}
+      const table = createInfoTable(compoMap);
+      container.appendChild(table);
+    }
 
-// 1. Agrupar datos de links en Map(style -> Map(comp -> [players]))
-function buildCompoMap() {
-  const map = new Map();
+    // 1. Agrupar datos de links en Map(style -> Map(comp -> [players]))
+    function buildCompoMap() {
+      const map = new Map();
 
-  links.forEach(link => {
-    const compo = link.compo;
-    const estilo = compo.querySelectorAll('span')[1]?.innerText || '';
-    const compName = compo.querySelector('span')?.innerText || '';
-    const playerName = link.player.querySelector('span')?.innerText || link.player.innerText;
+      links.forEach(link => {
+        const compo = link.compo;
+        const estilo = compo.querySelectorAll('span')[1]?.innerText || '';
+        const compName = compo.querySelector('span')?.innerText || '';
+        const playerName = link.player.querySelector('span')?.innerText || link.player.innerText;
 
-    if (!map.has(estilo)) map.set(estilo, new Map());
-    const compMap = map.get(estilo);
-    if (!compMap.has(compName)) compMap.set(compName, []);
-    compMap.get(compName).push(playerName);
-  });
+        if (!map.has(estilo)) map.set(estilo, new Map());
+        const compMap = map.get(estilo);
+        if (!compMap.has(compName)) compMap.set(compName, []);
+        compMap.get(compName).push(playerName);
+      });
 
-  return map;
-}
+      return map;
+    }
 
-// 2. Crear tabla HTML desde compoMap
-function createInfoTable(compoMap) {
-  const table = document.createElement('table');
-  Object.assign(table.style, {
-    width: '100%',
-    marginTop: '1rem',
-    borderCollapse: 'collapse'
-  });
+    // 2. Crear tabla HTML desde compoMap
+    function createInfoTable(compoMap) {
+      const table = document.createElement('table');
+      Object.assign(table.style, {
+        width: '100%',
+        marginTop: '1rem',
+        borderCollapse: 'collapse'
+      });
 
-  table.appendChild(createInfoTableHeader());
+      table.appendChild(createInfoTableHeader());
 
-  const tbody = document.createElement('tbody');
-  const sortedStyles = sortCompoMapByStyleNumber(compoMap);
+      const tbody = document.createElement('tbody');
+      const sortedStyles = sortCompoMapByStyleNumber(compoMap);
 
-  sortedStyles.forEach(([style, compsMap]) => {
-    const comps = Array.from(compsMap.entries());
+      sortedStyles.forEach(([style, compsMap]) => {
+        const comps = Array.from(compsMap.entries());
 
-    comps.forEach(([comp, players], index) => {
-      const row = document.createElement('tr');
+        comps.forEach(([comp, players], index) => {
+          const row = document.createElement('tr');
 
-      // Insert style cell with rowspan
-      if (index === 0) {
-        const tdStyle = createTableCell(style, comps.length);
-        row.appendChild(tdStyle);
-      }
+          // Insert style cell with rowspan
+          if (index === 0) {
+            const tdStyle = createTableCell(style, comps.length);
+            row.appendChild(tdStyle);
+          }
 
-      const tdComp = createTableCell(comp);
-      const tdPlayers = createPlayerCell(players);
+          const tdComp = createTableCell(comp);
+          const tdPlayers = createPlayerCell(players);
 
-      row.appendChild(tdComp);
-      row.appendChild(tdPlayers);
-      tbody.appendChild(row);
-    });
-  });
+          row.appendChild(tdComp);
+          row.appendChild(tdPlayers);
+          tbody.appendChild(row);
+        });
+      });
 
-  table.appendChild(tbody);
-  return table;
-}
+      table.appendChild(tbody);
+      return table;
+    }
 
-// 3. Crear encabezado de tabla
-function createInfoTableHeader() {
-  const thead = document.createElement('thead');
-  thead.innerHTML = `
+    // 3. Crear encabezado de tabla
+    function createInfoTableHeader() {
+      const thead = document.createElement('thead');
+      thead.innerHTML = `
     <tr style="background:#333;color:#ffd700">
       <th style="padding:6px;border:1px solid #555">Style</th>
       <th style="padding:6px;border:1px solid #555">Comp</th>
       <th style="padding:6px;border:1px solid #555">Players</th>
     </tr>`;
-  return thead;
-}
+      return thead;
+    }
 
-// 4. Crear celda de texto (con rowspan opcional)
-function createTableCell(text, rowspan) {
-  const td = document.createElement('td');
-  td.textContent = text;
-  td.style.padding = '6px';
-  td.style.border = '1px solid #555';
-  if (rowspan) td.rowSpan = rowspan;
-  return td;
-}
+    // 4. Crear celda de texto (con rowspan opcional)
+    function createTableCell(text, rowspan) {
+      const td = document.createElement('td');
+      td.textContent = text;
+      td.style.padding = '6px';
+      td.style.border = '1px solid #555';
+      if (rowspan) td.rowSpan = rowspan;
+      return td;
+    }
 
-// 5. Crear celda de jugadores (como lista o tabla interna)
-function createPlayerCell(players) {
-  const td = document.createElement('td');
-  td.style.padding = '6px';
-  td.style.border = '1px solid #555';
+    // 5. Crear celda de jugadores (como lista o tabla interna)
+    function createPlayerCell(players) {
+      const td = document.createElement('td');
+      td.style.padding = '6px';
+      td.style.border = '1px solid #555';
 
-  if (players.length === 1) {
-    td.textContent = players[0];
-  } else {
-    const innerTable = document.createElement('table');
-    innerTable.style.width = '100%';
-    innerTable.style.borderCollapse = 'collapse';
-    players.forEach(p => {
-      const row = document.createElement('tr');
-      const cell = document.createElement('td');
-      cell.textContent = p;
-      row.appendChild(cell);
-      innerTable.appendChild(row);
-    });
-    td.appendChild(innerTable);
-  }
+      if (players.length === 1) {
+        td.textContent = players[0];
+      } else {
+        const innerTable = document.createElement('table');
+        innerTable.style.width = '100%';
+        innerTable.style.borderCollapse = 'collapse';
+        players.forEach(p => {
+          const row = document.createElement('tr');
+          const cell = document.createElement('td');
+          cell.textContent = p;
+          row.appendChild(cell);
+          innerTable.appendChild(row);
+        });
+        td.appendChild(innerTable);
+      }
 
-  return td;
-}
+      return td;
+    }
 
-// 6. Ordenar estilos alfabéticamente por número final
-function sortCompoMapByStyleNumber(compoMap) {
-  return Array.from(compoMap.entries()).sort(([a], [b]) => {
-    const aNum = parseInt(a.match(/\d+$/)?.[0]) || 0;
-    const bNum = parseInt(b.match(/\d+$/)?.[0]) || 0;
-    return aNum - bNum;
-  });
-}
+    // 6. Ordenar estilos alfabéticamente por número final
+    function sortCompoMapByStyleNumber(compoMap) {
+      return Array.from(compoMap.entries()).sort(([a], [b]) => {
+        const aNum = parseInt(a.match(/\d+$/)?.[0]) || 0;
+        const bNum = parseInt(b.match(/\d+$/)?.[0]) || 0;
+        return aNum - bNum;
+      });
+    }
 
     function select(el, type) {
       if (selected && selected.el === el && selected.type === type) {
@@ -741,7 +793,7 @@ function sortCompoMapByStyleNumber(compoMap) {
       reader.readAsText(file);
     });
 
-function loadCSVData(csvText) {
+    function loadCSVData(csvText) {
       const lines = csvText.split(/\r?\n/);
       compsContainer.innerHTML = '';
       const tiers = { S: [], A: [], B: [], C: [] };
@@ -777,7 +829,7 @@ function loadCSVData(csvText) {
       for (let i = 0; i < links.length; i++) {
         const start = getCenter(links[i].compo);
         const end = getCenter(links[i].player);
-        const dist = distanceToSegment({x: clickX, y: clickY}, start, end);
+        const dist = distanceToSegment({ x: clickX, y: clickY }, start, end);
         if (dist < 6) {
           links[i].manualDashed = !(links[i].manualDashed ?? links[i].dashed);
           drawLines();
@@ -793,7 +845,7 @@ function loadCSVData(csvText) {
       for (let i = 0; i < links.length; i++) {
         const start = getCenter(links[i].compo);
         const end = getCenter(links[i].player);
-        const dist = distanceToSegment({x: clickX, y: clickY}, start, end);
+        const dist = distanceToSegment({ x: clickX, y: clickY }, start, end);
         if (dist < 6) {
           links.splice(i, 1);
           drawLines();
@@ -812,4 +864,5 @@ function loadCSVData(csvText) {
     }
   </script>
 </body>
+
 </html>
