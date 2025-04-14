@@ -290,9 +290,9 @@
               e.preventDefault();
               input.blur();
               const allPlayers = Array.from(document.querySelectorAll('.item.player'));
-              const index = allPlayers.findIndex(p => p.contains(span));
-              const nextDiv = allPlayers[index + 1];
-              const nextSpan = nextDiv?.querySelector('span');
+              const currentIndex = allPlayers.findIndex(p => p.contains(span));
+              const next = allPlayers[currentIndex + 1];
+              const nextSpan = next?.querySelector('span');
               if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
             }
           });
@@ -512,6 +512,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function select(el, type) {
+      if (selected && selected.el === el && selected.type === type) {
+        el.classList.remove('selected');
+        selected = null;
+        return;
+      }
+
       if (selected && selected.type !== type) {
         const a = type === 'player' ? selected.el : el;
         const b = type === 'player' ? el : selected.el;
