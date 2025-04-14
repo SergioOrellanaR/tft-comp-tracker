@@ -130,12 +130,13 @@ canvas {
 
 .tier-header {
     font-weight: bold;
-    margin-top: 8px;
+    margin-top: 4px;
     background: #444;
-    padding: 6px;
-    border-radius: 5px;
+    padding: 3px 6px;
+    border-radius: 4px;
     text-align: center;
     color: #ffd700;
+    font-size: 0.7rem;
 }
 
 h3 {
@@ -242,4 +243,33 @@ td {
 th {
     background: rgba(0, 0, 0, 0.2);
     color: #00eaff;
+}
+
+
+.item.compo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 6px 10px;
+  margin: 4px 0;
+  color: #ddd;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.item.compo:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.02);
+  cursor: pointer;
+  color: #fff;
+}
+
+.item.compo span:last-child {
+  opacity: 0.7;
+  font-size: 0.8em;
 }
