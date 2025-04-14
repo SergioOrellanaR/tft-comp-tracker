@@ -399,10 +399,21 @@ document.addEventListener('DOMContentLoaded', () => {
       links.forEach(link => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
         if (typeof link.manualDashed === 'boolean') {
-          link.dashed = link.manualDashed;
+        const count = playerLinkCounts[playerId];
+        if (count > 1) {
+          link.dashed = true;
         } else {
-          link.dashed = playerLinkCounts[playerId] > 1;
+          link.dashed = link.manualDashed;
         }
+      } else {
+        const count = playerLinkCounts[playerId];
+        if (count > 1) {
+          link.dashed = true;
+          link.manualDashed = true;
+        } else {
+          link.dashed = false;
+        }
+      } 
 
         const start = getCenter(link.compo);
         const end = getCenter(link.player);
