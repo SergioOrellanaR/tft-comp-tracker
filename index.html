@@ -398,7 +398,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       links.forEach(link => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
-        link.dashed = playerLinkCounts[playerId] > 1;
+        if (typeof link.manualDashed === 'boolean') {
+          link.dashed = link.manualDashed;
+        } else {
+          link.dashed = playerLinkCounts[playerId] > 1;
+        }
 
         const start = getCenter(link.compo);
         const end = getCenter(link.player);
@@ -587,15 +591,14 @@ function loadCSVData(csvText) {
 
     canvas.addEventListener('contextmenu', e => {
       e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
+      const clickX = e.offsetX;
+      const clickY = e.offsetY;
       for (let i = 0; i < links.length; i++) {
         const start = getCenter(links[i].compo);
         const end = getCenter(links[i].player);
         const dist = distanceToSegment({x: clickX, y: clickY}, start, end);
         if (dist < 6) {
-          links[i].dashed = !links[i].dashed;
+          links[i].manualDashed = !(links[i].manualDashed ?? links[i].dashed);
           drawLines();
           return;
         }
