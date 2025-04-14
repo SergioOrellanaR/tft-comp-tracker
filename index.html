@@ -405,7 +405,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const color = link.player.dataset.color || 'red';
 
         ctx.beginPath();
-        if (link.dashed) ctx.setLineDash([6, 6]); else ctx.setLineDash([]);
+        if (link.dashed) {
+          ctx.setLineDash([6, 6]);
+          ctx.globalAlpha = 0.5;
+        } else {
+          ctx.setLineDash([]);
+          ctx.globalAlpha = 1;
+        }
         ctx.moveTo(start.x, start.y);
         ctx.lineTo(end.x, end.y);
         ctx.strokeStyle = color;
