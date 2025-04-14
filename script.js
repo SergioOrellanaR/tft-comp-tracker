@@ -615,11 +615,22 @@ canvas.addEventListener('click', e => {
     const rect = canvas.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
     const clickY = e.clientY - rect.top;
+
     for (let i = 0; i < links.length; i++) {
         const start = getCenter(links[i].compo);
         const end = getCenter(links[i].player);
-        const dist = distanceToSegment({ x: clickX, y: clickY }, start, end);
-        if (dist < 6) {
+
+        const cp1x = (start.x + end.x) / 2;
+        const cp1y = start.y;
+        const cp2x = (start.x + end.x) / 2;
+        const cp2y = end.y;
+
+        const path = new Path2D();
+        path.moveTo(start.x, start.y);
+        path.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, end.x, end.y);
+
+        ctx.lineWidth = 15;
+        if (ctx.isPointInStroke(path, clickX, clickY)) {
             links.splice(i, 1);
             drawLines();
             updateInfoTable();
