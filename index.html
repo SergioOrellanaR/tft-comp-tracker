@@ -286,6 +286,14 @@
           input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
               input.blur();
+            } else if (e.key === 'Tab') {
+              e.preventDefault();
+              input.blur();
+              const allPlayers = Array.from(document.querySelectorAll('.item.player'));
+              const currentIndex = allPlayers.findIndex(p => p.contains(span));
+              const next = allPlayers[currentIndex + 1];
+              const nextSpan = next?.querySelector('span');
+              if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
             }
           });
           span.style.display = 'none';
@@ -387,17 +395,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
         playerLinkCounts[playerId] = (playerLinkCounts[playerId] || 0) + 1;
       });
-
       links.forEach(link => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
-        link.dashed = playerLinkCounts[playerId] > 1;
-
+        const count = playerLinkCounts[playerId];
+        if (count > 1) {
+        link.dashed = true;
+        link.manualDashed = true;
+      } else {
+        if (typeof link.manualDashed === 'boolean') {
+          link.dashed = link.manualDashed;
+        } else {
+          link.dashed = false;
+        }
+      }
+        
         const start = getCenter(link.compo);
         const end = getCenter(link.player);
         const color = link.player.dataset.color || 'red';
 
         ctx.beginPath();
-        if (link.dashed) ctx.setLineDash([6, 6]); else ctx.setLineDash([]);
+        if (link.dashed) {
+          ctx.setLineDash([6, 6]);
+          ctx.globalAlpha = 0.5;
+        } else {
+          ctx.setLineDash([]);
+          ctx.globalAlpha = 1;
+        }
         ctx.moveTo(start.x, start.y);
         ctx.lineTo(end.x, end.y);
         ctx.strokeStyle = color;
@@ -504,6 +527,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function select(el, type) {
+      if (selected && selected.el === el && selected.type === type) {
+        el.classList.remove('selected');
+        selected = null;
+        return;
+      }
+
       if (selected && selected.type !== type) {
         const a = type === 'player' ? selected.el : el;
         const b = type === 'player' ? el : selected.el;
@@ -567,15 +596,14 @@ function loadCSVData(csvText) {
 
     canvas.addEventListener('contextmenu', e => {
       e.preventDefault();
-      const rect = canvas.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
+      const clickX = e.offsetX;
+      const clickY = e.offsetY;
       for (let i = 0; i < links.length; i++) {
         const start = getCenter(links[i].compo);
         const end = getCenter(links[i].player);
         const dist = distanceToSegment({x: clickX, y: clickY}, start, end);
         if (dist < 6) {
-          links[i].dashed = !links[i].dashed;
+          links[i].manualDashed = !(links[i].manualDashed ?? links[i].dashed);
           drawLines();
           return;
         }
