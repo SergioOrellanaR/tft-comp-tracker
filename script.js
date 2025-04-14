@@ -79,10 +79,11 @@ function createTeamContainer(player1, player2, icon, index) {
     container.style.borderRadius = '12px';
     container.style.padding = '8px';
     container.style.marginBottom = '16px';
-
+    container.style.background = 'rgba(255, 255, 255, 0.05)';
+    container.style.backdropFilter = 'blur(6px)';
+    container.style.border = `1px solid ${icon.color}`;
     const iconCircle = createTeamIcon(icon, player1, player2, container);
     container.append(player1, iconCircle, player2);
-
     return container;
 }
 
@@ -132,10 +133,17 @@ function updateIconColor(circle, icon, player1, player2, container) {
     updateInfoTable();
 }
 
-// 5. Crear div de jugador
 function createPlayerDiv(name, index, isDoubleUp) {
     const div = document.createElement('div');
     div.className = 'item player';
+    div.style.background = 'rgba(255, 255, 255, 0.04)';
+    div.style.backdropFilter = 'blur(6px)';
+    div.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+    div.style.borderRadius = '10px';
+    div.style.padding = '6px 10px';
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.marginBottom = '8px';
 
     const span = createEditableSpan(name);
     const editIcon = createEditIcon(span);
@@ -144,6 +152,7 @@ function createPlayerDiv(name, index, isDoubleUp) {
     div.dataset.color = color;
     div.style.borderLeft = `10px solid ${color}`;
 
+    span.style.flex = '1';
     div.append(span, editIcon);
     div.onclick = () => select(div, 'player');
 
