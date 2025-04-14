@@ -1,9 +1,0 @@
-{
-  "name": "tft-comp-tracker",
-  "version": "1.0.0",
-  "description": "A static web app to track TFT compositions and players",
-  "scripts": {
-    "start": "echo 'No build step required'"
-  },
-  "license": "MIT"
-}
