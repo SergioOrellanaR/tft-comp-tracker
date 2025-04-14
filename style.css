@@ -19,23 +19,23 @@ body {
 }
 
 #toggleDoubleUp {
-  margin-bottom: 10px;
-  padding: 4px 10px;
-  background: #00eaff;
-  border: none;
-  border-radius: 6px;
-  color: #1c1c2b;
-  font-weight: bold;
-  font-size: 0.75rem;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background 0.3s ease;
+    margin-bottom: 10px;
+    padding: 4px 10px;
+    background: #00eaff;
+    border: none;
+    border-radius: 6px;
+    color: #1c1c2b;
+    font-weight: bold;
+    font-size: 0.75rem;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 #toggleDoubleUp:hover {
-  background: #00c4d6;
+    background: #00c4d6;
 }
 
 #left,
@@ -63,23 +63,26 @@ canvas {
 }
 
 .custom-file-upload {
-  display: inline-flex;
-  margin-top: 5px;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05); /* más sutil */
-  border-radius: 8px;
-  cursor: pointer;
-  color: #00e0e0; /* menos brillante */
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* más suave */
-  transition: background 0.2s ease;
-  font-size: 0.9rem;
+    display: inline-flex;
+    margin-top: 5px;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    /* más sutil */
+    border-radius: 8px;
+    cursor: pointer;
+    color: #00e0e0;
+    /* menos brillante */
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* más suave */
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
 }
 
 .custom-file-upload:hover {
-  background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .item {
