@@ -578,67 +578,130 @@ function getPlayerId(playerElement) {
       };
     }
 
-    function updateInfoTable() {
-      const container = document.getElementById('infoTableContainer');
-      container.innerHTML = '';
-      const compoMap = new Map();
-      links.forEach(link => {
-        const compo = link.compo;
-        const estilo = compo.querySelectorAll('span')[1]?.innerText || '';
-        const name = compo.querySelector('span')?.innerText || '';
-        const player = link.player.querySelector('span')?.innerText || link.player.innerText;
-        if (!compoMap.has(estilo)) compoMap.set(estilo, new Map());
-        const entry = compoMap.get(estilo);
-        if (!entry.has(name)) entry.set(name, []);
-        entry.get(name).push(player);
-      });
-      if (compoMap.size === 0) return;
-      const table = document.createElement('table');
-      table.style.width = '100%';
-      table.style.marginTop = '1rem';
-      table.style.borderCollapse = 'collapse';
-      const thead = document.createElement('thead');
-      thead.innerHTML = `<tr style="background:#333;color:#ffd700">
-        <th style="padding:6px;border:1px solid #555">Style</th>
-        <th style="padding:6px;border:1px solid #555">Comp</th>
-        <th style="padding:6px;border:1px solid #555">Players</th>
-      </tr>`;
-      const tbody = document.createElement('tbody');
+function updateInfoTable() {
+  const container = document.getElementById('infoTableContainer');
+  container.innerHTML = '';
 
-      const sortedStyles = Array.from(compoMap.entries()).sort(([a], [b]) => {
-        const aNum = parseInt(a.substr(a.length - 1)) || 0;
-        const bNum = parseInt(b.substr(b.length - 1)) || 0;
-        return aNum - bNum;
-      });
+  const compoMap = buildCompoMap();
+  if (compoMap.size === 0) return;
 
-      sortedStyles.forEach(([estilo, compMap]) => {
-        const comps = Array.from(compMap.entries());
-        if (comps.length > 1) {
-          comps.forEach(([comp, players], index) => {
-            const row = document.createElement('tr');
-            if (index === 0) {
-              row.innerHTML = `<td style="padding:6px;border:1px solid #555" rowspan="${comps.length}">${estilo}</td>`;
-            }
-            row.innerHTML += `<td style="padding:6px;border:1px solid #555">${comp}</td>
-                              <td style="padding:6px;border:1px solid #555">${players.join(', ')}</td>`;
-            tbody.appendChild(row);
-          });
-        } else {
-          const [comp, players] = comps[0];
-          const row = document.createElement('tr');
-          row.innerHTML = `<td style="padding:6px;border:1px solid #555">${estilo}</td>
-                           <td style="padding:6px;border:1px solid #555">${comp}</td>
-                           <td style="padding:6px;border:1px solid #555"><table style='width: 100%; border-collapse: collapse;'>${players.map(p => `<tr><td>${p}</td></tr>`).join('')}</table></td>`;
-          tbody.appendChild(row);
-          
-          tbody.appendChild(row);
-        }
-      });
+  const table = createInfoTable(compoMap);
+  container.appendChild(table);
+}
 
-      table.appendChild(thead);
-      table.appendChild(tbody);
-      container.appendChild(table);
-    }
+// 1. Agrupar datos de links en Map(style -> Map(comp -> [players]))
+function buildCompoMap() {
+  const map = new Map();
+
+  links.forEach(link => {
+    const compo = link.compo;
+    const estilo = compo.querySelectorAll('span')[1]?.innerText || '';
+    const compName = compo.querySelector('span')?.innerText || '';
+    const playerName = link.player.querySelector('span')?.innerText || link.player.innerText;
+
+    if (!map.has(estilo)) map.set(estilo, new Map());
+    const compMap = map.get(estilo);
+    if (!compMap.has(compName)) compMap.set(compName, []);
+    compMap.get(compName).push(playerName);
+  });
+
+  return map;
+}
+
+// 2. Crear tabla HTML desde compoMap
+function createInfoTable(compoMap) {
+  const table = document.createElement('table');
+  Object.assign(table.style, {
+    width: '100%',
+    marginTop: '1rem',
+    borderCollapse: 'collapse'
+  });
+
+  table.appendChild(createInfoTableHeader());
+
+  const tbody = document.createElement('tbody');
+  const sortedStyles = sortCompoMapByStyleNumber(compoMap);
+
+  sortedStyles.forEach(([style, compsMap]) => {
+    const comps = Array.from(compsMap.entries());
+
+    comps.forEach(([comp, players], index) => {
+      const row = document.createElement('tr');
+
+      // Insert style cell with rowspan
+      if (index === 0) {
+        const tdStyle = createTableCell(style, comps.length);
+        row.appendChild(tdStyle);
+      }
+
+      const tdComp = createTableCell(comp);
+      const tdPlayers = createPlayerCell(players);
+
+      row.appendChild(tdComp);
+      row.appendChild(tdPlayers);
+      tbody.appendChild(row);
+    });
+  });
+
+  table.appendChild(tbody);
+  return table;
+}
+
+// 3. Crear encabezado de tabla
+function createInfoTableHeader() {
+  const thead = document.createElement('thead');
+  thead.innerHTML = `
+    <tr style="background:#333;color:#ffd700">
+      <th style="padding:6px;border:1px solid #555">Style</th>
+      <th style="padding:6px;border:1px solid #555">Comp</th>
+      <th style="padding:6px;border:1px solid #555">Players</th>
+    </tr>`;
+  return thead;
+}
+
+// 4. Crear celda de texto (con rowspan opcional)
+function createTableCell(text, rowspan) {
+  const td = document.createElement('td');
+  td.textContent = text;
+  td.style.padding = '6px';
+  td.style.border = '1px solid #555';
+  if (rowspan) td.rowSpan = rowspan;
+  return td;
+}
+
+// 5. Crear celda de jugadores (como lista o tabla interna)
+function createPlayerCell(players) {
+  const td = document.createElement('td');
+  td.style.padding = '6px';
+  td.style.border = '1px solid #555';
+
+  if (players.length === 1) {
+    td.textContent = players[0];
+  } else {
+    const innerTable = document.createElement('table');
+    innerTable.style.width = '100%';
+    innerTable.style.borderCollapse = 'collapse';
+    players.forEach(p => {
+      const row = document.createElement('tr');
+      const cell = document.createElement('td');
+      cell.textContent = p;
+      row.appendChild(cell);
+      innerTable.appendChild(row);
+    });
+    td.appendChild(innerTable);
+  }
+
+  return td;
+}
+
+// 6. Ordenar estilos alfabéticamente por número final
+function sortCompoMapByStyleNumber(compoMap) {
+  return Array.from(compoMap.entries()).sort(([a], [b]) => {
+    const aNum = parseInt(a.match(/\d+$/)?.[0]) || 0;
+    const bNum = parseInt(b.match(/\d+$/)?.[0]) || 0;
+    return aNum - bNum;
+  });
+}
 
     function select(el, type) {
       if (selected && selected.el === el && selected.type === type) {
