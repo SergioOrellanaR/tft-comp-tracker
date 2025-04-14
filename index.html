@@ -38,12 +38,27 @@
       justify-content: space-between;
       align-items: center;
       background-color: #333;
-      transition: background-color 0.2s ease, transform 0.2s ease;
+      transition: background-color 0.2s ease, background 0.3s ease, transform 0.2s ease;
       border-radius: 6px;
-      transition: background 0.3s ease;
       cursor: pointer;
       position: relative;
       min-height: 30px;
+    }
+    .item.player {
+      width: 100%;
+      flex: 1;
+    }
+    .player-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 4px;
+      margin-bottom: 16px;
+      padding: 8px;
+      border: 1px solid #444;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
     .item:hover { background-color: #444; }
     .selected {
@@ -99,7 +114,10 @@
         flex-wrap: wrap;
       }
     }
-  </style>
+    .dashed-line {
+    stroke-dasharray: 6;
+  }
+</style>
 </head>
 <body>
   <div id="left" style="display: flex; flex-direction: column;">
@@ -126,10 +144,7 @@
 </div>
       
     </div>
-    
-  </div>
-
-  <script>
+<script>
     const compsContainer = document.getElementById('compos');
     const playersContainer = document.getElementById('players');
     const canvas = document.getElementById('lineCanvas');
@@ -169,6 +184,15 @@
         : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
       playersContainer.innerHTML = '';
       defaultNames.forEach((name, index) => {
+        const teamIndex = Math.floor(index / 2);
+        const iconOptions = [
+          { name: 'Moon', color: '#c74cff', emoji: '🌙' },
+          { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
+          { name: 'Water', color: '#4cffe9', emoji: '💧' },
+          { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
+        ];
+        let currentIconIndex = teamIndex % iconOptions.length;
+        let currentIcon = iconOptions[currentIconIndex];
         const div = document.createElement('div');
         div.className = 'item player';
         const span = document.createElement('span');
@@ -180,12 +204,12 @@
           const original = span.textContent;
           input.maxLength = 20;
           input.style.width = '100%';
-input.style.border = '1px solid #444';
-input.style.backgroundColor = 'transparent';
-input.style.color = '#fff';
-input.style.fontSize = '0.75rem';
-input.style.borderRadius = '4px';
-input.style.padding = '2px 6px';
+          input.style.border = '1px solid #444';
+          input.style.backgroundColor = 'transparent';
+          input.style.color = '#fff';
+          input.style.fontSize = '0.75rem';
+          input.style.borderRadius = '4px';
+          input.style.padding = '2px 6px';
           input.onblur = () => {
             span.textContent = input.value.trim().substring(0, 20) || original;
             span.style.display = 'inline';
@@ -204,24 +228,80 @@ input.style.padding = '2px 6px';
         };
         div.appendChild(span);
         const colorIndex = isDoubleUp ? Math.floor(index / 2) % colors.length : index % colors.length;
-        div.dataset.color = colors[colorIndex];
+        div.dataset.color = isDoubleUp ? currentIcon.color : colors[colorIndex];
         div.style.borderLeft = `10px solid ${div.dataset.color}`;
+        if (isDoubleUp && index % 2 === 1) {
+          const container = document.createElement('div');
+          container.style.display = 'flex';
+          container.style.flexDirection = 'column';
+          container.style.alignItems = 'center';
+          container.style.border = `1px solid ${currentIcon.color}`;
+          container.style.borderRadius = '12px';
+          container.style.padding = '8px';
+          container.style.marginBottom = '16px';
+          const previous = playersContainer.lastElementChild;
+          playersContainer.removeChild(previous);
+          const iconCircle = document.createElement('div');
+          iconCircle.className = 'icon-circle';
+          iconCircle.textContent = currentIcon.emoji;
+            if (container) {
+              container.style.border = `1px solid ${currentIcon.color}`;
+            }
+          iconCircle.title = currentIcon.name;
+          iconCircle.style.width = '20px';
+          iconCircle.style.height = '20px';
+          iconCircle.style.borderRadius = '50%';
+          iconCircle.style.display = 'flex';
+          iconCircle.style.alignItems = 'center';
+          iconCircle.style.justifyContent = 'center';
+          iconCircle.style.fontSize = '0.75rem';
+          iconCircle.style.backgroundColor = '#1c1c2b';
+          iconCircle.style.border = `2px solid ${div.dataset.color}`;
+          iconCircle.style.cursor = 'pointer';
+          iconCircle.style.margin = '4px 0';
+          iconCircle.onclick = (e) => {
+            e.stopPropagation();
+            currentIconIndex = (currentIconIndex + 1) % iconOptions.length;
+            currentIcon = iconOptions[currentIconIndex];
+            div.dataset.color = currentIcon.color;
+            previous.dataset.color = currentIcon.color;
+            div.style.borderLeft = `10px solid ${div.dataset.color}`;
+            previous.style.borderLeft = `10px solid ${previous.dataset.color}`;
+            iconCircle.textContent = currentIcon.emoji;
+            iconCircle.title = currentIcon.name;
+            iconCircle.style.border = `2px solid ${currentIcon.color}`;
+            const container = iconCircle.parentElement;
+            if (container) {
+              container.style.border = `1px solid ${currentIcon.color}`;
+            }
+            drawLines();
+            updateInfoTable();
+          };
+          container.appendChild(previous);
+          container.appendChild(iconCircle);
+          container.appendChild(div);
+          
+          playersContainer.appendChild(container);
+        }
         div.onclick = () => select(div, 'player');
         const editIcon = document.createElement('span');
-editIcon.textContent = '✎';
-editIcon.style.marginLeft = '6px';
-editIcon.style.cursor = 'pointer';
-editIcon.onclick = (e) => {
-  e.stopPropagation();
-  span.ondblclick();
-};
-div.appendChild(editIcon);
-playersContainer.appendChild(div);
+        editIcon.textContent = '✎';
+        editIcon.style.marginLeft = '6px';
+        editIcon.style.cursor = 'pointer';
+        editIcon.onclick = (e) => {
+          e.stopPropagation();
+          span.ondblclick();
+        };
+        div.appendChild(editIcon);
+        if (!(isDoubleUp && index % 2 === 1)) {
+          playersContainer.appendChild(div);
+        }
+
+        
       });
     }
 
     tryLoadDefaultCSV();
-    preloadPlayers();
 
 document.addEventListener('DOMContentLoaded', () => {
   preloadPlayers();
@@ -236,12 +316,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (oldBar) oldBar.remove();
       });
 
+      const playerLinkCounts = {};
       links.forEach(link => {
+        const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
+        playerLinkCounts[playerId] = (playerLinkCounts[playerId] || 0) + 1;
+      });
+
+      links.forEach(link => {
+        const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
+        link.dashed = playerLinkCounts[playerId] > 1;
+
         const start = getCenter(link.compo);
         const end = getCenter(link.player);
         const color = link.player.dataset.color || 'red';
 
         ctx.beginPath();
+        if (link.dashed) ctx.setLineDash([6, 6]); else ctx.setLineDash([]);
         ctx.moveTo(start.x, start.y);
         ctx.lineTo(end.x, end.y);
         ctx.strokeStyle = color;
@@ -335,7 +425,9 @@ document.addEventListener('DOMContentLoaded', () => {
           const row = document.createElement('tr');
           row.innerHTML = `<td style="padding:6px;border:1px solid #555">${estilo}</td>
                            <td style="padding:6px;border:1px solid #555">${comp}</td>
-                           <td style="padding:6px;border:1px solid #555">${players.join(', ')}</td>`;
+                           <td style="padding:6px;border:1px solid #555"><table style='width: 100%; border-collapse: collapse;'>${players.map(p => `<tr><td>${p}</td></tr>`).join('')}</table></td>`;
+          tbody.appendChild(row);
+          
           tbody.appendChild(row);
         }
       });
@@ -406,6 +498,23 @@ function loadCSVData(csvText) {
         }
       });
     }
+
+    canvas.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      for (let i = 0; i < links.length; i++) {
+        const start = getCenter(links[i].compo);
+        const end = getCenter(links[i].player);
+        const dist = distanceToSegment({x: clickX, y: clickY}, start, end);
+        if (dist < 6) {
+          links[i].dashed = !links[i].dashed;
+          drawLines();
+          return;
+        }
+      }
+    });
 
     canvas.addEventListener('click', e => {
       const rect = canvas.getBoundingClientRect();
