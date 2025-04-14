@@ -395,26 +395,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
         playerLinkCounts[playerId] = (playerLinkCounts[playerId] || 0) + 1;
       });
-
       links.forEach(link => {
         const playerId = link.player.querySelector('span')?.innerText || link.player.innerText;
-        if (typeof link.manualDashed === 'boolean') {
         const count = playerLinkCounts[playerId];
         if (count > 1) {
-          link.dashed = true;
-        } else {
-          link.dashed = link.manualDashed;
-        }
+        link.dashed = true;
+        link.manualDashed = true;
       } else {
-        const count = playerLinkCounts[playerId];
-        if (count > 1) {
-          link.dashed = true;
-          link.manualDashed = true;
+        if (typeof link.manualDashed === 'boolean') {
+          link.dashed = link.manualDashed;
         } else {
           link.dashed = false;
         }
-      } 
-
+      }
+        
         const start = getCenter(link.compo);
         const end = getCenter(link.player);
         const color = link.player.dataset.color || 'red';
