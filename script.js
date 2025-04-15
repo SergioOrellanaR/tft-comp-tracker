@@ -553,10 +553,10 @@ function loadCSVData(csvText) {
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [] };
     const tierColors = {
-        S: '#ffaa00',
-        A: '#00e0ff',
-        B: '#c74cff',
-        C: '#b30000'
+        S: '#FFD700',
+        A: '#00BFFF',
+        B: '#7CFC00',
+        C: '#FFB347'
     };
 
     lines.forEach((line, index) => {
