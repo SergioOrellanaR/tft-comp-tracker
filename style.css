@@ -38,7 +38,14 @@ body {
     background: #00c4d6;
 }
 
-#left,
+#left {
+    width: 30%; /* Aumentar el ancho del contenedor izquierdo */
+    padding: 0.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
 #right {
     width: 20%;
     padding: 0.5rem;
@@ -178,6 +185,7 @@ button:hover {
 
 /* Responsive layout */
 @media (max-width: 768px) {
+
     html {
         font-size: 12px;
     }
@@ -205,8 +213,8 @@ button:hover {
 
     #left,
     #right {
-        min-width: 20px;
-        width: 100%;
+        min-width: 10px;
+        width: 30%;
 		max-width: 100%;
         flex-direction: row;
         overflow-x: auto;
@@ -222,7 +230,64 @@ button:hover {
     width: 100%;
     overflow-x: auto;
     display: block; /* importante para que pueda romper fila si es necesario */
-  }
+    }
+
+    /* Contenedor genérico para tablas */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.table-container div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
+    gap: 2px !important; /* Espacio entre los íconos */
+}
+
+.table-container div div {
+    display: flex;
+    align-items: center;
+}
+
+.table-container div div img {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 4px !important;;
+    object-fit: cover;
+    border: 0px solid transparent !important; /* Asegurar que el borde sea visible */
+    box-sizing: border-box !important;
+}
+
+/* Ajustar el tamaño del borde dinámico */
+.table-container div div img[style*="border-image"] {
+    border-width: 1px !important; /* Asegurar que el borde sea proporcional */
+}
+
+    .item.compo {
+        flex-direction: column; /* Cambiar a columna para móviles */
+        align-items: flex-end; /* Alinear al inicio */
+        width: 100%; /* Asegurar que ocupe todo el ancho */
+    }
+    
+    .unit-icons {
+        display: none !important; /* Ensure it takes precedence */
+    }
+
+    .items-container {
+        display: none !important; /* Ensure it takes precedence */
+    }
+
+
+    #coreItemsContainer{
+        display: none !important; /* Ensure it takes precedence */;
+    }
+
+    
+
+
+
+    
 }
 
 /* Table (bottom right) */
@@ -250,14 +315,14 @@ th {
 
 
 .item.compo {
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
+  display: flex;
+  align-items: center; /* Alinear verticalmente los elementos */
+  justify-content: space-between; /* Espaciado entre elementos */
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-  padding: 1px 10px; 
-  margin: 4px 0; 
+  padding: 1px 10px;
+  margin: 4px 0;
   color: #ddd;
   font-size: 0.7rem;
   backdrop-filter: blur(4px);
@@ -278,4 +343,197 @@ th {
 
 #right {
     margin-left: 0;
+}
+
+.unit-icons {
+    display: flex;
+    gap: 4px; /* Espacio entre los íconos */
+    margin-right: 8px;
+    display: n;
+}
+
+.unit-icons img {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para la tabla de campeones no seleccionados */
+#unselectedChampionsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+#unselectedChampionsTable div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+}
+
+#unselectedChampionsTable div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+#unselectedChampionsTable div div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+/* Títulos genéricos para tablas */
+.table-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #00eaff;
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.3em;
+}
+
+/* Contenedor genérico para tablas */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.table-container div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+}
+
+.table-container div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.table-container div div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 2px solid transparent; /* Asegurar que el borde sea visible */
+    box-sizing: border-box;
+}
+
+/* Ajustar el tamaño del borde dinámico */
+.table-container div div img[style*="border-image"] {
+    border-width: 4px; /* Asegurar que el borde sea proporcional */
+}
+
+/* Colores según el coste */
+.unit-cost-1 {
+    background: #808080; /* Gris */
+}
+
+.unit-cost-2 {
+    background: #4caf50; /* Verde */
+}
+
+.unit-cost-3 {
+    background: #2196f3; /* Azul */
+}
+
+.unit-cost-4 {
+    background: #9c27b0; /* Morado */
+}
+
+.unit-cost-5 {
+    background: #ffd700; /* Dorado */
+}
+
+.comp-info {
+    flex: 1; /* Permite que ocupe el espacio restante */
+    text-align: left; /* Alinear el texto a la izquierda */
+    margin-left: 8px; /* Espacio entre unit-icons y comp-info */
+    min-width: 40%; /* Limitar el ancho máximo al 40% del contenedor padre */
+    overflow: hidden; /* Ocultar contenido que exceda el tamaño */
+    text-overflow: ellipsis; /* Mostrar "..." si el texto es demasiado largo */
+    white-space: nowrap; /* Evitar que el texto se envuelva */
+}
+
+.comp-style {
+    text-align: center;
+    font-style: italic;
+    width: 40px; /* Ancho fijo para garantizar alineación */
+    white-space: nowrap; /* Evitar que el texto se envuelva */
+    overflow: hidden; /* Ocultar texto que exceda el ancho */
+    text-overflow: ellipsis; /* Mostrar "..." si el texto es demasiado largo */
+}
+
+/* Core Items Container */
+#coreItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+/* CSS for core-item-button */
+.core-item-button {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: grayscale(100%); /* Blanco y negro por defecto */
+}
+
+/* Colorear el ítem al pasar el mouse */
+.core-item-button:hover {
+    transform: scale(1.1);
+}
+
+/* Estado activo (seleccionado) */
+.core-item-button.active {
+    outline: 2px solid #808080; /* Verde */
+    outline-offset: 2px;
+    filter: none; /* A color si está activo */
+}
+
+/* Items Container */
+.items-container {
+    display: flex;
+    gap: 4px; /* Espacio entre los ítems */
+    justify-content: flex-start; /* Alinear los ítems al inicio (izquierda) */
+    align-items: center; /* Centrar los ítems verticalmente */
+    width: 250px; /* Tamaño fijo del contenedor */
+    overflow: hidden; /* Ocultar contenido que exceda el tamaño */
+}
+
+/* Contador de jugadores en unidades heavily contested */
+.contested-counter {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff4c4c; /* Color rojo para destacar */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Forma circular */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }

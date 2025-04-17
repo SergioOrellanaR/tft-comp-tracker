@@ -1,26 +1,103 @@
+// Configuración general
+const CONFIG = {
+    colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9'],
+    coreItems: [
+        "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
+        "Jeweled Gauntlet", "Infinity Edge", "Nashor's Tooth", "Morellonomicon",
+        "Runaan's Hurricane", "Hextech Gunblade", "Bloodthirster", "Edge of Night",
+        "Titan's Resolve", "Hand Of Justice"
+    ],
+    tierColors: {
+        S: '#FFD700',
+        A: '#00BFFF',
+        B: '#7CFC00',
+        C: '#FFB347'
+    },
+    routes: {
+        comps: 'Data/Comps.csv',
+        items: 'Data/Items.csv',
+        units: 'Data/Units.csv'
+    },
+    iconOptions: [
+        { name: 'Moon', color: '#c74cff', emoji: '🌙' },
+        { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
+        { name: 'Water', color: '#4cffe9', emoji: '💧' },
+        { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
+    ]
+};
+
+// Variables globales
+let selected = null;
+const links = [];
+let unitImageMap = {};
+let unitCostMap = {};
+let items = [];
+let units = [];
+
 const compsContainer = document.getElementById('compos');
 const playersContainer = document.getElementById('players');
 const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
 const csvInput = document.getElementById('csvInput');
-let selected = null;
-const links = [];
-const colors = ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffa14c', '#c74cff', '#4cffe9', '#ffee4c'];
+
+// Utilidades generales
+const fetchCSV = async (route) => {
+    const response = await fetch(route);
+    return response.text();
+};
+
+const parseCSV = (csvText) => {
+    return csvText.split(/\r?\n/).map(line => line.split(',').map(x => x.trim()));
+};
+
+const createElement = (tag, options = {}) => {
+    const element = document.createElement(tag);
+    Object.assign(element, options);
+    return element;
+};
+
+const clearElement = (element) => {
+    element.innerHTML = '';
+};
+
+// Cargar datos de Units.csv
+const loadUnitImages = async () => {
+    const data = await fetchCSV(CONFIG.routes.units);
+    const lines = parseCSV(data);
+
+    lines.forEach(([unit, cost, item1, item2, item3, url]) => {
+        if (unit && url) {
+            unitImageMap[unit] = url;
+            unitCostMap[unit] = parseInt(cost, 10);
+            units.push({ Unit: unit, Item1: item1, Item2: item2, Item3: item3 });
+        }
+    });
+};
+
+// Cargar datos de Items.csv
+const loadItems = async () => {
+    const data = await fetchCSV(CONFIG.routes.items);
+    items = parseCSV(data).slice(1).map(([Item, Url]) => ({ Item, Url }));
+};
 
 function resizeCanvas() {
     canvas.width = canvas.parentElement.clientWidth;
     canvas.height = canvas.parentElement.clientHeight;
     drawLines();
-    updateInfoTable();
 }
 
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 function tryLoadDefaultCSV() {
-    fetch("Data/Comps.csv")
-        .then(response => response.text())
-        .then(data => loadCSVData(data));
+    Promise.all([loadUnitImages(), loadItems()]).then(() => {
+        fetch(CONFIG.routes.comps)
+            .then(response => response.text())
+            .then(data => {
+                loadCSVData(data);
+                createCoreItemsButtons();
+            });
+    });
 }
 
 function toggleDoubleUpMode() {
@@ -33,7 +110,11 @@ function toggleDoubleUpMode() {
 function preloadPlayers() {
     const isDoubleUp = document.body.classList.contains('double-up');
     const defaultNames = getDefaultNames(isDoubleUp);
-    playersContainer.innerHTML = '';
+
+    // Verificar si ya hay jugadores cargados
+    if (playersContainer.children.length > 0) return;
+
+    playersContainer.innerHTML = ''; // Limpiar solo si está vacío
 
     defaultNames.forEach((name, index) => {
         const playerDiv = createPlayerDiv(name, index, isDoubleUp);
@@ -50,26 +131,17 @@ function preloadPlayers() {
     });
 }
 
-// 1. Nombres por defecto
 function getDefaultNames(isDoubleUp) {
     return isDoubleUp
         ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
         : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
 }
 
-// 2. Iconos para equipos
 function getTeamIcon(index) {
-    const iconOptions = [
-        { name: 'Moon', color: '#c74cff', emoji: '🌙' },
-        { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
-        { name: 'Water', color: '#4cffe9', emoji: '💧' },
-        { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
-    ];
     const teamIndex = Math.floor(index / 2);
-    return iconOptions[teamIndex % iconOptions.length];
+    return CONFIG.iconOptions[teamIndex % CONFIG.iconOptions.length];
 }
 
-// 3. Crear contenedor para doble
 function createTeamContainer(player1, player2, icon, index) {
     const container = document.createElement('div');
     container.style.display = 'flex';
@@ -87,10 +159,8 @@ function createTeamContainer(player1, player2, icon, index) {
     return container;
 }
 
-// 4. Crear ícono central editable
 function createTeamIcon(icon, player1, player2, container) {
     let currentIndex = 0;
-    const iconOptions = getTeamIcon(0); // Same list as getTeamIcon
 
     const circle = document.createElement('div');
     Object.assign(circle.style, {
@@ -112,8 +182,8 @@ function createTeamIcon(icon, player1, player2, container) {
 
     circle.onclick = (e) => {
         e.stopPropagation();
-        currentIndex = (currentIndex + 1) % 4;
-        const newIcon = getTeamIcon(currentIndex * 2);
+        currentIndex = (currentIndex + 1) % CONFIG.iconOptions.length;
+        const newIcon = CONFIG.iconOptions[currentIndex];
         updateIconColor(circle, newIcon, player1, player2, container);
     };
 
@@ -130,7 +200,6 @@ function updateIconColor(circle, icon, player1, player2, container) {
     circle.style.border = `2px solid ${icon.color}`;
     container.style.border = `1px solid ${icon.color}`;
     drawLines();
-    updateInfoTable();
 }
 
 function createPlayerDiv(name, index, isDoubleUp) {
@@ -159,14 +228,12 @@ function createPlayerDiv(name, index, isDoubleUp) {
     return div;
 }
 
-// 6. Color asignado a jugador
 function getPlayerColor(index, isDoubleUp) {
     return isDoubleUp
         ? getTeamIcon(index).color
-        : colors[index % colors.length];
+        : CONFIG.colors[index % CONFIG.colors.length];
 }
 
-// 7. Crear span editable
 function createEditableSpan(name) {
     const span = document.createElement('span');
     span.textContent = name;
@@ -195,7 +262,6 @@ function createEditableSpan(name) {
             span.style.display = 'inline';
             input.remove();
             drawLines();
-            updateInfoTable();
         };
 
         input.addEventListener('keydown', (e) => {
@@ -220,7 +286,6 @@ function createEditableSpan(name) {
     return span;
 }
 
-// 8. Crear ícono de edición
 function createEditIcon(span) {
     const icon = document.createElement('span');
     icon.textContent = '✎';
@@ -240,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('left').addEventListener('scroll', drawLines);
 document.getElementById('right').addEventListener('scroll', drawLines);
-window.addEventListener('scroll', drawLines); // para scroll general en mobile
+window.addEventListener('scroll', drawLines);
 
 var previousMultilines = {};
 function drawLines() {
@@ -249,9 +314,183 @@ function drawLines() {
     updateLineStyles(playerLinkCounts);
     renderAllLines();
     updateCompoColorBars();
+    applyChampionFilters();
+    updateUnselectedChampionsTable();
 }
 
-// 1. Limpiar canvas y compos
+function updateUnselectedChampionsTable() {
+    const allPlayers = document.querySelectorAll('.item.player');
+    const allLinkedPlayers = new Set(links.map(link => link.player));
+    const allLinkedComps = new Set(links.map(link => link.compo));
+    const container = document.getElementById('infoTableContainer');
+
+    container.querySelectorAll('.table-container').forEach(table => table.remove());
+    container.querySelectorAll('.table-title').forEach(title => title.remove());
+
+    const maxPlayers = allPlayers.length;
+    if (links.length >= maxPlayers - 2 && links.length > 0) {
+        const selectedChampions = new Set();
+        allLinkedComps.forEach(compo => {
+            const unitIcons = compo.querySelectorAll('.unit-icons img');
+            unitIcons.forEach(img => selectedChampions.add(img.alt));
+        });
+
+        const allChampionsInComps = new Set();
+        document.querySelectorAll('.item.compo .unit-icons img').forEach(img => {
+            allChampionsInComps.add(img.alt);
+        });
+
+        const unselectedChampions = Array.from(allChampionsInComps)
+            .filter(champ => !selectedChampions.has(champ) && unitCostMap[champ] > 1);
+
+        const championsByCost = {};
+        unselectedChampions.forEach(champ => {
+            const cost = unitCostMap[champ] || 0;
+            if (!championsByCost[cost]) {
+                championsByCost[cost] = [];
+            }
+            championsByCost[cost].push(champ);
+        });
+
+        const unselectedTable = document.createElement('div');
+        unselectedTable.classList.add('table-container');
+
+        const title = document.createElement('h3');
+        title.classList.add('table-title');
+        title.textContent = 'Uncontested';
+        container.appendChild(title);
+
+        Object.keys(championsByCost).sort((a, b) => a - b).forEach(cost => {
+            const row = document.createElement('div');
+            championsByCost[cost].forEach(champ => {
+                const cell = document.createElement('div');
+                cell.classList.add(`unit-cost-${cost}`);
+
+                const img = document.createElement('img');
+                img.src = `${unitImageMap[champ]}?w=40`;
+                img.alt = champ;
+                img.title = champ;
+
+                cell.appendChild(img);
+                row.appendChild(cell);
+            });
+            unselectedTable.appendChild(row);
+        });
+
+        container.appendChild(unselectedTable);
+    }
+
+    const contestedChampions = {};
+    const championPlayers = {};
+
+    links.forEach(link => {
+        const compo = link.compo;
+        const player = link.player;
+        const playerName = getPlayerId(player);
+        const playerColor = player.dataset.color;
+        const unitIcons = compo.querySelectorAll('.unit-icons img');
+
+        unitIcons.forEach(img => {
+            const champName = img.alt;
+            contestedChampions[champName] = (contestedChampions[champName] || 0) + 1;
+
+            if (!championPlayers[champName]) {
+                championPlayers[champName] = [];
+            }
+            championPlayers[champName].push({ name: playerName, color: playerColor });
+        });
+    });
+
+    const heavilyContested = Object.keys(contestedChampions)
+        .filter(champ => contestedChampions[champ] >= 2);
+
+    if (heavilyContested.length > 0) {
+        const heavilyContestedByCost = {};
+        heavilyContested.forEach(champ => {
+            const cost = unitCostMap[champ] || 0;
+            if (!heavilyContestedByCost[cost]) {
+                heavilyContestedByCost[cost] = [];
+            }
+            heavilyContestedByCost[cost].push(champ);
+        });
+
+        const heavilyContestedTable = document.createElement('div');
+        heavilyContestedTable.classList.add('table-container');
+
+        const heavilyContestedTitle = document.createElement('h3');
+        heavilyContestedTitle.classList.add('table-title');
+        heavilyContestedTitle.textContent = 'Heavily contested';
+        container.appendChild(heavilyContestedTitle);
+
+        Object.keys(heavilyContestedByCost).sort((a, b) => a - b).forEach(cost => {
+            const row = document.createElement('div');
+            heavilyContestedByCost[cost].forEach(champ => {
+                const cell = document.createElement('div');
+                cell.classList.add(`unit-cost-${cost}`);
+                cell.style.position = 'relative'; // Necesario para posicionar el contador
+
+                const img = document.createElement('img');
+                img.src = `${unitImageMap[champ]}?w=40`;
+                img.alt = champ;
+
+                const players = championPlayers[champ];
+                if (players.length > 0) {
+                    const gradientColors = players.map((player, index) => {
+                        const percentage = (index / players.length) * 100;
+                        return `${player.color} ${percentage}%, ${player.color} ${(index + 1) / players.length * 100}%`;
+                    }).join(', ');
+
+                    img.style.border = '4px solid transparent';
+                    img.style.borderImage = `linear-gradient(to right, ${gradientColors}) 1`;
+
+                    const playerNames = players.map(player => player.name).join(', ');
+                    img.title = `${playerNames}`;
+
+                    // Crear el contador
+                    const counter = document.createElement('span');
+                    counter.className = 'contested-counter';
+                    counter.textContent = players.length;
+                    cell.appendChild(counter);
+                }
+
+                cell.appendChild(img);
+                row.appendChild(cell);
+            });
+            heavilyContestedTable.appendChild(row);
+        });
+
+        container.appendChild(heavilyContestedTable);
+    }
+}
+
+function applyChampionFilters() {
+    const championUsage = {};
+
+    links.forEach(link => {
+        const compo = link.compo;
+        const unitIcons = compo.querySelectorAll('.unit-icons img');
+        unitIcons.forEach(img => {
+            const champName = img.alt;
+            if (!championUsage[champName]) {
+                championUsage[champName] = 0;
+            }
+            championUsage[champName]++;
+        });
+    });
+
+    document.querySelectorAll('.item.compo').forEach(compo => {
+        const unitIcons = compo.querySelectorAll('.unit-icons img');
+        unitIcons.forEach(img => {
+            const champName = img.alt;
+            if (championUsage[champName] > 0) {
+                img.style.filter = 'grayscale(100%)';
+            } else {
+                img.style.filter = 'none';
+            }
+        });
+    });
+}
+
 function clearCanvasAndResetCompos() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     document.querySelectorAll('.compo').forEach(c => {
@@ -261,7 +500,6 @@ function clearCanvasAndResetCompos() {
     });
 }
 
-// 2. Contar links por jugador
 function countLinksPerPlayer() {
     const counts = {};
     links.forEach(link => {
@@ -271,7 +509,6 @@ function countLinksPerPlayer() {
     return counts;
 }
 
-// 3. Determinar líneas múltiples y setear estilo
 function updateLineStyles(playerLinkCounts) {
     links.forEach(link => {
         const playerId = getPlayerId(link.player);
@@ -298,7 +535,6 @@ function updateLineStyles(playerLinkCounts) {
     });
 }
 
-// 4. Dibujar líneas entre compos y jugadores
 function renderAllLines() {
     links.forEach(link => {
         const start = getCenter(link.compo);
@@ -309,19 +545,16 @@ function renderAllLines() {
         setLineStyle(link.dashed, color);
         ctx.moveTo(start.x, start.y);
 
-// Punto de control para la curva
-const cp1x = (start.x + end.x) / 2;
-const cp1y = start.y;
-const cp2x = (start.x + end.x) / 2;
-const cp2y = end.y;
+        const cp1x = (start.x + end.x) / 2;
+        const cp1y = start.y;
+        const cp2x = (start.x + end.x) / 2;
+        const cp2y = end.y;
 
-// Dibuja una curva Bezier con 2 puntos de control (curva suave)
-ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, end.x, end.y);
+        ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, end.x, end.y);
         ctx.stroke();
     });
 }
 
-// 5. Configurar estilo de línea (dashed o normal)
 function setLineStyle(dashed, color) {
     if (dashed) {
         ctx.setLineDash([6, 6]);
@@ -335,7 +568,6 @@ function setLineStyle(dashed, color) {
     ctx.lineWidth = 3;
 }
 
-// 6. Pintar barras de colores en compos
 function updateCompoColorBars() {
     const compoColorMap = {};
 
@@ -369,7 +601,6 @@ function updateCompoColorBars() {
     });
 }
 
-// 7. Obtener identificador único del jugador
 function getPlayerId(playerElement) {
     return playerElement.querySelector('span')?.innerText || playerElement.innerText;
 }
@@ -382,131 +613,6 @@ function getCenter(el) {
         x: isPlayer ? rect.left - container.left : rect.right - container.left,
         y: rect.top + rect.height / 2 - container.top
     };
-}
-
-function updateInfoTable() {
-    const container = document.getElementById('infoTableContainer');
-    container.innerHTML = '';
-
-    const compoMap = buildCompoMap();
-    if (compoMap.size === 0) return;
-
-    const table = createInfoTable(compoMap);
-    container.appendChild(table);
-}
-
-// 1. Agrupar datos de links en Map(style -> Map(comp -> [players]))
-function buildCompoMap() {
-    const map = new Map();
-
-    links.forEach(link => {
-        const compo = link.compo;
-        const estilo = compo.querySelectorAll('span')[1]?.innerText || '';
-        const compName = compo.querySelector('span')?.innerText || '';
-        const playerName = link.player.querySelector('span')?.innerText || link.player.innerText;
-
-        if (!map.has(estilo)) map.set(estilo, new Map());
-        const compMap = map.get(estilo);
-        if (!compMap.has(compName)) compMap.set(compName, []);
-        compMap.get(compName).push(playerName);
-    });
-
-    return map;
-}
-
-// 2. Crear tabla HTML desde compoMap
-function createInfoTable(compoMap) {
-    const table = document.createElement('table');
-    Object.assign(table.style, {
-        width: '100%',
-        marginTop: '1rem',
-        borderCollapse: 'collapse'
-    });
-
-    table.appendChild(createInfoTableHeader());
-
-    const tbody = document.createElement('tbody');
-    const sortedStyles = sortCompoMapByStyleNumber(compoMap);
-
-    sortedStyles.forEach(([style, compsMap]) => {
-        const comps = Array.from(compsMap.entries());
-
-        comps.forEach(([comp, players], index) => {
-            const row = document.createElement('tr');
-
-            // Insert style cell with rowspan
-            if (index === 0) {
-                const tdStyle = createTableCell(style, comps.length);
-                row.appendChild(tdStyle);
-            }
-
-            const tdComp = createTableCell(comp);
-            const tdPlayers = createPlayerCell(players);
-
-            row.appendChild(tdComp);
-            row.appendChild(tdPlayers);
-            tbody.appendChild(row);
-        });
-    });
-
-    table.appendChild(tbody);
-    return table;
-}
-
-// 3. Crear encabezado de tabla
-function createInfoTableHeader() {
-    const thead = document.createElement('thead');
-    thead.innerHTML = `
-    <tr style="background:#333;color:#ffd700">
-      <th style="padding:6px;border:1px solid #555">Style</th>
-      <th style="padding:6px;border:1px solid #555">Comp</th>
-      <th style="padding:6px;border:1px solid #555">Players</th>
-    </tr>`;
-    return thead;
-}
-
-// 4. Crear celda de texto (con rowspan opcional)
-function createTableCell(text, rowspan) {
-    const td = document.createElement('td');
-    td.textContent = text;
-    td.style.padding = '6px';
-    td.style.border = '1px solid #555';
-    if (rowspan) td.rowSpan = rowspan;
-    return td;
-}
-
-// 5. Crear celda de jugadores (como lista o tabla interna)
-function createPlayerCell(players) {
-    const td = document.createElement('td');
-    td.style.padding = '6px';
-    td.style.border = '1px solid #555';
-
-    if (players.length === 1) {
-        td.textContent = players[0];
-    } else {
-        const innerTable = document.createElement('table');
-        innerTable.style.width = '100%';
-        innerTable.style.borderCollapse = 'collapse';
-        players.forEach(p => {
-            const row = document.createElement('tr');
-            const cell = document.createElement('td');
-            cell.textContent = p;
-            row.appendChild(cell);
-            innerTable.appendChild(row);
-        });
-        td.appendChild(innerTable);
-    }
-
-    return td;
-}
-
-// 6. Ordenar estilos alfabéticamente por número final
-function sortCompoMapByStyleNumber(compoMap) {
-    return Array.from(compoMap.entries()).sort(([a], [b]) => {
-        const aNum = parseInt(a.match(/\d+$/)?.[0]) || 0;
-        const bNum = parseInt(b.match(/\d+$/)?.[0]) || 0;
-        return aNum - bNum;
-    });
 }
 
 function select(el, type) {
@@ -525,7 +631,12 @@ function select(el, type) {
         selected.el.classList.remove('selected');
         selected = null;
         drawLines();
-        updateInfoTable();
+
+        const allPlayers = document.querySelectorAll('.item.player');
+        const allLinkedPlayers = new Set(links.map(link => link.player));
+        if (allPlayers.length === allLinkedPlayers.size) {
+            updateUnselectedChampionsTable();
+        }
     } else {
         if (selected) selected.el.classList.remove('selected');
         selected = { el, type };
@@ -533,53 +644,96 @@ function select(el, type) {
     }
 }
 
-function resetPlayers() {
-    playersContainer.innerHTML = '';
+// Restablecer jugadores y enlaces
+const resetPlayers = () => {
+    clearElement(playersContainer);
     links.length = 0;
+
+    // Restablecer botones de ítems
+    document.querySelectorAll('.core-item-button').forEach(button => {
+        button.classList.remove('active');
+        button.style.filter = 'grayscale(100%)';
+    });
+
+    // Actualizar todos los contenedores de ítems
+    document.querySelectorAll('.items-container').forEach(container => {
+        const unitsInComp = Array.from(container.closest('.item.compo').querySelectorAll('.unit-icons img'))
+            .map(img => img.alt);
+        updateItemsContainer(container, unitsInComp);
+    });
+
     drawLines();
-    updateInfoTable();
     preloadPlayers();
-}
-csvInput.addEventListener('change', e => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = e => loadCSVData(e.target.result);
-    reader.readAsText(file);
-});
+};
 
 function loadCSVData(csvText) {
     const lines = csvText.split(/\r?\n/);
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [] };
-    const tierColors = {
-        S: '#FFD700',
-        A: '#00BFFF',
-        B: '#7CFC00',
-        C: '#FFB347'
-    };
 
     lines.forEach((line, index) => {
-        if (index === 0 || !line.trim()) return;
-        const [comp, tier, estilo] = line.split(',').map(x => x.trim());
+        if (index === 0 || !line.trim()) return; // Saltar la cabecera o líneas vacías
+        const [comp, tier, estilo, unit1, unit2, unit3] = line.split(',').map(x => x.trim());
         if (tiers[tier]) {
             const div = document.createElement('div');
             div.className = 'item compo';
             div.dataset.id = 'compo-' + index;
-            div.innerHTML = `<span>${comp}</span><span style="opacity: 0.7; font-size: 0.9em;">${estilo}</span>`;
+
+            const unitIcons = document.createElement('div');
+            unitIcons.className = 'unit-icons';
+            const unitsInComp = [unit1, unit2, unit3];
+            unitsInComp.forEach(unit => {
+                if (unit && unitImageMap[unit]) {
+                    const img = document.createElement('img');
+                    img.src = `${unitImageMap[unit]}?w=30`;
+                    img.alt = unit;
+                    unitIcons.appendChild(img);
+                }
+            });
+
+            const compInfo = document.createElement('div');
+            compInfo.className = 'comp-info';
+            const compName = document.createElement('span');
+            compName.textContent = comp;
+            compName.style.fontSize = '0.9rem';
+            compName.style.opacity = '0.75';
+            compName.style.color = 'white';
+
+            compInfo.appendChild(compName);
+
+            const itemsContainer = document.createElement('div');
+            itemsContainer.className = 'items-container';
+            const styleContainer = document.createElement('div');
+            styleContainer.className = 'comp-style';
+            const compStyle = document.createElement('span');
+            compStyle.textContent = estilo;
+            compStyle.style.opacity = '0.5';
+            compStyle.style.fontSize = '0.9em';
+            styleContainer.appendChild(compStyle);
+
+            div.appendChild(unitIcons);
+            div.appendChild(compInfo);
+            div.appendChild(itemsContainer);
+            div.appendChild(styleContainer);
             div.onclick = () => select(div, 'compo');
-            tiers[tier].push(div);
+            tiers[tier].push({ name: comp, element: div }); // Guardar el nombre y el elemento
         }
     });
 
+    // Ordenar y renderizar las composiciones
     ['S', 'A', 'B', 'C'].forEach(t => {
         if (tiers[t].length > 0) {
+            // Ordenar por nombre alfabéticamente
+            tiers[t].sort((a, b) => a.name.localeCompare(b.name));
+
             const header = document.createElement('div');
             header.className = 'tier-header';
             header.textContent = `Tier ${t}`;
-            header.style.color = tierColors[t]; // Aquí se aplica el color
+            header.style.color = CONFIG.tierColors[t];
             compsContainer.appendChild(header);
-            tiers[t].forEach(div => compsContainer.appendChild(div));
+
+            // Agregar los elementos ordenados
+            tiers[t].forEach(({ element }) => compsContainer.appendChild(element));
         }
     });
 }
@@ -602,7 +756,7 @@ canvas.addEventListener('contextmenu', e => {
         path.moveTo(start.x, start.y);
         path.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, end.x, end.y);
 
-        ctx.lineWidth = 15; // importante: el grosor que querés considerar como "clickeable"
+        ctx.lineWidth = 15;
         if (ctx.isPointInStroke(path, clickX, clickY)) {
             links[i].manualDashed = !(links[i].manualDashed ?? links[i].dashed);
             drawLines();
@@ -633,7 +787,6 @@ canvas.addEventListener('click', e => {
         if (ctx.isPointInStroke(path, clickX, clickY)) {
             links.splice(i, 1);
             drawLines();
-            updateInfoTable();
             return;
         }
     }
@@ -645,4 +798,110 @@ function distanceToSegment(p, v, w) {
     let t = ((p.x - v.x) * (w.x - v.x) + (p.y - v.y) * (w.y - v.y)) / l2;
     t = Math.max(0, Math.min(1, t));
     return Math.hypot(p.x - (v.x + t * (w.x - v.x)), p.y - (v.y + t * (w.y - v.y)));
+}
+
+function createCoreItemsButtons() {
+    const container = document.createElement('div');
+    container.id = 'coreItemsContainer';
+    container.style.display = 'flex';
+    container.style.flexDirection = 'column';
+    container.style.gap = '8px';
+    container.style.marginTop = '16px';
+
+    const maxRows = 2;
+    const itemsPerRow = Math.ceil(CONFIG.coreItems.length / maxRows);
+    let currentRow;
+
+    CONFIG.coreItems.forEach((item, index) => {
+        const itemData = items.find(i => i.Item === item);
+        if (itemData) {
+            if (index % itemsPerRow === 0) {
+                currentRow = document.createElement('div');
+                currentRow.style.display = 'flex';
+                currentRow.style.gap = '8px';
+                currentRow.style.justifyContent = 'center';
+                container.appendChild(currentRow);
+            }
+
+            const button = document.createElement('button');
+            button.className = 'core-item-button';
+            button.style.backgroundImage = `url(${itemData.Url})`;
+            button.style.backgroundSize = 'contain';
+            button.style.backgroundRepeat = 'no-repeat';
+            button.style.backgroundPosition = 'center';
+            button.style.width = '40px';
+            button.style.height = '40px';
+            button.style.border = 'none';
+            button.style.borderRadius = '4px';
+            button.style.cursor = 'pointer';
+            button.style.filter = 'grayscale(100%)';
+            button.title = itemData.Item;
+
+            button.onclick = () => {
+                const isActive = button.classList.toggle('active');
+                button.style.filter = isActive ? 'none' : 'grayscale(100%)';
+
+                document.querySelectorAll('.items-container').forEach(container => {
+                    const unitsInComp = Array.from(container.closest('.item.compo').querySelectorAll('.unit-icons img'))
+                        .map(img => img.alt);
+                    updateItemsContainer(container, unitsInComp);
+                });
+            };
+
+            currentRow.appendChild(button);
+        }
+    });
+
+    compsContainer.appendChild(container);
+}
+
+const updateItemsContainer = (itemsContainer, unitsInComp) => {
+    itemsContainer.innerHTML = '';
+
+    const activeItems = Array.from(document.querySelectorAll('.core-item-button.active'))
+        .map(button => button.title);
+
+    const itemToChampionsMap = {}; // Mapa para asociar ítems con los campeones que los usan
+
+    // Recorremos los campeones en la composición
+    unitsInComp.forEach(unit => {
+        const unitData = units.find(u => u.Unit === unit);
+        if (unitData) {
+            [unitData.Item1, unitData.Item2, unitData.Item3].forEach(item => {
+                if (item && activeItems.includes(item)) {
+                    if (!itemToChampionsMap[item]) {
+                        itemToChampionsMap[item] = [];
+                    }
+                    itemToChampionsMap[item].push(unit); // Asociar el ítem con el campeón
+                }
+            });
+        }
+    });
+
+    const displayedItems = new Set(); // Para evitar ítems duplicados
+
+    // Crear las imágenes de los ítems
+    Object.entries(itemToChampionsMap).forEach(([item, champions]) => {
+        if (!displayedItems.has(item)) {
+            const itemData = items.find(i => i.Item === item);
+            if (itemData) {
+                const img = document.createElement('img');
+                img.src = itemData.Url;
+                img.alt = item;
+                img.title = `${item} (Used by: ${champions.join(', ')})`; // Mostrar todos los campeones que usan el ítem
+                img.style.width = '20px';
+                img.style.height = '20px';
+                img.style.borderRadius = '4px';
+                img.style.objectFit = 'cover';
+                itemsContainer.appendChild(img);
+                displayedItems.add(item); // Marcar el ítem como mostrado
+            }
+        }
+    });
+};
+
+if (typeof itemsContainer !== 'undefined' && itemsContainer) {
+    const updateItemsContainerFn = () => updateItemsContainer(itemsContainer, unitsInComp);
+    itemsContainer.dataset.updateFn = updateItemsContainerFn.name;
+    updateItemsContainerFn();
 }
