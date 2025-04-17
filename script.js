@@ -18,7 +18,7 @@ window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 function tryLoadDefaultCSV() {
-    fetch("Comps.csv")
+    fetch("Data/Comps.csv")
         .then(response => response.text())
         .then(data => loadCSVData(data));
 }
