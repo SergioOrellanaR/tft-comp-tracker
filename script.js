@@ -1,5 +1,26 @@
-import { API_KEY } from './keys.js';
 import { CONFIG } from './config.js';
+import webpack from 'webpack';
+
+new webpack.DefinePlugin({
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
+});
+
+let API_KEY;
+
+try {
+    // Intenta importar la clave desde keys.js (solo en desarrollo)
+    const { API_KEY: localApiKey } = await import('./keys.js');
+    API_KEY = localApiKey;
+} catch (error) {
+    // Usa la variable de entorno en producción
+    API_KEY = process.env.API_KEY;
+}
+
+if (!API_KEY) {
+    console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
+}
+
+
 
 // Variables globales
 let selected = null;
