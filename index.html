@@ -27,6 +27,24 @@
         <h3 style="margin: 0;"><span style="font-size: 1.1em;">👤</span>Players</h3>
         <button id="toggleDoubleUp" onclick="toggleDoubleUpMode()">Double Up: OFF</button>
       </div>
+      <div class="search-bar">
+        <div class="server-selector">
+          <select id="serverSelector">
+            <!-- Opciones generadas dinámicamente desde serverRegionMap -->
+          </select>
+        </div>
+        <div class="search-input">
+          <input id="playerNameInput" type="text" placeholder="Player#Tag" />
+        </div>
+        <div class="search-button-container">
+        <button id="searchPlayerButton" class="search-button">
+          <span class="search-icon">🔍</span>
+        </button>
+      </div>
+      </div>
+      <div id="messageContainer" style="display: none; color: #ff4c4c; font-weight: bold; margin-bottom: 10px; text-align: center;">
+        <!-- Mensajes se mostrarán aquí -->
+      </div>
       <div id="players"></div>
       <div style="margin-top: 0.5rem;">
         <button onclick="resetPlayers()" style="width: 100%;">Reset</button>
@@ -34,7 +52,7 @@
       <div id="infoTableContainer"></div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 
 </html>
