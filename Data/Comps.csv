@@ -1,22 +1,21 @@
-Comps, Tier, Estilo
-Jarvan Golden Ox,S,rr7
-TF Syndicate,S,rr6
-Rengar Executioner,A,rr7
-Brand Street Demon,S,Fast 8
-Nitro Naafiri,A,rr6
-MF Dynamo,S,Fast 8
-Vertical exotech,A,Fast 8
-Zed Cypher,S,Fast 8
-Vex/Zed Divinicorp,A,Fast 8
-Shaco Slayer,A,rr5
-Vertical Anima Squad,A,Fast 8
-Vayne reroll,S,rr6
-Fiddlesticks Bruiser,B,rr7
-Jinx street demon,A,rr7
-Veigar reroll,S,rr6
-Jhin reroll,A,rr6
-Ziggs Cyberboss,B,Fast 8
-Annie Strategist,B,Fast 8
-Nitro MF,B,rr5
-HERO AUGMENT,B,rr5
-Boombots,C,rr7
+Comps,Tier,Estilo,Unit1,Unit2,Unit3
+Vayne reroll,S,rr6,Vayne,Jarvan IV,Zed
+TF Syndicate,S,rr6,Twisted Fate,Braum,Darius
+Street Demon reroll,A,rr7,Rengar,Jinx,Neeko
+Brand Street Demon,S,Fast 8,Brand,Neeko,Samira
+Nitro Naafiri,A,rr6,Naafiri,Sejuani,Annie
+Nitro Zeri,A,rr5,Zeri,Sejuani,Jhin
+MF Dynamo,S,Fast 8,Miss Fortune,Aurora,Leona
+MF Exotech,A,Fast 8,Miss Fortune,Zeri,Sejuani
+Vertical exotech,A,Fast 8,Zeri,Sejuani,Renekton
+Zed Cypher,S,Fast 8,Zed,Renekton,Zeri
+Vex/Zed Divinicorp,A,Fast 8,Zed,Vex,Senna
+Shaco Slayer,A,rr5,Shaco,Zed,Vayne
+Vertical Anima Squad,A,Fast 8,Xayah,Leona,Aurora
+Fiddlesticks Bruiser,B,rr7,Fiddlesticks,Cho'Gath,Mordekaiser
+Veigar reroll,S,rr6,Veigar,Ziggs,Kobuko
+Annie Strategist,B,Fast 8,Annie,Neeko,Samira
+Boombots,C,rr7,Kog'Maw,Cho'Gath,Urgot
+Aphelios Vanguard,A,Fast 8,Aphelios,Xayah,Leona
+Vertical Golden Ox,A,Fast 8,Aphelios,Annie,Viego
+HERO AUGMENT,B,rr5,Jax,Sylas,Vi
