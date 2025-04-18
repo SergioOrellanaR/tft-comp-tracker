@@ -1,5 +1,21 @@
-import { API_KEY } from './keys.js';
 import { CONFIG } from './config.js';
+
+let API_KEY;
+
+async function initializeApiKey() {
+    try {
+        // Intenta importar la clave desde keys.js (solo en desarrollo)
+        const { API_KEY: localApiKey } = await import('./keys.js');
+        API_KEY = localApiKey;
+    } catch (error) {
+        // Usa la variable de entorno en producción
+        API_KEY = process.env.API_KEY;
+    }
+
+    if (!API_KEY) {
+        console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
+    }
+}
 
 // Variables globales
 let selected = null;
@@ -289,11 +305,10 @@ function showMessage(message) {
     }, 3000);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async() => {
+    console.log('DOM fully loaded and parsed');
+    await initializeApiKey();
     preloadPlayers();
-});
-
-document.addEventListener('DOMContentLoaded', () => {
     const serverSelector = document.getElementById('serverSelector');
     const serverRegionMap = CONFIG.serverRegionMap;
 
@@ -306,8 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const searchPlayer = async () => {
+        
         const server = document.getElementById('serverSelector').value;
         const playerInput = document.getElementById('playerNameInput').value.trim();
+        
 
         if (playerInput) {
             let [playerName, tag] = playerInput.split('#');
