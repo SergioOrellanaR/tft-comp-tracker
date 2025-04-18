@@ -18,9 +18,9 @@ export const CONFIG = {
         units: 'Data/Units.csv'
     },
     iconOptions: [
-        { name: 'Moon', color: '#c74cff', emoji: '🌙' },
-        { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
         { name: 'Water', color: '#4cffe9', emoji: '💧' },
+        { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
+        { name: 'Moon', color: '#c74cff', emoji: '🌙' },
         { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
     ],
     serverRegionMap : {
