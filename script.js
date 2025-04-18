@@ -1,30 +1,21 @@
-// Configuración general
-const CONFIG = {
-    colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9'],
-    coreItems: [
-        "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
-        "Jeweled Gauntlet", "Infinity Edge", "Nashor's Tooth", "Morellonomicon",
-        "Runaan's Hurricane", "Hextech Gunblade", "Bloodthirster", "Edge of Night",
-        "Titan's Resolve", "Hand Of Justice"
-    ],
-    tierColors: {
-        S: '#FFD700',
-        A: '#00BFFF',
-        B: '#7CFC00',
-        C: '#FFB347'
-    },
-    routes: {
-        comps: 'Data/Comps.csv',
-        items: 'Data/Items.csv',
-        units: 'Data/Units.csv'
-    },
-    iconOptions: [
-        { name: 'Moon', color: '#c74cff', emoji: '🌙' },
-        { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
-        { name: 'Water', color: '#4cffe9', emoji: '💧' },
-        { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
-    ]
-};
+import { CONFIG } from './config.js';
+
+let API_KEY;
+
+async function initializeApiKey() {
+    if (!CONFIG.netlify) {
+        try {
+            // Intenta importar la clave desde keys.js (solo en desarrollo)
+            const { API_KEY: localApiKey } = await import('./keys.js');
+            API_KEY = localApiKey;
+        } catch (error) {
+            console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
+        }
+    }
+    else {
+        console.log('Netlify mode detected. API_KEY will be fetched from Netlify functions.');
+    }
+}
 
 // Variables globales
 let selected = null;
@@ -299,8 +290,158 @@ function createEditIcon(span) {
 }
 tryLoadDefaultCSV();
 
-document.addEventListener('DOMContentLoaded', () => {
+function showMessage(message) {
+    const messageContainer = document.getElementById('messageContainer');
+    messageContainer.textContent = message;
+    messageContainer.style.display = 'block';
+
+    // Redibujar las líneas
+    drawLines();
+
+    // Opcional: Ocultar el mensaje después de 5 segundos
+    setTimeout(() => {
+        messageContainer.style.display = 'none';
+        drawLines(); // Redibujar las líneas nuevamente si el mensaje desaparece
+    }, 3000);
+}
+
+async function fetchApi(url, isNetlify) {
+    console.log('fetchApi', url, isNetlify);
+    if (isNetlify) {
+        const response = await fetch("/.netlify/functions/riot-proxy", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url }),
+        });
+
+        if (!response.ok) {
+            handleApiError(response);
+            return null;
+        }
+
+        return response.json();
+    } else {
+        const response = await fetch(`${url}?api_key=${API_KEY}`);
+
+        if (!response.ok) {
+            handleApiError(response);
+            return null;
+        }
+
+        return response.json();
+    }
+}
+
+function handleApiError(response) {
+    if (response.status === 404) {
+        if (response.url.includes('spectator')) {
+            showMessage('The player is not currently in a game.');
+        } else {
+            showMessage('Player not found');
+        }
+    } else {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+}
+
+const searchPlayer = async () => {
+    const server = document.getElementById('serverSelector').value;
+    const playerInput = document.getElementById('playerNameInput').value.trim();
+
+    if (!playerInput) {
+        showMessage('Please enter a player name.');
+        return;
+    }
+
+    let [playerName, tag] = playerInput.split('#');
+    const serverCode = CONFIG.serverRegionMap[server];
+
+    if (!tag || tag.trim() === '') {
+        tag = serverCode;
+    }
+
+    if (!playerName || !tag) {
+        showMessage('Please enter a valid Player#Tag format.');
+        return;
+    }
+
+    if (!serverCode) {
+        showMessage('Invalid server selected.');
+        return;
+    }
+
+    try {
+        const isNetlify = CONFIG.netlify;
+
+        // Fetch PUUID
+        const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
+        const accountData = await fetchApi(accountUrl, isNetlify);
+        if (!accountData) return;
+
+        const playerPuuid = accountData.puuid;
+
+        // Fetch spectator data
+        const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`;
+        const spectatorData = await fetchApi(spectatorUrl, isNetlify);
+        if (!spectatorData) return;
+
+        // Handle spectator data
+        handleSpectatorData(spectatorData, playerPuuid);
+
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+        showMessage('Failed to fetch data.');
+    }
+};
+
+function handleSpectatorData(spectatorData, playerPuuid) {
+    // Change Double Up mode based on gameQueueConfigId
+    if (spectatorData.gameQueueConfigId === 1160) {
+        if (!document.body.classList.contains('double-up')) {
+            toggleDoubleUpMode(); // Activate Double Up
+        }
+    } else {
+        if (document.body.classList.contains('double-up')) {
+            toggleDoubleUpMode(); // Deactivate Double Up
+        }
+    }
+
+    // Log participant Riot IDs
+    spectatorData.participants
+        .filter(participant => participant.puuid !== playerPuuid)
+        .forEach(participant => {
+            console.log(`Participant Riot ID: ${participant.riotId}`);
+        });
+
+    // Update player names
+    updatePlayerNames(spectatorData.participants);
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('DOM fully loaded and parsed');
+    await initializeApiKey();
     preloadPlayers();
+    const serverSelector = document.getElementById('serverSelector');
+    const serverRegionMap = CONFIG.serverRegionMap;
+
+    // Llenar el selector con las opciones de serverRegionMap
+    Object.keys(serverRegionMap).forEach(region => {
+        const option = document.createElement('option');
+        option.value = region;
+        option.textContent = region;
+        serverSelector.appendChild(option);
+    });
+
+    // Agregar funcionalidad al botón de búsqueda
+    document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
+
+    // Ejecutar búsqueda al presionar Enter en el campo de texto
+    document.getElementById('playerNameInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Evitar que el formulario se envíe si está dentro de uno
+            searchPlayer();
+        }
+    });
 });
 
 document.getElementById('left').addEventListener('scroll', drawLines);
@@ -905,3 +1046,19 @@ if (typeof itemsContainer !== 'undefined' && itemsContainer) {
     itemsContainer.dataset.updateFn = updateItemsContainerFn.name;
     updateItemsContainerFn();
 }
+
+function updatePlayerNames(participants) {
+    const playerElements = document.querySelectorAll('.item.player');
+
+    participants.forEach((participant, index) => {
+        if (playerElements[index]) {
+            const playerNameElement = playerElements[index].querySelector('span');
+            if (playerNameElement) {
+                playerNameElement.textContent = participant.riotId;
+            }
+        }
+    });
+}
+
+window.toggleDoubleUpMode = toggleDoubleUpMode;
+window.resetPlayers = resetPlayers;

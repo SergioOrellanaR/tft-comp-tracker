@@ -18,6 +18,10 @@ body {
     overflow-x: auto;
 }
 
+button:hover {
+    background: #00c4d6;
+}
+
 #toggleDoubleUp {
     margin-bottom: 10px;
     padding: 4px 10px;
@@ -39,7 +43,8 @@ body {
 }
 
 #left {
-    width: 30%; /* Aumentar el ancho del contenedor izquierdo */
+    width: 30%;
+    /* Aumentar el ancho del contenedor izquierdo */
     padding: 0.5rem;
     overflow-y: auto;
     display: flex;
@@ -167,7 +172,7 @@ input[type="file"] {
 }
 
 button {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     padding: 8px;
     background: #00eaff;
     border: none;
@@ -179,8 +184,86 @@ button {
     transition: background 0.3s ease;
 }
 
-button:hover {
-    background: #00c4d6;
+#serverSelector {
+    min-width: 30px;
+}
+
+#playerNameInput {
+    flex: 1;
+}
+
+/* Estilo del contenedor del buscador */
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    height: auto;
+    /* Altura consistente para todos los elementos */
+}
+
+.server-selector {
+    flex: 0 0 auto;
+    /* No crece, no colapsa, ocupa solo lo necesario */
+}
+
+.search-input {
+    flex: 1 1 auto;
+    /* Crece para ocupar el resto del espacio disponible */
+}
+
+/* Selector de servidor */
+.server-selector select {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-left: 0px;
+}
+
+/* Input de búsqueda */
+.search-input input {
+    flex: 1;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: #fff;
+    font-size: 0.9rem;
+    height: 100%;
+    /* Asegura que ocupe toda la altura del contenedor */
+    transition: background 0.3s ease, transform 0.2s ease;
+    position: relative;
+    margin-top: 0px;
+    width: 100%;
+    /* Ajusta en incrementos de 1px hasta que quede alineado */
+}
+
+/* Botón de búsqueda */
+.search-button {
+    flex: 0 0 auto;
+    max-width: 50px;
+    margin-top: 0px;
+    padding: 0 12px;
+    background: linear-gradient(90deg, #00eaff, #4c6aff);
+}
+
+.search-button:hover {
+    background: linear-gradient(90deg, #00c4d6, #4c6aff);
+}
+
+/* Icono de búsqueda */
+.search-icon {
+    font-size: 1.2rem;
 }
 
 /* Responsive layout */
@@ -215,7 +298,7 @@ button:hover {
     #right {
         min-width: 10px;
         width: 30%;
-		max-width: 100%;
+        max-width: 100%;
         flex-direction: row;
         overflow-x: auto;
         flex-wrap: wrap;
@@ -225,69 +308,81 @@ button:hover {
     #canvas-container {
         min-width: 150px;
     }
-	
-	table {
-    width: 100%;
-    overflow-x: auto;
-    display: block; /* importante para que pueda romper fila si es necesario */
+
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        /* importante para que pueda romper fila si es necesario */
     }
 
     /* Contenedor genérico para tablas */
-.table-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-}
+    .table-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
 
-.table-container div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
-    gap: 2px !important; /* Espacio entre los íconos */
-}
+    .table-container div {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
+        gap: 2px !important;
+        /* Espacio entre los íconos */
+    }
 
-.table-container div div {
-    display: flex;
-    align-items: center;
-}
+    .table-container div div {
+        display: flex;
+        align-items: center;
+    }
 
-.table-container div div img {
-    width: 30px !important;
-    height: 30px !important;
-    border-radius: 4px !important;;
-    object-fit: cover;
-    border: 0px solid transparent !important; /* Asegurar que el borde sea visible */
-    box-sizing: border-box !important;
-}
+    .table-container div div img {
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 4px !important;
+        ;
+        object-fit: cover;
+        border: 0px solid transparent !important;
+        /* Asegurar que el borde sea visible */
+        box-sizing: border-box !important;
+    }
 
-/* Ajustar el tamaño del borde dinámico */
-.table-container div div img[style*="border-image"] {
-    border-width: 1px !important; /* Asegurar que el borde sea proporcional */
-}
+    /* Ajustar el tamaño del borde dinámico */
+    .table-container div div img[style*="border-image"] {
+        border-width: 1px !important;
+        /* Asegurar que el borde sea proporcional */
+    }
 
     .item.compo {
-        flex-direction: column; /* Cambiar a columna para móviles */
-        align-items: flex-end; /* Alinear al inicio */
-        width: 100%; /* Asegurar que ocupe todo el ancho */
+        flex-direction: column;
+        /* Cambiar a columna para móviles */
+        align-items: flex-end;
+        /* Alinear al inicio */
+        width: 100%;
+        /* Asegurar que ocupe todo el ancho */
     }
-    
+
     .unit-icons {
-        display: none !important; /* Ensure it takes precedence */
+        display: none !important;
+        /* Ensure it takes precedence */
     }
 
     .items-container {
-        display: none !important; /* Ensure it takes precedence */
+        display: none !important;
+        /* Ensure it takes precedence */
     }
 
 
-    #coreItemsContainer{
-        display: none !important; /* Ensure it takes precedence */;
+    #coreItemsContainer {
+        display: none !important;
+        /* Ensure it takes precedence */
+        ;
     }
 
-    
 
 
 
-    
+
+
 }
 
 /* Table (bottom right) */
@@ -315,30 +410,32 @@ th {
 
 
 .item.compo {
-  display: flex;
-  align-items: center; /* Alinear verticalmente los elementos */
-  justify-content: space-between; /* Espaciado entre elementos */
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 1px 10px;
-  margin: 4px 0;
-  color: #ddd;
-  font-size: 0.7rem;
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    /* Alinear verticalmente los elementos */
+    justify-content: space-between;
+    /* Espaciado entre elementos */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1px 10px;
+    margin: 4px 0;
+    color: #ddd;
+    font-size: 0.7rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
 }
 
 .item.compo:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: scale(1.02);
-  cursor: pointer;
-  color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.02);
+    cursor: pointer;
+    color: #fff;
 }
 
 .item.compo span:last-child {
-  opacity: 0.7;
-  font-size: 0.8em;
+    opacity: 0.7;
+    font-size: 0.8em;
 }
 
 #right {
@@ -347,7 +444,8 @@ th {
 
 .unit-icons {
     display: flex;
-    gap: 4px; /* Espacio entre los íconos */
+    gap: 4px;
+    /* Espacio entre los íconos */
     margin-right: 8px;
     display: n;
 }
@@ -426,53 +524,71 @@ th {
     height: 40px;
     border-radius: 4px;
     object-fit: cover;
-    border: 2px solid transparent; /* Asegurar que el borde sea visible */
+    border: 2px solid transparent;
+    /* Asegurar que el borde sea visible */
     box-sizing: border-box;
 }
 
 /* Ajustar el tamaño del borde dinámico */
 .table-container div div img[style*="border-image"] {
-    border-width: 4px; /* Asegurar que el borde sea proporcional */
+    border-width: 4px;
+    /* Asegurar que el borde sea proporcional */
 }
 
 /* Colores según el coste */
 .unit-cost-1 {
-    background: #808080; /* Gris */
+    background: #808080;
+    /* Gris */
 }
 
 .unit-cost-2 {
-    background: #4caf50; /* Verde */
+    background: #4caf50;
+    /* Verde */
 }
 
 .unit-cost-3 {
-    background: #2196f3; /* Azul */
+    background: #2196f3;
+    /* Azul */
 }
 
 .unit-cost-4 {
-    background: #9c27b0; /* Morado */
+    background: #9c27b0;
+    /* Morado */
 }
 
 .unit-cost-5 {
-    background: #ffd700; /* Dorado */
+    background: #ffd700;
+    /* Dorado */
 }
 
 .comp-info {
-    flex: 1; /* Permite que ocupe el espacio restante */
-    text-align: left; /* Alinear el texto a la izquierda */
-    margin-left: 8px; /* Espacio entre unit-icons y comp-info */
-    min-width: 40%; /* Limitar el ancho máximo al 40% del contenedor padre */
-    overflow: hidden; /* Ocultar contenido que exceda el tamaño */
-    text-overflow: ellipsis; /* Mostrar "..." si el texto es demasiado largo */
-    white-space: nowrap; /* Evitar que el texto se envuelva */
+    flex: 1;
+    /* Permite que ocupe el espacio restante */
+    text-align: left;
+    /* Alinear el texto a la izquierda */
+    margin-left: 8px;
+    /* Espacio entre unit-icons y comp-info */
+    min-width: 40%;
+    /* Limitar el ancho máximo al 40% del contenedor padre */
+    overflow: hidden;
+    /* Ocultar contenido que exceda el tamaño */
+    text-overflow: ellipsis;
+    /* Mostrar "..." si el texto es demasiado largo */
+    white-space: nowrap;
+    /* Evitar que el texto se envuelva */
 }
 
 .comp-style {
     text-align: center;
     font-style: italic;
-    width: 40px; /* Ancho fijo para garantizar alineación */
-    white-space: nowrap; /* Evitar que el texto se envuelva */
-    overflow: hidden; /* Ocultar texto que exceda el ancho */
-    text-overflow: ellipsis; /* Mostrar "..." si el texto es demasiado largo */
+    width: 40px;
+    /* Ancho fijo para garantizar alineación */
+    white-space: nowrap;
+    /* Evitar que el texto se envuelva */
+    overflow: hidden;
+    /* Ocultar texto que exceda el ancho */
+    text-overflow: ellipsis;
+    /* Mostrar "..." si el texto es demasiado largo */
 }
 
 /* Core Items Container */
@@ -494,7 +610,8 @@ th {
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease;
-    filter: grayscale(100%); /* Blanco y negro por defecto */
+    filter: grayscale(100%);
+    /* Blanco y negro por defecto */
 }
 
 /* Colorear el ítem al pasar el mouse */
@@ -504,19 +621,26 @@ th {
 
 /* Estado activo (seleccionado) */
 .core-item-button.active {
-    outline: 2px solid #808080; /* Verde */
+    outline: 2px solid #808080;
+    /* Verde */
     outline-offset: 2px;
-    filter: none; /* A color si está activo */
+    filter: none;
+    /* A color si está activo */
 }
 
 /* Items Container */
 .items-container {
     display: flex;
-    gap: 4px; /* Espacio entre los ítems */
-    justify-content: flex-start; /* Alinear los ítems al inicio (izquierda) */
-    align-items: center; /* Centrar los ítems verticalmente */
-    width: 250px; /* Tamaño fijo del contenedor */
-    overflow: hidden; /* Ocultar contenido que exceda el tamaño */
+    gap: 4px;
+    /* Espacio entre los ítems */
+    justify-content: flex-start;
+    /* Alinear los ítems al inicio (izquierda) */
+    align-items: center;
+    /* Centrar los ítems verticalmente */
+    width: 250px;
+    /* Tamaño fijo del contenedor */
+    overflow: hidden;
+    /* Ocultar contenido que exceda el tamaño */
 }
 
 /* Contador de jugadores en unidades heavily contested */
@@ -524,7 +648,8 @@ th {
     position: absolute;
     top: -6px;
     right: -6px;
-    background: #ff4c4c; /* Color rojo para destacar */
+    background: #ff4c4c;
+    /* Color rojo para destacar */
     color: #fff;
     font-size: 0.7rem;
     font-weight: bold;
@@ -533,7 +658,8 @@ th {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%; /* Forma circular */
+    border-radius: 50%;
+    /* Forma circular */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     z-index: 2;
 }
