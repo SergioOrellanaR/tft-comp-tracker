@@ -1,4 +1,5 @@
 export const CONFIG = {
+    netlify: true,
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9'],
     coreItems: [
         "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
