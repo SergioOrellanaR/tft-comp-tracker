@@ -3,12 +3,19 @@ import { CONFIG } from './config.js';
 let API_KEY;
 
 async function initializeApiKey() {
-    try {
-        // Intenta importar la clave desde keys.js (solo en desarrollo)
-        const { API_KEY: localApiKey } = await import('./keys.js');
-        API_KEY = localApiKey;
-    } catch (error) {
-        console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
+    if(!CONFIG.netlify)
+    {
+        try {
+            // Intenta importar la clave desde keys.js (solo en desarrollo)
+            const { API_KEY: localApiKey } = await import('./keys.js');
+            API_KEY = localApiKey;
+        } catch (error) {
+            console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
+        }
+    }
+    else
+    {
+        console.log('Netlify mode detected. API_KEY will be fetched from Netlify functions.');
     }
 }
 
@@ -341,25 +348,37 @@ document.addEventListener('DOMContentLoaded', async() => {
             try {
                 let playerPuuid;
                 let spectatorData;
+                const getPuuidResponse;
 
                 if (CONFIG.netlify) {
                     // Usar funciones de Netlify para obtener PUUID y datos del juego
-                    const accountRes = await fetch("/.netlify/functions/riot-proxy", {
+                    getPuuidResponse = await fetch("/.netlify/functions/riot-proxy", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
                             url: `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`,
                         }),
                     });
+                } else {
+                    url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}?api_key=${API_KEY}`;
+                    getPuuidResponse = await fetch(url);
+                }
 
-                    if (!accountRes.ok) {
-                        if (accountRes.status === 404) {
-                            showMessage('Player not found');
-                        } else {
-                            throw new Error(`Error: ${accountRes.status} - ${accountRes.statusText}`);
-                        }
-                        return;
+                if (!getPuuidResponse.ok) {
+                    if (getPuuidResponse.status === 404) {
+                        showMessage('Player not found');
+                    } else {
+                        throw new Error(`Error: ${getPuuidResponse.status} - ${getPuuidResponse.statusText}`);
                     }
+                    return;
+                }
+
+                if (CONFIG.netlify) {
+
+                }
+
+
+                    
 
                     const accountData = await accountRes.json();
                     playerPuuid = accountData.puuid;
@@ -383,9 +402,6 @@ document.addEventListener('DOMContentLoaded', async() => {
 
                     spectatorData = await spectatorRes.json();
                 } else {
-                    // Usar el método actual para obtener PUUID y datos del juego
-                    const url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}?api_key=${API_KEY}`;
-                    const response = await fetch(url);
 
                     if (!response.ok) {
                         if (response.status === 404) {
