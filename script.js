@@ -305,8 +305,8 @@ function showMessage(message) {
     }, 3000);
 }
 
-async function fetchApi(url, isNetlify, spectator) {
-    console.log('fetchApi', url, isNetlify, spectator);
+async function fetchApi(url, isNetlify, callId) {
+    console.log('fetchApi', url, isNetlify, callId);
     if (isNetlify) {
         const response = await fetch("/.netlify/functions/riot-proxy", {
             method: "POST",
@@ -315,7 +315,7 @@ async function fetchApi(url, isNetlify, spectator) {
         });
 
         if (!response.ok) {
-            handleApiError(response, spectator);
+            handleApiError(response, callId);
             return null;
         }
 
@@ -324,7 +324,7 @@ async function fetchApi(url, isNetlify, spectator) {
         const response = await fetch(`${url}?api_key=${API_KEY}`);
 
         if (!response.ok) {
-            handleApiError(response, spectator);
+            handleApiError(response, callId);
             return null;
         }
 
@@ -332,12 +332,12 @@ async function fetchApi(url, isNetlify, spectator) {
     }
 }
 
-function handleApiError(response, spectator) {
+function handleApiError(response, callId) {
     if (response.status === 404) {
-        if (spectator) {
-            showMessage('The player is not currently in a game.');
-        } else {
+        if (callId === 'getPuuid') {
             showMessage('Player not found');
+        } else if (callId === 'spectator') {
+            showMessage('The player is not currently in a game.');            
         }
     } else {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
@@ -375,14 +375,14 @@ const searchPlayer = async () => {
 
         // Fetch PUUID
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
-        const accountData = await fetchApi(accountUrl, isNetlify, false);
+        const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
         if (!accountData) return;
 
         const playerPuuid = accountData.puuid;
 
         // Fetch spectator data
         const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`;
-        const spectatorData = await fetchApi(spectatorUrl, isNetlify, true);
+        const spectatorData = await fetchApi(spectatorUrl, isNetlify, 'spectator');
         if (!spectatorData) return;
 
         // Handle spectator data
