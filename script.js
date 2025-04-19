@@ -8,11 +8,6 @@ async function initializeApiKey() {
         const { API_KEY: localApiKey } = await import('./keys.js');
         API_KEY = localApiKey;
     } catch (error) {
-        // Usa la variable de entorno en producción
-        API_KEY = process.env.API_KEY;
-    }
-
-    if (!API_KEY) {
         console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
     }
 }
@@ -321,10 +316,8 @@ document.addEventListener('DOMContentLoaded', async() => {
     });
 
     const searchPlayer = async () => {
-        
         const server = document.getElementById('serverSelector').value;
         const playerInput = document.getElementById('playerNameInput').value.trim();
-        
 
         if (playerInput) {
             let [playerName, tag] = playerInput.split('#');
@@ -345,14 +338,52 @@ document.addEventListener('DOMContentLoaded', async() => {
                 return;
             }
 
-            if (!playerInput) {
-                showMessage('Please enter a player name.');
-                return;
-            }
+            try {
+                let playerPuuid;
+                let spectatorData;
 
-            if (serverCode) {
-                try {
-                    // Primera llamada: Obtener el PUUID del jugador
+                if (CONFIG.netlify) {
+                    // Usar funciones de Netlify para obtener PUUID y datos del juego
+                    const accountRes = await fetch("/.netlify/functions/riot-proxy", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            url: `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`,
+                        }),
+                    });
+
+                    if (!accountRes.ok) {
+                        if (accountRes.status === 404) {
+                            showMessage('Player not found');
+                        } else {
+                            throw new Error(`Error: ${accountRes.status} - ${accountRes.statusText}`);
+                        }
+                        return;
+                    }
+
+                    const accountData = await accountRes.json();
+                    playerPuuid = accountData.puuid;
+
+                    const spectatorRes = await fetch("/.netlify/functions/riot-proxy", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            url: `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`,
+                        }),
+                    });
+
+                    if (!spectatorRes.ok) {
+                        if (spectatorRes.status === 404) {
+                            showMessage('The player is not currently in a game.');
+                        } else {
+                            throw new Error(`Error: ${spectatorRes.status} - ${spectatorRes.statusText}`);
+                        }
+                        return;
+                    }
+
+                    spectatorData = await spectatorRes.json();
+                } else {
+                    // Usar el método actual para obtener PUUID y datos del juego
                     const url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}?api_key=${API_KEY}`;
                     const response = await fetch(url);
 
@@ -366,10 +397,8 @@ document.addEventListener('DOMContentLoaded', async() => {
                     }
 
                     const data = await response.json();
-                    const playerPuuid = data.puuid;
-                    console.log(`Player PUUID: ${playerPuuid}`);
+                    playerPuuid = data.puuid;
 
-                    
                     const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}?api_key=${API_KEY}`;
                     const spectatorResponse = await fetch(spectatorUrl);
 
@@ -382,35 +411,33 @@ document.addEventListener('DOMContentLoaded', async() => {
                         return;
                     }
 
-                    const spectatorData = await spectatorResponse.json();
-
-                    // Cambiar automáticamente el modo Double Up según gameQueueConfigId
-                    if (spectatorData.gameQueueConfigId === 1160) {
-                        if (!document.body.classList.contains('double-up')) {
-                            toggleDoubleUpMode(); // Activar Double Up
-                        }
-                    } else {
-                        if (document.body.classList.contains('double-up')) {
-                            toggleDoubleUpMode(); // Desactivar Double Up
-                        }
-                    }
-
-                    // Filtrar y mostrar los riotIds de los participantes
-                    spectatorData.participants
-                        .filter(participant => participant.puuid !== playerPuuid)
-                        .forEach(participant => {
-                            console.log(`Participant Riot ID: ${participant.riotId}`);
-                        });
-
-                    // Actualizar nombres de jugadores
-                    updatePlayerNames(spectatorData.participants);
-
-                } catch (error) {
-                    console.error('Failed to fetch data:', error);
-                    showMessage('Failed to fetch data.');
+                    spectatorData = await spectatorResponse.json();
                 }
-            } else {
-                showMessage('Invalid server selected.');
+
+                // Cambiar automáticamente el modo Double Up según gameQueueConfigId
+                if (spectatorData.gameQueueConfigId === 1160) {
+                    if (!document.body.classList.contains('double-up')) {
+                        toggleDoubleUpMode(); // Activar Double Up
+                    }
+                } else {
+                    if (document.body.classList.contains('double-up')) {
+                        toggleDoubleUpMode(); // Desactivar Double Up
+                    }
+                }
+
+                // Filtrar y mostrar los riotIds de los participantes
+                spectatorData.participants
+                    .filter(participant => participant.puuid !== playerPuuid)
+                    .forEach(participant => {
+                        console.log(`Participant Riot ID: ${participant.riotId}`);
+                    });
+
+                // Actualizar nombres de jugadores
+                updatePlayerNames(spectatorData.participants);
+
+            } catch (error) {
+                console.error('Failed to fetch data:', error);
+                showMessage('Failed to fetch data.');
             }
         } else {
             showMessage('Please enter a player name.');
