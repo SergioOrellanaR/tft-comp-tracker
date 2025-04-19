@@ -3,12 +3,17 @@ import { CONFIG } from './config.js';
 let API_KEY;
 
 async function initializeApiKey() {
-    try {
-        // Intenta importar la clave desde keys.js (solo en desarrollo)
-        const { API_KEY: localApiKey } = await import('./keys.js');
-        API_KEY = localApiKey;
-    } catch (error) {
-        console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
+    if (!CONFIG.netlify) {
+        try {
+            // Intenta importar la clave desde keys.js (solo en desarrollo)
+            const { API_KEY: localApiKey } = await import('./keys.js');
+            API_KEY = localApiKey;
+        } catch (error) {
+            console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
+        }
+    }
+    else {
+        console.log('Netlify mode detected. API_KEY will be fetched from Netlify functions.');
     }
 }
 
@@ -300,7 +305,7 @@ function showMessage(message) {
     }, 3000);
 }
 
-document.addEventListener('DOMContentLoaded', async() => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM fully loaded and parsed');
     await initializeApiKey();
     preloadPlayers();
@@ -1061,7 +1066,7 @@ if (typeof itemsContainer !== 'undefined' && itemsContainer) {
 
 function updatePlayerNames(participants) {
     const playerElements = document.querySelectorAll('.item.player');
-    
+
     participants.forEach((participant, index) => {
         if (playerElements[index]) {
             const playerNameElement = playerElements[index].querySelector('span');
