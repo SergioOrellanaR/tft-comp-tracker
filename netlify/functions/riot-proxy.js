@@ -14,7 +14,7 @@ export default async (req) => {
 
     // Agregar api_key como query param
     const urlWithKey = new URL(url);
-    urlWithKey.searchParams.set("api_key", API_KEY);
+    urlWithKey.searchParams.set("api_key", NETLIFY_API_KEY);
 
     try {
         const response = await fetch(urlWithKey.toString(), {
