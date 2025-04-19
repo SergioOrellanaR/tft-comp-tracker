@@ -395,8 +395,9 @@ const searchPlayer = async () => {
 };
 
 function handleSpectatorData(spectatorData, playerPuuid) {
+    const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
     // Change Double Up mode based on gameQueueConfigId
-    if (spectatorData.gameQueueConfigId === 1160) {
+    if (isDoubleUp) {
         if (!document.body.classList.contains('double-up')) {
             toggleDoubleUpMode(); // Activate Double Up
         }
@@ -407,14 +408,16 @@ function handleSpectatorData(spectatorData, playerPuuid) {
     }
 
     // Log participant Riot IDs
-    spectatorData.participants
-        .filter(participant => participant.puuid !== playerPuuid)
-        .forEach(participant => {
-            console.log(`Participant Riot ID: ${participant.riotId}`);
+    const participants = spectatorData.participants
+        .filter(participants => {
+            if (isDoubleUp) {
+                return true;
+            }
+            return participants.puuid !== playerPuuid;
         });
 
     // Update player names
-    updatePlayerNames(spectatorData.participants);
+    updatePlayerNames(participants);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
