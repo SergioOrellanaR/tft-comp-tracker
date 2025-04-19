@@ -334,12 +334,14 @@ async function fetchApi(url, isNetlify, callId) {
 
 function handleApiError(response, callId) {
     if (response.status === 404) {
-        if (callId === 'getPuuid') {
+        if (callId === 'fetchPuuid') {
             showMessage('Player not found');
         } else if (callId === 'spectator') {
             showMessage('The player is not currently in a game.');            
         }
-    } else {
+    } else if (response.status === 400 && callId === 'fetchPuuid') {
+        showMessage('Invalid API KEY.');
+    } else{
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
 }
