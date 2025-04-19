@@ -346,78 +346,58 @@ document.addEventListener('DOMContentLoaded', async () => {
             try {
                 let playerPuuid;
                 let spectatorData;
+                let getPuuidResponse;
+                let getSpectatorResponse;
 
                 if (CONFIG.netlify) {
                     // Usar funciones de Netlify para obtener PUUID y datos del juego
-                    const accountRes = await fetch("/.netlify/functions/riot-proxy", {
+                    const getPuuidResponse = await fetch("/.netlify/functions/riot-proxy", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
                             url: `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`,
                         }),
                     });
+                }
+                else {
+                    const url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}?api_key=${API_KEY}`;
+                    const getPuuidResponse = await fetch(url);
+                }
 
-                    if (!accountRes.ok) {
-                        if (accountRes.status === 404) {
-                            showMessage('Player not found');
-                        } else {
-                            throw new Error(`Error: ${accountRes.status} - ${accountRes.statusText}`);
-                        }
-                        return;
+                if (!getPuuidResponse.ok) {
+                    if (getPuuidResponse.status === 404) {
+                        showMessage('Player not found');
+                    } else {
+                        throw new Error(`Error: ${getPuuidResponse.status} - ${getPuuidResponse.statusText}`);
                     }
+                    return;
+                }
 
-                    const accountData = await accountRes.json();
-                    playerPuuid = accountData.puuid;
-
-                    const spectatorRes = await fetch("/.netlify/functions/riot-proxy", {
+                const accountData = await getPuuidResponse.json();
+                playerPuuid = accountData.puuid;
+                if (CONFIG.netlify) {
+                    getSpectatorResponse = await fetch("/.netlify/functions/riot-proxy", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
                             url: `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`,
                         }),
                     });
-
-                    if (!spectatorRes.ok) {
-                        if (spectatorRes.status === 404) {
-                            showMessage('The player is not currently in a game.');
-                        } else {
-                            throw new Error(`Error: ${spectatorRes.status} - ${spectatorRes.statusText}`);
-                        }
-                        return;
-                    }
-
-                    spectatorData = await spectatorRes.json();
                 } else {
-                    // Usar el método actual para obtener PUUID y datos del juego
-                    const url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}?api_key=${API_KEY}`;
-                    const response = await fetch(url);
-
-                    if (!response.ok) {
-                        if (response.status === 404) {
-                            showMessage('Player not found');
-                        } else {
-                            throw new Error(`Error: ${response.status} - ${response.statusText}`);
-                        }
-                        return;
-                    }
-
-                    const data = await response.json();
-                    playerPuuid = data.puuid;
-
                     const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}?api_key=${API_KEY}`;
-                    const spectatorResponse = await fetch(spectatorUrl);
-
-                    if (!spectatorResponse.ok) {
-                        if (spectatorResponse.status === 404) {
-                            showMessage('The player is not currently in a game.');
-                        } else {
-                            throw new Error(`Error: ${spectatorResponse.status} - ${spectatorResponse.statusText}`);
-                        }
-                        return;
-                    }
-
-                    spectatorData = await spectatorResponse.json();
+                    const getSpectatorResponse = await fetch(spectatorUrl);
                 }
+
+                if (!getSpectatorResponse.ok) {
+                    if (getSpectatorResponse.status === 404) {
+                        showMessage('The player is not currently in a game.');
+                    } else {
+                        throw new Error(`Error: ${getSpectatorResponse.status} - ${getSpectatorResponse.statusText}`);
+                    }
+                    return;
+                }
+
+                spectatorData = await getSpectatorResponse.json();
 
                 // Cambiar automáticamente el modo Double Up según gameQueueConfigId
                 if (spectatorData.gameQueueConfigId === 1160) {
