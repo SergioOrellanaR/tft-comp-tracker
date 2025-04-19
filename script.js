@@ -305,6 +305,113 @@ function showMessage(message) {
     }, 3000);
 }
 
+async function fetchApi(url, isNetlify) {
+    if (isNetlify) {
+        const response = await fetch("/.netlify/functions/riot-proxy", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url }),
+        });
+
+        if (!response.ok) {
+            handleApiError(response);
+            return null;
+        }
+
+        return response.json();
+    } else {
+        const response = await fetch(`${url}?api_key=${API_KEY}`);
+
+        if (!response.ok) {
+            handleApiError(response);
+            return null;
+        }
+
+        return response.json();
+    }
+}
+
+function handleApiError(response) {
+    if (response.status === 404) {
+        showMessage('Player not found');
+    } else {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+}
+
+const searchPlayer = async () => {
+    const server = document.getElementById('serverSelector').value;
+    const playerInput = document.getElementById('playerNameInput').value.trim();
+
+    if (!playerInput) {
+        showMessage('Please enter a player name.');
+        return;
+    }
+
+    let [playerName, tag] = playerInput.split('#');
+    const serverCode = CONFIG.serverRegionMap[server];
+
+    if (!tag || tag.trim() === '') {
+        tag = serverCode;
+    }
+
+    if (!playerName || !tag) {
+        showMessage('Please enter a valid Player#Tag format.');
+        return;
+    }
+
+    if (!serverCode) {
+        showMessage('Invalid server selected.');
+        return;
+    }
+
+    try {
+        const isNetlify = CONFIG.netlify;
+
+        // Fetch PUUID
+        const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
+        const accountData = await fetchApi(accountUrl, isNetlify);
+        if (!accountData) return;
+
+        const playerPuuid = accountData.puuid;
+
+        // Fetch spectator data
+        const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`;
+        const spectatorData = await fetchApi(spectatorUrl, isNetlify);
+        if (!spectatorData) return;
+
+        // Handle spectator data
+        handleSpectatorData(spectatorData, playerPuuid);
+
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+        showMessage('Failed to fetch data.');
+    }
+};
+
+function handleSpectatorData(spectatorData, playerPuuid) {
+    // Change Double Up mode based on gameQueueConfigId
+    if (spectatorData.gameQueueConfigId === 1160) {
+        if (!document.body.classList.contains('double-up')) {
+            toggleDoubleUpMode(); // Activate Double Up
+        }
+    } else {
+        if (document.body.classList.contains('double-up')) {
+            toggleDoubleUpMode(); // Deactivate Double Up
+        }
+    }
+
+    // Log participant Riot IDs
+    spectatorData.participants
+        .filter(participant => participant.puuid !== playerPuuid)
+        .forEach(participant => {
+            console.log(`Participant Riot ID: ${participant.riotId}`);
+        });
+
+    // Update player names
+    updatePlayerNames(spectatorData.participants);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM fully loaded and parsed');
     await initializeApiKey();
@@ -319,115 +426,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         option.textContent = region;
         serverSelector.appendChild(option);
     });
-
-    const searchPlayer = async () => {
-        const server = document.getElementById('serverSelector').value;
-        const playerInput = document.getElementById('playerNameInput').value.trim();
-
-        if (playerInput) {
-            let [playerName, tag] = playerInput.split('#');
-            const serverCode = CONFIG.serverRegionMap[server];
-
-            // Si el tag está vacío o es null, usar el valor de serverRegionMap como tag
-            if (!tag || tag.trim() === '') {
-                tag = serverCode;
-            }
-
-            if (!playerName || !tag) {
-                showMessage('Please enter a valid Player#Tag format.');
-                return;
-            }
-
-            if (!serverCode) {
-                showMessage('Invalid server selected.');
-                return;
-            }
-
-            try {
-                let playerPuuid;
-                let spectatorData;
-                let getPuuidResponse;
-                let getSpectatorResponse;
-
-                if (CONFIG.netlify) {
-                    // Usar funciones de Netlify para obtener PUUID y datos del juego
-                    const getPuuidResponse = await fetch("/.netlify/functions/riot-proxy", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            url: `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`,
-                        }),
-                    });
-                }
-                else {
-                    const url = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}?api_key=${API_KEY}`;
-                    const getPuuidResponse = await fetch(url);
-                }
-
-                if (!getPuuidResponse.ok) {
-                    if (getPuuidResponse.status === 404) {
-                        showMessage('Player not found');
-                    } else {
-                        throw new Error(`Error: ${getPuuidResponse.status} - ${getPuuidResponse.statusText}`);
-                    }
-                    return;
-                }
-
-                const accountData = await getPuuidResponse.json();
-                playerPuuid = accountData.puuid;
-                if (CONFIG.netlify) {
-                    getSpectatorResponse = await fetch("/.netlify/functions/riot-proxy", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            url: `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`,
-                        }),
-                    });
-                } else {
-                    const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}?api_key=${API_KEY}`;
-                    const getSpectatorResponse = await fetch(spectatorUrl);
-                }
-
-                if (!getSpectatorResponse.ok) {
-                    if (getSpectatorResponse.status === 404) {
-                        showMessage('The player is not currently in a game.');
-                    } else {
-                        throw new Error(`Error: ${getSpectatorResponse.status} - ${getSpectatorResponse.statusText}`);
-                    }
-                    return;
-                }
-
-                spectatorData = await getSpectatorResponse.json();
-
-                // Cambiar automáticamente el modo Double Up según gameQueueConfigId
-                if (spectatorData.gameQueueConfigId === 1160) {
-                    if (!document.body.classList.contains('double-up')) {
-                        toggleDoubleUpMode(); // Activar Double Up
-                    }
-                } else {
-                    if (document.body.classList.contains('double-up')) {
-                        toggleDoubleUpMode(); // Desactivar Double Up
-                    }
-                }
-
-                // Filtrar y mostrar los riotIds de los participantes
-                spectatorData.participants
-                    .filter(participant => participant.puuid !== playerPuuid)
-                    .forEach(participant => {
-                        console.log(`Participant Riot ID: ${participant.riotId}`);
-                    });
-
-                // Actualizar nombres de jugadores
-                updatePlayerNames(spectatorData.participants);
-
-            } catch (error) {
-                console.error('Failed to fetch data:', error);
-                showMessage('Failed to fetch data.');
-            }
-        } else {
-            showMessage('Please enter a player name.');
-        }
-    };
 
     // Agregar funcionalidad al botón de búsqueda
     document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
