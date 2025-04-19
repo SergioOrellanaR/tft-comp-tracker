@@ -305,8 +305,8 @@ function showMessage(message) {
     }, 3000);
 }
 
-async function fetchApi(url, isNetlify) {
-    console.log('fetchApi', url, isNetlify);
+async function fetchApi(url, isNetlify, spectator) {
+    console.log('fetchApi', url, isNetlify, spectator);
     if (isNetlify) {
         const response = await fetch("/.netlify/functions/riot-proxy", {
             method: "POST",
@@ -315,7 +315,7 @@ async function fetchApi(url, isNetlify) {
         });
 
         if (!response.ok) {
-            handleApiError(response);
+            handleApiError(response, spectator);
             return null;
         }
 
@@ -324,7 +324,7 @@ async function fetchApi(url, isNetlify) {
         const response = await fetch(`${url}?api_key=${API_KEY}`);
 
         if (!response.ok) {
-            handleApiError(response);
+            handleApiError(response, spectator);
             return null;
         }
 
@@ -332,9 +332,9 @@ async function fetchApi(url, isNetlify) {
     }
 }
 
-function handleApiError(response) {
+function handleApiError(response, spectator) {
     if (response.status === 404) {
-        if (response.url.includes('spectator')) {
+        if (spectator) {
             showMessage('The player is not currently in a game.');
         } else {
             showMessage('Player not found');
@@ -375,14 +375,14 @@ const searchPlayer = async () => {
 
         // Fetch PUUID
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
-        const accountData = await fetchApi(accountUrl, isNetlify);
+        const accountData = await fetchApi(accountUrl, isNetlify, false);
         if (!accountData) return;
 
         const playerPuuid = accountData.puuid;
 
         // Fetch spectator data
         const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`;
-        const spectatorData = await fetchApi(spectatorUrl, isNetlify);
+        const spectatorData = await fetchApi(spectatorUrl, isNetlify, true);
         if (!spectatorData) return;
 
         // Handle spectator data
