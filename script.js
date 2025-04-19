@@ -306,6 +306,7 @@ function showMessage(message) {
 }
 
 async function fetchApi(url, isNetlify) {
+    console.log('fetchApi', url, isNetlify);
     if (isNetlify) {
         const response = await fetch("/.netlify/functions/riot-proxy", {
             method: "POST",
@@ -333,7 +334,11 @@ async function fetchApi(url, isNetlify) {
 
 function handleApiError(response) {
     if (response.status === 404) {
-        showMessage('Player not found');
+        if (response.url.includes('spectator')) {
+            showMessage('The player is not currently in a game.');
+        } else {
+            showMessage('Player not found');
+        }
     } else {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
