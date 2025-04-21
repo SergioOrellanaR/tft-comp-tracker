@@ -1,5 +1,15 @@
+const TFT_VERSUS_API_BASE_URL = 'http://127.0.0.1:5000/api';
+
+export const TFT_VERSUS_API_URL = {
+    playerSummary: TFT_VERSUS_API_BASE_URL+'/header',
+    findGames: TFT_VERSUS_API_BASE_URL+'/find',
+    commonMatches: TFT_VERSUS_API_BASE_URL+'/common_matches',
+    duel: TFT_VERSUS_API_BASE_URL+'/stats',
+    specificMatch: TFT_VERSUS_API_BASE_URL+'/match'
+}
+
 export const CONFIG = {
-    netlify: true,
+    netlify: false,
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9'],
     coreItems: [
         "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
@@ -42,3 +52,4 @@ export const CONFIG = {
         VN: "VN2"
     }
 };
+

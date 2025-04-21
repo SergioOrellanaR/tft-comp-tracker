@@ -1,4 +1,5 @@
 import { CONFIG } from './config.js';
+import { fetchPlayerSummary } from './tftVersusHandler.js';
 
 let API_KEY;
 
@@ -373,53 +374,65 @@ const searchPlayer = async () => {
     }
 
     try {
-        const isNetlify = CONFIG.netlify;
+        // Llamar a fetchPlayerSummary para obtener los datos del jugador
+        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
 
-        // Fetch PUUID
-        const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
-        const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
-        if (!accountData) return;
+        // Mostrar los datos en un rectángulo
+        displayPlayerData(playerData);
 
-        const playerPuuid = accountData.puuid;
-
-        // Fetch spectator data
-        const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`;
-        const spectatorData = await fetchApi(spectatorUrl, isNetlify, 'spectator');
-        if (!spectatorData) return;
-
-        // Handle spectator data
-        handleSpectatorData(spectatorData, playerPuuid);
-
+        console.log('Player Summary:', playerData); // Log para debugging
     } catch (error) {
-        console.error('Failed to fetch data:', error);
-        showMessage('Failed to fetch data.');
+        console.error('Failed to fetch player summary:', error);
+        showMessage('Failed to fetch player summary.');
     }
 };
 
-function handleSpectatorData(spectatorData, playerPuuid) {
-    const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
-    // Change Double Up mode based on gameQueueConfigId
-    if (isDoubleUp) {
-        if (!document.body.classList.contains('double-up')) {
-            toggleDoubleUpMode(); // Activate Double Up
-        }
-    } else {
-        if (document.body.classList.contains('double-up')) {
-            toggleDoubleUpMode(); // Deactivate Double Up
+// Función para mostrar los datos del jugador en un rectángulo
+function displayPlayerData(playerData) {
+    // Verificar si ya existe un contenedor
+    let container = document.getElementById('playerDataContainer');
+
+    if (!container) {
+        // Crear el contenedor del rectángulo si no existe
+        container = document.createElement('div');
+        container.id = 'playerDataContainer'; // Asignar un id único
+        container.style.border = '2px solid red'; // Borde rojo para testing
+        container.style.width = '100%'; // Ajustar al 100% del contenedor padre
+        container.style.height = '100px'; // Reducir la altura a la mitad
+        container.style.overflow = 'hidden'; // Asegurar que el contenido no desborde
+        container.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Fondo semitransparente
+        container.style.color = '#fff'; // Texto blanco
+        container.style.borderRadius = '8px';
+
+        // Agregar el contenedor al DOM, justo debajo del mensaje de error
+        const messageContainer = document.getElementById('messageContainer');
+        if (messageContainer) {
+            messageContainer.insertAdjacentElement('afterend', container);
+        } else {
+            console.error('messageContainer not found in the DOM.');
+            return; // Salir si no se encuentra el contenedor del mensaje
         }
     }
 
-    // Log participant Riot IDs
-    const participants = spectatorData.participants
-        .filter(participants => {
-            if (isDoubleUp) {
-                return true;
-            }
-            return participants.puuid !== playerPuuid;
-        });
+    // Mostrar un spinner de carga mientras se actualiza el contenido
+    container.innerHTML = `
+        <div class="loading-spinner" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+            <div style="width: 24px; height: 24px; border: 3px solid rgba(255, 255, 255, 0.3); border-top: 3px solid #fff; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        </div>
+    `;
 
-    // Update player names
-    updatePlayerNames(participants);
+    // Simular un pequeño retraso para mostrar el spinner (opcional)
+    setTimeout(() => {
+        // Actualizar el contenido del contenedor con los datos del jugador
+        container.innerHTML = `
+            <p><strong>Name:</strong> ${playerData.name}</p>
+            <p><strong>PUUID:</strong> ${playerData.puuid}</p>
+            <p><strong>Rank:</strong> ${playerData.rank_info.tier} ${playerData.rank_info.rank}</p>
+            <p><strong>LP:</strong> ${playerData.rank_info.lp}</p>
+            <p><strong>Last Game ID:</strong> ${playerData.last_game_id}</p>
+            <p><strong>Companion:</strong> ${playerData.companion.species}</p>
+        `;
+    }, 500); // Opcional: retraso de 500ms para mostrar el spinner
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
