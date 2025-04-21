@@ -373,6 +373,13 @@ const searchPlayer = async () => {
         return;
     }
 
+    // Mostrar el spinner global
+    const spinner = createLoadingSpinner();
+    const messageContainer = document.getElementById('messageContainer');
+    if (messageContainer) {
+        messageContainer.insertAdjacentElement('afterend', spinner);
+    }
+
     try {
         // Llamar a fetchPlayerSummary para obtener los datos del jugador
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
@@ -384,8 +391,21 @@ const searchPlayer = async () => {
     } catch (error) {
         console.error('Failed to fetch player summary:', error);
         showMessage('Failed to fetch player summary.');
+    } finally {
+        // Eliminar el spinner una vez que la llamada termine
+        spinner.remove();
     }
 };
+
+// Función para crear un spinner de carga
+function createLoadingSpinner() {
+    const spinner = document.createElement('div');
+    spinner.className = 'loading-spinner';
+    spinner.innerHTML = `
+        <div></div>
+    `;
+    return spinner;
+}
 
 // Función para mostrar los datos del jugador en un rectángulo
 function displayPlayerData(playerData) {
@@ -396,13 +416,7 @@ function displayPlayerData(playerData) {
         // Crear el contenedor del rectángulo si no existe
         container = document.createElement('div');
         container.id = 'playerDataContainer'; // Asignar un id único
-        container.style.border = '2px solid red'; // Borde rojo para testing
-        container.style.width = '100%'; // Ajustar al 100% del contenedor padre
-        container.style.height = '100px'; // Reducir la altura a la mitad
-        container.style.overflow = 'hidden'; // Asegurar que el contenido no desborde
-        container.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Fondo semitransparente
-        container.style.color = '#fff'; // Texto blanco
-        container.style.borderRadius = '8px';
+        container.className = 'player-data-container'; // Asignar la clase CSS
 
         // Agregar el contenedor al DOM, justo debajo del mensaje de error
         const messageContainer = document.getElementById('messageContainer');
@@ -414,12 +428,9 @@ function displayPlayerData(playerData) {
         }
     }
 
-    // Mostrar un spinner de carga mientras se actualiza el contenido
-    container.innerHTML = `
-        <div class="loading-spinner" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-            <div style="width: 24px; height: 24px; border: 3px solid rgba(255, 255, 255, 0.3); border-top: 3px solid #fff; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-        </div>
-    `;
+    // Mostrar el spinner de carga mientras se actualiza el contenido
+    container.innerHTML = '';
+    container.appendChild(createLoadingSpinner());
 
     // Simular un pequeño retraso para mostrar el spinner (opcional)
     setTimeout(() => {
