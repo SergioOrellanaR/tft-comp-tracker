@@ -1,5 +1,5 @@
-import { CONFIG, CDRAGON_URL } from './config.js';
-import { fetchPlayerSummary, CDragonBaseUrl } from './tftVersusHandler.js';
+import { CONFIG, CDRAGON_URL} from './config.js';
+import { fetchPlayerSummary, CDragonBaseUrl, getProfileIconUrl, getRankIconUrl } from './tftVersusHandler.js';
 
 let API_KEY;
 
@@ -439,7 +439,7 @@ const searchPlayer = async () => {
         // Fetch the player summary and show the spinner only during this call
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
         // displayPlayerData will overwrite the spinner from the same container
-        await createPlayerCard(playerData);
+        await createPlayerCard(playerData, server);
 
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
@@ -470,11 +470,6 @@ function createLoadingSpinner() {
     return spinner;
 }
 
-/**
- * Carga y aplica el fondo correspondiente al companion principal del jugador.
- * @param {Object} playerData - Datos del jugador.
- * @param {HTMLElement} container - Elemento contenedor donde se aplicará el background.
- */
 const loadMainCompanion = async (playerData, container) => {
     try {
         const response = await fetch(CDRAGON_URL.companionData);
@@ -508,11 +503,7 @@ const applyBackgroundStyles = (container, imgUrl) => {
     });
 };
 
-/**
- * Crea y muestra la tarjeta de datos del jugador.
- * @param {Object} playerData - Datos del jugador.
- */
-const createPlayerCard = async (playerData) => {
+const createPlayerCard = async (playerData, server) => {
     try {
         let container = document.getElementById('playerDataContainer');
         if (!container) {
@@ -527,22 +518,19 @@ const createPlayerCard = async (playerData) => {
                 return;
             }
         }
-        container.innerHTML = '';
-        // Uso de setTimeout para simular retardo, manteniendo async/await
-        await new Promise(resolve => setTimeout(resolve, 500));
-        container.innerHTML = `
-            <p><strong>Name:</strong> ${playerData.name}</p>
-            <p><strong>PUUID:</strong> ${playerData.puuid}</p>
-            <p><strong>Rank:</strong> ${playerData.rank_info.tier} ${playerData.rank_info.rank}</p>
-            <p><strong>LP:</strong> ${playerData.rank_info.lp}</p>
-            <p><strong>Last Game ID:</strong> ${playerData.last_game_id}</p>
-            <p><strong>Companion:</strong> ${playerData.companion.species}</p>
-        `;
         loadMainCompanion(playerData, container);
+        container.innerHTML = `
+            <p>${playerData.name} (${server})</p>
+            <p><img src="${getProfileIconUrl(playerData)}" alt="${playerData.profile_icon_id} profile icon"></p>
+            <p><img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon"></p>
+            <p>${playerData.rank_info.tier} ${playerData.rank_info.rank} ${playerData.rank_info.lp}</p>
+        `;
     } catch (error) {
         console.error('Error al crear la tarjeta de jugador:', error);
     }
 };
+
+
 
 function handleSpectatorData(spectatorData, playerPuuid) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;

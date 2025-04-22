@@ -86,3 +86,11 @@ export function CDragonBaseUrl(path)
 {
     return path.replace('/lol-game-data/assets/', CDRAGON_URL.base).toLowerCase();
 }
+
+export function getProfileIconUrl(playerData) {
+    return CDRAGON_URL.profileIcons + '/' + playerData.profile_icon_id + '.jpg';
+}
+
+export function getRankIconUrl(playerData) {
+    return CDRAGON_URL.rankedIcons + '/' + playerData.rank_info.tier.toLowerCase() + '.png';
+}

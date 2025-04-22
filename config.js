@@ -11,7 +11,8 @@ export const TFT_VERSUS_API_URL = {
 export const CDRAGON_URL = {
     base: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/',
     companionData: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/companions.json',
-
+    rankedIcons: 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/images',
+    profileIcons: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons',
 }
 
 export const CONFIG = {
@@ -58,4 +59,3 @@ export const CONFIG = {
         VN: "VN2"
     }
 };
-
