@@ -120,6 +120,16 @@ canvas {
 .item.player {
     width: 100%;
     flex: 1;
+    cursor: grab;
+}
+
+.item.player.dragging {
+    opacity: 0.5;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.item.player:active {
+    cursor: grabbing;
 }
 
 .selected {
