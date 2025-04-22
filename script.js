@@ -393,6 +393,7 @@ function handleApiError(response, callId) {
 const searchPlayer = async () => {
     const server = document.getElementById('serverSelector').value;
     const playerInput = document.getElementById('playerNameInput').value.trim();
+    const isNetlify = CONFIG.netlify;
 
     if (!playerInput) {
         showMessage('Please enter a player name.');
