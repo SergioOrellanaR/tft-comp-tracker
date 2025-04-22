@@ -500,14 +500,6 @@ th {
     position: relative;
 }
 
-.player-card .player-name {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
-}
-
 /* Estilos para el ícono de edición */
 .edit-icon {
     cursor: pointer;
@@ -552,7 +544,9 @@ th {
 
 /* Estilos para nombres de jugadores */
 .player-name {
-    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
 }
 
