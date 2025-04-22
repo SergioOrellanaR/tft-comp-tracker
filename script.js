@@ -120,6 +120,8 @@ function enableDragAndDrop() {
             } else {
                 playersContainer.insertBefore(dragging, afterElement);
             }
+
+            drawLines(); // Redibujar las líneas continuamente mientras se arrastra
         });
 
         player.addEventListener('drop', (e) => {
@@ -129,7 +131,12 @@ function enableDragAndDrop() {
         });
 
         player.addEventListener('dragend', () => {
-            player.classList.remove('dragging'); // Quitar la clase al terminar el arrastre
+            // Siempre redibujar las líneas al finalizar el arrastre
+            const dragging = document.querySelector('.dragging');
+            if (dragging) {
+                dragging.classList.remove('dragging'); // Quitar la clase si aún está presente
+            }
+            drawLines(); // Redibujar las líneas
         });
     });
 }
