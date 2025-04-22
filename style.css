@@ -565,6 +565,45 @@ th {
     text-align: center;
 }
 
+/* Estilos para el contenedor del jugador */
+#playerDataContainer {
+    border: 2px solid red; /* Borde rojo para testing */
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 100%; /* Ajustar al 100% del contenedor padre */
+    height: 100px; /* Reducir la altura a la mitad */
+    overflow: hidden; /* Asegurar que el contenido no desborde */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    color: #fff; /* Texto blanco */
+    border-radius: 8px;
+}
+
+/* Spinner de carga */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.loading-spinner div {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* =====================================================================
     Responsive layout
 ===================================================================== */
