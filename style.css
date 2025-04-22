@@ -35,20 +35,40 @@ button:hover {
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 #toggleDoubleUp:hover {
     background: #00c4d6;
 }
 
+/* Estilo para el contenedor #left */
 #left {
     width: 30%;
-    /* Aumentar el ancho del contenedor izquierdo */
     padding: 0.5rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.05); /* Fondo sutil */
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+/* Personalización del scrollbar */
+#left::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+}
+
+#left::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05); /* Fondo del track */
+}
+
+#left::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2); /* Color del thumb */
+    transition: background 0.3s ease; /* Transición suave */
+}
+
+#left::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4); /* Color más brillante al pasar el mouse */
 }
 
 #right {

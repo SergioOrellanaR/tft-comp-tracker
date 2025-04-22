@@ -52,6 +52,27 @@ const clearElement = (element) => {
     element.innerHTML = '';
 };
 
+// Función de throttling
+function throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function (...args) {
+        const context = this;
+        if (!lastRan) {
+            func.apply(context, args);
+            lastRan = Date.now();
+        } else {
+            clearTimeout(lastFunc);
+            lastFunc = setTimeout(function () {
+                if (Date.now() - lastRan >= limit) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                }
+            }, limit - (Date.now() - lastRan));
+        }
+    };
+}
+
 // Cargar datos de Units.csv
 const loadUnitImages = async () => {
     const data = await fetchCSV(CONFIG.routes.units);
@@ -101,6 +122,7 @@ function toggleDoubleUpMode() {
 
 function enableDragAndDrop() {
     const playerElements = document.querySelectorAll('.item.player');
+    const throttledDrawLines = throttle(drawLines, 50); // Limitar a 1 llamada cada 50ms
 
     playerElements.forEach(player => {
         player.setAttribute('draggable', true); // Hacer que los elementos sean arrastrables
@@ -122,7 +144,7 @@ function enableDragAndDrop() {
                 playersContainer.insertBefore(dragging, afterElement);
             }
 
-            drawLines(); // Redibujar las líneas continuamente mientras se arrastra
+            throttledDrawLines(); // Redibujar las líneas con throttling
         });
 
         player.addEventListener('drop', (e) => {
