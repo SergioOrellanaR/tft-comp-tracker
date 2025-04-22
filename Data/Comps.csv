@@ -1,6 +1,5 @@
 Comps,Tier,Estilo,Unit1,Unit2,Unit3
-Vayne reroll,S,rr6,Vayne,Jarvan IV,Zed
-TF Syndicate,S,rr6,Twisted Fate,Braum,Darius
+TF reroll,A,rr6,Twisted Fate,Braum,Darius
 Street Demon reroll,A,rr7,Rengar,Jinx,Neeko
 Brand Street Demon,S,Fast 8,Brand,Neeko,Samira
 Nitro Naafiri,A,rr6,Naafiri,Sejuani,Annie
@@ -10,7 +9,7 @@ MF Exotech,A,Fast 8,Miss Fortune,Zeri,Sejuani
 Vertical exotech,A,Fast 8,Zeri,Sejuani,Renekton
 Zed Cypher,S,Fast 8,Zed,Renekton,Zeri
 Vex/Zed Divinicorp,A,Fast 8,Zed,Vex,Senna
-Shaco Slayer,A,rr5,Shaco,Zed,Vayne
+Slayer rr,S,rr6,Jarvan,Zed,Vayne
 Vertical Anima Squad,A,Fast 8,Xayah,Leona,Aurora
 Fiddlesticks Bruiser,B,rr7,Fiddlesticks,Cho'Gath,Mordekaiser
 Veigar reroll,S,rr6,Veigar,Ziggs,Kobuko
@@ -19,5 +18,5 @@ Boombots,C,rr7,Kog'Maw,Cho'Gath,Urgot
 Aphelios Vanguard,A,Fast 8,Aphelios,Xayah,Leona
 Vertical Golden Ox,A,Fast 8,Aphelios,Annie,Viego
 Vexotech,S,Fast 8,Vex,Sejuani,Renekton
-Leblanc reroll,rr6,LeBlanc,Neeko,Yuumi
+Leblanc reroll,B,rr6,LeBlanc,Neeko,Yuumi
 HERO AUGMENT,B,rr5,Jax,Sylas,Vi
