@@ -567,7 +567,7 @@ function updateUnselectedChampionsTable() {
     links.forEach(link => {
         const compo = link.compo;
         const player = link.player;
-        const playerName = getPlayerId(player);
+        const playerName = getPlayerName(player);
         const playerColor = player.dataset.color;
         const unitIcons = compo.querySelectorAll('.unit-icons img');
 
@@ -683,23 +683,23 @@ function clearCanvasAndResetCompos() {
 function countLinksPerPlayer() {
     const counts = {};
     links.forEach(link => {
-        const playerId = getPlayerId(link.player);
-        counts[playerId] = (counts[playerId] || 0) + 1;
+        const playerName = getPlayerName(link.player);
+        counts[playerName] = (counts[playerName] || 0) + 1;
     });
     return counts;
 }
 
 function updateLineStyles(playerLinkCounts) {
     links.forEach(link => {
-        const playerId = getPlayerId(link.player);
-        const count = playerLinkCounts[playerId];
+        const playerName = getPlayerName(link.player);
+        const count = playerLinkCounts[playerName];
 
         if (count > 1) {
             link.dashed = true;
             link.manualDashed = true;
-            previousMultilines[playerId] = true;
+            previousMultilines[playerName] = true;
         } else {
-            if (previousMultilines[playerId]) {
+            if (previousMultilines[playerName]) {
                 link.manualDashed = false;
             }
 
@@ -710,7 +710,7 @@ function updateLineStyles(playerLinkCounts) {
                 delete link.manualDashed;
             }
 
-            previousMultilines[playerId] = false;
+            previousMultilines[playerName] = false;
         }
     });
 }
@@ -811,8 +811,8 @@ function updatePlayerColorBars() {
     });
 }
 
-function getPlayerId(playerElement) {
-    return playerElement.querySelector('span')?.innerText || playerElement.innerText;
+function getPlayerName(playerElement) {
+    return playerElement.querySelector('.player-name')?.textContent.trim() || playerElement.textContent.trim();
 }
 
 function getCenter(el) {
