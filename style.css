@@ -1,3 +1,6 @@
+/* =====================================================================
+    Global Reset y Estilos Base
+===================================================================== */
 * {
     box-sizing: border-box;
 }
@@ -16,6 +19,38 @@ body {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* =====================================================================
+    Botones y Elementos Interactivos
+===================================================================== */
+button {
+    padding: 8px;
+    background: #00eaff;
+    border: none;
+    border-radius: 4px;
+    color: #1c1c2b;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
@@ -41,44 +76,30 @@ button:hover {
     background: #00c4d6;
 }
 
-/* Estilo para el contenedor #left */
+/* =====================================================================
+    Contenedores Principales: #left, #right y #canvas-container
+===================================================================== */
+/* Players Container */
 #left {
+    width: 20%; /* O ajusta según prefieras */
+    padding: 0.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Comps Container */
+#right {
     width: 30%;
     padding: 0.5rem;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.05); /* Fondo sutil */
-    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 0;
 }
 
-/* Personalización del scrollbar */
-#left::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
-}
-
-#left::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05); /* Fondo del track */
-}
-
-#left::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2); /* Color del thumb */
-    transition: background 0.3s ease; /* Transición suave */
-}
-
-#left::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4); /* Color más brillante al pasar el mouse */
-}
-
-#right {
-    width: 20%;
-    padding: 0.5rem;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-}
-
+/* Canvas Container */
 #canvas-container {
     flex: 1;
     position: relative;
@@ -94,29 +115,9 @@ canvas {
     height: 100% !important;
 }
 
-.custom-file-upload {
-    display: inline-flex;
-    margin-top: 5px;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    background: rgba(255, 255, 255, 0.05);
-    /* más sutil */
-    border-radius: 8px;
-    cursor: pointer;
-    color: #00e0e0;
-    /* menos brillante */
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    /* más suave */
-    transition: background 0.2s ease;
-    font-size: 0.9rem;
-}
-
-.custom-file-upload:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
+/* =====================================================================
+    Elementos de Contenido: Items, Players, Comps y Tablas
+===================================================================== */
 .item {
     padding: 4px 6px;
     font-size: 0.75rem;
@@ -152,11 +153,13 @@ canvas {
     cursor: grabbing;
 }
 
+/* Selección */
 .selected {
     background-color: #555 !important;
     transform: scale(1.02);
 }
 
+/* Contenedor interno para los players */
 .player-container {
     display: flex;
     flex-direction: column;
@@ -170,18 +173,111 @@ canvas {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+/* Encabezado de tiers */
 .tier-header {
     font-weight: bold;
-    margin-top: 4px;
-    background: #444;
-    padding: 3px 6px;
-    border-radius: 4px;
+    background-color: rgba(72, 73, 74, 0.478);
+    padding: 4px 8px;
+    border-radius: 12px; /* Esquinas más redondeadas */
     text-align: center;
-    color: #ffd700;
-    font-size: 0.7rem;
+    color: #00eaff;
+    font-size: 0.75rem;
+    border: 1px solid #444;
 }
 
-h3 {
+/* Comps: Items estilo */
+.item.compo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1px 10px;
+    margin: 4px 0;
+    color: #ddd;
+    font-size: 0.7rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.item.compo:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.02);
+    cursor: pointer;
+    color: #fff;
+}
+
+.item.compo span:last-child {
+    opacity: 0.7;
+    font-size: 0.8em;
+}
+
+.unit-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.unit-icons img {
+    width: 28px;
+    height: 28px;
+    border-radius: 40%;
+}
+
+/* Tablas y Elementos de Campeones */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+}
+
+th {
+    background: rgba(0, 0, 0, 0.2);
+    color: #00eaff;
+}
+
+#unselectedChampionsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+#unselectedChampionsTable div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+}
+
+#unselectedChampionsTable div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+#unselectedChampionsTable div div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+/* Títulos y contenedores genéricos para tablas */
+.table-title {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -190,39 +286,43 @@ h3 {
     padding-bottom: 0.3em;
 }
 
-input[type="text"],
-input[type="file"] {
-    padding: 6px;
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.table-container div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+}
+
+.table-container div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.table-container div div img {
+    width: 40px;
+    height: 40px;
     border-radius: 4px;
-    border: none;
-    margin-top: 10px;
-    background-color: #222;
-    color: #fff;
-    font-size: 0.9rem;
+    object-fit: cover;
+    border: 2px solid transparent;
+    box-sizing: border-box;
 }
 
-button {
-    /* margin-top: 10px; */
-    padding: 8px;
-    background: #00eaff;
-    border: none;
-    border-radius: 4px;
-    color: #1c1c2b;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
+/* Ajuste para borde dinámico en imágenes */
+.table-container div div img[style*="border-image"] {
+    border-width: 4px;
 }
 
-#serverSelector {
-    min-width: 30px;
-}
-
-#playerNameInput {
-    flex: 1;
-}
-
-/* Estilo del contenedor del buscador */
+/* =====================================================================
+    Estilos para Buscador y Formulario
+===================================================================== */
 .search-bar {
     display: flex;
     flex-wrap: wrap;
@@ -234,20 +334,12 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 5px;
     height: auto;
-    /* Altura consistente para todos los elementos */
 }
 
 .server-selector {
     flex: 0 0 auto;
-    /* No crece, no colapsa, ocupa solo lo necesario */
 }
 
-.search-input {
-    flex: 1 1 auto;
-    /* Crece para ocupar el resto del espacio disponible */
-}
-
-/* Selector de servidor */
 .server-selector select {
     padding: 5px 8px;
     border: none;
@@ -257,10 +349,13 @@ button {
     font-size: 0.9rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
-    margin-left: 0px;
+    margin-left: 0;
 }
 
-/* Input de búsqueda */
+.search-input {
+    flex: 1 1 auto;
+}
+
 .search-input input {
     flex: 1;
     padding: 6px 10px;
@@ -270,19 +365,16 @@ button {
     color: #fff;
     font-size: 0.9rem;
     height: 100%;
-    /* Asegura que ocupe toda la altura del contenedor */
     transition: background 0.3s ease, transform 0.2s ease;
     position: relative;
-    margin-top: 0px;
+    margin-top: 0;
     width: 100%;
-    /* Ajusta en incrementos de 1px hasta que quede alineado */
 }
 
-/* Botón de búsqueda */
 .search-button {
     flex: 0 0 auto;
     max-width: 50px;
-    margin-top: 0px;
+    margin-top: 0;
     padding: 0 12px;
     background: linear-gradient(90deg, #00eaff, #4c6aff);
 }
@@ -291,12 +383,191 @@ button {
     background: linear-gradient(90deg, #00c4d6, #4c6aff);
 }
 
-/* Icono de búsqueda */
 .search-icon {
     font-size: 1.2rem;
 }
 
-/* Responsive layout */
+/* =====================================================================
+    Estilos para Core Items
+===================================================================== */
+#coreItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.core-item-button {
+    width: 30px;
+    height: 30px;
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    filter: grayscale(100%);
+}
+
+.core-item-button:hover {
+    transform: scale(1.1);
+}
+
+.core-item-button.active {
+    outline: 2px solid #808080;
+    outline-offset: 2px;
+    filter: none;
+}
+
+/* =====================================================================
+    Estilos para Items Container y Contador
+===================================================================== */
+.items-container {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 250px;
+    overflow: hidden;
+}
+
+.contested-counter {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff4c4c;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* =====================================================================
+    Colores según el Coste
+===================================================================== */
+.unit-cost-1 {
+    background: #808080;
+}
+
+.unit-cost-2 {
+    background: #4caf50;
+}
+
+.unit-cost-3 {
+    background: #2196f3;
+}
+
+.unit-cost-4 {
+    background: #9c27b0;
+}
+
+.unit-cost-5 {
+    background: #ffd700;
+}
+
+/* =====================================================================
+    Estilos Extra para Comps
+===================================================================== */
+.comp-info {
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+    min-width: 30%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.comp-style {
+    text-align: center;
+    font-style: italic;
+    width: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =====================================================================
+    Estilos para player cards
+===================================================================== */
+.player-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+/* Estilos para el ícono de edición */
+.edit-icon {
+    cursor: pointer;
+}
+
+/* Estilos para contenedor de equipo */
+.team-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+}
+
+/* Estilos para icono de equipo */
+.team-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    background-color: #1c1c2b;
+    cursor: pointer;
+    margin: 4px 0;
+}
+
+/* Estilos para input editable de nombres */
+.editable-input {
+    width: 100%;
+    border: 1px solid #444;
+    background-color: transparent;
+    color: #fff;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+/* Estilos para nombres de jugadores */
+.player-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#playerNameInput {
+    text-align: center;
+}
+
+/* =====================================================================
+    Responsive layout
+===================================================================== */
 @media (max-width: 768px) {
 
     html {
@@ -343,10 +614,8 @@ button {
         width: 100%;
         overflow-x: auto;
         display: block;
-        /* importante para que pueda romper fila si es necesario */
     }
 
-    /* Contenedor genérico para tablas */
     .table-container {
         display: flex;
         flex-direction: column;
@@ -357,7 +626,6 @@ button {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
         gap: 2px !important;
-        /* Espacio entre los íconos */
     }
 
     .table-container div div {
@@ -369,44 +637,45 @@ button {
         width: 30px !important;
         height: 30px !important;
         border-radius: 4px !important;
-        ;
         object-fit: cover;
         border: 0px solid transparent !important;
-        /* Asegurar que el borde sea visible */
         box-sizing: border-box !important;
     }
 
-    /* Ajustar el tamaño del borde dinámico */
     .table-container div div img[style*="border-image"] {
         border-width: 1px !important;
-        /* Asegurar que el borde sea proporcional */
     }
 
     .item.compo {
         flex-direction: column;
-        /* Cambiar a columna para móviles */
-        align-items: flex-end;
-        /* Alinear al inicio */
-        width: 100%;
-        /* Asegurar que ocupe todo el ancho */
+        align-items: center;
+    }
+
+    .comp-info {
+        text-align: center;
+        min-width: 10%;
+        text-overflow: ellipsis;
     }
 
     .unit-icons {
         display: none !important;
-        /* Ensure it takes precedence */
     }
 
     .items-container {
         display: none !important;
-        /* Ensure it takes precedence */
     }
-
 
     #coreItemsContainer {
         display: none !important;
         /* Ensure it takes precedence */
         ;
     }
+
+
+
+
+
+
 }
 
 /* Table (bottom right) */
