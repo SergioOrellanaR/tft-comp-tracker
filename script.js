@@ -898,7 +898,7 @@ function loadCSVData(csvText) {
             unitsInComp.forEach(unit => {
                 if (unit && unitImageMap[unit]) {
                     const img = document.createElement('img');
-                    img.src = `${unitImageMap[unit]}?w=30`;
+                    img.src = `${unitImageMap[unit]}?w=28`;
                     img.alt = unit;
                     unitIcons.appendChild(img);
                 }
@@ -924,10 +924,11 @@ function loadCSVData(csvText) {
             compStyle.style.fontSize = '0.9em';
             styleContainer.appendChild(compStyle);
 
-            div.appendChild(unitIcons);
+            
+            div.appendChild(styleContainer);
             div.appendChild(compInfo);
             div.appendChild(itemsContainer);
-            div.appendChild(styleContainer);
+            div.appendChild(unitIcons);
             div.onclick = () => select(div, 'compo');
             tiers[tier].push({ name: comp, element: div });
         }
@@ -1013,38 +1014,13 @@ function distanceToSegment(p, v, w) {
 function createCoreItemsButtons() {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.gap = '8px';
-    container.style.marginTop = '16px';
 
-    const maxRows = 2;
-    const itemsPerRow = Math.ceil(CONFIG.coreItems.length / maxRows);
-    let currentRow;
-
-    CONFIG.coreItems.forEach((item, index) => {
+    CONFIG.coreItems.forEach((item) => {
         const itemData = items.find(i => i.Item === item);
         if (itemData) {
-            if (index % itemsPerRow === 0) {
-                currentRow = document.createElement('div');
-                currentRow.style.display = 'flex';
-                currentRow.style.gap = '8px';
-                currentRow.style.justifyContent = 'center';
-                container.appendChild(currentRow);
-            }
-
             const button = document.createElement('button');
             button.className = 'core-item-button';
             button.style.backgroundImage = `url(${itemData.Url})`;
-            button.style.backgroundSize = 'contain';
-            button.style.backgroundRepeat = 'no-repeat';
-            button.style.backgroundPosition = 'center';
-            button.style.width = '40px';
-            button.style.height = '40px';
-            button.style.border = 'none';
-            button.style.borderRadius = '4px';
-            button.style.cursor = 'pointer';
-            button.style.filter = 'grayscale(100%)';
             button.title = itemData.Item;
 
             button.onclick = () => {
@@ -1052,13 +1028,14 @@ function createCoreItemsButtons() {
                 button.style.filter = isActive ? 'none' : 'grayscale(100%)';
 
                 document.querySelectorAll('.items-container').forEach(container => {
-                    const unitsInComp = Array.from(container.closest('.item.compo').querySelectorAll('.unit-icons img'))
-                        .map(img => img.alt);
+                    const unitsInComp = Array.from(
+                        container.closest('.item.compo').querySelectorAll('.unit-icons img')
+                    ).map(img => img.alt);
                     updateItemsContainer(container, unitsInComp);
                 });
             };
 
-            currentRow.appendChild(button);
+            container.appendChild(button);
         }
     });
 
