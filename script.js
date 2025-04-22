@@ -1,5 +1,5 @@
-import { CONFIG } from './config.js';
-import { fetchPlayerSummary } from './tftVersusHandler.js';
+import { CONFIG, CDRAGON_URL } from './config.js';
+import { fetchPlayerSummary, CDragonBaseUrl } from './tftVersusHandler.js';
 
 let API_KEY;
 
@@ -419,18 +419,27 @@ const searchPlayer = async () => {
     }
 
     // Mostrar el spinner global
-    const spinner = createLoadingSpinner();
+    
     const messageContainer = document.getElementById('messageContainer');
-    if (messageContainer) {
-        messageContainer.insertAdjacentElement('afterend', spinner);
-    }
+    
 
     try {
+        const spinner = createLoadingSpinner();
+        if (messageContainer) {
+            messageContainer.insertAdjacentElement('afterend', spinner);
+        }
         // Llamar a fetchPlayerSummary para obtener los datos del jugador
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
+        // Eliminar el spinner una vez que la llamada termine
+        spinner.remove();
+        
 
         // Mostrar los datos en un rectángulo
         displayPlayerData(playerData);
+
+        // Llamamos a la función para obtener e imprimir la data del companion
+        printCompanionData(playerData);
+
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
         if (!accountData) return;
@@ -444,12 +453,12 @@ const searchPlayer = async () => {
         handleSpectatorData(spectatorData, playerPuuid);
 
         console.log('Player Summary:', playerData); // Log para debugging
+
+        // Llamar a printCompanionData para obtener datos del companion
+        await printCompanionData(playerData);
     } catch (error) {
         console.error('Failed to fetch player summary:', error);
         showMessage('Failed to fetch player summary.');
-    } finally {
-        // Eliminar el spinner una vez que la llamada termine
-        spinner.remove();
     }
 };
 
@@ -486,7 +495,6 @@ function displayPlayerData(playerData) {
 
     // Mostrar el spinner de carga mientras se actualiza el contenido
     container.innerHTML = '';
-    container.appendChild(createLoadingSpinner());
 
     // Simular un pequeño retraso para mostrar el spinner (opcional)
     setTimeout(() => {
@@ -499,8 +507,10 @@ function displayPlayerData(playerData) {
             <p><strong>Last Game ID:</strong> ${playerData.last_game_id}</p>
             <p><strong>Companion:</strong> ${playerData.companion.species}</p>
         `;
-    }, 500); // Opcional: retraso de 500ms para mostrar el spinner
-function handleSpectatorData(spectatorData, playerPuuid) {
+    }, 500);
+}
+
+    function handleSpectatorData(spectatorData, playerPuuid) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
     if (isDoubleUp) {
         if (!document.body.classList.contains('double-up')) {
@@ -522,6 +532,27 @@ function handleSpectatorData(spectatorData, playerPuuid) {
 
     updatePlayerNames(participants);
 }
+
+async function printCompanionData(playerData) {
+    try {
+        const response = await fetch(CDRAGON_URL.companionData);
+        if (!response.ok) {
+            throw new Error('Error fetching companion data');
+        }
+        const companionData = await response.json();
+        // Buscar el objeto en companionData cuyo contentId sea igual a companion.content_id
+        const myCompanion = companionData.find(item => item.contentId === playerData.companion.content_id);
+        if (myCompanion) {
+            console.log('Companion data:', myCompanion);
+            // Pasar la propiedad loadoutsIcon a la función CDragonBaseUrl y printear su valor
+            const result = CDragonBaseUrl(myCompanion.loadoutsIcon);
+            console.log('CDragonBaseUrl result:', result);
+        } else {
+            console.log('No se encontró companion con content_id:', playerData.companion.content_id);
+        }
+    } catch (error) {
+        console.error('Error en printCompanionData:', error);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

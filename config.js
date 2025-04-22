@@ -8,6 +8,12 @@ export const TFT_VERSUS_API_URL = {
     specificMatch: TFT_VERSUS_API_BASE_URL+'/match'
 }
 
+export const CDRAGON_URL = {
+    base: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/',
+    companionData: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/companions.json',
+
+}
+
 export const CONFIG = {
     netlify: false,
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9'],

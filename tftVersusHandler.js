@@ -1,4 +1,4 @@
-import { TFT_VERSUS_API_URL } from './config.js';
+import { TFT_VERSUS_API_URL, CDRAGON_URL } from './config.js';
 
 /**
  * Función genérica para realizar solicitudes a la API de TFT Versus.
@@ -81,3 +81,8 @@ async function fetchSpecificMatch(matchId) {
     return await fetchFromTFTVersusAPI(url);
 }
 
+//DATA DRAGON HANDLER
+export function CDragonBaseUrl(path)
+{
+    return path.replace('/lol-game-data/assets/', CDRAGON_URL.base).toLowerCase();
+}
