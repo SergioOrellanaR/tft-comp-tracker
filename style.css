@@ -378,7 +378,7 @@ th {
 }
 
 /* =====================================================================
-   Estilos para Core Items
+    Estilos para Core Items
 ===================================================================== */
 #coreItemsContainer {
     display: flex;
@@ -411,7 +411,7 @@ th {
 }
 
 /* =====================================================================
-   Estilos para Items Container y Contador
+    Estilos para Items Container y Contador
 ===================================================================== */
 .items-container {
     display: flex;
@@ -483,6 +483,77 @@ th {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* =====================================================================
+    Estilos para player cards
+===================================================================== */
+.player-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.player-card .player-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+/* Estilos para el ícono de edición */
+.edit-icon {
+    cursor: pointer;
+}
+
+/* Estilos para contenedor de equipo */
+.team-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 8px;
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+}
+
+/* Estilos para icono de equipo */
+.team-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    background-color: #1c1c2b;
+    cursor: pointer;
+    margin: 4px 0;
+}
+
+/* Estilos para input editable de nombres */
+.editable-input {
+    width: 100%;
+    border: 1px solid #444;
+    background-color: transparent;
+    color: #fff;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
+
+/* Estilos para nombres de jugadores */
+.player-name {
+    display: block;
+    text-align: center;
 }
 
 /* =====================================================================
