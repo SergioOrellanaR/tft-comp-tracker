@@ -215,7 +215,13 @@ canvas {
 
 .unit-icons {
     display: flex;
-    gap: 2px;
+    gap: 8px;
+}
+
+.unit-icons img {
+    width: 28px;
+    height: 28px;
+    border-radius: 40%;
 }
 
 /* Tablas y Elementos de Campeones */
