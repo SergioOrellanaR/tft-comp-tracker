@@ -439,10 +439,7 @@ const searchPlayer = async () => {
         // Fetch the player summary and show the spinner only during this call
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
         // displayPlayerData will overwrite the spinner from the same container
-        displayPlayerData(playerData);
-
-        // Continue with companion data and etc.
-        await mainCompanionData(playerData);
+        await createPlayerCard(playerData);
 
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
@@ -473,34 +470,45 @@ function createLoadingSpinner() {
     return spinner;
 }
 
-// Función para mostrar los datos del jugador en un rectángulo
-function displayPlayerData(playerData) {
-    // Verificar si ya existe un contenedor
+// Agregar nueva función loadMainCompanion:
+async function loadMainCompanion(playerData, container) {
+    try {
+        const response = await fetch(CDRAGON_URL.companionData);
+        if (!response.ok) throw new Error('Error fetching companion data');
+        const companionData = await response.json();
+        const myCompanion = companionData.find(item => item.contentId === playerData.companion.content_id);
+        if (myCompanion) {
+            const result = CDragonBaseUrl(myCompanion.loadoutsIcon);
+            container.style.backgroundImage = `url(${result})`;
+            container.style.backgroundSize = 'cover';
+            container.style.backgroundRepeat = 'no-repeat';
+            container.style.backgroundPosition = 'center';
+            container.style.opacity = '0.4';
+        } else {
+            console.log('No se encontró companion con content_id:', playerData.companion.content_id);
+        }
+    } catch (error) {
+        console.error('Error en companion fetch:', error);
+    }
+}
+
+// Modificar la función createPlayerCard:
+async function createPlayerCard(playerData) {
     let container = document.getElementById('playerDataContainer');
-
     if (!container) {
-        // Crear el contenedor del rectángulo si no existe
         container = document.createElement('div');
-        container.id = 'playerDataContainer'; // Asignar un id único
-        container.className = 'player-data-container'; // Asignar la clase CSS
-
-        // Agregar el contenedor al DOM, justo debajo del mensaje de error
+        container.id = 'playerDataContainer';
+        container.className = 'player-data-container';
         const messageContainer = document.getElementById('messageContainer');
         if (messageContainer) {
             messageContainer.insertAdjacentElement('afterend', container);
-            console.log('Player data container created and added to DOM.');
         } else {
             console.error('messageContainer not found in the DOM.');
-            return; // Salir si no se encuentra el contenedor del mensaje
+            return;
         }
     }
-
-    // Mostrar el spinner de carga mientras se actualiza el contenido
     container.innerHTML = '';
-
-    // Simular un pequeño retraso para mostrar el spinner (opcional)
-    setTimeout(() => {
-        // Actualizar el contenido del contenedor con los datos del jugador
+    setTimeout(async () => {
         container.innerHTML = `
             <p><strong>Name:</strong> ${playerData.name}</p>
             <p><strong>PUUID:</strong> ${playerData.puuid}</p>
@@ -509,10 +517,11 @@ function displayPlayerData(playerData) {
             <p><strong>Last Game ID:</strong> ${playerData.last_game_id}</p>
             <p><strong>Companion:</strong> ${playerData.companion.species}</p>
         `;
+        loadMainCompanion(playerData, container);
     }, 500);
 }
 
-    function handleSpectatorData(spectatorData, playerPuuid) {
+function handleSpectatorData(spectatorData, playerPuuid) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
     if (isDoubleUp) {
         if (!document.body.classList.contains('double-up')) {
@@ -533,34 +542,6 @@ function displayPlayerData(playerData) {
         });
 
     updatePlayerNames(participants);
-}
-
-async function mainCompanionData(playerData) {
-    try {
-        const response = await fetch(CDRAGON_URL.companionData);
-        if (!response.ok) {
-            throw new Error('Error fetching companion data');
-        }
-        const companionData = await response.json();
-        // Buscar el objeto en companionData cuyo contentId sea igual a companion.content_id
-        const myCompanion = companionData.find(item => item.contentId === playerData.companion.content_id);
-        if (myCompanion) {
-            // Pasar la propiedad loadoutsIcon a la función CDragonBaseUrl y printear su valor
-            const result = CDragonBaseUrl(myCompanion.loadoutsIcon);
-            const container = document.getElementById('playerDataContainer');
-            if (container) {
-                container.style.backgroundImage = `url(${result})`;
-                container.style.backgroundSize = 'cover';
-                container.style.backgroundRepeat = 'no-repeat';
-                container.style.backgroundPosition = 'center';
-                container.style.opacity = '0.4';
-            }
-        } else {
-            console.log('No se encontró companion con content_id:', playerData.companion.content_id);
-        }
-    } catch (error) {
-        console.error('Error en mainCompanionData:', error);
-    }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
