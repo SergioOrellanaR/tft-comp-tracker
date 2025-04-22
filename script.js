@@ -202,6 +202,8 @@ function preloadPlayers() {
     });
 
     enableDragAndDrop(); // Habilitar drag & drop después de cargar los jugadores
+
+    updatePlayerColorBars(); // Llama una vez para establecer los color-bars fijos
 }
 
 function getDefaultNames(isDoubleUp) {
@@ -292,10 +294,14 @@ function createPlayerDiv(name, index, isDoubleUp) {
 
     const color = getPlayerColor(index, isDoubleUp);
     div.dataset.color = color;
-    div.style.borderLeft = `10px solid ${color}`;
 
+    // Asignar al span para que se centre el texto
     span.style.flex = '1';
-    div.append(span, editIcon);
+    span.style.textAlign = 'center';
+    span.style.width = '100%';
+
+    // Añadir el icono a la izquierda y el nombre a la derecha.
+    div.append(editIcon, span);
     div.onclick = () => select(div, 'player');
 
     return div;
@@ -807,24 +813,56 @@ function updateCompoColorBars() {
         if (!compoColorMap[id]) {
             compoColorMap[id] = { compo, colors: new Set() };
         }
-
         compoColorMap[id].colors.add(color);
     });
 
     Object.values(compoColorMap).forEach(({ compo, colors }) => {
         const colorArray = Array.from(colors);
         const part = 100 / colorArray.length;
-        const gradient = colorArray.map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`).join(', ');
-
+        const gradient = colorArray
+            .map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`)
+            .join(', ');
+            
         compo.style.position = 'relative';
-        const bar = compo.querySelector('.color-bar') || compo.appendChild(document.createElement('div'));
+        // Insertar la barra al inicio (lado izquierdo)
+        let bar = compo.querySelector('.color-bar');
+        if (!bar) {
+            bar = document.createElement('div');
+            compo.insertBefore(bar, compo.firstChild);
+        }
         bar.className = 'color-bar';
         Object.assign(bar.style, {
             position: 'absolute',
-            top: '0', right: '0',
-            width: '6px', height: '100%',
-            borderRadius: '0 6px 6px 0',
+            top: '0',
+            left: '0',
+            width: '6px',
+            height: '100%',
+            borderRadius: '6px 0 0 6px',
             background: `linear-gradient(to bottom, ${gradient})`
+        });
+    });
+}
+
+function updatePlayerColorBars() {
+    const players = document.querySelectorAll('.item.player');
+    players.forEach(player => {
+        player.style.position = 'relative';
+        // Quitar cualquier estilo previo que simule una barra a la izquierda
+        player.style.borderLeft = 'none';
+        let bar = player.querySelector('.color-bar');
+        if (!bar) {
+            bar = document.createElement('div');
+            player.appendChild(bar);
+        }
+        bar.className = 'color-bar';
+        Object.assign(bar.style, {
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            width: '6px',
+            height: '100%',
+            borderRadius: '0 6px 6px 0',
+            background: player.dataset.color || 'transparent'
         });
     });
 }
@@ -836,11 +874,19 @@ function getPlayerId(playerElement) {
 function getCenter(el) {
     const rect = el.getBoundingClientRect();
     const container = canvas.getBoundingClientRect();
-    const isPlayer = el.classList.contains('player');
-    return {
-        x: isPlayer ? rect.left - container.left : rect.right - container.left,
-        y: rect.top + rect.height / 2 - container.top
-    };
+    if (el.classList.contains('player')) {
+        // Players en la izquierda: conecta en el borde derecho (resta 6px para la barra)
+        return {
+            x: rect.right - container.left - 6,
+            y: rect.top + rect.height / 2 - container.top
+        };
+    } else if (el.classList.contains('compo')) {
+        // Compos en la derecha: conecta en el borde izquierdo (suma 6px para la barra)
+        return {
+            x: rect.left - container.left + 6,
+            y: rect.top + rect.height / 2 - container.top
+        };
+    }
 }
 
 function select(el, type) {

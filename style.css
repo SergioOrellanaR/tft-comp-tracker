@@ -1,3 +1,6 @@
+/* =====================================================================
+   Global Reset y Estilos Base
+===================================================================== */
 * {
     box-sizing: border-box;
 }
@@ -16,6 +19,21 @@ body {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+}
+
+/* =====================================================================
+   Botones y Elementos Interactivos
+===================================================================== */
+button {
+    padding: 8px;
+    background: #00eaff;
+    border: none;
+    border-radius: 4px;
+    color: #1c1c2b;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
@@ -41,7 +59,10 @@ button:hover {
     background: #00c4d6;
 }
 
-/* Nuevo #left (contendrá Players y buscador) */
+/* =====================================================================
+   Contenedores Principales: #left, #right y #canvas-container
+===================================================================== */
+/* Players Container */
 #left {
     width: 20%; /* O ajusta según prefieras */
     padding: 0.5rem;
@@ -50,25 +71,25 @@ button:hover {
     flex-direction: column;
 }
 
-/* Personalización del scrollbar */
+/* Scrollbar personalizado para #left */
 #left::-webkit-scrollbar {
-    width: 8px; /* Ancho del scrollbar */
+    width: 8px;
 }
 
 #left::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05); /* Fondo del track */
+    background: rgba(255, 255, 255, 0.05);
 }
 
 #left::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2); /* Color del thumb */
-    transition: background 0.3s ease; /* Transición suave */
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
 }
 
 #left::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4); /* Color más brillante al pasar el mouse */
+    background: rgba(255, 255, 255, 0.4);
 }
 
-/* Nuevo #right (contendrá Comps) */
+/* Comps Container */
 #right {
     width: 30%;
     padding: 0.5rem;
@@ -76,8 +97,10 @@ button:hover {
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 0;
 }
 
+/* Canvas Container */
 #canvas-container {
     flex: 1;
     position: relative;
@@ -93,29 +116,9 @@ canvas {
     height: 100% !important;
 }
 
-.custom-file-upload {
-    display: inline-flex;
-    margin-top: 5px;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    background: rgba(255, 255, 255, 0.05);
-    /* más sutil */
-    border-radius: 8px;
-    cursor: pointer;
-    color: #00e0e0;
-    /* menos brillante */
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    /* más suave */
-    transition: background 0.2s ease;
-    font-size: 0.9rem;
-}
-
-.custom-file-upload:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
+/* =====================================================================
+   Elementos de Contenido: Items, Players, Comps y Tablas
+===================================================================== */
 .item {
     padding: 4px 6px;
     font-size: 0.75rem;
@@ -151,11 +154,13 @@ canvas {
     cursor: grabbing;
 }
 
+/* Selección */
 .selected {
     background-color: #555 !important;
     transform: scale(1.02);
 }
 
+/* Contenedor interno para los players */
 .player-container {
     display: flex;
     flex-direction: column;
@@ -169,6 +174,7 @@ canvas {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+/* Encabezado de tiers */
 .tier-header {
     font-weight: bold;
     margin-top: 4px;
@@ -180,7 +186,88 @@ canvas {
     font-size: 0.7rem;
 }
 
-h3 {
+/* Comps: Items estilo */
+.item.compo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1px 10px;
+    margin: 4px 0;
+    color: #ddd;
+    font-size: 0.7rem;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.item.compo:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.02);
+    cursor: pointer;
+    color: #fff;
+}
+
+.item.compo span:last-child {
+    opacity: 0.7;
+    font-size: 0.8em;
+}
+
+/* Tablas y Elementos de Campeones */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+}
+
+th {
+    background: rgba(0, 0, 0, 0.2);
+    color: #00eaff;
+}
+
+#unselectedChampionsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+#unselectedChampionsTable div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+}
+
+#unselectedChampionsTable div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+#unselectedChampionsTable div div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+/* Títulos y contenedores genéricos para tablas */
+.table-title {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -189,39 +276,43 @@ h3 {
     padding-bottom: 0.3em;
 }
 
-input[type="text"],
-input[type="file"] {
-    padding: 6px;
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.table-container div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+}
+
+.table-container div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.table-container div div img {
+    width: 40px;
+    height: 40px;
     border-radius: 4px;
-    border: none;
-    margin-top: 10px;
-    background-color: #222;
-    color: #fff;
-    font-size: 0.9rem;
+    object-fit: cover;
+    border: 2px solid transparent;
+    box-sizing: border-box;
 }
 
-button {
-    /* margin-top: 10px; */
-    padding: 8px;
-    background: #00eaff;
-    border: none;
-    border-radius: 4px;
-    color: #1c1c2b;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
+/* Ajuste para borde dinámico en imágenes */
+.table-container div div img[style*="border-image"] {
+    border-width: 4px;
 }
 
-#serverSelector {
-    min-width: 30px;
-}
-
-#playerNameInput {
-    flex: 1;
-}
-
-/* Estilo del contenedor del buscador */
+/* =====================================================================
+   Estilos para Buscador y Formulario
+===================================================================== */
 .search-bar {
     display: flex;
     flex-wrap: wrap;
@@ -233,20 +324,12 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
     height: auto;
-    /* Altura consistente para todos los elementos */
 }
 
 .server-selector {
     flex: 0 0 auto;
-    /* No crece, no colapsa, ocupa solo lo necesario */
 }
 
-.search-input {
-    flex: 1 1 auto;
-    /* Crece para ocupar el resto del espacio disponible */
-}
-
-/* Selector de servidor */
 .server-selector select {
     padding: 5px 8px;
     border: none;
@@ -256,10 +339,13 @@ button {
     font-size: 0.9rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
-    margin-left: 0px;
+    margin-left: 0;
 }
 
-/* Input de búsqueda */
+.search-input {
+    flex: 1 1 auto;
+}
+
 .search-input input {
     flex: 1;
     padding: 6px 10px;
@@ -269,19 +355,16 @@ button {
     color: #fff;
     font-size: 0.9rem;
     height: 100%;
-    /* Asegura que ocupe toda la altura del contenedor */
     transition: background 0.3s ease, transform 0.2s ease;
     position: relative;
-    margin-top: 0px;
+    margin-top: 0;
     width: 100%;
-    /* Ajusta en incrementos de 1px hasta que quede alineado */
 }
 
-/* Botón de búsqueda */
 .search-button {
     flex: 0 0 auto;
     max-width: 50px;
-    margin-top: 0px;
+    margin-top: 0;
     padding: 0 12px;
     background: linear-gradient(90deg, #00eaff, #4c6aff);
 }
@@ -290,12 +373,121 @@ button {
     background: linear-gradient(90deg, #00c4d6, #4c6aff);
 }
 
-/* Icono de búsqueda */
 .search-icon {
     font-size: 1.2rem;
 }
 
-/* Responsive layout */
+/* =====================================================================
+   Estilos para Core Items
+===================================================================== */
+#coreItemsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.core-item-button {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: grayscale(100%);
+}
+
+.core-item-button:hover {
+    transform: scale(1.1);
+}
+
+.core-item-button.active {
+    outline: 2px solid #808080;
+    outline-offset: 2px;
+    filter: none;
+}
+
+/* =====================================================================
+   Estilos para Items Container y Contador
+===================================================================== */
+.items-container {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 250px;
+    overflow: hidden;
+}
+
+.contested-counter {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff4c4c;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* =====================================================================
+   Colores según el Coste
+===================================================================== */
+.unit-cost-1 {
+    background: #808080;
+}
+
+.unit-cost-2 {
+    background: #4caf50;
+}
+
+.unit-cost-3 {
+    background: #2196f3;
+}
+
+.unit-cost-4 {
+    background: #9c27b0;
+}
+
+.unit-cost-5 {
+    background: #ffd700;
+}
+
+/* =====================================================================
+   Estilos Extra para Comps
+===================================================================== */
+.comp-info {
+    flex: 1;
+    text-align: left;
+    margin-left: 8px;
+    min-width: 40%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.comp-style {
+    text-align: center;
+    font-style: italic;
+    width: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =====================================================================
+   Responsive layout
+===================================================================== */
 @media (max-width: 768px) {
 
     html {
@@ -342,10 +534,8 @@ button {
         width: 100%;
         overflow-x: auto;
         display: block;
-        /* importante para que pueda romper fila si es necesario */
     }
 
-    /* Contenedor genérico para tablas */
     .table-container {
         display: flex;
         flex-direction: column;
@@ -356,7 +546,6 @@ button {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
         gap: 2px !important;
-        /* Espacio entre los íconos */
     }
 
     .table-container div div {
@@ -368,327 +557,30 @@ button {
         width: 30px !important;
         height: 30px !important;
         border-radius: 4px !important;
-        ;
         object-fit: cover;
         border: 0px solid transparent !important;
-        /* Asegurar que el borde sea visible */
         box-sizing: border-box !important;
     }
 
-    /* Ajustar el tamaño del borde dinámico */
     .table-container div div img[style*="border-image"] {
         border-width: 1px !important;
-        /* Asegurar que el borde sea proporcional */
     }
 
     .item.compo {
         flex-direction: column;
-        /* Cambiar a columna para móviles */
         align-items: flex-end;
-        /* Alinear al inicio */
         width: 100%;
-        /* Asegurar que ocupe todo el ancho */
     }
 
     .unit-icons {
         display: none !important;
-        /* Ensure it takes precedence */
     }
 
     .items-container {
         display: none !important;
-        /* Ensure it takes precedence */
     }
-
 
     #coreItemsContainer {
         display: none !important;
-        /* Ensure it takes precedence */
-        ;
     }
-
-
-
-
-
-
-}
-
-/* Table (bottom right) */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.85rem;
-    border-radius: 10px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-th,
-td {
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: left;
-}
-
-th {
-    background: rgba(0, 0, 0, 0.2);
-    color: #00eaff;
-}
-
-
-.item.compo {
-    display: flex;
-    align-items: center;
-    /* Alinear verticalmente los elementos */
-    justify-content: space-between;
-    /* Espaciado entre elementos */
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 1px 10px;
-    margin: 4px 0;
-    color: #ddd;
-    font-size: 0.7rem;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
-}
-
-.item.compo:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: scale(1.02);
-    cursor: pointer;
-    color: #fff;
-}
-
-.item.compo span:last-child {
-    opacity: 0.7;
-    font-size: 0.8em;
-}
-
-#right {
-    margin-left: 0;
-}
-
-.unit-icons {
-    display: flex;
-    gap: 4px;
-    /* Espacio entre los íconos */
-    margin-right: 8px;
-    display: n;
-}
-
-.unit-icons img {
-    width: 22px;
-    height: 22px;
-    border-radius: 4px;
-    object-fit: cover;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-}
-
-/* Estilos para la tabla de campeones no seleccionados */
-#unselectedChampionsTable {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 1rem;
-}
-
-#unselectedChampionsTable div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    gap: 8px;
-}
-
-#unselectedChampionsTable div div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-}
-
-#unselectedChampionsTable div div img {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-sizing: border-box;
-}
-
-/* Títulos genéricos para tablas */
-.table-title {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #00eaff;
-    border-bottom: 1px solid #555;
-    padding-bottom: 0.3em;
-}
-
-/* Contenedor genérico para tablas */
-.table-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 1rem;
-}
-
-.table-container div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    gap: 8px;
-}
-
-.table-container div div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-}
-
-.table-container div div img {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    object-fit: cover;
-    border: 2px solid transparent;
-    /* Asegurar que el borde sea visible */
-    box-sizing: border-box;
-}
-
-/* Ajustar el tamaño del borde dinámico */
-.table-container div div img[style*="border-image"] {
-    border-width: 4px;
-    /* Asegurar que el borde sea proporcional */
-}
-
-/* Colores según el coste */
-.unit-cost-1 {
-    background: #808080;
-    /* Gris */
-}
-
-.unit-cost-2 {
-    background: #4caf50;
-    /* Verde */
-}
-
-.unit-cost-3 {
-    background: #2196f3;
-    /* Azul */
-}
-
-.unit-cost-4 {
-    background: #9c27b0;
-    /* Morado */
-}
-
-.unit-cost-5 {
-    background: #ffd700;
-    /* Dorado */
-}
-
-.comp-info {
-    flex: 1;
-    /* Permite que ocupe el espacio restante */
-    text-align: left;
-    /* Alinear el texto a la izquierda */
-    margin-left: 8px;
-    /* Espacio entre unit-icons y comp-info */
-    min-width: 40%;
-    /* Limitar el ancho máximo al 40% del contenedor padre */
-    overflow: hidden;
-    /* Ocultar contenido que exceda el tamaño */
-    text-overflow: ellipsis;
-    /* Mostrar "..." si el texto es demasiado largo */
-    white-space: nowrap;
-    /* Evitar que el texto se envuelva */
-}
-
-.comp-style {
-    text-align: center;
-    font-style: italic;
-    width: 40px;
-    /* Ancho fijo para garantizar alineación */
-    white-space: nowrap;
-    /* Evitar que el texto se envuelva */
-    overflow: hidden;
-    /* Ocultar texto que exceda el ancho */
-    text-overflow: ellipsis;
-    /* Mostrar "..." si el texto es demasiado largo */
-}
-
-/* Core Items Container */
-#coreItemsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
-}
-
-/* CSS for core-item-button */
-.core-item-button {
-    width: 40px;
-    height: 40px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s ease, filter 0.2s ease;
-    filter: grayscale(100%);
-    /* Blanco y negro por defecto */
-}
-
-/* Colorear el ítem al pasar el mouse */
-.core-item-button:hover {
-    transform: scale(1.1);
-}
-
-/* Estado activo (seleccionado) */
-.core-item-button.active {
-    outline: 2px solid #808080;
-    /* Verde */
-    outline-offset: 2px;
-    filter: none;
-    /* A color si está activo */
-}
-
-/* Items Container */
-.items-container {
-    display: flex;
-    gap: 4px;
-    /* Espacio entre los ítems */
-    justify-content: flex-start;
-    /* Alinear los ítems al inicio (izquierda) */
-    align-items: center;
-    /* Centrar los ítems verticalmente */
-    width: 250px;
-    /* Tamaño fijo del contenedor */
-    overflow: hidden;
-    /* Ocultar contenido que exceda el tamaño */
-}
-
-/* Contador de jugadores en unidades heavily contested */
-.contested-counter {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: #ff4c4c;
-    /* Color rojo para destacar */
-    color: #fff;
-    font-size: 0.7rem;
-    font-weight: bold;
-    width: 18px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    /* Forma circular */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: 2;
 }
