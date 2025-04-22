@@ -99,6 +99,64 @@ function toggleDoubleUpMode() {
     resetPlayers();
 }
 
+function enableDragAndDrop() {
+    const playerElements = document.querySelectorAll('.item.player');
+
+    playerElements.forEach(player => {
+        player.setAttribute('draggable', true); // Hacer que los elementos sean arrastrables
+
+        player.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', player.dataset.index); // Guardar el índice del jugador arrastrado
+            player.classList.add('dragging'); // Agregar clase para estilos visuales
+        });
+
+        player.addEventListener('dragover', (e) => {
+            e.preventDefault(); // Permitir el drop
+            const dragging = document.querySelector('.dragging');
+            const playersContainer = document.getElementById('players');
+            const afterElement = getDragAfterElement(playersContainer, e.clientY);
+
+            if (afterElement == null) {
+                playersContainer.appendChild(dragging);
+            } else {
+                playersContainer.insertBefore(dragging, afterElement);
+            }
+
+            drawLines(); // Redibujar las líneas continuamente mientras se arrastra
+        });
+
+        player.addEventListener('drop', (e) => {
+            e.preventDefault();
+            player.classList.remove('dragging'); // Quitar la clase al soltar
+            drawLines(); // Redibujar las líneas después de soltar
+        });
+
+        player.addEventListener('dragend', () => {
+            // Siempre redibujar las líneas al finalizar el arrastre
+            const dragging = document.querySelector('.dragging');
+            if (dragging) {
+                dragging.classList.remove('dragging'); // Quitar la clase si aún está presente
+            }
+            drawLines(); // Redibujar las líneas
+        });
+    });
+}
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.item.player:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
 function preloadPlayers() {
     const isDoubleUp = document.body.classList.contains('double-up');
     const defaultNames = getDefaultNames(isDoubleUp);
@@ -121,6 +179,8 @@ function preloadPlayers() {
             playersContainer.appendChild(playerDiv);
         }
     });
+
+    enableDragAndDrop(); // Habilitar drag & drop después de cargar los jugadores
 }
 
 function getDefaultNames(isDoubleUp) {
