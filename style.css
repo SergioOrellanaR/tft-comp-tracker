@@ -21,6 +21,23 @@ body {
     overflow-x: auto;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
 /* =====================================================================
    Botones y Elementos Interactivos
 ===================================================================== */
@@ -69,24 +86,6 @@ button:hover {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-}
-
-/* Scrollbar personalizado para #left */
-#left::-webkit-scrollbar {
-    width: 8px;
-}
-
-#left::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-#left::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease;
-}
-
-#left::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4);
 }
 
 /* Comps Container */
@@ -551,7 +550,7 @@ th {
 }
 
 /* =====================================================================
-   Responsive layout
+    Responsive layout
 ===================================================================== */
 @media (max-width: 768px) {
 
