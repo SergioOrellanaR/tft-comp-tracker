@@ -470,45 +470,66 @@ function createLoadingSpinner() {
     return spinner;
 }
 
-// Agregar nueva función loadMainCompanion:
-async function loadMainCompanion(playerData, container) {
+/**
+ * Carga y aplica el fondo correspondiente al companion principal del jugador.
+ * @param {Object} playerData - Datos del jugador.
+ * @param {HTMLElement} container - Elemento contenedor donde se aplicará el background.
+ */
+const loadMainCompanion = async (playerData, container) => {
     try {
         const response = await fetch(CDRAGON_URL.companionData);
         if (!response.ok) throw new Error('Error fetching companion data');
         const companionData = await response.json();
         const myCompanion = companionData.find(item => item.contentId === playerData.companion.content_id);
-        if (myCompanion) {
-            const result = CDragonBaseUrl(myCompanion.loadoutsIcon);
-            container.style.backgroundImage = `url(${result})`;
-            container.style.backgroundSize = 'cover';
-            container.style.backgroundRepeat = 'no-repeat';
-            container.style.backgroundPosition = 'center';
-            container.style.opacity = '0.4';
-        } else {
-            console.log('No se encontró companion con content_id:', playerData.companion.content_id);
+        if (!myCompanion) {
+            console.warn('No se encontró companion con content_id:', playerData.companion.content_id);
+            return;
         }
+        const imgUrl = CDragonBaseUrl(myCompanion.loadoutsIcon);
+        // Se encapsula la asignación de estilos en una función auxiliar
+        applyBackgroundStyles(container, imgUrl);
     } catch (error) {
         console.error('Error en companion fetch:', error);
     }
-}
+};
 
-// Modificar la función createPlayerCard:
-async function createPlayerCard(playerData) {
-    let container = document.getElementById('playerDataContainer');
-    if (!container) {
-        container = document.createElement('div');
-        container.id = 'playerDataContainer';
-        container.className = 'player-data-container';
-        const messageContainer = document.getElementById('messageContainer');
-        if (messageContainer) {
-            messageContainer.insertAdjacentElement('afterend', container);
-        } else {
-            console.error('messageContainer not found in the DOM.');
-            return;
+/**
+ * Aplica estilos de background a un contenedor.
+ * @param {HTMLElement} container - Elemento contenedor.
+ * @param {string} imgUrl - URL de la imagen a usar.
+ */
+const applyBackgroundStyles = (container, imgUrl) => {
+    Object.assign(container.style, {
+        backgroundImage: `url(${imgUrl})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        opacity: '0.4'
+    });
+};
+
+/**
+ * Crea y muestra la tarjeta de datos del jugador.
+ * @param {Object} playerData - Datos del jugador.
+ */
+const createPlayerCard = async (playerData) => {
+    try {
+        let container = document.getElementById('playerDataContainer');
+        if (!container) {
+            container = document.createElement('div');
+            container.id = 'playerDataContainer';
+            container.className = 'player-data-container';
+            const msgContainer = document.getElementById('messageContainer');
+            if (msgContainer) {
+                msgContainer.insertAdjacentElement('afterend', container);
+            } else {
+                console.error('messageContainer not found in the DOM.');
+                return;
+            }
         }
-    }
-    container.innerHTML = '';
-    setTimeout(async () => {
+        container.innerHTML = '';
+        // Uso de setTimeout para simular retardo, manteniendo async/await
+        await new Promise(resolve => setTimeout(resolve, 500));
         container.innerHTML = `
             <p><strong>Name:</strong> ${playerData.name}</p>
             <p><strong>PUUID:</strong> ${playerData.puuid}</p>
@@ -518,8 +539,10 @@ async function createPlayerCard(playerData) {
             <p><strong>Companion:</strong> ${playerData.companion.species}</p>
         `;
         loadMainCompanion(playerData, container);
-    }, 500);
-}
+    } catch (error) {
+        console.error('Error al crear la tarjeta de jugador:', error);
+    }
+};
 
 function handleSpectatorData(spectatorData, playerPuuid) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
@@ -963,6 +986,56 @@ const resetPlayers = () => {
     preloadPlayers();
 };
 
+// Nueva función auxiliar para crear el elemento de composición
+function createCompoElement({ comp, index, estilo, units }) {
+    const div = document.createElement('div');
+    div.className = 'item compo';
+    div.dataset.id = 'compo-' + index;
+    
+    // Contenedor de iconos de unidades
+    const unitIcons = document.createElement('div');
+    unitIcons.className = 'unit-icons';
+    units.forEach(unit => {
+        if (unit && unitImageMap[unit]) {
+            const img = document.createElement('img');
+            img.src = `${unitImageMap[unit]}?w=28`;
+            img.alt = unit;
+            unitIcons.appendChild(img);
+        }
+    });
+    
+    // Contenedor de información de la composición
+    const compInfo = document.createElement('div');
+    compInfo.className = 'comp-info';
+    const compName = document.createElement('span');
+    compName.textContent = comp;
+    compName.style.fontSize = '0.9rem';
+    compName.style.opacity = '0.75';
+    compName.style.color = 'white';
+    compInfo.appendChild(compName);
+    
+    // Contenedores de items y estilo
+    const itemsContainer = document.createElement('div');
+    itemsContainer.className = 'items-container';
+    const styleContainer = document.createElement('div');
+    styleContainer.className = 'comp-style';
+    const compStyle = document.createElement('span');
+    compStyle.textContent = estilo;
+    compStyle.style.opacity = '0.5';
+    compStyle.style.fontSize = '0.9em';
+    styleContainer.appendChild(compStyle);
+    
+    // Agregar todos los contenedores al elemento compo
+    div.appendChild(styleContainer);
+    div.appendChild(compInfo);
+    div.appendChild(itemsContainer);
+    div.appendChild(unitIcons);
+    div.onclick = () => select(div, 'compo');
+    
+    return div;
+}
+
+// Refactorización de loadCSVData utilizando la función auxiliar
 function loadCSVData(csvText) {
     const lines = csvText.split(/\r?\n/);
     compsContainer.innerHTML = '';
@@ -972,49 +1045,13 @@ function loadCSVData(csvText) {
         if (index === 0 || !line.trim()) return;
         const [comp, tier, estilo, unit1, unit2, unit3] = line.split(',').map(x => x.trim());
         if (tiers[tier]) {
-            const div = document.createElement('div');
-            div.className = 'item compo';
-            div.dataset.id = 'compo-' + index;
-
-            const unitIcons = document.createElement('div');
-            unitIcons.className = 'unit-icons';
-            const unitsInComp = [unit1, unit2, unit3];
-            unitsInComp.forEach(unit => {
-                if (unit && unitImageMap[unit]) {
-                    const img = document.createElement('img');
-                    img.src = `${unitImageMap[unit]}?w=28`;
-                    img.alt = unit;
-                    unitIcons.appendChild(img);
-                }
+            const compoElement = createCompoElement({
+                comp,
+                index,
+                estilo,
+                units: [unit1, unit2, unit3]
             });
-
-            const compInfo = document.createElement('div');
-            compInfo.className = 'comp-info';
-            const compName = document.createElement('span');
-            compName.textContent = comp;
-            compName.style.fontSize = '0.9rem';
-            compName.style.opacity = '0.75';
-            compName.style.color = 'white';
-
-            compInfo.appendChild(compName);
-
-            const itemsContainer = document.createElement('div');
-            itemsContainer.className = 'items-container';
-            const styleContainer = document.createElement('div');
-            styleContainer.className = 'comp-style';
-            const compStyle = document.createElement('span');
-            compStyle.textContent = estilo;
-            compStyle.style.opacity = '0.5';
-            compStyle.style.fontSize = '0.9em';
-            styleContainer.appendChild(compStyle);
-
-            
-            div.appendChild(styleContainer);
-            div.appendChild(compInfo);
-            div.appendChild(itemsContainer);
-            div.appendChild(unitIcons);
-            div.onclick = () => select(div, 'compo');
-            tiers[tier].push({ name: comp, element: div });
+            tiers[tier].push({ name: comp, element: compoElement });
         }
     });
 
