@@ -392,6 +392,12 @@ function handleApiError(response, callId) {
 }
 
 const searchPlayer = async () => {
+    // Remove any existing playerDataContainer
+    const existingContainer = document.getElementById('playerDataContainer');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+
     const server = document.getElementById('serverSelector').value;
     const playerInput = document.getElementById('playerNameInput').value.trim();
     const isNetlify = CONFIG.netlify;
@@ -418,27 +424,25 @@ const searchPlayer = async () => {
         return;
     }
 
-    // Mostrar el spinner global
-    
+    // Create playerDataContainer and show spinner (spinner occupies the same space)
+    let playerDataContainer = document.createElement('div');
+    playerDataContainer.id = 'playerDataContainer';
+    playerDataContainer.className = 'player-data-container';
     const messageContainer = document.getElementById('messageContainer');
-    
+    if (messageContainer) {
+        messageContainer.insertAdjacentElement('afterend', playerDataContainer);
+    }
+    playerDataContainer.innerHTML = '';
+    playerDataContainer.appendChild(createLoadingSpinner());
 
     try {
-        const spinner = createLoadingSpinner();
-        if (messageContainer) {
-            messageContainer.insertAdjacentElement('afterend', spinner);
-        }
-        // Llamar a fetchPlayerSummary para obtener los datos del jugador
+        // Fetch the player summary and show the spinner only during this call
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
-        // Eliminar el spinner una vez que la llamada termine
-        spinner.remove();
-        
-
-        // Mostrar los datos en un rectángulo
+        // displayPlayerData will overwrite the spinner from the same container
         displayPlayerData(playerData);
 
-        // Llamamos a la función para obtener e imprimir la data del companion
-        printCompanionData(playerData);
+        // Continue with companion data and etc.
+        await mainCompanionData(playerData);
 
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
@@ -452,10 +456,7 @@ const searchPlayer = async () => {
 
         handleSpectatorData(spectatorData, playerPuuid);
 
-        console.log('Player Summary:', playerData); // Log para debugging
-
-        // Llamar a printCompanionData para obtener datos del companion
-        await printCompanionData(playerData);
+        console.log('Player Summary:', playerData); // Log for debugging
     } catch (error) {
         console.error('Failed to fetch player summary:', error);
         showMessage('Failed to fetch player summary.');
@@ -487,6 +488,7 @@ function displayPlayerData(playerData) {
         const messageContainer = document.getElementById('messageContainer');
         if (messageContainer) {
             messageContainer.insertAdjacentElement('afterend', container);
+            console.log('Player data container created and added to DOM.');
         } else {
             console.error('messageContainer not found in the DOM.');
             return; // Salir si no se encuentra el contenedor del mensaje
@@ -533,7 +535,7 @@ function displayPlayerData(playerData) {
     updatePlayerNames(participants);
 }
 
-async function printCompanionData(playerData) {
+async function mainCompanionData(playerData) {
     try {
         const response = await fetch(CDRAGON_URL.companionData);
         if (!response.ok) {
@@ -543,15 +545,21 @@ async function printCompanionData(playerData) {
         // Buscar el objeto en companionData cuyo contentId sea igual a companion.content_id
         const myCompanion = companionData.find(item => item.contentId === playerData.companion.content_id);
         if (myCompanion) {
-            console.log('Companion data:', myCompanion);
             // Pasar la propiedad loadoutsIcon a la función CDragonBaseUrl y printear su valor
             const result = CDragonBaseUrl(myCompanion.loadoutsIcon);
-            console.log('CDragonBaseUrl result:', result);
+            const container = document.getElementById('playerDataContainer');
+            if (container) {
+                container.style.backgroundImage = `url(${result})`;
+                container.style.backgroundSize = 'cover';
+                container.style.backgroundRepeat = 'no-repeat';
+                container.style.backgroundPosition = 'center';
+                container.style.opacity = '0.4';
+            }
         } else {
             console.log('No se encontró companion con content_id:', playerData.companion.content_id);
         }
     } catch (error) {
-        console.error('Error en printCompanionData:', error);
+        console.error('Error en mainCompanionData:', error);
     }
 }
 
