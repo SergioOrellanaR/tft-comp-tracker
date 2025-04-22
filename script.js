@@ -5,7 +5,6 @@ let API_KEY;
 async function initializeApiKey() {
     if (!CONFIG.netlify) {
         try {
-            // Intenta importar la clave desde keys.js (solo en desarrollo)
             const { API_KEY: localApiKey } = await import('./keys.js');
             API_KEY = localApiKey;
         } catch (error) {
@@ -202,6 +201,8 @@ function preloadPlayers() {
     });
 
     enableDragAndDrop(); // Habilitar drag & drop después de cargar los jugadores
+
+    updatePlayerColorBars(); // Llama una vez para establecer los color-bars fijos
 }
 
 function getDefaultNames(isDoubleUp) {
@@ -217,15 +218,7 @@ function getTeamIcon(index) {
 
 function createTeamContainer(player1, player2, icon, index) {
     const container = document.createElement('div');
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.alignItems = 'center';
-    container.style.border = `1px solid ${icon.color}`;
-    container.style.borderRadius = '12px';
-    container.style.padding = '8px';
-    container.style.marginBottom = '16px';
-    container.style.background = 'rgba(255, 255, 255, 0.05)';
-    container.style.backdropFilter = 'blur(6px)';
+    container.classList.add('team-container');
     container.style.border = `1px solid ${icon.color}`;
     const iconCircle = createTeamIcon(icon, player1, player2, container);
     container.append(player1, iconCircle, player2);
@@ -236,20 +229,8 @@ function createTeamIcon(icon, player1, player2, container) {
     let currentIndex = 0;
 
     const circle = document.createElement('div');
-    Object.assign(circle.style, {
-        width: '20px',
-        height: '20px',
-        borderRadius: '50%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '0.75rem',
-        backgroundColor: '#1c1c2b',
-        border: `2px solid ${icon.color}`,
-        cursor: 'pointer',
-        margin: '4px 0',
-    });
-    circle.className = 'icon-circle';
+    circle.classList.add('team-icon');
+    circle.style.border = `2px solid ${icon.color}`;
     circle.textContent = icon.emoji;
     circle.title = icon.name;
 
@@ -277,25 +258,15 @@ function updateIconColor(circle, icon, player1, player2, container) {
 
 function createPlayerDiv(name, index, isDoubleUp) {
     const div = document.createElement('div');
-    div.className = 'item player';
-    div.style.background = 'rgba(255, 255, 255, 0.04)';
-    div.style.backdropFilter = 'blur(6px)';
-    div.style.border = '1px solid rgba(255, 255, 255, 0.1)';
-    div.style.borderRadius = '10px';
-    div.style.padding = '6px 10px';
-    div.style.display = 'flex';
-    div.style.alignItems = 'center';
-    div.style.marginBottom = '8px';
+    div.classList.add('item', 'player', 'player-card');
 
     const span = createEditableSpan(name);
     const editIcon = createEditIcon(span);
 
     const color = getPlayerColor(index, isDoubleUp);
     div.dataset.color = color;
-    div.style.borderLeft = `10px solid ${color}`;
 
-    span.style.flex = '1';
-    div.append(span, editIcon);
+    div.append(editIcon, span);
     div.onclick = () => select(div, 'player');
 
     return div;
@@ -309,25 +280,18 @@ function getPlayerColor(index, isDoubleUp) {
 
 function createEditableSpan(name) {
     const span = document.createElement('span');
+    span.classList.add('player-name');
     span.textContent = name;
 
     span.ondblclick = () => {
         const input = document.createElement('input');
+        input.classList.add('editable-input');
         const original = span.textContent;
 
         Object.assign(input, {
             type: 'text',
             value: '',
             maxLength: 20,
-        });
-        Object.assign(input.style, {
-            width: '100%',
-            border: '1px solid #444',
-            backgroundColor: 'transparent',
-            color: '#fff',
-            fontSize: '0.75rem',
-            borderRadius: '4px',
-            padding: '2px 6px',
         });
 
         input.onblur = () => {
@@ -362,14 +326,14 @@ function createEditableSpan(name) {
 function createEditIcon(span) {
     const icon = document.createElement('span');
     icon.textContent = '✎';
-    icon.style.marginLeft = '6px';
-    icon.style.cursor = 'pointer';
+    icon.classList.add('edit-icon');
     icon.onclick = (e) => {
         e.stopPropagation();
         span.ondblclick();
     };
     return icon;
 }
+
 tryLoadDefaultCSV();
 
 function showMessage(message) {
@@ -377,13 +341,11 @@ function showMessage(message) {
     messageContainer.textContent = message;
     messageContainer.style.display = 'block';
 
-    // Redibujar las líneas
     drawLines();
 
-    // Opcional: Ocultar el mensaje después de 5 segundos
     setTimeout(() => {
         messageContainer.style.display = 'none';
-        drawLines(); // Redibujar las líneas nuevamente si el mensaje desaparece
+        drawLines();
     }, 3000);
 }
 
@@ -457,19 +419,16 @@ const searchPlayer = async () => {
     try {
         const isNetlify = CONFIG.netlify;
 
-        // Fetch PUUID
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
         if (!accountData) return;
 
         const playerPuuid = accountData.puuid;
 
-        // Fetch spectator data
         const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`;
         const spectatorData = await fetchApi(spectatorUrl, isNetlify, 'spectator');
         if (!spectatorData) return;
 
-        // Handle spectator data
         handleSpectatorData(spectatorData, playerPuuid);
 
     } catch (error) {
@@ -480,18 +439,16 @@ const searchPlayer = async () => {
 
 function handleSpectatorData(spectatorData, playerPuuid) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
-    // Change Double Up mode based on gameQueueConfigId
     if (isDoubleUp) {
         if (!document.body.classList.contains('double-up')) {
-            toggleDoubleUpMode(); // Activate Double Up
+            toggleDoubleUpMode();
         }
     } else {
         if (document.body.classList.contains('double-up')) {
-            toggleDoubleUpMode(); // Deactivate Double Up
+            toggleDoubleUpMode();
         }
     }
 
-    // Log participant Riot IDs
     const participants = spectatorData.participants
         .filter(participants => {
             if (isDoubleUp) {
@@ -500,7 +457,6 @@ function handleSpectatorData(spectatorData, playerPuuid) {
             return participants.puuid !== playerPuuid;
         });
 
-    // Update player names
     updatePlayerNames(participants);
 }
 
@@ -511,7 +467,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const serverSelector = document.getElementById('serverSelector');
     const serverRegionMap = CONFIG.serverRegionMap;
 
-    // Llenar el selector con las opciones de serverRegionMap
     Object.keys(serverRegionMap).forEach(region => {
         const option = document.createElement('option');
         option.value = region;
@@ -519,13 +474,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         serverSelector.appendChild(option);
     });
 
-    // Agregar funcionalidad al botón de búsqueda
     document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
 
-    // Ejecutar búsqueda al presionar Enter en el campo de texto
     document.getElementById('playerNameInput').addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-            e.preventDefault(); // Evitar que el formulario se envíe si está dentro de uno
+            e.preventDefault();
             searchPlayer();
         }
     });
@@ -655,7 +608,7 @@ function updateUnselectedChampionsTable() {
             heavilyContestedByCost[cost].forEach(champ => {
                 const cell = document.createElement('div');
                 cell.classList.add(`unit-cost-${cost}`);
-                cell.style.position = 'relative'; // Necesario para posicionar el contador
+                cell.style.position = 'relative';
 
                 const img = document.createElement('img');
                 img.src = `${unitImageMap[champ]}?w=40`;
@@ -674,7 +627,6 @@ function updateUnselectedChampionsTable() {
                     const playerNames = players.map(player => player.name).join(', ');
                     img.title = `${playerNames}`;
 
-                    // Crear el contador
                     const counter = document.createElement('span');
                     counter.className = 'contested-counter';
                     counter.textContent = players.length;
@@ -807,24 +759,54 @@ function updateCompoColorBars() {
         if (!compoColorMap[id]) {
             compoColorMap[id] = { compo, colors: new Set() };
         }
-
         compoColorMap[id].colors.add(color);
     });
 
     Object.values(compoColorMap).forEach(({ compo, colors }) => {
         const colorArray = Array.from(colors);
         const part = 100 / colorArray.length;
-        const gradient = colorArray.map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`).join(', ');
-
+        const gradient = colorArray
+            .map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`)
+            .join(', ');
+            
         compo.style.position = 'relative';
-        const bar = compo.querySelector('.color-bar') || compo.appendChild(document.createElement('div'));
+        let bar = compo.querySelector('.color-bar');
+        if (!bar) {
+            bar = document.createElement('div');
+            compo.insertBefore(bar, compo.firstChild);
+        }
         bar.className = 'color-bar';
         Object.assign(bar.style, {
             position: 'absolute',
-            top: '0', right: '0',
-            width: '6px', height: '100%',
-            borderRadius: '0 6px 6px 0',
+            top: '0',
+            left: '0',
+            width: '6px',
+            height: '100%',
+            borderRadius: '6px 0 0 6px',
             background: `linear-gradient(to bottom, ${gradient})`
+        });
+    });
+}
+
+function updatePlayerColorBars() {
+    const players = document.querySelectorAll('.item.player');
+    players.forEach(player => {
+        player.style.position = 'relative';
+        player.style.borderLeft = 'none';
+        let bar = player.querySelector('.color-bar');
+        if (!bar) {
+            bar = document.createElement('div');
+            player.appendChild(bar);
+        }
+        bar.className = 'color-bar';
+        Object.assign(bar.style, {
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            width: '6px',
+            height: '100%',
+            borderRadius: '0 6px 6px 0',
+            background: player.dataset.color || 'transparent'
         });
     });
 }
@@ -836,11 +818,17 @@ function getPlayerId(playerElement) {
 function getCenter(el) {
     const rect = el.getBoundingClientRect();
     const container = canvas.getBoundingClientRect();
-    const isPlayer = el.classList.contains('player');
-    return {
-        x: isPlayer ? rect.left - container.left : rect.right - container.left,
-        y: rect.top + rect.height / 2 - container.top
-    };
+    if (el.classList.contains('player')) {
+        return {
+            x: rect.right - container.left - 6,
+            y: rect.top + rect.height / 2 - container.top
+        };
+    } else if (el.classList.contains('compo')) {
+        return {
+            x: rect.left - container.left + 6,
+            y: rect.top + rect.height / 2 - container.top
+        };
+    }
 }
 
 function select(el, type) {
@@ -872,18 +860,15 @@ function select(el, type) {
     }
 }
 
-// Restablecer jugadores y enlaces
 const resetPlayers = () => {
     clearElement(playersContainer);
     links.length = 0;
 
-    // Restablecer botones de ítems
     document.querySelectorAll('.core-item-button').forEach(button => {
         button.classList.remove('active');
         button.style.filter = 'grayscale(100%)';
     });
 
-    // Actualizar todos los contenedores de ítems
     document.querySelectorAll('.items-container').forEach(container => {
         const unitsInComp = Array.from(container.closest('.item.compo').querySelectorAll('.unit-icons img'))
             .map(img => img.alt);
@@ -900,7 +885,7 @@ function loadCSVData(csvText) {
     const tiers = { S: [], A: [], B: [], C: [] };
 
     lines.forEach((line, index) => {
-        if (index === 0 || !line.trim()) return; // Saltar la cabecera o líneas vacías
+        if (index === 0 || !line.trim()) return;
         const [comp, tier, estilo, unit1, unit2, unit3] = line.split(',').map(x => x.trim());
         if (tiers[tier]) {
             const div = document.createElement('div');
@@ -913,7 +898,7 @@ function loadCSVData(csvText) {
             unitsInComp.forEach(unit => {
                 if (unit && unitImageMap[unit]) {
                     const img = document.createElement('img');
-                    img.src = `${unitImageMap[unit]}?w=30`;
+                    img.src = `${unitImageMap[unit]}?w=28`;
                     img.alt = unit;
                     unitIcons.appendChild(img);
                 }
@@ -939,19 +924,18 @@ function loadCSVData(csvText) {
             compStyle.style.fontSize = '0.9em';
             styleContainer.appendChild(compStyle);
 
-            div.appendChild(unitIcons);
+            
+            div.appendChild(styleContainer);
             div.appendChild(compInfo);
             div.appendChild(itemsContainer);
-            div.appendChild(styleContainer);
+            div.appendChild(unitIcons);
             div.onclick = () => select(div, 'compo');
-            tiers[tier].push({ name: comp, element: div }); // Guardar el nombre y el elemento
+            tiers[tier].push({ name: comp, element: div });
         }
     });
 
-    // Ordenar y renderizar las composiciones
     ['S', 'A', 'B', 'C'].forEach(t => {
         if (tiers[t].length > 0) {
-            // Ordenar por nombre alfabéticamente
             tiers[t].sort((a, b) => a.name.localeCompare(b.name));
 
             const header = document.createElement('div');
@@ -960,7 +944,6 @@ function loadCSVData(csvText) {
             header.style.color = CONFIG.tierColors[t];
             compsContainer.appendChild(header);
 
-            // Agregar los elementos ordenados
             tiers[t].forEach(({ element }) => compsContainer.appendChild(element));
         }
     });
@@ -1031,38 +1014,13 @@ function distanceToSegment(p, v, w) {
 function createCoreItemsButtons() {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
-    container.style.display = 'flex';
-    container.style.flexDirection = 'column';
-    container.style.gap = '8px';
-    container.style.marginTop = '16px';
 
-    const maxRows = 2;
-    const itemsPerRow = Math.ceil(CONFIG.coreItems.length / maxRows);
-    let currentRow;
-
-    CONFIG.coreItems.forEach((item, index) => {
+    CONFIG.coreItems.forEach((item) => {
         const itemData = items.find(i => i.Item === item);
         if (itemData) {
-            if (index % itemsPerRow === 0) {
-                currentRow = document.createElement('div');
-                currentRow.style.display = 'flex';
-                currentRow.style.gap = '8px';
-                currentRow.style.justifyContent = 'center';
-                container.appendChild(currentRow);
-            }
-
             const button = document.createElement('button');
             button.className = 'core-item-button';
             button.style.backgroundImage = `url(${itemData.Url})`;
-            button.style.backgroundSize = 'contain';
-            button.style.backgroundRepeat = 'no-repeat';
-            button.style.backgroundPosition = 'center';
-            button.style.width = '40px';
-            button.style.height = '40px';
-            button.style.border = 'none';
-            button.style.borderRadius = '4px';
-            button.style.cursor = 'pointer';
-            button.style.filter = 'grayscale(100%)';
             button.title = itemData.Item;
 
             button.onclick = () => {
@@ -1070,13 +1028,14 @@ function createCoreItemsButtons() {
                 button.style.filter = isActive ? 'none' : 'grayscale(100%)';
 
                 document.querySelectorAll('.items-container').forEach(container => {
-                    const unitsInComp = Array.from(container.closest('.item.compo').querySelectorAll('.unit-icons img'))
-                        .map(img => img.alt);
+                    const unitsInComp = Array.from(
+                        container.closest('.item.compo').querySelectorAll('.unit-icons img')
+                    ).map(img => img.alt);
                     updateItemsContainer(container, unitsInComp);
                 });
             };
 
-            currentRow.appendChild(button);
+            container.appendChild(button);
         }
     });
 
@@ -1089,9 +1048,8 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
     const activeItems = Array.from(document.querySelectorAll('.core-item-button.active'))
         .map(button => button.title);
 
-    const itemToChampionsMap = {}; // Mapa para asociar ítems con los campeones que los usan
+    const itemToChampionsMap = {};
 
-    // Recorremos los campeones en la composición
     unitsInComp.forEach(unit => {
         const unitData = units.find(u => u.Unit === unit);
         if (unitData) {
@@ -1100,15 +1058,14 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
                     if (!itemToChampionsMap[item]) {
                         itemToChampionsMap[item] = [];
                     }
-                    itemToChampionsMap[item].push(unit); // Asociar el ítem con el campeón
+                    itemToChampionsMap[item].push(unit);
                 }
             });
         }
     });
 
-    const displayedItems = new Set(); // Para evitar ítems duplicados
+    const displayedItems = new Set();
 
-    // Crear las imágenes de los ítems
     Object.entries(itemToChampionsMap).forEach(([item, champions]) => {
         if (!displayedItems.has(item)) {
             const itemData = items.find(i => i.Item === item);
@@ -1116,13 +1073,13 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
                 const img = document.createElement('img');
                 img.src = itemData.Url;
                 img.alt = item;
-                img.title = `${item} (Used by: ${champions.join(', ')})`; // Mostrar todos los campeones que usan el ítem
+                img.title = `${item} (Used by: ${champions.join(', ')})`;
                 img.style.width = '20px';
                 img.style.height = '20px';
                 img.style.borderRadius = '4px';
                 img.style.objectFit = 'cover';
                 itemsContainer.appendChild(img);
-                displayedItems.add(item); // Marcar el ítem como mostrado
+                displayedItems.add(item);
             }
         }
     });
