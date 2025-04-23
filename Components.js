@@ -72,7 +72,7 @@ export const createPlayerCard = async (playerData, server) => {
 
 // POP UP COMPONENTS
 //TODO: Call find_Games
-export function openDuelModal() {
+export function openDuelModal(player1Data, duelsCache, player2Name, player2Color, server) {
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
 

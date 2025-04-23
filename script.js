@@ -25,12 +25,12 @@ let unitImageMap = {};
 let unitCostMap = {};
 let items = [];
 let units = [];
+let duelsCache = new Map();
 
 const compsContainer = document.getElementById('compos');
 const playersContainer = document.getElementById('players');
 const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
-const csvInput = document.getElementById('csvInput');
 
 // Utilidades generales
 const fetchCSV = async (route) => {
@@ -456,7 +456,7 @@ const searchPlayer = async () => {
         const spectatorData = await fetchApi(spectatorUrl, isNetlify, 'spectator');
         if (!spectatorData) return;
 
-        handleSpectatorData(spectatorData, playerPuuid);
+        handleSpectatorData(spectatorData, playerPuuid, playerData, server);
     } catch (error) {
         console.error('Failed to fetch player summary:', error);
         showMessage('Failed to fetch player summary.');
@@ -473,7 +473,7 @@ function createLoadingSpinner() {
     return spinner;
 }
 
-function handleSpectatorData(spectatorData, playerPuuid) {
+function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
     if (isDoubleUp) {
         if (!document.body.classList.contains('double-up')) {
@@ -500,7 +500,10 @@ function handleSpectatorData(spectatorData, playerPuuid) {
         editIcon.remove();
     });
 
+    
+
     document.querySelectorAll('.item.player').forEach(player => {
+        console.log('player', player);
         if (!player.querySelector('.duel-button')) {
             const duelButton = document.createElement('button');
             duelButton.className = 'duel-button';
@@ -508,7 +511,9 @@ function handleSpectatorData(spectatorData, playerPuuid) {
             duelButton.title = 'Vs. History';
             duelButton.addEventListener('click', (e) => {
                 e.stopPropagation();
-                openDuelModal(); // open the modal on duel button click
+                const playerColor = player.getAttribute('data-color');
+                const playerName = player.querySelector('.player-name').textContent;
+                openDuelModal(playerData, duelsCache, playerName, playerColor, server); // open the modal on duel button click
             });
             player.prepend(duelButton);
         }
@@ -1080,14 +1085,6 @@ canvas.addEventListener('click', e => {
     }
 });
 
-function distanceToSegment(p, v, w) {
-    const l2 = (v.x - w.x) ** 2 + (v.y - w.y) ** 2;
-    if (l2 === 0) return Math.hypot(p.x - v.x, p.y - v.y);
-    let t = ((p.x - v.x) * (w.x - v.x) + (p.y - v.y) * (w.y - v.y)) / l2;
-    t = Math.max(0, Math.min(1, t));
-    return Math.hypot(p.x - (v.x + t * (w.x - v.x)), p.y - (v.y + t * (w.y - v.y)));
-}
-
 function createCoreItemsButtons() {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
@@ -1176,9 +1173,22 @@ function updatePlayerNames(participants) {
             const playerNameElement = playerElements[index]?.querySelector('span.player-name');
             if (playerNameElement) {
                 playerNameElement.textContent = participant.riotId;
+                duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
             }
         }
     });
+
+    console.log('Duels Cache: ', duelsCache);
+}
+
+function initializeDuelCacheObject(riotId) {
+    return {
+        riotId,
+        header: null,
+        stats: null,
+        commonMatches: null,
+        findGames: null,
+    };
 }
 
 window.toggleDoubleUpMode = toggleDoubleUpMode;
