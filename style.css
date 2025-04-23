@@ -829,9 +829,11 @@ th {
     justify-content: center;
 }
 
-/* Los div hijos ocupan por defecto el 100% del ancho disponible */
+/* Los div hijos se centran de manera predeterminada */
 #headerModal > div {
     width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* Popup container */
