@@ -520,14 +520,19 @@ const createPlayerCard = async (playerData, server) => {
         }
         loadMainCompanion(playerData, container);
         container.innerHTML = `
-                <div class="player-name-data-container">${playerData.name} <span class="server">(${server})</span></div>
-                <div class="profile-icon-data-container">
-                    <img src="${getProfileIconUrl(playerData)}" alt="${playerData.profile_icon_id} profile icon">
-                </div>
-                <div class="rank-icon-data-container">
-                    <img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon">
-                </div>
-                <div class="rank-info-data-container">${playerData.rank_info.tier} ${playerData.rank_info.rank} ${playerData.rank_info.lp}</div>
+            <div class="player-details-data-container">
+            <div class="profile-icon-data-container">
+                <img src="${getProfileIconUrl(playerData)}" alt="${playerData.profile_icon_id} profile icon">
+            </div>
+            <div class="player-name-data-container">${playerData.name} </div>
+            <div class="player-server-data-container">${server}</div>
+            </div>
+            <div class="rank-data-container">
+            <div class="rank-icon-data-container">
+                <img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon">
+            </div>
+            <div class="rank-info-data-container">${playerData.rank_info.tier} ${playerData.rank_info.rank} ${playerData.rank_info.lp}</div>
+            </div>
         `;
     } catch (error) {
         console.error('Error al crear la tarjeta de jugador:', error);
@@ -1209,7 +1214,7 @@ function updatePlayerNames(participants) {
 
     participants.forEach((participant, index) => {
         if (playerElements[index]) {
-            const playerNameElement = playerElements[index].querySelector('span');
+            const playerNameElement = playerElements[index]?.querySelector('span.player-name');
             if (playerNameElement) {
                 playerNameElement.textContent = participant.riotId;
             }
