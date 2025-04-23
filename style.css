@@ -76,6 +76,15 @@ button:hover {
     background: #00c4d6;
 }
 
+/* Estilo para el botón de duelo */
+.duel-button {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
 /* =====================================================================
     Contenedores Principales: #left, #right y #canvas-container
 ===================================================================== */

@@ -484,14 +484,26 @@ function handleSpectatorData(spectatorData, playerPuuid) {
     }
 
     const participants = spectatorData.participants
-        .filter(participants => {
+        .filter(participant => {
             if (isDoubleUp) {
                 return true;
             }
-            return participants.puuid !== playerPuuid;
+            return participant.puuid !== playerPuuid;
         });
 
     updatePlayerNames(participants);
+    
+    // Agregar botón de duelo a la izquierda de cada player
+    document.querySelectorAll('.item.player').forEach(player => {
+        if (!player.querySelector('.duel-button')) {
+            const duelButton = document.createElement('button');
+            duelButton.className = 'duel-button';
+            duelButton.innerText = '⚔️';
+            duelButton.title = 'Duel';
+            // ...puedes agregar un event listener si se requiere alguna acción...
+            player.prepend(duelButton);
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -537,7 +549,6 @@ function drawLines() {
 
 function updateUnselectedChampionsTable() {
     const allPlayers = document.querySelectorAll('.item.player');
-    const allLinkedPlayers = new Set(links.map(link => link.player));
     const allLinkedComps = new Set(links.map(link => link.compo));
     const container = document.getElementById('infoTableContainer');
 
