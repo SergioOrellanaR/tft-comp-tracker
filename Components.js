@@ -2,12 +2,18 @@ import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames } fro
 import { CDRAGON_URL } from './config.js';
 
 // Función para crear un spinner de carga
-export function createLoadingSpinner() {
+export function createLoadingSpinner(text = null) {
     const spinner = document.createElement('div');
     spinner.className = 'loading-spinner';
     spinner.innerHTML = `
         <div></div>
     `;
+    if (text) {
+        const textElem = document.createElement('p');
+        textElem.className = 'spinner-text';
+        textElem.textContent = text;
+        spinner.appendChild(textElem);
+    }
     return spinner;
 }
 
@@ -81,28 +87,44 @@ export const createPlayerCard = async (playerData, server) => {
 
 
 // POP UP COMPONENTS
-//TODO: Call find_Games
 export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
     // Creates the overlay if it doesn't exist.
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
     document.body.appendChild(overlay);
 
-    
+    // Add spinner centered within the overlay
+    const spinner = createLoadingSpinner('Retrieving old matches information...');
+    spinner.style.position = 'absolute';
+    spinner.style.top = '50%';
+    spinner.style.left = '50%';
+    spinner.style.transform = 'translate(-50%, -50%)';
+    overlay.appendChild(spinner);
+
     const closeBtn = document.createElement('button');
     closeBtn.id = 'popupCloseButton';
     closeBtn.innerText = 'X';
     closeBtn.addEventListener('click', () => {
         document.body.removeChild(overlay);
     });
-
     overlay.appendChild(closeBtn);
 
-    //
-
-    // Append modals to the overlay so they appear one below the other
-    overlay.appendChild(createHeaderModal(playerData));
-    overlay.appendChild(createHistoryModal(playerData));
+    // Call fetchFindGames and handle its Promise
+    fetchFindGames(playerData.name, player2Name, server)
+        .then(result => {
+            duelsCache.set(player2Name, result);
+            overlay.removeChild(spinner);
+            overlay.appendChild(createHeaderModal(playerData));
+            overlay.appendChild(createHistoryModal(playerData));
+        })
+        .catch(error => {
+            console.error("Error fetching games:", error);
+            overlay.removeChild(spinner);
+            const errorElem = document.createElement('p');
+            errorElem.textContent = "Error loading duel information.";
+            errorElem.style.textAlign = 'center';
+            overlay.appendChild(errorElem);
+        });
 }
 
 function createHistoryModal(playerData) {

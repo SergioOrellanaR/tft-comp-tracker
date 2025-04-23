@@ -582,6 +582,7 @@ th {
 /* Spinner de carga */
 .loading-spinner {
     display: flex;
+    flex-direction: column; /* Added to stack spinner and text vertically */
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -594,6 +595,12 @@ th {
     border-top: 3px solid #fff;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+}
+
+/* New rule for spinner text */
+.spinner-text {
+    margin-top: 8px; /* Spacing between spinner and text */
+    text-align: center;
 }
 
 @keyframes spin {
