@@ -1,4 +1,4 @@
-import { CONFIG, CDRAGON_URL} from './config.js';
+import { CONFIG, CDRAGON_URL } from './config.js';
 import { fetchPlayerSummary, CDragonBaseUrl, getProfileIconUrl, getRankIconUrl } from './tftVersusHandler.js';
 
 let API_KEY;
@@ -382,11 +382,11 @@ function handleApiError(response, callId) {
         if (callId === 'fetchPuuid') {
             showMessage('Player not found');
         } else if (callId === 'spectator') {
-            showMessage('The player is not currently in a game.');            
+            showMessage('The player is not currently in a game.');
         }
     } else if (response.status === 400 && callId === 'fetchPuuid') {
         showMessage('Invalid API KEY.');
-    } else{
+    } else {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
 }
@@ -520,10 +520,14 @@ const createPlayerCard = async (playerData, server) => {
         }
         loadMainCompanion(playerData, container);
         container.innerHTML = `
-            <p>${playerData.name} (${server})</p>
-            <p><img src="${getProfileIconUrl(playerData)}" alt="${playerData.profile_icon_id} profile icon"></p>
-            <p><img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon"></p>
-            <p>${playerData.rank_info.tier} ${playerData.rank_info.rank} ${playerData.rank_info.lp}</p>
+                <div class="player-name-data-container">${playerData.name} <span class="server">(${server})</span></div>
+                <div class="profile-icon-data-container">
+                    <img src="${getProfileIconUrl(playerData)}" alt="${playerData.profile_icon_id} profile icon">
+                </div>
+                <div class="rank-icon-data-container">
+                    <img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon">
+                </div>
+                <div class="rank-info-data-container">${playerData.rank_info.tier} ${playerData.rank_info.rank} ${playerData.rank_info.lp}</div>
         `;
     } catch (error) {
         console.error('Error al crear la tarjeta de jugador:', error);
@@ -863,7 +867,7 @@ function updateCompoColorBars() {
         const gradient = colorArray
             .map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`)
             .join(', ');
-            
+
         compo.style.position = 'relative';
         let bar = compo.querySelector('.color-bar');
         if (!bar) {
@@ -979,7 +983,7 @@ function createCompoElement({ comp, index, estilo, units }) {
     const div = document.createElement('div');
     div.className = 'item compo';
     div.dataset.id = 'compo-' + index;
-    
+
     // Contenedor de iconos de unidades
     const unitIcons = document.createElement('div');
     unitIcons.className = 'unit-icons';
@@ -991,7 +995,7 @@ function createCompoElement({ comp, index, estilo, units }) {
             unitIcons.appendChild(img);
         }
     });
-    
+
     // Contenedor de información de la composición
     const compInfo = document.createElement('div');
     compInfo.className = 'comp-info';
@@ -1001,7 +1005,7 @@ function createCompoElement({ comp, index, estilo, units }) {
     compName.style.opacity = '0.75';
     compName.style.color = 'white';
     compInfo.appendChild(compName);
-    
+
     // Contenedores de items y estilo
     const itemsContainer = document.createElement('div');
     itemsContainer.className = 'items-container';
@@ -1012,14 +1016,14 @@ function createCompoElement({ comp, index, estilo, units }) {
     compStyle.style.opacity = '0.5';
     compStyle.style.fontSize = '0.9em';
     styleContainer.appendChild(compStyle);
-    
+
     // Agregar todos los contenedores al elemento compo
     div.appendChild(styleContainer);
     div.appendChild(compInfo);
     div.appendChild(itemsContainer);
     div.appendChild(unitIcons);
     div.onclick = () => select(div, 'compo');
-    
+
     return div;
 }
 
