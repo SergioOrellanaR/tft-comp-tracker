@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary, CDragonBaseUrl, getProfileIconUrl, getRankIconUrl } from './tftVersusHandler.js';
-import { createPlayerCard } from './Components.js';
+import { fetchPlayerSummary } from './tftVersusHandler.js';
+import { createPlayerCard, openDuelModal } from './Components.js';
 
 let API_KEY;
 
@@ -506,11 +506,10 @@ function handleSpectatorData(spectatorData, playerPuuid) {
             duelButton.className = 'duel-button';
             duelButton.innerText = '⚔️';
             duelButton.title = 'Vs. History';
-            // Prevent parent div click when pressing the duel button
             duelButton.addEventListener('click', (e) => {
                 e.stopPropagation();
+                openDuelModal(); // open the modal on duel button click
             });
-            // ...puedes agregar un event listener si se requiere alguna acción...
             player.prepend(duelButton);
         }
     });

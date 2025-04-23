@@ -1,6 +1,7 @@
 import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl } from './tftVersusHandler.js';
 import { CDRAGON_URL } from './config.js';
 
+//PLAYER CARD COMPONENTS
 const loadMainCompanion = async (playerData, container) => {
     try {
         const response = await fetch(CDRAGON_URL.companionData);
@@ -67,3 +68,36 @@ export const createPlayerCard = async (playerData, server) => {
         console.error('Error al crear la tarjeta de jugador:', error);
     }
 };
+
+
+// POP UP COMPONENTS
+export function openDuelModal() {
+    const overlay = document.createElement('div');
+    overlay.id = 'popupOverlay';
+
+    // Header modal
+    const headerModal = document.createElement('div');
+    headerModal.id = 'headerModal';
+    headerModal.innerHTML = '<h2>Header</h2><p>Header content goes here...</p>';
+
+    // History modal
+    const historyModal = document.createElement('div');
+    historyModal.id = 'historyModal';
+    historyModal.innerHTML = '<h2>History</h2><p>History content goes here...</p>';
+
+    // Common close button for both modals
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'popupCloseButton';
+    closeBtn.innerText = 'X';
+    closeBtn.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+    });
+
+    // Append the close button to headerModal (or can be appended to both if needed)
+    overlay.appendChild(closeBtn);
+
+    // Append modals to the overlay so they appear one below the other
+    overlay.appendChild(headerModal);
+    overlay.appendChild(historyModal);
+    document.body.appendChild(overlay);
+}
