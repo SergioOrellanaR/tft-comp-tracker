@@ -728,8 +728,9 @@ th {
 
 .profile-icon-data-container {
     width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    height: 100%;
+    border-radius: 40%;
+    margin-left: 2px;
     object-fit: cover;
     overflow: hidden;
 }
@@ -757,9 +758,7 @@ th {
     height: 100px;
 }
 
-.rank-info-data-container {
-    font-weight: bold;
-}
+
 
 /* =====================================================================
     Estilos adicionales para contenedores de Datos de Jugador y Ranking
@@ -769,7 +768,7 @@ th {
     align-items: center;
     height: 25%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 6px;
     margin-bottom: 10px;
     display: flex;
@@ -783,7 +782,7 @@ th {
     align-items: center;
     gap: 25px;
     max-width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     margin-top: 8px;
 }

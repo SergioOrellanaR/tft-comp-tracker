@@ -499,7 +499,6 @@ const applyBackgroundStyles = (container, imgUrl) => {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        opacity: '0.4'
     });
 };
 
@@ -519,6 +518,7 @@ const createPlayerCard = async (playerData, server) => {
             }
         }
         loadMainCompanion(playerData, container);
+        const ladderNumber = playerData.rank_info.ladder_id > 3 ? playerData.rank_info.rank : '';
         container.innerHTML = `
             <div class="player-details-data-container">
             <div class="profile-icon-data-container">
@@ -531,7 +531,7 @@ const createPlayerCard = async (playerData, server) => {
             <div class="rank-icon-data-container">
                 <img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon">
             </div>
-            <div class="rank-info-data-container">${playerData.rank_info.tier} ${playerData.rank_info.rank} ${playerData.rank_info.lp}</div>
+            <div class="rank-info-data-container">${playerData.rank_info.tier} ${ladderNumber} ${playerData.rank_info.lp} LP </div>
             </div>
         `;
     } catch (error) {
