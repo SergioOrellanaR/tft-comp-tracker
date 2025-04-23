@@ -71,19 +71,15 @@ export const createPlayerCard = async (playerData, server) => {
 
 
 // POP UP COMPONENTS
+//TODO: Call find_Games
 export function openDuelModal() {
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
 
-    // Header modal
-    const headerModal = document.createElement('div');
-    headerModal.id = 'headerModal';
-    headerModal.innerHTML = '<h2>Header</h2><p>Header content goes here...</p>';
+    const playerData = 'PLACEHOLDER'; // TODO: Replace with actual player data
 
-    // History modal
-    const historyModal = document.createElement('div');
-    historyModal.id = 'historyModal';
-    historyModal.innerHTML = '<h2>History</h2><p>History content goes here...</p>';
+    const headerModal = createHeaderModal(playerData);
+    const historyModal = createHistoryModal(playerData);
 
     // Common close button for both modals
     const closeBtn = document.createElement('button');
@@ -100,4 +96,49 @@ export function openDuelModal() {
     overlay.appendChild(headerModal);
     overlay.appendChild(historyModal);
     document.body.appendChild(overlay);
+}
+
+function createHistoryModal(playerData) {
+    // Header modal
+    const historyModal = document.createElement('div');
+    historyModal.id = 'historyModal';
+    historyModal.innerHTML = '<h2>History</h2><p>History content goes here...</p>';
+    return historyModal;
+}
+
+function createHeaderModal(playerData) {
+    // Header modal
+    const headerModal = document.createElement('div');
+    headerModal.id = 'headerModal';
+
+    // Dentro de createHeaderModal, reemplazamos $SELECTION_PLACEHOLDER$ con:
+    const headerModalPlayer1 = createHeaderModalPlayer('headerModalPlayer1', 'white');
+    const headerModalStats = createHeaderModalStats();
+    const headerModalPlayer2 = createHeaderModalPlayer('headerModalPlayer2', 'black');
+
+    // Inyección de los divs dentro de headerModal
+    headerModal.appendChild(headerModalPlayer1);
+    headerModal.appendChild(headerModalStats);
+    headerModal.appendChild(headerModalPlayer2);
+
+    return headerModal;
+}
+
+// Nuevo método para crear headerModalStats
+function createHeaderModalStats() {
+    const element = document.createElement('div');
+    element.id = 'headerModalStats';
+    element.innerHTML = '<p>Stats Placeholder</p>';
+    return element;
+}
+
+function createHeaderModalPlayer(id, color) {
+    const element = document.createElement('div');
+    element.id = id;
+    element.classList.add('playerHeaderModal');
+    element.innerHTML = `<p>Player Placeholder (${id})</p>`;
+    if (color) {
+        element.style.color = color;
+    }
+    return element;
 }
