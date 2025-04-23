@@ -2,7 +2,7 @@ import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetc
 import { CDRAGON_URL, CONFIG } from './config.js';
 
 // Función para crear un spinner de carga
-export function createLoadingSpinner(text = null) {
+export function createLoadingSpinner(text = null, longWaitMessage = null) {
     const spinner = document.createElement('div');
     spinner.className = 'loading-spinner';
     spinner.innerHTML = `<div></div>`;
@@ -21,6 +21,17 @@ export function createLoadingSpinner(text = null) {
             textElem.appendChild(document.createTextNode(' '));
         }
         spinner.appendChild(textElem);
+    }
+    if (longWaitMessage) {
+        setTimeout(() => {
+            // Verifica si el spinner-text aún existe antes de agregar el mensaje
+            if (spinner.querySelector('.spinner-text')) {
+                const longWaitElem = document.createElement('p');
+                longWaitElem.className = 'spinner-long-wait';
+                longWaitElem.textContent = longWaitMessage;
+                spinner.appendChild(longWaitElem);
+            }
+        }, 10000);
     }
     return spinner;
 }
@@ -54,12 +65,13 @@ const applyBackgroundStyles = (container, imgUrl) => {
     });
 };
 
-export const createPlayerCard = async (playerData, server) => {
+export const createPlayerCard = async (playerData, server, containerId) => {
     try {
-        let container = document.getElementById('playerDataContainer');
+        let container = document.getElementById(containerId);
         if (!container) {
             container = document.createElement('div');
-            container.id = 'playerDataContainer';
+            container.id = containerId;
+            // All player cards use the same class for consistent styling.
             container.className = 'player-data-container';
             const msgContainer = document.getElementById('messageContainer');
             if (msgContainer) {
@@ -75,20 +87,22 @@ export const createPlayerCard = async (playerData, server) => {
 
         container.innerHTML = `
             <div class="player-details-data-container">
-            <div class="profile-icon-data-container">
-                <img src="${getProfileIconUrl(playerData)}" alt="${playerData.profile_icon_id} profile icon">
-            </div>
-            <div class="player-name-data-container">${playerData.name} </div>
-            <div class="player-server-data-container">${server}</div>
+                <div class="profile-icon-data-container">
+                    <img src="${getProfileIconUrl(playerData)}" alt="${playerData.profile_icon_id} profile icon">
+                </div>
+                <div class="player-name-data-container">${playerData.name}</div>
+                <div class="player-server-data-container">${server}</div>
             </div>
             <div class="rank-data-container">
-            <div class="rank-icon-data-container">
-                <img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon">
-            </div>
-            <div class="rank-info-data-container">${playerData.rank_info.tier} ${ladderNumber} ${playerData.rank_info.lp === null ? '' : playerData.rank_info.lp + 'LP'} </div>
+                <div class="rank-icon-data-container">
+                    <img src="${getRankIconUrl(playerData)}" alt="${playerData.rank_info.tier} rank icon">
+                </div>
+                <div class="rank-info-data-container">
+                    ${playerData.rank_info.tier} ${ladderNumber} ${playerData.rank_info.lp === null ? '' : playerData.rank_info.lp + 'LP'}
+                </div>
             </div>
         `;
-        return container; // Added: returning the created card
+        return container; // Returning the created card
     } catch (error) {
         console.error('Error al crear la tarjeta de jugador:', error);
     }
@@ -103,7 +117,7 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     document.body.appendChild(overlay);
 
     // Add spinner centered within the overlay
-    const spinner = createLoadingSpinner('Retrieving old games information');
+    const spinner = createLoadingSpinner('Retrieving old games information', 'Both players share a lot of common matches, please wait...');
     spinner.style.position = 'absolute';
     spinner.style.top = '50%';
     spinner.style.left = '50%';
@@ -157,8 +171,8 @@ function createHeaderModal(playerData, duelsCache, player2Name, player2Color, se
             duelsCache.set(player2Name, duelData);
             headerModal.innerHTML = ''; // Limpiar spinner
             headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
-            headerModal.appendChild(createHeaderModalPlayer(summaryData, player2Color, server));
             headerModal.appendChild(createHeaderModalStats(statsData, CONFIG.mainPlayerColor, player2Color));
+            headerModal.appendChild(createHeaderModalPlayer(summaryData, player2Color, server));
         })
         .catch(error => {
             console.error("Error loading header modal:", error);

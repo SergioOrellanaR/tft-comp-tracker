@@ -566,7 +566,7 @@ th {
 }
 
 /* Estilos para el contenedor del jugador */
-#playerDataContainer {
+.player-data-container {
     border: 1px solid white; /* Borde rojo para testing */
     padding: 10px;
     margin-bottom: 5px;

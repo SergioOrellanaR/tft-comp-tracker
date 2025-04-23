@@ -398,8 +398,9 @@ function handleApiError(response, callId) {
 }
 
 const searchPlayer = async () => {
+    const containerId = 'playerDataContainer';
     // Remove any existing playerDataContainer
-    const existingContainer = document.getElementById('playerDataContainer');
+    const existingContainer = document.getElementById(containerId);
     if (existingContainer) {
         existingContainer.remove();
     }
@@ -431,7 +432,7 @@ const searchPlayer = async () => {
     }
 
     let playerDataContainer = document.createElement('div');
-    playerDataContainer.id = 'playerDataContainer';
+    playerDataContainer.id = containerId;
     playerDataContainer.className = 'player-data-container';
     const messageContainer = document.getElementById('messageContainer');
     if (messageContainer) {
@@ -442,7 +443,7 @@ const searchPlayer = async () => {
 
     try {
 
-        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
+        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server, containerId);
         await createPlayerCard(playerData, server);
 
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
