@@ -1,4 +1,4 @@
-import { CONFIG, CDRAGON_URL } from './config.js';
+import { CONFIG } from './config.js';
 import { fetchPlayerSummary, CDragonBaseUrl, getProfileIconUrl, getRankIconUrl } from './tftVersusHandler.js';
 import { createPlayerCard } from './Components.js';
 
@@ -431,7 +431,7 @@ const searchPlayer = async () => {
         return;
     }
 
-    // Create playerDataContainer and show spinner (spinner occupies the same space)
+    /* Create playerDataContainer and show spinner (spinner occupies the same space)
     let playerDataContainer = document.createElement('div');
     playerDataContainer.id = 'playerDataContainer';
     playerDataContainer.className = 'player-data-container';
@@ -441,12 +441,11 @@ const searchPlayer = async () => {
     }
     playerDataContainer.innerHTML = '';
     playerDataContainer.appendChild(createLoadingSpinner());
-
+*/
     try {
-        // Fetch the player summary and show the spinner only during this call
-        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
-        // displayPlayerData will overwrite the spinner from the same container
-        await createPlayerCard(playerData, server);
+
+        //const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
+        //await createPlayerCard(playerData, server);
 
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
@@ -459,8 +458,6 @@ const searchPlayer = async () => {
         if (!spectatorData) return;
 
         handleSpectatorData(spectatorData, playerPuuid);
-
-        console.log('Player Summary:', playerData); // Log for debugging
     } catch (error) {
         console.error('Failed to fetch player summary:', error);
         showMessage('Failed to fetch player summary.');
