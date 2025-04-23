@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
 import { fetchPlayerSummary } from './tftVersusHandler.js';
-import { createPlayerCard, openDuelModal } from './Components.js';
+import { createLoadingSpinner,createPlayerCard, openDuelModal } from './Components.js';
 
 let API_KEY;
 
@@ -462,16 +462,6 @@ const searchPlayer = async () => {
         showMessage('Failed to fetch player summary.');
     }
 };
-
-// Función para crear un spinner de carga
-function createLoadingSpinner() {
-    const spinner = document.createElement('div');
-    spinner.className = 'loading-spinner';
-    spinner.innerHTML = `
-        <div></div>
-    `;
-    return spinner;
-}
 
 function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;

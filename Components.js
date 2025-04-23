@@ -1,5 +1,15 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl } from './tftVersusHandler.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames } from './tftVersusHandler.js';
 import { CDRAGON_URL } from './config.js';
+
+// Función para crear un spinner de carga
+export function createLoadingSpinner() {
+    const spinner = document.createElement('div');
+    spinner.className = 'loading-spinner';
+    spinner.innerHTML = `
+        <div></div>
+    `;
+    return spinner;
+}
 
 //PLAYER CARD COMPONENTS
 const loadMainCompanion = async (playerData, container) => {
@@ -72,16 +82,13 @@ export const createPlayerCard = async (playerData, server) => {
 
 // POP UP COMPONENTS
 //TODO: Call find_Games
-export function openDuelModal(player1Data, duelsCache, player2Name, player2Color, server) {
+export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
+    // Creates the overlay if it doesn't exist.
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
+    document.body.appendChild(overlay);
 
-    const playerData = 'PLACEHOLDER'; // TODO: Replace with actual player data
-
-    const headerModal = createHeaderModal(playerData);
-    const historyModal = createHistoryModal(playerData);
-
-    // Common close button for both modals
+    
     const closeBtn = document.createElement('button');
     closeBtn.id = 'popupCloseButton';
     closeBtn.innerText = 'X';
@@ -89,13 +96,13 @@ export function openDuelModal(player1Data, duelsCache, player2Name, player2Color
         document.body.removeChild(overlay);
     });
 
-    // Append the close button to headerModal (or can be appended to both if needed)
     overlay.appendChild(closeBtn);
 
+    //
+
     // Append modals to the overlay so they appear one below the other
-    overlay.appendChild(headerModal);
-    overlay.appendChild(historyModal);
-    document.body.appendChild(overlay);
+    overlay.appendChild(createHeaderModal(playerData));
+    overlay.appendChild(createHistoryModal(playerData));
 }
 
 function createHistoryModal(playerData) {
