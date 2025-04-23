@@ -252,8 +252,11 @@ function createTeamIcon(icon, player1, player2, container) {
 function updateIconColor(circle, icon, player1, player2, container) {
     [player1, player2].forEach(p => {
         p.dataset.color = icon.color;
-        p.style.borderLeft = `10px solid ${icon.color}`;
+        p.style.borderRight = `10px solid ${icon.color}`;
     });
+    // Remove existing color-bar if present
+    const oldBar = container.querySelector('.color-bar');
+    if (oldBar) oldBar.remove();
     circle.textContent = icon.emoji;
     circle.title = icon.name;
     circle.style.border = `2px solid ${icon.color}`;
@@ -835,7 +838,6 @@ function updateCompoColorBars() {
         }
         bar.className = 'color-bar';
         Object.assign(bar.style, {
-            position: 'absolute',
             top: '0',
             left: '0',
             width: '6px',
@@ -849,23 +851,31 @@ function updateCompoColorBars() {
 function updatePlayerColorBars() {
     const players = document.querySelectorAll('.item.player');
     players.forEach(player => {
-        player.style.position = 'relative';
-        player.style.borderLeft = 'none';
-        let bar = player.querySelector('.color-bar');
-        if (!bar) {
-            bar = document.createElement('div');
-            player.appendChild(bar);
+        if (player.closest('.team-container')) {
+            // Remove color bar if inside a team container
+            const bar = player.querySelector('.color-bar');
+            if (bar) {
+                bar.remove();
+            }
+        } else {
+            player.style.position = 'relative';
+            player.style.borderLeft = 'none';
+            let bar = player.querySelector('.color-bar');
+            if (!bar) {
+                bar = document.createElement('div');
+                player.appendChild(bar);
+            }
+            bar.className = 'color-bar';
+            Object.assign(bar.style, {
+                position: 'absolute',
+                top: '0',
+                right: '0',
+                width: '6px',
+                height: '100%',
+                borderRadius: '0 6px 6px 0',
+                background: player.dataset.color || 'transparent'
+            });
         }
-        bar.className = 'color-bar';
-        Object.assign(bar.style, {
-            position: 'absolute',
-            top: '0',
-            right: '0',
-            width: '6px',
-            height: '100%',
-            borderRadius: '0 6px 6px 0',
-            background: player.dataset.color || 'transparent'
-        });
     });
 }
 
