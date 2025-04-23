@@ -142,29 +142,31 @@ function createHeaderModal(playerData, duelsCache, player2Name, player2Color, se
     const headerModal = document.createElement('div');
     headerModal.id = 'headerModal';
 
-    // Replace static stats element with one that loads duel stats
+    // Render player 1 immediately.
+    headerModal.appendChild(createHeaderModalPlayer(playerData, '#000435'));
+
+    // Create stats container with spinner.
     const headerModalStats = document.createElement('div');
     headerModalStats.id = 'headerModalStats';
-    // Insert loading spinner with custom message for duel stats
     headerModalStats.appendChild(createLoadingSpinner("Loading duel stats..."));
     headerModal.appendChild(headerModalStats);
 
-    // Initiate asynchronous call to fetchDuelStats concurrently.
+    headerModal.appendChild(createHeaderModalPlayer('headerModalPlayer2', player2Color));
+    
+    // Fetch duel stats and update only the stats container.
     fetchDuelStats(playerData.name, player2Name, server)
         .then(statsData => {
             const duelData = duelsCache.get(player2Name);
             duelData.stats = statsData;
             duelsCache.set(player2Name, duelData);
-            headerModal.innerHTML = ''; // Clear previous content including spinner
-            headerModal.appendChild(createHeaderModalPlayer('headerModalPlayer1', 'white'));
-            headerModal.appendChild(createHeaderModalStats(statsData));
-            headerModal.appendChild(createHeaderModalPlayer('headerModalPlayer2', 'black'));
+            headerModalStats.innerHTML = ''; // Clear the spinner.
+            headerModalStats.appendChild(createHeaderModalStats(statsData));
         })
         .catch(error => {
             headerModalStats.innerHTML = '<p>Error loading duel stats.</p>';
             console.error("Error in fetchDuelStats:", error);
         });
-
+        
     return headerModal;
 }
 
