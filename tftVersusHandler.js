@@ -48,22 +48,9 @@ export async function fetchFindGames(playerName, opponentName, server) {
     return await fetchFromTFTVersusAPI(url);
 }
 
-// Función para llamar a /common_matches
-// http://127.0.0.1:5000/api/common_matches/Made in Chile/1604/NyobZoo/NA1/NA/[PageNumber]
-async function fetchCommonMatches(playerName, opponentName, server, pageNumber = 1) {
-    const [name, tag] = playerName.split('#');
-    const [opponent, opponentTag] = opponentName.split('#');
-    if (!name || !tag || !opponent || !opponentTag) {
-        throw new Error('Invalid player or opponent name format. Expected format: "Name#Tag".');
-    }
-
-    const url = `${TFT_VERSUS_API_URL.commonMatches}/${name}/${tag}/${opponent}/${opponentTag}/${server}/${pageNumber}`;
-    return await fetchFromTFTVersusAPI(url);
-}
-
 // Función para llamar a /stats
 // http://127.0.0.1:5000/api/stats/Made in Chile/1604/NyobZoo/NA1/na
-async function fetchDuelStats(playerName, opponentName, server) {
+export async function fetchDuelStats(playerName, opponentName, server) {
     const [name, tag] = playerName.split('#');
     const [opponent, opponentTag] = opponentName.split('#');
     if (!name || !tag || !opponent || !opponentTag) {
@@ -71,6 +58,19 @@ async function fetchDuelStats(playerName, opponentName, server) {
     }
 
     const url = `${TFT_VERSUS_API_URL.duel}/${name}/${tag}/${opponent}/${opponentTag}/${server}`;
+    return await fetchFromTFTVersusAPI(url);
+}
+
+// Función para llamar a /common_matches
+// http://127.0.0.1:5000/api/common_matches/Made in Chile/1604/NyobZoo/NA1/NA/[PageNumber]
+export async function fetchCommonMatches(playerName, opponentName, server, pageNumber = 1) {
+    const [name, tag] = playerName.split('#');
+    const [opponent, opponentTag] = opponentName.split('#');
+    if (!name || !tag || !opponent || !opponentTag) {
+        throw new Error('Invalid player or opponent name format. Expected format: "Name#Tag".');
+    }
+
+    const url = `${TFT_VERSUS_API_URL.commonMatches}/${name}/${tag}/${opponent}/${opponentTag}/${server}/${pageNumber}`;
     return await fetchFromTFTVersusAPI(url);
 }
 

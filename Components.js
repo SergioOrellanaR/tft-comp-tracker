@@ -1,4 +1,4 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames } from './tftVersusHandler.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches } from './tftVersusHandler.js';
 import { CDRAGON_URL } from './config.js';
 
 // Función para crear un spinner de carga
@@ -136,37 +136,49 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
 }
 
 function createHistoryModal(playerData) {
-    // Header modal
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
-    historyModal.innerHTML = '<h2>History</h2><p>History content goes here...</p>';
+    // Remove old static content and add spinner for common matches.
+    historyModal.appendChild(createLoadingSpinner("Loading common matches..."));
+
+    // Initiate asynchronous call to fetchCommonMatches concurrently.
+    fetchCommonMatches(playerData)
+        .then(matchesData => {
+            historyModal.innerHTML = '<h2>History</h2><p>' + JSON.stringify(matchesData) + '</p>';
+        })
+        .catch(error => {
+            historyModal.innerHTML = '<h2>History</h2><p>Error loading common matches.</p>';
+            console.error("Error in fetchCommonMatches:", error);
+        });
+
     return historyModal;
 }
 
 function createHeaderModal(playerData) {
-    // Header modal
     const headerModal = document.createElement('div');
     headerModal.id = 'headerModal';
 
-    // Dentro de createHeaderModal, reemplazamos $SELECTION_PLACEHOLDER$ con:
-    const headerModalPlayer1 = createHeaderModalPlayer('headerModalPlayer1', 'white');
-    const headerModalStats = createHeaderModalStats();
-    const headerModalPlayer2 = createHeaderModalPlayer('headerModalPlayer2', 'black');
-
-    // Inyección de los divs dentro de headerModal
-    headerModal.appendChild(headerModalPlayer1);
+    // Replace static stats element with one that loads duel stats
+    const headerModalStats = document.createElement('div');
+    headerModalStats.id = 'headerModalStats';
+    // Insert loading spinner with custom message for duel stats
+    headerModalStats.appendChild(createLoadingSpinner("Loading duel stats..."));
     headerModal.appendChild(headerModalStats);
-    headerModal.appendChild(headerModalPlayer2);
+
+    // Initiate asynchronous call to fetchDuelStats concurrently.
+    fetchDuelStats(playerData)
+        .then(statsData => {
+            headerModal.innerHTML = ''; // Clear previous content including spinner
+            headerModal.appendChild(createHeaderModalPlayer('headerModalPlayer1', 'white'));
+            headerModal.appendChild(createHeaderModalStats(statsData));
+            headerModal.appendChild(createHeaderModalPlayer('headerModalPlayer2', 'black'));
+        })
+        .catch(error => {
+            headerModalStats.innerHTML = '<p>Error loading duel stats.</p>';
+            console.error("Error in fetchDuelStats:", error);
+        });
 
     return headerModal;
-}
-
-// Nuevo método para crear headerModalStats
-function createHeaderModalStats() {
-    const element = document.createElement('div');
-    element.id = 'headerModalStats';
-    element.innerHTML = '<p>Stats Placeholder</p>';
-    return element;
 }
 
 function createHeaderModalPlayer(id, color) {
@@ -178,4 +190,20 @@ function createHeaderModalPlayer(id, color) {
         element.style.color = color;
     }
     return element;
+}
+
+function createHeaderModalStats(statsData) {
+    const statsContainer = document.createElement('div');
+    statsContainer.id = 'headerModalStatsContent';
+
+    // Use the statsData object to fill in meaningful details.
+    // Adjust these properties based on the structure of statsData.
+    statsContainer.innerHTML = `
+        <h2>Duel Stats</h2>
+        <p>Total Games: ${statsData.totalGames || 0}</p>
+        <p>Wins: ${statsData.wins || 0}</p>
+        <p>Losses: ${statsData.losses || 0}</p>
+        <p>Win Rate: ${statsData.winRate || 'N/A'}</p>
+    `;
+    return statsContainer;
 }
