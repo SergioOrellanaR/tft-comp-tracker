@@ -188,15 +188,15 @@ function createHeaderModalPlayer(data, color, server) {
     element.classList.add('playerHeaderModal');
     if (typeof data === 'object' && data !== null) {
         element.id = `player_${data.id || data.name || 'unknown'}`;
-        element.innerHTML = `<p>${data.name || 'Player'} - ${data.summary || ''}</p>`;
         // Append the player card inside element
-        createPlayerCard(data, server).then(card => {
+        createPlayerCard(data, server, 'player-card-' + data.name).then(card => {
             element.appendChild(card);
         });
     } else {
         element.id = data;
-        element.innerHTML = `<p>Player Placeholder (${data})</p>`;
+        element.innerHTML = `<p>${data}</p>`;
     }
+    
     if (color) {
         element.style.color = color;
     }
