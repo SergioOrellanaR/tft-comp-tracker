@@ -117,7 +117,10 @@ function toggleDoubleUpMode() {
     const btn = document.getElementById('toggleDoubleUp');
     const active = document.body.classList.toggle('double-up');
     btn.textContent = `Double Up: ${active ? 'ON' : 'OFF'}`;
-    resetPlayers();
+    // Clear and update layout:
+    document.getElementById('players').innerHTML = ''; 
+    preloadPlayers(); // Reinitialize players with the new mode
+    drawLines(); // Refresh canvas lines
 }
 
 function enableDragAndDrop() {
