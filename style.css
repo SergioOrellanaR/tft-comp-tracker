@@ -612,6 +612,18 @@ th {
     }
 }
 
+/* Estilos para ellipsis animado */
+.animated-ellipsis {
+    display: inline-block;
+    animation: ellipsis 1.5s infinite;
+}
+
+@keyframes ellipsis {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 /* =====================================================================
     Responsive layout
 ===================================================================== */

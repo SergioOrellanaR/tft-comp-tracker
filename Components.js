@@ -12,6 +12,11 @@ export function createLoadingSpinner(text = null) {
         const textElem = document.createElement('p');
         textElem.className = 'spinner-text';
         textElem.textContent = text;
+        // Agregar span con ellipsis animado
+        const ellipsis = document.createElement('span');
+        ellipsis.className = 'animated-ellipsis';
+        ellipsis.textContent = '...';
+        textElem.appendChild(ellipsis);
         spinner.appendChild(textElem);
     }
     return spinner;
@@ -94,7 +99,7 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     document.body.appendChild(overlay);
 
     // Add spinner centered within the overlay
-    const spinner = createLoadingSpinner('Retrieving old matches information...');
+    const spinner = createLoadingSpinner('Retrieving old matches information');
     spinner.style.position = 'absolute';
     spinner.style.top = '50%';
     spinner.style.left = '50%';
