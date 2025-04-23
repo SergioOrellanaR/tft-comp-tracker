@@ -404,33 +404,43 @@ const searchPlayer = async () => {
     if (existingContainer) {
         existingContainer.remove();
     }
-
+    // Create player data container with spinner
+    let playerDataContainer = document.createElement('div');
+    playerDataContainer.id = containerId;
+    playerDataContainer.className = 'player-data-container';
+    const messageContainer = document.getElementById('messageContainer');
+    if (messageContainer) {
+        messageContainer.insertAdjacentElement('afterend', playerDataContainer);
+    }
+    playerDataContainer.innerHTML = '';
+    playerDataContainer.appendChild(createLoadingSpinner());
+    
     const server = document.getElementById('serverSelector').value;
     const playerInput = document.getElementById('playerNameInput').value.trim();
     const isNetlify = CONFIG.netlify;
-
+    
     if (!playerInput) {
         showMessage('Please enter a player name.');
         return;
     }
-
+    
     let [playerName, tag] = playerInput.split('#');
     const serverCode = CONFIG.serverRegionMap[server];
-
+    
     if (!tag || tag.trim() === '') {
         tag = serverCode;
     }
-
+    
     if (!playerName || !tag) {
         showMessage('Please enter a valid Player#Tag format.');
         return;
     }
-
+    
     if (!serverCode) {
         showMessage('Invalid server selected.');
         return;
     }
-
+    
     try {
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server, containerId);
         await createPlayerCard(playerData, server, containerId);
