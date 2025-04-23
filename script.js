@@ -358,7 +358,6 @@ function showMessage(message) {
 }
 
 async function fetchApi(url, isNetlify, callId) {
-    console.log('fetchApi', url, isNetlify, callId);
     if (isNetlify) {
         const response = await fetch("/.netlify/functions/riot-proxy", {
             method: "POST",
@@ -493,7 +492,6 @@ function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
     
 
     document.querySelectorAll('.item.player').forEach(player => {
-        console.log('player', player);
         if (!player.querySelector('.duel-button')) {
             const duelButton = document.createElement('button');
             duelButton.className = 'duel-button';

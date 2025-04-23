@@ -120,10 +120,12 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     // Call fetchFindGames and handle its Promise
     fetchFindGames(playerData.name, player2Name, server)
         .then(result => {
-            duelsCache.set(player2Name, result);
+            const duelData = duelsCache.get(player2Name);
+            duelData.findGames = result;
+            duelsCache.set(player2Name, duelData);
             overlay.removeChild(spinner);
-            overlay.appendChild(createHeaderModal(playerData));
-            overlay.appendChild(createHistoryModal(playerData));
+            overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
+            overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, player2Color, server));
         })
         .catch(error => {
             console.error("Error fetching games:", error);
@@ -135,26 +137,8 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
         });
 }
 
-function createHistoryModal(playerData) {
-    const historyModal = document.createElement('div');
-    historyModal.id = 'historyModal';
-    // Remove old static content and add spinner for common matches.
-    historyModal.appendChild(createLoadingSpinner("Loading common matches..."));
-
-    // Initiate asynchronous call to fetchCommonMatches concurrently.
-    fetchCommonMatches(playerData)
-        .then(matchesData => {
-            historyModal.innerHTML = '<h2>History</h2><p>' + JSON.stringify(matchesData) + '</p>';
-        })
-        .catch(error => {
-            historyModal.innerHTML = '<h2>History</h2><p>Error loading common matches.</p>';
-            console.error("Error in fetchCommonMatches:", error);
-        });
-
-    return historyModal;
-}
-
-function createHeaderModal(playerData) {
+//HEADER MODAL COMPONENTS
+function createHeaderModal(playerData, duelsCache, player2Name, player2Color, server) {
     const headerModal = document.createElement('div');
     headerModal.id = 'headerModal';
 
@@ -166,8 +150,11 @@ function createHeaderModal(playerData) {
     headerModal.appendChild(headerModalStats);
 
     // Initiate asynchronous call to fetchDuelStats concurrently.
-    fetchDuelStats(playerData)
+    fetchDuelStats(playerData.name, player2Name, server)
         .then(statsData => {
+            const duelData = duelsCache.get(player2Name);
+            duelData.stats = statsData;
+            duelsCache.set(player2Name, duelData);
             headerModal.innerHTML = ''; // Clear previous content including spinner
             headerModal.appendChild(createHeaderModalPlayer('headerModalPlayer1', 'white'));
             headerModal.appendChild(createHeaderModalStats(statsData));
@@ -206,4 +193,27 @@ function createHeaderModalStats(statsData) {
         <p>Win Rate: ${statsData.winRate || 'N/A'}</p>
     `;
     return statsContainer;
+}
+
+// GAME HISTORY COMPONENTS
+function createHistoryModal(playerData, duelsCache, player2Name, player2Color, server) {
+    const historyModal = document.createElement('div');
+    historyModal.id = 'historyModal';
+    // Remove old static content and add spinner for common matches.
+    historyModal.appendChild(createLoadingSpinner("Loading common matches..."));
+
+    // Initiate asynchronous call to fetchCommonMatches concurrently.
+    fetchCommonMatches(playerData.name, player2Name, server)
+        .then(matchesData => {
+            const duelData = duelsCache.get(player2Name);
+            duelData.commonMatches = matchesData;
+            duelsCache.set(player2Name, duelData);
+            historyModal.innerHTML = '<h2>History</h2><p>' + JSON.stringify(matchesData) + '</p>';
+        })
+        .catch(error => {
+            historyModal.innerHTML = '<h2>History</h2><p>Error loading common matches.</p>';
+            console.error("Error in fetchCommonMatches:", error);
+        });
+
+    return historyModal;
 }
