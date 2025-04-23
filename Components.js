@@ -5,18 +5,21 @@ import { CDRAGON_URL } from './config.js';
 export function createLoadingSpinner(text = null) {
     const spinner = document.createElement('div');
     spinner.className = 'loading-spinner';
-    spinner.innerHTML = `
-        <div></div>
-    `;
+    spinner.innerHTML = `<div></div>`;
     if (text) {
         const textElem = document.createElement('p');
         textElem.className = 'spinner-text';
-        textElem.textContent = text;
-        // Agregar span con ellipsis animado
-        const ellipsis = document.createElement('span');
-        ellipsis.className = 'animated-ellipsis';
-        ellipsis.textContent = '...';
-        textElem.appendChild(ellipsis);
+        textElem.appendChild(document.createTextNode(text + ' '));
+        // Agregamos 3 puntos animados con un espacio entre cada uno sin afectar la animación.
+        for (let i = 0; i < 3; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'animated-dot';
+            dot.textContent = '.';
+            dot.style.animationDelay = `${i * 0.3}s`;
+            textElem.appendChild(dot);
+            // Agrega un TextNode con un espacio después del span para preservar la animación.
+            textElem.appendChild(document.createTextNode(' '));
+        }
         spinner.appendChild(textElem);
     }
     return spinner;
@@ -99,7 +102,7 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     document.body.appendChild(overlay);
 
     // Add spinner centered within the overlay
-    const spinner = createLoadingSpinner('Retrieving old matches information');
+    const spinner = createLoadingSpinner('Retrieving old games information');
     spinner.style.position = 'absolute';
     spinner.style.top = '50%';
     spinner.style.left = '50%';

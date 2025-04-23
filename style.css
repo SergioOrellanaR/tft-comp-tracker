@@ -613,15 +613,18 @@ th {
 }
 
 /* Estilos para ellipsis animado */
-.animated-ellipsis {
+.animated-dot {
     display: inline-block;
-    animation: ellipsis 1.5s infinite;
+    animation: dotJump 1s infinite;
 }
 
-@keyframes ellipsis {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
+@keyframes dotJump {
+    0%, 20%, 40%, 100% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(-5px);
+    }
 }
 
 /* =====================================================================
