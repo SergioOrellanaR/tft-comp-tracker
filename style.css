@@ -76,15 +76,6 @@ button:hover {
     background: #00c4d6;
 }
 
-/* Estilo para el botón de duelo */
-.duel-button {
-    background: transparent;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-right: 4px;
-}
-
 /* =====================================================================
     Contenedores Principales: #left, #right y #canvas-container
 ===================================================================== */
@@ -767,8 +758,6 @@ th {
     height: 100px;
 }
 
-
-
 /* =====================================================================
     Estilos adicionales para contenedores de Datos de Jugador y Ranking
 ===================================================================== */
@@ -794,4 +783,17 @@ th {
     background: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     margin-top: 8px;
+}
+
+/* Estilo para el botón de duelo */
+.duel-button {
+    background: transparent;
+    cursor: pointer;
+    padding: 4px 4px;
+}
+
+.duel-button:hover {
+    background: rgb(0, 0, 0, 0.5);
+    border-radius: 6px;
+    transition: background 0.3s ease;
 }

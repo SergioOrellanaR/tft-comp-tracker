@@ -493,13 +493,17 @@ function handleSpectatorData(spectatorData, playerPuuid) {
 
     updatePlayerNames(participants);
     
-    // Agregar botón de duelo a la izquierda de cada player
+    // Remover el botón edit-icon de cada player
+    document.querySelectorAll('.item.player .edit-icon').forEach(editIcon => {
+        editIcon.remove();
+    });
+
     document.querySelectorAll('.item.player').forEach(player => {
         if (!player.querySelector('.duel-button')) {
             const duelButton = document.createElement('button');
             duelButton.className = 'duel-button';
             duelButton.innerText = '⚔️';
-            duelButton.title = 'Duel';
+            duelButton.title = 'Vs. History';
             // ...puedes agregar un event listener si se requiere alguna acción...
             player.prepend(duelButton);
         }
