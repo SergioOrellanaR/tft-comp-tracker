@@ -431,7 +431,6 @@ const searchPlayer = async () => {
         return;
     }
 
-    /* Create playerDataContainer and show spinner (spinner occupies the same space)
     let playerDataContainer = document.createElement('div');
     playerDataContainer.id = 'playerDataContainer';
     playerDataContainer.className = 'player-data-container';
@@ -441,11 +440,11 @@ const searchPlayer = async () => {
     }
     playerDataContainer.innerHTML = '';
     playerDataContainer.appendChild(createLoadingSpinner());
-*/
+
     try {
 
-        //const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
-        //await createPlayerCard(playerData, server);
+        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server);
+        await createPlayerCard(playerData, server);
 
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
