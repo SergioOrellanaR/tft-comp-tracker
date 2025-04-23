@@ -1,5 +1,5 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches } from './tftVersusHandler.js';
-import { CDRAGON_URL } from './config.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary } from './tftVersusHandler.js';
+import { CDRAGON_URL, CONFIG } from './config.js';
 
 // Función para crear un spinner de carga
 export function createLoadingSpinner(text = null) {
@@ -88,6 +88,7 @@ export const createPlayerCard = async (playerData, server) => {
             <div class="rank-info-data-container">${playerData.rank_info.tier} ${ladderNumber} ${playerData.rank_info.lp === null ? '' : playerData.rank_info.lp + 'LP'} </div>
             </div>
         `;
+        return container; // Added: returning the created card
     } catch (error) {
         console.error('Error al crear la tarjeta de jugador:', error);
     }
@@ -142,46 +143,53 @@ function createHeaderModal(playerData, duelsCache, player2Name, player2Color, se
     const headerModal = document.createElement('div');
     headerModal.id = 'headerModal';
 
-    // Render player 1 immediately.
-    headerModal.appendChild(createHeaderModalPlayer(playerData, '#000435'));
+    // Mostrar spinner mientras se cargan ambos componentes.
+    headerModal.appendChild(createLoadingSpinner("Loading duel stats"));
 
-    // Create stats container with spinner.
-    const headerModalStats = document.createElement('div');
-    headerModalStats.id = 'headerModalStats';
-    headerModalStats.appendChild(createLoadingSpinner("Loading duel stats..."));
-    headerModal.appendChild(headerModalStats);
+    // Ejecutar ambas peticiones en paralelo y actualizar el headerModal cuando ambas finalicen.
+    const player2Promise = fetchPlayerSummary(player2Name, server);
+    const duelStatsPromise = fetchDuelStats(playerData.name, player2Name, server);
 
-    headerModal.appendChild(createHeaderModalPlayer('headerModalPlayer2', player2Color));
-    
-    // Fetch duel stats and update only the stats container.
-    fetchDuelStats(playerData.name, player2Name, server)
-        .then(statsData => {
-            const duelData = duelsCache.get(player2Name);
+    Promise.all([player2Promise, duelStatsPromise])
+        .then(([summaryData, statsData]) => {
+            const duelData = duelsCache.get(player2Name) || {};
             duelData.stats = statsData;
             duelsCache.set(player2Name, duelData);
-            headerModalStats.innerHTML = ''; // Clear the spinner.
-            headerModalStats.appendChild(createHeaderModalStats(statsData));
+            headerModal.innerHTML = ''; // Limpiar spinner
+            headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
+            headerModal.appendChild(createHeaderModalPlayer(summaryData, player2Color, server));
+            headerModal.appendChild(createHeaderModalStats(statsData, CONFIG.mainPlayerColor, player2Color));
         })
         .catch(error => {
-            headerModalStats.innerHTML = '<p>Error loading duel stats.</p>';
-            console.error("Error in fetchDuelStats:", error);
+            console.error("Error loading header modal:", error);
+            headerModal.innerHTML = '<p>Error loading duel information.</p>';
         });
-        
+
     return headerModal;
 }
 
-function createHeaderModalPlayer(id, color) {
+// Update createHeaderModalPlayer to include createPlayerCard
+function createHeaderModalPlayer(data, color, server) {
     const element = document.createElement('div');
-    element.id = id;
     element.classList.add('playerHeaderModal');
-    element.innerHTML = `<p>Player Placeholder (${id})</p>`;
+    if (typeof data === 'object' && data !== null) {
+        element.id = `player_${data.id || data.name || 'unknown'}`;
+        element.innerHTML = `<p>${data.name || 'Player'} - ${data.summary || ''}</p>`;
+        // Append the player card inside element
+        createPlayerCard(data, server).then(card => {
+            element.appendChild(card);
+        });
+    } else {
+        element.id = data;
+        element.innerHTML = `<p>Player Placeholder (${data})</p>`;
+    }
     if (color) {
         element.style.color = color;
     }
     return element;
 }
 
-function createHeaderModalStats(statsData) {
+function createHeaderModalStats(statsData, player1Color, player2Color) {
     const statsContainer = document.createElement('div');
     statsContainer.id = 'headerModalStatsContent';
 
@@ -202,7 +210,7 @@ function createHistoryModal(playerData, duelsCache, player2Name, player2Color, s
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
     // Remove old static content and add spinner for common matches.
-    historyModal.appendChild(createLoadingSpinner("Loading common matches..."));
+    historyModal.appendChild(createLoadingSpinner("Loading common matches"));
 
     // Initiate asynchronous call to fetchCommonMatches concurrently.
     fetchCommonMatches(playerData.name, player2Name, server)
