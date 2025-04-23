@@ -399,7 +399,7 @@ function handleApiError(response, callId) {
 
 const searchPlayer = async () => {
     const containerId = 'playerDataContainer';
-    // Remove any existing playerDataContainer
+    // Remove any existing container
     const existingContainer = document.getElementById(containerId);
     if (existingContainer) {
         existingContainer.remove();
@@ -431,21 +431,9 @@ const searchPlayer = async () => {
         return;
     }
 
-    let playerDataContainer = document.createElement('div');
-    playerDataContainer.id = containerId;
-    playerDataContainer.className = 'player-data-container';
-    const messageContainer = document.getElementById('messageContainer');
-    if (messageContainer) {
-        messageContainer.insertAdjacentElement('afterend', playerDataContainer);
-    }
-    playerDataContainer.innerHTML = '';
-    playerDataContainer.appendChild(createLoadingSpinner());
-
     try {
-
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server, containerId);
-        await createPlayerCard(playerData, server);
-
+        await createPlayerCard(playerData, server, containerId);
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
         if (!accountData) return;
