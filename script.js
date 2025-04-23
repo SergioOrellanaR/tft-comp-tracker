@@ -488,11 +488,6 @@ const loadMainCompanion = async (playerData, container) => {
     }
 };
 
-/**
- * Aplica estilos de background a un contenedor.
- * @param {HTMLElement} container - Elemento contenedor.
- * @param {string} imgUrl - URL de la imagen a usar.
- */
 const applyBackgroundStyles = (container, imgUrl) => {
     Object.assign(container.style, {
         backgroundImage: `url(${imgUrl})`,
@@ -586,6 +581,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             searchPlayer();
         }
     });
+
+    document.getElementById('resetButton').addEventListener('click', resetPlayers);
 });
 
 document.getElementById('left').addEventListener('scroll', drawLines);
@@ -965,22 +962,7 @@ function select(el, type) {
 }
 
 const resetPlayers = () => {
-    clearElement(playersContainer);
-    links.length = 0;
-
-    document.querySelectorAll('.core-item-button').forEach(button => {
-        button.classList.remove('active');
-        button.style.filter = 'grayscale(100%)';
-    });
-
-    document.querySelectorAll('.items-container').forEach(container => {
-        const unitsInComp = Array.from(container.closest('.item.compo').querySelectorAll('.unit-icons img'))
-            .map(img => img.alt);
-        updateItemsContainer(container, unitsInComp);
-    });
-
-    drawLines();
-    preloadPlayers();
+    location.reload();
 };
 
 // Nueva función auxiliar para crear el elemento de composición
