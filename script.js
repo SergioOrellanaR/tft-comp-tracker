@@ -504,6 +504,10 @@ function handleSpectatorData(spectatorData, playerPuuid) {
             duelButton.className = 'duel-button';
             duelButton.innerText = '⚔️';
             duelButton.title = 'Vs. History';
+            // Prevent parent div click when pressing the duel button
+            duelButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
             // ...puedes agregar un event listener si se requiere alguna acción...
             player.prepend(duelButton);
         }
