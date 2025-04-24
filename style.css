@@ -81,7 +81,8 @@ button:hover {
 ===================================================================== */
 /* Players Container */
 #left {
-    width: 20%; /* O ajusta según prefieras */
+    width: 20%;
+    /* O ajusta según prefieras */
     padding: 0.5rem;
     overflow-y: auto;
     display: flex;
@@ -178,7 +179,8 @@ canvas {
     font-weight: bold;
     background-color: rgba(72, 73, 74, 0.478);
     padding: 4px 8px;
-    border-radius: 12px; /* Esquinas más redondeadas */
+    border-radius: 12px;
+    /* Esquinas más redondeadas */
     text-align: center;
     color: #00eaff;
     font-size: 0.75rem;
@@ -407,7 +409,7 @@ th {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    
+
     filter: grayscale(100%);
 }
 
@@ -567,15 +569,21 @@ th {
 
 /* Estilos para el contenedor del jugador */
 .player-data-container {
-    border: 1px solid white; /* Borde rojo para testing */
+    border: 1px solid white;
+    /* Borde rojo para testing */
     padding: 5px;
     margin-bottom: 5px;
-    width: 100%; /* Ajustar al 100% del contenedor padre */
-    height: 200px; /* Reducir la altura a la mitad */
+    width: 100%;
+    /* Ajustar al 100% del contenedor padre */
+    height: 200px;
+    /* Reducir la altura a la mitad */
     min-height: 10%;
-    overflow: hidden; /* Asegurar que el contenido no desborde */
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
-    color: #fff; /* Texto blanco */
+    overflow: hidden;
+    /* Asegurar que el contenido no desborde */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fondo semitransparente */
+    color: #fff;
+    /* Texto blanco */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -584,7 +592,8 @@ th {
 /* Spinner de carga */
 .loading-spinner {
     display: flex;
-    flex-direction: column; /* Added to stack spinner and text vertically */
+    flex-direction: column;
+    /* Added to stack spinner and text vertically */
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -601,7 +610,8 @@ th {
 
 /* New rule for spinner text */
 .spinner-text {
-    margin-top: 8px; /* Spacing between spinner and text */
+    margin-top: 8px;
+    /* Spacing between spinner and text */
     text-align: center;
 }
 
@@ -609,6 +619,7 @@ th {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -621,9 +632,14 @@ th {
 }
 
 @keyframes dotJump {
-    0%, 20%, 40%, 100% {
+
+    0%,
+    20%,
+    40%,
+    100% {
         transform: translateY(0);
     }
+
     10% {
         transform: translateY(-5px);
     }
@@ -798,6 +814,7 @@ th {
     border-radius: 6px;
     margin: 4px 0;
 }
+
 /* =====================================================================
     Estilos adicionales para contenedores de Datos de Jugador y Ranking
 ===================================================================== */
@@ -825,7 +842,7 @@ th {
 }
 
 /* Cada div interno ocupa el 50% */
-.rank-data-container > div {
+.rank-data-container>div {
     width: 50%;
 }
 
@@ -874,7 +891,7 @@ th {
 }
 
 /* Los div hijos se centran de manera predeterminada */
-#headerModal > div {
+#headerModal>div {
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -892,7 +909,8 @@ th {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* centra los contenidos basados en el ancho */
+    align-items: center;
+    /* centra los contenidos basados en el ancho */
 }
 
 /* Close button */
@@ -912,9 +930,12 @@ th {
 /* Estilo para los elementos de historial de partidas */
 .match-item {
     width: 100%;
-    white-space: nowrap; /* el texto se muestra en una sola línea */
-    overflow: hidden; /* ocultar contenido que exceda el ancho */
-    text-overflow: ellipsis; /* opcional: mostrar puntos suspensivos si se trunca */
+    white-space: nowrap;
+    /* el texto se muestra en una sola línea */
+    overflow: hidden;
+    /* ocultar contenido que exceda el ancho */
+    text-overflow: ellipsis;
+    /* opcional: mostrar puntos suspensivos si se trunca */
 }
 
 #headerModalStatsContent {
@@ -924,13 +945,16 @@ th {
 
 #donutContainer {
     width: 20%;
-    height: 40%;
+    aspect-ratio: 1 / 1;
     margin: auto;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Sobrescribir estilos para el donut chart */
-canvas#donutChart {
-    position: static;
-    z-index: auto;
+#donutContainer canvas {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
 }

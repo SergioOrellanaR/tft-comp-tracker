@@ -236,6 +236,8 @@ function createHeaderModalPlayer(data, color, server) {
 }
 */
 function createHeaderModalStats(player1Name, player2Name, statsData, player1Color, player2Color) {
+    console.log('Params: ', player1Name, player2Name, statsData, player1Color, player2Color);
+
     const statsContainer = document.createElement('div');
     statsContainer.id = 'headerModalStatsContent';
 
@@ -247,6 +249,12 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
         ? statsData.player2_duel_stats.won
         : 0;
 
+    // Check if both players haven't played any games.
+    if (player1Wins === 0 && player2Wins === 0) {
+        statsContainer.innerHTML = '<p style="text-align:center;">Both players have not played any game.</p>';
+        return statsContainer;
+    }
+
     // Container for the donut graph.
     const donutContainer = document.createElement('div');
     donutContainer.id = 'donutContainer';
@@ -257,23 +265,15 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
     donutContainer.appendChild(canvas);
     statsContainer.appendChild(donutContainer);
 
-    // Calculate a rotation so that player1's segment is centered on the left.
-    const totalWins = player1Wins + player2Wins;
-    let rotation = 0; // default rotation if no wins recorded
-    if (totalWins > 0) {
-        const anglePlayer1 = (player1Wins / totalWins) * 2 * Math.PI;
-        rotation = Math.PI - anglePlayer1 / 2;
-    }
-
     // Delegate all donut chart logic to another method.
-    initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation);
+    initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
 
     return statsContainer;
 }
 
-function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation) {
+function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
     const startChart = () => {
-        renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation);
+        renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
     };
 
     if (typeof Chart === 'undefined') {
@@ -290,32 +290,25 @@ function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, pla
     }
 }
 
-function renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation) {    
+function renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
     new Chart(canvas, {
         type: 'doughnut',
         data: {
-            labels: [player1Name, player2Name],
             datasets: [{
                 data: [player1Wins, player2Wins],
-                backgroundColor: [player1Color, player2Color]
+                backgroundColor: [player1Color, player2Color],
+                borderColor: '#000',
+                borderWidth: 1
             }]
         },
         options: {
-            rotation: rotation,
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
+            cutout: '75%', // <- más angosto (default es 50%)
             plugins: {
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                        align: "center",
-                        padding: 20,
-                        font: {
-                            size: 10
-                        }
-                    }
-                }
+                legend: { display: false },
+                tooltip: { enabled: false },
+                title: { display: false }
             }
         }
     });
@@ -348,7 +341,7 @@ function createHistoryModal(playerData, duelsCache, player2Name, player2Color, s
                 const duelData = duelsCache.get(player2Name) || {};
                 duelData.commonMatches = matchesData;
                 duelsCache.set(player2Name, duelData);
-                
+
                 historyModal.innerHTML = '<h2>History</h2>';
                 const matchesContainer = document.createElement('div');
                 matchesContainer.className = 'matches-container';
