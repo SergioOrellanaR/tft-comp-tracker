@@ -368,10 +368,10 @@ function createContestedDiv(percentage, text) {
     let color;
     if (percentage <= 50) {
         color = '#4caf50'; // Green for 50% and below.
-    } else if (percentage <= 85) {
-        color = '#ffc107'; // Yellow for 51% - 85%.
+    } else if (percentage <= 80) {
+        color = '#ffc107'; // Yellow for 51% - 80%.
     } else {
-        color = '#f44336'; // Red for 85% - 100%.
+        color = '#f44336'; // Red for 80% - 100%.
     }
 
     // Create the rectangle element that visualizes the percentage.
