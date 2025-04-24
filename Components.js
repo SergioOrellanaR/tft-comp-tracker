@@ -146,6 +146,7 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
             duelData.findGames = result;
             duelsCache.set(player2Name, duelData);
             overlay.removeChild(spinner);
+            overlay.appendChild(createTitleModal());
             overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
             overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, player2Color, server));
         })
@@ -157,6 +158,13 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
             errorElem.style.textAlign = 'center';
             overlay.appendChild(errorElem);
         });
+}
+
+function createTitleModal() {
+    const titleDiv = document.createElement('div');
+    titleDiv.className = 'modal-title';
+    titleDiv.textContent = 'Common games stats';
+    return titleDiv;
 }
 
 // Common method to create a colored square for legends.

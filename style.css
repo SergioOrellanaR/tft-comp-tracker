@@ -851,6 +851,16 @@ th {
 }
 
 /* Popup overlay */
+
+.modal-title {
+    width: 100%;
+    height: 5%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #popupOverlay {
     position: fixed;
     top: 50%;
@@ -868,38 +878,36 @@ th {
 
 /* Popup container */
 #headerModal {
-    border: 2px solid red;
     display: flex;
     background: #1c1c2b;
+    min-height: 35%;
     flex-direction: row;
-    flex-wrap: nowrap; /* O wrap si querés que bajen en móviles */
+    flex-wrap: nowrap;
     justify-content: space-between;
-    gap: 20px; /* opcional, mejor que margin entre hijos */
-    overflow-x: hidden; /* prevení scroll */
+    gap: 20px;
+    overflow-x: hidden;
 }
 
 .playerHeaderModal {
-    flex: 1 1 100%; /* ocupa el 100% disponible */
-    max-width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-    text-align: center; /* para centrar inline content si hubiera */
+    flex: 1 1 0%;
     display: flex;
-    justify-content: center; /* centra su contenido */
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .player-card-wrapper {
-    width: 50%; /* controla el ancho visible */
+    width: 85%; /* controla el ancho visible */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #headerModalStatsContent {
-    height: 100%;
-    width: 100%;
+    flex: 2 1 0%;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 /* Popup container */
