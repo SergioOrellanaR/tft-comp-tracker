@@ -36,6 +36,13 @@ export function createLoadingSpinner(text = null, longWaitMessage = null) {
     return spinner;
 }
 
+function createDivHelper(id) {
+    const div = document.createElement('div');
+    div.id = id;
+    div.textContent = `Placeholder for ${id}`;
+    return div;
+}
+
 //PLAYER CARD COMPONENTS
 const loadMainCompanion = async (playerData, container) => {
     try {
@@ -256,28 +263,106 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
     }
 
     // Container for the donut graph.
-    createDonutChart(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
+    createCharts(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
 
     return statsContainer;
 
     
 }
 
-function createDonutChart(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
-    const donutContainer = document.createElement('div');
-    donutContainer.id = 'donutContainer';
-    const duelStatsContainer = document.createElement('div');
-    duelStatsContainer.id = 'duelStatsContainer';
+function createCharts(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, statsData) {
+    const donutContainer = createDivHelper('donutContainer');
 
-    // Create canvas element for Chart.js.
+    // Create three divs inside donutContainer: player1Legend, canvas container, and player2Legend
+    const player1Legend = createDivHelper('player1Legend');
+    const canvasContainer = createDivHelper('canvasContainer');
+    const player2Legend = createDivHelper('player2Legend');
+    const duelStatsContainer = createDivHelper('duelStatsContainer');
+
+    // Create canvas element and append it to canvasContainer
     const canvas = document.createElement('canvas');
     canvas.id = 'donutChart';
-    donutContainer.appendChild(canvas);
+    canvasContainer.appendChild(canvas);
+
+    // Append the three divs in order to donutContainer
+    donutContainer.appendChild(player1Legend);
+    donutContainer.appendChild(canvasContainer);
+    donutContainer.appendChild(player2Legend);
     statsContainer.appendChild(donutContainer);
     statsContainer.appendChild(duelStatsContainer);
 
     // Delegate all donut chart logic to another method.
     initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
+    initializeDuelStatsGraph(duelStatsContainer, player1Color, player2Color, statsData);
+}
+
+function initializeDuelStatsGraph(player1Color, player2Color, statsData) {
+    const duelStatsContainer = document.getElementById('duelStatsContainer');
+    if (!duelStatsContainer) return;
+
+    // Create a canvas element for the stats graph.
+    const statsCanvas = document.createElement('canvas');
+    statsCanvas.id = 'duelStatsChart';
+    duelStatsContainer.appendChild(statsCanvas);
+
+    const renderStatsChart = () => {
+        new Chart(statsCanvas, {
+            type: 'bar',
+            data: {
+                labels: ['Damage', 'Eliminated', 'Avg Position'],
+                datasets: [
+                    {
+                        label: 'Player 1',
+                        data: [
+                            statsData.player1_duel_stats.damage_to_players || 0,
+                            statsData.player1_duel_stats.players_eliminated || 0,
+                            statsData.player1_duel_stats.average_position || 0
+                        ],
+                        backgroundColor: player1Color,
+                    },
+                    {
+                        label: 'Player 2',
+                        data: [
+                            statsData.player2_duel_stats.damage_to_players || 0,
+                            statsData.player2_duel_stats.players_eliminated || 0,
+                            statsData.player2_duel_stats.average_position || 0
+                        ],
+                        backgroundColor: player2Color,
+                    },
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Duel Statistics',
+                        font: { size: 16 },
+                        color: '#ccc'
+                    },
+                    legend: { display: true }
+                }
+            }
+        });
+    };
+
+    if (typeof Chart === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
+        script.onload = renderStatsChart;
+        script.onerror = () => {
+            duelStatsContainer.innerHTML = '<p>Error loading Chart.js for duel stats.</p>';
+        };
+        document.head.appendChild(script);
+    } else {
+        renderStatsChart();
+    }
 }
 
 function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
@@ -300,6 +385,7 @@ function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, pla
 }
 
 function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color) {
+    console.log('Rendering donut chart...');
     new Chart(canvas, {
         type: 'doughnut',
         data: {
