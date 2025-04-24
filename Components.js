@@ -303,8 +303,6 @@ function createCharts(statsContainer, player1Name, player2Name, player1Wins, pla
     player2Legend.appendChild(createLegendTextNode(player2Wins));
     player2Legend.appendChild(createPlayerColorBox(player2Color));
 
-
-
     // Create canvas element and append it to canvasContainer
     const canvas = document.createElement('canvas');
     canvas.id = 'donutChart';
@@ -318,7 +316,7 @@ function createCharts(statsContainer, player1Name, player2Name, player1Wins, pla
     statsContainer.appendChild(duelStatsContainer);
 
     // Delegate all donut chart logic to another method.
-    initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
+    initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color);
     initializeDuelStatsGraph(player1Color, player2Color, statsData);
 }
 
