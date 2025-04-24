@@ -256,6 +256,14 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
     }
 
     // Container for the donut graph.
+    createDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
+
+    return statsContainer;
+
+    
+}
+
+function createDonutChart() {
     const donutContainer = document.createElement('div');
     donutContainer.id = 'donutContainer';
 
@@ -267,13 +275,11 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
 
     // Delegate all donut chart logic to another method.
     initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
-
-    return statsContainer;
 }
 
 function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
     const startChart = () => {
-        renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
+        renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color);
     };
 
     if (typeof Chart === 'undefined') {
@@ -290,7 +296,7 @@ function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, pla
     }
 }
 
-function renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
+function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color) {
     new Chart(canvas, {
         type: 'doughnut',
         data: {
@@ -304,6 +310,7 @@ function renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            rotation: 180,
             cutout: '75%',
             plugins: {
                 title: {
