@@ -431,18 +431,6 @@ function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player
                 animateRotate: true
             },
             plugins: {
-                title: {
-                    display: true,
-                    text: 'Duel Stats',
-                    font: {
-                        size: 16
-                    },
-                    color: '#ccc',
-                    padding: {
-                        top: 0,
-                        bottom: 10
-                    }
-                },
                 legend: { display: false },
                 tooltip: { enabled: false }
             }
