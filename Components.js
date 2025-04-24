@@ -304,11 +304,22 @@ function renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            cutout: '75%', // <- más angosto (default es 50%)
+            cutout: '75%',
             plugins: {
+                title: {
+                    display: true,
+                    text: 'Duel Stats',
+                    font: {
+                        size: 20
+                    },
+                    color: '#ccc',
+                    padding: {
+                        top: 0,
+                        bottom: 10
+                    }
+                },
                 legend: { display: false },
-                tooltip: { enabled: false },
-                title: { display: false }
+                tooltip: { enabled: false }
             }
         }
     });
