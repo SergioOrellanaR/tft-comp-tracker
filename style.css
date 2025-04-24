@@ -856,9 +856,9 @@ th {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background: rgba(0, 0, 0, 0.9);
+    width: 85%;
+    height: 85%;
+    background: #1c1c2b;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -868,24 +868,38 @@ th {
 
 /* Popup container */
 #headerModal {
-    width: 100%;
-    height: 35%;
-    background: #1c1c2b;
-    border-radius: 8px;
-    padding: 20px;
-    position: relative;
-    overflow: auto;
+    border: 2px solid red;
     display: flex;
+    background: #1c1c2b;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: nowrap; /* O wrap si querés que bajen en móviles */
+    justify-content: space-between;
+    gap: 20px; /* opcional, mejor que margin entre hijos */
+    overflow-x: hidden; /* prevení scroll */
 }
 
-/* Los div hijos se centran de manera predeterminada */
-#headerModal>div {
+.playerHeaderModal {
+    flex: 1 1 100%; /* ocupa el 100% disponible */
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center; /* para centrar inline content si hubiera */
+    display: flex;
+    justify-content: center; /* centra su contenido */
+}
+
+.player-card-wrapper {
+    width: 50%; /* controla el ancho visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerModalStatsContent {
+    height: 100%;
     width: 100%;
-    margin: 0 auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Popup container */
@@ -927,13 +941,6 @@ th {
     /* ocultar contenido que exceda el ancho */
     text-overflow: ellipsis;
     /* opcional: mostrar puntos suspensivos si se trunca */
-}
-
-#headerModalStatsContent {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 #donutContainer,

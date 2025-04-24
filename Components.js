@@ -72,6 +72,7 @@ const applyBackgroundStyles = (container, imgUrl) => {
         backgroundPosition: 'center',
     });
 };
+
 export const createPlayerCard = async (playerData, server, containerId) => {
     try {
         let container = document.getElementById(containerId);
@@ -223,9 +224,12 @@ function createHeaderModalPlayer(data, color, server) {
     element.classList.add('playerHeaderModal');
     if (typeof data === 'object' && data !== null) {
         element.id = `player_${data.id || data.name || 'unknown'}`;
-        // Append the player card inside element
+        // Append the player card inside a wrapper div
         createPlayerCard(data, server, 'player-card-' + data.name).then(card => {
-            element.appendChild(card);
+            const wrapper = document.createElement('div');
+            wrapper.className = 'player-card-wrapper';
+            wrapper.appendChild(card);
+            element.appendChild(wrapper);
         });
     } else {
         element.id = data;
