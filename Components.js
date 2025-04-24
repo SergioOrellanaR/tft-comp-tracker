@@ -399,9 +399,31 @@ function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelSta
     const player2DuelStats = statsData.player2_duel_stats;
 
     const contestedDiv = createContestedDiv(statsData.duel_contested_percentage, 'Contested');
-    const statDiv1 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.damage_to_players, player2DuelStats.damage_to_players, 'Damage to Players');
-    const statDiv2 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.players_eliminated, player2DuelStats.players_eliminated, 'Players Eliminated');
-    const statDiv3 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.average_position, player2DuelStats.average_position, 'Average Position');
+    // Pass icon strings: sword for damage, skull for players eliminated, podium for average position.
+    const statDiv1 = createDuelStatDiv(
+        player1Color,
+        player2Color,
+        player1DuelStats.damage_to_players,
+        player2DuelStats.damage_to_players,
+        'Damage to Players',
+        '⚔'
+    );
+    const statDiv2 = createDuelStatDiv(
+        player1Color,
+        player2Color,
+        player1DuelStats.players_eliminated,
+        player2DuelStats.players_eliminated,
+        'Players Eliminated',
+        '💀'
+    );
+    const statDiv3 = createDuelStatDiv(
+        player1Color,
+        player2Color,
+        player1DuelStats.average_position,
+        player2DuelStats.average_position,
+        'Average Position',
+        '🥇'
+    );
 
     // Create a wrapper div for the statsDiv elements (excluding contestedDiv)
     const statsWrapper = document.createElement('div');
@@ -417,8 +439,29 @@ function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelSta
 // Method that creates a div styled with a gradient using the two colors and displays data.
 function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon = null) {
     const div = document.createElement('div');
-    div.classList.add('duel-stat-div'); // Assigning a uniform class to the div
-    div.textContent = `${text}: ${data1} / ${data2}`;
+    div.classList.add('duel-stat-div');
+
+    const player1GraphDiv = document.createElement('div');
+    player1GraphDiv.classList.add('player1GraphDiv');
+    player1GraphDiv.textContent = data1;
+
+    const statIconDiv = document.createElement('div');
+    statIconDiv.classList.add('statIconDiv');
+    if (icon) {
+        // Append icon and then text
+        statIconDiv.textContent = icon + ' ' + text;
+    } else {
+        statIconDiv.textContent = text;
+    }
+
+    const player2GraphDiv = document.createElement('div');
+    player2GraphDiv.classList.add('player2GraphDiv');
+    player2GraphDiv.textContent = data2;
+
+    div.appendChild(player1GraphDiv);
+    div.appendChild(statIconDiv);
+    div.appendChild(player2GraphDiv);
+
     return div;
 }
 
