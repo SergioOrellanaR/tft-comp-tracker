@@ -179,8 +179,8 @@ function createLegendTextNode(playerWins) {
     const span = document.createElement('span');
     span.className = 'legend-text';
     span.textContent = playerWins === 1
-        ? `${playerWins} game outplaced opponent`
-        : `${playerWins} games outplaced opponent`;
+        ? `outplaced opponent in ${playerWins} game`
+        : `outplaced opponent in ${playerWins} games`;
     return span;
 }
 
@@ -334,64 +334,6 @@ function createCharts(statsContainer, player1Wins, player2Wins, player1Color, pl
     initializeDuelStatsGraph(player1Color, player2Color, statsData, duelStatsContainer);
 }
 
-// Method that creates a div styled with a gradient using the two colors and displays data.
-function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon = null) {
-    const div = document.createElement('div');
-    div.classList.add('duel-stat-div'); // Assigning a uniform class to the div
-    div.textContent = `${text}: ${data1} / ${data2}`;
-    return div;
-}
-
-function createContestedDiv(percentage, text) {
-    const rounded = Math.round(percentage * 10) / 10;
-    const displayPercentage = Number.isInteger(rounded) ? rounded.toString() : rounded.toFixed(1);
-    const container = document.createElement('div');
-    container.classList.add('duel-contested-div');
-    container.title = 'Percentage of units that both players shared on their games.';
-
-    const label = document.createElement('div');
-    label.classList.add('duel-contested-label');
-    label.textContent = `${displayPercentage}% ${text}`;
-    container.appendChild(label);
-
-    const rectangle = document.createElement('div');
-    rectangle.classList.add('duel-contested-rectangle');
-    rectangle.style.width = (percentage === 0 ? 1 : percentage) + '%'; // dynamic width
-    let color;
-    if (percentage <= 50) {
-        color = '#4caf50';
-    } else if (percentage <= 80) {
-        color = '#ffc107';
-    } else {
-        color = '#f44336';
-    }
-    rectangle.style.backgroundColor = color; // dynamic color
-    container.appendChild(rectangle);
-
-    return container;
-}
-
-function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelStatsContainer) {
-    console.log(statsData);
-    const player1DuelStats = statsData.player1_duel_stats;
-    const player2DuelStats = statsData.player2_duel_stats;
-
-    const contestedDiv = createContestedDiv(statsData.duel_contested_percentage, 'Contested');
-    const statDiv1 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.damage_to_players, player2DuelStats.damage_to_players, 'Damage to Players');
-    const statDiv2 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.players_eliminated, player2DuelStats.players_eliminated, 'Players Eliminated');
-    const statDiv3 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.average_position, player2DuelStats.average_position, 'Average Position');
-
-    // Create a wrapper div for the statsDiv elements (excluding contestedDiv)
-    const statsWrapper = document.createElement('div');
-    statsWrapper.className = 'stats-wrapper';
-    statsWrapper.appendChild(statDiv1);
-    statsWrapper.appendChild(statDiv2);
-    statsWrapper.appendChild(statDiv3);
-
-    duelStatsContainer.appendChild(contestedDiv);
-    duelStatsContainer.appendChild(statsWrapper);
-}
-
 function initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color) {
     const startChart = () => {
         renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color);
@@ -449,6 +391,68 @@ function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player
             }
         }
     });
+}
+
+function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelStatsContainer) {
+    console.log(statsData);
+    const player1DuelStats = statsData.player1_duel_stats;
+    const player2DuelStats = statsData.player2_duel_stats;
+
+    const contestedDiv = createContestedDiv(statsData.duel_contested_percentage, 'Contested');
+    const statDiv1 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.damage_to_players, player2DuelStats.damage_to_players, 'Damage to Players');
+    const statDiv2 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.players_eliminated, player2DuelStats.players_eliminated, 'Players Eliminated');
+    const statDiv3 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.average_position, player2DuelStats.average_position, 'Average Position');
+
+    // Create a wrapper div for the statsDiv elements (excluding contestedDiv)
+    const statsWrapper = document.createElement('div');
+    statsWrapper.className = 'stats-wrapper';
+    statsWrapper.appendChild(statDiv1);
+    statsWrapper.appendChild(statDiv2);
+    statsWrapper.appendChild(statDiv3);
+
+    duelStatsContainer.appendChild(contestedDiv);
+    duelStatsContainer.appendChild(statsWrapper);
+}
+
+// Method that creates a div styled with a gradient using the two colors and displays data.
+function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon = null) {
+    const div = document.createElement('div');
+    div.classList.add('duel-stat-div'); // Assigning a uniform class to the div
+    div.textContent = `${text}: ${data1} / ${data2}`;
+    return div;
+}
+
+function createContestedDiv(percentage, text) {
+    const rounded = Math.round(percentage * 10) / 10;
+    const displayPercentage = Number.isInteger(rounded) ? rounded.toString() : rounded.toFixed(1);
+    const container = document.createElement('div');
+    container.classList.add('duel-contested-div');
+    container.title = 'Percentage of units that both players shared on their games.';
+
+    const label = document.createElement('div');
+    label.classList.add('duel-contested-label');
+    label.textContent = `${displayPercentage}% ${text}`;
+    if (percentage > 75) {
+        label.textContent += ' (highly contested)';
+    }
+    container.appendChild(label);
+
+    const rectangle = document.createElement('div');
+    rectangle.classList.add('duel-contested-rectangle');
+    rectangle.style.width = (percentage === 0 ? 1 : percentage) + '%'; // dynamic width
+    let color;
+    // KPIs color logic
+    if (percentage <= 50) {
+        color = '#4caf50';
+    } else if (percentage <= 75) {
+        color = '#ffc107';
+    } else {
+        color = '#f44336';
+    }
+    rectangle.style.backgroundColor = color; // dynamic color
+    container.appendChild(rectangle);
+
+    return container;
 }
 
 // GAME HISTORY COMPONENTS
