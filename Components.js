@@ -438,12 +438,17 @@ function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelSta
 
 // Method that creates a div styled with a gradient using the two colors and displays data.
 function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon = null) {
+    let total = null;
+    if (text === 'Damage to Players' || text === 'Players Eliminated') {
+        total = data1 + data2;
+    }
+    
     const div = document.createElement('div');
     div.classList.add('duel-stat-div');
 
     const player1GraphDiv = document.createElement('div');
     player1GraphDiv.classList.add('player1GraphDiv');
-    player1GraphDiv.textContent = data1;
+    player1GraphDiv.textContent = data1 + (total !== null ? ` (Total: ${total})` : '');
 
     const statIconDiv = document.createElement('div');
     statIconDiv.classList.add('statIconDiv');
@@ -456,7 +461,7 @@ function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon 
 
     const player2GraphDiv = document.createElement('div');
     player2GraphDiv.classList.add('player2GraphDiv');
-    player2GraphDiv.textContent = data2;
+    player2GraphDiv.textContent = data2 + (total !== null ? ` (Total: ${total})` : '');
 
     div.appendChild(player1GraphDiv);
     div.appendChild(statIconDiv);
