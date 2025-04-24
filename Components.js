@@ -256,22 +256,25 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
     }
 
     // Container for the donut graph.
-    createDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
+    createDonutChart(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
 
     return statsContainer;
 
     
 }
 
-function createDonutChart() {
+function createDonutChart(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
     const donutContainer = document.createElement('div');
     donutContainer.id = 'donutContainer';
+    const duelStatsContainer = document.createElement('div');
+    duelStatsContainer.id = 'duelStatsContainer';
 
     // Create canvas element for Chart.js.
     const canvas = document.createElement('canvas');
     canvas.id = 'donutChart';
     donutContainer.appendChild(canvas);
     statsContainer.appendChild(donutContainer);
+    statsContainer.appendChild(duelStatsContainer);
 
     // Delegate all donut chart logic to another method.
     initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
@@ -312,6 +315,9 @@ function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player
             maintainAspectRatio: false,
             rotation: 180,
             cutout: '75%',
+            animations: {
+                animateRotate: true
+            },
             plugins: {
                 title: {
                     display: true,
