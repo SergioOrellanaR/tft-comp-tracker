@@ -178,7 +178,9 @@ function createPlayerColorBox(color) {
 function createLegendTextNode(playerWins) {
     const span = document.createElement('span');
     span.className = 'legend-text';
-    span.textContent = `${playerWins} better placements`;
+    span.textContent = playerWins === 1
+        ? `${playerWins} game outplaced opponent`
+        : `${playerWins} games outplaced opponent`;
     return span;
 }
 
@@ -346,12 +348,12 @@ function createContestedDiv(percentage, text) {
     const container = document.createElement('div');
     container.classList.add('duel-contested-div');
     container.title = 'Percentage of units that both players shared on their games.';
-    
+
     const label = document.createElement('div');
     label.classList.add('duel-contested-label');
     label.textContent = `${displayPercentage}% ${text}`;
     container.appendChild(label);
-    
+
     const rectangle = document.createElement('div');
     rectangle.classList.add('duel-contested-rectangle');
     rectangle.style.width = (percentage === 0 ? 1 : percentage) + '%'; // dynamic width
@@ -365,7 +367,7 @@ function createContestedDiv(percentage, text) {
     }
     rectangle.style.backgroundColor = color; // dynamic color
     container.appendChild(rectangle);
-    
+
     return container;
 }
 
@@ -411,6 +413,9 @@ function initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, pl
 
 function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color) {
     console.log('Rendering donut chart...');
+
+    const total = player1Wins + player2Wins;
+
     new Chart(canvas, {
         type: 'doughnut',
         data: {
@@ -431,7 +436,16 @@ function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player
             },
             plugins: {
                 legend: { display: false },
-                tooltip: { enabled: false }
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function (context) {
+                            const value = context.parsed;
+                            const percentage = ((value / total) * 100).toFixed(1);
+                            return `${percentage}%`;
+                        }
+                    }
+                }
             }
         }
     });
