@@ -341,48 +341,31 @@ function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon 
 }
 
 function createContestedDiv(percentage, text) {
-    // Format the percentage to 1 decimal place (remove .0 if integer)
     const rounded = Math.round(percentage * 10) / 10;
     const displayPercentage = Number.isInteger(rounded) ? rounded.toString() : rounded.toFixed(1);
-
-    // Create the main container for the contested KPI display.
     const container = document.createElement('div');
     container.classList.add('duel-contested-div');
-    container.style.textAlign = 'center';
-    container.style.padding = '8px';
-    container.style.borderRadius = '8px'; // Slightly more rounded corners for a nicer look.
-    container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-
-    // Add tooltip explanation on mouse hover.
     container.title = 'Percentage of units that both players shared on their games.';
-
-    // Create and append the label with refined text.
+    
     const label = document.createElement('div');
+    label.classList.add('duel-contested-label');
     label.textContent = `${text.toLowerCase()}: ${displayPercentage}%`;
-    label.style.fontSize = '14px';
-    label.style.fontWeight = '500';
-    label.style.marginBottom = '4px';
     container.appendChild(label);
-
-    // Determine the rectangle color based on the KPI thresholds.
+    
+    const rectangle = document.createElement('div');
+    rectangle.classList.add('duel-contested-rectangle');
+    rectangle.style.width = (percentage === 0 ? 1 : percentage) + '%'; // dynamic width
     let color;
     if (percentage <= 50) {
-        color = '#4caf50'; // Green for 50% and below.
+        color = '#4caf50';
     } else if (percentage <= 80) {
-        color = '#ffc107'; // Yellow for 51% - 80%.
+        color = '#ffc107';
     } else {
-        color = '#f44336'; // Red for 80% - 100%.
+        color = '#f44336';
     }
-
-    // Create the rectangle element that visualizes the percentage.
-    const rectangle = document.createElement('div');
-    rectangle.style.width = (percentage === 0 ? 1 : percentage) + '%';
-    rectangle.style.height = '20px';
-    rectangle.style.backgroundColor = color;
-    rectangle.style.borderRadius = '4px';
-    rectangle.style.margin = '0 auto';
-
+    rectangle.style.backgroundColor = color; // dynamic color
     container.appendChild(rectangle);
+    
     return container;
 }
 
