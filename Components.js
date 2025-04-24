@@ -436,36 +436,97 @@ function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelSta
     duelStatsContainer.appendChild(statsWrapper);
 }
 
-// Method that creates a div styled with a gradient using the two colors and displays data.
+
 function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon = null) {
     let total = null;
+    // Calculate total for applicable stats
     if (text === 'Damage to Players' || text === 'Players Eliminated') {
         total = data1 + data2;
     }
-    
-    const div = document.createElement('div');
-    div.classList.add('duel-stat-div');
 
-    const player1GraphDiv = document.createElement('div');
-    player1GraphDiv.classList.add('player1GraphDiv');
-    player1GraphDiv.textContent = data1 + (total !== null ? ` (Total: ${total})` : '');
-
-    const statIconDiv = document.createElement('div');
-    statIconDiv.classList.add('statIconDiv');
-    if (icon) {
-        // Append icon and then text
-        statIconDiv.textContent = icon + ' ' + text;
+    // Determine widths for left and right rectangles
+    let leftWidth, rightWidth;
+    if (total !== null && total > 0) {
+        // Compute percentage widths based on data ratio
+        leftWidth = (data1 / total) * 100 + '%';
+        rightWidth = (data2 / total) * 100 + '%';
     } else {
-        statIconDiv.textContent = text;
+        // Use fixed widths mapping for non-percentage stats.
+        leftWidth = (9 - data1) * 10 + 'px';
+        rightWidth = (9 - data2) * 10 + 'px';
     }
 
-    const player2GraphDiv = document.createElement('div');
-    player2GraphDiv.classList.add('player2GraphDiv');
-    player2GraphDiv.textContent = data2 + (total !== null ? ` (Total: ${total})` : '');
+    // Left rectangle (player 1)
+    const leftRect = document.createElement('div');
+    leftRect.style.backgroundColor = player1Color;
+    leftRect.style.height = '20px';
+    leftRect.style.width = leftWidth;
+    leftRect.style.minWidth = '10px';
+    leftRect.style.transition = 'width 0.3s';
+    leftRect.classList.add('duel-stat-rect');
 
-    div.appendChild(player1GraphDiv);
-    div.appendChild(statIconDiv);
-    div.appendChild(player2GraphDiv);
+    // Right rectangle (player 2)
+    const rightRect = document.createElement('div');
+    rightRect.style.backgroundColor = player2Color;
+    rightRect.style.height = '20px';
+    rightRect.style.width = rightWidth;
+    rightRect.style.minWidth = '10px';
+    rightRect.style.transition = 'width 0.3s';
+    rightRect.classList.add('duel-stat-rect');
+
+    // Create wrapper for left side (rectangle + value)
+    const leftWrapper = document.createElement('div');
+    leftWrapper.style.display = 'flex';
+    leftWrapper.style.alignItems = 'center';
+    leftWrapper.style.justifyContent = 'flex-start';
+    leftWrapper.style.flex = '1';
+    leftWrapper.appendChild(leftRect);
+    const leftValue = document.createElement('span');
+    leftValue.textContent = data1;
+    leftValue.style.marginLeft = '5px';
+    leftValue.style.textAlign = 'left';
+    leftValue.classList.add('duel-stat-number');
+    leftWrapper.appendChild(leftValue);
+
+    // Create wrapper for right side (value + rectangle)
+    const rightWrapper = document.createElement('div');
+    rightWrapper.style.display = 'flex';
+    rightWrapper.style.alignItems = 'center';
+    rightWrapper.style.justifyContent = 'flex-end';
+    rightWrapper.style.flex = '1';
+    const rightValue = document.createElement('span');
+    rightValue.textContent = data2;
+    rightValue.style.marginRight = '5px';
+    rightValue.style.textAlign = 'right';
+    rightValue.classList.add('duel-stat-number');
+    rightWrapper.appendChild(rightValue);
+    rightWrapper.appendChild(rightRect);
+
+    // Center container for the icon; tooltip shows full text.
+    const centerContainer = document.createElement('div');
+    centerContainer.style.display = 'flex';
+    centerContainer.style.alignItems = 'center';
+    centerContainer.style.justifyContent = 'center';
+    centerContainer.style.margin = '0 10px';
+    centerContainer.style.whiteSpace = 'nowrap';
+    centerContainer.title = text;
+    const iconSpan = document.createElement('span');
+    iconSpan.textContent = icon ? icon : "";
+    iconSpan.style.cursor = 'pointer';
+    iconSpan.classList.add('duel-stat-icon');
+    centerContainer.appendChild(iconSpan);
+
+    // Main container with flex layout, ensuring all items are aligned.
+    const div = document.createElement('div');
+    div.classList.add('duel-stat-div');
+    div.style.display = 'flex';
+    div.style.alignItems = 'center';
+    div.style.justifyContent = 'space-between';
+
+    // Append wrappers and center container
+    div.appendChild(leftWrapper);
+    div.appendChild(centerContainer);
+    div.appendChild(rightWrapper);
 
     return div;
 }
