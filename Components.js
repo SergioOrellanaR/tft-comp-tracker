@@ -353,6 +353,9 @@ function createContestedDiv(percentage, text) {
     container.style.borderRadius = '8px'; // Slightly more rounded corners for a nicer look.
     container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
 
+    // Add tooltip explanation on mouse hover.
+    container.title = 'Percentage of units that both players shared on their games.';
+
     // Create and append the label with refined text.
     const label = document.createElement('div');
     label.textContent = `${text.toLowerCase()}: ${displayPercentage}%`;
