@@ -157,27 +157,41 @@ function createHeaderModal(playerData, duelsCache, player2Name, player2Color, se
     const headerModal = document.createElement('div');
     headerModal.id = 'headerModal';
 
-    // Mostrar spinner mientras se cargan ambos componentes.
-    headerModal.appendChild(createLoadingSpinner("Loading duel stats"));
+    // Retrieve cached data; if none exists, set defaults.
+    const cachedData = duelsCache.get(player2Name) || {};
+    const player2Data = cachedData.header !== undefined ? cachedData.header : null;
+    const statsCached = cachedData.stats !== undefined ? cachedData.stats : null;
 
-    // Ejecutar ambas peticiones en paralelo y actualizar el headerModal cuando ambas finalicen.
-    const player2Promise = fetchPlayerSummary(player2Name, server);
-    const duelStatsPromise = fetchDuelStats(playerData.name, player2Name, server);
+    // If both header and stats are present in cache, use them.
+    if (player2Data && statsCached) {
+        headerModal.innerHTML = '';
+        headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
+        headerModal.appendChild(createHeaderModalStats(statsCached, CONFIG.mainPlayerColor, player2Color));
+        headerModal.appendChild(createHeaderModalPlayer(player2Data, player2Color, server));
+    } else {
+        // Display spinner while loading missing data.
+        headerModal.innerHTML = '';
+        const spinner = createLoadingSpinner("Loading duel stats");
+        headerModal.appendChild(spinner);
 
-    Promise.all([player2Promise, duelStatsPromise])
-        .then(([summaryData, statsData]) => {
-            const duelData = duelsCache.get(player2Name) || {};
-            duelData.stats = statsData;
-            duelsCache.set(player2Name, duelData);
-            headerModal.innerHTML = ''; // Limpiar spinner
-            headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
-            headerModal.appendChild(createHeaderModalStats(statsData, CONFIG.mainPlayerColor, player2Color));
-            headerModal.appendChild(createHeaderModalPlayer(summaryData, player2Color, server));
-        })
-        .catch(error => {
-            console.error("Error loading header modal:", error);
-            headerModal.innerHTML = '<p>Error loading duel information.</p>';
-        });
+        // Prepare promises: use cached values if present, otherwise fetch.
+        const headerPromise = player2Data ? Promise.resolve(player2Data) : fetchPlayerSummary(player2Name, server);
+        const statsPromise = statsCached ? Promise.resolve(statsCached) : fetchDuelStats(playerData.name, player2Name, server);
+
+        Promise.all([headerPromise, statsPromise])
+            .then(([headerData, statsData]) => {
+                // Update cache with the obtained data.
+                duelsCache.set(player2Name, { header: headerData, stats: statsData });
+                headerModal.innerHTML = ''; // Clear spinner
+                headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
+                headerModal.appendChild(createHeaderModalStats(statsData, CONFIG.mainPlayerColor, player2Color));
+                headerModal.appendChild(createHeaderModalPlayer(headerData, player2Color, server));
+            })
+            .catch(error => {
+                console.error("Error loading header modal:", error);
+                headerModal.innerHTML = '<p>Error loading duel information.</p>';
+            });
+    }
 
     return headerModal;
 }
