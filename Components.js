@@ -219,14 +219,33 @@ function createHeaderModalStats(statsData, player1Color, player2Color) {
     const statsContainer = document.createElement('div');
     statsContainer.id = 'headerModalStatsContent';
 
-    // Use the statsData object to fill in meaningful details.
-    // Adjust these properties based on the structure of statsData.
     statsContainer.innerHTML = `
         <h2>Duel Stats</h2>
-        <p>Total Games: ${statsData.totalGames || 0}</p>
-        <p>Wins: ${statsData.wins || 0}</p>
-        <p>Losses: ${statsData.losses || 0}</p>
-        <p>Win Rate: ${statsData.winRate || 'N/A'}</p>
+        <p><strong>Winner:</strong> ${statsData.winner_name} (Player ${statsData.winner_player_number})</p>
+        <p><strong>Win Rate:</strong> ${statsData.duel_winrate_percentage}%</p>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: ${statsData.duel_winrate_percentage}%;"></div>
+        </div>
+        <p><strong>Contested:</strong> ${statsData.duel_contested_percentage}%</p>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: ${statsData.duel_contested_percentage}%; background-color: #ffd700;"></div>
+        </div>
+        <div class="players-stats">
+            <div class="player-stats" style="border-color: ${player1Color};">
+                <h3>Player 1 Stats</h3>
+                <p>Won: ${statsData.player1_duel_stats.won}</p>
+                <p>Damage to Players: ${statsData.player1_duel_stats.damage_to_players}</p>
+                <p>Players Eliminated: ${statsData.player1_duel_stats.players_eliminated}</p>
+                <p>Average Position: ${statsData.player1_duel_stats.average_position}</p>
+            </div>
+            <div class="player-stats" style="border-color: ${player2Color};">
+                <h3>Player 2 Stats</h3>
+                <p>Won: ${statsData.player2_duel_stats.won}</p>
+                <p>Damage to Players: ${statsData.player2_duel_stats.damage_to_players}</p>
+                <p>Players Eliminated: ${statsData.player2_duel_stats.players_eliminated}</p>
+                <p>Average Position: ${statsData.player2_duel_stats.average_position}</p>
+            </div>
+        </div>
     `;
     return statsContainer;
 }
