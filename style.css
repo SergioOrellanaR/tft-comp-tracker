@@ -916,3 +916,21 @@ th {
     overflow: hidden; /* ocultar contenido que exceda el ancho */
     text-overflow: ellipsis; /* opcional: mostrar puntos suspensivos si se trunca */
 }
+
+#headerModalStatsContent {
+    height: 100%;
+    width: 100%;
+}
+
+#donutContainer {
+    width: 20%;
+    height: 40%;
+    margin: auto;
+    position: relative;
+}
+
+/* Sobrescribir estilos para el donut chart */
+canvas#donutChart {
+    position: static;
+    z-index: auto;
+}

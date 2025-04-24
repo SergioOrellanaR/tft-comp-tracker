@@ -164,7 +164,7 @@ function createHeaderModal(playerData, duelsCache, player2Name, player2Color, se
     if (player2Data && statsCached) {
         headerModal.innerHTML = '';
         headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
-        headerModal.appendChild(createHeaderModalStats(statsCached, CONFIG.mainPlayerColor, player2Color));
+        headerModal.appendChild(createHeaderModalStats(playerData.name, player2Name, statsCached, CONFIG.mainPlayerColor, player2Color));
         headerModal.appendChild(createHeaderModalPlayer(player2Data, player2Color, server));
     } else {
         // Display spinner while loading missing data.
@@ -182,7 +182,7 @@ function createHeaderModal(playerData, duelsCache, player2Name, player2Color, se
                 duelsCache.set(player2Name, { header: headerData, stats: statsData });
                 headerModal.innerHTML = ''; // Clear spinner
                 headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
-                headerModal.appendChild(createHeaderModalStats(statsData, CONFIG.mainPlayerColor, player2Color));
+                headerModal.appendChild(createHeaderModalStats(playerData.name, player2Name, statsData, CONFIG.mainPlayerColor, player2Color));
                 headerModal.appendChild(createHeaderModalPlayer(headerData, player2Color, server));
             })
             .catch(error => {
@@ -215,20 +215,110 @@ function createHeaderModalPlayer(data, color, server) {
     return element;
 }
 
-function createHeaderModalStats(statsData, player1Color, player2Color) {
+/*
+{
+    "winner_player_number": 2,
+    "winner_name": "NyobZoo#NA1",
+    "duel_winrate_percentage": 100.0,
+    "duel_contested_percentage": 0.0,
+    "player1_duel_stats": {
+        "won": 0,
+        "damage_to_players": 33,
+        "players_eliminated": 0,
+        "average_position": 7.0
+    },
+    "player2_duel_stats": {
+        "won": 1,
+        "damage_to_players": 229,
+        "players_eliminated": 4,
+        "average_position": 1.0
+    }
+}
+*/
+function createHeaderModalStats(player1Name, player2Name, statsData, player1Color, player2Color) {
     const statsContainer = document.createElement('div');
     statsContainer.id = 'headerModalStatsContent';
 
-    // Use the statsData object to fill in meaningful details.
-    // Adjust these properties based on the structure of statsData.
-    statsContainer.innerHTML = `
-        <h2>Duel Stats</h2>
-        <p>Total Games: ${statsData.totalGames || 0}</p>
-        <p>Wins: ${statsData.wins || 0}</p>
-        <p>Losses: ${statsData.losses || 0}</p>
-        <p>Win Rate: ${statsData.winRate || 'N/A'}</p>
-    `;
+    // Extract wins for player1 and player2.
+    const player1Wins = statsData.player1_duel_stats && typeof statsData.player1_duel_stats.won === 'number'
+        ? statsData.player1_duel_stats.won
+        : 0;
+    const player2Wins = statsData.player2_duel_stats && typeof statsData.player2_duel_stats.won === 'number'
+        ? statsData.player2_duel_stats.won
+        : 0;
+
+    // Container for the donut graph.
+    const donutContainer = document.createElement('div');
+    donutContainer.id = 'donutContainer';
+
+    // Create canvas element for Chart.js.
+    const canvas = document.createElement('canvas');
+    canvas.id = 'donutChart';
+    donutContainer.appendChild(canvas);
+    statsContainer.appendChild(donutContainer);
+
+    // Calculate a rotation so that player1's segment is centered on the left.
+    const totalWins = player1Wins + player2Wins;
+    let rotation = 0; // default rotation if no wins recorded
+    if (totalWins > 0) {
+        const anglePlayer1 = (player1Wins / totalWins) * 2 * Math.PI;
+        rotation = Math.PI - anglePlayer1 / 2;
+    }
+
+    // Delegate all donut chart logic to another method.
+    initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation);
+
     return statsContainer;
+}
+
+function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation) {
+    const startChart = () => {
+        renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation);
+    };
+
+    if (typeof Chart === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
+        script.onload = startChart;
+        script.onerror = () => {
+            const donutContainer = canvas.parentElement;
+            donutContainer.innerHTML = '<p>Error loading Chart.js.</p>';
+        };
+        document.head.appendChild(script);
+    } else {
+        startChart();
+    }
+}
+
+function renderDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, rotation) {    
+    new Chart(canvas, {
+        type: 'doughnut',
+        data: {
+            labels: [player1Name, player2Name],
+            datasets: [{
+                data: [player1Wins, player2Wins],
+                backgroundColor: [player1Color, player2Color]
+            }]
+        },
+        options: {
+            rotation: rotation,
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        align: "center",
+                        padding: 20,
+                        font: {
+                            size: 10
+                        }
+                    }
+                }
+            }
+        }
+    });
 }
 
 // GAME HISTORY COMPONENTS
