@@ -349,7 +349,7 @@ function createContestedDiv(percentage, text) {
     
     const label = document.createElement('div');
     label.classList.add('duel-contested-label');
-    label.textContent = `${text.toLowerCase()}: ${displayPercentage}%`;
+    label.textContent = `${displayPercentage}% ${text}`;
     container.appendChild(label);
     
     const rectangle = document.createElement('div');
@@ -374,7 +374,7 @@ function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelSta
     const player1DuelStats = statsData.player1_duel_stats;
     const player2DuelStats = statsData.player2_duel_stats;
 
-    const contestedDiv = createContestedDiv(statsData.duel_contested_percentage, 'Contested Percentage');
+    const contestedDiv = createContestedDiv(statsData.duel_contested_percentage, 'Contested');
     const statDiv1 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.damage_to_players, player2DuelStats.damage_to_players, 'Damage to Players');
     const statDiv2 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.players_eliminated, player2DuelStats.players_eliminated, 'Players Eliminated');
     const statDiv3 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.average_position, player2DuelStats.average_position, 'Average Position');
