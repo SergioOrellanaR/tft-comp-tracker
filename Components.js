@@ -484,8 +484,8 @@ function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon 
         rightWidth = (data2 / total) * 100 + '%';
     } else {
         // Use fixed widths mapping for non-percentage stats.
-        leftWidth = (5 * data1) + '%';
-        rightWidth = (5 * data2) + '%';
+        leftWidth = (6 * data1) + '%';
+        rightWidth = (6 * data2) + '%';
     }
 
     // Left rectangle (player 1)

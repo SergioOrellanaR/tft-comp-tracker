@@ -1029,8 +1029,9 @@ th {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    /*border: red 1px solid;*/
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    white-space: nowrap;    /* keeps text on one line */
 }
 
 .duel-contested-label {
@@ -1045,9 +1046,10 @@ th {
 }
 
 .duel-contested-rectangle {
-    height: 75%;
-    border-radius: 4px;
-    margin: 0 auto;
+    margin-top: 5px;
+    border: white 1px solid;
+    height: 50%;
+    border-radius: 20px;
     box-sizing: border-box;
 }
 
@@ -1055,6 +1057,7 @@ th {
 .stats-wrapper {
     width: 100%;
     display: flex;
+    gap: 5px;
     flex-direction: column;
     box-sizing: border-box;
     padding: 0; /* adjust if needed */
