@@ -291,21 +291,21 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
     }
 
     // Container for the donut graph.
-    createCharts(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
+    createCharts(statsContainer, player1Wins, player2Wins, player1Color, player2Color, statsData);
 
     return statsContainer;
 
 
 }
 
-function createCharts(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, statsData) {
+function createCharts(statsContainer, player1Wins, player2Wins, player1Color, player2Color, statsData) {
     const donutContainer = createDivHelper('donutContainer');
 
     // Create three divs inside donutContainer: player1Legend, canvas container, and player2Legend
     const player1Legend = createDivHelper('player1Legend');
     const canvasContainer = createDivHelper('canvasContainer');
     const player2Legend = createDivHelper('player2Legend');
-    const duelStatsContainer = createDivHelper('duelStatsContainer', true);
+    const duelStatsContainer = createDivHelper('duelStatsContainer');
 
     // Configure player1Legend: square then text.
     player1Legend.appendChild(createPlayerColorBox(player1Color));
@@ -329,76 +329,79 @@ function createCharts(statsContainer, player1Name, player2Name, player1Wins, pla
 
     // Delegate all donut chart logic to another method.
     initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color);
-    initializeDuelStatsGraph(player1Color, player2Color, statsData);
+    initializeDuelStatsGraph(player1Color, player2Color, statsData, duelStatsContainer);
 }
 
-function initializeDuelStatsGraph(player1Color, player2Color, statsData) {
-    const duelStatsContainer = document.getElementById('duelStatsContainer');
-    if (!duelStatsContainer) return;
+// Method that creates a div styled with a gradient using the two colors and displays data.
+function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon = null) {
+    const div = document.createElement('div');
+    div.classList.add('duel-stat-div'); // Assigning a uniform class to the div
+    div.textContent = `${text}: ${data1} / ${data2}`;
+    return div;
+}
 
-    // Create a canvas element for the stats graph.
-    const statsCanvas = document.createElement('canvas');
-    statsCanvas.id = 'duelStatsChart';
-    duelStatsContainer.appendChild(statsCanvas);
+function createContestedDiv(percentage, text) {
+    // Format the percentage to 1 decimal place (remove .0 if integer)
+    const rounded = Math.round(percentage * 10) / 10;
+    const displayPercentage = Number.isInteger(rounded) ? rounded.toString() : rounded.toFixed(1);
 
-    const renderStatsChart = () => {
-        new Chart(statsCanvas, {
-            type: 'bar',
-            data: {
-                labels: ['Damage', 'Eliminated', 'Avg Position'],
-                datasets: [
-                    {
-                        label: 'Player 1',
-                        data: [
-                            statsData.player1_duel_stats.damage_to_players || 0,
-                            statsData.player1_duel_stats.players_eliminated || 0,
-                            statsData.player1_duel_stats.average_position || 0
-                        ],
-                        backgroundColor: player1Color,
-                    },
-                    {
-                        label: 'Player 2',
-                        data: [
-                            statsData.player2_duel_stats.damage_to_players || 0,
-                            statsData.player2_duel_stats.players_eliminated || 0,
-                            statsData.player2_duel_stats.average_position || 0
-                        ],
-                        backgroundColor: player2Color,
-                    },
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                },
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Duel Statistics',
-                        font: { size: 16 },
-                        color: '#ccc'
-                    },
-                    legend: { display: true }
-                }
-            }
-        });
-    };
+    // Create the main container for the contested KPI display.
+    const container = document.createElement('div');
+    container.classList.add('duel-contested-div');
+    container.style.textAlign = 'center';
+    container.style.padding = '8px';
+    container.style.borderRadius = '8px'; // Slightly more rounded corners for a nicer look.
+    container.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
 
-    if (typeof Chart === 'undefined') {
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
-        script.onload = renderStatsChart;
-        script.onerror = () => {
-            duelStatsContainer.innerHTML = '<p>Error loading Chart.js for duel stats.</p>';
-        };
-        document.head.appendChild(script);
+    // Create and append the label with refined text.
+    const label = document.createElement('div');
+    label.textContent = `${text.toLowerCase()}: ${displayPercentage}%`;
+    label.style.fontSize = '14px';
+    label.style.fontWeight = '500';
+    label.style.marginBottom = '4px';
+    container.appendChild(label);
+
+    // Determine the rectangle color based on the KPI thresholds.
+    let color;
+    if (percentage <= 50) {
+        color = '#4caf50'; // Green for 50% and below.
+    } else if (percentage <= 85) {
+        color = '#ffc107'; // Yellow for 51% - 85%.
     } else {
-        renderStatsChart();
+        color = '#f44336'; // Red for 85% - 100%.
     }
+
+    // Create the rectangle element that visualizes the percentage.
+    const rectangle = document.createElement('div');
+    rectangle.style.width = (percentage === 0 ? 1 : percentage) + '%';
+    rectangle.style.height = '20px';
+    rectangle.style.backgroundColor = color;
+    rectangle.style.borderRadius = '4px';
+    rectangle.style.margin = '0 auto';
+
+    container.appendChild(rectangle);
+    return container;
+}
+
+function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelStatsContainer) {
+    console.log(statsData);
+    const player1DuelStats = statsData.player1_duel_stats;
+    const player2DuelStats = statsData.player2_duel_stats;
+
+    const contestedDiv = createContestedDiv(statsData.duel_contested_percentage, 'Contested Percentage');
+    const statDiv1 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.damage_to_players, player2DuelStats.damage_to_players, 'Damage to Players');
+    const statDiv2 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.players_eliminated, player2DuelStats.players_eliminated, 'Players Eliminated');
+    const statDiv3 = createDuelStatDiv(player1Color, player2Color, player1DuelStats.average_position, player2DuelStats.average_position, 'Average Position');
+
+    // Create a wrapper div for the statsDiv elements (excluding contestedDiv)
+    const statsWrapper = document.createElement('div');
+    statsWrapper.className = 'stats-wrapper';
+    statsWrapper.appendChild(statDiv1);
+    statsWrapper.appendChild(statDiv2);
+    statsWrapper.appendChild(statDiv3);
+
+    duelStatsContainer.appendChild(contestedDiv);
+    duelStatsContainer.appendChild(statsWrapper);
 }
 
 function initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color) {

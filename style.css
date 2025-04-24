@@ -951,8 +951,8 @@ th {
     /* opcional: mostrar puntos suspensivos si se trunca */
 }
 
-#donutContainer,
-#duelStatsContainer {
+#donutContainer
+{
     width: 100%;
     height: 50%;
     box-sizing: border-box;
@@ -960,6 +960,18 @@ th {
     display: flex;
     justify-content: center; /* centra horizontalmente */
     align-items: center;     /* centra verticalmente */
+
+}
+
+#duelStatsContainer {
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column; /* <--- alineación en columna */
+    justify-content: center; /* centra verticalmente dentro del contenedor */
+    align-items: center;     /* centra horizontalmente cada item */
 }
 
 #player1Legend,
@@ -967,7 +979,7 @@ th {
     flex: 0 0 25%;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* <-- key change */
     align-items: center;
     overflow: hidden;
 }
