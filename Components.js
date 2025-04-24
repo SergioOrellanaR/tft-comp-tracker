@@ -48,7 +48,6 @@ const loadMainCompanion = async (playerData, container) => {
             return;
         }
         const imgUrl = CDragonBaseUrl(myCompanion.loadoutsIcon);
-        console.log(imgUrl);
         // Se encapsula la asignación de estilos en una función auxiliar
         applyBackgroundStyles(container, imgUrl);
     } catch (error) {
@@ -83,7 +82,6 @@ export const createPlayerCard = async (playerData, server, containerId) => {
         }
         loadMainCompanion(playerData, container);
         const ladderNumber = playerData.rank_info.ladder_id > 3 ? playerData.rank_info.rank : '';
-        console.log(ladderNumber);
 
         container.innerHTML = `
             <div class="player-details-data-container">
@@ -111,7 +109,7 @@ export const createPlayerCard = async (playerData, server, containerId) => {
 
 // POP UP COMPONENTS
 export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
-    // Creates the overlay if it doesn't exist.
+    console.log(duelsCache);    // Creates the overlay if it doesn't exist.
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
     document.body.appendChild(overlay);
@@ -237,38 +235,46 @@ function createHeaderModalStats(statsData, player1Color, player2Color) {
 function createHistoryModal(playerData, duelsCache, player2Name, player2Color, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
-    // Remove old static content and add spinner for common matches.
-    historyModal.appendChild(createLoadingSpinner("Loading common matches"));
 
-    // Initiate asynchronous call to fetchCommonMatches concurrently.
-    fetchCommonMatches(playerData.name, player2Name, server)
-        .then(matchesData => {
-            const duelData = duelsCache.get(player2Name);
-            duelData.commonMatches = matchesData;
-            duelsCache.set(player2Name, duelData);
-            
-            // Clear spinner and set title
-            historyModal.innerHTML = '<h2>History</h2>';
-            
-            // Create a container for the matches
-            const matchesContainer = document.createElement('div');
-            matchesContainer.className = 'matches-container';
-            
-            // Iterate each match in match_list and create a div with its content
-            matchesData.match_list.forEach(match => {
-                const matchDiv = document.createElement('div');
-                matchDiv.className = 'match-item';
-                // Display the match object as pretty printed JSON
-                matchDiv.innerHTML = `<pre>${JSON.stringify(match)}</pre>`;
-                matchesContainer.appendChild(matchDiv);
-            });
-            
-            historyModal.appendChild(matchesContainer);
-        })
-        .catch(error => {
-            historyModal.innerHTML = '<h2>History</h2><p>Error loading common matches.</p>';
-            console.error("Error in fetchCommonMatches:", error);
+    // Implement cache logic similar to createHeaderModal
+    const cachedData = duelsCache.get(player2Name) || {};
+    const commonMatchesCached = cachedData.commonMatches || null;
+
+    if (commonMatchesCached) {
+        historyModal.innerHTML = '<h2>History</h2>';
+        const matchesContainer = document.createElement('div');
+        matchesContainer.className = 'matches-container';
+        commonMatchesCached.match_list.forEach(match => {
+            const matchDiv = document.createElement('div');
+            matchDiv.className = 'match-item';
+            matchDiv.innerHTML = `<pre>${JSON.stringify(match)}</pre>`;
+            matchesContainer.appendChild(matchDiv);
         });
+        historyModal.appendChild(matchesContainer);
+    } else {
+        historyModal.appendChild(createLoadingSpinner("Loading common matches"));
+        fetchCommonMatches(playerData.name, player2Name, server)
+            .then(matchesData => {
+                const duelData = duelsCache.get(player2Name) || {};
+                duelData.commonMatches = matchesData;
+                duelsCache.set(player2Name, duelData);
+                
+                historyModal.innerHTML = '<h2>History</h2>';
+                const matchesContainer = document.createElement('div');
+                matchesContainer.className = 'matches-container';
+                matchesData.match_list.forEach(match => {
+                    const matchDiv = document.createElement('div');
+                    matchDiv.className = 'match-item';
+                    matchDiv.innerHTML = `<pre>${JSON.stringify(match)}</pre>`;
+                    matchesContainer.appendChild(matchDiv);
+                });
+                historyModal.appendChild(matchesContainer);
+            })
+            .catch(error => {
+                historyModal.innerHTML = '<h2>History</h2><p>Error loading common matches.</p>';
+                console.error("Error in fetchCommonMatches:", error);
+            });
+    }
 
     return historyModal;
 }
