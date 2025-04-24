@@ -959,10 +959,6 @@ th {
     border: 1px solid red;
     display: flex;
     justify-content: center;
-    /* centra horizontalmente */
-    align-items: center;
-    /* centra verticalmente */
-
 }
 
 #duelStatsContainer {
@@ -1052,5 +1048,79 @@ th {
     height: 75%;
     border-radius: 4px;
     margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* New styles for duel stat components */
+.stats-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0; /* adjust if needed */
+    margin: 0 auto; /* center in case it's inside a wider container */
+}
+
+.duel-stat-div {
+    display: flex;
+    width: 100%; /* Ensure it fills the full width of its parent */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.duel-stat-left-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.duel-stat-right-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.duel-stat-center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    white-space: nowrap;
+    gap: 8px; /* optional: spacing between icons */
+}
+
+.duel-stat-rect {
+    height: 20px;
+    border: white 2px solid;
+    min-width: 10px;
+    transition: width 0.3s;
+}
+
+.duel-stat-number-left {
+    width: 20%;   /* or whatever size you prefer */
+    height: 100%;  /* keep it square if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.duel-stat-number-right {
+    width: 20%;   /* or whatever size you prefer */
+    height: 100%;  /* keep it square if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.duel-stat-icon {
+    width: 20px;   /* or whatever size you prefer */
+    height: 100%;  /* keep it square if needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
 }
