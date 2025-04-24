@@ -908,3 +908,11 @@ th {
     cursor: pointer;
     z-index: 1010;
 }
+
+/* Estilo para los elementos de historial de partidas */
+.match-item {
+    width: 100%;
+    white-space: nowrap; /* el texto se muestra en una sola línea */
+    overflow: hidden; /* ocultar contenido que exceda el ancho */
+    text-overflow: ellipsis; /* opcional: mostrar puntos suspensivos si se trunca */
+}

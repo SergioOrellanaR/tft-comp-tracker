@@ -196,7 +196,7 @@ function createHeaderModalPlayer(data, color, server) {
         element.id = data;
         element.innerHTML = `<p>${data}</p>`;
     }
-    
+
     if (color) {
         element.style.color = color;
     }
@@ -232,7 +232,24 @@ function createHistoryModal(playerData, duelsCache, player2Name, player2Color, s
             const duelData = duelsCache.get(player2Name);
             duelData.commonMatches = matchesData;
             duelsCache.set(player2Name, duelData);
-            historyModal.innerHTML = '<h2>History</h2><p>' + JSON.stringify(matchesData) + '</p>';
+            
+            // Clear spinner and set title
+            historyModal.innerHTML = '<h2>History</h2>';
+            
+            // Create a container for the matches
+            const matchesContainer = document.createElement('div');
+            matchesContainer.className = 'matches-container';
+            
+            // Iterate each match in match_list and create a div with its content
+            matchesData.match_list.forEach(match => {
+                const matchDiv = document.createElement('div');
+                matchDiv.className = 'match-item';
+                // Display the match object as pretty printed JSON
+                matchDiv.innerHTML = `<pre>${JSON.stringify(match)}</pre>`;
+                matchesContainer.appendChild(matchDiv);
+            });
+            
+            historyModal.appendChild(matchesContainer);
         })
         .catch(error => {
             historyModal.innerHTML = '<h2>History</h2><p>Error loading common matches.</p>';
