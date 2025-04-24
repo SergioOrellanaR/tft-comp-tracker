@@ -36,10 +36,10 @@ export function createLoadingSpinner(text = null, longWaitMessage = null) {
     return spinner;
 }
 
-function createDivHelper(id, fillText = true) {
+function createDivHelper(id, setPlaceHolder = false) {
     const div = document.createElement('div');
     div.id = id;
-    if (fillText) {
+    if (setPlaceHolder) {
         div.textContent = `Placeholder for ${id}`;
     }
     return div;
@@ -72,7 +72,6 @@ const applyBackgroundStyles = (container, imgUrl) => {
         backgroundPosition: 'center',
     });
 };
-
 export const createPlayerCard = async (playerData, server, containerId) => {
     try {
         let container = document.getElementById(containerId);
@@ -157,6 +156,21 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
             errorElem.style.textAlign = 'center';
             overlay.appendChild(errorElem);
         });
+}
+
+// Common method to create a colored square for legends.
+function createPlayerColorBox(color) {
+    const colorBox = document.createElement('span');
+    colorBox.classList.add('player-color-box'); // Adding a uniform class for all color boxes.
+    colorBox.style.backgroundColor = color;
+    return colorBox;
+}
+
+function createLegendTextNode(playerWins) {
+    const span = document.createElement('span');
+    span.className = 'legend-text';
+    span.textContent = `${playerWins} better placements`;
+    return span;
 }
 
 //HEADER MODAL COMPONENTS
@@ -269,17 +283,27 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
 
     return statsContainer;
 
-    
+
 }
 
 function createCharts(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, statsData) {
-    const donutContainer = createDivHelper('donutContainer', false);
+    const donutContainer = createDivHelper('donutContainer');
 
     // Create three divs inside donutContainer: player1Legend, canvas container, and player2Legend
     const player1Legend = createDivHelper('player1Legend');
     const canvasContainer = createDivHelper('canvasContainer');
     const player2Legend = createDivHelper('player2Legend');
-    const duelStatsContainer = createDivHelper('duelStatsContainer');
+    const duelStatsContainer = createDivHelper('duelStatsContainer', true);
+
+    // Configure player1Legend: square then text.
+    player1Legend.appendChild(createPlayerColorBox(player1Color));
+    player1Legend.appendChild(createLegendTextNode(player1Wins));
+
+    // Configure player2Legend: text then square.
+    player2Legend.appendChild(createLegendTextNode(player2Wins));
+    player2Legend.appendChild(createPlayerColorBox(player2Color));
+
+
 
     // Create canvas element and append it to canvasContainer
     const canvas = document.createElement('canvas');
@@ -289,14 +313,13 @@ function createCharts(statsContainer, player1Name, player2Name, player1Wins, pla
     // Append the three divs in order to donutContainer
     donutContainer.appendChild(player1Legend);
     donutContainer.appendChild(canvasContainer);
-
     donutContainer.appendChild(player2Legend);
     statsContainer.appendChild(donutContainer);
     statsContainer.appendChild(duelStatsContainer);
 
     // Delegate all donut chart logic to another method.
     initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color);
-    initializeDuelStatsGraph(duelStatsContainer, player1Color, player2Color, statsData);
+    initializeDuelStatsGraph(player1Color, player2Color, statsData);
 }
 
 function initializeDuelStatsGraph(player1Color, player2Color, statsData) {
@@ -368,7 +391,7 @@ function initializeDuelStatsGraph(player1Color, player2Color, statsData) {
     }
 }
 
-function initializeDonutChart(canvas, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color) {
+function initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color) {
     const startChart = () => {
         renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color);
     };
