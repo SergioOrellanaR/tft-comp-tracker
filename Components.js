@@ -36,10 +36,12 @@ export function createLoadingSpinner(text = null, longWaitMessage = null) {
     return spinner;
 }
 
-function createDivHelper(id) {
+function createDivHelper(id, fillText = true) {
     const div = document.createElement('div');
     div.id = id;
-    div.textContent = `Placeholder for ${id}`;
+    if (fillText) {
+        div.textContent = `Placeholder for ${id}`;
+    }
     return div;
 }
 
@@ -271,7 +273,7 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
 }
 
 function createCharts(statsContainer, player1Name, player2Name, player1Wins, player2Wins, player1Color, player2Color, statsData) {
-    const donutContainer = createDivHelper('donutContainer');
+    const donutContainer = createDivHelper('donutContainer', false);
 
     // Create three divs inside donutContainer: player1Legend, canvas container, and player2Legend
     const player1Legend = createDivHelper('player1Legend');
@@ -287,6 +289,7 @@ function createCharts(statsContainer, player1Name, player2Name, player1Wins, pla
     // Append the three divs in order to donutContainer
     donutContainer.appendChild(player1Legend);
     donutContainer.appendChild(canvasContainer);
+
     donutContainer.appendChild(player2Legend);
     statsContainer.appendChild(donutContainer);
     statsContainer.appendChild(duelStatsContainer);
@@ -409,7 +412,7 @@ function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player
                     display: true,
                     text: 'Duel Stats',
                     font: {
-                        size: 20
+                        size: 16
                     },
                     color: '#ccc',
                     padding: {
