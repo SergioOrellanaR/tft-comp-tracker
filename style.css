@@ -570,23 +570,19 @@ th {
 /* Estilos para el contenedor del jugador */
 .player-data-container {
     border: 1px solid white;
-    /* Borde rojo para testing */
     padding: 5px;
     margin-bottom: 5px;
     width: 100%;
-    /* Ajustar al 100% del contenedor padre */
-    height: 200px;
-    /* Reducir la altura a la mitad */
-    min-height: 10%;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
-    /* Asegurar que el contenido no desborde */
     background-color: rgba(255, 255, 255, 0.1);
-    /* Fondo semitransparente */
     color: #fff;
-    /* Texto blanco */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 /* Spinner de carga */
@@ -673,17 +669,6 @@ th {
     body::before {
         right: 0;
         background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
-    }
-
-    #left,
-    #right {
-        min-width: 10px;
-        width: 30%;
-        max-width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-        flex-wrap: wrap;
-        height: auto;
     }
 
     #canvas-container {
