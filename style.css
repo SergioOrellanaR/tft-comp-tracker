@@ -1180,11 +1180,37 @@ th {
     text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
-/* ============================================================================
+/* =====================================================================
+    New styles for color bar in match details
+===================================================================== */
+
+
+.color-bar-left {
+    display: block;
+    width: 1.5%;        
+    height: 100%;
+    justify-content: flex-start;
+}
+
+.color-bar-right {
+    display: block;
+    width: 1.5%;
+    height: 100%;
+}
+
+.color-bar-winner {
+    background-color: green;
+}
+
+.color-bar-loser {
+    background-color: red;
+}
+
+/* ============================================================================ 
     End  of header styles
 ============================================================================ */
 
-/* ============================================================================
+/* ============================================================================ 
     Start of match history styles
 ============================================================================ */
 
@@ -1192,7 +1218,7 @@ th {
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 10px;
+    gap: 30px;
     padding: 10px;
 }
 
@@ -1200,54 +1226,64 @@ th {
 .match-content {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    border: 1px solid green;
+    width: 100%;       /* 👈 ocupa todo el ancho del contenedor padre */
+    height: 165px;     /* 👈 alto fijo, ajustá el valor a lo que necesites */
+    box-sizing: border-box;
 }
 
 .match-stats-detail {
+    width: 100%;
+    height: 20%;
+    min-height: 15%;
     padding: 8px;
     border-radius: 6px;
     overflow-y: auto;
     border: 1px solid yellow;
+    overflow-y: hidden;
+    box-sizing: border-box;
 }
 
 .match-player-details-wrapper {
+    height: 80%;
+    min-height: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;  /* importante */
     justify-content: space-between;
-    height: 100%;
+    
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .match-player1-detail
 {
     flex: 1;
+    display: flex;
+    flex-direction: row;
     background: rgba(255, 255, 255, 0.04);
     height: 75%;
-    padding: 8px;
+    width: 100%;
     overflow-y: hidden;
-    justify-content: flex-start;
+    justify-content: space-between;
     border: 1px solid blue;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-
     /* Cutting edge like "/" on the right */
     clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
 }
 
 .match-player2-detail {
     flex: 1;
+    display: flex;
+    flex-direction: row;
     background: rgba(255, 255, 255, 0.04);
     height: 75%;
     width: 100%;
     overflow-y: hidden;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    margin-top: auto;
+    justify-content: space-between;
     border: 1px solid red;
-
+    margin-top: auto;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     /* Cutting edge like "/" on the left */

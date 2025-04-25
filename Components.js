@@ -583,26 +583,51 @@ const buildMatchesContainer = (matches) => {
     return matchesContainer;
 };
 
+/*
+            "tft_set_number": 14,
+            "tft_set_core_name": "TFTSet14",
+            "game_length": "38:09",
+            "match_id": "NA1_5268551955",
+            "match_datetime": "2025-04-16 21:42:11",
+            "queue_id": 1100,
+            "contested_percentage": 0
+*/
 const createMatchStats = (matchStats) => {
     const statsDiv = document.createElement('div');
     statsDiv.className = 'match-stats-detail';
-    // Customize how you want to display the match stats.
-    statsDiv.innerHTML = `<pre>${JSON.stringify(matchStats)}</pre>`;
+
+    let queueText = '';
+    if (matchStats.queue_id === 1100) {
+        queueText = 'Ranked';
+    } else if (matchStats.queue_id === 1090) {
+        queueText = 'Standard';
+    } else if (matchStats.queue_id === 1160) {
+        queueText = 'Double up';
+    } else {
+        queueText = matchStats.queue_id;
+    }
+
+    statsDiv.innerHTML = `
+        Set number: ${matchStats.tft_set_number} |
+        Game length: ${matchStats.game_length} |
+        Match datetime: ${matchStats.match_datetime} |
+        Contested percentage: ${matchStats.contested_percentage}% |
+        Queue: ${queueText} |
+        <a href="https://tactics.tools/player/-/-/-/${matchStats.match_id}" target="_blank">More info</a>
+    `;
     return statsDiv;
 };
 
 const createColorBar = (side, isWinner) => {
     const colorBar = document.createElement('div');
-    colorBar.style.display = 'inline-block';
-    colorBar.style.width = '10px';
-    colorBar.style.height = '100%';
-    // Use margin on the correct side depending on which player detail is being created.
+    // Removed inline styles; add CSS classes instead.
+    colorBar.classList.add('color-bar');
     if (side === 'left') {
-        colorBar.style.marginRight = '5px';
+        colorBar.classList.add('color-bar-left');
     } else if (side === 'right') {
-        colorBar.style.marginLeft = '5px';
+        colorBar.classList.add('color-bar-right');
     }
-    colorBar.style.backgroundColor = isWinner ? 'green' : 'red';
+    colorBar.classList.add(isWinner ? 'color-bar-winner' : 'color-bar-loser');
     return colorBar;
 };
 
@@ -615,7 +640,7 @@ const createMatchPlayer1Detail = (playerDetails, isWinner) => {
 
     // Append the player details.
     const detailsPre = document.createElement('pre');
-    detailsPre.textContent = JSON.stringify(playerDetails, null, 2);
+    detailsPre.textContent = "Player1Details Placeholder";
     player1Div.appendChild(detailsPre);
 
     return player1Div;
@@ -627,7 +652,7 @@ const createMatchPlayer2Detail = (playerDetails, isWinner) => {
 
     // Append the player details first.
     const detailsPre = document.createElement('pre');
-    detailsPre.textContent = JSON.stringify(playerDetails, null, 2);
+    detailsPre.textContent = "Player2Details Placeholder";
     player2Div.appendChild(detailsPre);
 
     // Append the color bar (on the right side).
