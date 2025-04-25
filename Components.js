@@ -562,6 +562,9 @@ const buildMatchesContainer = (matches) => {
     const matchesContainer = document.createElement('div');
     matchesContainer.className = 'matches-container';
     matches.forEach(match => {
+        const player1Placement = match.player1_game_details.placement;
+        const player2Placement = match.player2_game_details.placement;
+        // Create a div for the match stats.
         const matchDiv = document.createElement('div');
         matchDiv.className = 'match-content';
 
@@ -571,8 +574,8 @@ const buildMatchesContainer = (matches) => {
         // Create a wrapper for player1 and player2 details.
         const playersWrapper = document.createElement('div');
         playersWrapper.className = 'match-player-details-wrapper';
-        playersWrapper.appendChild(createMatchPlayer1Detail(match.player1_game_details));
-        playersWrapper.appendChild(createMatchPlayer2Detail(match.player2_game_details));
+        playersWrapper.appendChild(createMatchPlayer1Detail(match.player1_game_details, player1Placement < player2Placement));
+        playersWrapper.appendChild(createMatchPlayer2Detail(match.player2_game_details, player2Placement < player1Placement));
 
         matchDiv.appendChild(playersWrapper);
         matchesContainer.appendChild(matchDiv);
@@ -588,18 +591,47 @@ const createMatchStats = (matchStats) => {
     return statsDiv;
 };
 
-const createMatchPlayer1Detail = (playerDetails) => {
+const createColorBar = (side, isWinner) => {
+    const colorBar = document.createElement('div');
+    colorBar.style.display = 'inline-block';
+    colorBar.style.width = '10px';
+    colorBar.style.height = '100%';
+    // Use margin on the correct side depending on which player detail is being created.
+    if (side === 'left') {
+        colorBar.style.marginRight = '5px';
+    } else if (side === 'right') {
+        colorBar.style.marginLeft = '5px';
+    }
+    colorBar.style.backgroundColor = isWinner ? 'green' : 'red';
+    return colorBar;
+};
+
+const createMatchPlayer1Detail = (playerDetails, isWinner) => {
     const player1Div = document.createElement('div');
     player1Div.className = 'match-player1-detail';
-    // Customize how you want to display Player 1 details.
-    player1Div.innerHTML = `<pre>${JSON.stringify(playerDetails)}</pre>`;
+
+    // Append the color bar (on the left side).
+    player1Div.appendChild(createColorBar('left', isWinner));
+
+    // Append the player details.
+    const detailsPre = document.createElement('pre');
+    detailsPre.textContent = JSON.stringify(playerDetails, null, 2);
+    player1Div.appendChild(detailsPre);
+
     return player1Div;
 };
 
-const createMatchPlayer2Detail = (playerDetails) => {
+const createMatchPlayer2Detail = (playerDetails, isWinner) => {
     const player2Div = document.createElement('div');
     player2Div.className = 'match-player2-detail';
-    // Customize how you want to display Player 2 details.
-    player2Div.innerHTML = `<pre>${JSON.stringify(playerDetails)}</pre>`;
+
+    // Append the player details first.
+    const detailsPre = document.createElement('pre');
+    detailsPre.textContent = JSON.stringify(playerDetails, null, 2);
+    player2Div.appendChild(detailsPre);
+
+    // Append the color bar (on the right side).
+    player2Div.appendChild(createColorBar('right', isWinner));
+
     return player2Div;
 };
