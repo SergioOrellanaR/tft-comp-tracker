@@ -835,10 +835,11 @@ function updateCompoColorBars() {
         }
         bar.className = 'color-bar';
         Object.assign(bar.style, {
+            position: 'absolute',
             top: '0',
             left: '0',
             width: '6px',
-            height: '100%',
+            bottom: '0',
             borderRadius: '6px 0 0 6px',
             background: `linear-gradient(to bottom, ${gradient})`
         });
