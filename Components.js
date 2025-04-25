@@ -175,12 +175,11 @@ function createPlayerColorBox(color) {
     return colorBox;
 }
 
-function createLegendTextNode(playerWins) {
+function createLegendTextNode(playerWins, winner) {
     const span = document.createElement('span');
     span.className = 'legend-text';
-    span.textContent = playerWins === 1
-        ? `outplaced opponent in ${playerWins} game`
-        : `outplaced opponent in ${playerWins} games`;
+    const text = playerWins === 1 ? `${playerWins} duel won` : `${playerWins} duels won`;
+    span.textContent = winner ? `🏆 ${text} 🏆` : text;
     return span;
 }
 
@@ -311,11 +310,11 @@ function createCharts(statsContainer, player1Wins, player2Wins, player1Color, pl
 
     // Configure player1Legend: square then text.
     player1Legend.appendChild(createPlayerColorBox(player1Color));
-    player1Legend.appendChild(createLegendTextNode(player1Wins));
+    player1Legend.appendChild(createLegendTextNode(player1Wins, player1Wins > player2Wins));
 
     // Configure player2Legend: text then square.
     player2Legend.appendChild(createLegendTextNode(player2Wins));
-    player2Legend.appendChild(createPlayerColorBox(player2Color));
+    player2Legend.appendChild(createPlayerColorBox(player2Color, player2Wins > player1Wins));
 
     // Create canvas element and append it to canvasContainer
     const canvas = document.createElement('canvas');
@@ -384,7 +383,7 @@ function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player
                         label: function (context) {
                             const value = context.parsed;
                             const percentage = ((value / total) * 100).toFixed(1);
-                            return `${percentage}%`;
+                            return `${percentage}% duel winrate`;
                         }
                     }
                 }
@@ -493,12 +492,14 @@ function createDuelStatDiv(player1Color, player2Color, data1, data2, text, icon 
     leftRect.style.backgroundColor = player1Color;
     leftRect.style.width = leftWidth;
     leftRect.classList.add('duel-stat-rect');
+    leftRect.title = text.toUpperCase() + ': ' + data1;  // Tooltip for leftRect
 
     // Right rectangle (player 2)
     const rightRect = document.createElement('div');
     rightRect.style.backgroundColor = player2Color;
     rightRect.style.width = rightWidth;
     rightRect.classList.add('duel-stat-rect');
+    rightRect.title = text.toUpperCase() + ': ' + data2;;  // Tooltip for rightRect
 
     // Main container with flex layout, ensuring all items are aligned.
     const div = document.createElement('div');

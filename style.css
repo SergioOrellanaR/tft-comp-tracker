@@ -789,18 +789,21 @@ th {
 }
 
 .player-name-data-container {
-    flex: 0 0 60%;
+    flex: 0 0 70%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 5%;
     height: 100%;
     box-sizing: border-box;
     font-weight: bold;
+    flex-wrap: nowrap; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .player-server-data-container {
-    flex: 0 0 20%;
+    flex: 0 0 10%;
     font-size: 0.7rem;
     color: #ccc;
     display: flex;
@@ -883,8 +886,6 @@ th {
     min-height: 35%;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
-    gap: 20px;
     overflow-x: hidden;
 }
 
@@ -896,7 +897,7 @@ th {
 }
 
 .player-card-wrapper {
-    width: 85%;
+    width: 90%;
     /* controla el ancho visible */
     display: flex;
     justify-content: center;
@@ -956,9 +957,9 @@ th {
     width: 100%;
     height: 50%;
     box-sizing: border-box;
-
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    
 }
 
 #duelStatsContainer {
@@ -973,21 +974,47 @@ th {
     justify-content: center;
 }
 
-#player1Legend,
-#player2Legend {
-    flex: 0 0 25%;
-    box-sizing: border-box;
+#player1Legend
+{
     display: flex;
-    justify-content: space-between;
-    /* <-- key change */
+    width: 100%;
     align-items: center;
-    overflow: hidden;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#player2Legend {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+}
+
+#player1Legend:hover, #player2Legend:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #canvasContainer {
-    flex: 0 0 50%;
+    flex: 0 0 30%;
     box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -998,21 +1025,21 @@ th {
 }
 
 #donutChart {
-    width: 100%;
+    width: 50%;
     height: 100%;
     display: block;
     box-sizing: border-box;
 }
 
 .player-color-box {
-    display: inline-block;
-    width: 50px;
-    height: 13px;
-    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.3);
 }
 
 .legend-text {
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     color: #fff;
     margin: 0.5rem 0;
     text-align: center;
@@ -1053,6 +1080,10 @@ th {
     box-sizing: border-box;
 }
 
+.duel-contested-rectangle:hover {
+    filter: brightness(1.1);
+}
+
 /* New styles for duel stat components */
 .stats-wrapper {
     width: 100%;
@@ -1062,6 +1093,8 @@ th {
     box-sizing: border-box;
     padding: 0; /* adjust if needed */
     margin: 0 auto; /* center in case it's inside a wider container */
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-div {
@@ -1069,6 +1102,8 @@ th {
     width: 100%; /* Ensure it fills the full width of its parent */
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-left-wrapper {
@@ -1076,6 +1111,8 @@ th {
     justify-content: flex-end;
     align-items: center;
     flex: 1;
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-right-wrapper {
@@ -1083,6 +1120,8 @@ th {
     align-items: center;
     justify-content: flex-start;
     flex: 1;
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-center-container {
@@ -1092,30 +1131,42 @@ th {
     margin: 0 10px;
     white-space: nowrap;
     gap: 8px; /* optional: spacing between icons */
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-rect {
     height: 20px;
-    border: white 1px solid;
+    border: 1px solid white;
     min-width: 10px;
-    transition: width 0.3s;
-    border-radius: 10px; /* Puedes ajustar este valor a tu gusto */
+    border-radius: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-rect:hover {
+    filter: brightness(1.5);
+
 }
 
 .duel-stat-number-left {
-    min-width: 50px; /* suficiente para cualquier número */
+    min-width: 50px; 
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-number-right {
-    min-width: 50px; /* suficiente para cualquier número */
+    min-width: 50px; 
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-icon {
@@ -1125,4 +1176,6 @@ th {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    overflow: hidden;       /* hides overflow content */
+    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
