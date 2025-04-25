@@ -115,51 +115,6 @@ export const createPlayerCard = async (playerData, server, containerId) => {
     }
 };
 
-
-// POP UP COMPONENTS
-export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
-    console.log(duelsCache);    // Creates the overlay if it doesn't exist.
-    const overlay = document.createElement('div');
-    overlay.id = 'popupOverlay';
-    document.body.appendChild(overlay);
-
-    // Add spinner centered within the overlay
-    const spinner = createLoadingSpinner('Retrieving old games information', 'Both players share a lot of common matches, please wait...');
-    spinner.style.position = 'absolute';
-    spinner.style.top = '50%';
-    spinner.style.left = '50%';
-    spinner.style.transform = 'translate(-50%, -50%)';
-    overlay.appendChild(spinner);
-
-    const closeBtn = document.createElement('button');
-    closeBtn.id = 'popupCloseButton';
-    closeBtn.innerText = 'X';
-    closeBtn.addEventListener('click', () => {
-        document.body.removeChild(overlay);
-    });
-    overlay.appendChild(closeBtn);
-
-    // Call fetchFindGames and handle its Promise
-    fetchFindGames(playerData.name, player2Name, server)
-        .then(result => {
-            const duelData = duelsCache.get(player2Name);
-            duelData.findGames = result;
-            duelsCache.set(player2Name, duelData);
-            overlay.removeChild(spinner);
-            overlay.appendChild(createTitleModal());
-            overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
-            overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, player2Color, server));
-        })
-        .catch(error => {
-            console.error("Error fetching games:", error);
-            overlay.removeChild(spinner);
-            const errorElem = document.createElement('p');
-            errorElem.textContent = "Error loading duel information.";
-            errorElem.style.textAlign = 'center';
-            overlay.appendChild(errorElem);
-        });
-}
-
 function createTitleModal() {
     const titleDiv = document.createElement('div');
     titleDiv.className = 'modal-title';
@@ -251,26 +206,6 @@ function createHeaderModalPlayer(data, color, server) {
     return element;
 }
 
-/*
-{
-    "winner_player_number": 2,
-    "winner_name": "NyobZoo#NA1",
-    "duel_winrate_percentage": 100.0,
-    "duel_contested_percentage": 0.0,
-    "player1_duel_stats": {
-        "won": 0,
-        "damage_to_players": 33,
-        "players_eliminated": 0,
-        "average_position": 7.0
-    },
-    "player2_duel_stats": {
-        "won": 1,
-        "damage_to_players": 229,
-        "players_eliminated": 4,
-        "average_position": 1.0
-    }
-}
-*/
 function createHeaderModalStats(player1Name, player2Name, statsData, player1Color, player2Color) {
     console.log('Params: ', player1Name, player2Name, statsData, player1Color, player2Color);
 
@@ -293,10 +228,7 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
 
     // Container for the donut graph.
     createCharts(statsContainer, player1Wins, player2Wins, player1Color, player2Color, statsData);
-
     return statsContainer;
-
-
 }
 
 function createCharts(statsContainer, player1Wins, player2Wins, player1Color, player2Color, statsData) {
@@ -313,8 +245,8 @@ function createCharts(statsContainer, player1Wins, player2Wins, player1Color, pl
     player1Legend.appendChild(createLegendTextNode(player1Wins, player1Wins > player2Wins));
 
     // Configure player2Legend: text then square.
-    player2Legend.appendChild(createLegendTextNode(player2Wins));
-    player2Legend.appendChild(createPlayerColorBox(player2Color, player2Wins > player1Wins));
+    player2Legend.appendChild(createLegendTextNode(player2Wins, player2Wins > player1Wins));
+    player2Legend.appendChild(createPlayerColorBox(player2Color));
 
     // Create canvas element and append it to canvasContainer
     const canvas = document.createElement('canvas');
@@ -545,25 +477,65 @@ function createRightWrapper(rect, value) {
     return wrapper;
 }
 
-// GAME HISTORY COMPONENTS
+// POP UP COMPONENTS
+export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
+    console.log(duelsCache);    // Creates the overlay if it doesn't exist.
+    const overlay = document.createElement('div');
+    overlay.id = 'popupOverlay';
+    document.body.appendChild(overlay);
+
+    // Add spinner centered within the overlay
+    const spinner = createLoadingSpinner('Retrieving old games information', 'Both players share a lot of common matches, please wait...');
+    spinner.style.position = 'absolute';
+    spinner.style.top = '50%';
+    spinner.style.left = '50%';
+    spinner.style.transform = 'translate(-50%, -50%)';
+    overlay.appendChild(spinner);
+
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'popupCloseButton';
+    closeBtn.innerText = 'X';
+    closeBtn.addEventListener('click', () => {
+        document.body.removeChild(overlay);
+    });
+    overlay.appendChild(closeBtn);
+
+    // Call fetchFindGames and handle its Promise
+    fetchFindGames(playerData.name, player2Name, server)
+        .then(result => {
+            const duelData = duelsCache.get(player2Name);
+            duelData.findGames = result;
+            duelsCache.set(player2Name, duelData);
+            overlay.removeChild(spinner);
+            overlay.appendChild(createTitleModal());
+            overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
+            overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, player2Color, server));
+        })
+        .catch(error => {
+            console.error("Error fetching games:", error);
+            overlay.removeChild(spinner);
+            const errorElem = document.createElement('p');
+            errorElem.textContent = "Error loading duel information.";
+            errorElem.style.textAlign = 'center';
+            overlay.appendChild(errorElem);
+        });
+}
+
+/* ============================================================================
+    Start of match history
+============================================================================ */
+
 function createHistoryModal(playerData, duelsCache, player2Name, player2Color, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
 
-    // Implement cache logic similar to createHeaderModal
+    // Implementa la lógica de cache
     const cachedData = duelsCache.get(player2Name) || {};
     const commonMatchesCached = cachedData.commonMatches || null;
 
+    historyModal.innerHTML = '<h2>History</h2>';
     if (commonMatchesCached) {
-        historyModal.innerHTML = '<h2>History</h2>';
-        const matchesContainer = document.createElement('div');
-        matchesContainer.className = 'matches-container';
-        commonMatchesCached.match_list.forEach(match => {
-            const matchDiv = document.createElement('div');
-            matchDiv.className = 'match-item';
-            matchDiv.innerHTML = `<pre>${JSON.stringify(match)}</pre>`;
-            matchesContainer.appendChild(matchDiv);
-        });
+        const matchesContainer = buildMatchesContainer(commonMatchesCached.match_list);
         historyModal.appendChild(matchesContainer);
     } else {
         historyModal.appendChild(createLoadingSpinner("Loading common matches"));
@@ -574,14 +546,7 @@ function createHistoryModal(playerData, duelsCache, player2Name, player2Color, s
                 duelsCache.set(player2Name, duelData);
 
                 historyModal.innerHTML = '<h2>History</h2>';
-                const matchesContainer = document.createElement('div');
-                matchesContainer.className = 'matches-container';
-                matchesData.match_list.forEach(match => {
-                    const matchDiv = document.createElement('div');
-                    matchDiv.className = 'match-item';
-                    matchDiv.innerHTML = `<pre>${JSON.stringify(match)}</pre>`;
-                    matchesContainer.appendChild(matchDiv);
-                });
+                const matchesContainer = buildMatchesContainer(matchesData.match_list);
                 historyModal.appendChild(matchesContainer);
             })
             .catch(error => {
@@ -589,6 +554,52 @@ function createHistoryModal(playerData, duelsCache, player2Name, player2Color, s
                 console.error("Error in fetchCommonMatches:", error);
             });
     }
-
     return historyModal;
 }
+
+//A cada match-content agregale 3 divs 
+const buildMatchesContainer = (matches) => {
+    const matchesContainer = document.createElement('div');
+    matchesContainer.className = 'matches-container';
+    matches.forEach(match => {
+        const matchDiv = document.createElement('div');
+        matchDiv.className = 'match-content';
+
+        // Append the match stats div.
+        matchDiv.appendChild(createMatchStats(match));
+
+        // Create a wrapper for player1 and player2 details.
+        const playersWrapper = document.createElement('div');
+        playersWrapper.className = 'match-player-details-wrapper';
+        playersWrapper.appendChild(createMatchPlayer1Detail(match.player1_game_details));
+        playersWrapper.appendChild(createMatchPlayer2Detail(match.player2_game_details));
+
+        matchDiv.appendChild(playersWrapper);
+        matchesContainer.appendChild(matchDiv);
+    });
+    return matchesContainer;
+};
+
+const createMatchStats = (matchStats) => {
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'match-stats-detail';
+    // Customize how you want to display the match stats.
+    statsDiv.innerHTML = `<pre>${JSON.stringify(matchStats)}</pre>`;
+    return statsDiv;
+};
+
+const createMatchPlayer1Detail = (playerDetails) => {
+    const player1Div = document.createElement('div');
+    player1Div.className = 'match-player1-detail';
+    // Customize how you want to display Player 1 details.
+    player1Div.innerHTML = `<pre>${JSON.stringify(playerDetails)}</pre>`;
+    return player1Div;
+};
+
+const createMatchPlayer2Detail = (playerDetails) => {
+    const player2Div = document.createElement('div');
+    player2Div.className = 'match-player2-detail';
+    // Customize how you want to display Player 2 details.
+    player2Div.innerHTML = `<pre>${JSON.stringify(playerDetails)}</pre>`;
+    return player2Div;
+};

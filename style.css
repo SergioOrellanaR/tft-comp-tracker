@@ -1179,3 +1179,77 @@ th {
     overflow: hidden;       /* hides overflow content */
     text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
 }
+
+/* ============================================================================
+    End  of header styles
+============================================================================ */
+
+/* ============================================================================
+    Start of match history styles
+============================================================================ */
+
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* 1 per match */
+.match-content {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid green;
+}
+
+.match-stats-detail {
+    padding: 8px;
+    border-radius: 6px;
+    overflow-y: auto;
+    border: 1px solid yellow;
+}
+
+.match-player-details-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;  /* importante */
+    justify-content: space-between;
+    height: 100%;
+}
+
+.match-player1-detail
+{
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    height: 75%;
+    padding: 8px;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    border: 1px solid blue;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+
+    /* Cutting edge like "/" on the right */
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+}
+
+.match-player2-detail {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    height: 75%;
+    width: 100%;
+    overflow-y: hidden;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    margin-top: auto;
+    border: 1px solid red;
+
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /* Cutting edge like "/" on the left */
+    clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
+}
