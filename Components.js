@@ -242,11 +242,11 @@ function createCharts(statsContainer, player1Wins, player2Wins, player1Color, pl
 
     // Apply border based on the winner condition
     if (player1Wins > player2Wins) {
-        player1Legend.style.border = '2px solid green';
-        player2Legend.style.border = '2px solid red';
+        player1Legend.style.border = '1px solid green';
+        player2Legend.style.border = '1px solid red';
     } else if (player2Wins > player1Wins) {
-        player1Legend.style.border = '2px solid red';
-        player2Legend.style.border = '2px solid green';
+        player1Legend.style.border = '1px solid red';
+        player2Legend.style.border = '1px solid green';
     }
 
     // Configure player1Legend: square then text.
