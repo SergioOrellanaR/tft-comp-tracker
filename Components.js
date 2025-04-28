@@ -651,30 +651,57 @@ const createMatchStats = (matchStats) => {
     return statsDiv;
 };
 
-const createColorBar = (side, isWinner) => {
-    const colorBar = document.createElement('div');
-    // Removed inline styles; add CSS classes instead.
-    colorBar.classList.add('color-bar');
-    if (side === 'left') {
-        colorBar.classList.add('color-bar-left');
-    } else if (side === 'right') {
-        colorBar.classList.add('color-bar-right');
-    }
-    colorBar.classList.add(isWinner ? 'color-bar-winner' : 'color-bar-loser');
-    return colorBar;
+// Helper function to create common player details sub-divs for both players.
+const createMatchPlayerDiv = () => {
+    const div = document.createElement('div');
+    div.className = 'match-player';
+    div.textContent = "Player detail info";
+    return div;
+};
+
+const createMatchTraitsDiv = () => {
+    const div = document.createElement('div');
+    div.className = 'match-traits';
+    div.textContent = "Traits info";
+    return div;
+};
+
+const createMatchChampsDiv = () => {
+    const div = document.createElement('div');
+    div.className = 'match-champs';
+    div.textContent = "Champs info";
+    return div;
+};
+
+const createMatchSeparatorDiv = () => {
+    const div = document.createElement('div');
+    div.className = 'match-separator';
+    return div;
+};
+
+const createCommonPlayerSubDivs = () => {
+    const matchPlayer = createMatchPlayerDiv();
+    const matchTraits = createMatchTraitsDiv();
+    const matchChamps = createMatchChampsDiv();
+    const matchSeparator = createMatchSeparatorDiv();
+
+    return [matchPlayer, matchTraits, matchChamps, matchSeparator];
 };
 
 const createMatchPlayer1Detail = (playerDetails, isWinner) => {
     const player1Div = document.createElement('div');
     player1Div.className = 'match-player1-detail';
 
-    // Append the color bar (on the left side).
-    player1Div.appendChild(createColorBar('left', isWinner));
-
-    // Append the player details.
+    // Append player details.
     const detailsPre = document.createElement('pre');
-    detailsPre.textContent = "Player1Details Placeholder";
     player1Div.appendChild(detailsPre);
+
+    // Append common divs first.
+    const commonDivs = createCommonPlayerSubDivs();
+    player1Div.appendChild(commonDivs[0]); // match-player
+    player1Div.appendChild(commonDivs[1]); // match-traits
+    player1Div.appendChild(commonDivs[2]); // match-champs
+    player1Div.appendChild(commonDivs[3]); // match-separator
 
     return player1Div;
 };
@@ -683,13 +710,16 @@ const createMatchPlayer2Detail = (playerDetails, isWinner) => {
     const player2Div = document.createElement('div');
     player2Div.className = 'match-player2-detail';
 
-    // Append the player details first.
+    // Append player details.
     const detailsPre = document.createElement('pre');
-    detailsPre.textContent = "Player2Details Placeholder";
     player2Div.appendChild(detailsPre);
-
-    // Append the color bar (on the right side).
-    player2Div.appendChild(createColorBar('right', isWinner));
+    
+    // Append common divs.
+    const commonDivs = createCommonPlayerSubDivs();
+    player2Div.appendChild(commonDivs[3]);
+    player2Div.appendChild(commonDivs[2]);
+    player2Div.appendChild(commonDivs[1]);
+    player2Div.appendChild(commonDivs[0]);
 
     return player2Div;
 };
