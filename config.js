@@ -1,5 +1,10 @@
 const TFT_VERSUS_API_BASE_URL = 'http://127.0.0.1:5000/api';
 
+export const AVAILABLE_SETS_ON_CDRAGON_GENERIC = {
+    oldSets: [1,3,4,5],
+    newSets: 11 //OR MORE
+}
+
 export const TFT_VERSUS_API_URL = {
     playerSummary: TFT_VERSUS_API_BASE_URL+'/header',
     findGames: TFT_VERSUS_API_BASE_URL+'/find',
@@ -13,6 +18,9 @@ export const CDRAGON_URL = {
     companionData: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/companions.json',
     rankedIcons: 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/images',
     profileIcons: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons',
+    traits: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/tfttraits.json',
+    items: 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/tftitems.json',
+    generic: 'https://raw.communitydragon.org/latest/cdragon/tft/en_us.json'
 }
 
 export const CONFIG = {
