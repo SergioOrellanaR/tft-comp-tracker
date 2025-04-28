@@ -240,6 +240,15 @@ function createCharts(statsContainer, player1Wins, player2Wins, player1Color, pl
     const player2Legend = createDivHelper('player2Legend');
     const duelStatsContainer = createDivHelper('duelStatsContainer');
 
+    // Apply border based on the winner condition
+    if (player1Wins > player2Wins) {
+        player1Legend.style.border = '2px solid green';
+        player2Legend.style.border = '2px solid red';
+    } else if (player2Wins > player1Wins) {
+        player1Legend.style.border = '2px solid red';
+        player2Legend.style.border = '2px solid green';
+    }
+
     // Configure player1Legend: square then text.
     player1Legend.appendChild(createPlayerColorBox(player1Color));
     player1Legend.appendChild(createLegendTextNode(player1Wins, player1Wins > player2Wins));
@@ -324,47 +333,71 @@ function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player
     });
 }
 
+function createTitleStatDiv(text) {
+    const div = document.createElement('div');
+    div.className = 'titleStatDiv';
+    div.textContent = text;
+    return div;
+}
+
 function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelStatsContainer) {
     console.log(statsData);
     const player1DuelStats = statsData.player1_duel_stats;
     const player2DuelStats = statsData.player2_duel_stats;
 
     const contestedDiv = createContestedDiv(statsData.duel_contested_percentage, 'Contested');
-    // Pass icon strings: sword for damage, skull for players eliminated, podium for average position.
-    const statDiv1 = createDuelStatDiv(
+
+    const container1 = createStatContainer(
+        'Damage to Players',
         player1Color,
         player2Color,
         player1DuelStats.damage_to_players,
         player2DuelStats.damage_to_players,
-        'Damage to Players',
         '⚔'
     );
-    const statDiv2 = createDuelStatDiv(
+    const container2 = createStatContainer(
+        'Players Eliminated',
         player1Color,
         player2Color,
         player1DuelStats.players_eliminated,
         player2DuelStats.players_eliminated,
-        'Players Eliminated',
         '💀'
     );
-    const statDiv3 = createDuelStatDiv(
+    const container3 = createStatContainer(
+        'Average Position',
         player1Color,
         player2Color,
         player1DuelStats.average_position,
         player2DuelStats.average_position,
-        'Average Position',
         '🥇'
     );
 
-    // Create a wrapper div for the statsDiv elements (excluding contestedDiv)
+    // Create a wrapper for the individual stat containers
     const statsWrapper = document.createElement('div');
     statsWrapper.className = 'stats-wrapper';
-    statsWrapper.appendChild(statDiv1);
-    statsWrapper.appendChild(statDiv2);
-    statsWrapper.appendChild(statDiv3);
+    statsWrapper.appendChild(container1);
+    statsWrapper.appendChild(container2);
+    statsWrapper.appendChild(container3);
 
     duelStatsContainer.appendChild(contestedDiv);
     duelStatsContainer.appendChild(statsWrapper);
+}
+
+function createStatContainer(statTitle, player1Color, player2Color, player1Stat, player2Stat, icon) {
+    const container = document.createElement('div');
+    container.className = 'stat-container';
+    const titleDiv = createTitleStatDiv(statTitle);
+    const statDiv = createDuelStatDiv(
+        player1Color,
+        player2Color,
+        player1Stat,
+        player2Stat,
+        statTitle,
+        icon
+    );
+    container.appendChild(titleDiv);
+    container.appendChild(statDiv);
+    return container;
 }
 
 function createContestedDiv(percentage, text) {

@@ -883,7 +883,7 @@ th {
 #headerModal {
     display: flex;
     background: #1c1c2b;
-    min-height: 35%;
+    min-height: 40%;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: hidden;
@@ -955,7 +955,7 @@ th {
 
 #donutContainer {
     width: 100%;
-    height: 50%;
+    height: 30%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -964,7 +964,7 @@ th {
 
 #duelStatsContainer {
     width: 100%;
-    height: 50%;
+    height: 70%;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.1); /* blanco con 20% de opacidad */
     border-radius: 12px; /* puedes ajustar el valor si quieres esquinas más suaves o más marcadas */
@@ -1048,14 +1048,15 @@ th {
 
 .duel-contested-div {
     width: 100%;
-    height: 34%;
-    max-height: 34%;
+    height: 25%;
+    max-height: 25%;
     text-align: center;
     border-radius: 8px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     overflow: hidden;       /* hides overflow content */
     text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
     white-space: nowrap;    /* keeps text on one line */
@@ -1063,8 +1064,8 @@ th {
 
 .duel-contested-label {
     font-size: 14px;
-    font-weight: 500;
-    height: 25%;
+    font-weight: bold;
+    height: 60%;
     line-height: 100%;
     display: flex;
     align-items: center;
@@ -1073,11 +1074,11 @@ th {
 }
 
 .duel-contested-rectangle {
-    margin-top: 5px;
     border: white 1px solid;
-    height: 50%;
-    border-radius: 20px;
+    height: 40%;
+    border-radius: 6px;
     box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 .duel-contested-rectangle:hover {
@@ -1088,7 +1089,7 @@ th {
 .stats-wrapper {
     width: 100%;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     flex-direction: column;
     box-sizing: border-box;
     padding: 0; /* adjust if needed */
@@ -1178,6 +1179,17 @@ th {
     box-sizing: border-box;
     overflow: hidden;       /* hides overflow content */
     text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+}
+
+.stat-container {
+    width: 100%;
+    height: 35%;
+}
+
+.titleStatDiv {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* =====================================================================
