@@ -658,16 +658,34 @@ const createMatchStats = (matchStats) => {
     return statsDiv;
 };
 
+// Helper function to create a base player detail container.
+function createPlayerDetailBase(className) {
+    const div = document.createElement('div');
+    div.className = className;
+    // Append a pre element for player details.
+    const pre = document.createElement('pre');
+    div.appendChild(pre);
+    return div;
+}
+
+// Helper function to set border and background styles.
+function setPlayerDetailStyles(element, isWinner, bgWinner, bgLoser) {
+    element.style.border = isWinner
+        ? "2px solid rgba(0, 128, 0, 0.6)"
+        : "2px solid rgba(128, 0, 0, 0.6)";
+    element.style.background = isWinner ? bgWinner : bgLoser;
+}
+
 const createMatchPlayer1Detail = (playerDetails, isWinner) => {
     const revertOrder = false;
-    const player1Div = document.createElement('div');
-    player1Div.className = 'match-player1-detail';
+    const player1Div = createPlayerDetailBase('match-player1-detail');
+    setPlayerDetailStyles(
+        player1Div,
+        isWinner,
+        "linear-gradient(45deg, rgba(0, 128, 0, 0.15), rgba(255, 255, 255, 0.02))",
+        "linear-gradient(45deg, rgba(128, 0, 0, 0.15), rgba(255, 255, 255, 0.02))"
+    );
 
-    // Append player details.
-    const detailsPre = document.createElement('pre');
-    player1Div.appendChild(detailsPre);
-
-    // Append individual sub-divs.
     player1Div.appendChild(createMatchPlayerDiv(playerDetails, revertOrder, isWinner));
     player1Div.appendChild(createMatchTraitsDiv(playerDetails));
     player1Div.appendChild(createMatchChampsDiv(playerDetails, revertOrder));
@@ -678,14 +696,14 @@ const createMatchPlayer1Detail = (playerDetails, isWinner) => {
 
 const createMatchPlayer2Detail = (playerDetails, isWinner) => {
     const revertOrder = true;
-    const player2Div = document.createElement('div');
-    player2Div.className = 'match-player2-detail';
+    const player2Div = createPlayerDetailBase('match-player2-detail');
+    setPlayerDetailStyles(
+        player2Div,
+        isWinner,
+        "linear-gradient(45deg, rgba(255, 255, 255, 0.02), rgba(0, 128, 0, 0.15))",
+        "linear-gradient(45deg, rgba(255, 255, 255, 0.02), rgba(128, 0, 0, 0.15))"
+    );
 
-    // Append player details.
-    const detailsPre = document.createElement('pre');
-    player2Div.appendChild(detailsPre);
-    
-    // Append individual sub-divs in reversed order.
     player2Div.appendChild(createMatchSeparatorDiv());
     player2Div.appendChild(createMatchChampsDiv(playerDetails, revertOrder));
     player2Div.appendChild(createMatchTraitsDiv(playerDetails));
@@ -724,7 +742,7 @@ async function loadTraits(traits, container) {
             return;
         }
     }
-    
+
     traits.forEach(trait => {
         if (trait.tier_current > 0) {
             const traitInfo = traitDataCache.find(item => item.trait_id === trait.name);
@@ -741,9 +759,9 @@ async function loadTraits(traits, container) {
                 const traitContainer = document.createElement('div');
                 traitContainer.className = 'trait-img-container';
                 traitContainer.style.backgroundImage = `url(${backgroundImgUrl})`;
-                
+
                 traitContainer.appendChild(traitImg);
-                
+
                 container.appendChild(traitContainer);
             }
         }
@@ -760,7 +778,7 @@ const createMatchChampsDiv = (playerDetails, reverseChampions = false) => {
             const tierContainer = createTierDiv(unit.tier || '');
             const champContainer = document.createElement('div');
             champContainer.className = 'match-champ';
-            
+
             const champImg = document.createElement('img');
             champImg.src = getChampionImageUrl(unit.character_id);
             champImg.alt = unit.character_id || '';
@@ -775,14 +793,14 @@ const createMatchChampsDiv = (playerDetails, reverseChampions = false) => {
             champContainer.appendChild(champImg);
 
             const itemsDiv = createItemsDiv(unit.item_names || []);
-            
+
             const matchChampWrapper = document.createElement('div');
             matchChampWrapper.className = 'match-champ-wrapper';
 
             matchChampWrapper.appendChild(tierContainer);
             matchChampWrapper.appendChild(champContainer);
             matchChampWrapper.appendChild(itemsDiv);
-            
+
             container.appendChild(matchChampWrapper);
         });
     }
@@ -856,45 +874,45 @@ const createPlacementDiv = (placementValue) => {
 function createCompanionDiv(playerDetails, isWinner, revertOrder) {
     const companionDiv = document.createElement('div');
     companionDiv.className = 'match-player-companion';
-    
+
     // Set display to flex and align items at the bottom, with left/right alignment based on revertOrder.
     companionDiv.style.display = 'flex';
     companionDiv.style.alignItems = 'flex-end';
     companionDiv.style.justifyContent = revertOrder ? 'flex-start' : 'flex-end';
-    
+
     // Call loadMainCompanion to set the companion image as the background.
     loadMainCompanion(playerDetails, companionDiv);
-    
+
     // If not the winner, apply grayscale filter to remove color.
     if (!isWinner) {
         companionDiv.style.filter = 'grayscale(100%)';
     }
-    
+
     const levelDiv = document.createElement('div');
     levelDiv.className = 'match-player-companion-level';
     levelDiv.textContent = playerDetails.level;
-    
+
     companionDiv.appendChild(levelDiv);
-    
+
     return companionDiv;
 }
 
 function createStatItem(icon, value, tooltipText, revertOrder) {
     const statDiv = document.createElement('div');
     statDiv.className = 'match-player-stats-item';
-    
+
     if (revertOrder) {
         statDiv.style.marginLeft = '3px';
     } else {
         statDiv.style.marginRight = '3px';
     }
-    
+
     const iconElem = document.createElement('span');
     iconElem.textContent = icon;
     if (tooltipText) {
         iconElem.title = tooltipText;
     }
-    
+
     const textElem = document.createElement('span');
     textElem.textContent = value;
 
@@ -905,7 +923,7 @@ function createStatItem(icon, value, tooltipText, revertOrder) {
         statDiv.appendChild(iconElem);
         statDiv.appendChild(textElem);
     }
-    
+
     return statDiv;
 }
 
