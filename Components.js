@@ -667,7 +667,7 @@ const createMatchPlayer1Detail = (playerDetails, isWinner) => {
     player1Div.appendChild(detailsPre);
 
     // Append individual sub-divs.
-    player1Div.appendChild(createMatchPlayerDiv(playerDetails));
+    player1Div.appendChild(createMatchPlayerDiv(playerDetails, false));
     player1Div.appendChild(createMatchTraitsDiv(playerDetails));
     player1Div.appendChild(createMatchChampsDiv(playerDetails));
     player1Div.appendChild(createMatchSeparatorDiv());
@@ -685,7 +685,7 @@ const createMatchPlayer2Detail = (playerDetails, isWinner) => {
     
     // Append individual sub-divs in reversed order.
     player2Div.appendChild(createMatchSeparatorDiv());
-    player2Div.appendChild(createMatchChampsDiv(playerDetails));
+    player2Div.appendChild(createMatchChampsDiv(playerDetails, true));
     player2Div.appendChild(createMatchTraitsDiv(playerDetails));
     player2Div.appendChild(createMatchPlayerDiv(playerDetails));
 
@@ -756,12 +756,13 @@ async function loadTraits(traits, container) {
     });
 }
 
-const createMatchChampsDiv = (playerDetails) => {
+const createMatchChampsDiv = (playerDetails, reverseChampions = false) => {
     const container = document.createElement('div');
     container.className = 'match-champs';
 
     if (playerDetails && Array.isArray(playerDetails.units)) {
-        playerDetails.units.forEach(unit => {
+        const units = reverseChampions ? playerDetails.units.slice().reverse() : playerDetails.units;
+        units.forEach(unit => {
             const tierContainer = createTierDiv(unit.tier || '');
             const champContainer = document.createElement('div');
             champContainer.className = 'match-champ';
@@ -781,7 +782,6 @@ const createMatchChampsDiv = (playerDetails) => {
 
             const itemsDiv = createItemsDiv(unit.item_names || []);
             
-
             const matchChampWrapper = document.createElement('div');
             matchChampWrapper.className = 'match-champ-wrapper';
 

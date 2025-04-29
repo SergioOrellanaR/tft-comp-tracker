@@ -1307,11 +1307,10 @@ th {
 
 .match-champs {
     display: flex;
-    padding: 8px;
     border: 1px solid blue; /* Debug border color */
     flex-direction: row;
     border-radius: 6px;
-    width: 67%;
+    width: 68%;
     height: 100%;
 }
 
