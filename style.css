@@ -1433,9 +1433,9 @@ th {
     justify-content: center;
     border: 2px solid green;
     border-radius: 50%;
-    height: 50px;
-    min-height: 50px;
-    width: 50px;
+    height: 55px;
+    min-height: 55px;
+    width: 55px;
 }
 
 .match-player-companion-level {
@@ -1455,9 +1455,15 @@ th {
 }
 
 .match-player-stats {
-    border: 2px dashed orange;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .match-player-stats-item {
-    border: 2px dashed cyan;
+    font-size: 0.75rem;
+    flex-direction: row;
+    width: 30px;
 }

@@ -875,6 +875,13 @@ function createCompanionDiv(playerDetails, isWinner, revertOrder) {
 function createStatItem(icon, value, tooltipText, revertOrder) {
     const statDiv = document.createElement('div');
     statDiv.className = 'match-player-stats-item';
+    
+    if (revertOrder) {
+        statDiv.style.marginLeft = '5px';
+    } else {
+        statDiv.style.marginRight = '5px';
+    }
+    
     const iconElem = document.createElement('span');
     iconElem.textContent = icon;
     if (tooltipText) {
