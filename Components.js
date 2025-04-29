@@ -1,4 +1,4 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl } from './tftVersusHandler.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
 
 // Función para crear un spinner de carga
@@ -712,6 +712,7 @@ const createMatchChampsDiv = (playerDetails) => {
 
     if (playerDetails && Array.isArray(playerDetails.units)) {
         playerDetails.units.forEach(unit => {
+            const tierContainer = createTierDiv(unit.tier || '');
             const champContainer = document.createElement('div');
             champContainer.className = 'match-champ';
             
@@ -729,9 +730,12 @@ const createMatchChampsDiv = (playerDetails) => {
             champContainer.appendChild(champImg);
 
             const itemsDiv = createItemsDiv(unit.item_names || []);
+            
 
             const matchChampWrapper = document.createElement('div');
             matchChampWrapper.className = 'match-champ-wrapper';
+
+            matchChampWrapper.appendChild(tierContainer);
             matchChampWrapper.appendChild(champContainer);
             matchChampWrapper.appendChild(itemsDiv);
             
@@ -740,6 +744,18 @@ const createMatchChampsDiv = (playerDetails) => {
     }
     return container;
 };
+
+function createTierDiv(tier) {
+    const tierDiv = document.createElement('div');
+    tierDiv.className = 'match-tier';
+    if (tier > 1) {
+        const tierImg = document.createElement('img');
+        tierImg.src = getTierImageUrl(tier);
+        tierImg.alt = `${tier} stars`;
+        tierDiv.appendChild(tierImg);
+    }
+    return tierDiv;
+}
 
 const createItemsDiv = (items) => {
     const itemsDiv = document.createElement('div');

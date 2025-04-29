@@ -104,5 +104,5 @@ export function getItemImageUrl(itemId) {
 }
 
 export function getTierImageUrl(tier) {
-    return THIRD_PARTY_IMG_URL.tiers + '/' + tier.toLowerCase() + '.png';
+    return THIRD_PARTY_IMG_URL.tiers + '/' + tier + '.png';
 }
