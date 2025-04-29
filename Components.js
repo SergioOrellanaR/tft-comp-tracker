@@ -823,26 +823,33 @@ const createItemsDiv = (items) => {
 };
 
 const createPlacementDiv = (placementValue) => {
+    const placement = Number(placementValue);
     const placementDiv = document.createElement('div');
     placementDiv.className = 'match-player-placement';
-    placementDiv.textContent = placementValue;
-    const placement = Number(placementValue);
+
+    let suffix = '';
     switch (placement) {
         case 1:
+            suffix = 'st';
             placementDiv.style.color = "#FFD700"; // bright gold
             break;
         case 2:
+            suffix = 'nd';
             placementDiv.style.color = "#C0C0C0"; // bright silver
             break;
         case 3:
+            suffix = 'rd';
             placementDiv.style.color = "#CD7F32"; // bronze
             break;
         case 4:
+            suffix = 'th';
             placementDiv.style.color = "#B0B0B0"; // silver
             break;
         default:
-            placementDiv.style.color = "gray"; // any other number
+            suffix = 'th';
+            placementDiv.style.color = "gray";
     }
+    placementDiv.textContent = placement + suffix;
     return placementDiv;
 };
 
@@ -877,9 +884,9 @@ function createStatItem(icon, value, tooltipText, revertOrder) {
     statDiv.className = 'match-player-stats-item';
     
     if (revertOrder) {
-        statDiv.style.marginLeft = '5px';
+        statDiv.style.marginLeft = '3px';
     } else {
-        statDiv.style.marginRight = '5px';
+        statDiv.style.marginRight = '3px';
     }
     
     const iconElem = document.createElement('span');

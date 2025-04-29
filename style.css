@@ -1276,7 +1276,7 @@ th {
     width: 100%;
     overflow-y: hidden;
     justify-content: space-between;
-    border: 1px solid blue;
+
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
@@ -1291,7 +1291,7 @@ th {
     width: 100%;
     overflow-y: hidden;
     justify-content: space-between;
-    border: 1px solid red;
+
     margin-top: auto;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -1300,7 +1300,7 @@ th {
 
 .match-champs {
     display: flex;
-    border: 1px solid blue; /* Debug border color */
+
     flex-direction: row;
     border-radius: 6px;
     width: 68%;
@@ -1323,8 +1323,8 @@ th {
 
 .match-champ {
     border: 1px solid rgba(255, 252, 252, 0.5);
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 4px;
     overflow: hidden;
 }
@@ -1337,8 +1337,8 @@ th {
 }
 
 .match-items {
-    width: 45px;
-    height: 14px;
+    width: 40px;
+    height: 13px;
     border-radius: 6px;
     display: flex;
     flex-direction: row;
@@ -1347,8 +1347,8 @@ th {
 }
 
 .match-item {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     border-radius: 2px;
 }
 
@@ -1360,8 +1360,8 @@ th {
 }
 
 .match-tier {
-    width: 45px;
-    height: 14px;
+    width: 40px;
+    height: 13px;
     border-radius: 6px;
     display: flex;
 }
@@ -1374,21 +1374,21 @@ th {
 }
 
 .match-traits {
-    border: 1px solid green; /* Debug border color */
     border-radius: 6px;
     width: 13%;
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-content: center; /* <-- controla mejor las filas */
+    gap: 3px; /* Espacio uniforme entre íconos */
+    padding: 4px 0; /* Opcional: mejora visual */
 }
 
 .trait-img-container {
-    width: 25px;
-    height: 30px;
-    background-size: 100% 100%;
+    width: 23px;
+    height: 23px;
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -1410,28 +1410,30 @@ th {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid red; /* Debug border color */
+
     border-radius: 6px;
     width: 15%;
     height: 100%;
 }
 
 .match-player-placement {
-    border: 3px solid blue;
+    border-radius: 50%; /* círculo para más personalidad */
+    color: #003366;
     display: flex;
-    font-size: 20px;
-    font-weight: 800;
-    height: 28px;
+    font-size: 15px;
+    font-weight: 750;
+    height: 32px;
+    width: 32px;
     justify-content: center;
     align-items: center;
-    padding: 4px;
+    padding: 0;
+    transition: transform 0.2s ease;
 }
 
 .match-player-companion {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid green;
     border-radius: 50%;
     height: 55px;
     min-height: 55px;
@@ -1466,4 +1468,5 @@ th {
     font-size: 0.75rem;
     flex-direction: row;
     width: 30px;
+    text-align: center;
 }
