@@ -659,6 +659,7 @@ const createMatchStats = (matchStats) => {
 };
 
 const createMatchPlayer1Detail = (playerDetails, isWinner) => {
+    const revertOrder = false;
     const player1Div = document.createElement('div');
     player1Div.className = 'match-player1-detail';
 
@@ -667,15 +668,16 @@ const createMatchPlayer1Detail = (playerDetails, isWinner) => {
     player1Div.appendChild(detailsPre);
 
     // Append individual sub-divs.
-    player1Div.appendChild(createMatchPlayerDiv(playerDetails, false));
+    player1Div.appendChild(createMatchPlayerDiv(playerDetails, revertOrder, isWinner));
     player1Div.appendChild(createMatchTraitsDiv(playerDetails));
-    player1Div.appendChild(createMatchChampsDiv(playerDetails));
+    player1Div.appendChild(createMatchChampsDiv(playerDetails, revertOrder));
     player1Div.appendChild(createMatchSeparatorDiv());
 
     return player1Div;
 };
 
 const createMatchPlayer2Detail = (playerDetails, isWinner) => {
+    const revertOrder = true;
     const player2Div = document.createElement('div');
     player2Div.className = 'match-player2-detail';
 
@@ -685,9 +687,9 @@ const createMatchPlayer2Detail = (playerDetails, isWinner) => {
     
     // Append individual sub-divs in reversed order.
     player2Div.appendChild(createMatchSeparatorDiv());
-    player2Div.appendChild(createMatchChampsDiv(playerDetails, true));
+    player2Div.appendChild(createMatchChampsDiv(playerDetails, revertOrder));
     player2Div.appendChild(createMatchTraitsDiv(playerDetails));
-    player2Div.appendChild(createMatchPlayerDiv(playerDetails));
+    player2Div.appendChild(createMatchPlayerDiv(playerDetails, revertOrder, isWinner));
 
     return player2Div;
 };
@@ -696,14 +698,6 @@ const createMatchPlayer2Detail = (playerDetails, isWinner) => {
 const createMatchSeparatorDiv = () => {
     const div = document.createElement('div');
     div.className = 'match-separator';
-    return div;
-};
-
-const createMatchPlayerDiv = (playerDetails) => {
-    
-    const div = document.createElement('div');
-    div.className = 'match-player';
-    div.textContent = "Player detail info";
     return div;
 };
 
@@ -826,4 +820,110 @@ const createItemsDiv = (items) => {
     });
 
     return itemsDiv;
+};
+
+const createPlacementDiv = (placementValue) => {
+    const placementDiv = document.createElement('div');
+    placementDiv.className = 'match-player-placement';
+    placementDiv.textContent = placementValue;
+    const placement = Number(placementValue);
+    switch (placement) {
+        case 1:
+            placementDiv.style.color = "#FFD700"; // bright gold
+            break;
+        case 2:
+            placementDiv.style.color = "#C0C0C0"; // bright silver
+            break;
+        case 3:
+            placementDiv.style.color = "#CD7F32"; // bronze
+            break;
+        case 4:
+            placementDiv.style.color = "#B0B0B0"; // silver
+            break;
+        default:
+            placementDiv.style.color = "gray"; // any other number
+    }
+    return placementDiv;
+};
+
+function createCompanionDiv(playerDetails, isWinner, revertOrder) {
+    const companionDiv = document.createElement('div');
+    companionDiv.className = 'match-player-companion';
+    
+    // Set display to flex and align items at the bottom, with left/right alignment based on revertOrder.
+    companionDiv.style.display = 'flex';
+    companionDiv.style.alignItems = 'flex-end';
+    companionDiv.style.justifyContent = revertOrder ? 'flex-start' : 'flex-end';
+    
+    // Call loadMainCompanion to set the companion image as the background.
+    loadMainCompanion(playerDetails, companionDiv);
+    
+    // If not the winner, apply grayscale filter to remove color.
+    if (!isWinner) {
+        companionDiv.style.filter = 'grayscale(100%)';
+    }
+    
+    const levelDiv = document.createElement('div');
+    levelDiv.className = 'match-player-companion-level';
+    levelDiv.textContent = playerDetails.level;
+    
+    companionDiv.appendChild(levelDiv);
+    
+    return companionDiv;
+}
+
+function createStatItem(icon, value, tooltipText, revertOrder) {
+    const statDiv = document.createElement('div');
+    statDiv.className = 'match-player-stats-item';
+    const iconElem = document.createElement('span');
+    iconElem.textContent = icon;
+    if (tooltipText) {
+        iconElem.title = tooltipText;
+    }
+    
+    const textElem = document.createElement('span');
+    textElem.textContent = value;
+
+    if (revertOrder) {
+        statDiv.appendChild(textElem);
+        statDiv.appendChild(iconElem);
+    } else {
+        statDiv.appendChild(iconElem);
+        statDiv.appendChild(textElem);
+    }
+    
+    return statDiv;
+}
+
+function createStatsDiv(playerDetails, revertOrder) {
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'match-player-stats';
+
+    statsDiv.appendChild(createStatItem('💰', playerDetails.gold_left, 'Gold left', revertOrder));
+    statsDiv.appendChild(createStatItem('💀', playerDetails.players_eliminated, 'Players eliminated', revertOrder));
+    statsDiv.appendChild(createStatItem('⚔', playerDetails.total_damage_to_players, 'Total damage to players', revertOrder));
+
+    return statsDiv;
+}
+
+const createMatchPlayerDiv = (playerDetails, revertOrder, isWinner) => {
+    const div = document.createElement('div');
+    div.className = 'match-player';
+
+    const placementDiv = createPlacementDiv(playerDetails.placement);
+    const companionDiv = createCompanionDiv(playerDetails, isWinner, revertOrder);
+    const statsDiv = createStatsDiv(playerDetails, revertOrder);
+
+    // Append divs in the specified order based on revertOrder.
+    if (revertOrder) {
+        div.appendChild(statsDiv);
+        div.appendChild(companionDiv);
+        div.appendChild(placementDiv);
+    } else {
+        div.appendChild(placementDiv);
+        div.appendChild(companionDiv);
+        div.appendChild(statsDiv);
+    }
+
+    return div;
 };

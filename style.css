@@ -1298,13 +1298,6 @@ th {
     clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.match-player {
-    border: 1px solid red; /* Debug border color */
-    border-radius: 6px;
-    width: 15%;
-    height: 100%;
-}
-
 .match-champs {
     display: flex;
     border: 1px solid blue; /* Debug border color */
@@ -1409,4 +1402,62 @@ th {
     height: 60%;
     object-fit: cover;
     display: block;
+}
+
+/* match player section */
+.match-player {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red; /* Debug border color */
+    border-radius: 6px;
+    width: 15%;
+    height: 100%;
+}
+
+.match-player-placement {
+    border: 3px solid blue;
+    display: flex;
+    font-size: 20px;
+    font-weight: 800;
+    height: 28px;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+}
+
+.match-player-companion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid green;
+    border-radius: 50%;
+    height: 50px;
+    min-height: 50px;
+    width: 50px;
+}
+
+.match-player-companion-level {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,215,0,0.8);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 10px;
+    position: relative;
+    top: 2px;
+}
+
+.match-player-stats {
+    border: 2px dashed orange;
+}
+
+.match-player-stats-item {
+    border: 2px dashed cyan;
 }
