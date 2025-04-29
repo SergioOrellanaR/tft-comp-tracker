@@ -1,4 +1,4 @@
-import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL } from './config.js';
+import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL, TRAIT_BACKGROUND_URL } from './config.js';
 
 /**
  * Función genérica para realizar solicitudes a la API de TFT Versus.
@@ -82,8 +82,7 @@ async function fetchSpecificMatch(matchId) {
 }
 
 //DATA DRAGON HANDLER
-export function CDragonBaseUrl(path)
-{
+export function CDragonBaseUrl(path) {
     return path.replace('/lol-game-data/assets/', CDRAGON_URL.base).toLowerCase();
 }
 
@@ -105,4 +104,30 @@ export function getItemImageUrl(itemId) {
 
 export function getTierImageUrl(tier) {
     return THIRD_PARTY_IMG_URL.tiers + '/' + tier + '.png';
+}
+
+export function getTraitBackgroundUrl(tier_current, tier_total, num_units) {
+    if (tier_total === 1 && tier_current === 1) {
+        return TRAIT_BACKGROUND_URL.unique;
+    }
+
+    switch (tier_current) {
+        case 1:
+            return TRAIT_BACKGROUND_URL.bronze;
+        case 2:
+            if(tier_total === 2) {
+                return TRAIT_BACKGROUND_URL.gold;
+            }
+            return TRAIT_BACKGROUND_URL.silver;
+        case 3:
+            return TRAIT_BACKGROUND_URL.gold;
+        case 4:
+            if (num_units == null || num_units < 8) {
+                return TRAIT_BACKGROUND_URL.gold;
+            }
+            console.log(num_units);
+            return TRAIT_BACKGROUND_URL.chromatic;
+        default:
+            return TRAIT_BACKGROUND_URL.gold;
+    }
 }

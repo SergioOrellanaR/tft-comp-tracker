@@ -1231,7 +1231,6 @@ th {
     flex-direction: column;
     width: 100%;
     gap: 30px;
-    padding: 10px;
 }
 
 /* 1 per match */
@@ -1264,8 +1263,7 @@ th {
     flex-direction: row;
     align-items: flex-start;  /* importante */
     justify-content: space-between;
-    
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .match-player1-detail
@@ -1303,14 +1301,7 @@ th {
 .match-player {
     border: 1px solid red; /* Debug border color */
     border-radius: 6px;
-    width: 20%;
-    height: 100%;
-}
-
-.match-traits {
-    border: 1px solid green; /* Debug border color */
-    border-radius: 6px;
-    width: 10%;
+    width: 15%;
     height: 100%;
 }
 
@@ -1386,6 +1377,37 @@ th {
 .match-tier img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.match-traits {
+    border: 1px solid green; /* Debug border color */
+    border-radius: 6px;
+    width: 13%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.trait-img-container {
+    width: 25px;
+    height: 30px;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trait-icon {
+     /* Debug border for trait icon */
+    width: 60%;
+    height: 60%;
     object-fit: cover;
     display: block;
 }

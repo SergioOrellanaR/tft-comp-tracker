@@ -1,5 +1,10 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl } from './tftVersusHandler.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl, getTraitBackgroundUrl } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
+
+//PLAYER CARD COMPONENTS
+// Se agrega variable de caché para companionData
+let companionDataCache = null;
+let traitDataCache = null;
 
 // Función para crear un spinner de carga
 export function createLoadingSpinner(text = null, longWaitMessage = null) {
@@ -45,13 +50,15 @@ function createDivHelper(id, setPlaceHolder = false) {
     return div;
 }
 
-//PLAYER CARD COMPONENTS
+// Modificación en loadMainCompanion para usar caché
 const loadMainCompanion = async (playerData, container) => {
     try {
-        const response = await fetch(CDRAGON_URL.companionData);
-        if (!response.ok) throw new Error('Error fetching companion data');
-        const companionData = await response.json();
-        const myCompanion = companionData.find(item => item.contentId === playerData.companion.content_id);
+        if (!companionDataCache) {
+            const response = await fetch(CDRAGON_URL.companionData);
+            if (!response.ok) throw new Error('Error fetching companion data');
+            companionDataCache = await response.json();
+        }
+        const myCompanion = companionDataCache.find(item => item.contentId === playerData.companion.content_id);
         if (!myCompanion) {
             console.warn('No se encontró companion con content_id:', playerData.companion.content_id);
             return;
@@ -693,18 +700,61 @@ const createMatchSeparatorDiv = () => {
 };
 
 const createMatchPlayerDiv = (playerDetails) => {
+    
     const div = document.createElement('div');
     div.className = 'match-player';
     div.textContent = "Player detail info";
     return div;
 };
 
+// Modificar createMatchTraitsDiv para cargar icons de traits desde la caché
 const createMatchTraitsDiv = (playerDetails) => {
+    const traits = playerDetails.traits || [];
     const div = document.createElement('div');
     div.className = 'match-traits';
-    div.textContent = "Traits info";
+    loadTraits(traits, div); // carga asíncrona de icons de traits
     return div;
 };
+
+async function loadTraits(traits, container) {
+    // Sort the traits by trait.style in descending order (e.g., 5, 4, 2, 0)
+    traits.sort((a, b) => b.style - a.style);
+
+    if (!traitDataCache) {
+        try {
+            const response = await fetch(CDRAGON_URL.traits);
+            if (!response.ok) throw new Error('Error fetching trait data');
+            traitDataCache = await response.json();
+        } catch (error) {
+            console.error('Error loading trait data:', error);
+            return;
+        }
+    }
+    
+    traits.forEach(trait => {
+        if (trait.tier_current > 0) {
+            const traitInfo = traitDataCache.find(item => item.trait_id === trait.name);
+            if (traitInfo) {
+                const backgroundImgUrl = getTraitBackgroundUrl(trait.tier_current, trait.tier_total, trait.num_unit);
+
+                // Create main icon image element with its class
+                const traitImg = document.createElement('img');
+                traitImg.src = CDragonBaseUrl(traitInfo.icon_path);
+                traitImg.className = 'trait-icon';
+                traitImg.title = traitInfo.display_name;
+
+                // Create container and set position relative for overlapping images
+                const traitContainer = document.createElement('div');
+                traitContainer.className = 'trait-img-container';
+                traitContainer.style.backgroundImage = `url(${backgroundImgUrl})`;
+                
+                traitContainer.appendChild(traitImg);
+                
+                container.appendChild(traitContainer);
+            }
+        }
+    });
+}
 
 const createMatchChampsDiv = (playerDetails) => {
     const container = document.createElement('div');
