@@ -1,4 +1,4 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary } from './tftVersusHandler.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
 
 // Función para crear un spinner de carga
@@ -659,12 +659,11 @@ const createMatchPlayer1Detail = (playerDetails, isWinner) => {
     const detailsPre = document.createElement('pre');
     player1Div.appendChild(detailsPre);
 
-    // Append common divs first.
-    const commonDivs = createCommonPlayerSubDivs();
-    player1Div.appendChild(commonDivs[0]); // match-player
-    player1Div.appendChild(commonDivs[1]); // match-traits
-    player1Div.appendChild(commonDivs[2]); // match-champs
-    player1Div.appendChild(commonDivs[3]); // match-separator
+    // Append individual sub-divs.
+    player1Div.appendChild(createMatchPlayerDiv(playerDetails));
+    player1Div.appendChild(createMatchTraitsDiv(playerDetails));
+    player1Div.appendChild(createMatchChampsDiv(playerDetails));
+    player1Div.appendChild(createMatchSeparatorDiv());
 
     return player1Div;
 };
@@ -677,23 +676,13 @@ const createMatchPlayer2Detail = (playerDetails, isWinner) => {
     const detailsPre = document.createElement('pre');
     player2Div.appendChild(detailsPre);
     
-    // Append common divs.
-    const commonDivs = createCommonPlayerSubDivs(playerDetails);
-    player2Div.appendChild(commonDivs[3]);
-    player2Div.appendChild(commonDivs[2]);
-    player2Div.appendChild(commonDivs[1]);
-    player2Div.appendChild(commonDivs[0]);
+    // Append individual sub-divs in reversed order.
+    player2Div.appendChild(createMatchSeparatorDiv());
+    player2Div.appendChild(createMatchChampsDiv(playerDetails));
+    player2Div.appendChild(createMatchTraitsDiv(playerDetails));
+    player2Div.appendChild(createMatchPlayerDiv(playerDetails));
 
     return player2Div;
-};
-
-const createCommonPlayerSubDivs = (playerDetails) => {
-    const matchPlayer = createMatchPlayerDiv(playerDetails);
-    const matchTraits = createMatchTraitsDiv(playerDetails);
-    const matchChamps = createMatchChampsDiv(playerDetails);
-    const matchSeparator = createMatchSeparatorDiv();
-
-    return [matchPlayer, matchTraits, matchChamps, matchSeparator];
 };
 
 // Helper function to create common player details sub-divs for both players.
@@ -721,183 +710,52 @@ const createMatchChampsDiv = (playerDetails) => {
     const container = document.createElement('div');
     container.className = 'match-champs';
 
-    container.appendChild(buildMatchChampContent(playerDetails));
-    
-    return container;
-};
-
-/*
-            "player1_game_details": {
-                "companion": {
-                    "content_id": "8c27f67c-90b3-4355-9e90-6e92325c6015",
-                    "item_id": 9018,
-                    "skin_id": 18,
-                    "species": "PetSpiritFox"
-                },
-                "level": 8,
-                "gold_left": 50,
-                "last_round": 37,
-                "placement": 3,
-                "players_eliminated": 0,
-                "puuid": "pu7xO12bOnAJ3F0G_7uv7qaj7TCoKkp1a5xeghz2sFN98oeNkXXHifs3Y7yEtISa01Kzib3nRIYTFg",
-                "time_eliminated": 2062.4128,
-                "total_damage_to_players": 126,
-                "rank_info": null,
-                "augments": [],
-                "traits": [
-                    {
-                        "name": "TFT14_AnimaSquad",
-                        "num_unit": 3,
-                        "style": 1,
-                        "tier_current": 1,
-                        "tier_total": 4
-                    },
-                    {
-                        "name": "TFT14_Divinicorp",
-                        "num_unit": 2,
-                        "style": 2,
-                        "tier_current": 2,
-                        "tier_total": 7
-                    },
-                    {
-                        "name": "TFT14_Netgod",
-                        "num_unit": 1,
-                        "style": 3,
-                        "tier_current": 1,
-                        "tier_total": 1
-                    },
-                    {
-                        "name": "TFT14_Strong",
-                        "num_unit": 4,
-                        "style": 2,
-                        "tier_current": 2,
-                        "tier_total": 3
-                    },
-                    {
-                        "name": "TFT14_Vanguard",
-                        "num_unit": 4,
-                        "style": 2,
-                        "tier_current": 2,
-                        "tier_total": 3
-                    }
-                ],
-                "units": [
-                    {
-                        "character_id": "TFT14_Jarvan",
-                        "items_riot_id": [],
-                        "item_names": [
-                            "TFT_Item_SpectralGauntlet",
-                            "TFT_Item_FrozenHeart",
-                            "TFT_Item_WarmogsArmor"
-                        ],
-                        "rarity": 2,
-                        "tier": 3
-                    },
-                    {
-                        "character_id": "TFT14_Zed",
-                        "items_riot_id": [],
-                        "item_names": [
-                            "TFT_Item_InfinityEdge",
-                            "TFT_Item_UnstableConcoction",
-                            "TFT_Item_GuardianAngel"
-                        ],
-                        "rarity": 4,
-                        "tier": 2
-                    },
-                    {
-                        "character_id": "TFT14_Leona",
-                        "items_riot_id": [],
-                        "item_names": [
-                            "TFT_Item_Crownguard"
-                        ],
-                        "rarity": 4,
-                        "tier": 2
-                    },
-                    {
-                        "character_id": "TFT14_Garen",
-                        "items_riot_id": [],
-                        "item_names": [],
-                        "rarity": 6,
-                        "tier": 1
-                    },
-                    {
-                        "character_id": "TFT14_Sylas",
-                        "items_riot_id": [],
-                        "item_names": [],
-                        "rarity": 0,
-                        "tier": 2
-                    },
-                    {
-                        "character_id": "TFT14_Vayne",
-                        "items_riot_id": [],
-                        "item_names": [
-                            "TFT_Item_GuinsoosRageblade",
-                            "TFT_Item_Deathblade",
-                            "TFT_Item_GuinsoosRageblade"
-                        ],
-                        "rarity": 1,
-                        "tier": 3
-                    },
-                    {
-                        "character_id": "TFT14_Rhaast",
-                        "items_riot_id": [],
-                        "item_names": [
-                            "TFT_Item_LocketOfTheIronSolari",
-                            "TFT_Item_NegatronCloak"
-                        ],
-                        "rarity": 1,
-                        "tier": 2
-                    },
-                    {
-                        "character_id": "TFT14_Senna",
-                        "items_riot_id": [],
-                        "item_names": [
-                            "TFT_Item_RunaansHurricane",
-                            "TFT_Item_PowerGauntlet",
-                            "TFT_Item_Morellonomicon"
-                        ],
-                        "rarity": 2,
-                        "tier": 3
-                    }
-                ]
-                    */
-function buildMatchChampContent(playerDetails) {
-    const champsContainer = document.createElement('div');
-    champsContainer.className = 'match-champs-container';
-
     if (playerDetails && Array.isArray(playerDetails.units)) {
         playerDetails.units.forEach(unit => {
             const champContainer = document.createElement('div');
             champContainer.className = 'match-champ';
-            champContainer.textContent = unit.character_id || "Unknown Champ";
+            
+            const champImg = document.createElement('img');
+            champImg.src = getChampionImageUrl(unit.character_id);
+            champImg.alt = unit.character_id || '';
+
+            // Calculate tooltip: show text after "_" if exists, else show as is.
+            let tooltip = unit.character_id || '';
+            if (tooltip.includes('_')) {
+                tooltip = tooltip.split('_').pop();
+            }
+            champImg.title = tooltip;
+
+            champContainer.appendChild(champImg);
 
             const itemsDiv = createItemsDiv(unit.item_names || []);
 
-            const matchChamp = document.createElement('div');
-            matchChamp.className = 'match-champ-wrapper';
-            matchChamp.appendChild(champContainer);
-            matchChamp.appendChild(itemsDiv);
+            const matchChampWrapper = document.createElement('div');
+            matchChampWrapper.className = 'match-champ-wrapper';
+            matchChampWrapper.appendChild(champContainer);
+            matchChampWrapper.appendChild(itemsDiv);
             
-            champsContainer.appendChild(matchChamp);
+            container.appendChild(matchChampWrapper);
         });
     }
-    return champsContainer;
-}
+    return container;
+};
 
 const createItemsDiv = (items) => {
     const itemsDiv = document.createElement('div');
     itemsDiv.className = 'match-items';
-    itemsDiv.style.display = 'flex';
-    itemsDiv.style.justifyContent = 'center';
-    itemsDiv.style.alignItems = 'center';
 
     // Only process up to 3 items
-    items.forEach(item => {
-        const itemImgUrl = await fetch(CDRAGON_URL.companionData);
+    items.forEach(itemId => {
         const itemDiv = document.createElement('div');
-        itemDiv.className = 'item';
-        itemDiv.textContent = item;
-        itemDiv.style.textAlign = 'center';
+        itemDiv.className = 'match-item';
+
+        const itemImg = document.createElement('img');
+        itemImg.src = getItemImageUrl(itemId);
+        itemImg.alt = `Item ${itemId}`;
+
+        // Place the item image within the item div.
+        itemDiv.appendChild(itemImg);
         itemsDiv.appendChild(itemDiv);
     });
 

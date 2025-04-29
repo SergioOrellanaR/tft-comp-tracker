@@ -1,4 +1,4 @@
-import { TFT_VERSUS_API_URL, CDRAGON_URL } from './config.js';
+import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL } from './config.js';
 
 /**
  * Función genérica para realizar solicitudes a la API de TFT Versus.
@@ -93,4 +93,16 @@ export function getProfileIconUrl(playerData) {
 
 export function getRankIconUrl(playerData) {
     return CDRAGON_URL.rankedIcons + '/' + playerData.rank_info.tier.toLowerCase() + '.png';
+}
+
+export function getChampionImageUrl(championId) {
+    return THIRD_PARTY_IMG_URL.champions + '/' + championId.toLowerCase() + '.png';
+}
+
+export function getItemImageUrl(itemId) {
+    return THIRD_PARTY_IMG_URL.items + '/' + itemId.toLowerCase() + '.png';
+}
+
+export function getTierImageUrl(tier) {
+    return THIRD_PARTY_IMG_URL.tiers + '/' + tier.toLowerCase() + '.png';
 }
