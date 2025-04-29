@@ -432,7 +432,7 @@ function createContestedDiv(percentage, text) {
     } else if (percentage <= 75) {
         color = '#ffc107';
     } else {
-        color = '#f44336';
+        color = '#ff5252';
     }
     rectangle.style.backgroundColor = color; // dynamic color
     container.appendChild(rectangle);
@@ -568,12 +568,11 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
 function createHistoryModal(playerData, duelsCache, player2Name, player2Color, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
-
     // Implementa la lógica de cache
     const cachedData = duelsCache.get(player2Name) || {};
     const commonMatchesCached = cachedData.commonMatches || null;
 
-    historyModal.innerHTML = '<h2>History</h2>';
+    historyModal.innerHTML = '<h2 id="duels-title">Duels</h2>';
     if (commonMatchesCached) {
         const matchesContainer = buildMatchesContainer(commonMatchesCached.match_list);
         historyModal.appendChild(matchesContainer);
@@ -597,27 +596,68 @@ function createHistoryModal(playerData, duelsCache, player2Name, player2Color, s
     return historyModal;
 }
 
+// Helper function to create the contested div for a match.
+function createContestDiv(match) {
+    const contestDiv = document.createElement('div');
+    contestDiv.className = 'match-contest-div';
+    
+    const percentage = match.contested_percentage;
+    let color;
+    if (percentage <= 50) {
+        color = '#8f8';
+    } else if (percentage <= 75) {
+        color = '#ffc107';
+    } else {
+        color = '#ff5252';
+    }
+    
+    contestDiv.innerHTML = `<span style="font-size:1em; color:${color};"> ${percentage}%</span><br><span style="font-size:0.6em;">Contested</span>`;
+    return contestDiv;
+}
+
 //A cada match-content agregale 3 divs 
 const buildMatchesContainer = (matches) => {
+    let TFTSet = null;
+    let previousTFTSet = null;
     const matchesContainer = document.createElement('div');
     matchesContainer.className = 'matches-container';
     matches.forEach(match => {
+        previousTFTSet = TFTSet;
+        if (TFTSet == null || TFTSet != match.tft_set_number) {
+            TFTSet = match.tft_set_number;
+        }
         const player1Placement = match.player1_game_details.placement;
         const player2Placement = match.player2_game_details.placement;
         // Create a div for the match stats.
         const matchDiv = document.createElement('div');
         matchDiv.className = 'match-content';
-
+        // Set relative position so the absolute div is positioned against matchDiv.
+        matchDiv.style.position = 'relative';
         // Append the match stats div.
         matchDiv.appendChild(createMatchStats(match));
-
         // Create a wrapper for player1 and player2 details.
         const playersWrapper = document.createElement('div');
         playersWrapper.className = 'match-player-details-wrapper';
+        
         playersWrapper.appendChild(createMatchPlayer1Detail(match.player1_game_details, player1Placement < player2Placement));
+        
+        // Create the contested div using the helper method.
+        const contestDiv = createContestDiv(match);
+        playersWrapper.appendChild(contestDiv);
+        
         playersWrapper.appendChild(createMatchPlayer2Detail(match.player2_game_details, player2Placement < player1Placement));
-
+    
         matchDiv.appendChild(playersWrapper);
+        
+        // Instead of inserting at the beginning of matchDiv, insert before matchDiv in matchesContainer if there's something to insert.
+        if (previousTFTSet != TFTSet) {
+            const setLabel = document.createElement('div');
+            setLabel.className = 'match-set-label';
+            setLabel.textContent = `Set ${TFTSet}`;
+            
+            matchesContainer.appendChild(setLabel);
+        }
+    
         matchesContainer.appendChild(matchDiv);
     });
     return matchesContainer;
@@ -647,13 +687,19 @@ const createMatchStats = (matchStats) => {
         queueText = matchStats.queue_id;
     }
 
+    // Format match_datetime from "YYYY-MM-DD HH:mm:ss" to "DD-MM-YYYY HH:mm"
+    const [datePart, timePart] = matchStats.match_datetime.split(" ");
+    const [year, month, day] = datePart.split("-");
+    const [hour, minute] = timePart.split(":");
+    const formattedDateTime = `${day}-${month}-${year} ${hour}:${minute}`;
+
     statsDiv.innerHTML = `
-        Set number: ${matchStats.tft_set_number} |
-        Game length: ${matchStats.game_length} |
-        Match datetime: ${matchStats.match_datetime} |
-        Contested percentage: ${matchStats.contested_percentage}% |
-        Queue: ${queueText} |
-        <a href="https://tactics.tools/player/-/-/-/${matchStats.match_id}" target="_blank">More info</a>
+    <span class="match-stats-datetime">${formattedDateTime}</span>
+        <span class="match-stats-length">${matchStats.game_length}</span>
+        <span class="match-stats-queue">${queueText}</span>        
+        <span class="match-stats-link">
+            <a href="https://tactics.tools/player/-/-/-/${matchStats.match_id}" target="_blank">More info</a>
+        </span>
     `;
     return statsDiv;
 };
@@ -674,6 +720,9 @@ function setPlayerDetailStyles(element, isWinner, bgWinner, bgLoser) {
         ? "2px solid rgba(0, 128, 0, 0.6)"
         : "2px solid rgba(128, 0, 0, 0.6)";
     element.style.background = isWinner ? bgWinner : bgLoser;
+    if (!isWinner) {
+        element.style.marginTop = "auto";
+    }
 }
 
 const createMatchPlayer1Detail = (playerDetails, isWinner) => {
