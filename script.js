@@ -519,12 +519,12 @@ async function updatePlayersDuelButtons(playerData, server) {
             } catch (error) {
                 result = null;
             }
-            
+
             // Remove the spinner placeholder once a response is received.
             if (spinner.parentElement) {
                 spinner.parentElement.removeChild(spinner);
             }
-            
+
             // Create the actual duel button.
             const duelButton = document.createElement('button');
             duelButton.className = 'duel-button';
@@ -537,44 +537,82 @@ async function updatePlayersDuelButtons(playerData, server) {
     }
 }
 
-// Process response (or timeout)
-// New extracted function
 function processFindGamesResult(result, duelButton, player2Name, player, playerData, server) {
-    if (result === "timeout" || !result) {
-        duelButton.disabled = true;
-        // Use a red exclamation mark with an error tooltip.
-        duelButton.innerText = '❗';
-        duelButton.title = 'Error retrieving old games data';
-        duelButton.style.background = 'none';
-        // Remove any background on hover when disabled.
-        duelButton.addEventListener('mouseenter', () => {
-            if (duelButton.disabled) {
-                duelButton.style.background = 'none';
-            }
-        });
-        duelButton.addEventListener('mouseleave', () => {
-            if (duelButton.disabled) {
-                duelButton.style.background = 'none';
-            }
-        });
-    } else {
-        // Update cache with the duel data.
-        const duelData = duelsCache.get(player2Name) || {};
-        duelData.findGames = result;
-        duelsCache.set(player2Name, duelData);
-        // Restore the icon.
-        duelButton.innerText = '⚔️';
-        // Attach click event to open duel modal.
-        duelButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const existingOverlay = document.getElementById('popupOverlay');
-            if (existingOverlay) {
-                existingOverlay.parentNode.removeChild(existingOverlay);
-            }
-            const playerColor = player.getAttribute('data-color');
-            openDuelModal(playerData, duelsCache, player2Name, playerColor, server);
-        });
+    console.log(result);
+    if (isTimeoutOrFailedRetrieval(result)) {
+        handleTimeoutOrFailedRetrieval(result, duelButton);
     }
+
+    else if (isEmptySuccessAndDB(result)) {
+        handleEmptySuccessAndDB(duelButton);
+    }
+    else {
+        handleSuccessfulResult(result, duelButton, player2Name, player, playerData, server);
+    }
+}
+
+function isTimeoutOrFailedRetrieval(result) {
+    return (
+        result === "timeout" ||
+        !result ||
+        (result.FAILED_RETRIEVAL.length > 0 &&
+            result.SUCCESSFUL_RETRIEVAL.length === 0 &&
+            result.ALREADY_ON_DB.length === 0)
+    );
+}
+
+function isEmptySuccessAndDB(result) {
+    return result.SUCCESSFUL_RETRIEVAL.length === 0 && result.ALREADY_ON_DB.length === 0;
+}
+
+function handleTimeoutOrFailedRetrieval(result, duelButton) {
+    duelButton.disabled = true;
+    duelButton.innerText = '❗';
+    if (!result || result === "timeout") {
+        duelButton.title = 'Error retrieving old games data';
+    } else {
+        duelButton.title = 'Failed to retrieve game data';
+    }
+    duelButton.style.background = 'none';
+    duelButton.addEventListener('mouseenter', () => {
+        if (duelButton.disabled) {
+            duelButton.style.background = 'none';
+        }
+    });
+    duelButton.addEventListener('mouseleave', () => {
+        if (duelButton.disabled) {
+            duelButton.style.background = 'none';
+        }
+    });
+}
+
+function handleEmptySuccessAndDB(duelButton) {
+    duelButton.disabled = true;
+    duelButton.innerHTML = `<img src="https://www.svgrepo.com/show/277711/excalibur.svg" alt="Excalibur Icon" style="width:19.78px;height:17px;">`;
+    duelButton.style.filter = 'grayscale(100%)';
+    duelButton.title = 'First time playing against this player';
+    duelButton.style.background = 'none';
+    duelButton.addEventListener('click', (e) => e.preventDefault());
+}
+
+function handleSuccessfulResult(result, duelButton, player2Name, player, playerData, server) {
+    // Update cache with the duel data.
+    const duelData = duelsCache.get(player2Name) || {};
+    duelData.findGames = result;
+    duelsCache.set(player2Name, duelData);
+    // Restore the icon.
+    duelButton.innerText = '⚔️';
+    duelButton.style.filter = 'none';
+    // Attach click event to open duel modal.
+    duelButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const existingOverlay = document.getElementById('popupOverlay');
+        if (existingOverlay) {
+            existingOverlay.parentNode.removeChild(existingOverlay);
+        }
+        const playerColor = player.getAttribute('data-color');
+        openDuelModal(playerData, duelsCache, player2Name, playerColor, server);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
