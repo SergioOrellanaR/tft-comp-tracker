@@ -42,16 +42,6 @@ const parseCSV = (csvText) => {
     return csvText.split(/\r?\n/).map(line => line.split(',').map(x => x.trim()));
 };
 
-const createElement = (tag, options = {}) => {
-    const element = document.createElement(tag);
-    Object.assign(element, options);
-    return element;
-};
-
-const clearElement = (element) => {
-    element.innerHTML = '';
-};
-
 // Función de throttling
 function throttle(func, limit) {
     let lastFunc;
@@ -398,6 +388,7 @@ function handleApiError(response, callId) {
 }
 
 const searchPlayer = async () => {
+    resetPlayers();
     const containerId = 'playerDataContainer';
     // Remove any existing container
     const existingContainer = document.getElementById(containerId);
@@ -568,7 +559,9 @@ function isEmptySuccessAndDB(result) {
 function handleTimeoutOrFailedRetrieval(result, duelButton) {
     duelButton.disabled = true;
     duelButton.innerText = '❗';
-    if (!result || result === "timeout") {
+    if (result && result.status === 429) {
+        duelButton.title = 'Too many requests, try again later';
+    } else if (!result || result === "timeout") {
         duelButton.title = 'Error retrieving old games data';
     } else {
         duelButton.title = 'Failed to retrieve game data';
@@ -1040,7 +1033,24 @@ function select(el, type) {
 }
 
 const resetPlayers = () => {
-    location.reload();
+    // Clear all canvas links and redraw
+    links.splice(0, links.length);
+    drawLines();
+    
+    // Clear player container and reset player names/icons to defaults
+    document.getElementById('players').innerHTML = '';
+    preloadPlayers();
+    
+    // Reset duelsCache
+    duelsCache = new Map();
+    
+    // Close any open modal
+    const modal = document.getElementById('popupOverlay');
+    if (modal) modal.parentNode.removeChild(modal);
+    
+    // Remove any existent playerDataContainer
+    const playerDataContainer = document.getElementById('playerDataContainer');
+    if (playerDataContainer) playerDataContainer.remove();
 };
 
 // Nueva función auxiliar para crear el elemento de composición
