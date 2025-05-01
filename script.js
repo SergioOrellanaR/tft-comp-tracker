@@ -489,7 +489,6 @@ function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
     });
 
     
-
     document.querySelectorAll('.item.player').forEach(player => {
         if (!player.querySelector('.duel-button')) {
             const duelButton = document.createElement('button');
@@ -498,6 +497,11 @@ function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
             duelButton.title = 'Vs. History';
             duelButton.addEventListener('click', (e) => {
                 e.stopPropagation();
+                // Close any existing duel modal
+                const existingOverlay = document.getElementById('popupOverlay');
+                if (existingOverlay) {
+                    existingOverlay.parentNode.removeChild(existingOverlay);
+                }
                 const playerColor = player.getAttribute('data-color');
                 const playerName = player.querySelector('.player-name').textContent;
                 openDuelModal(playerData, duelsCache, playerName, playerColor, server); // open the modal on duel button click
