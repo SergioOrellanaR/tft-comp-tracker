@@ -38,6 +38,7 @@ export async function fetchPlayerSummary(playerName, server) {
 // Función para llamar a /find
 // http://127.0.0.1:5000/api/find/Made in Chile/1604/NyobZoo/NA1/NA
 export async function fetchFindGames(playerName, opponentName, server) {
+    console.log('Fetching find games for:', playerName, opponentName, server);
     const [name, tag] = playerName.split('#');
     const [opponent, opponentTag] = opponentName.split('#');
     if (!name || !tag || !opponent || !opponentTag) {

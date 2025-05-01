@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary } from './tftVersusHandler.js';
-import { createLoadingSpinner,createPlayerCard, openDuelModal } from './Components.js';
+import { fetchPlayerSummary, fetchFindGames } from './tftVersusHandler.js';
+import { createLoadingSpinner, createPlayerCard, openDuelModal } from './Components.js';
 
 let API_KEY;
 
@@ -120,7 +120,7 @@ function toggleDoubleUpMode() {
     // Clear existing lines
     links.splice(0, links.length);
     // Clear and update layout:
-    document.getElementById('players').innerHTML = ''; 
+    document.getElementById('players').innerHTML = '';
     preloadPlayers(); // Reinitialize players with the new mode
     drawLines(); // Refresh canvas lines
 }
@@ -414,33 +414,33 @@ const searchPlayer = async () => {
     }
     playerDataContainer.innerHTML = '';
     playerDataContainer.appendChild(createLoadingSpinner());
-    
+
     const server = document.getElementById('serverSelector').value;
     const playerInput = document.getElementById('playerNameInput').value.trim();
     const isNetlify = CONFIG.netlify;
-    
+
     if (!playerInput) {
         showMessage('Please enter a player name.');
         return;
     }
-    
+
     let [playerName, tag] = playerInput.split('#');
     const serverCode = CONFIG.serverRegionMap[server];
-    
+
     if (!tag || tag.trim() === '') {
         tag = serverCode;
     }
-    
+
     if (!playerName || !tag) {
         showMessage('Please enter a valid Player#Tag format.');
         return;
     }
-    
+
     if (!serverCode) {
         showMessage('Invalid server selected.');
         return;
     }
-    
+
     try {
         const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server, containerId);
         await createPlayerCard(playerData, server, containerId);
@@ -473,42 +473,108 @@ function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
         }
     }
 
-    const participants = spectatorData.participants
-        .filter(participant => {
-            if (isDoubleUp) {
-                return true;
-            }
-            return participant.puuid !== playerPuuid;
-        });
+    const participants = spectatorData.participants.filter(participant => {
+        return isDoubleUp ? true : participant.puuid !== playerPuuid;
+    });
 
     updatePlayerNames(participants);
-    
-    // Remover el botón edit-icon de cada player
+    updatePlayersDuelButtons(playerData, server);
+}
+
+async function updatePlayersDuelButtons(playerData, server) {
+    const delayBetweenPlayers = 1000; // delay in milliseconds
+    // Remove the edit-icon from each player
     document.querySelectorAll('.item.player .edit-icon').forEach(editIcon => {
         editIcon.remove();
     });
 
-    
-    document.querySelectorAll('.item.player').forEach(player => {
+    const players = document.querySelectorAll('.item.player');
+
+    for (let i = 0; i < players.length; i++) {
+        const player = players[i];
+
+        // Wait delayBetweenPlayers between players (except before the first)
+        if (i > 0) {
+            await new Promise(resolve => setTimeout(resolve, delayBetweenPlayers));
+        }
+
         if (!player.querySelector('.duel-button')) {
+            // Create a spinner placeholder for the duel button
+            const spinner = createLoadingSpinner();
+            spinner.classList.add('duel-spinner');
+            player.prepend(spinner);
+
+            // Get the opponent's name from the player element.
+            const player2Name = player.querySelector('.player-name').textContent.trim();
+
+            // Start fetching duel data with a maximum timeout of 10 seconds.
+            const duelPromise = fetchFindGames(playerData.name, player2Name, server);
+            const timeoutPromise = new Promise(resolve => {
+                setTimeout(() => resolve("timeout"), 10000);
+            });
+
+            let result;
+            try {
+                result = await Promise.race([duelPromise, timeoutPromise]);
+            } catch (error) {
+                result = null;
+            }
+            
+            // Remove the spinner placeholder once a response is received.
+            if (spinner.parentElement) {
+                spinner.parentElement.removeChild(spinner);
+            }
+            
+            // Create the actual duel button.
             const duelButton = document.createElement('button');
             duelButton.className = 'duel-button';
-            duelButton.innerText = '⚔️';
             duelButton.title = 'Vs. History';
-            duelButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                // Close any existing duel modal
-                const existingOverlay = document.getElementById('popupOverlay');
-                if (existingOverlay) {
-                    existingOverlay.parentNode.removeChild(existingOverlay);
-                }
-                const playerColor = player.getAttribute('data-color');
-                const playerName = player.querySelector('.player-name').textContent;
-                openDuelModal(playerData, duelsCache, playerName, playerColor, server); // open the modal on duel button click
-            });
+            duelButton.innerText = '⚔️';
+
+            processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
             player.prepend(duelButton);
         }
-    });
+    }
+}
+
+// Process response (or timeout)
+// New extracted function
+function processFindGamesResult(result, duelButton, player2Name, player, playerData, server) {
+    if (result === "timeout" || !result) {
+        duelButton.disabled = true;
+        // Use a red exclamation mark with an error tooltip.
+        duelButton.innerText = '❗';
+        duelButton.title = 'Error retrieving old games data';
+        duelButton.style.background = 'none';
+        // Remove any background on hover when disabled.
+        duelButton.addEventListener('mouseenter', () => {
+            if (duelButton.disabled) {
+                duelButton.style.background = 'none';
+            }
+        });
+        duelButton.addEventListener('mouseleave', () => {
+            if (duelButton.disabled) {
+                duelButton.style.background = 'none';
+            }
+        });
+    } else {
+        // Update cache with the duel data.
+        const duelData = duelsCache.get(player2Name) || {};
+        duelData.findGames = result;
+        duelsCache.set(player2Name, duelData);
+        // Restore the icon.
+        duelButton.innerText = '⚔️';
+        // Attach click event to open duel modal.
+        duelButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const existingOverlay = document.getElementById('popupOverlay');
+            if (existingOverlay) {
+                existingOverlay.parentNode.removeChild(existingOverlay);
+            }
+            const playerColor = player.getAttribute('data-color');
+            openDuelModal(playerData, duelsCache, player2Name, playerColor, server);
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

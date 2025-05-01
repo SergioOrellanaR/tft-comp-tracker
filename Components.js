@@ -519,18 +519,10 @@ function createRightWrapper(rect, value) {
 
 // POP UP COMPONENTS
 export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
-    console.log(duelsCache);    // Creates the overlay if it doesn't exist.
+    console.log(duelsCache);
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
     document.body.appendChild(overlay);
-
-    // Add spinner centered within the overlay
-    const spinner = createLoadingSpinner('Retrieving old games information', 'Both players share a lot of common matches, please wait...');
-    spinner.style.position = 'absolute';
-    spinner.style.top = '50%';
-    spinner.style.left = '50%';
-    spinner.style.transform = 'translate(-50%, -50%)';
-    overlay.appendChild(spinner);
 
     const closeBtn = document.createElement('button');
     closeBtn.id = 'popupCloseButton';
@@ -540,25 +532,9 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     });
     overlay.appendChild(closeBtn);
 
-    // Call fetchFindGames and handle its Promise
-    fetchFindGames(playerData.name, player2Name, server)
-        .then(result => {
-            const duelData = duelsCache.get(player2Name);
-            duelData.findGames = result;
-            duelsCache.set(player2Name, duelData);
-            overlay.removeChild(spinner);
-            overlay.appendChild(createTitleModal());
-            overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
-            overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, player2Color, server));
-        })
-        .catch(error => {
-            console.error("Error fetching games:", error);
-            overlay.removeChild(spinner);
-            const errorElem = document.createElement('p');
-            errorElem.textContent = "Error loading duel information.";
-            errorElem.style.textAlign = 'center';
-            overlay.appendChild(errorElem);
-        });
+    overlay.appendChild(createTitleModal());
+    overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
+    overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, player2Color, server));
 }
 
 /* ============================================================================
