@@ -883,8 +883,8 @@ th {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 85%;
-    height: 85%;
+    width: 1632px;
+    height: 816px;
     background: #1c1c2b;
     display: flex;
     flex-direction: column;
@@ -900,7 +900,6 @@ th {
     min-height: 40%;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: hidden;
 }
 
 .playerHeaderModal {

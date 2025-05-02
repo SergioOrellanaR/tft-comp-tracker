@@ -519,7 +519,6 @@ function createRightWrapper(rect, value) {
 
 // POP UP COMPONENTS
 export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
-    console.log(duelsCache);
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
     document.body.appendChild(overlay);
@@ -559,13 +558,12 @@ function createHistoryModal(playerData, duelsCache, player2Name, player2Color, s
                 const duelData = duelsCache.get(player2Name) || {};
                 duelData.commonMatches = matchesData;
                 duelsCache.set(player2Name, duelData);
-
-                historyModal.innerHTML = '<h2>History</h2>';
+                historyModal.innerHTML = '';
                 const matchesContainer = buildMatchesContainer(matchesData.match_list);
                 historyModal.appendChild(matchesContainer);
             })
             .catch(error => {
-                historyModal.innerHTML = '<h2>History</h2><p>Error loading common matches.</p>';
+                historyModal.innerHTML = '<p>Error loading common matches.</p>';
                 console.error("Error in fetchCommonMatches:", error);
             });
     }
