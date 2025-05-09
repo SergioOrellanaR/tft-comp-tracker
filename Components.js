@@ -637,15 +637,46 @@ const buildMatchesContainer = (matches) => {
     return matchesContainer;
 };
 
-/*
-            "tft_set_number": 14,
-            "tft_set_core_name": "TFTSet14",
-            "game_length": "38:09",
-            "match_id": "NA1_5268551955",
-            "match_datetime": "2025-04-16 21:42:11",
-            "queue_id": 1100,
-            "contested_percentage": 0
-*/
+// Helper method to format datetime from "YYYY-MM-DD HH:mm:ss" to "DD-MM-YYYY HH:mm"
+const getFormattedDateTime = (rawDateTime) => {
+    const [datePart, timePart] = rawDateTime.split(" ");
+    const [year, month, day] = datePart.split("-");
+    const [hour, minute] = timePart.split(":");
+    return `${day}-${month}-${year} ${hour}:${minute}`;
+};
+
+// Helper method to calculate relative time from a raw date string ("YYYY-MM-DD HH:mm:ss")
+const getRelativeTime = (rawDateTime) => {
+    const [datePart, timePart] = rawDateTime.split(" ");
+    const [year, month, day] = datePart.split("-");
+    const [hour, minute, second] = timePart.split(":");
+    const matchDateTime = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
+    const now = new Date();
+    const diffMs = now - matchDateTime;
+
+    if (diffMs < 0) {
+        // If the match is in the future, fallback to formatted date-time.
+        return getFormattedDateTime(rawDateTime);
+    }
+    const diffHours = diffMs / (1000 * 60 * 60);
+    if (diffHours < 24) {
+        const hoursAgo = Math.floor(diffHours);
+        return `${hoursAgo} ${hoursAgo === 1 ? 'hour' : 'hours'} ago`;
+    } else if (diffHours < 24 * 7) {
+        const daysAgo = Math.floor(diffHours / 24);
+        return `${daysAgo} ${daysAgo === 1 ? 'day' : 'days'} ago`;
+    } else if (diffHours < 24 * 30) {
+        const weeksAgo = Math.floor(diffHours / (24 * 7));
+        return `${weeksAgo} ${weeksAgo === 1 ? 'week' : 'weeks'} ago`;
+    } else if (diffHours < 24 * 365) {
+        const monthsAgo = Math.floor(diffHours / (24 * 30));
+        return `${monthsAgo} ${monthsAgo === 1 ? 'month' : 'months'} ago`;
+    } else {
+        const years = Math.floor(diffHours / (24 * 365));
+        return `${years} ${years === 1 ? 'year' : 'years'} ago`;
+    }
+};
+
 const createMatchStats = (matchStats) => {
     const statsDiv = document.createElement('div');
     statsDiv.className = 'match-stats-detail';
@@ -661,14 +692,11 @@ const createMatchStats = (matchStats) => {
         queueText = matchStats.queue_id;
     }
 
-    // Format match_datetime from "YYYY-MM-DD HH:mm:ss" to "DD-MM-YYYY HH:mm"
-    const [datePart, timePart] = matchStats.match_datetime.split(" ");
-    const [year, month, day] = datePart.split("-");
-    const [hour, minute] = timePart.split(":");
-    const formattedDateTime = `${day}-${month}-${year} ${hour}:${minute}`;
+    const formattedDateTime = getFormattedDateTime(matchStats.match_datetime);
+    const relativeTime = getRelativeTime(matchStats.match_datetime);
 
     statsDiv.innerHTML = `
-    <span class="match-stats-datetime">${formattedDateTime}</span>
+        <span class="match-stats-datetime" title="${formattedDateTime}">${relativeTime}</span>
         <span class="match-stats-length">${matchStats.game_length}</span>
         <span class="match-stats-queue">${queueText}</span>        
         <span class="match-stats-link">
