@@ -938,6 +938,8 @@ th {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
+    gap: 30px;
     /* centra los contenidos basados en el ancho */
 }
 

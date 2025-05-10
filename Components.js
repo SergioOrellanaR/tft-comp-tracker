@@ -559,9 +559,10 @@ matchesData:
 function createHistoryModal(playerData, duelsCache, player2Name, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
-    historyModal.style.maxHeight = '500px';
-    historyModal.style.overflowY = 'auto';
     historyModal.isFetching = false;
+    // Save TFT set state on the modal so it persists between paginations.
+    historyModal.TFTSet = null;
+    historyModal.previousTFTSet = null;
 
     // Grab cached data if available.
     const cachedData = duelsCache.get(player2Name) || {};
@@ -569,8 +570,8 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
     console.log('Cached player 2 info:', cachedData);
 
     if (commonMatchesCached) {
-        // Append cached matches and add scroll pagination.
-        const matchesContainer = buildMatchesContainer(commonMatchesCached.match_list);
+        // Build matches container using historyModal state.
+        const matchesContainer = buildMatchesContainer(commonMatchesCached.match_list, historyModal);
         historyModal.appendChild(matchesContainer);
         addPaginationScrollListener(historyModal, commonMatchesCached, playerData, player2Name, server, duelsCache);
     } else {
@@ -585,9 +586,8 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
                 commonMatchesCached = matchesData;
                 console.log('matchesData from API:', matchesData);
                 console.log('Cached player 2 info after API call:', duelsCache.get(player2Name) || {});
-                // Remove the spinner before appending new content.
                 historyModal.innerHTML = '';
-                const matchesContainer = buildMatchesContainer(matchesData.match_list);
+                const matchesContainer = buildMatchesContainer(matchesData.match_list, historyModal);
                 historyModal.appendChild(matchesContainer);
                 addPaginationScrollListener(historyModal, matchesData, playerData, player2Name, server, duelsCache);
             })
@@ -601,15 +601,13 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
 
 function addPaginationScrollListener(historyModal, matchesData, playerData, player2Name, server, duelsCache) {
     function onScroll() {
-        if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight - 10) {
+        if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight - 30) {
             if (!historyModal.isFetching) {
                 console.log('Fetching more common matches...');
                 historyModal.isFetching = true;
-                
-                // Create and append the spinner at the end of the historyModal
+                // Create and append the spinner at the end of the historyModal.
                 const spinner = createLoadingSpinner("Loading more matches");
                 historyModal.appendChild(spinner);
-                
                 const nextPage = matchesData.current_page + 1;
                 fetchCommonMatches(playerData.name, player2Name, server, nextPage)
                     .then(newMatchesData => {
@@ -623,10 +621,10 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
                         duelData.commonMatches = matchesData;
                         duelsCache.set(player2Name, duelData);
                         
-                        const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list);
+                        const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list, historyModal);
                         historyModal.appendChild(newMatchesContainer);
                         
-                        // Remove the spinner once loading is done
+                        // Remove the spinner once loading is done.
                         spinner.remove();
                         historyModal.isFetching = false;
                         
@@ -649,15 +647,19 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
     }
 }
 
-const buildMatchesContainer = (matches) => {
-    let TFTSet = null;
-    let previousTFTSet = null;
+const buildMatchesContainer = (matches, state) => {
     const matchesContainer = document.createElement('div');
     matchesContainer.className = 'matches-container';
     matches.forEach(match => {
-        previousTFTSet = TFTSet;
-        if (TFTSet == null || TFTSet != match.tft_set_number) {
-            TFTSet = match.tft_set_number;
+        // Update the state.
+        state.previousTFTSet = state.TFTSet;
+        if (state.TFTSet === null || state.TFTSet !== match.tft_set_number) {
+            state.TFTSet = match.tft_set_number;
+            console.log('TFTSet changed:', state.previousTFTSet, state.TFTSet);
+            const setLabel = document.createElement('div');
+            setLabel.className = 'match-set-label';
+            setLabel.textContent = `Set ${state.TFTSet}`;
+            matchesContainer.appendChild(setLabel);
         }
         const player1Placement = match.player1_game_details.placement;
         const player2Placement = match.player2_game_details.placement;
@@ -681,16 +683,6 @@ const buildMatchesContainer = (matches) => {
         playersWrapper.appendChild(createMatchPlayer2Detail(match.player2_game_details, player2Placement < player1Placement));
     
         matchDiv.appendChild(playersWrapper);
-        
-        // Instead of inserting at the beginning of matchDiv, insert before matchDiv in matchesContainer if there's something to insert.
-        if (previousTFTSet != TFTSet) {
-            const setLabel = document.createElement('div');
-            setLabel.className = 'match-set-label';
-            setLabel.textContent = `Set ${TFTSet}`;
-            
-            matchesContainer.appendChild(setLabel);
-        }
-    
         matchesContainer.appendChild(matchDiv);
     });
     return matchesContainer;
