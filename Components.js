@@ -222,8 +222,6 @@ function createHeaderModalPlayer(data, color, server) {
 }
 
 function createHeaderModalStats(player1Name, player2Name, statsData, player1Color, player2Color) {
-    console.log('Params: ', player1Name, player2Name, statsData, player1Color, player2Color);
-
     const statsContainer = document.createElement('div');
     statsContainer.id = 'headerModalStatsContent';
 
@@ -309,8 +307,6 @@ function initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, pl
 }
 
 function renderDonutChart(canvas, player1Wins, player2Wins, player1Color, player2Color) {
-    console.log('Rendering donut chart...');
-
     const total = player1Wins + player2Wins;
 
     new Chart(canvas, {
@@ -356,7 +352,6 @@ function createTitleStatDiv(text) {
 }
 
 function initializeDuelStatsGraph(player1Color, player2Color, statsData, duelStatsContainer) {
-    console.log(statsData);
     const player1DuelStats = statsData.player1_duel_stats;
     const player2DuelStats = statsData.player2_duel_stats;
 
@@ -548,17 +543,44 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     Start of match history
 ============================================================================ */
 
+/*
+matchesData:
+{
+    "current_page": 1,
+    "total_pages": 2,
+    "retrieval_datetime": "2025-05-09 21:22:53",
+    "common_seasons": [
+        14
+    ],
+    "match_list": [
+    ]
+}
+ */
+
 function createHistoryModal(playerData, duelsCache, player2Name, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
+    // You might want to set a fixed height with overflow auto for scrolling.
+    historyModal.style.maxHeight = '500px';
+    historyModal.style.overflowY = 'auto';
+
     // Implementa la lógica de cache
     const cachedData = duelsCache.get(player2Name) || {};
     const commonMatchesCached = cachedData.commonMatches || null;
+    console.log('Cached player 2 info:', cachedData);
 
     historyModal.innerHTML = '<h2 id="duels-title">Duels</h2>';
     if (commonMatchesCached) {
         const matchesContainer = buildMatchesContainer(commonMatchesCached.match_list);
         historyModal.appendChild(matchesContainer);
+        // Check pagination and add scroll listener if needed.
+        if (commonMatchesCached.current_page < commonMatchesCached.total_pages) {
+            historyModal.addEventListener('scroll', () => {
+                if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight) {
+                    console.log('Scrolled to bottom; next page is available');
+                }
+            });
+        }
     } else {
         historyModal.appendChild(createLoadingSpinner("Loading common matches"));
         fetchCommonMatches(playerData.name, player2Name, server)
@@ -566,9 +588,19 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
                 const duelData = duelsCache.get(player2Name) || {};
                 duelData.commonMatches = matchesData;
                 duelsCache.set(player2Name, duelData);
-                historyModal.innerHTML = '';
+                historyModal.innerHTML = '<h2 id="duels-title">Duels</h2>';
+                console.log('matchesData from API:', matchesData);
+                console.log('Cached player 2 info after API call:', duelsCache.get(player2Name) || {});
                 const matchesContainer = buildMatchesContainer(matchesData.match_list);
                 historyModal.appendChild(matchesContainer);
+                // If there are more pages, log when scrolling to the bottom.
+                if (matchesData.current_page < matchesData.total_pages) {
+                    historyModal.addEventListener('scroll', () => {
+                        if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight) {
+                            console.log('Scrolled to bottom; next page is available');
+                        }
+                    });
+                }
             })
             .catch(error => {
                 historyModal.innerHTML = '<p>Error loading common matches.</p>';
@@ -578,26 +610,6 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
     return historyModal;
 }
 
-// Helper function to create the contested div for a match.
-function createContestDiv(match) {
-    const contestDiv = document.createElement('div');
-    contestDiv.className = 'match-contest-div';
-    
-    const percentage = match.contested_percentage;
-    let color;
-    if (percentage <= 50) {
-        color = '#8f8';
-    } else if (percentage <= 75) {
-        color = '#ffc107';
-    } else {
-        color = '#ff5252';
-    }
-    
-    contestDiv.innerHTML = `<span style="font-size:1em; color:${color};"> ${percentage}%</span><br><span style="font-size:0.6em;">Contested</span>`;
-    return contestDiv;
-}
-
-//A cada match-content agregale 3 divs 
 const buildMatchesContainer = (matches) => {
     let TFTSet = null;
     let previousTFTSet = null;
@@ -644,6 +656,25 @@ const buildMatchesContainer = (matches) => {
     });
     return matchesContainer;
 };
+
+// Helper function to create the contested div for a match.
+function createContestDiv(match) {
+    const contestDiv = document.createElement('div');
+    contestDiv.className = 'match-contest-div';
+    
+    const percentage = match.contested_percentage;
+    let color;
+    if (percentage <= 50) {
+        color = '#8f8';
+    } else if (percentage <= 75) {
+        color = '#ffc107';
+    } else {
+        color = '#ff5252';
+    }
+    
+    contestDiv.innerHTML = `<span style="font-size:1em; color:${color};"> ${percentage}%</span><br><span style="font-size:0.6em;">Contested</span>`;
+    return contestDiv;
+}
 
 // Helper method to format datetime from "YYYY-MM-DD HH:mm:ss" to "DD-MM-YYYY HH:mm"
 const getFormattedDateTime = (rawDateTime) => {
