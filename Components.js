@@ -556,51 +556,40 @@ matchesData:
     ]
 }
  */
-
 function createHistoryModal(playerData, duelsCache, player2Name, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
-    // You might want to set a fixed height with overflow auto for scrolling.
     historyModal.style.maxHeight = '500px';
     historyModal.style.overflowY = 'auto';
+    historyModal.isFetching = false;
 
-    // Implementa la lógica de cache
+    // Grab cached data if available.
     const cachedData = duelsCache.get(player2Name) || {};
-    const commonMatchesCached = cachedData.commonMatches || null;
+    let commonMatchesCached = cachedData.commonMatches || null;
     console.log('Cached player 2 info:', cachedData);
 
-    historyModal.innerHTML = '<h2 id="duels-title">Duels</h2>';
     if (commonMatchesCached) {
+        // Append cached matches and add scroll pagination.
         const matchesContainer = buildMatchesContainer(commonMatchesCached.match_list);
         historyModal.appendChild(matchesContainer);
-        // Check pagination and add scroll listener if needed.
-        if (commonMatchesCached.current_page < commonMatchesCached.total_pages) {
-            historyModal.addEventListener('scroll', () => {
-                if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight) {
-                    console.log('Scrolled to bottom; next page is available');
-                }
-            });
-        }
+        addPaginationScrollListener(historyModal, commonMatchesCached, playerData, player2Name, server, duelsCache);
     } else {
-        historyModal.appendChild(createLoadingSpinner("Loading common matches"));
+        const spinner = createLoadingSpinner("Loading common matches");
+        historyModal.appendChild(spinner);
         fetchCommonMatches(playerData.name, player2Name, server)
             .then(matchesData => {
+                // Update the cache.
                 const duelData = duelsCache.get(player2Name) || {};
                 duelData.commonMatches = matchesData;
                 duelsCache.set(player2Name, duelData);
-                historyModal.innerHTML = '<h2 id="duels-title">Duels</h2>';
+                commonMatchesCached = matchesData;
                 console.log('matchesData from API:', matchesData);
                 console.log('Cached player 2 info after API call:', duelsCache.get(player2Name) || {});
+                // Remove the spinner before appending new content.
+                historyModal.innerHTML = '';
                 const matchesContainer = buildMatchesContainer(matchesData.match_list);
                 historyModal.appendChild(matchesContainer);
-                // If there are more pages, log when scrolling to the bottom.
-                if (matchesData.current_page < matchesData.total_pages) {
-                    historyModal.addEventListener('scroll', () => {
-                        if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight) {
-                            console.log('Scrolled to bottom; next page is available');
-                        }
-                    });
-                }
+                addPaginationScrollListener(historyModal, matchesData, playerData, player2Name, server, duelsCache);
             })
             .catch(error => {
                 historyModal.innerHTML = '<p>Error loading common matches.</p>';
@@ -608,6 +597,41 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
             });
     }
     return historyModal;
+}
+
+function addPaginationScrollListener(historyModal, matchesData, playerData, player2Name, server, duelsCache) {
+    console.log('current_page:', matchesData.current_page);
+    console.log('total_pages:', matchesData.total_pages);
+    if (matchesData.current_page < matchesData.total_pages) {
+        console.log('Adding scroll listener for pagination');
+        historyModal.addEventListener('scroll', function onScroll() {
+            if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight) {
+                if (!historyModal.isFetching) {
+                    historyModal.isFetching = true;
+                    const nextPage = matchesData.current_page + 1;
+                    fetchCommonMatches(playerData.name, player2Name, server, nextPage)
+                        .then(newMatchesData => {
+                            matchesData.current_page = newMatchesData.current_page;
+                            matchesData.total_pages = newMatchesData.total_pages;
+                            matchesData.match_list = matchesData.match_list.concat(newMatchesData.match_list);
+                            
+                            // Update duelsCache for player2Name with the new matches data.
+                            const duelData = duelsCache.get(player2Name) || {};
+                            duelData.commonMatches = matchesData;
+                            duelsCache.set(player2Name, duelData);
+                            
+                            const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list);
+                            historyModal.appendChild(newMatchesContainer);
+                            historyModal.isFetching = false;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching more common matches:', error);
+                            historyModal.isFetching = false;
+                        });
+                }
+            }
+        });
+    }
 }
 
 const buildMatchesContainer = (matches) => {
@@ -700,6 +724,9 @@ const getRelativeTime = (rawDateTime) => {
     const diffHours = diffMs / (1000 * 60 * 60);
     if (diffHours < 24) {
         const hoursAgo = Math.floor(diffHours);
+        if (hoursAgo === 0) {
+            return "Few minutes ago";
+        }
         return `${hoursAgo} ${hoursAgo === 1 ? 'hour' : 'hours'} ago`;
     } else if (diffHours < 24 * 7) {
         const daysAgo = Math.floor(diffHours / 24);

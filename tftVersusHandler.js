@@ -123,10 +123,9 @@ export function getTraitBackgroundUrl(tier_current, tier_total, num_units) {
         case 3:
             return TRAIT_BACKGROUND_URL.gold;
         case 4:
-            if (num_units == null || num_units < 8) {
+            if (num_units == null || num_units < 9) {
                 return TRAIT_BACKGROUND_URL.gold;
             }
-            console.log(num_units);
             return TRAIT_BACKGROUND_URL.chromatic;
         default:
             return TRAIT_BACKGROUND_URL.gold;
