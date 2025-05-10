@@ -1,6 +1,14 @@
 import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl, getTraitBackgroundUrl } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
 
+// Constants for stat item icons and tooltips
+const ICON_GOLD = '💰';
+const TOOLTIP_GOLD = 'Gold left';
+const ICON_PLAYERS_ELIMINATED = '💀';
+const TOOLTIP_PLAYERS_ELIMINATED = 'Players eliminated';
+const ICON_DAMAGE = '⚔';
+const TOOLTIP_DAMAGE = 'Total damage to players';
+
 //PLAYER CARD COMPONENTS
 // Se agrega variable de caché para companionData
 let companionDataCache = null;
@@ -982,9 +990,9 @@ function createStatsDiv(playerDetails, revertOrder) {
     const statsDiv = document.createElement('div');
     statsDiv.className = 'match-player-stats';
 
-    statsDiv.appendChild(createStatItem('💰', playerDetails.gold_left, 'Gold left', revertOrder));
-    statsDiv.appendChild(createStatItem('💀', playerDetails.players_eliminated, 'Players eliminated', revertOrder));
-    statsDiv.appendChild(createStatItem('⚔', playerDetails.total_damage_to_players, 'Total damage to players', revertOrder));
+    statsDiv.appendChild(createStatItem(ICON_GOLD, playerDetails.gold_left, TOOLTIP_GOLD, revertOrder));
+    statsDiv.appendChild(createStatItem(ICON_PLAYERS_ELIMINATED, playerDetails.players_eliminated, TOOLTIP_PLAYERS_ELIMINATED, revertOrder));
+    statsDiv.appendChild(createStatItem(ICON_DAMAGE, playerDetails.total_damage_to_players, TOOLTIP_DAMAGE, revertOrder));
 
     return statsDiv;
 }
