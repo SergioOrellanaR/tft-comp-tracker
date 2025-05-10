@@ -490,13 +490,15 @@ async function updatePlayersDuelButtons(playerData, server) {
         }
 
         if (!player.querySelector('.duel-button')) {
+            // Get the opponent's name from the player element.
+            const player2Name = player.querySelector('.player-name').textContent.trim();
+            if (playerData.name === player2Name) {
+                continue; // Skip the player if it's the same as the one in the duel button
+            }
             // Create a spinner placeholder for the duel button
             const spinner = createLoadingSpinner();
             spinner.classList.add('duel-spinner');
             player.prepend(spinner);
-
-            // Get the opponent's name from the player element.
-            const player2Name = player.querySelector('.player-name').textContent.trim();
 
             // Start fetching duel data with a maximum timeout of 10 seconds.
             const duelPromise = fetchFindGames(playerData.name, player2Name, server);
@@ -1036,22 +1038,22 @@ const resetPlayers = () => {
     // Clear all canvas links and redraw
     links.splice(0, links.length);
     drawLines();
-    
+
     // Clear player container and reset player names/icons to defaults
     document.getElementById('players').innerHTML = '';
     preloadPlayers();
-    
+
     // Reset duelsCache
     duelsCache = new Map();
-    
+
     // Close any open modal
     const modal = document.getElementById('popupOverlay');
     if (modal) modal.parentNode.removeChild(modal);
-    
+
     // Remove any existent playerDataContainer
     const playerDataContainer = document.getElementById('playerDataContainer');
     if (playerDataContainer) playerDataContainer.remove();
-    
+
     // Set messageContainer display to 'none'
     const messageContainer = document.getElementById('messageContainer');
     if (messageContainer) {
