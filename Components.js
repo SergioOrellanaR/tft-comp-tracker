@@ -600,37 +600,52 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
 }
 
 function addPaginationScrollListener(historyModal, matchesData, playerData, player2Name, server, duelsCache) {
-    console.log('current_page:', matchesData.current_page);
-    console.log('total_pages:', matchesData.total_pages);
-    if (matchesData.current_page < matchesData.total_pages) {
-        console.log('Adding scroll listener for pagination');
-        historyModal.addEventListener('scroll', function onScroll() {
-            if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight) {
-                if (!historyModal.isFetching) {
-                    historyModal.isFetching = true;
-                    const nextPage = matchesData.current_page + 1;
-                    fetchCommonMatches(playerData.name, player2Name, server, nextPage)
-                        .then(newMatchesData => {
-                            matchesData.current_page = newMatchesData.current_page;
-                            matchesData.total_pages = newMatchesData.total_pages;
-                            matchesData.match_list = matchesData.match_list.concat(newMatchesData.match_list);
-                            
-                            // Update duelsCache for player2Name with the new matches data.
-                            const duelData = duelsCache.get(player2Name) || {};
-                            duelData.commonMatches = matchesData;
-                            duelsCache.set(player2Name, duelData);
-                            
-                            const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list);
-                            historyModal.appendChild(newMatchesContainer);
-                            historyModal.isFetching = false;
-                        })
-                        .catch(error => {
-                            console.error('Error fetching more common matches:', error);
-                            historyModal.isFetching = false;
-                        });
-                }
+    function onScroll() {
+        if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight - 10) {
+            if (!historyModal.isFetching) {
+                console.log('Fetching more common matches...');
+                historyModal.isFetching = true;
+                
+                // Create and append the spinner at the end of the historyModal
+                const spinner = createLoadingSpinner("Loading more matches");
+                historyModal.appendChild(spinner);
+                
+                const nextPage = matchesData.current_page + 1;
+                fetchCommonMatches(playerData.name, player2Name, server, nextPage)
+                    .then(newMatchesData => {
+                        console.log('New matches data fetched:', newMatchesData);
+                        matchesData.current_page = newMatchesData.current_page;
+                        matchesData.total_pages = newMatchesData.total_pages;
+                        matchesData.match_list = matchesData.match_list.concat(newMatchesData.match_list);
+                        
+                        // Update duelsCache for player2Name with the new matches data.
+                        const duelData = duelsCache.get(player2Name) || {};
+                        duelData.commonMatches = matchesData;
+                        duelsCache.set(player2Name, duelData);
+                        
+                        const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list);
+                        historyModal.appendChild(newMatchesContainer);
+                        
+                        // Remove the spinner once loading is done
+                        spinner.remove();
+                        historyModal.isFetching = false;
+                        
+                        // Remove scroll listener if current_page is equal or greater than total_pages.
+                        if (matchesData.current_page >= matchesData.total_pages) {
+                            historyModal.removeEventListener('scroll', onScroll);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching more common matches:', error);
+                        spinner.remove();
+                        historyModal.isFetching = false;
+                    });
             }
-        });
+        }
+    }
+
+    if (matchesData.current_page < matchesData.total_pages) {
+        historyModal.addEventListener('scroll', onScroll);
     }
 }
 
