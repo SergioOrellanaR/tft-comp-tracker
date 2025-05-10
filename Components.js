@@ -541,14 +541,14 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
 
     overlay.appendChild(createTitleModal());
     overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
-    overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, player2Color, server));
+    overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, server));
 }
 
 /* ============================================================================
     Start of match history
 ============================================================================ */
 
-function createHistoryModal(playerData, duelsCache, player2Name, player2Color, server) {
+function createHistoryModal(playerData, duelsCache, player2Name, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
     // Implementa la lógica de cache
