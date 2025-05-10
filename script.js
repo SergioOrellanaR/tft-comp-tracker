@@ -1051,6 +1051,12 @@ const resetPlayers = () => {
     // Remove any existent playerDataContainer
     const playerDataContainer = document.getElementById('playerDataContainer');
     if (playerDataContainer) playerDataContainer.remove();
+    
+    // Set messageContainer display to 'none'
+    const messageContainer = document.getElementById('messageContainer');
+    if (messageContainer) {
+        messageContainer.style.display = 'none';
+    }
 };
 
 // Nueva función auxiliar para crear el elemento de composición
