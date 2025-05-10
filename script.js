@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
 import { fetchPlayerSummary, fetchFindGames } from './tftVersusHandler.js';
-import { createLoadingSpinner, createPlayerCard, openDuelModal } from './Components.js';
+import { createLoadingSpinner, createPlayerCard, openDuelModal } from './components.js';
 
 let API_KEY;
 
