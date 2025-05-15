@@ -725,28 +725,37 @@ const getRelativeTime = (rawDateTime) => {
     const diffMs = now - matchDateTime;
 
     if (diffMs < 0) {
-        // If the match is in the future, fallback to formatted date-time.
         return getFormattedDateTime(rawDateTime);
     }
-    const diffHours = diffMs / (1000 * 60 * 60);
-    if (diffHours < 24) {
-        const hoursAgo = Math.floor(diffHours);
-        if (hoursAgo === 0) {
-            return "Few minutes ago";
-        }
-        return `${hoursAgo} ${hoursAgo === 1 ? 'hour' : 'hours'} ago`;
-    } else if (diffHours < 24 * 7) {
-        const daysAgo = Math.floor(diffHours / 24);
-        return `${daysAgo} ${daysAgo === 1 ? 'day' : 'days'} ago`;
-    } else if (diffHours < 24 * 30) {
-        const weeksAgo = Math.floor(diffHours / (24 * 7));
-        return `${weeksAgo} ${weeksAgo === 1 ? 'week' : 'weeks'} ago`;
-    } else if (diffHours < 24 * 365) {
-        const monthsAgo = Math.floor(diffHours / (24 * 30));
-        return `${monthsAgo} ${monthsAgo === 1 ? 'month' : 'months'} ago`;
+
+    const seconds = diffMs / 1000;
+    const minutes = seconds / 60;
+    const hours = minutes / 60;
+    const days = hours / 24;
+    const weeks = days / 7;
+    const months = days / 30;
+    const years = days / 365;
+
+    if (seconds < 60) {
+        return "Just now";
+    } else if (minutes < 60) {
+        const mins = Math.floor(minutes);
+        return `${mins} ${mins === 1 ? "minute" : "minutes"} ago`;
+    } else if (hours < 24) {
+        const hrs = Math.floor(hours);
+        return `${hrs} ${hrs === 1 ? "hour" : "hours"} ago`;
+    } else if (days < 7) {
+        const dys = Math.floor(days);
+        return `${dys} ${dys === 1 ? "day" : "days"} ago`;
+    } else if (days < 30) {
+        const wks = Math.floor(weeks);
+        return `${wks} ${wks === 1 ? "week" : "weeks"} ago`;
+    } else if (days < 365) {
+        const mths = Math.floor(months);
+        return `${mths} ${mths === 1 ? "month" : "months"} ago`;
     } else {
-        const years = Math.floor(diffHours / (24 * 365));
-        return `${years} ${years === 1 ? 'year' : 'years'} ago`;
+        const yrs = Math.floor(years);
+        return `${yrs} ${yrs === 1 ? "year" : "years"} ago`;
     }
 };
 
