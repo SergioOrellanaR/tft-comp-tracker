@@ -1120,11 +1120,18 @@ function loadCSVData(csvText) {
         if (index === 0 || !line.trim()) return;
         const [comp, tier, estilo, unit1, unit2, unit3] = line.split(',').map(x => x.trim());
         if (tiers[tier]) {
+            // Sort units by cost (using unitCostMap) and then alphabetically.
+            const sortedUnits = [unit1, unit2, unit3].sort((a, b) => {
+                const costA = unitCostMap[a] ?? Infinity;
+                const costB = unitCostMap[b] ?? Infinity;
+                const costDiff = costA - costB;
+                return costDiff !== 0 ? costDiff : a.localeCompare(b);
+            });
             const compoElement = createCompoElement({
                 comp,
                 index,
                 estilo,
-                units: [unit1, unit2, unit3]
+                units: sortedUnits
             });
             tiers[tier].push({ name: comp, element: compoElement });
         }
