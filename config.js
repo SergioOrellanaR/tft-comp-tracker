@@ -1,4 +1,4 @@
-const TFT_VERSUS_API_BASE_URL = 'http://127.0.0.1:5000/api';
+const TFT_VERSUS_API_BASE_URL = 'https://tft-versus.onrender.com/api';
 
 export const TFT_VERSUS_API_URL = {
     playerSummary: TFT_VERSUS_API_BASE_URL+'/header',
