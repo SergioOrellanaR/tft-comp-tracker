@@ -235,7 +235,7 @@ function createHeaderModalStats(player1Name, player2Name, statsData, player1Colo
 
     // Check if both players haven't played any games.
     if (player1Wins === 0 && player2Wins === 0) {
-        statsContainer.innerHTML = '<p style="text-align:center;">Both players have not played any game.</p>';
+        statsContainer.innerHTML = '<p style="text-align:center;">Both players have not played any games against each other.</p>';
         return statsContainer;
     }
 
