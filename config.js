@@ -37,7 +37,7 @@ export const CONFIG = {
     coreItems: [
         "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
         "Jeweled Gauntlet", "Infinity Edge", "Nashor's Tooth", "Morellonomicon",
-        "Runaan's Hurricane", "Hextech Gunblade", "Bloodthirster", "Edge of Night",
+        "Kraken's Fury", "Hextech Gunblade", "Bloodthirster", "Edge of Night",
         "Titan's Resolve", "Hand Of Justice"
     ],
     tierColors: {
