@@ -433,11 +433,17 @@ const searchPlayer = async () => {
     }
 
     try {
-        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server, containerId);
-        await createPlayerCard(playerData, server, containerId);
         const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
         const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
-        if (!accountData) return;
+        if (!accountData) 
+        {
+            playerDataContainer.remove();
+            return;
+        }
+
+        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server, containerId);
+        await createPlayerCard(playerData, server, containerId);
+        
 
         const playerPuuid = accountData.puuid;
 
