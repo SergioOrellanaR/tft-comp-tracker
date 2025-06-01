@@ -133,7 +133,7 @@ function enableDragAndDrop() {
             const playersContainer = document.getElementById('players');
             const afterElement = getDragAfterElement(playersContainer, e.clientY);
 
-            if (afterElement == null) {
+            if (afterElement == null || afterElement.parentNode !== playersContainer) {
                 playersContainer.appendChild(dragging);
             } else {
                 playersContainer.insertBefore(dragging, afterElement);
