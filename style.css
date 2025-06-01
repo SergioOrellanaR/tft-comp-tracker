@@ -624,100 +624,6 @@ th {
 }
 
 /* =====================================================================
-    Responsive layout
-===================================================================== */
-@media (max-width: 768px) {
-
-    html {
-        font-size: 12px;
-    }
-
-    body::after,
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        width: 30px;
-        height: 100%;
-        pointer-events: none;
-        z-index: 9999;
-    }
-
-    body::after {
-        left: 0;
-        background: linear-gradient(to right, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
-    }
-
-    body::before {
-        right: 0;
-        background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
-    }
-
-    #canvas-container {
-        min-width: 150px;
-    }
-
-    table {
-        width: 100%;
-        overflow-x: auto;
-        display: block;
-    }
-
-    .table-container {
-        display: flex;
-        flex-direction: column;
-        margin-top: 1rem;
-    }
-
-    .table-container div {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
-        gap: 2px !important;
-    }
-
-    .table-container div div {
-        display: flex;
-        align-items: center;
-    }
-
-    .table-container div div img {
-        width: 30px !important;
-        height: 30px !important;
-        border-radius: 4px !important;
-        object-fit: cover;
-        border: 0px solid transparent !important;
-        box-sizing: border-box !important;
-    }
-
-    .table-container div div img[style*="border-image"] {
-        border-width: 1px !important;
-    }
-
-    .item.compo {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .comp-info {
-        text-align: center;
-        min-width: 10%;
-        text-overflow: ellipsis;
-    }
-
-    .unit-icons {
-        display: none !important;
-    }
-
-    .items-container {
-        display: none !important;
-    }
-
-    #coreItemsContainer {
-        display: none !important;
-    }
-}
-
-/* =====================================================================
     Nuevos Estilos para Datos de Jugador y Ranking
 ===================================================================== */
 /* Estilos para el contenedor del jugador */
@@ -810,7 +716,7 @@ th {
     height: 100%;
     box-sizing: border-box;
     font-weight: bold;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -974,23 +880,24 @@ th {
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 #duelStatsContainer {
     width: 100%;
     height: 70%;
     box-sizing: border-box;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* blanco con 20% de opacidad */
-    border-radius: 12px; /* puedes ajustar el valor si quieres esquinas más suaves o más marcadas */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* blanco con 20% de opacidad */
+    border-radius: 12px;
+    /* puedes ajustar el valor si quieres esquinas más suaves o más marcadas */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#player1Legend
-{
+#player1Legend {
     display: flex;
     width: 100%;
     align-items: center;
@@ -1023,7 +930,8 @@ th {
 
 }
 
-#player1Legend:hover, #player2Legend:hover {
+#player1Legend:hover,
+#player2Legend:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -1050,7 +958,7 @@ th {
     width: 16px;
     height: 16px;
     border-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .legend-text {
@@ -1072,9 +980,12 @@ th {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
-    white-space: nowrap;    /* keeps text on one line */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
+    white-space: nowrap;
+    /* keeps text on one line */
 }
 
 .duel-contested-label {
@@ -1107,19 +1018,26 @@ th {
     gap: 10px;
     flex-direction: column;
     box-sizing: border-box;
-    padding: 0; /* adjust if needed */
-    margin: 0 auto; /* center in case it's inside a wider container */
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    padding: 0;
+    /* adjust if needed */
+    margin: 0 auto;
+    /* center in case it's inside a wider container */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-div {
     display: flex;
-    width: 100%; /* Ensure it fills the full width of its parent */
+    width: 100%;
+    /* Ensure it fills the full width of its parent */
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-left-wrapper {
@@ -1127,8 +1045,10 @@ th {
     justify-content: flex-end;
     align-items: center;
     flex: 1;
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-right-wrapper {
@@ -1136,8 +1056,10 @@ th {
     align-items: center;
     justify-content: flex-start;
     flex: 1;
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-center-container {
@@ -1146,9 +1068,12 @@ th {
     justify-content: center;
     margin: 0 10px;
     white-space: nowrap;
-    gap: 8px; /* optional: spacing between icons */
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    gap: 8px;
+    /* optional: spacing between icons */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-rect {
@@ -1166,34 +1091,42 @@ th {
 }
 
 .duel-stat-number-left {
-    min-width: 50px; 
+    min-width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-number-right {
-    min-width: 50px; 
+    min-width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .duel-stat-icon {
-    width: 20px;   /* or whatever size you prefer */
-    height: 100%;  /* keep it square if needed */
+    width: 20px;
+    /* or whatever size you prefer */
+    height: 100%;
+    /* keep it square if needed */
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    overflow: hidden;       /* hides overflow content */
-    text-overflow: ellipsis; /* optional: adds "..." if it's a single line */
+    overflow: hidden;
+    /* hides overflow content */
+    text-overflow: ellipsis;
+    /* optional: adds "..." if it's a single line */
 }
 
 .stat-container {
@@ -1214,7 +1147,7 @@ th {
 
 .color-bar-left {
     display: block;
-    width: 1.5%;        
+    width: 1.5%;
     height: 100%;
     justify-content: flex-start;
 }
@@ -1253,8 +1186,10 @@ th {
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    width: 100%;       /* 👈 ocupa todo el ancho del contenedor padre */
-    height: 165px;     /* 👈 alto fijo, ajustá el valor a lo que necesites */
+    width: 100%;
+    /* 👈 ocupa todo el ancho del contenedor padre */
+    height: 165px;
+    /* 👈 alto fijo, ajustá el valor a lo que necesites */
     box-sizing: border-box;
 }
 
@@ -1263,14 +1198,14 @@ th {
     justify-content: space-between;
     align-items: center;
     padding: 10px 16px;
-    background: linear-gradient(to right, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px 8px 0 0;
     color: #ddd;
     font-size: 14px;
     font-weight: 500;
     backdrop-filter: blur(4px);
-    box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
     gap: 16px;
     border-bottom: none;
 }
@@ -1293,12 +1228,12 @@ th {
     flex-direction: row;
     background: rgba(0, 0, 0, 0.18);
     border: rgba(0, 0, 0, 0.25) 1px solid;
-    align-items: flex-start;  /* importante */
+    align-items: flex-start;
+    /* importante */
     justify-content: space-between;
 }
 
-.match-player1-detail
-{
+.match-player1-detail {
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -1407,9 +1342,12 @@ th {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-content: center; /* <-- controla mejor las filas */
-    gap: 3px; /* Espacio uniforme entre íconos */
-    padding: 4px 0; /* Opcional: mejora visual */
+    align-content: center;
+    /* <-- controla mejor las filas */
+    gap: 3px;
+    /* Espacio uniforme entre íconos */
+    padding: 4px 0;
+    /* Opcional: mejora visual */
 }
 
 .trait-img-container {
@@ -1424,7 +1362,7 @@ th {
 }
 
 .trait-icon {
-     /* Debug border for trait icon */
+    /* Debug border for trait icon */
     width: 60%;
     height: 60%;
     object-fit: cover;
@@ -1444,7 +1382,8 @@ th {
 }
 
 .match-player-placement {
-    border-radius: 50%; /* círculo para más personalidad */
+    border-radius: 50%;
+    /* círculo para más personalidad */
     color: #003366;
     display: flex;
     font-size: 15px;
@@ -1471,7 +1410,7 @@ th {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,215,0,0.8);
+    border: 1px solid rgba(255, 215, 0, 0.8);
     background: rgba(0, 0, 0, 0.5);
     color: white;
     width: 15px;
@@ -1517,3 +1456,266 @@ th {
     z-index: 10;
 }
 
+/* =====================================================================
+    Responsive layout
+===================================================================== */
+@media (max-width: 768px) {
+
+    html {
+        font-size: 12px;
+    }
+
+    body::after,
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        width: 30px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    body::after {
+        left: 0;
+        background: linear-gradient(to right, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
+    }
+
+    body::before {
+        right: 0;
+        background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
+    }
+
+    #canvas-container {
+        min-width: 150px;
+    }
+
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .table-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .table-container div {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
+        gap: 2px !important;
+    }
+
+    .table-container div div {
+        display: flex;
+        align-items: center;
+    }
+
+    .table-container div div img {
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 4px !important;
+        object-fit: cover;
+        border: 0px solid transparent !important;
+        box-sizing: border-box !important;
+    }
+
+    .table-container div div img[style*="border-image"] {
+        border-width: 1px !important;
+    }
+
+    .item.compo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .comp-info {
+        text-align: center;
+        min-width: 10%;
+        text-overflow: ellipsis;
+    }
+
+    .unit-icons {
+        display: none !important;
+    }
+
+    .items-container {
+        display: none !important;
+    }
+
+    #coreItemsContainer {
+        display: none !important;
+    }
+
+    /*Part 2 - Adapted for mobile */
+    #popupOverlay {
+        display: none !important;
+    }
+
+    .duel-button {
+        display: none !important;
+    }
+
+    .match-traits {
+        display: none !important;
+    }
+
+    .match-player-stats {
+        display: none !important;
+    }
+
+    .match-player-companion {
+        display: none !important;
+    }
+
+    .match-champs {
+        width: 120%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .match-champ {
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+    }
+
+    .match-player-placement {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    #canvasContainer {
+        display: none !important;
+    }
+
+    .duel-stat-rect {
+        display: none !important;
+    }
+
+    .duel-contested-rectangle {
+        display: none !important;
+    }
+
+    .stats-wrapper {
+        gap: 5px;
+    }
+
+    .rank-icon-data-container {
+        display: none !important;
+    }
+
+    .rank-data-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titleStatDiv {
+        display: none !important;
+    }
+
+    .duel-stat-center-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        /* optional: spacing between icons */
+        overflow: hidden;
+        /* hides overflow content */
+        text-overflow: ellipsis;
+        /* optional: adds "..." if it's a single line */
+    }
+}
+
+@media (max-width: 1024px) {
+    #popupOverlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        height: 90vh;
+        background: #1c1c2b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .match-traits {
+        display: none !important;
+    }
+
+    .match-player-stats {
+        display: none !important;
+    }
+
+    .match-player-companion {
+        display: none !important;
+    }
+
+    .match-champs {
+        width: 120%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .match-champ {
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+    }
+
+    .match-player-placement {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    #canvasContainer {
+        display: none !important;
+    }
+
+    .duel-stat-rect {
+        display: none !important;
+    }
+
+    .duel-contested-rectangle {
+        display: none !important;
+    }
+
+    .stats-wrapper {
+        gap: 5px;
+    }
+
+    .rank-icon-data-container {
+        display: none !important;
+    }
+
+    .rank-data-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titleStatDiv {
+        display: none !important;
+    }
+
+    .duel-stat-center-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        /* optional: spacing between icons */
+        overflow: hidden;
+        /* hides overflow content */
+        text-overflow: ellipsis;
+        /* optional: adds "..." if it's a single line */
+    }
+}
