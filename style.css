@@ -9,7 +9,8 @@ html,
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: auto;
+    overflow: auto;
     background: #1c1c2b;
     color: #f4f4f4;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -84,7 +85,7 @@ button:hover {
     width: 20%;
     /* O ajusta según prefieras */
     padding: 0.5rem;
-    overflow-y: auto;
+    overflow: visible !important;
     display: flex;
     flex-direction: column;
 }
@@ -93,7 +94,7 @@ button:hover {
 #right {
     width: 30%;
     padding: 0.5rem;
-    overflow-y: auto;
+    overflow: visible !important;
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
