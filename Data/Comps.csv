@@ -1,21 +1,23 @@
 Comps,Tier,Estilo,Unit1,Unit2,Unit3
-Brand Street Demon,S,Fast 8,Brand,Neeko,Samira
-Renekton Rapid Fire,A,Fast 9,Zeri,Sejuani,Renekton
-Vexotech,S,Fast 8,Vex,Sejuani,Renekton
+Brand Street Demon,A,Fast 8,Brand,Neeko,Samira
+Renekton Rapid Fire,C,Fast 9,Zeri,Sejuani,Renekton
+Vexotech,A,Fast 8,Vex,Sejuani,Renekton
 TF reroll,A,rr7,Twisted Fate,Braum,Darius
 Marksman Vanguards,A,Fast 8,Aphelios,Xayah,Leona
-Zed Cypher,S,Fast 8,Zed,Renekton,Zeri
-Slayer rr,S,rr6,Jarvan IV,Zed,Vayne
+Zed Cypher,A,Fast 8,Zed,Renekton,Zeri
+Slayer rr,A,rr6,Jarvan IV,Zed,Vayne
 Fiddlesticks Bruiser,A,rr7,Fiddlesticks,Cho'Gath,Mordekaiser
 Dynamo Exotech,A,Fast 8,Miss Fortune,Zeri,Sejuani
-Vertical exotech,A,Fast 8,Zeri,Sejuani,Renekton
+Vertical exotech,S,Fast 8,Zeri,Sejuani,Renekton
 Vex/Zed Divinicorp,A,Fast 8,Zed,Vex,Senna
-Vertical Anima Squad,S,Fast 8,Xayah,Leona,Aurora
-Veigar reroll,B,rr6,Veigar,Ziggs,Kobuko
+Vertical Anima Squad,A,Fast 8,Xayah,Leona,Aurora
+Veigar reroll,A,rr6,Veigar,Ziggs,Kobuko
 Vertical Golden Ox,A,Fast 8,Aphelios,Annie,Viego
-Amp Strategists,S,Fast 8,Annie,Neeko,Samira
-Nitro Zeri,A,rr5,Zeri,Sejuani,Jhin
-Syndicate Dynamo,S,rr7,Miss Fortune,Braum,Elise
+Amp Strategists,A,Fast 8,Annie,Neeko,Samira
+Nitro Zeri,B,rr5,Zeri,Sejuani,Jhin
+Syndicate Dynamo,B,rr7,Miss Fortune,Braum,Elise
 Vertical Divinicorp,S,Fast 8,Cho'Gath,Vex,Renekton
 Kog'Maw Vanguard,A,rr5,Kog'Maw,Skarner,Leona
-Morgana Bastion,A,rr5,Morgana,Poppy,Jax
+Dynamo 5 costs,S,Fast 9,Aurora,Zac,Elise
+Techie Gorilla,A,rr5,Dr. Mundo,Zyra,Seraphine
+Boombot 5 costs,S,fast 9,Urgot,Vex,Cho'Gath
