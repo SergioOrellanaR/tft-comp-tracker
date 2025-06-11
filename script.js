@@ -649,10 +649,6 @@ window.addEventListener('load', () => {
     }, 250);
 });
 
-document.getElementById('left').addEventListener('scroll', drawLines);
-document.getElementById('right').addEventListener('scroll', drawLines);
-window.addEventListener('scroll', drawLines);
-
 // Add ResizeObserver on the "left" element to call resizeCanvas whenever it resizes
 const leftElement = document.getElementById('left');
 if (leftElement && typeof ResizeObserver !== 'undefined') {
