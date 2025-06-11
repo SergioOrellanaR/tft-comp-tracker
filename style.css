@@ -499,6 +499,14 @@ th {
     text-overflow: ellipsis;
 }
 
+.teambuilder-btn-container {
+    margin-left: auto;
+}
+
+.teambuilder-btn{
+    margin-left: 8px;
+}
+
 /* =====================================================================
     Estilos para player cards
 ===================================================================== */

@@ -1137,7 +1137,6 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
     if (teambuilderUrl) {
         const tbDiv = document.createElement('div');
         tbDiv.className = 'teambuilder-btn-container';
-        tbDiv.style.marginLeft = 'auto';
         const tbButton = document.createElement('a');
         tbButton.className = 'teambuilder-btn';
         tbButton.href = teambuilderUrl;
@@ -1149,7 +1148,6 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
   <path d="M5 19h4v2H5c-1.1 0-2-.9-2-2v-4h2v4z"/>
   <path d="M19 19h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z"/>
 </svg>`;
-        tbButton.style.marginLeft = '8px';
         // Prevent the team builder button from marking the comp for links
         tbButton.addEventListener('click', (e) => {
             e.stopPropagation();
