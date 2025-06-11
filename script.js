@@ -653,6 +653,24 @@ document.getElementById('left').addEventListener('scroll', drawLines);
 document.getElementById('right').addEventListener('scroll', drawLines);
 window.addEventListener('scroll', drawLines);
 
+// Add ResizeObserver on the "left" element to call resizeCanvas whenever it resizes
+const leftElement = document.getElementById('left');
+if (leftElement && typeof ResizeObserver !== 'undefined') {
+    const resizeObserver = new ResizeObserver(() => {
+        resizeCanvas();
+    });
+    resizeObserver.observe(leftElement);
+}
+
+// Add ResizeObserver on the "players" element to call drawLines whenever it resizes
+const playersElement = document.getElementById('players');
+if (playersElement && typeof ResizeObserver !== 'undefined') {
+    const playersResizeObserver = new ResizeObserver(() => {
+        drawLines();
+    });
+    playersResizeObserver.observe(playersElement);
+}
+
 var previousMultilines = {};
 function drawLines() {
     clearCanvasAndResetCompos();
