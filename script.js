@@ -84,13 +84,13 @@ const loadItems = async () => {
 };
 
 function resizeCanvas() {
+    //alert('Canvas container width and height: ' + canvas.parentElement.clientWidth + 'x' + canvas.parentElement.clientHeight);
     canvas.width = canvas.parentElement.clientWidth;
     canvas.height = canvas.parentElement.clientHeight;
     drawLines();
 }
 
 window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
 
 function tryLoadDefaultCSV() {
     Promise.all([loadUnitImages(), loadItems()]).then(() => {
@@ -640,6 +640,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     document.getElementById('resetButton')?.addEventListener('click', resetPlayers);
+});
+
+// Append the following code at the end of the file to call resizeCanvas() 250ms second after full page load.
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        resizeCanvas();
+    }, 250);
 });
 
 document.getElementById('left').addEventListener('scroll', drawLines);
