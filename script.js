@@ -1137,10 +1137,13 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
     if (teambuilderUrl) {
         const tbDiv = document.createElement('div');
         tbDiv.className = 'teambuilder-btn-container';
+        // Add style to push the teambuilder button container to the far end of the parent
+        tbDiv.style.marginLeft = 'auto';
         const tbButton = document.createElement('a');
         tbButton.className = 'teambuilder-btn';
         tbButton.href = teambuilderUrl;
         tbButton.target = '_blank';
+        tbButton.title = "Open in teambuilder";
         // Updated icon: an external link icon which clearly indicates navigation to an external URL
         tbButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="15" height="15" viewBox="0 0 24 24">
   <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
@@ -1150,7 +1153,7 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
 </svg>`;
         tbButton.style.marginLeft = '8px';
         tbDiv.appendChild(tbButton);
-        div.insertAdjacentElement('beforeend', tbDiv);
+        div.appendChild(tbDiv);
     }
 
     div.onclick = () => select(div, 'compo');
