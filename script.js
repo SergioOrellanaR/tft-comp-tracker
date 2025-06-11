@@ -1142,7 +1142,7 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
         tbButton.href = teambuilderUrl;
         tbButton.target = '_blank';
         // Updated icon: an external link icon which clearly indicates navigation to an external URL
-        tbButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="18" height="18" viewBox="0 0 24 24">
+        tbButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="15" height="15" viewBox="0 0 24 24">
   <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
   <path d="M5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5z"/>
   <path d="M5 19h4v2H5c-1.1 0-2-.9-2-2v-4h2v4z"/>
