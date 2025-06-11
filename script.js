@@ -1089,7 +1089,7 @@ const resetPlayers = () => {
 };
 
 // Nueva función auxiliar para crear el elemento de composición
-function createCompoElement({ comp, index, estilo, units }) {
+function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
     const div = document.createElement('div');
     div.className = 'item compo';
     div.dataset.id = 'compo-' + index;
@@ -1132,6 +1132,27 @@ function createCompoElement({ comp, index, estilo, units }) {
     div.appendChild(compInfo);
     div.appendChild(itemsContainer);
     div.appendChild(unitIcons);
+
+    // Add team builder icon at the right if URL is provided
+    if (teambuilderUrl) {
+        const tbDiv = document.createElement('div');
+        tbDiv.className = 'teambuilder-btn-container';
+        const tbButton = document.createElement('a');
+        tbButton.className = 'teambuilder-btn';
+        tbButton.href = teambuilderUrl;
+        tbButton.target = '_blank';
+        // Updated icon: an external link icon which clearly indicates navigation to an external URL
+        tbButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="18" height="18" viewBox="0 0 24 24">
+  <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
+  <path d="M5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5z"/>
+  <path d="M5 19h4v2H5c-1.1 0-2-.9-2-2v-4h2v4z"/>
+  <path d="M19 19h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z"/>
+</svg>`;
+        tbButton.style.marginLeft = '8px';
+        tbDiv.appendChild(tbButton);
+        div.insertAdjacentElement('beforeend', tbDiv);
+    }
+
     div.onclick = () => select(div, 'compo');
 
     return div;
@@ -1145,7 +1166,9 @@ function loadCSVData(csvText) {
 
     lines.forEach((line, index) => {
         if (index === 0 || !line.trim()) return;
-        const [comp, tier, estilo, unit1, unit2, unit3] = line.split(',').map(x => x.trim());
+        const fields = line.split(',').map(x => x.trim());
+        const [comp, tier, estilo, unit1, unit2, unit3] = fields;
+        const teambuilderUrl = fields.length >= 7 ? fields[6] : '';
         if (tiers[tier]) {
             // Sort units by cost (using unitCostMap) and then alphabetically.
             const sortedUnits = [unit1, unit2, unit3].sort((a, b) => {
@@ -1158,7 +1181,8 @@ function loadCSVData(csvText) {
                 comp,
                 index,
                 estilo,
-                units: sortedUnits
+                units: sortedUnits,
+                teambuilderUrl
             });
             tiers[tier].push({ name: comp, element: compoElement });
         }
