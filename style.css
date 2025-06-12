@@ -183,8 +183,8 @@ canvas {
     display: flex;
     align-items: center;
     gap: 4px;
-    flex-shrink: 0; /* no reducir */
-    min-width: fit-content;
+    flex-shrink: 0;
+    min-width: 70px;
 }
 
 .mini-rank-img {
