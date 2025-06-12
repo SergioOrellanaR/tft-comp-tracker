@@ -1,4 +1,4 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchFindGames, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl, getTraitBackgroundUrl } from './tftVersusHandler.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl, getTraitBackgroundUrl } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
 
 // Constants for stat item icons and tooltips
