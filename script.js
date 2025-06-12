@@ -441,6 +441,7 @@ async function updatePlayersDuelButtons(playerData, server) {
         if (!player.querySelector('.duel-button')) {
             // Get the opponent's name from the player element.
             const player2Name = player.querySelector('.player-name').textContent.trim();
+            player.querySelector('.participant-info-container').style.marginLeft = '4px';
             if (playerData.name === player2Name) {
                 continue; // Skip the player if it's the same as the one in the duel button
             }
@@ -472,7 +473,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             duelButton.className = 'duel-button';
             duelButton.title = 'Vs. History';
             duelButton.innerText = '⚔️';
-
+            player.querySelector('.participant-info-container').style.marginLeft = '0px';
             processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
             player.prepend(duelButton);
         }
@@ -1319,6 +1320,7 @@ function updatePlayers(participants) {
                 // Create a new container for the player's name and rank information
                 const participantInfoContainer = document.createElement('div');
                 participantInfoContainer.classList.add('participant-info-container');
+                participantInfoContainer.style.marginLeft = '28px';
                 
                 // Set the player's name and move it into the container
                 playerNameElement.textContent = participant.riotId;
