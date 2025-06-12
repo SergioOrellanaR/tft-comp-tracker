@@ -62,6 +62,18 @@ export async function fetchDuelStats(playerName, opponentName, server) {
     return await fetchFromTFTVersusAPI(url);
 }
 
+// Función para llamar a /stats
+// http://127.0.0.1:5000/api/stats/Made in Chile/1604/NyobZoo/NA1/na
+export async function fetchLiveGame(playerName, server) {
+    const [name, tag] = playerName.split('#');
+    if (!name || !tag) {
+        throw new Error('Invalid player name format. Expected format: "Name#Tag".');
+    }
+
+    const url = `${TFT_VERSUS_API_URL.liveGame}/${name}/${tag}/${server}`;
+    return await fetchFromTFTVersusAPI(url);
+}
+
 // Función para llamar a /common_matches
 // http://127.0.0.1:5000/api/common_matches/Made in Chile/1604/NyobZoo/NA1/NA/[PageNumber]
 export async function fetchCommonMatches(playerName, opponentName, server, pageNumber = 1) {

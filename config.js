@@ -5,7 +5,8 @@ export const TFT_VERSUS_API_URL = {
     findGames: TFT_VERSUS_API_BASE_URL+'/find',
     commonMatches: TFT_VERSUS_API_BASE_URL+'/common_matches',
     duel: TFT_VERSUS_API_BASE_URL+'/stats',
-    specificMatch: TFT_VERSUS_API_BASE_URL+'/match'
+    specificMatch: TFT_VERSUS_API_BASE_URL+'/match',
+    liveGame: TFT_VERSUS_API_BASE_URL+'/current_game'
 }
 
 export const THIRD_PARTY_IMG_URL = {
@@ -31,7 +32,6 @@ export const TRAIT_BACKGROUND_URL = {
 }
 
 export const CONFIG = {
-    netlify: true,
     mainPlayerColor: '#000435',
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9'],
     coreItems: [

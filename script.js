@@ -1,22 +1,6 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary, fetchFindGames } from './tftVersusHandler.js';
+import { fetchPlayerSummary, fetchFindGames, fetchLiveGame } from './tftVersusHandler.js';
 import { createLoadingSpinner, createPlayerCard, openDuelModal } from './components.js';
-
-let API_KEY;
-
-async function initializeApiKey() {
-    if (!CONFIG.netlify) {
-        try {
-            const { API_KEY: localApiKey } = await import('./keys.js');
-            API_KEY = localApiKey;
-        } catch (error) {
-            console.error('API_KEY is not defined. Please set it in your environment or keys.js.');
-        }
-    }
-    else {
-        console.log('Netlify mode detected. API_KEY will be fetched from Netlify functions.');
-    }
-}
 
 // Variables globales
 let selected = null;
@@ -347,32 +331,6 @@ function showMessage(message) {
     }, 3000);
 }
 
-async function fetchApi(url, isNetlify, callId) {
-    if (isNetlify) {
-        const response = await fetch("/.netlify/functions/riot-proxy", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url }),
-        });
-
-        if (!response.ok) {
-            handleApiError(response, callId);
-            return null;
-        }
-
-        return response.json();
-    } else {
-        const response = await fetch(`${url}?api_key=${API_KEY}`);
-
-        if (!response.ok) {
-            handleApiError(response, callId);
-            return null;
-        }
-
-        return response.json();
-    }
-}
-
 function handleApiError(response, callId) {
     if (response.status === 404) {
         if (callId === 'fetchPuuid') {
@@ -408,7 +366,6 @@ const searchPlayer = async () => {
 
     const server = document.getElementById('serverSelector').value;
     const playerInput = document.getElementById('playerNameInput').value.trim();
-    const isNetlify = CONFIG.netlify;
 
     if (!playerInput) {
         showMessage('Please enter a player name.');
@@ -433,32 +390,24 @@ const searchPlayer = async () => {
     }
 
     try {
-        const accountUrl = `https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${playerName}/${tag}`;
-        const accountData = await fetchApi(accountUrl, isNetlify, 'fetchPuuid');
-        if (!accountData) 
+        const playerData = await fetchPlayerSummary(playerInput, server, containerId);
+        if (!playerData) 
         {
             playerDataContainer.remove();
             return;
         }
-
-        const playerData = await fetchPlayerSummary(`${playerName}#${tag}`, server, containerId);
         await createPlayerCard(playerData, server, containerId);
-        
-
-        const playerPuuid = accountData.puuid;
-
-        const spectatorUrl = `https://${serverCode}.api.riotgames.com/lol/spectator/tft/v5/active-games/by-puuid/${playerPuuid}`;
-        const spectatorData = await fetchApi(spectatorUrl, isNetlify, 'spectator');
+        const spectatorData = await fetchLiveGame(playerInput, server);
         if (!spectatorData) return;
 
-        handleSpectatorData(spectatorData, playerPuuid, playerData, server);
+        handleSpectatorData(spectatorData, playerData, playerInput, server);
     } catch (error) {
         console.error('Failed to fetch player summary:', error);
         showMessage('Failed to fetch player summary.');
     }
 };
 
-function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
+function handleSpectatorData(spectatorData, playerData, playerInput, server) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
     if (isDoubleUp) {
         if (!document.body.classList.contains('double-up')) {
@@ -471,7 +420,7 @@ function handleSpectatorData(spectatorData, playerPuuid, playerData, server) {
     }
 
     const participants = spectatorData.participants.filter(participant => {
-        return isDoubleUp ? true : participant.puuid !== playerPuuid;
+        return isDoubleUp ? true : participant.riotId !== playerInput;
     });
 
     updatePlayerNames(participants);
@@ -618,7 +567,6 @@ function handleSuccessfulResult(result, duelButton, player2Name, player, playerD
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM fully loaded and parsed');
-    await initializeApiKey();
     preloadPlayers();
     const serverSelector = document.getElementById('serverSelector');
     const serverRegionMap = CONFIG.serverRegionMap;
