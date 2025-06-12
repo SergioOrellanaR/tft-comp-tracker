@@ -12,10 +12,10 @@ async function fetchFromTFTVersusAPI(endpoint) {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        if (!response.ok) {
+        if (!response.ok && response.status !== 404) {
             throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
         }
-
+        
         return await response.json();
     } catch (error) {
         console.error(`Failed to fetch data from ${endpoint}:`, error);

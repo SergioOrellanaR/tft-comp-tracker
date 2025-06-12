@@ -331,20 +331,6 @@ function showMessage(message) {
     }, 3000);
 }
 
-function handleApiError(response, callId) {
-    if (response.status === 404) {
-        if (callId === 'fetchPuuid') {
-            showMessage('Player not found');
-        } else if (callId === 'spectator') {
-            showMessage('The player is not currently in a game.');
-        }
-    } else if (response.status === 400 && callId === 'fetchPuuid') {
-        showMessage('Invalid API KEY.');
-    } else {
-        throw new Error(`Error: ${response.status} - ${response.statusText}`);
-    }
-}
-
 const searchPlayer = async () => {
     resetPlayers();
     const containerId = 'playerDataContainer';
@@ -398,12 +384,20 @@ const searchPlayer = async () => {
         }
         await createPlayerCard(playerData, server, containerId);
         const spectatorData = await fetchLiveGame(playerInput, server);
-        if (!spectatorData) return;
+        console.log('Spectator Data:', spectatorData);
+
+        if (spectatorData.detail !== undefined) {
+            showMessage(spectatorData.detail);
+            if (spectatorData.detail.toLowerCase().includes('player not found')) {
+                playerDataContainer.remove();
+            }
+            return;
+        }
 
         handleSpectatorData(spectatorData, playerData, playerInput, server);
     } catch (error) {
-        console.error('Failed to fetch player summary:', error);
-        showMessage('Failed to fetch player summary.');
+        showMessage('Failed to fetch data');
+        playerDataContainer.remove();
     }
 };
 
@@ -423,7 +417,7 @@ function handleSpectatorData(spectatorData, playerData, playerInput, server) {
         return isDoubleUp ? true : participant.riotId !== playerInput;
     });
 
-    updatePlayerNames(participants);
+    updatePlayers(participants);
     updatePlayersDuelButtons(playerData, server);
 }
 
@@ -1288,7 +1282,7 @@ if (typeof itemsContainer !== 'undefined' && itemsContainer) {
     updateItemsContainerFn();
 }
 
-function updatePlayerNames(participants) {
+function updatePlayers(participants) {
     const playerElements = document.querySelectorAll('.item.player');
 
     participants.forEach((participant, index) => {
@@ -1300,8 +1294,6 @@ function updatePlayerNames(participants) {
             }
         }
     });
-
-    console.log('Duels Cache: ', duelsCache);
 }
 
 function initializeDuelCacheObject(riotId) {
