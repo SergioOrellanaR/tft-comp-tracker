@@ -15,7 +15,7 @@ async function fetchFromTFTVersusAPI(endpoint) {
         if (!response.ok && response.status !== 404) {
             throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
         }
-        
+
         return await response.json();
     } catch (error) {
         console.error(`Failed to fetch data from ${endpoint}:`, error);
@@ -117,6 +117,14 @@ export function getItemImageUrl(itemId) {
 
 export function getTierImageUrl(tier) {
     return THIRD_PARTY_IMG_URL.tiers + '/' + tier + '.png';
+}
+
+export function getMiniRankIconUrl(tier) {
+    let separator = "_";
+    if (tier.toUpperCase() === 'UNRANKED') {
+        separator = '-';
+    }
+    return CDRAGON_URL.rankedMiniIcons + '/' + tier.toLowerCase() + separator + 'tft.svg';
 }
 
 export function getTraitBackgroundUrl(tier_current, tier_total, num_units) {

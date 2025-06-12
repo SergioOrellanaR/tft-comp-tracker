@@ -1,5 +1,5 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary, fetchFindGames, fetchLiveGame } from './tftVersusHandler.js';
+import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, createPlayerCard, openDuelModal } from './components.js';
 
 // Variables globales
@@ -1282,14 +1282,61 @@ if (typeof itemsContainer !== 'undefined' && itemsContainer) {
     updateItemsContainerFn();
 }
 
+function createAndInsertPlayerRankDiv(playerNameElement, participant) {
+    const rankDiv = document.createElement('div');
+    rankDiv.classList.add('mini-rank-div');
+
+    const miniRankSvg = getMiniRankIconUrl(participant.tier);
+    const miniRankImg = document.createElement('img');
+    miniRankImg.src = miniRankSvg;
+    miniRankImg.classList.add('mini-rank-img');
+    miniRankImg.title = participant.tier;
+
+    let rank = '';
+    if (participant.tier !== 'CHALLENGER' && participant.tier !== 'MASTER' && participant.tier !== 'GRANDMASTER' && participant.tier !== 'UNRANKED') {
+        rank = participant.rank;
+    }
+
+    const rankText = document.createElement('span');
+    rankText.textContent = rank;
+    rankText.classList.add('mini-rank-text');
+
+    const lpText = document.createElement('span');
+    lpText.textContent = participant.league_points + ' LP';
+    lpText.classList.add('mini-rank-text');
+
+    rankDiv.append(miniRankImg, rankText, lpText);
+    
+    return rankDiv;
+}
 function updatePlayers(participants) {
     const playerElements = document.querySelectorAll('.item.player');
 
     participants.forEach((participant, index) => {
         if (playerElements[index]) {
-            const playerNameElement = playerElements[index]?.querySelector('span.player-name');
+            const playerNameElement = playerElements[index].querySelector('span.player-name');
             if (playerNameElement) {
+                // Create a new container for the player's name and rank information
+                const participantInfoContainer = document.createElement('div');
+                participantInfoContainer.classList.add('participant-info-container');
+                
+                // Set the player's name and move it into the container
                 playerNameElement.textContent = participant.riotId;
+                participantInfoContainer.appendChild(playerNameElement);
+                
+                // Create the mini rank div and add it to the container
+                const miniRankDiv = createAndInsertPlayerRankDiv(playerNameElement, participant);
+                participantInfoContainer.appendChild(miniRankDiv);
+                
+                // Insert the container right before the div with class "color-bar"
+                const playerEl = playerElements[index];
+                const colorBar = playerEl.querySelector('.color-bar');
+                if (colorBar) {
+                    playerEl.insertBefore(participantInfoContainer, colorBar);
+                } else {
+                    playerEl.appendChild(participantInfoContainer);
+                }
+                
                 duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
             }
         }

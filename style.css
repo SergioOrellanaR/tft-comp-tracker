@@ -141,8 +141,12 @@ canvas {
 }
 
 .item.player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
     width: 100%;
-    flex: 1;
+    box-sizing: border-box;
     cursor: grab;
 }
 
@@ -154,6 +158,45 @@ canvas {
 .item.player:active {
     cursor: grabbing;
 }
+
+.participant-info-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: grab;
+    flex-wrap: wrap; /* permite que se rompa la línea si no cabe */
+    gap: 4px;
+}
+/* Estilos para nombres de jugadores */
+.player-name {
+    flex: 1 1 auto;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mini-rank-div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0; /* no reducir */
+    min-width: fit-content;
+}
+
+.mini-rank-img {
+    width: 28px;
+    height: 28px;
+}
+
+.mini-rank-text {
+    font-size: 0.8em;
+    opacity: 0.5;
+}
+
 
 /* Selección */
 .selected {
@@ -562,14 +605,6 @@ th {
     font-size: 0.75rem;
     border-radius: 4px;
     padding: 2px 6px;
-}
-
-/* Estilos para nombres de jugadores */
-.player-name {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
 }
 
 #playerNameInput {
