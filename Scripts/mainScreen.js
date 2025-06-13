@@ -1054,10 +1054,8 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
     const compInfo = document.createElement('div');
     compInfo.className = 'comp-info';
     const compName = document.createElement('span');
+    compName.className = 'comp-name';
     compName.textContent = comp;
-    compName.style.fontSize = '0.9rem';
-    compName.style.opacity = '0.75';
-    compName.style.color = 'white';
     compInfo.appendChild(compName);
 
     // Contenedores de items y estilo
