@@ -7,6 +7,11 @@
 /* =====================================================================
     Global Reset y Estilos Base
 ===================================================================== */
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--text-accent);
+    transition: background-color 9999s ease-in-out 0s;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -266,7 +271,7 @@ canvas {
     opacity: 0.5;
 }
 
-.comp-name{
+.comp-name {
     font-size: 0.9rem !important;
     opacity: 0.75 !important;
     color: var(--text-accent) !important;
@@ -449,9 +454,7 @@ th {
     align-items: center;
     gap: 10px;
     padding: 4px;
-    background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     margin-bottom: 10px;
     height: auto;
 }
@@ -472,24 +475,77 @@ th {
     margin-left: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .search-input {
-    flex: 1 1 auto;
+    --width-of-input: 200px;
+    --border-height: 1px;
+    --border-before-color: rgba(221, 221, 221, 0.39);
+    --border-after-color: #5891ff;
+    --input-hovered-color: #4985e01f;
+    position: relative;
+    width: var(--width-of-input);
 }
 
-.search-input input {
-    flex: 1;
-    padding: 6px 10px;
+/* styling of Input */
+.playerInput {
+    color: var(--text-accent);
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
     border: none;
-    border-radius: 6px;
-    background: #222;
-    color: #fff;
-    font-size: 0.9rem;
-    height: 100%;
-    transition: background 0.3s ease, transform 0.2s ease;
-    position: relative;
-    margin-top: 0;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+/* styling of animated border */
+.input-border {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* here is code of animated border */
+input:focus~.input-border {
     width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .search-button {
     flex: 0 0 auto;
@@ -679,10 +735,6 @@ th {
     font-size: 0.75rem;
     border-radius: 4px;
     padding: 2px 6px;
-}
-
-#playerNameInput {
-    text-align: center;
 }
 
 /* Spinner de carga */
