@@ -88,15 +88,17 @@ function tryLoadDefaultCSV() {
 }
 
 function toggleDoubleUpMode() {
-    const btn = document.getElementById('toggleDoubleUp');
-    const active = document.body.classList.toggle('double-up');
-    btn.textContent = `Double Up: ${active ? 'ON' : 'OFF'}`;
-    // Clear existing lines
+    const checkbox = document.getElementById('color_mode');
+    const active = checkbox.checked;
+
+    // Aplica o remueve el modo double-up
+    document.body.classList.toggle('double-up', active);
+
+    // Lógica de reinicio
     links.splice(0, links.length);
-    // Clear and update layout:
     document.getElementById('players').innerHTML = '';
-    preloadPlayers(); // Reinitialize players with the new mode
-    drawLines(); // Refresh canvas lines
+    preloadPlayers();
+    drawLines();
 }
 
 function enableDragAndDrop() {
@@ -377,8 +379,7 @@ const searchPlayer = async () => {
 
     try {
         const playerData = await fetchPlayerSummary(playerInput, server, containerId);
-        if (!playerData) 
-        {
+        if (!playerData) {
             playerDataContainer.remove();
             return;
         }
@@ -1307,7 +1308,7 @@ function createAndInsertPlayerRankDiv(playerNameElement, participant) {
     lpText.classList.add('mini-rank-text');
 
     rankDiv.append(miniRankImg, rankText, lpText);
-    
+
     return rankDiv;
 }
 function updatePlayers(participants) {
@@ -1321,15 +1322,15 @@ function updatePlayers(participants) {
                 const participantInfoContainer = document.createElement('div');
                 participantInfoContainer.classList.add('participant-info-container');
                 participantInfoContainer.style.marginLeft = '28px';
-                
+
                 // Set the player's name and move it into the container
                 playerNameElement.textContent = participant.riotId;
                 participantInfoContainer.appendChild(playerNameElement);
-                
+
                 // Create the mini rank div and add it to the container
                 const miniRankDiv = createAndInsertPlayerRankDiv(playerNameElement, participant);
                 participantInfoContainer.appendChild(miniRankDiv);
-                
+
                 // Insert the container right before the div with class "color-bar"
                 const playerEl = playerElements[index];
                 const colorBar = playerEl.querySelector('.color-bar');
@@ -1338,7 +1339,7 @@ function updatePlayers(participants) {
                 } else {
                     playerEl.appendChild(participantInfoContainer);
                 }
-                
+
                 duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
             }
         }

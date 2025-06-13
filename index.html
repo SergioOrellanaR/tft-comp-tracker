@@ -13,8 +13,11 @@
 <body>
   <div id="left">
     <div style="flex: 1; display: flex; flex-direction: column;">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <button id="toggleDoubleUp" onclick="toggleDoubleUpMode()">Double Up: OFF</button>
+      <div class="double-up-btn-container">
+        <label class="switch  btn-color-mode-switch">
+          <input value="1" id="color_mode" name="color_mode" type="checkbox" onchange="toggleDoubleUpMode()">
+          <label class="btn-color-mode-switch-inner" data-off="Solo" data-on="Doubles" for="color_mode"></label>
+        </label>
       </div>
       <div class="search-bar">
         <div class="server-selector">
@@ -46,7 +49,7 @@
 
   <div id="right">
     <div style="flex: 1; display: flex; flex-direction: column;">
-      
+
       <div id="compos"></div>
     </div>
   </div>
