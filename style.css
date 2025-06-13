@@ -61,7 +61,7 @@ button {
 }
 
 button:hover {
-    background: #00c4d6;
+    filter: brightness(112%);
 }
 
 .btn-double-up-btn-container {
