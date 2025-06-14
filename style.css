@@ -8,8 +8,9 @@
     Global Reset y Estilos Base
 ===================================================================== */
 input:-webkit-autofill {
-    -webkit-text-fill-color: var(--text-accent);
-    transition: background-color 9999s ease-in-out 0s;
+    -webkit-text-fill-color: white;
+    box-shadow: 0 0 0 1000px var(--main-accent) inset;
+    background-clip: content-box;
 }
 
 * {
@@ -458,7 +459,13 @@ th {
     border-radius: 8px;
 }
 
+/* Give the server selector 3/16 of the total width */
+.server-selector {
+    flex: 3;
+}
+
 .server-selector select {
+    width: 100%;
     padding: 10px 8px;
     border: none;
     border-radius: 6px;
@@ -470,19 +477,15 @@ th {
     margin-right: 0;
 }
 
+/* Give the search input 6/8 of the total width */
 .search-input {
-    --width-of-input: 200px;
-    --border-height: 1px;
-    --border-before-color: rgba(221, 221, 221, 0.39);
-    --border-after-color: #5891ff;
-    --input-hovered-color: #4985e01f;
+    flex: 12;
     position: relative;
-    flex: 1;
     display: flex;
     align-items: center;
 }
 
-.playerInput {
+.search-input .playerInput {
     color: var(--text-accent);
     background-color: transparent;
     width: 100%;
@@ -495,7 +498,7 @@ th {
     margin: 0;
 }
 
-.input-border {
+.search-input .input-border {
     position: absolute;
     background: var(--border-after-color);
     width: 0%;
@@ -509,14 +512,16 @@ input:focus {
     outline: none;
 }
 
-input:focus ~ .input-border {
+input:focus~.input-border {
     width: 100%;
 }
 
+/* Give the search button 1/8 of the total width */
 .search-button-container {
+    flex: 1;
     display: flex;
     align-items: stretch;
-    margin-left: auto;
+    margin-left: 0;
 }
 
 .search-button {
