@@ -1,12 +1,12 @@
 const TFT_VERSUS_API_BASE_URL = 'https://tft-versus.onrender.com/api';
 
 export const TFT_VERSUS_API_URL = {
-    playerSummary: TFT_VERSUS_API_BASE_URL+'/header',
-    findGames: TFT_VERSUS_API_BASE_URL+'/find',
-    commonMatches: TFT_VERSUS_API_BASE_URL+'/common_matches',
-    duel: TFT_VERSUS_API_BASE_URL+'/stats',
-    specificMatch: TFT_VERSUS_API_BASE_URL+'/match',
-    liveGame: TFT_VERSUS_API_BASE_URL+'/current_game'
+    playerSummary: TFT_VERSUS_API_BASE_URL + '/header',
+    findGames: TFT_VERSUS_API_BASE_URL + '/find',
+    commonMatches: TFT_VERSUS_API_BASE_URL + '/common_matches',
+    duel: TFT_VERSUS_API_BASE_URL + '/stats',
+    specificMatch: TFT_VERSUS_API_BASE_URL + '/match',
+    liveGame: TFT_VERSUS_API_BASE_URL + '/current_game'
 }
 
 export const THIRD_PARTY_IMG_URL = {
@@ -42,10 +42,10 @@ export const CONFIG = {
         "Titan's Resolve", "Hand Of Justice"
     ],
     tierColors: {
-        S: '#FFD700',
-        A: '#00BFFF',
-        B: '#7CFC00',
-        C: '#FFB347'
+        S: '#ff7f7e',
+        A: '#feff7f',
+        B: '#7eff80',
+        C: '#7fffff'
     },
     routes: {
         comps: 'Data/Comps.csv',
@@ -58,7 +58,7 @@ export const CONFIG = {
         { name: 'Moon', color: '#c74cff', emoji: '🌙' },
         { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
     ],
-    serverRegionMap : {
+    serverRegionMap: {
         NA: "NA1",
         BR: "BR1",
         EUNE: "EUN1",

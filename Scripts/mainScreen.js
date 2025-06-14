@@ -47,6 +47,14 @@ function throttle(func, limit) {
     };
 }
 
+function getContrastYIQ(hexcolor){
+    var r = parseInt(hexcolor.substring(1,3),16);
+    var g = parseInt(hexcolor.substring(3,5),16);
+    var b = parseInt(hexcolor.substring(5,7),16);
+    var yiq = ((r*299)+(g*587)+(b*114))/1000;
+    return (yiq >= 128) ? 'black' : 'white';
+}
+
 // Cargar datos de Units.csv
 const loadUnitImages = async () => {
     const data = await fetchCSV(CONFIG.routes.units);
@@ -1123,8 +1131,9 @@ function loadCSVData(csvText) {
 
             const header = document.createElement('div');
             header.className = 'tier-header';
-            header.textContent = `Tier ${t}`;
-            header.style.color = CONFIG.tierColors[t];
+            header.textContent = `TIER ${t}`;
+            header.style.backgroundColor = CONFIG.tierColors[t];
+            header.style.color = getContrastYIQ(CONFIG.tierColors[t]);
             compsContainer.appendChild(header);
 
             tiers[t].forEach(({ element }) => compsContainer.appendChild(element));
