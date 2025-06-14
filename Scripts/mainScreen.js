@@ -1057,7 +1057,7 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
     styleContainer.className = 'comp-style';
     const compStyle = document.createElement('span');
     compStyle.textContent = estilo;
-    compStyle.style.opacity = '0.5';
+    compStyle.style.opacity = '0.7';
     compStyle.style.fontSize = '0.9em';
     styleContainer.appendChild(compStyle);
 

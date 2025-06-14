@@ -273,9 +273,8 @@ canvas {
 }
 
 .comp-name {
-    font-size: 0.9rem !important;
-    opacity: 0.75 !important;
-    color: var(--text-accent) !important;
+    font-size: 0.9rem;
+    color: var(--text-accent);
 }
 
 /* Selección */
@@ -315,8 +314,8 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 1px 10px;
     margin: 4px 0;
@@ -331,11 +330,6 @@ canvas {
     transform: scale(1.02);
     cursor: pointer;
     color: #fff;
-}
-
-.item.compo span:last-child {
-    opacity: 0.7;
-    font-size: 0.8em;
 }
 
 .unit-icons {
@@ -715,13 +709,20 @@ input:focus~.input-border {
 .player-card {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 6px 10px;
     display: flex;
     align-items: center;
     margin-bottom: 8px;
     position: relative;
+}
+
+.player-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.02);
+    cursor: pointer;
+    color: #fff;
 }
 
 /* Estilos para el ícono de edición */
