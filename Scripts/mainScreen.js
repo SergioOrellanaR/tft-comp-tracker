@@ -191,7 +191,7 @@ function preloadPlayers() {
 function getDefaultNames(isDoubleUp) {
     return isDoubleUp
         ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
-        : ['You', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G', 'Player H'];
+        : ['YOU', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G', 'Player H'];
 }
 
 function getTeamIcon(index) {
@@ -424,10 +424,14 @@ async function updatePlayersDuelButtons(playerData, server) {
         if (!player.querySelector('.duel-button')) {
             // Get the opponent's name from the player element.
             const player2Name = player.querySelector('.player-name').textContent.trim();
-            player.querySelector('.participant-info-container').style.marginLeft = '4px';
+            
             if (playerData.name === player2Name) {
+                player.querySelector('.player-name').textContent = player.querySelector('.player-name').textContent.trim() + " (YOU)";
+                player.querySelector('.participant-info-container').style.marginLeft = '28px';
                 continue; // Skip the player if it's the same as the one in the duel button
             }
+
+            player.querySelector('.participant-info-container').style.marginLeft = '4px';
             // Create a spinner placeholder for the duel button
             const spinner = createLoadingSpinner();
             spinner.classList.add('duel-spinner');
