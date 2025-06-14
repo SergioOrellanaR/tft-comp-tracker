@@ -220,7 +220,7 @@ canvas {
     padding: 4px 8px;
     width: 100%;
     box-sizing: border-box;
-    cursor: grab;
+    cursor: pointer;
 }
 
 .item.player.dragging {
@@ -407,7 +407,7 @@ th {
     display: flex;
     align-items: center;
     gap: 6px;
-    color: var(--button-accent);
+    color: var(--text-accent);
     border-bottom: 1px solid #555;
     padding-bottom: 0.3em;
 }

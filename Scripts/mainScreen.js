@@ -107,6 +107,7 @@ function enableDragAndDrop() {
     const throttledDrawLines = throttle(drawLines, 50); // Limitar a 1 llamada cada 50ms
 
     playerElements.forEach(player => {
+
         player.setAttribute('draggable', true); // Hacer que los elementos sean arrastrables
 
         player.addEventListener('dragstart', (e) => {
@@ -184,7 +185,9 @@ function preloadPlayers() {
         }
     });
 
-    enableDragAndDrop(); // Habilitar drag & drop después de cargar los jugadores
+    if (!isDoubleUp) {
+        enableDragAndDrop(); // Habilitar drag & drop después de cargar los jugadores
+    }
 
     updatePlayerColorBars(); // Llama una vez para establecer los color-bars fijos
 }
