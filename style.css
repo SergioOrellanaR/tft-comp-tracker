@@ -450,18 +450,16 @@ th {
 ===================================================================== */
 .search-bar {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    gap: 0;
     margin-top: 10px;
-    border-radius: 8px;
     margin-bottom: 10px;
-    height: auto;
-    border: solid red 1px;
+    border-radius: 8px;
 }
 
 .server-selector select {
-    padding: 5px 8px;
+    padding: 10px 8px;
     border: none;
     border-radius: 6px;
     background: var(--main-accent);
@@ -469,6 +467,7 @@ th {
     font-size: 0.9rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+    margin-right: 0;
 }
 
 .search-input {
@@ -478,11 +477,11 @@ th {
     --border-after-color: #5891ff;
     --input-hovered-color: #4985e01f;
     position: relative;
-    width: var(--width-of-input);
-    border: solid green 1px;
+    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
-/* styling of Input */
 .playerInput {
     color: var(--text-accent);
     background-color: transparent;
@@ -492,9 +491,10 @@ th {
     padding-block: 0.7em;
     border: none;
     border-bottom: var(--border-height) solid var(--border-before-color);
+    display: block;
+    margin: 0;
 }
 
-/* styling of animated border */
 .input-border {
     position: absolute;
     background: var(--border-after-color);
@@ -509,17 +509,35 @@ input:focus {
     outline: none;
 }
 
-/* here is code of animated border */
-input:focus~.input-border {
+input:focus ~ .input-border {
     width: 100%;
 }
 
+.search-button-container {
+    display: flex;
+    align-items: stretch;
+    margin-left: auto;
+}
+
 .search-button {
-    border: solid yellow 1px;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
 }
 
 .search-button:hover {
-    background: linear-gradient(90deg, #00c4d6, #4c6aff);
+    background: rgba(170, 170, 170, 0.062);
+    transition: 0.5s;
+}
+
+.search-button svg {
+    color: #fff;
 }
 
 
