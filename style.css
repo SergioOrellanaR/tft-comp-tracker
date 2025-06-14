@@ -399,6 +399,7 @@ th {
 /* Títulos y contenedores genéricos para tablas */
 .table-title {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 6px;
     color: var(--text-accent);
