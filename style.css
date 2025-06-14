@@ -603,8 +603,8 @@ input:focus~.input-border {
 }
 
 .core-item-button {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background-size: contain !important;
     background-repeat: no-repeat;
     background-position: center;
