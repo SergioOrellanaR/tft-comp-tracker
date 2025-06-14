@@ -192,7 +192,7 @@ function preloadPlayers() {
 function getDefaultNames(isDoubleUp) {
     return isDoubleUp
         ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
-        : ['YOU', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G', 'Player H'];
+        : ['YOU', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8'];
 }
 
 function getTeamIcon(index) {
@@ -295,7 +295,7 @@ function createEditableSpan(name) {
                 const allPlayers = Array.from(document.querySelectorAll('.item.player'));
                 const currentIndex = allPlayers.findIndex(p => p.contains(span));
                 const next = allPlayers[currentIndex + 1];
-                const nextSpan = next?.querySelector('span');
+                const nextSpan = next?.querySelector('.player-name');
                 if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
             }
         });
