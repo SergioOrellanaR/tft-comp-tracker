@@ -384,18 +384,22 @@ const searchPlayer = async () => {
         const playerData = await fetchPlayerSummary(playerInput, server);
         
         if (!playerData) {
+            spinner.remove();
             return;
         }
 
         const spectatorData = await fetchLiveGame(playerInput, server);
 
         if (spectatorData.detail !== undefined) {
+            spinner.remove();
             showMessage(spectatorData.detail);
             return;
         }
-
+        
+        spinner.remove();
         handleSpectatorData(spectatorData, playerData, server);
     } catch (error) {
+        spinner.remove();
         console.log(error);
         showMessage('Failed to fetch data');
     }
