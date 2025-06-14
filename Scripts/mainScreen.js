@@ -1,6 +1,6 @@
 import { CONFIG } from './config.js';
 import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl } from './tftVersusHandler.js';
-import { createLoadingSpinner, createPlayerCard, openDuelModal } from './components.js';
+import { createLoadingSpinner, openDuelModal } from './components.js';
 
 // Variables globales
 let selected = null;
@@ -191,7 +191,7 @@ function preloadPlayers() {
 function getDefaultNames(isDoubleUp) {
     return isDoubleUp
         ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
-        : ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G'];
+        : ['You', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F', 'Player G', 'Player H'];
 }
 
 function getTeamIcon(index) {
@@ -335,22 +335,7 @@ function showMessage(message) {
 
 const searchPlayer = async () => {
     resetPlayers();
-    const containerId = 'playerDataContainer';
     // Remove any existing container
-    const existingContainer = document.getElementById(containerId);
-    if (existingContainer) {
-        existingContainer.remove();
-    }
-    // Create player data container with spinner
-    let playerDataContainer = document.createElement('div');
-    playerDataContainer.id = containerId;
-    playerDataContainer.className = 'player-data-container';
-    const messageContainer = document.getElementById('messageContainer');
-    if (messageContainer) {
-        messageContainer.insertAdjacentElement('afterend', playerDataContainer);
-    }
-    playerDataContainer.innerHTML = '';
-    playerDataContainer.appendChild(createLoadingSpinner());
 
     const server = document.getElementById('serverSelector').value;
     const playerInput = document.getElementById('playerNameInput').value.trim();
@@ -378,31 +363,30 @@ const searchPlayer = async () => {
     }
 
     try {
-        const playerData = await fetchPlayerSummary(playerInput, server, containerId);
+        const playerData = await fetchPlayerSummary(playerInput, server);
+        
         if (!playerData) {
-            playerDataContainer.remove();
             return;
         }
-        await createPlayerCard(playerData, server, containerId);
+
+        console.log('Player Data:', playerData);
+
         const spectatorData = await fetchLiveGame(playerInput, server);
         console.log('Spectator Data:', spectatorData);
 
         if (spectatorData.detail !== undefined) {
             showMessage(spectatorData.detail);
-            if (spectatorData.detail.toLowerCase().includes('player not found')) {
-                playerDataContainer.remove();
-            }
             return;
         }
 
-        handleSpectatorData(spectatorData, playerData, playerInput, server);
+        handleSpectatorData(spectatorData, playerData, server);
     } catch (error) {
+        console.log(error);
         showMessage('Failed to fetch data');
-        playerDataContainer.remove();
     }
 };
 
-function handleSpectatorData(spectatorData, playerData, playerInput, server) {
+function handleSpectatorData(spectatorData, playerData, server) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
     if (isDoubleUp) {
         if (!document.body.classList.contains('double-up')) {
@@ -414,9 +398,7 @@ function handleSpectatorData(spectatorData, playerData, playerInput, server) {
         }
     }
 
-    const participants = spectatorData.participants.filter(participant => {
-        return isDoubleUp ? true : participant.riotId !== playerInput;
-    });
+    const participants = spectatorData.participants;
 
     updatePlayers(participants);
     updatePlayersDuelButtons(playerData, server);
@@ -1020,10 +1002,6 @@ const resetPlayers = () => {
     // Close any open modal
     const modal = document.getElementById('popupOverlay');
     if (modal) modal.parentNode.removeChild(modal);
-
-    // Remove any existent playerDataContainer
-    const playerDataContainer = document.getElementById('playerDataContainer');
-    if (playerDataContainer) playerDataContainer.remove();
 
     // Set messageContainer display to 'none'
     const messageContainer = document.getElementById('messageContainer');
