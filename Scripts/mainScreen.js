@@ -373,7 +373,13 @@ const searchPlayer = async () => {
         showMessage('Invalid server selected.');
         return;
     }
-
+    const messageContainer = document.getElementById('messageContainer');
+    // Clear any previous content and show the container
+    messageContainer.innerHTML = '';
+    messageContainer.style.display = 'block';
+    // Append spinner so that it uses the same space as error messages
+    const spinner = createLoadingSpinner();
+    messageContainer.appendChild(spinner);
     try {
         const playerData = await fetchPlayerSummary(playerInput, server);
         
