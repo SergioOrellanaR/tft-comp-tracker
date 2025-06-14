@@ -42,10 +42,10 @@ export const CONFIG = {
         "Titan's Resolve", "Hand Of Justice"
     ],
     tierColors: {
-        S: '#e40c2b',
-        A: '#eba63f',
-        B: '#3cbcc3',
-        C: '#CFCCD6'
+        S: '#FF7F7F',
+        A: '#FFBF7F',
+        B: '#FFFF7F',
+        C: '#BFFF7F'
     },
     routes: {
         comps: 'Data/Comps.csv',
