@@ -39,7 +39,7 @@ export const CONFIG = {
         "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
         "Jeweled Gauntlet", "Infinity Edge", "Nashor's Tooth", "Morellonomicon",
         "Kraken's Fury", "Hextech Gunblade", "Bloodthirster", "Edge of Night",
-        "Titan's Resolve", "Hand Of Justice"
+        "Titan's Resolve", "Sterak's Gage", "Hand Of Justice"
     ],
     tierColors: {
         S: '#FF7F7F',
