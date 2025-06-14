@@ -452,42 +452,24 @@ th {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
-    padding: 4px;
+    justify-content: space-between;
+    margin-top: 10px;
     border-radius: 8px;
     margin-bottom: 10px;
     height: auto;
-}
-
-.server-selector {
-    flex: 0 0 auto;
+    border: solid red 1px;
 }
 
 .server-selector select {
     padding: 5px 8px;
     border: none;
     border-radius: 6px;
-    background: #222;
+    background: var(--main-accent);
     color: #fff;
     font-size: 0.9rem;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
-    margin-left: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .search-input {
     --width-of-input: 200px;
@@ -497,6 +479,7 @@ th {
     --input-hovered-color: #4985e01f;
     position: relative;
     width: var(--width-of-input);
+    border: solid green 1px;
 }
 
 /* styling of Input */
@@ -531,37 +514,14 @@ input:focus~.input-border {
     width: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .search-button {
-    flex: 0 0 auto;
-    max-width: 50px;
-    margin-top: 0;
-    padding: 0 12px;
-    background: linear-gradient(90deg, var(--button-accent), #4c6aff);
+    border: solid yellow 1px;
 }
 
 .search-button:hover {
     background: linear-gradient(90deg, #00c4d6, #4c6aff);
 }
 
-.search-icon {
-    font-size: 1.2rem;
-}
 
 /* =====================================================================
     Estilos para Core Items
