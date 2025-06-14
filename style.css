@@ -240,7 +240,7 @@ canvas {
     padding: 4px 8px;
     width: 100%;
     box-sizing: border-box;
-    cursor: grab;
+    cursor: pointer;
     flex-wrap: wrap;
     /* permite que se rompa la línea si no cabe */
     gap: 4px;
@@ -253,6 +253,7 @@ canvas {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 600 !important;
 }
 
 .mini-rank-div {
@@ -276,6 +277,7 @@ canvas {
 .comp-name {
     font-size: 0.9rem;
     color: var(--text-accent);
+    font-weight: 500;
 }
 
 /* Selección */
@@ -968,12 +970,21 @@ input:focus~.input-border {
     background: transparent;
     cursor: pointer;
     padding: 4px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.duel-button:hover {
-    background: rgb(0, 0, 0, 0.5);
+.duel-button:disabled {
+    box-shadow: none;
+    border: none;
+    cursor: default;
+}
+
+.duel-button:not(:disabled):hover {
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 6px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 /* Popup overlay */
