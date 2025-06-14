@@ -88,6 +88,7 @@ function tryLoadDefaultCSV() {
 }
 
 function toggleDoubleUpMode() {
+    console.log('Toggling double-up mode');
     const checkbox = document.getElementById('color_mode');
     const active = checkbox.checked;
 
@@ -369,10 +370,7 @@ const searchPlayer = async () => {
             return;
         }
 
-        console.log('Player Data:', playerData);
-
         const spectatorData = await fetchLiveGame(playerInput, server);
-        console.log('Spectator Data:', spectatorData);
 
         if (spectatorData.detail !== undefined) {
             showMessage(spectatorData.detail);
@@ -388,12 +386,13 @@ const searchPlayer = async () => {
 
 function handleSpectatorData(spectatorData, playerData, server) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
-    if (isDoubleUp) {
-        if (!document.body.classList.contains('double-up')) {
-            toggleDoubleUpMode();
-        }
-    } else {
-        if (document.body.classList.contains('double-up')) {
+    console.log(spectatorData);
+
+    const colorModeCheckbox = document.getElementById('color_mode');
+    if (colorModeCheckbox) {
+        // Only update and call toggleDoubleUpMode if the checkbox value needs to change.
+        if (colorModeCheckbox.checked !== isDoubleUp) {
+            colorModeCheckbox.checked = isDoubleUp;
             toggleDoubleUpMode();
         }
     }
@@ -468,7 +467,7 @@ async function updatePlayersDuelButtons(playerData, server) {
 }
 
 function processFindGamesResult(result, duelButton, player2Name, player, playerData, server) {
-    console.log(result);
+    //console.log(result);
     if (isTimeoutOrFailedRetrieval(result)) {
         handleTimeoutOrFailedRetrieval(result, duelButton);
     }
@@ -1264,7 +1263,7 @@ if (typeof itemsContainer !== 'undefined' && itemsContainer) {
     updateItemsContainerFn();
 }
 
-function createAndInsertPlayerRankDiv(playerNameElement, participant) {
+function createAndInsertPlayerRankDiv(participant) {
     const rankDiv = document.createElement('div');
     rankDiv.classList.add('mini-rank-div');
 
@@ -1276,7 +1275,10 @@ function createAndInsertPlayerRankDiv(playerNameElement, participant) {
 
     let rank = '';
     if (participant.tier !== 'CHALLENGER' && participant.tier !== 'MASTER' && participant.tier !== 'GRANDMASTER' && participant.tier !== 'UNRANKED') {
-        rank = participant.rank;
+        rank = participant.rank + ' - ';
+    }
+    else if (participant.tier === 'UNRANKED') {
+        rank = 'Unranked';
     }
 
     const rankText = document.createElement('span');
@@ -1284,7 +1286,9 @@ function createAndInsertPlayerRankDiv(playerNameElement, participant) {
     rankText.classList.add('mini-rank-text');
 
     const lpText = document.createElement('span');
-    lpText.textContent = participant.league_points + ' LP';
+    if (participant.tier!==null && participant.tier !== 'UNRANKED') {
+        lpText.textContent = participant.league_points + ' LP';
+    }
     lpText.classList.add('mini-rank-text');
 
     rankDiv.append(miniRankImg, rankText, lpText);
@@ -1308,7 +1312,7 @@ function updatePlayers(participants) {
                 participantInfoContainer.appendChild(playerNameElement);
 
                 // Create the mini rank div and add it to the container
-                const miniRankDiv = createAndInsertPlayerRankDiv(playerNameElement, participant);
+                const miniRankDiv = createAndInsertPlayerRankDiv(participant);
                 participantInfoContainer.appendChild(miniRankDiv);
 
                 // Insert the container right before the div with class "color-bar"
