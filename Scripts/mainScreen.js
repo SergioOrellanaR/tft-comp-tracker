@@ -345,6 +345,11 @@ function showMessage(message) {
     }, 3000);
 }
 
+const resetLoadingState = (spinner, searchButton) => {
+    spinner.remove();
+    searchButton.disabled = false;
+};
+
 const searchPlayer = async () => {
     resetPlayers();
     // Remove any existing container
@@ -380,26 +385,28 @@ const searchPlayer = async () => {
     // Append spinner so that it uses the same space as error messages
     const spinner = createLoadingSpinner();
     messageContainer.appendChild(spinner);
+    const searchButton = document.getElementById('searchPlayerButton');
+    searchButton.disabled = true;
     try {
         const playerData = await fetchPlayerSummary(playerInput, server);
         
         if (!playerData) {
-            spinner.remove();
+            resetLoadingState(spinner, searchButton);
             return;
         }
 
         const spectatorData = await fetchLiveGame(playerInput, server);
 
         if (spectatorData.detail !== undefined) {
-            spinner.remove();
+            resetLoadingState(spinner, searchButton);
             showMessage(spectatorData.detail);
             return;
         }
         
-        spinner.remove();
+        resetLoadingState(spinner, searchButton);
         handleSpectatorData(spectatorData, playerData, server);
     } catch (error) {
-        spinner.remove();
+        resetLoadingState(spinner, searchButton);
         console.log(error);
         showMessage('Failed to fetch data');
     }
