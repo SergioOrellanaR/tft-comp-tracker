@@ -264,26 +264,6 @@ function enableDuoDragAndDrop() {
     });
 }
 
-function getDefaultNames(isDoubleUp) {
-    return isDoubleUp
-        ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
-        : ['YOU', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8'];
-}
-
-function getTeamIcon(index) {
-    const teamIndex = Math.floor(index / 2);
-    return CONFIG.iconOptions[teamIndex % CONFIG.iconOptions.length];
-}
-
-function createTeamContainer(player1, player2, icon, index) {
-    const container = document.createElement('div');
-    container.classList.add('team-container');
-    container.style.border = `1px solid ${icon.color}`;
-    const iconCircle = createTeamIcon(icon, player1, player2, container);
-    container.append(player1, iconCircle, player2);
-    return container;
-}
-
 function createTeamIcon(icon, player1, player2, container) {
     let currentIndex = 0;
 
@@ -314,6 +294,26 @@ function updateIconColor(circle, icon, player1, player2, container) {
     circle.style.border = `2px solid ${icon.color}`;
     container.style.border = `1px solid ${icon.color}`;
     drawLines();
+}
+
+function getDefaultNames(isDoubleUp) {
+    return isDoubleUp
+        ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
+        : ['YOU', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8'];
+}
+
+function getTeamIcon(index) {
+    const teamIndex = Math.floor(index / 2);
+    return CONFIG.iconOptions[teamIndex % CONFIG.iconOptions.length];
+}
+
+function createTeamContainer(player1, player2, icon, index) {
+    const container = document.createElement('div');
+    container.classList.add('team-container');
+    container.style.border = `1px solid ${icon.color}`;
+    const iconCircle = createTeamIcon(icon, player1, player2, container);
+    container.append(player1, iconCircle, player2);
+    return container;
 }
 
 function createPlayerDiv(name, index, isDoubleUp) {
