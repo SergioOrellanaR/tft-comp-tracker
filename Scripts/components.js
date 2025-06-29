@@ -12,7 +12,7 @@ import {
     getTFTSetImageUrl
 } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
-import { getFormattedDateTime, getRelativeTime } from './utils.js';
+import { getFormattedDateTime, getRelativeTime, getUserLocalDateTime } from './utils.js';
 
 // Constants for stat item icons and tooltips
 const ICON_GOLD = '💰';
@@ -735,26 +735,36 @@ const createMatchStats = (matchStats) => {
     const statsDiv = document.createElement('div');
     statsDiv.className = 'match-stats-detail';
 
+    // matchStats.match_datetime viene en hora de Toronto; lo convertimos a la hora local del usuario
+    const localDateTime = getUserLocalDateTime(matchStats.match_datetime);
+
+    // Usamos la fecha/hora local para formatear y calcular tiempo relativo
+    const formattedDateTime = getFormattedDateTime(localDateTime);
+    const relativeTime      = getRelativeTime(localDateTime);
+
+    // Determinar texto de cola
     let queueText = '';
-    if (matchStats.queue_id === 1100) {
-        queueText = 'Ranked';
-    } else if (matchStats.queue_id === 1090) {
-        queueText = 'Standard';
-    } else if (matchStats.queue_id === 1160) {
-        queueText = 'Double up';
-    } else {
-        queueText = matchStats.queue_id;
+    switch (matchStats.queue_id) {
+        case 1100: queueText = 'Ranked'; break;
+        case 1090: queueText = 'Standard'; break;
+        case 1160: queueText = 'Double up'; break;
+        default:   queueText = matchStats.queue_id;
     }
 
-    const formattedDateTime = getFormattedDateTime(matchStats.match_datetime);
-    const relativeTime = getRelativeTime(matchStats.match_datetime);
-
     statsDiv.innerHTML = `
-        <span class="match-stats-datetime" title="${formattedDateTime}">${relativeTime}</span>
-        <span class="match-stats-length">${matchStats.game_length}</span>
-        <span class="match-stats-queue">${queueText}</span>        
+        <span class="match-stats-datetime" title="${formattedDateTime}">
+            ${relativeTime}
+        </span>
+        <span class="match-stats-length">
+            ${matchStats.game_length}
+        </span>
+        <span class="match-stats-queue">
+            ${queueText}
+        </span>
         <span class="match-stats-link">
-            <a href="https://tactics.tools/player/-/-/-/${matchStats.match_id}" target="_blank">More info</a>
+            <a href="https://tactics.tools/player/-/-/-/${matchStats.match_id}" target="_blank">
+                More info
+            </a>
         </span>
     `;
     return statsDiv;
