@@ -204,77 +204,82 @@ function preloadPlayers() {
 }
 
 function enableDuoDragAndDrop() {
-    // Instead of dragging whole teams, we enable dragging individual players within team containers.
     const playerElements = document.querySelectorAll('.team-container .item.player');
     const throttledDrawLines = throttle(drawLines, 50);
 
     playerElements.forEach(player => {
         player.setAttribute('draggable', true);
+        addDuoDragEvents(player, throttledDrawLines);
+    });
+}
 
-        player.addEventListener('dragstart', (e) => {
-            // Required for drag to work.
-            e.dataTransfer.setData('text/plain', '');
-            player.classList.add('dragging');
-        });
+function addDuoDragEvents(player, throttledDrawLines) {
+    player.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', '');
+        player.classList.add('dragging');
+    });
 
-        player.addEventListener('dragenter', (e) => {
-            e.preventDefault();
-            // Highlight potential drop target
-            if (!player.classList.contains('dragging')) {
-                player.classList.add('drop-target');
-            }
-        });
+    player.addEventListener('dragenter', (e) => {
+        e.preventDefault();
+        if (!player.classList.contains('dragging')) {
+            player.classList.add('drop-target');
+        }
+    });
 
-        player.addEventListener('dragleave', () => {
-            // Remove highlight when leaving
-            player.classList.remove('drop-target');
-        });
+    player.addEventListener('dragleave', () => {
+        player.classList.remove('drop-target');
+    });
 
-        player.addEventListener('dragover', (e) => {
-            e.preventDefault();
-        });
+    player.addEventListener('dragover', (e) => {
+        e.preventDefault();
+    });
 
-        player.addEventListener('drop', (e) => {
-            e.preventDefault();
-            player.classList.remove('drop-target');
-            const dragging = document.querySelector('.team-container .item.player.dragging');
-            if (!dragging || dragging === player) return;
+    player.addEventListener('drop', (e) => {
+        e.preventDefault();
+        handlePlayerSwap(player, throttledDrawLines);
+    });
 
-            const sourceContainer = dragging.closest('.team-container');
-            const targetContainer = player.closest('.team-container');
-            if (!sourceContainer || !targetContainer) return;
+    player.addEventListener('dragend', () => {
+        player.classList.remove('dragging', 'drop-target');
+        throttledDrawLines();
+    });
+}
 
-            // Only swap players if they are in different team containers.
-            if (sourceContainer !== targetContainer) {
-                // Use a temporary placeholder to swap the two player elements safely.
-                const placeholder = document.createElement('div');
-                targetContainer.replaceChild(placeholder, player);
-                sourceContainer.replaceChild(player, dragging);
-                targetContainer.replaceChild(dragging, placeholder);
+function handlePlayerSwap(targetPlayer, throttledDrawLines) {
+    targetPlayer.classList.remove('drop-target');
+    const draggingPlayer = document.querySelector('.team-container .item.player.dragging');
+    
+    if (!draggingPlayer || draggingPlayer === targetPlayer) return;
 
-                // After swapping, update the team icon players reference for both containers.
-                [sourceContainer, targetContainer].forEach(container => {
-                    if (container.classList.contains('team-container')) {
-                        const iconCircle = container.querySelector('.team-icon');
-                        // Get the player elements from the container.
-                        const teamPlayers = container.querySelectorAll('.item.player');
-                        if (iconCircle && teamPlayers.length >= 2) {
-                            updateIconColor(iconCircle, iconCircle._iconConfig, teamPlayers[0], teamPlayers[1], container);
-                        }
-                    }
-                });
+    const sourceContainer = draggingPlayer.closest('.team-container');
+    const targetContainer = targetPlayer.closest('.team-container');
+    
+    if (!sourceContainer || !targetContainer || sourceContainer === targetContainer) return;
 
-                updatePlayerColorBars();
-            }
-            dragging.classList.remove('dragging');
-            throttledDrawLines();
-        });
+    swapPlayers(draggingPlayer, targetPlayer, sourceContainer, targetContainer);
+    updateTeamIcons([sourceContainer, targetContainer]);
+    updatePlayerColorBars();
+    draggingPlayer.classList.remove('dragging');
+    throttledDrawLines();
+}
 
-        player.addEventListener('dragend', () => {
-            player.classList.remove('dragging');
-            player.classList.remove('drop-target');
-            throttledDrawLines();
-        });
+function swapPlayers(player1, player2, container1, container2) {
+    const placeholder = document.createElement('div');
+    container2.replaceChild(placeholder, player2);
+    container1.replaceChild(player2, player1);
+    container2.replaceChild(player1, placeholder);
+}
+
+function updateTeamIcons(containers) {
+    containers.forEach(container => {
+        if (!container.classList.contains('team-container')) return;
+        
+        const iconCircle = container.querySelector('.team-icon');
+        const teamPlayers = container.querySelectorAll('.item.player');
+        
+        if (iconCircle && teamPlayers.length >= 2) {
+            updateIconColor(iconCircle, iconCircle._iconConfig, teamPlayers[0], teamPlayers[1], container);
+        }
     });
 }
 
@@ -283,35 +288,37 @@ function createTeamIcon(icon, player1, player2, container) {
 
     const circle = document.createElement('div');
     circle.classList.add('team-icon');
-    circle.style.border = `2px solid ${icon.color}`;
-    circle.textContent = icon.emoji;
-    circle.title = icon.name;
-    // Save the original icon configuration for later updates.
     circle._iconConfig = icon;
-    updateIconColor(circle, icon, player1, player2, container);
-
+    
+    setupTeamIcon(circle, icon, player1, player2, container);
+    
     circle.onclick = (e) => {
         e.stopPropagation();
         currentIndex = (currentIndex + 1) % CONFIG.iconOptions.length;
         const newIcon = CONFIG.iconOptions[currentIndex];
-        // Update the saved configuration and then refresh UI with current team players.
         circle._iconConfig = newIcon;
+        
         const teamPlayers = container.querySelectorAll('.item.player');
-        if (teamPlayers.length >= 2) {
-            updateIconColor(circle, newIcon, teamPlayers[0], teamPlayers[1], container);
-        } else {
-            updateIconColor(circle, newIcon, player1, player2, container);
-        }
+        const [p1, p2] = teamPlayers.length >= 2 ? teamPlayers : [player1, player2];
+        updateIconColor(circle, newIcon, p1, p2, container);
     };
 
     return circle;
 }
 
+function setupTeamIcon(circle, icon, player1, player2, container) {
+    circle.style.border = `2px solid ${icon.color}`;
+    circle.textContent = icon.emoji;
+    circle.title = icon.name;
+    updateIconColor(circle, icon, player1, player2, container);
+}
+
 function updateIconColor(circle, icon, player1, player2, container) {
-    [player1, player2].forEach(p => {
-        p.dataset.color = icon.color;
-        p.style.borderRight = `10px solid ${icon.color}`;
+    [player1, player2].forEach(player => {
+        player.dataset.color = icon.color;
+        player.style.borderRight = `10px solid ${icon.color}`;
     });
+    
     circle.textContent = icon.emoji;
     circle.title = icon.name;
     circle.style.border = `2px solid ${icon.color}`;
