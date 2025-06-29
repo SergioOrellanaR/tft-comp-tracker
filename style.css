@@ -308,8 +308,10 @@ canvas {
     text-align: center;
     font-size: 0.75rem;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for definition */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Light box shadow */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    /* Subtle text shadow for definition */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    /* Light box shadow */
     opacity: 1;
 }
 
@@ -658,6 +660,11 @@ input:focus~.input-border {
 /* =====================================================================
     Colores según el Coste
 ===================================================================== */
+[class^="unit-cost-"] {
+    width: 40px;
+    height: 40px;
+}
+
 .unit-cost-1 {
     background: #808080;
 }
@@ -1863,6 +1870,11 @@ input:focus~.input-border {
         /* hides overflow content */
         text-overflow: ellipsis;
         /* optional: adds "..." if it's a single line */
+    }
+
+    [class^="unit-cost-"] {
+        width: 33px;
+        height: 33px;
     }
 }
 
