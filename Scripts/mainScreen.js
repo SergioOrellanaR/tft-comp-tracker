@@ -217,12 +217,26 @@ function enableDuoDragAndDrop() {
             player.classList.add('dragging');
         });
 
+        player.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            // Highlight potential drop target
+            if (!player.classList.contains('dragging')) {
+                player.classList.add('drop-target');
+            }
+        });
+
+        player.addEventListener('dragleave', (e) => {
+            // Remove highlight when leaving
+            player.classList.remove('drop-target');
+        });
+
         player.addEventListener('dragover', (e) => {
             e.preventDefault();
         });
 
         player.addEventListener('drop', (e) => {
             e.preventDefault();
+            player.classList.remove('drop-target');
             const dragging = document.querySelector('.team-container .item.player.dragging');
             if (!dragging || dragging === player) return;
 
@@ -244,24 +258,10 @@ function enableDuoDragAndDrop() {
 
         player.addEventListener('dragend', () => {
             player.classList.remove('dragging');
+            player.classList.remove('drop-target');
             throttledDrawLines();
         });
     });
-}
-
-function getDragAfterTeamElement(container, y) {
-    const teamElements = [...container.querySelectorAll('.team-container:not(.dragging)')];
-
-    return teamElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-        } else {
-            return closest;
-        }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
 
 function getDefaultNames(isDoubleUp) {
