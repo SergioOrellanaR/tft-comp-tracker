@@ -692,66 +692,12 @@ function drawLines() {
 }
 
 function updateUnselectedChampionsTable() {
-    const allPlayers = document.querySelectorAll('.item.player');
-    const allLinkedComps = new Set(links.map(link => link.compo));
     const container = document.getElementById('infoTableContainer');
-
+    // clear any previous tables/titles
     container.querySelectorAll('.table-container').forEach(table => table.remove());
     container.querySelectorAll('.table-title').forEach(title => title.remove());
 
-    const maxPlayers = allPlayers.length;
-    if (links.length >= maxPlayers - 2 && links.length > 0) {
-        const selectedChampions = new Set();
-        allLinkedComps.forEach(compo => {
-            const unitIcons = compo.querySelectorAll('.unit-icons img');
-            unitIcons.forEach(img => selectedChampions.add(img.alt));
-        });
-
-        const allChampionsInComps = new Set();
-        document.querySelectorAll('.item.compo .unit-icons img').forEach(img => {
-            allChampionsInComps.add(img.alt);
-        });
-
-        const unselectedChampions = Array.from(allChampionsInComps)
-            .filter(champ => !selectedChampions.has(champ) && unitCostMap[champ] > 1);
-
-        const championsByCost = {};
-        unselectedChampions.forEach(champ => {
-            const cost = unitCostMap[champ] || 0;
-            if (!championsByCost[cost]) {
-                championsByCost[cost] = [];
-            }
-            championsByCost[cost].push(champ);
-        });
-
-        const unselectedTable = document.createElement('div');
-        unselectedTable.classList.add('table-container');
-
-        const title = document.createElement('h3');
-        title.classList.add('table-title');
-        title.textContent = 'Uncontested';
-        container.appendChild(title);
-
-        Object.keys(championsByCost).sort((a, b) => a - b).forEach(cost => {
-            const row = document.createElement('div');
-            championsByCost[cost].forEach(champ => {
-                const cell = document.createElement('div');
-                cell.classList.add(`unit-cost-${cost}`);
-
-                const img = document.createElement('img');
-                img.src = `${unitImageMap[champ]}?w=40`;
-                img.alt = champ;
-                img.title = champ;
-
-                cell.appendChild(img);
-                row.appendChild(cell);
-            });
-            unselectedTable.appendChild(row);
-        });
-
-        container.appendChild(unselectedTable);
-    }
-
+    // keep only the contested-champions logic
     const contestedChampions = {};
     const championPlayers = {};
 
@@ -765,10 +711,7 @@ function updateUnselectedChampionsTable() {
         unitIcons.forEach(img => {
             const champName = img.alt;
             contestedChampions[champName] = (contestedChampions[champName] || 0) + 1;
-
-            if (!championPlayers[champName]) {
-                championPlayers[champName] = [];
-            }
+            championPlayers[champName] = championPlayers[champName] || [];
             championPlayers[champName].push({ name: playerName, color: playerColor });
         });
     });
@@ -780,55 +723,48 @@ function updateUnselectedChampionsTable() {
         const heavilyContestedByCost = {};
         heavilyContested.forEach(champ => {
             const cost = unitCostMap[champ] || 0;
-            if (!heavilyContestedByCost[cost]) {
-                heavilyContestedByCost[cost] = [];
-            }
+            heavilyContestedByCost[cost] = heavilyContestedByCost[cost] || [];
             heavilyContestedByCost[cost].push(champ);
         });
 
         const heavilyContestedTable = document.createElement('div');
         heavilyContestedTable.classList.add('table-container');
-
         const heavilyContestedTitle = document.createElement('h3');
         heavilyContestedTitle.classList.add('table-title');
         heavilyContestedTitle.textContent = 'Heavily contested';
         container.appendChild(heavilyContestedTitle);
 
-        Object.keys(heavilyContestedByCost).sort((a, b) => a - b).forEach(cost => {
-            const row = document.createElement('div');
-            heavilyContestedByCost[cost].forEach(champ => {
-                const cell = document.createElement('div');
-                cell.classList.add(`unit-cost-${cost}`);
-                cell.style.position = 'relative';
+        Object.keys(heavilyContestedByCost).sort((a, b) => a - b)
+            .forEach(cost => {
+                const row = document.createElement('div');
+                heavilyContestedByCost[cost].forEach(champ => {
+                    const cell = document.createElement('div');
+                    cell.classList.add(`unit-cost-${cost}`);
+                    cell.style.position = 'relative';
 
-                const img = document.createElement('img');
-                img.src = `${unitImageMap[champ]}?w=40`;
-                img.alt = champ;
+                    const img = document.createElement('img');
+                    img.src = `${unitImageMap[champ]}?w=40`;
+                    img.alt = champ;
 
-                const players = championPlayers[champ];
-                if (players.length > 0) {
-                    const gradientColors = players.map((player, index) => {
-                        const percentage = (index / players.length) * 100;
-                        return `${player.color} ${percentage}%, ${player.color} ${(index + 1) / players.length * 100}%`;
+                    const players = championPlayers[champ];
+                    const gradientColors = players.map((p,i) => {
+                        const pct = (i/players.length)*100;
+                        return `${p.color} ${pct}%, ${p.color} ${(i+1)/players.length*100}%`;
                     }).join(', ');
-
                     img.style.border = '4px solid transparent';
                     img.style.borderImage = `linear-gradient(to right, ${gradientColors}) 1`;
-
-                    const playerNames = players.map(player => player.name).join(', ');
-                    img.title = `${playerNames}`;
+                    img.title = players.map(p => p.name).join(', ');
 
                     const counter = document.createElement('span');
                     counter.className = 'contested-counter';
                     counter.textContent = players.length;
                     cell.appendChild(counter);
-                }
 
-                cell.appendChild(img);
-                row.appendChild(cell);
+                    cell.appendChild(img);
+                    row.appendChild(cell);
+                });
+                heavilyContestedTable.appendChild(row);
             });
-            heavilyContestedTable.appendChild(row);
-        });
 
         container.appendChild(heavilyContestedTable);
     }
@@ -1064,12 +1000,6 @@ function select(el, type) {
         selected.el.classList.remove('selected');
         selected = null;
         drawLines();
-
-        const allPlayers = document.querySelectorAll('.item.player');
-        const allLinkedPlayers = new Set(links.map(link => link.player));
-        if (allPlayers.length === allLinkedPlayers.size) {
-            updateUnselectedChampionsTable();
-        }
     } else {
         if (selected) selected.el.classList.remove('selected');
         selected = { el, type };
