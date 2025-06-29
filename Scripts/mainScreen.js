@@ -225,7 +225,7 @@ function enableDuoDragAndDrop() {
             }
         });
 
-        player.addEventListener('dragleave', (e) => {
+        player.addEventListener('dragleave', () => {
             // Remove highlight when leaving
             player.classList.remove('drop-target');
         });
@@ -251,6 +251,20 @@ function enableDuoDragAndDrop() {
                 targetContainer.replaceChild(placeholder, player);
                 sourceContainer.replaceChild(player, dragging);
                 targetContainer.replaceChild(dragging, placeholder);
+
+                // After swapping, update the team icon players reference for both containers.
+                [sourceContainer, targetContainer].forEach(container => {
+                    if (container.classList.contains('team-container')) {
+                        const iconCircle = container.querySelector('.team-icon');
+                        // Get the player elements from the container.
+                        const teamPlayers = container.querySelectorAll('.item.player');
+                        if (iconCircle && teamPlayers.length >= 2) {
+                            updateIconColor(iconCircle, iconCircle._iconConfig, teamPlayers[0], teamPlayers[1], container);
+                        }
+                    }
+                });
+
+                updatePlayerColorBars();
             }
             dragging.classList.remove('dragging');
             throttledDrawLines();
@@ -272,13 +286,22 @@ function createTeamIcon(icon, player1, player2, container) {
     circle.style.border = `2px solid ${icon.color}`;
     circle.textContent = icon.emoji;
     circle.title = icon.name;
+    // Save the original icon configuration for later updates.
+    circle._iconConfig = icon;
     updateIconColor(circle, icon, player1, player2, container);
 
     circle.onclick = (e) => {
         e.stopPropagation();
         currentIndex = (currentIndex + 1) % CONFIG.iconOptions.length;
         const newIcon = CONFIG.iconOptions[currentIndex];
-        updateIconColor(circle, newIcon, player1, player2, container);
+        // Update the saved configuration and then refresh UI with current team players.
+        circle._iconConfig = newIcon;
+        const teamPlayers = container.querySelectorAll('.item.player');
+        if (teamPlayers.length >= 2) {
+            updateIconColor(circle, newIcon, teamPlayers[0], teamPlayers[1], container);
+        } else {
+            updateIconColor(circle, newIcon, player1, player2, container);
+        }
     };
 
     return circle;
