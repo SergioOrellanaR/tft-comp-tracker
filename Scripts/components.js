@@ -573,42 +573,102 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
     const historyModal = document.createElement('div');
     historyModal.id = 'historyModal';
     historyModal.isFetching = false;
-    // Save TFT set state on the modal so it persists between paginations.
     historyModal.TFTSet = null;
     historyModal.previousTFTSet = null;
 
-    // Grab cached data if available.
-    const cachedData = duelsCache.get(player2Name) || {};
-    let commonMatchesCached = cachedData.commonMatches || null;
-    console.log('Cached player 2 info:', cachedData);
+    const cached = duelsCache.get(player2Name) || {};
+    let matchesState = cached.commonMatches || null;
 
-    if (commonMatchesCached) {
-        // Build matches container using historyModal state.
-        const matchesContainer = buildMatchesContainer(commonMatchesCached.match_list, historyModal);
-        historyModal.appendChild(matchesContainer);
-        addPaginationScrollListener(historyModal, commonMatchesCached, playerData, player2Name, server, duelsCache);
+    const render = () => {
+        historyModal.innerHTML = '';
+        const { current_page, total_pages, match_list } = matchesState;
+        const tooFew = match_list.length < 10 && current_page < total_pages;
+
+        if (tooFew) {
+            const info = document.createElement('span');
+            info.className = 'info-text';
+            info.textContent = 'Both players share too many duo games';
+
+            const btn = document.createElement('button');
+            btn.textContent = 'Find More';
+            btn.addEventListener('click', loadMore);
+
+            historyModal.append(info, btn);
+        } else {
+            // only insert matchesContainer once we have 10+ or no more pages
+            const container = buildMatchesContainer(match_list, historyModal);
+            historyModal.appendChild(container);
+
+            if (current_page < total_pages) {
+                addPaginationScrollListener(
+                    historyModal,
+                    matchesState,
+                    playerData,
+                    player2Name,
+                    server,
+                    duelsCache
+                );
+            }
+        }
+    };
+
+    const loadMore = async () => {
+        const btn = historyModal.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Loading...';
+
+        try {
+            const nextPage = matchesState.current_page + 1;
+            const more = await fetchCommonMatches(playerData.name, player2Name, server, nextPage);
+
+            matchesState.current_page = more.current_page;
+            matchesState.total_pages = more.total_pages;
+            matchesState.match_list = matchesState.match_list.concat(more.match_list);
+
+            // if still fewer than 10 and more pages, just update state
+            if (matchesState.match_list.length < 10 && matchesState.current_page < matchesState.total_pages) {
+                // keep button and info
+                return;
+            }
+
+            // once we have 10+ or last page, re-render full container
+            // clear and show all matches + infinite scroll if needed
+            render();
+
+            // update cache
+            const cacheEntry = duelsCache.get(player2Name) || {};
+            cacheEntry.commonMatches = matchesState;
+            duelsCache.set(player2Name, cacheEntry);
+        } catch (err) {
+            console.error(err);
+        } finally {
+            if (historyModal.querySelector('button')) {
+                btn.disabled = false;
+                btn.textContent = 'Find More';
+            }
+        }
+    };
+
+    if (matchesState) {
+        render();
     } else {
         const spinner = createLoadingSpinner("Loading common matches");
         historyModal.appendChild(spinner);
+
         fetchCommonMatches(playerData.name, player2Name, server)
-            .then(matchesData => {
-                // Update the cache.
-                const duelData = duelsCache.get(player2Name) || {};
-                duelData.commonMatches = matchesData;
-                duelsCache.set(player2Name, duelData);
-                commonMatchesCached = matchesData;
-                console.log('matchesData from API:', matchesData);
-                console.log('Cached player 2 info after API call:', duelsCache.get(player2Name) || {});
-                historyModal.innerHTML = '';
-                const matchesContainer = buildMatchesContainer(matchesData.match_list, historyModal);
-                historyModal.appendChild(matchesContainer);
-                addPaginationScrollListener(historyModal, matchesData, playerData, player2Name, server, duelsCache);
+            .then(data => {
+                matchesState = data;
+                const cacheEntry = duelsCache.get(player2Name) || {};
+                cacheEntry.commonMatches = data;
+                duelsCache.set(player2Name, cacheEntry);
             })
-            .catch(error => {
+            .then(render)
+            .catch(err => {
+                console.error(err);
                 historyModal.innerHTML = '<p>Error loading common matches.</p>';
-                console.error("Error in fetchCommonMatches:", error);
             });
     }
+
     return historyModal;
 }
 
@@ -740,7 +800,7 @@ const createMatchStats = (matchStats) => {
 
     // Usamos la fecha/hora local para formatear y calcular tiempo relativo
     const formattedDateTime = getFormattedDateTime(localDateTime);
-    const relativeTime      = getRelativeTime(localDateTime);
+    const relativeTime = getRelativeTime(localDateTime);
 
     // Determinar texto de cola
     let queueText = '';
@@ -748,7 +808,7 @@ const createMatchStats = (matchStats) => {
         case 1100: queueText = 'Ranked'; break;
         case 1090: queueText = 'Standard'; break;
         case 1160: queueText = 'Double up'; break;
-        default:   queueText = matchStats.queue_id;
+        default: queueText = matchStats.queue_id;
     }
 
     statsDiv.innerHTML = `
