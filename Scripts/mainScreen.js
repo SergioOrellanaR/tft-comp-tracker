@@ -47,11 +47,11 @@ function throttle(func, limit) {
     };
 }
 
-function getContrastYIQ(hexcolor){
-    var r = parseInt(hexcolor.substring(1,3),16);
-    var g = parseInt(hexcolor.substring(3,5),16);
-    var b = parseInt(hexcolor.substring(5,7),16);
-    var yiq = ((r*299)+(g*587)+(b*114))/1000;
+function getContrastYIQ(hexcolor) {
+    var r = parseInt(hexcolor.substring(1, 3), 16);
+    var g = parseInt(hexcolor.substring(3, 5), 16);
+    var b = parseInt(hexcolor.substring(5, 7), 16);
+    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
     return (yiq >= 128) ? 'black' : 'white';
 }
 
@@ -110,7 +110,7 @@ function toggleDoubleUpMode() {
     drawLines();
 }
 
-function enableDragAndDrop() {
+function enableSoloDragAndDrop() {
     const playerElements = document.querySelectorAll('.item.player');
     const throttledDrawLines = throttle(drawLines, 50); // Limitar a 1 llamada cada 50ms
 
@@ -193,11 +193,75 @@ function preloadPlayers() {
         }
     });
 
-    if (!isDoubleUp) {
-        enableDragAndDrop(); // Habilitar drag & drop después de cargar los jugadores
+    if (isDoubleUp) {
+        enableDuoDragAndDrop();
+    }
+    else {
+        enableSoloDragAndDrop();
     }
 
     updatePlayerColorBars(); // Llama una vez para establecer los color-bars fijos
+}
+
+function enableDuoDragAndDrop() {
+    // Instead of dragging whole teams, we enable dragging individual players within team containers.
+    const playerElements = document.querySelectorAll('.team-container .item.player');
+    const throttledDrawLines = throttle(drawLines, 50);
+
+    playerElements.forEach(player => {
+        player.setAttribute('draggable', true);
+
+        player.addEventListener('dragstart', (e) => {
+            // Required for drag to work.
+            e.dataTransfer.setData('text/plain', '');
+            player.classList.add('dragging');
+        });
+
+        player.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        player.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const dragging = document.querySelector('.team-container .item.player.dragging');
+            if (!dragging || dragging === player) return;
+
+            const sourceContainer = dragging.closest('.team-container');
+            const targetContainer = player.closest('.team-container');
+            if (!sourceContainer || !targetContainer) return;
+
+            // Only swap players if they are in different team containers.
+            if (sourceContainer !== targetContainer) {
+                // Use a temporary placeholder to swap the two player elements safely.
+                const placeholder = document.createElement('div');
+                targetContainer.replaceChild(placeholder, player);
+                sourceContainer.replaceChild(player, dragging);
+                targetContainer.replaceChild(dragging, placeholder);
+            }
+            dragging.classList.remove('dragging');
+            throttledDrawLines();
+        });
+
+        player.addEventListener('dragend', () => {
+            player.classList.remove('dragging');
+            throttledDrawLines();
+        });
+    });
+}
+
+function getDragAfterTeamElement(container, y) {
+    const teamElements = [...container.querySelectorAll('.team-container:not(.dragging)')];
+
+    return teamElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
 
 function getDefaultNames(isDoubleUp) {
@@ -389,7 +453,7 @@ const searchPlayer = async () => {
     searchButton.disabled = true;
     try {
         const playerData = await fetchPlayerSummary(playerInput, server);
-        
+
         if (!playerData) {
             resetLoadingState(spinner, searchButton);
             return;
@@ -402,7 +466,7 @@ const searchPlayer = async () => {
             showMessage(spectatorData.detail);
             return;
         }
-        
+
         resetLoadingState(spinner, searchButton);
         handleSpectatorData(spectatorData, playerData, server);
     } catch (error) {
@@ -451,7 +515,7 @@ async function updatePlayersDuelButtons(playerData, server) {
         if (!player.querySelector('.duel-button')) {
             // Get the opponent's name from the player element.
             const player2Name = player.querySelector('.player-name').textContent.trim();
-            
+
             if (playerData.name === player2Name) {
                 player.querySelector('.player-name').textContent = player.querySelector('.player-name').textContent.trim() + " (YOU)";
                 player.querySelector('.participant-info-container').style.marginLeft = '28px';
@@ -1315,7 +1379,7 @@ function createAndInsertPlayerRankDiv(participant) {
     rankText.classList.add('mini-rank-text');
 
     const lpText = document.createElement('span');
-    if (participant.tier!==null && participant.tier !== 'UNRANKED') {
+    if (participant.tier !== null && participant.tier !== 'UNRANKED') {
         lpText.textContent = participant.league_points + ' LP';
     }
     lpText.classList.add('mini-rank-text');
