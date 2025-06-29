@@ -1,4 +1,4 @@
-import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL, TRAIT_BACKGROUND_URL } from './config.js';
+import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL, TRAIT_BACKGROUND_URL, SET_IMAGE_BASE_URL } from './config.js';
 
 /**
  * Función genérica para realizar solicitudes a la API de TFT Versus.
@@ -136,7 +136,7 @@ export function getTraitBackgroundUrl(tier_current, tier_total, num_units) {
         case 1:
             return TRAIT_BACKGROUND_URL.bronze;
         case 2:
-            if(tier_total === 2) {
+            if (tier_total === 2) {
                 return TRAIT_BACKGROUND_URL.gold;
             }
             return TRAIT_BACKGROUND_URL.silver;
@@ -150,4 +150,42 @@ export function getTraitBackgroundUrl(tier_current, tier_total, num_units) {
         default:
             return TRAIT_BACKGROUND_URL.gold;
     }
+}
+
+export function getTFTSetImageUrl(set) {
+    const manualCovers = {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "3.5": 4,
+        "4": 5,
+        "4.5": 6,
+        "5": 7,
+        "5.5": 8,
+        "6": 9,
+        "6.5": 10,
+        "7": 11,
+        "7.5": 12,
+        "8": 13,
+        "8.5": 14,
+        "9": 15
+    };
+
+    // Convert to string to support fractional keys like "3.5"
+    const key = set.toString();
+
+    let imageNumber;
+    if (manualCovers.hasOwnProperty(key)) {
+        imageNumber = manualCovers[key];
+    } else {
+        // Set 10 starts at cover 17
+        const setNum = parseFloat(set);
+        if (setNum >= 10) {
+            imageNumber = setNum + 7;
+        } else {
+            return null; // No cover found
+        }
+    }
+
+    return `${SET_IMAGE_BASE_URL}${String(imageNumber).padStart(2, "0")}.jpg`;
 }

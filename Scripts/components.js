@@ -1,4 +1,4 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl, getTraitBackgroundUrl } from './tftVersusHandler.js';
+import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl, getTraitBackgroundUrl, getTFTSetImageUrl } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
 
 // Constants for stat item icons and tooltips
@@ -656,10 +656,8 @@ const buildMatchesContainer = (matches, state) => {
         if (state.TFTSet === null || state.TFTSet !== match.tft_set_number) {
             state.TFTSet = match.tft_set_number;
             console.log('TFTSet changed:', state.previousTFTSet, state.TFTSet);
-            const setLabel = document.createElement('div');
-            setLabel.className = 'match-set-label';
-            setLabel.textContent = `Set ${state.TFTSet}`;
-            matchesContainer.appendChild(setLabel);
+            // Append the set label created by the new helper method.
+            matchesContainer.appendChild(createSetLabel(state.TFTSet));
         }
         const player1Placement = match.player1_game_details.placement;
         const player2Placement = match.player2_game_details.placement;
@@ -687,6 +685,19 @@ const buildMatchesContainer = (matches, state) => {
     });
     return matchesContainer;
 };
+
+function createSetLabel(tftSet) {
+    const text = `Set ${tftSet}`;
+    const setLabel = document.createElement('div');
+    setLabel.className = 'match-set-label';
+    const imageUrl = getTFTSetImageUrl(tftSet);
+    if (imageUrl === null) {
+        setLabel.textContent = text;
+    } else {
+        setLabel.innerHTML = `<img src="${imageUrl}" alt="${text}" title="${text}" style="width:180px; height:94px; object-fit:cover; border-radius:10px; border:2px solid #ccc; box-shadow:0 2px 8px rgba(0, 0, 0, 0.2);">`;
+    }
+    return setLabel;
+}
 
 // Helper function to create the contested div for a match.
 function createContestDiv(match) {

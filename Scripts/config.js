@@ -32,6 +32,8 @@ export const TRAIT_BACKGROUND_URL = {
     unique: 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-tft-team-planner/global/default/images/cteamplanner_activetrait_kunique.png',
 }
 
+export const SET_IMAGE_BASE_URL = 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_';
+
 export const CONFIG = {
     mainPlayerColor: '#000435',
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9', '#a0ff4c'],
