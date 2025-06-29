@@ -1097,13 +1097,57 @@ const resetPlayers = () => {
     }
 };
 
-// Nueva función auxiliar para crear el elemento de composición
-function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
-    const div = document.createElement('div');
-    div.className = 'item compo';
-    div.dataset.id = 'compo-' + index;
+// Nueva función auxiliar para crear el contenedor de estilo
+function createStyleContainer(estilo) {
+    const styleContainer = document.createElement('div');
+    styleContainer.className = 'comp-style';
+    const compStyle = document.createElement('span');
+    compStyle.textContent = estilo;
+    compStyle.style.opacity = '0.7';
+    compStyle.style.fontSize = '0.9em';
+    styleContainer.appendChild(compStyle);
+    return styleContainer;
+}
 
-    // Contenedor de iconos de unidades
+// Nueva función auxiliar para crear el contenedor de estrella
+function createUncontestedContainer() {
+    const starContainer = document.createElement('div');
+    starContainer.className = 'comp-star';
+    Object.assign(starContainer.style, {
+
+    });
+
+    const starIcon = document.createElement('span');
+    starIcon.className = 'star-icon';
+    starIcon.textContent = '⭐';
+    //starIcon.style.visibility = 'hidden';
+    // Show tooltip text on hover
+    starIcon.title = 'Uncontested';
+
+    starContainer.appendChild(starIcon);
+    return starContainer;
+}
+
+// Nueva función auxiliar para crear la info de la composición
+function createCompInfo(comp) {
+    const compInfo = document.createElement('div');
+    compInfo.className = 'comp-info';
+    const compName = document.createElement('span');
+    compName.className = 'comp-name';
+    compName.textContent = comp;
+    compInfo.appendChild(compName);
+    return compInfo;
+}
+
+// Nueva función auxiliar para crear el contenedor de items
+function createItemsContainer() {
+    const itemsContainer = document.createElement('div');
+    itemsContainer.className = 'items-container';
+    return itemsContainer;
+}
+
+// Nueva función auxiliar para crear los iconos de unidades
+function createUnitIcons(units) {
     const unitIcons = document.createElement('div');
     unitIcons.className = 'unit-icons';
     units.forEach(unit => {
@@ -1114,57 +1158,48 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
             unitIcons.appendChild(img);
         }
     });
+    return unitIcons;
+}
 
-    // Contenedor de información de la composición
-    const compInfo = document.createElement('div');
-    compInfo.className = 'comp-info';
-    const compName = document.createElement('span');
-    compName.className = 'comp-name';
-    compName.textContent = comp;
-    compInfo.appendChild(compName);
+// Nueva función auxiliar para crear el botón de teambuilder
+function createTeambuilderButton(teambuilderUrl) {
+    if (!teambuilderUrl) return null;
+    const tbDiv = document.createElement('div');
+    tbDiv.className = 'teambuilder-btn-container';
+    const tbButton = document.createElement('a');
+    tbButton.className = 'teambuilder-btn';
+    tbButton.href = teambuilderUrl;
+    tbButton.target = '_blank';
+    tbButton.title = "Open in teambuilder";
+    tbButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="15" height="15" viewBox="0 0 24 24">
+            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
+            <path d="M5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5z"/>
+            <path d="M5 19h4v2H5c-1.1 0-2-.9-2-2v-4h2v4z"/>
+            <path d="M19 19h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z"/>
+        </svg>`;
+    tbButton.addEventListener('click', e => e.stopPropagation());
+    tbDiv.appendChild(tbButton);
+    return tbDiv;
+}
 
-    // Contenedores de items y estilo
-    const itemsContainer = document.createElement('div');
-    itemsContainer.className = 'items-container';
-    const styleContainer = document.createElement('div');
-    styleContainer.className = 'comp-style';
-    const compStyle = document.createElement('span');
-    compStyle.textContent = estilo;
-    compStyle.style.opacity = '0.7';
-    compStyle.style.fontSize = '0.9em';
-    styleContainer.appendChild(compStyle);
+// Refactorización de createCompoElement utilizando las funciones auxiliares
+function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
+    const div = document.createElement('div');
+    div.className = 'item compo';
+    div.dataset.id = 'compo-' + index;
 
-    // Agregar todos los contenedores al elemento compo
-    div.appendChild(styleContainer);
-    div.appendChild(compInfo);
-    div.appendChild(itemsContainer);
-    div.appendChild(unitIcons);
+    const styleContainer = createStyleContainer(estilo);
+    const starContainer = createUncontestedContainer();
+    const compInfo       = createCompInfo(comp);
+    const itemsContainer = createItemsContainer();
+    const unitIcons      = createUnitIcons(units);
+    const tbButtonDiv    = createTeambuilderButton(teambuilderUrl);
 
-    // Add team builder icon at the right if URL is provided
-    if (teambuilderUrl) {
-        const tbDiv = document.createElement('div');
-        tbDiv.className = 'teambuilder-btn-container';
-        const tbButton = document.createElement('a');
-        tbButton.className = 'teambuilder-btn';
-        tbButton.href = teambuilderUrl;
-        tbButton.target = '_blank';
-        tbButton.title = "Open in teambuilder";
-        tbButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="15" height="15" viewBox="0 0 24 24">
-  <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
-  <path d="M5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5z"/>
-  <path d="M5 19h4v2H5c-1.1 0-2-.9-2-2v-4h2v4z"/>
-  <path d="M19 19h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z"/>
-</svg>`;
-        // Prevent the team builder button from marking the comp for links
-        tbButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-        tbDiv.appendChild(tbButton);
-        div.appendChild(tbDiv);
-    }
+    div.append(styleContainer, starContainer, compInfo, itemsContainer, unitIcons);
+    if (tbButtonDiv) div.appendChild(tbButtonDiv);
 
     div.onclick = () => select(div, 'compo');
-
     return div;
 }
 

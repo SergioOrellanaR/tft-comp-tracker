@@ -166,7 +166,7 @@ button:hover {
 
 /* Comps Container */
 #right {
-    width: 30%;
+    width: 32%;
     padding: 0.5rem;
     overflow: visible !important;
     display: flex;
@@ -691,7 +691,7 @@ input:focus~.input-border {
 .comp-info {
     flex: 1;
     text-align: left;
-    margin-left: 20px;
+    margin-left: 5px;
     min-width: 30%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -705,6 +705,14 @@ input:focus~.input-border {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.comp-star {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .teambuilder-btn-container {
