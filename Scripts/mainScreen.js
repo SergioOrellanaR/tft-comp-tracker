@@ -1,6 +1,7 @@
 import { CONFIG } from './config.js';
 import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
+import { fetchCSV, parseCSV, throttle, getContrastYIQ } from './utils.js';
 
 // Variables globales
 let selected = null;
@@ -15,45 +16,6 @@ const compsContainer = document.getElementById('compos');
 const playersContainer = document.getElementById('players');
 const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
-
-// Utilidades generales
-const fetchCSV = async (route) => {
-    const response = await fetch(route);
-    return response.text();
-};
-
-const parseCSV = (csvText) => {
-    return csvText.split(/\r?\n/).map(line => line.split(',').map(x => x.trim()));
-};
-
-// Función de throttling
-function throttle(func, limit) {
-    let lastFunc;
-    let lastRan;
-    return function (...args) {
-        const context = this;
-        if (!lastRan) {
-            func.apply(context, args);
-            lastRan = Date.now();
-        } else {
-            clearTimeout(lastFunc);
-            lastFunc = setTimeout(function () {
-                if (Date.now() - lastRan >= limit) {
-                    func.apply(context, args);
-                    lastRan = Date.now();
-                }
-            }, limit - (Date.now() - lastRan));
-        }
-    };
-}
-
-function getContrastYIQ(hexcolor) {
-    var r = parseInt(hexcolor.substring(1, 3), 16);
-    var g = parseInt(hexcolor.substring(3, 5), 16);
-    var b = parseInt(hexcolor.substring(5, 7), 16);
-    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-    return (yiq >= 128) ? 'black' : 'white';
-}
 
 // Cargar datos de Units.csv
 const loadUnitImages = async () => {
