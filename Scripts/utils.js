@@ -64,13 +64,43 @@ export function getRelativeTime(rawDateTime) {
     return `${Math.floor(days/365)} ${Math.floor(days/365)===1?"year":"years"} ago`;
 }
 
-export function getUserLocalDateTime() {
-    const now = new Date();
-    const year   = now.getFullYear();
-    const month  = String(now.getMonth() + 1).padStart(2, '0');
-    const day    = String(now.getDate()).padStart(2, '0');
-    const hour   = String(now.getHours()).padStart(2, '0');
-    const minute = String(now.getMinutes()).padStart(2, '0');
-    const second = String(now.getSeconds()).padStart(2, '0');
-    return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+export function convertToUserLocalDateTime(rawDateTime) {
+    // helper: get minutes offset for a given IANA timezone at a specific date
+    function getOffsetMinutes(date, timeZone) {
+        const opts = {
+            timeZone,
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', second: '2-digit',
+            hour12: false,
+            timeZoneName: 'short'
+        };
+        const parts = new Intl.DateTimeFormat('en-US', opts).formatToParts(date);
+        const tzPart = parts.find(p => p.type === 'timeZoneName')?.value || '';
+        const m = /GMT([+-]\d+)/.exec(tzPart);
+        const hrs = m ? Number(m[1]) : 0;
+        // getTimezoneOffset convention: minutes to ADD to local to get UTC
+        return -hrs * 60;
+    }
+
+    const [datePart, timePart] = rawDateTime.split(' ');
+    const [year, month, day] = datePart.split('-').map(Number);
+    const [hour, minute, second] = timePart.split(':').map(Number);
+
+    // interpret the input as if it were in user's local TZ
+    const localParsed = new Date(year, month - 1, day, hour, minute, second);
+    const torontoOffset = getOffsetMinutes(localParsed, 'America/Toronto');
+    const localOffset = localParsed.getTimezoneOffset();
+
+    // shift the timestamp by the difference (Toronto → user local)
+    const correctedTs = localParsed.getTime() + (torontoOffset - localOffset) * 60000;
+    const localDate = new Date(correctedTs);
+
+    const Y = localDate.getFullYear();
+    const M = String(localDate.getMonth() + 1).padStart(2, '0');
+    const D = String(localDate.getDate()).padStart(2, '0');
+    const h = String(localDate.getHours()).padStart(2, '0');
+    const m = String(localDate.getMinutes()).padStart(2, '0');
+    const s = String(localDate.getSeconds()).padStart(2, '0');
+
+    return `${Y}-${M}-${D} ${h}:${m}:${s}`;
 }

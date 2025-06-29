@@ -12,7 +12,7 @@ import {
     getTFTSetImageUrl
 } from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
-import { getFormattedDateTime, getRelativeTime, getUserLocalDateTime } from './utils.js';
+import { getFormattedDateTime, getRelativeTime, convertToUserLocalDateTime } from './utils.js';
 
 // Constants for stat item icons and tooltips
 const ICON_GOLD = '💰';
@@ -736,7 +736,7 @@ const createMatchStats = (matchStats) => {
     statsDiv.className = 'match-stats-detail';
 
     // matchStats.match_datetime viene en hora de Toronto; lo convertimos a la hora local del usuario
-    const localDateTime = getUserLocalDateTime(matchStats.match_datetime);
+    const localDateTime = convertToUserLocalDateTime(matchStats.match_datetime);
 
     // Usamos la fecha/hora local para formatear y calcular tiempo relativo
     const formattedDateTime = getFormattedDateTime(localDateTime);
