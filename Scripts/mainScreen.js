@@ -842,10 +842,7 @@ function applyChampionFilters() {
         const unitIcons = compo.querySelectorAll('.unit-icons img');
         unitIcons.forEach(img => {
             const champName = img.alt;
-            if (!championUsage[champName]) {
-                championUsage[champName] = 0;
-            }
-            championUsage[champName]++;
+            championUsage[champName] = (championUsage[champName] || 0) + 1;
         });
     });
 
@@ -853,12 +850,18 @@ function applyChampionFilters() {
         const unitIcons = compo.querySelectorAll('.unit-icons img');
         unitIcons.forEach(img => {
             const champName = img.alt;
-            if (championUsage[champName] > 0) {
-                img.style.filter = 'grayscale(100%)';
-            } else {
-                img.style.filter = 'none';
-            }
+            img.style.filter = (championUsage[champName] > 0)
+                ? 'grayscale(100%)'
+                : 'none';
         });
+
+        // ←  Aquí: ocultar estrella si hay algún champ grisado
+        const hasGrayed = Array.from(unitIcons)
+            .some(img => img.style.filter === 'grayscale(100%)');
+        const starIcon = compo.querySelector('.star-icon');
+        if (starIcon) {
+            starIcon.style.visibility = hasGrayed ? 'hidden' : 'visible';
+        }
     });
 }
 
