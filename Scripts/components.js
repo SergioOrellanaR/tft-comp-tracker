@@ -694,7 +694,7 @@ function createSetLabel(tftSet) {
     if (imageUrl === null) {
         setLabel.textContent = text;
     } else {
-        setLabel.innerHTML = `<img src="${imageUrl}" alt="${text}" title="${text}" style="width:180px; height:94px; object-fit:cover; border-radius:10px; border:2px solid #ccc; box-shadow:0 2px 8px rgba(0, 0, 0, 0.2);">`;
+        setLabel.innerHTML = `<img src="${imageUrl}" alt="${text}" title="${text}" style="width:165px; height:86px; object-fit:cover; border-radius:10px; border:2px solid #ccc; box-shadow:0 2px 8px rgba(0, 0, 0, 0.2);">`;
     }
     return setLabel;
 }
