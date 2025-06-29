@@ -1,5 +1,18 @@
-import { CDragonBaseUrl, getProfileIconUrl, getRankIconUrl, fetchDuelStats, fetchCommonMatches, fetchPlayerSummary, getChampionImageUrl, getItemImageUrl, getTierImageUrl, getTraitBackgroundUrl, getTFTSetImageUrl } from './tftVersusHandler.js';
+import {
+    CDragonBaseUrl,
+    getProfileIconUrl,
+    getRankIconUrl,
+    fetchDuelStats,
+    fetchCommonMatches,
+    fetchPlayerSummary,
+    getChampionImageUrl,
+    getItemImageUrl,
+    getTierImageUrl,
+    getTraitBackgroundUrl,
+    getTFTSetImageUrl
+} from './tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
+import { getFormattedDateTime, getRelativeTime } from './utils.js';
 
 // Constants for stat item icons and tooltips
 const ICON_GOLD = '💰';
@@ -615,19 +628,19 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
                         matchesData.current_page = newMatchesData.current_page;
                         matchesData.total_pages = newMatchesData.total_pages;
                         matchesData.match_list = matchesData.match_list.concat(newMatchesData.match_list);
-                        
+
                         // Update duelsCache for player2Name with the new matches data.
                         const duelData = duelsCache.get(player2Name) || {};
                         duelData.commonMatches = matchesData;
                         duelsCache.set(player2Name, duelData);
-                        
+
                         const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list, historyModal);
                         historyModal.appendChild(newMatchesContainer);
-                        
+
                         // Remove the spinner once loading is done.
                         spinner.remove();
                         historyModal.isFetching = false;
-                        
+
                         // Remove scroll listener if current_page is equal or greater than total_pages.
                         if (matchesData.current_page >= matchesData.total_pages) {
                             historyModal.removeEventListener('scroll', onScroll);
@@ -671,15 +684,15 @@ const buildMatchesContainer = (matches, state) => {
         // Create a wrapper for player1 and player2 details.
         const playersWrapper = document.createElement('div');
         playersWrapper.className = 'match-player-details-wrapper';
-        
+
         playersWrapper.appendChild(createMatchPlayer1Detail(match.player1_game_details, player1Placement < player2Placement));
-        
+
         // Create the contested div using the helper method.
         const contestDiv = createContestDiv(match);
         playersWrapper.appendChild(contestDiv);
-        
+
         playersWrapper.appendChild(createMatchPlayer2Detail(match.player2_game_details, player2Placement < player1Placement));
-    
+
         matchDiv.appendChild(playersWrapper);
         matchesContainer.appendChild(matchDiv);
     });
@@ -703,7 +716,7 @@ function createSetLabel(tftSet) {
 function createContestDiv(match) {
     const contestDiv = document.createElement('div');
     contestDiv.className = 'match-contest-div';
-    
+
     const percentage = match.contested_percentage;
     let color;
     if (percentage <= 50) {
@@ -713,62 +726,10 @@ function createContestDiv(match) {
     } else {
         color = '#ff5252';
     }
-    
+
     contestDiv.innerHTML = `<span style="font-size:1em; color:${color};"> ${percentage}%</span><br><span style="font-size:0.6em;">Contested</span>`;
     return contestDiv;
 }
-
-// Helper method to format datetime from "YYYY-MM-DD HH:mm:ss" to "DD-MM-YYYY HH:mm"
-const getFormattedDateTime = (rawDateTime) => {
-    const [datePart, timePart] = rawDateTime.split(" ");
-    const [year, month, day] = datePart.split("-");
-    const [hour, minute] = timePart.split(":");
-    return `${day}-${month}-${year} ${hour}:${minute}`;
-};
-
-// Helper method to calculate relative time from a raw date string ("YYYY-MM-DD HH:mm:ss")
-const getRelativeTime = (rawDateTime) => {
-    const [datePart, timePart] = rawDateTime.split(" ");
-    const [year, month, day] = datePart.split("-");
-    const [hour, minute, second] = timePart.split(":");
-    const matchDateTime = new Date(`${year}-${month}-${day}T${hour}:${minute}:${second}`);
-    const now = new Date();
-    const diffMs = now - matchDateTime;
-
-    if (diffMs < 0) {
-        return getFormattedDateTime(rawDateTime);
-    }
-
-    const seconds = diffMs / 1000;
-    const minutes = seconds / 60;
-    const hours = minutes / 60;
-    const days = hours / 24;
-    const weeks = days / 7;
-    const months = days / 30;
-    const years = days / 365;
-
-    if (seconds < 60) {
-        return "Just now";
-    } else if (minutes < 60) {
-        const mins = Math.floor(minutes);
-        return `${mins} ${mins === 1 ? "minute" : "minutes"} ago`;
-    } else if (hours < 24) {
-        const hrs = Math.floor(hours);
-        return `${hrs} ${hrs === 1 ? "hour" : "hours"} ago`;
-    } else if (days < 7) {
-        const dys = Math.floor(days);
-        return `${dys} ${dys === 1 ? "day" : "days"} ago`;
-    } else if (days < 30) {
-        const wks = Math.floor(weeks);
-        return `${wks} ${wks === 1 ? "week" : "weeks"} ago`;
-    } else if (days < 365) {
-        const mths = Math.floor(months);
-        return `${mths} ${mths === 1 ? "month" : "months"} ago`;
-    } else {
-        const yrs = Math.floor(years);
-        return `${yrs} ${yrs === 1 ? "year" : "years"} ago`;
-    }
-};
 
 const createMatchStats = (matchStats) => {
     const statsDiv = document.createElement('div');
