@@ -73,11 +73,11 @@ function resizeCanvas() {
 
 window.addEventListener('resize', resizeCanvas);
 
-function tryLoadDefaultCSV() {
+function tryLoadDefaultData() {
     loadMetaSnapshot().then((metaData) => {
         if (metaData) {
             loadCompsFromJSON(metaData);
-            createCoreItemsButtons();
+            createCoreItemsButtons(metaData.items);
         }
     });
 }
@@ -411,7 +411,7 @@ function createEditIcon(span) {
     return icon;
 }
 
-tryLoadDefaultCSV();
+tryLoadDefaultData();
 
 function showMessage(message) {
     const messageContainer = document.getElementById('messageContainer');
@@ -1263,7 +1263,7 @@ canvas.addEventListener('click', e => {
     }
 });
 
-function createCoreItemsButtons() {
+function createCoreItemsButtons(items) {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
 
