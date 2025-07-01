@@ -12,7 +12,8 @@ export const TFT_VERSUS_API_URL = {
 export const THIRD_PARTY_IMG_URL = {
     champions: 'https://cdn.metatft.com/file/metatft/champions',
     items: 'https://cdn.metatft.com/file/metatft/items',
-    tiers: 'https://cdn.metatft.com/file/metatft/tiers'
+    tiers: 'https://cdn.metatft.com/file/metatft/tiers',
+    setCover: 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_'
 }
 
 export const CDRAGON_URL = {
@@ -32,8 +33,6 @@ export const TRAIT_BACKGROUND_URL = {
     unique: 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-tft-team-planner/global/default/images/cteamplanner_activetrait_kunique.png',
 }
 
-export const SET_IMAGE_BASE_URL = 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_';
-
 export const CONFIG = {
     mainPlayerColor: '#000435',
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9', '#a0ff4c'],
@@ -47,12 +46,14 @@ export const CONFIG = {
         S: '#FF7F7F',
         A: '#FFBF7F',
         B: '#FFFF7F',
-        C: '#BFFF7F'
+        C: '#BFFF7F',
+        X: '#7FFF7F'
     },
     routes: {
         comps: 'Data/Comps.csv',
         items: 'Data/Items.csv',
-        units: 'Data/Units.csv'
+        units: 'Data/Units.csv',
+        metaSnapshot: 'Data/MetaSnapshot.csv'
     },
     iconOptions: [
         { name: 'Water', color: '#4cffe9', emoji: '💧' },
