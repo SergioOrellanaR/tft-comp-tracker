@@ -1313,7 +1313,6 @@ function createCoreItemsButtons(metaItems) {
 
             btn.onclick = () => {
                 const active = btn.classList.toggle('active');
-                btn.style.filter = active ? 'none' : 'grayscale(100%)';
                 document.querySelectorAll('.items-container').forEach(ctn => {
                     const units = Array.from(
                         ctn.closest('.item.compo').querySelectorAll('.unit-icons img')
