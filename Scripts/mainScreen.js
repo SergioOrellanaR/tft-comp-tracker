@@ -798,33 +798,29 @@ function updateUnselectedChampionsTable() {
 }
 
 function applyChampionFilters() {
-    const championUsage = {};
-
+    // Build set of champions present on any linked comp
+    const selectedChamps = {};
     links.forEach(link => {
-        const compo = link.compo;
-        const unitIcons = compo.querySelectorAll('.unit-icons img');
-        unitIcons.forEach(img => {
-            const champName = img.alt;
-            championUsage[champName] = (championUsage[championUsage] || 0) + 1;
+        link.compo.querySelectorAll('.unit-icons img').forEach(img => {
+            selectedChamps[img.alt] = true;
         });
     });
 
+    // For each comp, hide star if it contains any selected champion
     document.querySelectorAll('.item.compo').forEach(compo => {
         const unitIcons = compo.querySelectorAll('.unit-icons img');
+        const hideStar = Array.from(unitIcons).some(img => selectedChamps[img.alt]);
+        const starIcon = compo.querySelector('.star-icon');
+        if (starIcon) {
+            starIcon.style.visibility = hideStar ? 'hidden' : 'visible';
+        }
+
+        // Gray out any contested champion icon
         unitIcons.forEach(img => {
-            const champName = img.alt;
-            img.style.filter = (championUsage[championUsage] > 0)
+            img.style.filter = selectedChamps[img.alt]
                 ? 'grayscale(100%)'
                 : 'none';
         });
-
-        // ←  Aquí: ocultar estrella si hay algún champ grisado
-        const hasGrayed = Array.from(unitIcons)
-            .some(img => img.style.filter === 'grayscale(100%)');
-        const starIcon = compo.querySelector('.star-icon');
-        if (starIcon) {
-            starIcon.style.visibility = hasGrayed ? 'hidden' : 'visible';
-        }
     });
 }
 
