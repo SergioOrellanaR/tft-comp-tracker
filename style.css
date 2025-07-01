@@ -343,6 +343,18 @@ canvas {
     gap: 8px;
 }
 
+.main-augment-item-container {
+    display: flex;
+    width: 28px;
+    height: 28px;
+    margin: 0 5px;
+}
+
+.main-augment-item-container img {
+    width: 100%;
+    height: 100%;
+}
+
 .unit-icons img {
     width: 28px;
     height: 28px;
@@ -701,14 +713,16 @@ input:focus~.input-border {
 .comp-style {
     text-align: center;
     font-style: italic;
-    width: 40px;
+    max-width: 40px;
+    min-width: 40px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .comp-star {
-    width: 16px;
+    max-width: 16px;
+    min-width: 16px;
     height: 16px;
     display: flex;
     align-items: center;

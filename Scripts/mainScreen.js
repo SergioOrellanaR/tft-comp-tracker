@@ -1140,19 +1140,38 @@ function createTeambuilderButton(teambuilderUrl) {
 }
 
 // Refactorización de createCompoElement utilizando las funciones auxiliares
-function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
+function createAugmentItemContainer(mainAugment, mainItem) {
+    const container = document.createElement('div');
+    container.className = 'main-augment-item-container';
+    if (mainAugment && mainAugment.apiName) {
+        const img = document.createElement('img');
+        img.src = getAugmentWEBPImageUrl(mainAugment.apiName);
+        img.alt = mainAugment.apiName;
+        container.appendChild(img);
+    } else if ((!mainAugment || !mainAugment.apiName) && mainItem && mainItem.apiName) {
+        const img = document.createElement('img');
+        img.src = getItemWEBPImageUrl(mainItem.apiName);
+        img.alt = mainItem.apiName;
+        container.appendChild(img);
+    }
+    return container;
+}
+
+function createCompoElement({ comp, index, estilo, units, teambuilderUrl, mainAugment, mainItem }) {
     const div = document.createElement('div');
     div.className = 'item compo';
     div.dataset.id = 'compo-' + index;
 
     const styleContainer = createStyleContainer(estilo);
-    const starContainer = createUncontestedContainer();
+    const starContainer  = createUncontestedContainer();
+    const augmentItemContainer = createAugmentItemContainer(mainAugment, mainItem);
+
     const compInfo       = createCompInfo(comp);
     const itemsContainer = createItemsContainer();
     const unitIcons      = createUnitIcons(units);
     const tbButtonDiv    = createTeambuilderButton(teambuilderUrl);
 
-    div.append(styleContainer, starContainer, compInfo, itemsContainer, unitIcons);
+    div.append(styleContainer, starContainer, augmentItemContainer, compInfo, itemsContainer, unitIcons);
     if (tbButtonDiv) div.appendChild(tbButtonDiv);
 
     div.onclick = () => select(div, 'compo');
@@ -1194,7 +1213,9 @@ function loadCompsFromJSON(metaData) {
                 index,
                 estilo: comp.style,
                 units: sortedUnits,
-                teambuilderUrl: comp.url
+                teambuilderUrl: comp.url,
+                mainAugment: comp.mainAugment || {},
+                mainItem:    comp.mainItem    || {}
             });
             tiers[tier].push({ name: comp.title, element: compoElement });
         }
@@ -1287,7 +1308,6 @@ function createCoreItemsButtons(metaItems) {
             const btn = document.createElement('button');
             btn.className = 'core-item-button';
             btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemApiName)})`;
-            btn.title = itemApiName;
             btn.onclick = () => {
                 const active = btn.classList.toggle('active');
                 btn.style.filter = active ? 'none' : 'grayscale(100%)';
