@@ -1206,7 +1206,6 @@ function loadCompsFromJSON(metaData) {
                 });
 
             const sortedUnits = [mainChamp, ...otherChamps];
-            console.log(`Compo ${index}: ${comp.title} (${tier}) - Units: ${sortedUnits.join(', ')}`);
 
             const compoElement = createCompoElement({
                 comp: comp.title,
@@ -1308,6 +1307,10 @@ function createCoreItemsButtons(metaItems) {
             const btn = document.createElement('button');
             btn.className = 'core-item-button';
             btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemApiName)})`;
+            
+            // store apiName in data-item instead of title
+            btn.dataset.item = itemApiName;
+
             btn.onclick = () => {
                 const active = btn.classList.toggle('active');
                 btn.style.filter = active ? 'none' : 'grayscale(100%)';
@@ -1332,7 +1335,7 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
 
     const activeItems = Array.from(
         document.querySelectorAll('.core-item-button.active')
-    ).map(button => button.title);
+    ).map(button => button.dataset.item);
 
     const compElement = itemsContainer.closest('.item.compo');
     const compIndex = parseInt(compElement.dataset.id.split('-')[1], 10);
@@ -1340,17 +1343,15 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
 
     const itemToChampionsMap = {};
 
-    // Base itemized champions
-    unitsInComp.forEach(unit => {
-        const unitData = units.find(u => u.Unit === unit);
-        if (unitData) {
-            [unitData.Item1, unitData.Item2, unitData.Item3].forEach(item => {
-                if (item && activeItems.includes(item)) {
-                    if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
-                    itemToChampionsMap[item].push(unit);
-                }
-            });
-        }
+    // Base itemized champions: use this comp’s itemizedChampions
+    compData.itemizedChampions.forEach(champion => {
+        const champName = champion.apiName.replace('TFT14_', '');
+        champion.items.forEach(item => {
+            if (item && activeItems.includes(item)) {
+                if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
+                itemToChampionsMap[item].push(champName);
+            }
+        });
     });
 
     // Include altBuilds champions

@@ -274,12 +274,6 @@ canvas {
     opacity: 0.5;
 }
 
-.comp-name {
-    font-size: 0.9rem;
-    color: var(--text-accent);
-    font-weight: 500;
-}
-
 /* Selección */
 .selected {
     background-color: #555 !important;
@@ -315,11 +309,19 @@ canvas {
     opacity: 1;
 }
 
+.item.compo:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.02);
+    cursor: pointer;
+    color: #fff;
+}
+
 /* Comps: Items estilo */
 .item.compo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;       /* align all children to left except the auto-margin one */
+    gap: 8px;                          /* uniform spacing between elements */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 10px;
@@ -331,34 +333,37 @@ canvas {
     transition: all 0.3s ease;
 }
 
-.item.compo:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: scale(1.02);
-    cursor: pointer;
-    color: #fff;
-}
+/* force a stable order */
+.comp-style                  { order: 1; }
+.comp-star                   { order: 2; }
+.main-augment-item-container { order: 3; }
+.comp-info                   { order: 4; flex: 1; /* take available space */ }
+.items-container             { order: 5; }
+.unit-icons                  { order: 6; }
+/* ensure teambuilder is always at the end and pushes itself right */
+.teambuilder-btn-container   { order: 7; margin-left: auto; }
 
+/* layout & sizing */
 .unit-icons {
     display: flex;
     gap: 8px;
 }
-
-.main-augment-item-container {
-    display: flex;
-    width: 28px;
-    height: 28px;
-    margin: 0 5px;
-}
-
-.main-augment-item-container img {
-    width: 100%;
-    height: 100%;
-}
-
 .unit-icons img {
     width: 28px;
     height: 28px;
     border-radius: 40%;
+}
+
+.main-augment-item-container {
+    display: flex;
+    max-width: 28px;
+    min-width: 28px;
+    height: 28px;
+    margin: 0 5px;
+}
+.main-augment-item-container img {
+    width: 100%;
+    height: 100%;
 }
 
 /* Tablas y Elementos de Campeones */
@@ -700,15 +705,24 @@ input:focus~.input-border {
 /* =====================================================================
     Estilos Extra para Comps
 ===================================================================== */
+
 .comp-info {
     flex: 1;
     text-align: left;
     margin-left: 5px;
     min-width: 30%;
+    max-width: 30%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.comp-name {
+    font-size: 0.9rem;
+    color: var(--text-accent);
+    font-weight: 500;
+}
+
 
 .comp-style {
     text-align: center;
