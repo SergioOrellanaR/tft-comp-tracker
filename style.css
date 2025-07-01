@@ -309,63 +309,6 @@ canvas {
     opacity: 1;
 }
 
-.item.compo:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: scale(1.02);
-    cursor: pointer;
-    color: #fff;
-}
-
-/* Comps: Items estilo */
-.item.compo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;       /* align all children to left except the auto-margin one */
-    gap: 8px;                          /* uniform spacing between elements */
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 1px 4px;
-    margin: 4px 0;
-    color: #ddd;
-    font-size: 0.7rem;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
-}
-
-/* force a stable order */
-.comp-style                  { order: 1; }
-.comp-star                   { order: 2; }
-.main-augment-item-container { order: 3; }
-.comp-info                   { order: 4; flex: 1; /* take available space */ }
-.items-container             { order: 5; }
-.unit-icons                  { order: 6; }
-/* ensure teambuilder is always at the end and pushes itself right */
-.teambuilder-btn-container   { order: 7; margin-left: auto; }
-
-/* layout & sizing */
-.unit-icons {
-    display: flex;
-    gap: 8px;
-}
-.unit-icons img {
-    width: 28px;
-    height: 28px;
-    border-radius: 40%;
-}
-
-.main-augment-item-container {
-    display: flex;
-    max-width: 28px;
-    min-width: 28px;
-    height: 28px;
-    margin: 0 5px;
-}
-.main-augment-item-container img {
-    width: 100%;
-    height: 100%;
-}
-
 /* Tablas y Elementos de Campeones */
 table {
     width: 100%;
@@ -647,14 +590,6 @@ input:focus~.input-border {
 /* =====================================================================
     Estilos para Items Container y Contador
 ===================================================================== */
-.items-container {
-    display: flex;
-    gap: 4px;
-    justify-content: flex-start;
-    align-items: center;
-    width: 250px;
-    overflow: hidden;
-}
 
 .contested-counter {
     position: absolute;
@@ -705,42 +640,94 @@ input:focus~.input-border {
 /* =====================================================================
     Estilos Extra para Comps
 ===================================================================== */
+/* =====================================================================
+    Comps items
+===================================================================== */
+.item.compo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2px 6px;
+    margin: 2px 0;
+    color: #ddd;
+    font-size: 0.7rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    height: 36px;
+    min-height: 36px;
+}
+
+.item.compo:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.01);
+    cursor: pointer;
+    color: #fff;
+}
+
+.comp-style {
+    flex: 0 0 46px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.7rem;
+    opacity: 0.75;
+}
+
+.comp-star {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-augment-item-container {
+    width: 24px;
+    height: 24px;
+    margin: 0 4px;
+    flex-shrink: 0;
+}
+
+.main-augment-item-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 .comp-info {
     flex: 1;
     text-align: left;
-    margin-left: 5px;
-    min-width: 30%;
-    max-width: 30%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.comp-name {
-    font-size: 0.9rem;
-    color: var(--text-accent);
+    margin-left: 4px;
+    min-width: 80px;
     font-weight: 500;
-}
-
-
-.comp-style {
-    text-align: center;
-    font-style: italic;
-    max-width: 40px;
-    min-width: 40px;
-    white-space: nowrap;
+    color: #fff;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.7rem;
 }
 
-.comp-star {
-    max-width: 16px;
-    min-width: 16px;
-    height: 16px;
+.items-container {
     display: flex;
+    gap: 3px;
     align-items: center;
-    justify-content: center;
+    max-width: 220px;
+    overflow-x: auto;
+}
+
+.unit-icons {
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
+}
+
+.unit-icons img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .teambuilder-btn-container {
@@ -748,7 +735,12 @@ input:focus~.input-border {
 }
 
 .teambuilder-btn {
-    margin-left: 8px;
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+}
+
+.teambuilder-btn:hover {
+    transform: scale(1.08);
 }
 
 /* =====================================================================
@@ -1709,7 +1701,7 @@ input:focus~.input-border {
     color: #fff;
     text-align: center;
     line-height: 1.2;
-    backdrop-filter: blur(4px);
+
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     z-index: 10;
@@ -1804,17 +1796,18 @@ input:focus~.input-border {
         border-width: 1px !important;
     }
 
-    .item.compo {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .comp-info {
         text-align: center;
         min-width: 10%;
         text-overflow: ellipsis;
     }
 
+    .comp-star {
+        display: none;
+    }
+    .main-augment-item-container {
+        display: none;
+    }
     .unit-icons {
         display: none !important;
     }
