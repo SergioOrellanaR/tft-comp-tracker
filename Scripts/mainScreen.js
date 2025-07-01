@@ -1169,19 +1169,30 @@ function loadCompsFromJSON(metaData) {
     metaData.comps.forEach((comp, index) => {
         const tier = comp.tier;
         if (tiers[tier]) {
-            // Extract main champions from itemizedChampions
-            const mainChampions = comp.itemizedChampions
-                .slice(0, 3)
-                .map(champion => champion.apiName.replace('TFT14_', ''));
-            
-            // Sort units by cost and then alphabetically
-            const sortedUnits = mainChampions.sort((a, b) => {
-                const costA = unitCostMap[a] ?? Infinity;
-                const costB = unitCostMap[b] ?? Infinity;
-                const costDiff = costA - costB;
-                return costDiff !== 0 ? costDiff : a.localeCompare(b);
-            });
-            
+            // Build all champions from itemizedChampions
+            const allChamps = comp.itemizedChampions
+                .map(ch => ch.apiName.replace('TFT14_', ''));
+
+            // Ensure mainChampion is included and first
+            const mainChamp = comp.mainChampion?.apiName
+                ? comp.mainChampion.apiName.replace('TFT14_', '')
+                : allChamps[0];
+            if (!allChamps.includes(mainChamp)) {
+                allChamps.unshift(mainChamp);
+            }
+
+            // Filter out the mainChamp and sort the rest by cost & name
+            const others = allChamps
+                .filter(c => c !== mainChamp)
+                .sort((a, b) => {
+                    const costA = unitCostMap[a] ?? Infinity;
+                    const costB = unitCostMap[b] ?? Infinity;
+                    if (costA !== costB) return costA - costB;
+                    return a.localeCompare(b);
+                });
+            // Final ordered units: mainChamp first, then the sorted others
+            const sortedUnits = [mainChamp, ...others];
+
             const compoElement = createCompoElement({
                 comp: comp.title,
                 index,

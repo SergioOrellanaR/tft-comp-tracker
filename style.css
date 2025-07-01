@@ -166,7 +166,7 @@ button:hover {
 
 /* Comps Container */
 #right {
-    width: 32%;
+    width: 40%;
     padding: 0.5rem;
     overflow: visible !important;
     display: flex;
