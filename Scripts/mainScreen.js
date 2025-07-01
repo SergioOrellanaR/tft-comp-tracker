@@ -1,5 +1,5 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl } from './tftVersusHandler.js';
+import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
 import { throttle, getContrastYIQ } from './utils.js';
 
@@ -48,10 +48,14 @@ const loadMetaSnapshot = async () => {
         
         // Load items data
         items = [
-            ...metaData.items.default.map(item => ({ Item: item.replace('TFT_Item_', ''), Url: `https://ap.tft.tools/img/items_s14/${item.replace('TFT_Item_', '')}.png` })),
-            ...metaData.items.artifact.map(item => ({ Item: item.replace('TFT_Item_Artifact_', ''), Url: `https://ap.tft.tools/img/items_s14/${item.replace('TFT_Item_Artifact_', '')}.png` })),
-            ...metaData.items.emblem.map(item => ({ Item: item.replace('TFT14_Item_', '').replace('EmblemItem', ''), Url: `https://ap.tft.tools/img/items_s14/${item.replace('TFT14_Item_', '')}.png` }))
-        ];
+            ...metaData.items.default,
+            ...metaData.items.artifact,
+            ...metaData.items.emblem,
+            ...metaData.items.trait
+        ].map(itemApiName => ({
+            Item: itemApiName,
+            Url: getItemWEBPImageUrl(itemApiName)
+        }));
         
         return metaData;
     } catch (error) {
