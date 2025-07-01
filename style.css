@@ -558,47 +558,58 @@ input:focus~.input-border {
 ===================================================================== */
 #coreItemsContainer {
     display: flex;
-    flex-direction: column;      /* stack each section vertically */
-    gap: 1rem;                   /* space between sections */
+    flex-direction: column;
+    gap: 1.5rem;
     margin-top: 16px;
 }
 
-/* wrapper for each category (Default, Artifact, etc.) */
+/* Section wrapper */
 .core-items-section {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    gap: 4px;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* make the <h4> occupy full width and style it */
-.core-items-section > h4 {
+/* Section title */
+.core-items-section>h4 {
     flex-basis: 100%;
-    margin: 0 0 0.5rem 0;
-    font-size: 1rem;
+    text-align: center;
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
     font-weight: 600;
-    color: var(--text-accent);
+    color: var(--text-accent, #ddd);
+    border-bottom: 1px solid #444;
+    padding-bottom: 4px;
 }
 
+/* Buttons */
 .core-item-button {
-    width: 28px;
-    height: 28px;
-    background-size: contain !important;
+    width: 30px;
+    height: 30px;
+    background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     filter: grayscale(100%);
+    transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .core-item-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.12);
+    filter: grayscale(40%);
 }
 
 .core-item-button.active {
-    outline: 1px solid white;
-    outline-offset: 1px;
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
     filter: none;
 }
 
@@ -1820,9 +1831,11 @@ input:focus~.input-border {
     .comp-star {
         display: none;
     }
+
     .main-augment-item-container {
         display: none;
     }
+
     .unit-icons {
         display: none !important;
     }
