@@ -11,6 +11,7 @@ let unitCostMap = {};
 let items = [];
 let units = [];
 let duelsCache = new Map();
+let metaSnapshotData = null;
 
 const compsContainer = document.getElementById('compos');
 const playersContainer = document.getElementById('players');
@@ -57,6 +58,7 @@ const loadMetaSnapshot = async () => {
             Url: getItemWEBPImageUrl(itemApiName)
         }));
         
+        metaSnapshotData = metaData;
         return metaData;
     } catch (error) {
         console.error('Error loading MetaSnapshot.json:', error);
@@ -803,7 +805,7 @@ function applyChampionFilters() {
         const unitIcons = compo.querySelectorAll('.unit-icons img');
         unitIcons.forEach(img => {
             const champName = img.alt;
-            championUsage[champName] = (championUsage[champName] || 0) + 1;
+            championUsage[champName] = (championUsage[championUsage] || 0) + 1;
         });
     });
 
@@ -811,7 +813,7 @@ function applyChampionFilters() {
         const unitIcons = compo.querySelectorAll('.unit-icons img');
         unitIcons.forEach(img => {
             const champName = img.alt;
-            img.style.filter = (championUsage[champName] > 0)
+            img.style.filter = (championUsage[championUsage] > 0)
                 ? 'grayscale(100%)'
                 : 'none';
         });
@@ -1314,23 +1316,38 @@ function createCoreItemsButtons(metaItems) {
 const updateItemsContainer = (itemsContainer, unitsInComp) => {
     itemsContainer.innerHTML = '';
 
-    const activeItems = Array.from(document.querySelectorAll('.core-item-button.active'))
-        .map(button => button.title);
+    const activeItems = Array.from(
+        document.querySelectorAll('.core-item-button.active')
+    ).map(button => button.title);
+
+    const compElement = itemsContainer.closest('.item.compo');
+    const compIndex = parseInt(compElement.dataset.id.split('-')[1], 10);
+    const compData = metaSnapshotData.comps[compIndex];
 
     const itemToChampionsMap = {};
 
+    // Base itemized champions
     unitsInComp.forEach(unit => {
         const unitData = units.find(u => u.Unit === unit);
         if (unitData) {
             [unitData.Item1, unitData.Item2, unitData.Item3].forEach(item => {
                 if (item && activeItems.includes(item)) {
-                    if (!itemToChampionsMap[item]) {
-                        itemToChampionsMap[item] = [];
-                    }
+                    if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
                     itemToChampionsMap[item].push(unit);
                 }
             });
         }
+    });
+
+    // Include altBuilds champions
+    compData.altBuilds.forEach(ab => {
+        const champ = ab.apiName.replace('TFT14_', '');
+        ab.items.forEach(item => {
+            if (activeItems.includes(item)) {
+                if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
+                itemToChampionsMap[item].push(champ);
+            }
+        });
     });
 
     const displayedItems = new Set();
@@ -1343,10 +1360,10 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
                 img.src = itemData.Url;
                 img.alt = item;
                 img.title = `${item} (Used by: ${champions.join(', ')})`;
-                img.style.width = '20px';
-                img.style.height = '20px';
-                img.style.borderRadius = '4px';
-                img.style.objectFit = 'cover';
+                Object.assign(img.style, {
+                    width: '20px', height: '20px',
+                    borderRadius: '4px', objectFit: 'cover'
+                });
                 itemsContainer.appendChild(img);
                 displayedItems.add(item);
             }
