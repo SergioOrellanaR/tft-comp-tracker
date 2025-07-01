@@ -6,7 +6,7 @@ import {
     fetchCommonMatches,
     fetchPlayerSummary,
     getChampionImageUrl,
-    getItemImageUrl,
+    getItemPNGImageUrl,
     getTierImageUrl,
     getTraitBackgroundUrl,
     getTFTSetImageUrl
@@ -1004,7 +1004,7 @@ const createItemsDiv = (items) => {
         itemDiv.className = 'match-item';
 
         const itemImg = document.createElement('img');
-        itemImg.src = getItemImageUrl(itemId);
+        itemImg.src = getItemPNGImageUrl(itemId);
         itemImg.alt = `Item ${itemId}`;
 
         // Place the item image within the item div.

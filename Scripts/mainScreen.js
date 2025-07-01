@@ -1,7 +1,7 @@
 import { CONFIG } from './config.js';
 import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
-import { fetchCSV, parseCSV, throttle, getContrastYIQ } from './utils.js';
+import { throttle, getContrastYIQ } from './utils.js';
 
 // Variables globales
 let selected = null;
@@ -17,24 +17,47 @@ const playersContainer = document.getElementById('players');
 const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
 
-// Cargar datos de Units.csv
-const loadUnitImages = async () => {
-    const data = await fetchCSV(CONFIG.routes.units);
-    const lines = parseCSV(data);
-
-    lines.forEach(([unit, cost, item1, item2, item3, url]) => {
-        if (unit && url) {
-            unitImageMap[unit] = url;
-            unitCostMap[unit] = parseInt(cost, 10);
-            units.push({ Unit: unit, Item1: item1, Item2: item2, Item3: item3 });
-        }
-    });
-};
-
-// Cargar datos de Items.csv
-const loadItems = async () => {
-    const data = await fetchCSV(CONFIG.routes.items);
-    items = parseCSV(data).slice(1).map(([Item, Url]) => ({ Item, Url }));
+// Replace loadUnitImages and loadItems functions
+const loadMetaSnapshot = async () => {
+    try {
+        const response = await fetch(CONFIG.routes.metaSnapshot);
+        const metaData = await response.json();
+        
+        // Load units data from items
+        metaData.items.default.concat(metaData.items.artifact, metaData.items.emblem, metaData.items.trait).forEach(itemApiName => {
+            // Map item API names to display names and URLs if needed
+            // This might need adjustment based on your item display requirements
+        });
+        
+        // Extract unit data from compositions
+        metaData.comps.forEach(comp => {
+            comp.itemizedChampions.forEach(champion => {
+                const unitName = champion.apiName.replace('TFT14_', '');
+                unitImageMap[unitName] = `https://ap.tft.tools/img/cd14/face/${champion.apiName}.jpg`;
+                unitCostMap[unitName] = champion.cost || 1;
+                
+                // Create unit entry for items
+                units.push({ 
+                    Unit: unitName, 
+                    Item1: champion.items[0] || '', 
+                    Item2: champion.items[1] || '', 
+                    Item3: champion.items[2] || '' 
+                });
+            });
+        });
+        
+        // Load items data
+        items = [
+            ...metaData.items.default.map(item => ({ Item: item.replace('TFT_Item_', ''), Url: `https://ap.tft.tools/img/items_s14/${item.replace('TFT_Item_', '')}.png` })),
+            ...metaData.items.artifact.map(item => ({ Item: item.replace('TFT_Item_Artifact_', ''), Url: `https://ap.tft.tools/img/items_s14/${item.replace('TFT_Item_Artifact_', '')}.png` })),
+            ...metaData.items.emblem.map(item => ({ Item: item.replace('TFT14_Item_', '').replace('EmblemItem', ''), Url: `https://ap.tft.tools/img/items_s14/${item.replace('TFT14_Item_', '')}.png` }))
+        ];
+        
+        return metaData;
+    } catch (error) {
+        console.error('Error loading MetaSnapshot.json:', error);
+        return null;
+    }
 };
 
 function resizeCanvas() {
@@ -47,13 +70,11 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas);
 
 function tryLoadDefaultCSV() {
-    Promise.all([loadUnitImages(), loadItems()]).then(() => {
-        fetch(CONFIG.routes.comps)
-            .then(response => response.text())
-            .then(data => {
-                loadCSVData(data);
-                createCoreItemsButtons();
-            });
+    loadMetaSnapshot().then((metaData) => {
+        if (metaData) {
+            loadCompsFromJSON(metaData);
+            createCoreItemsButtons();
+        }
     });
 }
 
@@ -1137,36 +1158,38 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
 }
 
 // Refactorización de loadCSVData utilizando la función auxiliar
-function loadCSVData(csvText) {
-    const lines = csvText.split(/\r?\n/);
+function loadCompsFromJSON(metaData) {
     compsContainer.innerHTML = '';
-    const tiers = { S: [], A: [], B: [], C: [] };
+    const tiers = { S: [], A: [], B: [], C: [], X: [] };
 
-    lines.forEach((line, index) => {
-        if (index === 0 || !line.trim()) return;
-        const fields = line.split(',').map(x => x.trim());
-        const [comp, tier, estilo, unit1, unit2, unit3] = fields;
-        const teambuilderUrl = fields.length >= 7 ? fields[6] : '';
+    metaData.comps.forEach((comp, index) => {
+        const tier = comp.tier;
         if (tiers[tier]) {
-            // Sort units by cost (using unitCostMap) and then alphabetically.
-            const sortedUnits = [unit1, unit2, unit3].sort((a, b) => {
+            // Extract main champions from itemizedChampions
+            const mainChampions = comp.itemizedChampions
+                .slice(0, 3)
+                .map(champion => champion.apiName.replace('TFT14_', ''));
+            
+            // Sort units by cost and then alphabetically
+            const sortedUnits = mainChampions.sort((a, b) => {
                 const costA = unitCostMap[a] ?? Infinity;
                 const costB = unitCostMap[b] ?? Infinity;
                 const costDiff = costA - costB;
                 return costDiff !== 0 ? costDiff : a.localeCompare(b);
             });
+            
             const compoElement = createCompoElement({
-                comp,
+                comp: comp.title,
                 index,
-                estilo,
+                estilo: comp.style,
                 units: sortedUnits,
-                teambuilderUrl
+                teambuilderUrl: comp.url
             });
-            tiers[tier].push({ name: comp, element: compoElement });
+            tiers[tier].push({ name: comp.title, element: compoElement });
         }
     });
 
-    ['S', 'A', 'B', 'C'].forEach(t => {
+    ['S', 'A', 'B', 'C', 'X'].forEach(t => {
         if (tiers[t].length > 0) {
             tiers[t].sort((a, b) => a.name.localeCompare(b.name));
 

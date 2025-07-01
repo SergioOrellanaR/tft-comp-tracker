@@ -111,8 +111,12 @@ export function getChampionImageUrl(championId) {
     return THIRD_PARTY_IMG_URL.champions + '/' + championId.toLowerCase() + '.png';
 }
 
-export function getItemImageUrl(itemId) {
-    return THIRD_PARTY_IMG_URL.items + '/' + itemId.toLowerCase() + '.png';
+export function getItemPNGImageUrl(itemId) {
+    return THIRD_PARTY_IMG_URL.pngItems + '/' + itemId.toLowerCase() + '.png';
+}
+
+export function getItemWEBPImageUrl(itemId) {
+    return THIRD_PARTY_IMG_URL.webpItems + '/' + itemId + '.webp';
 }
 
 export function getTierImageUrl(tier) {

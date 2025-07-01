@@ -11,7 +11,8 @@ export const TFT_VERSUS_API_URL = {
 
 export const THIRD_PARTY_IMG_URL = {
     champions: 'https://cdn.metatft.com/file/metatft/champions',
-    items: 'https://cdn.metatft.com/file/metatft/items',
+    pngItems: 'https://cdn.metatft.com/file/metatft/items',
+    webpItems: 'https://assets.tftacademy.com/items',
     tiers: 'https://cdn.metatft.com/file/metatft/tiers',
     setCover: 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_'
 }
@@ -47,13 +48,10 @@ export const CONFIG = {
         A: '#FFBF7F',
         B: '#FFFF7F',
         C: '#BFFF7F',
-        X: '#7FFF7F'
+        X: '#BF7FFF'  // Add this line for X tier
     },
     routes: {
-        comps: 'Data/Comps.csv',
-        items: 'Data/Items.csv',
-        units: 'Data/Units.csv',
-        metaSnapshot: 'Data/MetaSnapshot.csv'
+        metaSnapshot: 'Data/MetaSnapshot.json'
     },
     iconOptions: [
         { name: 'Water', color: '#4cffe9', emoji: '💧' },
