@@ -14,7 +14,8 @@ export const THIRD_PARTY_IMG_URL = {
     pngItems: 'https://cdn.metatft.com/file/metatft/items',
     webpItems: 'https://assets.tftacademy.com/items',
     tiers: 'https://cdn.metatft.com/file/metatft/tiers',
-    setCover: 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_'
+    setCover: 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_',
+    webPaugments: 'https://assets.tftacademy.com/augments'
 }
 
 export const CDRAGON_URL = {

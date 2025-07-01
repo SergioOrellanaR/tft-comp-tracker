@@ -119,6 +119,10 @@ export function getItemWEBPImageUrl(itemId) {
     return THIRD_PARTY_IMG_URL.webpItems + '/' + itemId + '.webp';
 }
 
+export function getAugmentWEBPImageUrl(augmentId) {
+    return THIRD_PARTY_IMG_URL.webPaugments + '/' + augmentId + '.webp';
+}
+
 export function getTierImageUrl(tier) {
     return THIRD_PARTY_IMG_URL.tiers + '/' + tier + '.png';
 }

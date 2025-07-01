@@ -1,5 +1,5 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl, getChampionImageUrl } from './tftVersusHandler.js';
+import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl, getChampionImageUrl, getAugmentWEBPImageUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
 import { throttle, getContrastYIQ } from './utils.js';
 
@@ -547,7 +547,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             spinner.classList.add('duel-spinner');
             player.prepend(spinner);
 
-            // Start fetching duel data with a maximum timeout of 10 seconds.
+            // Start fetching duel data with a maximum of 10 seconds.
             const duelPromise = fetchFindGames(playerData.name, player2Name, server);
             const timeoutPromise = new Promise(resolve => {
                 setTimeout(() => resolve("timeout"), 10000);
@@ -1167,29 +1167,27 @@ function loadCompsFromJSON(metaData) {
     metaData.comps.forEach((comp, index) => {
         const tier = comp.tier;
         if (tiers[tier]) {
-            // Build all champions from itemizedChampions
             const allChamps = comp.itemizedChampions
                 .map(ch => ch.apiName.replace('TFT14_', ''));
 
-            // Ensure mainChampion is included and first
+            // Ensure mainChampion is first
             const mainChamp = comp.mainChampion?.apiName
                 ? comp.mainChampion.apiName.replace('TFT14_', '')
                 : allChamps[0];
-            if (!allChamps.includes(mainChamp)) {
-                allChamps.unshift(mainChamp);
-            }
+            if (!allChamps.includes(mainChamp)) allChamps.unshift(mainChamp);
 
-            // Filter out the mainChamp and sort the rest by cost & name
-            const others = allChamps
-                .filter(c => c !== mainChamp)
+            // sort others by cost asc, then name
+            const otherChamps = allChamps
+                .filter(u => u !== mainChamp)
                 .sort((a, b) => {
                     const costA = unitCostMap[a] ?? Infinity;
                     const costB = unitCostMap[b] ?? Infinity;
                     if (costA !== costB) return costA - costB;
                     return a.localeCompare(b);
                 });
-            // Final ordered units: mainChamp first, then the sorted others
-            const sortedUnits = [mainChamp, ...others];
+
+            const sortedUnits = [mainChamp, ...otherChamps];
+            console.log(`Compo ${index}: ${comp.title} (${tier}) - Units: ${sortedUnits.join(', ')}`);
 
             const compoElement = createCompoElement({
                 comp: comp.title,
