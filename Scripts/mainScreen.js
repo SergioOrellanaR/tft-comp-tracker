@@ -1263,32 +1263,38 @@ canvas.addEventListener('click', e => {
     }
 });
 
-function createCoreItemsButtons(items) {
+function createCoreItemsButtons(metaItems) {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
 
-    CONFIG.coreItems.forEach((item) => {
-        const itemData = items.find(i => i.Item === item);
-        if (itemData) {
-            const button = document.createElement('button');
-            button.className = 'core-item-button';
-            button.style.backgroundImage = `url(${itemData.Url})`;
-            button.title = itemData.Item;
+    Object.entries(metaItems).forEach(([section, sectionItems]) => {
+        // section header/container
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'core-items-section';
+        const hdr = document.createElement('h4');
+        hdr.textContent = section.charAt(0).toUpperCase() + section.slice(1);
+        sectionDiv.appendChild(hdr);
 
-            button.onclick = () => {
-                const isActive = button.classList.toggle('active');
-                button.style.filter = isActive ? 'none' : 'grayscale(100%)';
-
-                document.querySelectorAll('.items-container').forEach(container => {
-                    const unitsInComp = Array.from(
-                        container.closest('.item.compo').querySelectorAll('.unit-icons img')
+        // buttons for each item in this section
+        sectionItems.forEach(itemApiName => {
+            const btn = document.createElement('button');
+            btn.className = 'core-item-button';
+            btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemApiName)})`;
+            btn.title = itemApiName;
+            btn.onclick = () => {
+                const active = btn.classList.toggle('active');
+                btn.style.filter = active ? 'none' : 'grayscale(100%)';
+                document.querySelectorAll('.items-container').forEach(ctn => {
+                    const units = Array.from(
+                        ctn.closest('.item.compo').querySelectorAll('.unit-icons img')
                     ).map(img => img.alt);
-                    updateItemsContainer(container, unitsInComp);
+                    updateItemsContainer(ctn, units);
                 });
             };
+            sectionDiv.appendChild(btn);
+        });
 
-            container.appendChild(button);
-        }
+        container.appendChild(sectionDiv);
     });
 
     compsContainer.appendChild(container);

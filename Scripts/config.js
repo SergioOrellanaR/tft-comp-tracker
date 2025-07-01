@@ -37,12 +37,6 @@ export const TRAIT_BACKGROUND_URL = {
 export const CONFIG = {
     mainPlayerColor: '#000435',
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9', '#a0ff4c'],
-    coreItems: [
-        "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
-        "Jeweled Gauntlet", "Infinity Edge", "Nashor's Tooth", "Morellonomicon",
-        "Kraken's Fury", "Hextech Gunblade", "Bloodthirster", "Edge of Night",
-        "Titan's Resolve", "Sterak's Gage", "Hand Of Justice"
-    ],
     tierColors: {
         S: '#FF7F7F',
         A: '#FFBF7F',
