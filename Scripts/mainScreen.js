@@ -1,5 +1,5 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl } from './tftVersusHandler.js';
+import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl, getChampionImageUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
 import { throttle, getContrastYIQ } from './utils.js';
 
@@ -34,7 +34,7 @@ const loadMetaSnapshot = async () => {
         metaData.comps.forEach(comp => {
             comp.itemizedChampions.forEach(champion => {
                 const unitName = champion.apiName.replace('TFT14_', '');
-                unitImageMap[unitName] = `https://ap.tft.tools/img/cd14/face/${champion.apiName}.jpg`;
+                unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
                 unitCostMap[unitName] = champion.cost || 1;
                 
                 // Create unit entry for items
