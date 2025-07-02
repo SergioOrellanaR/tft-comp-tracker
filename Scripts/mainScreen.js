@@ -1252,6 +1252,24 @@ function loadCompsFromJSON(metaData) {
     });
 }
 
+// Add helper to hide empty tier-headers
+function updateTierHeadersVisibility() {
+    document.querySelectorAll('.tier-header').forEach(header => {
+        let sibling = header.nextElementSibling;
+        let hasVisibleCompo = false;
+        while (sibling && !sibling.classList.contains('tier-header')) {
+            if (sibling.classList.contains('item') &&
+                sibling.classList.contains('compo') &&
+                sibling.style.display !== 'none') {
+                hasVisibleCompo = true;
+                break;
+            }
+            sibling = sibling.nextElementSibling;
+        }
+        header.style.display = hasVisibleCompo ? '' : 'none';
+    });
+}
+
 canvas.addEventListener('contextmenu', e => {
     e.preventDefault();
     const clickX = e.offsetX;
@@ -1496,3 +1514,38 @@ function initializeDuelCacheObject(riotId) {
 
 window.toggleDoubleUpMode = toggleDoubleUpMode;
 window.resetPlayers = resetPlayers;
+
+// Append show/hide-comps logic with golden rule enforcement
+document.getElementById('hide-unselected-comps-button')?.addEventListener('change', function() {
+    const showOnlyUncontestedAndLinked = this.checked;
+    document.querySelectorAll('.item.compo').forEach(compo => {
+        const isLinked = links.some(l => l.compo === compo);
+        if (isLinked) {
+            compo.style.display = '';
+        } else {
+            compo.style.display = showOnlyUncontestedAndLinked ? '' : '';
+        }
+        if (isLinked && compo.style.display === 'none') {
+            alert('GOLDEN RULE VIOLATION: linked comp hidden!');
+        }
+    });
+    updateTierHeadersVisibility();
+    drawLines();
+});
+
+document.getElementById('hide-contested-comps-button')?.addEventListener('change', function() {
+    const hideUnlinked = this.checked;
+    document.querySelectorAll('.item.compo').forEach(compo => {
+        const isLinked = links.some(l => l.compo === compo);
+        if (isLinked) {
+            compo.style.display = '';
+        } else {
+            compo.style.display = hideUnlinked ? 'none' : '';
+        }
+        if (isLinked && compo.style.display === 'none') {
+            alert('GOLDEN RULE VIOLATION: linked comp hidden!');
+        }
+    });
+    updateTierHeadersVisibility();
+    drawLines();
+});
