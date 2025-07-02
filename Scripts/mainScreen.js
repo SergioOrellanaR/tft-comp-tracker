@@ -116,7 +116,7 @@ function enableDragAndDrop(isDoubleUp) {
 
         if (isDoubleUp) {
             // duo events
-            ['dragenter','dragover','drop','dragleave','dragend'].forEach(evt => {
+            ['dragenter', 'dragover', 'drop', 'dragleave', 'dragend'].forEach(evt => {
                 player.addEventListener(evt, e => {
                     e.preventDefault();
                     if (evt === 'dragenter' && !player.classList.contains('dragging'))
@@ -127,7 +127,7 @@ function enableDragAndDrop(isDoubleUp) {
                         const src = document.querySelector('.item.player.dragging');
                         if (src && src !== player) {
                             const c1 = src.closest('.team-container'),
-                                  c2 = player.closest('.team-container');
+                                c2 = player.closest('.team-container');
                             if (c1 && c2 && c1 !== c2) {
                                 const placeholder = document.createElement('div');
                                 c2.replaceChild(placeholder, player);
@@ -139,14 +139,14 @@ function enableDragAndDrop(isDoubleUp) {
                         }
                     }
                     if (evt === 'dragend') {
-                        player.classList.remove('dragging','drop-target');
+                        player.classList.remove('dragging', 'drop-target');
                     }
                     throttledDraw();
                 });
             });
         } else {
             // solo events
-            ['dragover','drop','dragend'].forEach(evt => {
+            ['dragover', 'drop', 'dragend'].forEach(evt => {
                 player.addEventListener(evt, e => {
                     if (evt === 'dragover') {
                         e.preventDefault();
@@ -629,7 +629,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     document.getElementById('resetButton')?.addEventListener('click', resetPlayers);
+
+    // In your DOMContentLoaded listener, replace the placeholder with:
+    initHoverTooltips();
 });
+
+function initHoverTooltips() {
+    function setupHoverTooltip(labelSelector, inputSelector, checkedTitle, uncheckedTitle) {
+        const label = document.querySelector(labelSelector);
+        const input = document.querySelector(inputSelector);
+        if (label && input) {
+            label.addEventListener('mouseenter', () => {
+                label.title = input.checked ? checkedTitle : uncheckedTitle;
+            });
+        }
+    }
+
+    setupHoverTooltip(
+        '.hide-unselected-comps-button-label',
+        '#hide-unselected-comps-button',
+        'Press to show all compositions',
+        'Press to show uncontested and linked compositions only'
+    );
+
+    setupHoverTooltip(
+        '.hide-contested-comps-button-label',
+        '#hide-contested-comps-button',
+        'Press to show unlinked compositions',
+        'Press to hide unlinked compositions'
+    );
+}
 
 // Append the following code at the end of the file to call resizeCanvas() 250ms second after full page load.
 window.addEventListener('load', () => {
@@ -639,7 +668,7 @@ window.addEventListener('load', () => {
 });
 
 // Replace two ResizeObserver blocks with one
-['left','players'].forEach(id => {
+['left', 'players'].forEach(id => {
     const el = document.getElementById(id);
     if (el && typeof ResizeObserver !== 'undefined') {
         new ResizeObserver(() => {

@@ -272,16 +272,14 @@ button:hover {
 
 /*------ Contested comps button  ------*/
 .hide-contested-comps-button-label {
-    --color: #a5a5b0;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: var(--size);
     user-select: none;
-    fill: var(--color);
+    fill: #fff;
 }
 
 .hide-contested-comps-button-label .eye {
