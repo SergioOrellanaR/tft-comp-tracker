@@ -175,6 +175,16 @@ button:hover {
     margin-left: 0;
 }
 
+#left-content {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    /* take only the height needed */
+    flex: 0 0 auto;
+}
+
 /* Canvas Container */
 #canvas-container {
     flex: 1;
