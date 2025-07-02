@@ -53,6 +53,52 @@ body {
 }
 
 /* =====================================================================
+    Contenedores Principales: #left, #right y #canvas-container
+===================================================================== */
+/* Players Container */
+#left {
+    width: 20%;
+    /* O ajusta según prefieras */
+    padding: 0.5rem;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+}
+
+#left-content {
+    display: flex;
+    flex-direction: column;
+    /* take only the height needed */
+    flex: 0 0 auto;
+}
+
+/* Comps Container */
+#right {
+    width: 40%;
+    padding: 0.5rem;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 0;
+}
+
+/* Canvas Container */
+#canvas-container {
+    flex: 1;
+    position: relative;
+    min-width: 300px;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100% !important;
+    height: 100% !important;
+}
+/* =====================================================================
     Botones y Elementos Interactivos
 ===================================================================== */
 button {
@@ -152,46 +198,6 @@ button:hover {
 }
 
 /* =====================================================================
-    Contenedores Principales: #left, #right y #canvas-container
-===================================================================== */
-/* Players Container */
-#left {
-    width: 20%;
-    /* O ajusta según prefieras */
-    padding: 0.5rem;
-    overflow: visible !important;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Comps Container */
-#right {
-    width: 32%;
-    padding: 0.5rem;
-    overflow: visible !important;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    margin-left: 0;
-}
-
-/* Canvas Container */
-#canvas-container {
-    flex: 1;
-    position: relative;
-    min-width: 300px;
-}
-
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* =====================================================================
     Elementos de Contenido: Items, Players, Comps y Tablas
 ===================================================================== */
 .item {
@@ -274,12 +280,6 @@ canvas {
     opacity: 0.5;
 }
 
-.comp-name {
-    font-size: 0.9rem;
-    color: var(--text-accent);
-    font-weight: 500;
-}
-
 /* Selección */
 .selected {
     background-color: #555 !important;
@@ -313,40 +313,6 @@ canvas {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     /* Light box shadow */
     opacity: 1;
-}
-
-/* Comps: Items estilo */
-.item.compo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 1px 4px;
-    margin: 4px 0;
-    color: #ddd;
-    font-size: 0.7rem;
-    backdrop-filter: blur(4px);
-    transition: all 0.3s ease;
-}
-
-.item.compo:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: scale(1.02);
-    cursor: pointer;
-    color: #fff;
-}
-
-.unit-icons {
-    display: flex;
-    gap: 8px;
-}
-
-.unit-icons img {
-    width: 28px;
-    height: 28px;
-    border-radius: 40%;
 }
 
 /* Tablas y Elementos de Campeones */
@@ -598,31 +564,76 @@ input:focus~.input-border {
 ===================================================================== */
 #coreItemsContainer {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    justify-content: space-between;
+    gap: 1.5rem;
     margin-top: 16px;
-    justify-content: center;
 }
 
+#coreItemsContainer > div:nth-child(1) {
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+#coreItemsContainer > div:nth-child(2) {
+    border-color: rgba(255, 82, 82, 0.7);
+}
+
+#coreItemsContainer > div:nth-child(3) {
+    border-color: rgba(255, 215, 0, 0.8);
+}
+
+#coreItemsContainer > div:nth-child(4) {
+    border-color: rgba(100, 149, 237, 0.7);
+}
+
+/* Section wrapper */
+.core-items-section {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: start;
+    gap: 12px;
+    padding: 4px 0;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: var(--main-accent, #2c2c3b);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Section title */
+.core-items-section>h4 {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    color: var(--text-accent, #ddd);
+    border-bottom: 1px solid #444;
+    padding-bottom: 4px;
+    text-overflow: ellipsis;
+}
+
+/* Buttons */
 .core-item-button {
-    width: 28px;
-    height: 28px;
-    background-size: contain !important;
+    width: 29px;
+    height: 29px;
+    background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-
     filter: grayscale(100%);
+    transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .core-item-button:hover {
     transform: scale(1.1);
+    filter: grayscale(20%);
 }
 
 .core-item-button.active {
-    outline: 2px solid #808080;
+    outline: 2px solid #ffffff;
     outline-offset: 2px;
     filter: none;
 }
@@ -630,14 +641,6 @@ input:focus~.input-border {
 /* =====================================================================
     Estilos para Items Container y Contador
 ===================================================================== */
-.items-container {
-    display: flex;
-    gap: 4px;
-    justify-content: flex-start;
-    align-items: center;
-    width: 250px;
-    overflow: hidden;
-}
 
 .contested-counter {
     position: absolute;
@@ -688,31 +691,111 @@ input:focus~.input-border {
 /* =====================================================================
     Estilos Extra para Comps
 ===================================================================== */
-.comp-info {
-    flex: 1;
-    text-align: left;
-    margin-left: 5px;
-    min-width: 30%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+/* =====================================================================
+    Comps items
+===================================================================== */
+.item.compo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2px 6px;
+    margin: 2px 0;
+    color: #ddd;
+    font-size: 0.7rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    height: 36px;
+    min-height: 36px;
+}
+
+.item.compo:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.01);
+    cursor: pointer;
+    color: #fff;
 }
 
 .comp-style {
+    flex: 0 0 46px;
     text-align: center;
     font-style: italic;
-    width: 40px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 0.7rem;
+    opacity: 0.75;
 }
 
 .comp-star {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.main-augment-item-container {
+    width: 24px;
+    height: 24px;
+    margin: 0 4px;
+    flex-shrink: 0;
+}
+
+.main-augment-item-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.comp-info {
+    flex: 1;
+    text-align: left;
+    margin-left: 4px;
+    min-width: 80px;
+    font-weight: 500;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.7rem;
+}
+
+.items-container {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    max-width: 300px;
+    overflow-x: auto;
+}
+
+/* Custom scrollbar for .items-container */
+.items-container::-webkit-scrollbar {
+    height: 7px;
+}
+
+.items-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.items-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2.5px;
+}
+
+.unit-icons {
+    display: flex;
+    gap: 5px;
+    min-width: 165px;
+    flex-wrap: nowrap;
+    justify-content: right;
+
+}
+
+.unit-icons img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .teambuilder-btn-container {
@@ -720,9 +803,31 @@ input:focus~.input-border {
 }
 
 .teambuilder-btn {
-    margin-left: 8px;
+    margin-left: 6px;
+    transition: transform 0.2s ease;
 }
 
+.teambuilder-btn:hover {
+    transform: scale(1.08);
+}
+
+.unit-icon-wrapper{
+    position: relative;
+    display: inline-block;
+}
+
+.unit-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    padding: 4px;
+    background: #111;
+    border-radius: 10px;
+    z-index: 10;
+    gap: 4px;
+}
 /* =====================================================================
     Estilos para player cards
 ===================================================================== */
@@ -1681,7 +1786,7 @@ input:focus~.input-border {
     color: #fff;
     text-align: center;
     line-height: 1.2;
-    backdrop-filter: blur(4px);
+
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     z-index: 10;
@@ -1776,15 +1881,18 @@ input:focus~.input-border {
         border-width: 1px !important;
     }
 
-    .item.compo {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .comp-info {
         text-align: center;
         min-width: 10%;
         text-overflow: ellipsis;
+    }
+
+    .comp-star {
+        display: none;
+    }
+
+    .main-augment-item-container {
+        display: none;
     }
 
     .unit-icons {
@@ -1930,6 +2038,16 @@ input:focus~.input-border {
         width: 24px;
         height: 24px;
         font-size: 12px;
+    }
+
+    .unit-icons {
+        display: flex;
+        max-width: 80px;
+        justify-content: right;
+    }
+
+    .main-augment-item-container{
+        display: none !important;
     }
 
     #canvasContainer {

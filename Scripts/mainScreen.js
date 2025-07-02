@@ -1,7 +1,7 @@
 import { CONFIG } from './config.js';
-import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl } from './tftVersusHandler.js';
+import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl, getChampionImageUrl, getAugmentWEBPImageUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
-import { fetchCSV, parseCSV, throttle, getContrastYIQ } from './utils.js';
+import { throttle, getContrastYIQ } from './utils.js';
 
 // Variables globales
 let selected = null;
@@ -11,30 +11,61 @@ let unitCostMap = {};
 let items = [];
 let units = [];
 let duelsCache = new Map();
+let metaSnapshotData = null;
 
 const compsContainer = document.getElementById('compos');
 const playersContainer = document.getElementById('players');
 const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
 
-// Cargar datos de Units.csv
-const loadUnitImages = async () => {
-    const data = await fetchCSV(CONFIG.routes.units);
-    const lines = parseCSV(data);
+// Replace loadUnitImages and loadItems functions
+const loadMetaSnapshot = async () => {
+    try {
+        const response = await fetch(CONFIG.routes.metaSnapshot);
+        const metaData = await response.json();
 
-    lines.forEach(([unit, cost, item1, item2, item3, url]) => {
-        if (unit && url) {
-            unitImageMap[unit] = url;
-            unitCostMap[unit] = parseInt(cost, 10);
-            units.push({ Unit: unit, Item1: item1, Item2: item2, Item3: item3 });
-        }
-    });
-};
+        // Load units data from items
+        metaData.items.default.concat(metaData.items.artifact, metaData.items.emblem, metaData.items.trait).forEach(itemApiName => {
+            // Map item API names to display names and URLs if needed
+            // This might need adjustment based on your item display requirements
+        });
 
-// Cargar datos de Items.csv
-const loadItems = async () => {
-    const data = await fetchCSV(CONFIG.routes.items);
-    items = parseCSV(data).slice(1).map(([Item, Url]) => ({ Item, Url }));
+        // Extract unit data from compositions
+        metaData.comps.forEach(comp => {
+            comp.itemizedChampions.forEach(champion => {
+                const unitName = champion.name;
+                unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
+                unitCostMap[unitName] = champion.cost || 1;
+
+                // Create unit entry for items
+                units.push({
+                    Unit: unitName,
+                    Item1: champion.items[0] || '',
+                    Item2: champion.items[1] || '',
+                    Item3: champion.items[2] || ''
+                });
+            });
+        });
+
+        // Load items data (each section now contains objects with .apiName)
+        const allItems = [
+            ...metaData.items.default,
+            ...metaData.items.artifact,
+            ...metaData.items.emblem,
+            ...metaData.items.trait
+        ];
+        items = allItems.map(itemObj => ({
+            Item: itemObj.apiName,
+            Name: itemObj.name,                          // add human‐readable name
+            Url: getItemWEBPImageUrl(itemObj.apiName)
+        }));
+
+        metaSnapshotData = metaData;
+        return metaData;
+    } catch (error) {
+        console.error('Error loading MetaSnapshot.json:', error);
+        return null;
+    }
 };
 
 function resizeCanvas() {
@@ -46,14 +77,12 @@ function resizeCanvas() {
 
 window.addEventListener('resize', resizeCanvas);
 
-function tryLoadDefaultCSV() {
-    Promise.all([loadUnitImages(), loadItems()]).then(() => {
-        fetch(CONFIG.routes.comps)
-            .then(response => response.text())
-            .then(data => {
-                loadCSVData(data);
-                createCoreItemsButtons();
-            });
+function tryLoadDefaultData() {
+    loadMetaSnapshot().then((metaData) => {
+        if (metaData) {
+            loadCompsFromJSON(metaData);
+            createCoreItemsButtons(metaData.items);
+        }
     });
 }
 
@@ -210,12 +239,12 @@ function addDuoDragEvents(player, throttledDrawLines) {
 function handlePlayerSwap(targetPlayer, throttledDrawLines) {
     targetPlayer.classList.remove('drop-target');
     const draggingPlayer = document.querySelector('.team-container .item.player.dragging');
-    
+
     if (!draggingPlayer || draggingPlayer === targetPlayer) return;
 
     const sourceContainer = draggingPlayer.closest('.team-container');
     const targetContainer = targetPlayer.closest('.team-container');
-    
+
     if (!sourceContainer || !targetContainer || sourceContainer === targetContainer) return;
 
     swapPlayers(draggingPlayer, targetPlayer, sourceContainer, targetContainer);
@@ -235,10 +264,10 @@ function swapPlayers(player1, player2, container1, container2) {
 function updateTeamIcons(containers) {
     containers.forEach(container => {
         if (!container.classList.contains('team-container')) return;
-        
+
         const iconCircle = container.querySelector('.team-icon');
         const teamPlayers = container.querySelectorAll('.item.player');
-        
+
         if (iconCircle && teamPlayers.length >= 2) {
             updateIconColor(iconCircle, iconCircle._iconConfig, teamPlayers[0], teamPlayers[1], container);
         }
@@ -251,15 +280,15 @@ function createTeamIcon(icon, player1, player2, container) {
     const circle = document.createElement('div');
     circle.classList.add('team-icon');
     circle._iconConfig = icon;
-    
+
     setupTeamIcon(circle, icon, player1, player2, container);
-    
+
     circle.onclick = (e) => {
         e.stopPropagation();
         currentIndex = (currentIndex + 1) % CONFIG.iconOptions.length;
         const newIcon = CONFIG.iconOptions[currentIndex];
         circle._iconConfig = newIcon;
-        
+
         const teamPlayers = container.querySelectorAll('.item.player');
         const [p1, p2] = teamPlayers.length >= 2 ? teamPlayers : [player1, player2];
         updateIconColor(circle, newIcon, p1, p2, container);
@@ -280,7 +309,7 @@ function updateIconColor(circle, icon, player1, player2, container) {
         player.dataset.color = icon.color;
         player.style.borderRight = `10px solid ${icon.color}`;
     });
-    
+
     circle.textContent = icon.emoji;
     circle.title = icon.name;
     circle.style.border = `2px solid ${icon.color}`;
@@ -386,7 +415,7 @@ function createEditIcon(span) {
     return icon;
 }
 
-tryLoadDefaultCSV();
+tryLoadDefaultData();
 
 function showMessage(message) {
     const messageContainer = document.getElementById('messageContainer');
@@ -520,7 +549,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             spinner.classList.add('duel-spinner');
             player.prepend(spinner);
 
-            // Start fetching duel data with a maximum timeout of 10 seconds.
+            // Start fetching duel data with a maximum of 10 seconds.
             const duelPromise = fetchFindGames(playerData.name, player2Name, server);
             const timeoutPromise = new Promise(resolve => {
                 setTimeout(() => resolve("timeout"), 10000);
@@ -688,10 +717,10 @@ function drawLines() {
     renderAllLines();
     updateCompoColorBars();
     applyChampionFilters();
-    updateUnselectedChampionsTable();
+    updateHeavilyContestedChampionsTable();
 }
 
-function updateUnselectedChampionsTable() {
+function updateHeavilyContestedChampionsTable() {
     const container = document.getElementById('infoTableContainer');
     // clear any previous tables/titles
     container.querySelectorAll('.table-container').forEach(table => table.remove());
@@ -706,7 +735,7 @@ function updateUnselectedChampionsTable() {
         const player = link.player;
         const playerName = getPlayerName(player);
         const playerColor = player.dataset.color;
-        const unitIcons = compo.querySelectorAll('.unit-icons img');
+        const unitIcons = compo.querySelectorAll('.unit-icons .unit-icon-wrapper > img');
 
         unitIcons.forEach(img => {
             const champName = img.alt;
@@ -747,9 +776,9 @@ function updateUnselectedChampionsTable() {
                     img.alt = champ;
 
                     const players = championPlayers[champ];
-                    const gradientColors = players.map((p,i) => {
-                        const pct = (i/players.length)*100;
-                        return `${p.color} ${pct}%, ${p.color} ${(i+1)/players.length*100}%`;
+                    const gradientColors = players.map((p, i) => {
+                        const pct = (i / players.length) * 100;
+                        return `${p.color} ${pct}%, ${p.color} ${(i + 1) / players.length * 100}%`;
                     }).join(', ');
                     img.style.border = '4px solid transparent';
                     img.style.borderImage = `linear-gradient(to right, ${gradientColors}) 1`;
@@ -771,33 +800,29 @@ function updateUnselectedChampionsTable() {
 }
 
 function applyChampionFilters() {
-    const championUsage = {};
-
+    // Build set of champions present on any linked comp
+    const selectedChamps = {};
     links.forEach(link => {
-        const compo = link.compo;
-        const unitIcons = compo.querySelectorAll('.unit-icons img');
-        unitIcons.forEach(img => {
-            const champName = img.alt;
-            championUsage[champName] = (championUsage[champName] || 0) + 1;
+        link.compo.querySelectorAll('.unit-icons img').forEach(img => {
+            selectedChamps[img.alt] = true;
         });
     });
 
+    // For each comp, hide star if it contains any selected champion
     document.querySelectorAll('.item.compo').forEach(compo => {
         const unitIcons = compo.querySelectorAll('.unit-icons img');
+        const hideStar = Array.from(unitIcons).some(img => selectedChamps[img.alt]);
+        const starIcon = compo.querySelector('.star-icon');
+        if (starIcon) {
+            starIcon.style.visibility = hideStar ? 'hidden' : 'visible';
+        }
+
+        // Gray out any contested champion icon
         unitIcons.forEach(img => {
-            const champName = img.alt;
-            img.style.filter = (championUsage[champName] > 0)
+            img.style.filter = selectedChamps[img.alt]
                 ? 'grayscale(100%)'
                 : 'none';
         });
-
-        // ←  Aquí: ocultar estrella si hay algún champ grisado
-        const hasGrayed = Array.from(unitIcons)
-            .some(img => img.style.filter === 'grayscale(100%)');
-        const starIcon = compo.querySelector('.star-icon');
-        if (starIcon) {
-            starIcon.style.visibility = hasGrayed ? 'hidden' : 'visible';
-        }
     });
 }
 
@@ -1079,18 +1104,59 @@ function createItemsContainer() {
     return itemsContainer;
 }
 
-// Nueva función auxiliar para crear los iconos de unidades
-function createUnitIcons(units) {
-    const unitIcons = document.createElement('div');
-    unitIcons.className = 'unit-icons';
-    units.forEach(unit => {
-        if (unit && unitImageMap[unit]) {
-            const img = document.createElement('img');
-            img.src = `${unitImageMap[unit]}?w=28`;
-            img.alt = unit;
-            unitIcons.appendChild(img);
+// Nueva función auxiliar para crear el tooltip de items de una unidad
+function createUnitTooltip(itemApiNames) {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'unit-tooltip';
+
+    itemApiNames.forEach(api => {
+        const it = items.find(i => i.Item === api);
+        if (it) {
+            const ti = document.createElement('img');
+            ti.src = it.Url;
+            ti.alt = it.Name;
+            Object.assign(ti.style, {
+                width: '24px',
+                height: '24px'
+            });
+            tooltip.appendChild(ti);
         }
     });
+
+    return tooltip;
+}
+
+// Nueva función auxiliar para crear los iconos de unidades
+function createUnitIcons(units, compIndex) {
+    const unitIcons = document.createElement('div');
+    unitIcons.className = 'unit-icons';
+    const champItemsList = metaSnapshotData.comps[compIndex].itemizedChampions;
+
+    units.forEach(unit => {
+        if (!unit || !unitImageMap[unit]) return;
+
+        const img = document.createElement('img');
+        img.src = `${unitImageMap[unit]}?w=28`;
+        img.alt = unit;
+
+        // wrapper for hover tooltip
+        const wrapper = document.createElement('div');
+        wrapper.className = 'unit-icon-wrapper';
+        wrapper.appendChild(img);
+
+        // build tooltip of item-icons via helper
+        const champObj = champItemsList.find(ch => ch.name === unit);
+        const itemApiNames = champObj?.items || [];
+        if (itemApiNames.length) {
+            const tooltip = createUnitTooltip(itemApiNames);
+            wrapper.appendChild(tooltip);
+            wrapper.addEventListener('mouseenter', () => tooltip.style.display = 'flex');
+            wrapper.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+        }
+
+        unitIcons.appendChild(wrapper);
+    });
+
     return unitIcons;
 }
 
@@ -1117,19 +1183,41 @@ function createTeambuilderButton(teambuilderUrl) {
 }
 
 // Refactorización de createCompoElement utilizando las funciones auxiliares
-function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
+function createAugmentItemContainer(mainAugment, mainItem) {
+    const container = document.createElement('div');
+    container.className = 'main-augment-item-container';
+    if (mainAugment && mainAugment.apiName) {
+        const img = document.createElement('img');
+        img.src = getAugmentWEBPImageUrl(mainAugment.apiName);
+        img.alt = mainAugment.apiName;
+        img.title = mainAugment.apiName;    // show augment.apiName on hover
+        container.appendChild(img);
+    } else if ((!mainAugment || !mainAugment.apiName) && mainItem && mainItem.apiName) {
+        const img = document.createElement('img');
+        img.src = getItemWEBPImageUrl(mainItem.apiName);
+        img.alt = mainItem.apiName;
+        // lookup human‐readable Name or fallback to apiName
+        img.title = (items.find(i => i.Item === mainItem.apiName)?.Name) || mainItem.apiName;
+        container.appendChild(img);
+    }
+    return container;
+}
+
+function createCompoElement({ comp, index, estilo, units, teambuilderUrl, mainAugment, mainItem }) {
     const div = document.createElement('div');
     div.className = 'item compo';
     div.dataset.id = 'compo-' + index;
 
     const styleContainer = createStyleContainer(estilo);
     const starContainer = createUncontestedContainer();
-    const compInfo       = createCompInfo(comp);
-    const itemsContainer = createItemsContainer();
-    const unitIcons      = createUnitIcons(units);
-    const tbButtonDiv    = createTeambuilderButton(teambuilderUrl);
+    const augmentItemContainer = createAugmentItemContainer(mainAugment, mainItem);
 
-    div.append(styleContainer, starContainer, compInfo, itemsContainer, unitIcons);
+    const compInfo = createCompInfo(comp);
+    const itemsContainer = createItemsContainer();
+    const unitIcons = createUnitIcons(units, index);
+    const tbButtonDiv = createTeambuilderButton(teambuilderUrl);
+
+    div.append(styleContainer, starContainer, augmentItemContainer, compInfo, itemsContainer, unitIcons);
     if (tbButtonDiv) div.appendChild(tbButtonDiv);
 
     div.onclick = () => select(div, 'compo');
@@ -1137,36 +1225,48 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl }) {
 }
 
 // Refactorización de loadCSVData utilizando la función auxiliar
-function loadCSVData(csvText) {
-    const lines = csvText.split(/\r?\n/);
+function loadCompsFromJSON(metaData) {
     compsContainer.innerHTML = '';
-    const tiers = { S: [], A: [], B: [], C: [] };
+    const tiers = { S: [], A: [], B: [], C: [], X: [] };
 
-    lines.forEach((line, index) => {
-        if (index === 0 || !line.trim()) return;
-        const fields = line.split(',').map(x => x.trim());
-        const [comp, tier, estilo, unit1, unit2, unit3] = fields;
-        const teambuilderUrl = fields.length >= 7 ? fields[6] : '';
+    metaData.comps.forEach((comp, index) => {
+        const tier = comp.tier;
         if (tiers[tier]) {
-            // Sort units by cost (using unitCostMap) and then alphabetically.
-            const sortedUnits = [unit1, unit2, unit3].sort((a, b) => {
-                const costA = unitCostMap[a] ?? Infinity;
-                const costB = unitCostMap[b] ?? Infinity;
-                const costDiff = costA - costB;
-                return costDiff !== 0 ? costDiff : a.localeCompare(b);
-            });
+            const allChamps = comp.itemizedChampions
+                .map(ch => ch.name);
+
+            // Ensure mainChampion is first
+            const mainChamp = comp.mainChampion?.apiName
+                ? comp.mainChampion.name
+                : allChamps[0];
+            if (!allChamps.includes(mainChamp)) allChamps.unshift(mainChamp);
+
+            // sort others by cost asc, then name
+            const otherChamps = allChamps
+                .filter(u => u !== mainChamp)
+                .sort((a, b) => {
+                    const costA = unitCostMap[a] ?? Infinity;
+                    const costB = unitCostMap[b] ?? Infinity;
+                    if (costA !== costB) return costA - costB;
+                    return a.localeCompare(b);
+                });
+
+            const sortedUnits = [mainChamp, ...otherChamps];
+
             const compoElement = createCompoElement({
-                comp,
+                comp: comp.title,
                 index,
-                estilo,
+                estilo: comp.style,
                 units: sortedUnits,
-                teambuilderUrl
+                teambuilderUrl: comp.url,
+                mainAugment: comp.mainAugment || {},
+                mainItem: comp.mainItem || {}
             });
-            tiers[tier].push({ name: comp, element: compoElement });
+            tiers[tier].push({ name: comp.title, element: compoElement });
         }
     });
 
-    ['S', 'A', 'B', 'C'].forEach(t => {
+    ['S', 'A', 'B', 'C', 'X'].forEach(t => {
         if (tiers[t].length > 0) {
             tiers[t].sort((a, b) => a.name.localeCompare(b.name));
 
@@ -1236,57 +1336,77 @@ canvas.addEventListener('click', e => {
     }
 });
 
-function createCoreItemsButtons() {
+function createCoreItemsButtons(metaItems) {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
 
-    CONFIG.coreItems.forEach((item) => {
-        const itemData = items.find(i => i.Item === item);
-        if (itemData) {
-            const button = document.createElement('button');
-            button.className = 'core-item-button';
-            button.style.backgroundImage = `url(${itemData.Url})`;
-            button.title = itemData.Item;
+    Object.entries(metaItems).forEach(([section, sectionItems]) => {
+        // section header/container
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'core-items-section';
+        const hdr = document.createElement('h4');
+        hdr.textContent = section.charAt(0).toUpperCase() + section.slice(1);
+        sectionDiv.appendChild(hdr);
 
-            button.onclick = () => {
-                const isActive = button.classList.toggle('active');
-                button.style.filter = isActive ? 'none' : 'grayscale(100%)';
-
-                document.querySelectorAll('.items-container').forEach(container => {
-                    const unitsInComp = Array.from(
-                        container.closest('.item.compo').querySelectorAll('.unit-icons img')
+        // buttons for each item in this section
+        sectionItems.forEach(itemObj => {
+            const btn = document.createElement('button');
+            btn.className = 'core-item-button';
+            btn.title = itemObj.name;
+            // use the object’s apiName
+            btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemObj.apiName)})`;
+            btn.dataset.item = itemObj.apiName;
+            btn.onclick = () => {
+                const active = btn.classList.toggle('active');
+                document.querySelectorAll('.items-container').forEach(ctn => {
+                    const units = Array.from(
+                        ctn.closest('.item.compo').querySelectorAll('.unit-icons img')
                     ).map(img => img.alt);
-                    updateItemsContainer(container, unitsInComp);
+                    updateItemsContainer(ctn);
                 });
             };
+            sectionDiv.appendChild(btn);
+        });
 
-            container.appendChild(button);
-        }
+        container.appendChild(sectionDiv);
     });
 
     compsContainer.appendChild(container);
 }
 
-const updateItemsContainer = (itemsContainer, unitsInComp) => {
+const updateItemsContainer = (itemsContainer) => {
     itemsContainer.innerHTML = '';
 
-    const activeItems = Array.from(document.querySelectorAll('.core-item-button.active'))
-        .map(button => button.title);
+    const activeItems = Array.from(
+        document.querySelectorAll('.core-item-button.active')
+    ).map(button => button.dataset.item);
+
+    const compElement = itemsContainer.closest('.item.compo');
+    const compIndex = parseInt(compElement.dataset.id.split('-')[1], 10);
+    const compData = metaSnapshotData.comps[compIndex];
 
     const itemToChampionsMap = {};
 
-    unitsInComp.forEach(unit => {
-        const unitData = units.find(u => u.Unit === unit);
-        if (unitData) {
-            [unitData.Item1, unitData.Item2, unitData.Item3].forEach(item => {
-                if (item && activeItems.includes(item)) {
-                    if (!itemToChampionsMap[item]) {
-                        itemToChampionsMap[item] = [];
-                    }
-                    itemToChampionsMap[item].push(unit);
-                }
-            });
-        }
+    // Base itemized champions: use this comp’s itemizedChampions
+    compData.itemizedChampions.forEach(champion => {
+        const champName = champion.name;
+        champion.items.forEach(item => {
+            if (item && activeItems.includes(item)) {
+                if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
+                itemToChampionsMap[item].push(champName);
+            }
+        });
+    });
+
+    // Include altBuilds champions
+    compData.altBuilds.forEach(ab => {
+        const champ = ab.name;
+        ab.items.forEach(item => {
+            if (activeItems.includes(item)) {
+                if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
+                itemToChampionsMap[item].push(champ);
+            }
+        });
     });
 
     const displayedItems = new Set();
@@ -1295,14 +1415,23 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
         if (!displayedItems.has(item)) {
             const itemData = items.find(i => i.Item === item);
             if (itemData) {
+                // remove duplicate champion names
+                const uniqueChamps = [
+                    ...new Set(
+                        champions
+                            .filter(champ => champ && champ.trim() !== '')
+                    )
+                ];
                 const img = document.createElement('img');
                 img.src = itemData.Url;
-                img.alt = item;
-                img.title = `${item} (Used by: ${champions.join(', ')})`;
-                img.style.width = '20px';
-                img.style.height = '20px';
-                img.style.borderRadius = '4px';
-                img.style.objectFit = 'cover';
+                img.alt = itemData.Name;
+                img.title = `${itemData.Name} (Used by: ${uniqueChamps.join(', ')})`;
+                Object.assign(img.style, {
+                    width: '20px',
+                    height: '20px',
+                    borderRadius: '4px',
+                    objectFit: 'cover'
+                });
                 itemsContainer.appendChild(img);
                 displayedItems.add(item);
             }
@@ -1311,7 +1440,7 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
 };
 
 if (typeof itemsContainer !== 'undefined' && itemsContainer) {
-    const updateItemsContainerFn = () => updateItemsContainer(itemsContainer, unitsInComp);
+    const updateItemsContainerFn = () => updateItemsContainer(itemsContainer);
     itemsContainer.dataset.updateFn = updateItemsContainerFn.name;
     updateItemsContainerFn();
 }
