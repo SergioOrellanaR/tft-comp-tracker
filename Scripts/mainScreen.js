@@ -17,6 +17,8 @@ const compsContainer = document.getElementById('compos');
 const playersContainer = document.getElementById('players');
 const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
+const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
+const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
 
 // Replace loadUnitImages and loadItems functions
 const loadMetaSnapshot = async () => {
@@ -691,8 +693,8 @@ function drawLines() {
     const hideBtn = document.getElementById('hide-contested-comps-btn');
     if (hideBtn?.checked) {
         document.querySelectorAll('.item.compo').forEach(compo => {
-            const isLinked    = links.some(l => l.compo === compo);
-            const starIcon    = compo.querySelector('.star-icon');
+            const isLinked = links.some(l => l.compo === compo);
+            const starIcon = compo.querySelector('.star-icon');
             const isUncontested = starIcon && starIcon.style.visibility !== 'hidden';
             compo.style.display = (isLinked || isUncontested) ? '' : 'none';
             if (isLinked && compo.style.display === 'none') {
@@ -1518,6 +1520,38 @@ function updatePlayers(participants) {
     });
 }
 
+function createCompToggle(button, otherButton, visibilityFn) {
+    button?.addEventListener('change', function () {
+        if (this.checked && otherButton.checked) otherButton.checked = false;
+        document.querySelectorAll('.item.compo').forEach(compo => {
+            const isLinked = links.some(l => l.compo === compo);
+            const visible = visibilityFn(this.checked, isLinked, compo);
+            compo.style.display = visible ? '' : 'none';
+            if (isLinked && !visible) {
+                alert('GOLDEN RULE VIOLATION: linked comp hidden!');
+            }
+        });
+        updateTierHeadersVisibility();
+        drawLines();
+    });
+}
+
+createCompToggle(
+    hideContestedBtn,
+    hideUnselectedBtn,
+    (checked, isLinked, compo) => {
+        const starIcon = compo.querySelector('.star-icon');
+        const isUncontested = starIcon && starIcon.style.visibility !== 'hidden';
+        return checked ? (isLinked || isUncontested) : true;
+    }
+);
+
+createCompToggle(
+    hideUnselectedBtn,
+    hideContestedBtn,
+    (checked, isLinked) => isLinked || !checked
+);
+
 function initializeDuelCacheObject(riotId) {
     return {
         riotId,
@@ -1530,47 +1564,3 @@ function initializeDuelCacheObject(riotId) {
 
 window.toggleDoubleUpMode = toggleDoubleUpMode;
 window.resetPlayers = resetPlayers;
-
-// Append show/hide-comps logic with mutual exclusion and golden rule enforcement
-const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
-const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
-
-hideContestedBtn?.addEventListener('change', function() {
-    // ensure only one toggle is active
-    if (this.checked && hideUnselectedBtn.checked) {
-        hideUnselectedBtn.checked = false;
-    }
-    const showOnlyUncontestedAndLinked = this.checked;
-    document.querySelectorAll('.item.compo').forEach(compo => {
-        const isLinked = links.some(l => l.compo === compo);
-        const starIcon = compo.querySelector('.star-icon');
-        const isUncontested = starIcon && starIcon.style.visibility !== 'hidden';
-        compo.style.display = showOnlyUncontestedAndLinked
-            ? (isLinked || isUncontested ? '' : 'none')
-            : '';
-        if (isLinked && compo.style.display === 'none') {
-            alert('GOLDEN RULE VIOLATION: linked comp hidden!');
-        }
-    });
-    updateTierHeadersVisibility();
-    drawLines();
-});
-
-hideUnselectedBtn?.addEventListener('change', function() {
-    // ensure only one toggle is active
-    if (this.checked && hideContestedBtn.checked) {
-        hideContestedBtn.checked = false;
-    }
-    const hideUnlinked = this.checked;
-    document.querySelectorAll('.item.compo').forEach(compo => {
-        const isLinked = links.some(l => l.compo === compo);
-        compo.style.display = isLinked
-            ? ''
-            : (hideUnlinked ? 'none' : '');
-        if (isLinked && compo.style.display === 'none') {
-            alert('GOLDEN RULE VIOLATION: linked comp hidden!');
-        }
-    });
-    updateTierHeadersVisibility();
-    drawLines();
-});
