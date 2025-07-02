@@ -23,30 +23,30 @@ const loadMetaSnapshot = async () => {
     try {
         const response = await fetch(CONFIG.routes.metaSnapshot);
         const metaData = await response.json();
-        
+
         // Load units data from items
         metaData.items.default.concat(metaData.items.artifact, metaData.items.emblem, metaData.items.trait).forEach(itemApiName => {
             // Map item API names to display names and URLs if needed
             // This might need adjustment based on your item display requirements
         });
-        
+
         // Extract unit data from compositions
         metaData.comps.forEach(comp => {
             comp.itemizedChampions.forEach(champion => {
                 const unitName = champion.name;
                 unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
                 unitCostMap[unitName] = champion.cost || 1;
-                
+
                 // Create unit entry for items
-                units.push({ 
-                    Unit: unitName, 
-                    Item1: champion.items[0] || '', 
-                    Item2: champion.items[1] || '', 
-                    Item3: champion.items[2] || '' 
+                units.push({
+                    Unit: unitName,
+                    Item1: champion.items[0] || '',
+                    Item2: champion.items[1] || '',
+                    Item3: champion.items[2] || ''
                 });
             });
         });
-        
+
         // Load items data (each section now contains objects with .apiName)
         const allItems = [
             ...metaData.items.default,
@@ -57,9 +57,9 @@ const loadMetaSnapshot = async () => {
         items = allItems.map(itemObj => ({
             Item: itemObj.apiName,
             Name: itemObj.name,                          // add human‐readable name
-            Url:   getItemWEBPImageUrl(itemObj.apiName)
+            Url: getItemWEBPImageUrl(itemObj.apiName)
         }));
-        
+
         metaSnapshotData = metaData;
         return metaData;
     } catch (error) {
@@ -239,12 +239,12 @@ function addDuoDragEvents(player, throttledDrawLines) {
 function handlePlayerSwap(targetPlayer, throttledDrawLines) {
     targetPlayer.classList.remove('drop-target');
     const draggingPlayer = document.querySelector('.team-container .item.player.dragging');
-    
+
     if (!draggingPlayer || draggingPlayer === targetPlayer) return;
 
     const sourceContainer = draggingPlayer.closest('.team-container');
     const targetContainer = targetPlayer.closest('.team-container');
-    
+
     if (!sourceContainer || !targetContainer || sourceContainer === targetContainer) return;
 
     swapPlayers(draggingPlayer, targetPlayer, sourceContainer, targetContainer);
@@ -264,10 +264,10 @@ function swapPlayers(player1, player2, container1, container2) {
 function updateTeamIcons(containers) {
     containers.forEach(container => {
         if (!container.classList.contains('team-container')) return;
-        
+
         const iconCircle = container.querySelector('.team-icon');
         const teamPlayers = container.querySelectorAll('.item.player');
-        
+
         if (iconCircle && teamPlayers.length >= 2) {
             updateIconColor(iconCircle, iconCircle._iconConfig, teamPlayers[0], teamPlayers[1], container);
         }
@@ -280,15 +280,15 @@ function createTeamIcon(icon, player1, player2, container) {
     const circle = document.createElement('div');
     circle.classList.add('team-icon');
     circle._iconConfig = icon;
-    
+
     setupTeamIcon(circle, icon, player1, player2, container);
-    
+
     circle.onclick = (e) => {
         e.stopPropagation();
         currentIndex = (currentIndex + 1) % CONFIG.iconOptions.length;
         const newIcon = CONFIG.iconOptions[currentIndex];
         circle._iconConfig = newIcon;
-        
+
         const teamPlayers = container.querySelectorAll('.item.player');
         const [p1, p2] = teamPlayers.length >= 2 ? teamPlayers : [player1, player2];
         updateIconColor(circle, newIcon, p1, p2, container);
@@ -309,7 +309,7 @@ function updateIconColor(circle, icon, player1, player2, container) {
         player.dataset.color = icon.color;
         player.style.borderRight = `10px solid ${icon.color}`;
     });
-    
+
     circle.textContent = icon.emoji;
     circle.title = icon.name;
     circle.style.border = `2px solid ${icon.color}`;
@@ -776,9 +776,9 @@ function updateUnselectedChampionsTable() {
                     img.alt = champ;
 
                     const players = championPlayers[champ];
-                    const gradientColors = players.map((p,i) => {
-                        const pct = (i/players.length)*100;
-                        return `${p.color} ${pct}%, ${p.color} ${(i+1)/players.length*100}%`;
+                    const gradientColors = players.map((p, i) => {
+                        const pct = (i / players.length) * 100;
+                        return `${p.color} ${pct}%, ${p.color} ${(i + 1) / players.length * 100}%`;
                     }).join(', ');
                     img.style.border = '4px solid transparent';
                     img.style.borderImage = `linear-gradient(to right, ${gradientColors}) 1`;
@@ -1104,18 +1104,59 @@ function createItemsContainer() {
     return itemsContainer;
 }
 
-// Nueva función auxiliar para crear los iconos de unidades
-function createUnitIcons(units) {
-    const unitIcons = document.createElement('div');
-    unitIcons.className = 'unit-icons';
-    units.forEach(unit => {
-        if (unit && unitImageMap[unit]) {
-            const img = document.createElement('img');
-            img.src = `${unitImageMap[unit]}?w=28`;
-            img.alt = unit;
-            unitIcons.appendChild(img);
+// Nueva función auxiliar para crear el tooltip de items de una unidad
+function createUnitTooltip(itemApiNames) {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'unit-tooltip';
+
+    itemApiNames.forEach(api => {
+        const it = items.find(i => i.Item === api);
+        if (it) {
+            const ti = document.createElement('img');
+            ti.src = it.Url;
+            ti.alt = it.Name;
+            Object.assign(ti.style, {
+                width: '24px',
+                height: '24px'
+            });
+            tooltip.appendChild(ti);
         }
     });
+
+    return tooltip;
+}
+
+// Nueva función auxiliar para crear los iconos de unidades
+function createUnitIcons(units, compIndex) {
+    const unitIcons = document.createElement('div');
+    unitIcons.className = 'unit-icons';
+    const champItemsList = metaSnapshotData.comps[compIndex].itemizedChampions;
+
+    units.forEach(unit => {
+        if (!unit || !unitImageMap[unit]) return;
+
+        const img = document.createElement('img');
+        img.src = `${unitImageMap[unit]}?w=28`;
+        img.alt = unit;
+
+        // wrapper for hover tooltip
+        const wrapper = document.createElement('div');
+        wrapper.className = 'unit-icon-wrapper';
+        wrapper.appendChild(img);
+
+        // build tooltip of item-icons via helper
+        const champObj = champItemsList.find(ch => ch.name === unit);
+        const itemApiNames = champObj?.items || [];
+        if (itemApiNames.length) {
+            const tooltip = createUnitTooltip(itemApiNames);
+            wrapper.appendChild(tooltip);
+            wrapper.addEventListener('mouseenter', () => tooltip.style.display = 'flex');
+            wrapper.addEventListener('mouseleave', () => tooltip.style.display = 'none');
+        }
+
+        unitIcons.appendChild(wrapper);
+    });
+
     return unitIcons;
 }
 
@@ -1165,13 +1206,13 @@ function createCompoElement({ comp, index, estilo, units, teambuilderUrl, mainAu
     div.dataset.id = 'compo-' + index;
 
     const styleContainer = createStyleContainer(estilo);
-    const starContainer  = createUncontestedContainer();
+    const starContainer = createUncontestedContainer();
     const augmentItemContainer = createAugmentItemContainer(mainAugment, mainItem);
 
-    const compInfo       = createCompInfo(comp);
+    const compInfo = createCompInfo(comp);
     const itemsContainer = createItemsContainer();
-    const unitIcons      = createUnitIcons(units);
-    const tbButtonDiv    = createTeambuilderButton(teambuilderUrl);
+    const unitIcons = createUnitIcons(units, index);
+    const tbButtonDiv = createTeambuilderButton(teambuilderUrl);
 
     div.append(styleContainer, starContainer, augmentItemContainer, compInfo, itemsContainer, unitIcons);
     if (tbButtonDiv) div.appendChild(tbButtonDiv);
@@ -1216,7 +1257,7 @@ function loadCompsFromJSON(metaData) {
                 units: sortedUnits,
                 teambuilderUrl: comp.url,
                 mainAugment: comp.mainAugment || {},
-                mainItem:    comp.mainItem    || {}
+                mainItem: comp.mainItem || {}
             });
             tiers[tier].push({ name: comp.title, element: compoElement });
         }
@@ -1379,8 +1420,8 @@ const updateItemsContainer = (itemsContainer) => {
                     )
                 ];
                 const img = document.createElement('img');
-                img.src   = itemData.Url;
-                img.alt   = itemData.Name;
+                img.src = itemData.Url;
+                img.alt = itemData.Name;
                 img.title = `${itemData.Name} (Used by: ${uniqueChamps.join(', ')})`;
                 Object.assign(img.style, {
                     width: '20px',

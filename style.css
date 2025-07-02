@@ -805,6 +805,23 @@ input:focus~.input-border {
     transform: scale(1.08);
 }
 
+.unit-icon-wrapper{
+    position: relative;
+    display: inline-block;
+}
+
+.unit-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    padding: 4px;
+    background: #111;
+    border-radius: 10px;
+    z-index: 10;
+    gap: 4px;
+}
 /* =====================================================================
     Estilos para player cards
 ===================================================================== */
