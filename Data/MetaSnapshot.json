@@ -293,14 +293,6 @@
             "TFT4_Item_OrnnMuramana"
           ],
           "stars": 1
-        },
-        {
-          "apiName": "TFT14_Viego",
-          "items": [
-            "TFT4_Item_OrnnZhonyasParadox",
-            "TFT4_Item_OrnnDeathsDefiance"
-          ],
-          "stars": 1
         }
       ],
       "augments": [
@@ -340,16 +332,6 @@
       "url": "https://tftacademy.com/tierlist/comps/set-14-golden-oxdd",
       "itemizedChampions": [
         {
-          "apiName": "TFT14_Annie",
-          "boardIndex": 21,
-          "items": [
-            "TFT_Item_BlueBuff",
-            "TFT_Item_Leviathan",
-            "TFT_Item_ArchangelsStaff"
-          ],
-          "stars": 1
-        },
-        {
           "apiName": "TFT14_Aphelios",
           "boardIndex": 27,
           "items": [
@@ -360,18 +342,31 @@
           "stars": 1
         },
         {
-          "apiName": "TFT14_Xayah",
-          "boardIndex": 25,
+          "apiName": "TFT14_Garen",
+          "boardIndex": 4,
           "items": [
-            "TFT14_Item_ImmortalEmblemItem"
+            "TFT_Item_SteraksGage",
+            "TFT_Item_InfinityEdge"
           ],
           "stars": 1
         },
         {
-          "apiName": "TFT14_Garen",
-          "boardIndex": 6,
+          "apiName": "TFT14_Zac",
+          "boardIndex": 3,
           "items": [
-            "TFT14_Item_ImmortalEmblemItem"
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_Deathblade"
           ],
           "stars": 1
         },
@@ -379,9 +374,8 @@
           "apiName": "TFT14_Viego",
           "boardIndex": 2,
           "items": [
-            "TFT_Item_GuardianAngel",
             "TFT_Item_UnstableConcoction",
-            "TFT_Item_JeweledGauntlet"
+            "TFT_Item_GuardianAngel"
           ],
           "stars": 1
         }
@@ -1231,7 +1225,7 @@
       "mainItem": {},
       "title": "Kog'Maw Reroll",
       "style": "RR LV.5",
-      "tier": "B"
+      "tier": "C"
     },
     {
       "altBuilds": [
@@ -1446,7 +1440,8 @@
         {
           "apiName": "TFT14_Brand",
           "items": [
-            "TFT4_Item_OrnnMuramana"
+            "TFT4_Item_OrnnMuramana",
+            "TFT9_Item_OrnnHorizonFocus"
           ],
           "stars": 1
         },
@@ -1495,22 +1490,22 @@
       "url": "https://tftacademy.com/tierlist/comps/set-14-techies",
       "itemizedChampions": [
         {
-          "apiName": "TFT14_Kobuko",
-          "boardIndex": 3,
-          "items": [
-            "TFT14_Item_TechieEmblemItem",
-            "TFT_Item_RedBuff",
-            "TFT_Item_IonicSpark"
-          ],
-          "stars": 1
-        },
-        {
           "apiName": "TFT14_Brand",
           "boardIndex": 27,
           "items": [
             "TFT_Item_SpearOfShojin",
             "TFT_Item_JeweledGauntlet",
             "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 3,
+          "items": [
+            "TFT14_Item_TechieEmblemItem",
+            "TFT_Item_RedBuff",
+            "TFT_Item_IonicSpark"
           ],
           "stars": 1
         },
@@ -1768,10 +1763,6 @@
           "id": "yrwj60r5qp6ed4s"
         },
         {
-          "apiName": "TFT11_Augment_Epoch",
-          "id": "wpgibm5egahvt11"
-        },
-        {
           "apiName": "TFT11_Augment_Slammin",
           "id": "talnqdzyvk9aiyl"
         },
@@ -1790,19 +1781,14 @@
         {
           "apiName": "TFT_Augment_SupportMining",
           "id": "jn1x4w9cdlbq42a"
+        },
+        {
+          "apiName": "TFT_Augment_SwordOverflow",
+          "id": "b7u7qkqw7hgotc7"
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-divinicorp-vex",
       "itemizedChampions": [
-        {
-          "apiName": "TFT14_Senna",
-          "boardIndex": 26,
-          "items": [
-            "TFT_Item_LastWhisper",
-            "TFT_Item_RapidFireCannon"
-          ],
-          "stars": 1
-        },
         {
           "apiName": "TFT14_Zed",
           "boardIndex": 4,
@@ -1817,7 +1803,9 @@
           "apiName": "TFT14_Garen",
           "boardIndex": 3,
           "items": [
-            "TFT14_Item_DivinicorpEmblemItem"
+            "TFT14_Item_DivinicorpEmblemItem",
+            "TFT_Item_SteraksGage",
+            "TFT_Item_InfinityEdge"
           ],
           "stars": 1
         },
@@ -1825,8 +1813,9 @@
           "apiName": "TFT14_Renekton",
           "boardIndex": 19,
           "items": [
-            "TFT_Item_SteraksGage",
-            "TFT_Item_Quicksilver"
+            "TFT_Item_Quicksilver",
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_SteraksGage"
           ],
           "stars": 1
         }
@@ -2838,9 +2827,8 @@
         {
           "apiName": "TFT14_Vex",
           "items": [
-            "TFT5_Item_BlueBuffRadiant",
-            "TFT_Item_HextechGunblade",
-            "TFT_Item_Artifact_Fishbones"
+            "TFT_Item_Artifact_Fishbones",
+            "TFT5_Item_HextechGunbladeRadiant"
           ],
           "stars": 1
         },
@@ -3966,7 +3954,7 @@
           "items": [
             "TFT_Item_Artifact_WitsEnd",
             "TFT_Item_SpearOfShojin",
-            "TFT_Item_JeweledGauntlet"
+            "TFT_Item_GuinsoosRageblade"
           ],
           "stars": 1
         }
@@ -4177,7 +4165,8 @@
         {
           "apiName": "TFT14_Aphelios",
           "items": [
-            "TFT_Item_Artifact_NavoriFlickerblades"
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT5_Item_GuinsoosRagebladeRadiant"
           ],
           "stars": 1
         }
@@ -4219,21 +4208,22 @@
       "url": "https://tftacademy.com/tierlist/comps/set-14-6-vanguard-marksman",
       "itemizedChampions": [
         {
-          "apiName": "TFT14_Garen",
-          "boardIndex": 1,
-          "items": [
-            "TFT14_Item_GuardianEmblemItem",
-            "TFT_Item_RedBuff"
-          ],
-          "stars": 1
-        },
-        {
           "apiName": "TFT14_Aphelios",
           "boardIndex": 27,
           "items": [
             "TFT_Item_GuinsoosRageblade",
             "TFT_Item_HextechGunblade",
             "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_BrambleVest",
+            "TFT_Item_NightHarvester"
           ],
           "stars": 1
         },
@@ -4248,12 +4238,11 @@
           "stars": 1
         },
         {
-          "apiName": "TFT14_Leona",
-          "boardIndex": 4,
+          "apiName": "TFT14_Garen",
+          "boardIndex": 1,
           "items": [
-            "TFT_Item_WarmogsArmor",
-            "TFT_Item_BrambleVest",
-            "TFT_Item_NightHarvester"
+            "TFT14_Item_GuardianEmblemItem",
+            "TFT_Item_RedBuff"
           ],
           "stars": 1
         }
@@ -4358,91 +4347,402 @@
   ],
   "items": {
     "default": [
-      "TFT_Item_AdaptiveHelm",
-      "TFT_Item_ArchangelsStaff",
-      "TFT_Item_Bloodthirster",
-      "TFT_Item_BlueBuff",
-      "TFT_Item_BrambleVest",
-      "TFT_Item_Crownguard",
-      "TFT_Item_Deathblade",
-      "TFT_Item_DragonsClaw",
-      "TFT_Item_FrozenHeart",
-      "TFT_Item_GargoyleStoneplate",
-      "TFT_Item_GuardianAngel",
-      "TFT_Item_GuinsoosRageblade",
-      "TFT_Item_HextechGunblade",
-      "TFT_Item_InfinityEdge",
-      "TFT_Item_IonicSpark",
-      "TFT_Item_JeweledGauntlet",
-      "TFT_Item_LastWhisper",
-      "TFT_Item_Leviathan",
-      "TFT_Item_MadredsBloodrazor",
-      "TFT_Item_Morellonomicon",
-      "TFT_Item_NightHarvester",
-      "TFT_Item_PowerGauntlet",
-      "TFT_Item_Quicksilver",
-      "TFT_Item_RabadonsDeathcap",
-      "TFT_Item_RapidFireCannon",
-      "TFT_Item_RedBuff",
-      "TFT_Item_Redemption",
-      "TFT_Item_RunaansHurricane",
-      "TFT_Item_SpearOfShojin",
-      "TFT_Item_SpectralGauntlet",
-      "TFT_Item_StatikkShiv",
-      "TFT_Item_SteraksGage",
-      "TFT_Item_ThiefsGloves",
-      "TFT_Item_TitansResolve",
-      "TFT_Item_UnstableConcoction",
-      "TFT_Item_WarmogsArmor"
+      {
+        "apiName": "TFT_Item_Bloodthirster",
+        "name": "Bloodthirster",
+        "icon": "tft_item_bloodthirster_CVee57ctt3.webp"
+      },
+      {
+        "apiName": "TFT_Item_BrambleVest",
+        "name": "Bramble Vest",
+        "icon": "tft_item_bramble_vest_Zp2A11ZGx2.webp"
+      },
+      {
+        "apiName": "TFT_Item_Deathblade",
+        "name": "Deathblade",
+        "icon": "tft_item_deathblade_NkMadHmFA6.webp"
+      },
+      {
+        "apiName": "TFT_Item_DragonsClaw",
+        "name": "Dragon's Claw",
+        "icon": "tft_item_dragons_claw_11zqQ3t6Bz.webp"
+      },
+      {
+        "apiName": "TFT_Item_ThiefsGloves",
+        "name": "Thief's Gloves",
+        "icon": "tft_item_thiefs_gloves_Zwz25z6Sbu.webp"
+      },
+      {
+        "apiName": "TFT_Item_FrozenHeart",
+        "name": "Protector's Vow",
+        "icon": "tft_item_frozen_heart_goQhTqoGYn.webp"
+      },
+      {
+        "apiName": "TFT_Item_MadredsBloodrazor",
+        "name": "Giant Slayer",
+        "icon": "tft_item_madreds_bloodrazor_5KJp4aHtIX.webp"
+      },
+      {
+        "apiName": "TFT_Item_GuardianAngel",
+        "name": "Edge of Night",
+        "icon": "tft_item_guardian_angel_Gno4EMREB6.webp"
+      },
+      {
+        "apiName": "TFT_Item_GuinsoosRageblade",
+        "name": "Guinsoo's Rageblade",
+        "icon": "tft_item_guinsoos_rageblade_oP9A4tyNBm.webp"
+      },
+      {
+        "apiName": "TFT_Item_UnstableConcoction",
+        "name": "Hand Of Justice",
+        "icon": "tft_item_unstable_concoction_E9tPz1Akda.webp"
+      },
+      {
+        "apiName": "TFT_Item_HextechGunblade",
+        "name": "Hextech Gunblade",
+        "icon": "tft_item_hextech_gunblade_NNO96dl5XM.webp"
+      },
+      {
+        "apiName": "TFT_Item_InfinityEdge",
+        "name": "Infinity Edge",
+        "icon": "tft_item_infinity_edge_UqHnT8llVc.webp"
+      },
+      {
+        "apiName": "TFT_Item_IonicSpark",
+        "name": "Ionic Spark",
+        "icon": "tft_item_ionic_spark_9bgkwkvdnz.webp"
+      },
+      {
+        "apiName": "TFT_Item_JeweledGauntlet",
+        "name": "Jeweled Gauntlet",
+        "icon": "tft_item_jeweled_gauntlet_zaJPZp1fFI.webp"
+      },
+      {
+        "apiName": "TFT_Item_LastWhisper",
+        "name": "Last Whisper",
+        "icon": "tft_item_last_whisper_sfsdF71s1d.webp"
+      },
+      {
+        "apiName": "TFT_Item_ArchangelsStaff",
+        "name": "Archangel's Staff",
+        "icon": "tft_item_archangels_staff_mYasboaZh4.webp"
+      },
+      {
+        "apiName": "TFT_Item_Quicksilver",
+        "name": "Quicksilver",
+        "icon": "tft_item_quicksilver_kqxHgge57g.webp"
+      },
+      {
+        "apiName": "TFT_Item_Morellonomicon",
+        "name": "Morellonomicon",
+        "icon": "tft_item_morellonomicon_s07g5UBjsF.webp"
+      },
+      {
+        "apiName": "TFT_Item_PowerGauntlet",
+        "name": "Striker's Flail",
+        "icon": "tft_item_power_gauntlet_ZVhKLfVmPl.webp"
+      },
+      {
+        "apiName": "TFT_Item_RabadonsDeathcap",
+        "name": "Rabadon's Deathcap",
+        "icon": "tft_item_rabadons_deathcap_jdIlmIsDgI.webp"
+      },
+      {
+        "apiName": "TFT_Item_RapidFireCannon",
+        "name": "Red Buff",
+        "icon": "tft_item_rapid_fire_cannon_BTwF5W1TD6.webp"
+      },
+      {
+        "apiName": "TFT_Item_RedBuff",
+        "name": "Sunfire Cape",
+        "icon": "tft_item_red_buff_94uOMfDdWF.webp"
+      },
+      {
+        "apiName": "TFT_Item_Redemption",
+        "name": "Spirit Visage",
+        "icon": "tft_item_redemption_0BCSJfykeq.webp"
+      },
+      {
+        "apiName": "TFT_Item_RunaansHurricane",
+        "name": "Kraken's Fury",
+        "icon": "tft_item_runaans_hurricane_vsZyI9R0RP.webp"
+      },
+      {
+        "apiName": "TFT_Item_SpearOfShojin",
+        "name": "Spear of Shojin",
+        "icon": "tft_item_spear_of_shojin_i9F1FPBWxz.webp"
+      },
+      {
+        "apiName": "TFT_Item_StatikkShiv",
+        "name": "Void Staff",
+        "icon": "tft_item_statikk_shiv_sWvCCGg6Nc.webp"
+      },
+      {
+        "apiName": "TFT_Item_GargoyleStoneplate",
+        "name": "Gargoyle Stoneplate",
+        "icon": "tft_item_gargoyle_stoneplate_P8bGvATZed.webp"
+      },
+      {
+        "apiName": "TFT_Item_TitansResolve",
+        "name": "Titan's Resolve",
+        "icon": "tft_item_titans_resolve_1sBIO9RGs4.webp"
+      },
+      {
+        "apiName": "TFT_Item_WarmogsArmor",
+        "name": "Warmog's Armor",
+        "icon": "tft_item_warmogs_armor_43Ij0qhO4m.webp"
+      },
+      {
+        "apiName": "TFT_Item_SpectralGauntlet",
+        "name": "Evenshroud",
+        "icon": "tft_item_spectral_gauntlet_wosbB93hx2.webp"
+      },
+      {
+        "apiName": "TFT_Item_Crownguard",
+        "name": "Crownguard",
+        "icon": "tft_item_crownguard_ptmJMf5jXj.webp"
+      },
+      {
+        "apiName": "TFT_Item_NightHarvester",
+        "name": "Steadfast Heart",
+        "icon": "tft_item_night_harvester_VFicwnwSfz.webp"
+      },
+      {
+        "apiName": "TFT_Item_SteraksGage",
+        "name": "Sterak's Gage",
+        "icon": "tft_item_steraks_gage_vJr9aSMumg.webp"
+      },
+      {
+        "apiName": "TFT_Item_BlueBuff",
+        "name": "Blue Buff",
+        "icon": "tft_item_blue_buff_E3nfykxnl0.webp"
+      },
+      {
+        "apiName": "TFT_Item_AdaptiveHelm",
+        "name": "Adaptive Helm",
+        "icon": "tft_item_adaptive_helm_U7wrrPbXDT.webp"
+      },
+      {
+        "apiName": "TFT_Item_Leviathan",
+        "name": "Nashor's Tooth",
+        "icon": "tft_item_leviathan_wv3AK9EsdY.webp"
+      }
     ],
     "artifact": [
-      "TFT4_Item_OrnnAnimaVisage",
-      "TFT4_Item_OrnnDeathsDefiance",
-      "TFT4_Item_OrnnInfinityForce",
-      "TFT4_Item_OrnnMuramana",
-      "TFT4_Item_OrnnTheCollector",
-      "TFT4_Item_OrnnZhonyasParadox",
-      "TFT7_Item_ShimmerscaleGamblersBlade",
-      "TFT9_Item_OrnnDeathfireGrasp",
-      "TFT9_Item_OrnnHorizonFocus",
-      "TFT9_Item_OrnnTrickstersGlass",
-      "TFT_Item_Artifact_BlightingJewel",
-      "TFT_Item_Artifact_Fishbones",
-      "TFT_Item_Artifact_InnervatingLocket",
-      "TFT_Item_Artifact_LightshieldCrest",
-      "TFT_Item_Artifact_Mittens",
-      "TFT_Item_Artifact_NavoriFlickerblades",
-      "TFT_Item_Artifact_ProwlersClaw",
-      "TFT_Item_Artifact_SeekersArmguard",
-      "TFT_Item_Artifact_SilvermereDawn",
-      "TFT_Item_Artifact_SpectralCutlass",
-      "TFT_Item_Artifact_SuspiciousTrenchCoat",
-      "TFT_Item_Artifact_TalismanOfAscension",
-      "TFT_Item_Artifact_UnendingDespair",
-      "TFT_Item_Artifact_WitsEnd"
+      {
+        "apiName": "TFT4_Item_OrnnAnimaVisage",
+        "name": "Anima Visage",
+        "icon": "tft4_item_ornn_anima_visage_7jomGsTxFN.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnDeathsDefiance",
+        "name": "Death's Defiance",
+        "icon": "tft4_item_ornn_deaths_defiance_9Zz6KLYJuZ.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnTheCollector",
+        "name": "Gold Collector",
+        "icon": "tft4_item_ornn_the_collector_iHyseP3u4x.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnInfinityForce",
+        "name": "Infinity Force",
+        "icon": "tft4_item_ornn_infinity_force_x51nMvmpHC.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnMuramana",
+        "name": "Manazane",
+        "icon": "tft4_item_ornn_muramana_9zNimGGyYK.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnZhonyasParadox",
+        "name": "Zhonya's Paradox",
+        "icon": "tft4_item_ornn_zhonyas_paradox_Qs6MxF1LCm.webp"
+      },
+      {
+        "apiName": "TFT9_Item_OrnnTrickstersGlass",
+        "name": "Trickster's Glass",
+        "icon": "tft9_item_ornn_tricksters_glass_lLUy9i4m6c.webp"
+      },
+      {
+        "apiName": "TFT9_Item_OrnnDeathfireGrasp",
+        "name": "Deathfire Grasp",
+        "icon": "tft9_item_ornn_deathfire_grasp_S36xXRWLhF.webp"
+      },
+      {
+        "apiName": "TFT9_Item_OrnnHorizonFocus",
+        "name": "Sniper's Focus",
+        "icon": "tft9_item_ornn_horizon_focus_8J1huAMx7k.webp"
+      },
+      {
+        "apiName": "TFT7_Item_ShimmerscaleGamblersBlade",
+        "name": "Gambler's Blade",
+        "icon": "tft7_item_shimmerscale_gamblers_blade_TerO5eO6xs.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_TalismanOfAscension",
+        "name": "Talisman Of Ascension",
+        "icon": "tft_item_artifact_talisman_of_ascension_5ua3mDYb6a.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_Fishbones",
+        "name": "Fishbones",
+        "icon": "tft_item_artifact_fishbones_tsAh7aKqQm.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SuspiciousTrenchCoat",
+        "name": "Suspicious Trench Coat",
+        "icon": "tft_item_artifact_suspicious_trench_coat_jU2LcS4cya.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_Mittens",
+        "name": "Mittens",
+        "icon": "tft_item_artifact_mittens_ZPHVQYIiAK.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_UnendingDespair",
+        "name": "Unending Despair",
+        "icon": "tft_item_artifact_unending_despair_roQrbGZ6yM.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_InnervatingLocket",
+        "name": "Innervating Locket",
+        "icon": "tft_item_artifact_innervating_locket_wlZmzvWOGX.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SilvermereDawn",
+        "name": "Silvermere Dawn",
+        "icon": "tft_item_artifact_silvermere_dawn_MBcLFtZU6F.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_ProwlersClaw",
+        "name": "Prowler's Claw",
+        "icon": "tft_item_artifact_prowlers_claw_QD4VSO0jxP.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SpectralCutlass",
+        "name": "Spectral Cutlass",
+        "icon": "tft_item_artifact_spectral_cutlass_yJvBPtxvbC.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_BlightingJewel",
+        "name": "Blighting Jewel",
+        "icon": "tft_item_artifact_blighting_jewel_BuARUuxMGW.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_WitsEnd",
+        "name": "Wit's End",
+        "icon": "tft_item_artifact_wits_end_nVZQesfSyU.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_LightshieldCrest",
+        "name": "Lightshield Crest",
+        "icon": "tft_item_artifact_lightshield_crest_13QbjQONOb.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SeekersArmguard",
+        "name": "Seeker's Armguard",
+        "icon": "tft_item_artifact_seekers_armguard_brMOY6o5jJ.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
+        "name": "Flickerblade",
+        "icon": "tft_item_artifact_navori_flickerblades_6obho2tqGz.webp"
+      }
     ],
     "emblem": [
-      "TFT14_Item_ArmorcladEmblemItem",
-      "TFT14_Item_BruiserEmblemItem",
-      "TFT14_Item_CutterEmblemItem",
-      "TFT14_Item_DarkWebEmblemItem",
-      "TFT14_Item_DivinicorpEmblemItem",
-      "TFT14_Item_EdgeRunnerEmblemItem",
-      "TFT14_Item_GuardianEmblemItem",
-      "TFT14_Item_ImmortalEmblemItem",
-      "TFT14_Item_StrongEmblemItem",
-      "TFT14_Item_SwiftEmblemItem",
-      "TFT14_Item_TechieEmblemItem",
-      "TFT14_Item_ThirstyEmblemItem"
+      {
+        "apiName": "TFT14_Item_ArmorcladEmblemItem",
+        "name": "Bastion Emblem",
+        "icon": "tft14_item_armorclad_emblem_item_iFPIw8tdbL.webp"
+      },
+      {
+        "apiName": "TFT14_Item_BruiserEmblemItem",
+        "name": "Bruiser Emblem",
+        "icon": "tft14_item_bruiser_emblem_item_Q3qczDUWxA.webp"
+      },
+      {
+        "apiName": "TFT14_Item_CutterEmblemItem",
+        "name": "Executioner Emblem",
+        "icon": "tft14_item_cutter_emblem_item_0KCoUIRCIM.webp"
+      },
+      {
+        "apiName": "TFT14_Item_DarkWebEmblemItem",
+        "name": "Anima Squad Emblem",
+        "icon": "tft14_item_dark_web_emblem_item_mtQ38639dm.webp"
+      },
+      {
+        "apiName": "TFT14_Item_DivinicorpEmblemItem",
+        "name": "Divinicorp Emblem",
+        "icon": "tft14_item_divinicorp_emblem_item_CsZCN5wBRp.webp"
+      },
+      {
+        "apiName": "TFT14_Item_EdgeRunnerEmblemItem",
+        "name": "Exotech Emblem",
+        "icon": "tft14_item_edge_runner_emblem_item_toaasu62SK.webp"
+      },
+      {
+        "apiName": "TFT14_Item_StrongEmblemItem",
+        "name": "Slayer Emblem",
+        "icon": "tft14_item_strong_emblem_item_rKjEo6i6cL.webp"
+      },
+      {
+        "apiName": "TFT14_Item_SwiftEmblemItem",
+        "name": "Rapidfire Emblem",
+        "icon": "tft14_item_swift_emblem_item_CO0KE2g18s.webp"
+      },
+      {
+        "apiName": "TFT14_Item_TechieEmblemItem",
+        "name": "Techie Emblem",
+        "icon": "tft14_item_techie_emblem_item_ZsIVuepRje.webp"
+      },
+      {
+        "apiName": "TFT14_Item_ThirstyEmblemItem",
+        "name": "Dynamo Emblem",
+        "icon": "tft14_item_thirsty_emblem_item_2z6FtIRzq6.webp"
+      },
+      {
+        "apiName": "TFT14_Item_GuardianEmblemItem",
+        "name": "Vanguard Emblem",
+        "icon": "tft14_item_guardian_emblem_item_63NlUtYbCA.webp"
+      }
     ],
     "trait": [
-      "TFT14_JaxCyberneticItem",
-      "TFT14_JhinCyberneticItem",
-      "TFT14_MordekaiserCyberneticItem",
-      "TFT14_NaafiriCyberneticItem",
-      "TFT14_SejuaniCyberneticItem",
-      "TFT14_VarusCyberneticItem",
-      "TFT14_ZeriCyberneticItem"
+      {
+        "apiName": "TFT14_JaxCyberneticItem",
+        "name": "Repulsor Lantern",
+        "icon": "tft14_jax_cybernetic_item_MEZK45N1yC.webp"
+      },
+      {
+        "apiName": "TFT14_JhinCyberneticItem",
+        "name": "Pulse Stabilizer",
+        "icon": "tft14_jhin_cybernetic_item_tRsGGEfMgv.webp"
+      },
+      {
+        "apiName": "TFT14_MordekaiserCyberneticItem",
+        "name": "Corrupted Chassis",
+        "icon": "tft14_mordekaiser_cybernetic_item_oyL85u1v1E.webp"
+      },
+      {
+        "apiName": "TFT14_NaafiriCyberneticItem",
+        "name": "Hyper Fangs",
+        "icon": "tft14_naafiri_cybernetic_item_xJ53Tufa5K.webp"
+      },
+      {
+        "apiName": "TFT14_SejuaniCyberneticItem",
+        "name": "Cybercoil",
+        "icon": "tft14_sejuani_cybernetic_item_BvdJ7Jd1qJ.webp"
+      },
+      {
+        "apiName": "TFT14_VarusCyberneticItem",
+        "name": "Holobow",
+        "icon": "tft14_varus_cybernetic_item_1yWDOxCQsD.webp"
+      },
+      {
+        "apiName": "TFT14_ZeriCyberneticItem",
+        "name": "Flux Capacitor",
+        "icon": "tft14_zeri_cybernetic_item_PyGaUjGU2A.webp"
+      }
     ]
   }
 }
