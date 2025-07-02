@@ -56,7 +56,8 @@ const loadMetaSnapshot = async () => {
         ];
         items = allItems.map(itemObj => ({
             Item: itemObj.apiName,
-            Url: getItemWEBPImageUrl(itemObj.apiName)
+            Name: itemObj.name,                          // add human‐readable name
+            Url:   getItemWEBPImageUrl(itemObj.apiName)
         }));
         
         metaSnapshotData = metaData;
@@ -1369,15 +1370,23 @@ const updateItemsContainer = (itemsContainer) => {
     Object.entries(itemToChampionsMap).forEach(([item, champions]) => {
         if (!displayedItems.has(item)) {
             const itemData = items.find(i => i.Item === item);
-            console.log(`Processing item: ${item} for champions: ${champions.join(', ')}`);
             if (itemData) {
+                // remove duplicate champion names
+                const uniqueChamps = [
+                    ...new Set(
+                        champions
+                            .filter(champ => champ && champ.trim() !== '')
+                    )
+                ];
                 const img = document.createElement('img');
-                img.src = itemData.Url;
-                img.alt = item;
-                img.title = `${item} (Used by: ${champions.join(', ')})`;
+                img.src   = itemData.Url;
+                img.alt   = itemData.Name;
+                img.title = `${itemData.Name} (Used by: ${uniqueChamps.join(', ')})`;
                 Object.assign(img.style, {
-                    width: '20px', height: '20px',
-                    borderRadius: '4px', objectFit: 'cover'
+                    width: '20px',
+                    height: '20px',
+                    borderRadius: '4px',
+                    objectFit: 'cover'
                 });
                 itemsContainer.appendChild(img);
                 displayedItems.add(item);
