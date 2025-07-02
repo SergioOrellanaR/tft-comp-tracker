@@ -220,8 +220,8 @@ button:hover {
     padding-right: 8px;
 }
 
-.hide-unselected-comps-button-container,
-.hide-contested-comps-button-container {
+.hide-contested-comps-btn-container,
+.hide-unselected-comps-btn-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -233,7 +233,7 @@ button:hover {
 
 /*------ Unselected comps button  ------*/
 
-.hide-unselected-comps-button-label input {
+.hide-contested-comps-btn-label input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -241,7 +241,7 @@ button:hover {
     width: 0;
 }
 
-.hide-unselected-comps-button-label {
+.hide-contested-comps-btn-label {
     display: block;
     position: relative;
     cursor: pointer;
@@ -250,7 +250,7 @@ button:hover {
     height: 100%;
 }
 
-.hide-unselected-comps-button-label svg {
+.hide-contested-comps-btn-label svg {
     position: relative;
     top: 0;
     width: 100%;
@@ -260,18 +260,18 @@ button:hover {
     fill: #fff;
 }
 
-.hide-unselected-comps-button-label svg:hover {
+.hide-contested-comps-btn-label svg:hover {
     transform: scale(1.2);
 }
 
-.hide-unselected-comps-button-label input:checked~svg {
+.hide-contested-comps-btn-label input:checked~svg {
     fill: #ffeb49;
 }
 
 /*------ End of unselected comps button  ------*/
 
 /*------ Contested comps button  ------*/
-.hide-contested-comps-button-label {
+.hide-unselected-comps-btn-label {
     width: 100%;
     height: 100%;
     display: flex;
@@ -282,28 +282,28 @@ button:hover {
     fill: #fff;
 }
 
-.hide-contested-comps-button-label .eye {
+.hide-unselected-comps-btn-label .eye {
     animation: keyframes-fill .5s;
 }
 
-.hide-contested-comps-button-label .eye-slash {
+.hide-unselected-comps-btn-label .eye-slash {
     animation: keyframes-fill .5s;
     display: none;
 }
 
-.hide-contested-comps-button-label input:checked~.eye {
+.hide-unselected-comps-btn-label input:checked~.eye {
     display: none;
     width: 100%;
     height: 100%;
 }
 
-.hide-contested-comps-button-label input:checked~.eye-slash {
+.hide-unselected-comps-btn-label input:checked~.eye-slash {
     display: block;
     width: 100%;
     height: 100%;
 }
 
-.hide-contested-comps-button-label input {
+.hide-unselected-comps-btn-label input {
     opacity: 0;
     cursor: pointer;
     height: 0;

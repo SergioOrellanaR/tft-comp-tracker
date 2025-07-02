@@ -646,15 +646,15 @@ function initHoverTooltips() {
     }
 
     setupHoverTooltip(
-        '.hide-unselected-comps-button-label',
-        '#hide-unselected-comps-button',
+        '.hide-contested-comps-btn-label',
+        '#hide-contested-comps-btn',
         'Press to show all compositions',
         'Press to show uncontested and linked compositions only'
     );
 
     setupHoverTooltip(
-        '.hide-contested-comps-button-label',
-        '#hide-contested-comps-button',
+        '.hide-unselected-comps-btn-label',
+        '#hide-unselected-comps-btn',
         'Press to show unlinked compositions',
         'Press to hide unlinked compositions'
     );
@@ -686,6 +686,22 @@ function drawLines() {
     updateCompoColorBars();
     applyChampionFilters();
     updateHeavilyContestedChampionsTable();
+
+    // reapply hide-contested filter on every redraw if active
+    const hideBtn = document.getElementById('hide-contested-comps-btn');
+    if (hideBtn?.checked) {
+        document.querySelectorAll('.item.compo').forEach(compo => {
+            const isLinked    = links.some(l => l.compo === compo);
+            const starIcon    = compo.querySelector('.star-icon');
+            const isUncontested = starIcon && starIcon.style.visibility !== 'hidden';
+            compo.style.display = (isLinked || isUncontested) ? '' : 'none';
+            if (isLinked && compo.style.display === 'none') {
+                alert('GOLDEN RULE VIOLATION: linked comp hidden!');
+            }
+        });
+    }
+
+    updateTierHeadersVisibility();
 }
 
 function updateHeavilyContestedChampionsTable() {
@@ -1516,14 +1532,16 @@ window.toggleDoubleUpMode = toggleDoubleUpMode;
 window.resetPlayers = resetPlayers;
 
 // Append show/hide-comps logic with golden rule enforcement
-document.getElementById('hide-unselected-comps-button')?.addEventListener('change', function() {
+document.getElementById('hide-contested-comps-btn')?.addEventListener('change', function() {
     const showOnlyUncontestedAndLinked = this.checked;
     document.querySelectorAll('.item.compo').forEach(compo => {
         const isLinked = links.some(l => l.compo === compo);
-        if (isLinked) {
-            compo.style.display = '';
+        const starIcon = compo.querySelector('.star-icon');
+        const isUncontested = starIcon && starIcon.style.visibility !== 'hidden';
+        if (showOnlyUncontestedAndLinked) {
+            compo.style.display = (isLinked || isUncontested) ? '' : 'none';
         } else {
-            compo.style.display = showOnlyUncontestedAndLinked ? '' : '';
+            compo.style.display = '';
         }
         if (isLinked && compo.style.display === 'none') {
             alert('GOLDEN RULE VIOLATION: linked comp hidden!');
@@ -1533,7 +1551,7 @@ document.getElementById('hide-unselected-comps-button')?.addEventListener('chang
     drawLines();
 });
 
-document.getElementById('hide-contested-comps-button')?.addEventListener('change', function() {
+document.getElementById('hide-unselected-comps-btn')?.addEventListener('change', function() {
     const hideUnlinked = this.checked;
     document.querySelectorAll('.item.compo').forEach(compo => {
         const isLinked = links.some(l => l.compo === compo);
