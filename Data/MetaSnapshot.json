@@ -10,7 +10,11 @@
             "TFT_Item_Artifact_SpectralCutlass",
             "TFT4_Item_OrnnDeathsDefiance"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
         },
         {
           "apiName": "TFT14_Shaco",
@@ -19,7 +23,11 @@
             "TFT9_Item_OrnnHorizonFocus",
             "TFT_Item_MadredsBloodrazor"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
         }
       ],
       "augments": [
@@ -126,7 +134,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnDeathfireGrasp"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
+          "cost": 2,
+          "name": "Veigar",
+          "set": 14
         }
       ],
       "augments": [
@@ -248,14 +260,22 @@
           "items": [
             "TFT_Item_Artifact_UnendingDespair"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
         },
         {
           "apiName": "TFT14_Ziggs",
           "items": [
             "TFT14_Item_TechieEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
         }
       ],
       "augments": [
@@ -358,7 +378,11 @@
           "items": [
             "TFT4_Item_OrnnMuramana"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
         }
       ],
       "augments": [
@@ -491,7 +515,11 @@
             "TFT9_Item_OrnnDeathfireGrasp",
             "TFT4_Item_OrnnZhonyasParadox"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
         }
       ],
       "augments": [
@@ -608,7 +636,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
         },
         {
           "apiName": "TFT14_Leona",
@@ -616,7 +648,11 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_LightshieldCrest"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
         }
       ],
       "augments": [
@@ -735,7 +771,11 @@
             "TFT_Item_Artifact_NavoriFlickerblades",
             "TFT5_Item_RunaansHurricaneRadiant"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
         }
       ],
       "augments": [
@@ -870,7 +910,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
         }
       ],
       "augments": [
@@ -991,14 +1035,22 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
         },
         {
           "apiName": "TFT14_Aphelios",
           "items": [
             "TFT_Item_Artifact_NavoriFlickerblades"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
         }
       ],
       "augments": [
@@ -1115,7 +1167,11 @@
             "TFT_Item_Artifact_SpectralCutlass",
             "TFT_Item_Artifact_SilvermereDawn"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+          "cost": 3,
+          "name": "Rengar",
+          "set": 14
         }
       ],
       "augments": [
@@ -1245,14 +1301,22 @@
           "items": [
             "TFT4_Item_OrnnMuramana"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
         },
         {
           "apiName": "TFT14_Neeko",
           "items": [
             "TFT4_Item_OrnnAnimaVisage"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_neeko_psECGKAQZl.webp",
+          "cost": 4,
+          "name": "Neeko",
+          "set": 14
         }
       ],
       "augments": [
@@ -1367,7 +1431,11 @@
           "items": [
             "TFT_Item_Artifact_UnendingDespair"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+          "cost": 1,
+          "name": "Vi",
+          "set": 14
         },
         {
           "apiName": "TFT14_KogMaw",
@@ -1376,7 +1444,11 @@
             "TFT4_Item_OrnnTheCollector",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_kog_maw_5eTLEepVa2.webp",
+          "cost": 1,
+          "name": "Kog'Maw",
+          "set": 14
         }
       ],
       "augments": [
@@ -1491,7 +1563,11 @@
             "TFT_Item_ArchangelsStaff",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_twisted_fate_Bi3n5isUMU.webp",
+          "cost": 2,
+          "name": "Twisted Fate",
+          "set": 14
         },
         {
           "apiName": "TFT14_TwistedFate",
@@ -1500,7 +1576,11 @@
             "TFT_Item_GuinsoosRageblade",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_twisted_fate_Bi3n5isUMU.webp",
+          "cost": 2,
+          "name": "Twisted Fate",
+          "set": 14
         }
       ],
       "augments": [
@@ -1618,7 +1698,11 @@
             "TFT_Item_GuinsoosRageblade",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
         }
       ],
       "augments": [
@@ -1736,14 +1820,22 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
         },
         {
           "apiName": "TFT14_Viego",
           "items": [
             "TFT4_Item_OrnnZhonyasParadox"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_viego_Sqil4FY2Gq.webp",
+          "cost": 5,
+          "name": "Viego",
+          "set": 14
         }
       ],
       "augments": [
@@ -1851,7 +1943,11 @@
             "TFT14_Item_BruiserEmblemItem",
             "TFT_Item_Artifact_BlightingJewel"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
         },
         {
           "apiName": "TFT14_Fiddlesticks",
@@ -1860,7 +1956,11 @@
             "TFT_Item_ArchangelsStaff",
             "TFT_Item_ArchangelsStaff"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
         }
       ],
       "augments": [
@@ -1979,7 +2079,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
+          "cost": 2,
+          "name": "Veigar",
+          "set": 14
         }
       ],
       "augments": [
@@ -2084,7 +2188,11 @@
           "items": [
             "TFT14_Item_StrongEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
         },
         {
           "apiName": "TFT14_Zed",
@@ -2092,7 +2200,11 @@
             "TFT4_Item_OrnnInfinityForce",
             "TFT_Item_Artifact_Mittens"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
         }
       ],
       "augments": [
@@ -2200,7 +2312,11 @@
             "TFT_Item_GuinsoosRageblade",
             "TFT_Item_GuinsoosRageblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vayne_avXey3niuy.webp",
+          "cost": 2,
+          "name": "Vayne",
+          "set": 14
         },
         {
           "apiName": "TFT14_Jarvan",
@@ -2209,7 +2325,11 @@
             "TFT_Item_Artifact_SilvermereDawn",
             "TFT9_Item_OrnnTrickstersGlass"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_jarvan_cUnBW5pQjg.webp",
+          "cost": 3,
+          "name": "Jarvan IV",
+          "set": 14
         }
       ],
       "augments": [
@@ -2327,7 +2447,11 @@
           "items": [
             "TFT_Item_Artifact_SeekersArmguard"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_poppy_ZKixNJBDtc.webp",
+          "cost": 1,
+          "name": "Poppy",
+          "set": 14
         }
       ],
       "augments": [
@@ -2444,7 +2568,11 @@
           "items": [
             "TFT14_NaafiriCyberneticItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_jax_bIB9hPDcYq.webp",
+          "cost": 1,
+          "name": "Jax",
+          "set": 14
         }
       ],
       "augments": [
@@ -2564,7 +2692,11 @@
           "items": [
             "TFT_Item_Artifact_SilvermereDawn"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+          "cost": 1,
+          "name": "Vi",
+          "set": 14
         }
       ],
       "augments": [
@@ -2672,7 +2804,11 @@
             "TFT_Item_Artifact_SilvermereDawn",
             "TFT_Item_Artifact_SpectralCutlass"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rhaast_neLCf2ChLx.webp",
+          "cost": 2,
+          "name": "Rhaast",
+          "set": 14
         },
         {
           "apiName": "TFT14_Rhaast",
@@ -2681,7 +2817,11 @@
             "TFT_Item_UnstableConcoction",
             "TFT_Item_SteraksGage"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rhaast_neLCf2ChLx.webp",
+          "cost": 2,
+          "name": "Rhaast",
+          "set": 14
         }
       ],
       "augments": [
@@ -2797,7 +2937,11 @@
           "items": [
             "TFT_Item_Artifact_TalismanOfAscension"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_gragas_hrDxxeDsX2.webp",
+          "cost": 3,
+          "name": "Gragas",
+          "set": 14
         },
         {
           "apiName": "TFT14_Fiddlesticks",
@@ -2805,7 +2949,11 @@
             "TFT9_Item_OrnnHorizonFocus",
             "TFT_Item_Artifact_BlightingJewel"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
         }
       ],
       "augments": [
@@ -2911,7 +3059,11 @@
           "items": [
             "TFT_Item_Artifact_SeekersArmguard"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+          "cost": 1,
+          "name": "Sylas",
+          "set": 14
         }
       ],
       "augments": [
@@ -3031,7 +3183,11 @@
             "TFT_Item_BlueBuff",
             "TFT_Item_Leviathan"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
         }
       ],
       "augments": [
@@ -3135,7 +3291,11 @@
             "TFT_Item_Artifact_SilvermereDawn",
             "TFT_Item_Artifact_SpectralCutlass"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+          "cost": 3,
+          "name": "Rengar",
+          "set": 14
         },
         {
           "apiName": "TFT14_Jinx",
@@ -3143,7 +3303,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT14_Item_CutterEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_jinx_7JZwene7WE.webp",
+          "cost": 3,
+          "name": "Jinx",
+          "set": 14
         }
       ],
       "augments": [
@@ -3246,7 +3410,11 @@
             "TFT9_Item_OrnnHorizonFocus",
             "TFT9_Item_OrnnDeathfireGrasp"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
         }
       ],
       "augments": [
@@ -3371,14 +3539,22 @@
             "TFT_Item_Artifact_Fishbones",
             "TFT5_Item_HextechGunbladeRadiant"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
         },
         {
           "apiName": "TFT14_Varus",
           "items": [
             "TFT14_Item_ThirstyEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_varus_vjE7X6XH3s.webp",
+          "cost": 3,
+          "name": "Varus",
+          "set": 14
         }
       ],
       "augments": [
@@ -3495,7 +3671,11 @@
           "items": [
             "TFT_Item_BlueBuff"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
         }
       ],
       "augments": [
@@ -3615,7 +3795,11 @@
             "TFT_Item_UnstableConcoction",
             "TFT_Item_InfinityEdge"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_naafiri_xzTk0mIJs3.webp",
+          "cost": 2,
+          "name": "Naafiri",
+          "set": 14
         },
         {
           "apiName": "TFT14_Naafiri",
@@ -3624,7 +3808,11 @@
             "TFT_Item_SteraksGage",
             "TFT_Item_GuardianAngel"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_naafiri_xzTk0mIJs3.webp",
+          "cost": 2,
+          "name": "Naafiri",
+          "set": 14
         }
       ],
       "augments": [
@@ -3742,14 +3930,22 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_InnervatingLocket"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_dr_mundo_hOF3Xi07li.webp",
+          "cost": 1,
+          "name": "Dr. Mundo",
+          "set": 14
         },
         {
           "apiName": "TFT14_Zyra",
           "items": [
             "TFT4_Item_OrnnMuramana"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zyra_rwwuKVWftm.webp",
+          "cost": 1,
+          "name": "Zyra",
+          "set": 14
         }
       ],
       "augments": [
@@ -3873,7 +4069,11 @@
             "TFT_Item_RunaansHurricane",
             "TFT14_JhinCyberneticItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
         }
       ],
       "augments": [
@@ -3991,7 +4191,11 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_LightshieldCrest"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
         }
       ],
       "augments": [
@@ -4112,7 +4316,11 @@
             "TFT_Item_HextechGunblade",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
         },
         {
           "apiName": "TFT14_Chogath",
@@ -4120,7 +4328,11 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_InnervatingLocket"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
+          "cost": 4,
+          "name": "Cho'Gath",
+          "set": 14
         }
       ],
       "augments": [
@@ -4251,7 +4463,11 @@
             "TFT_Item_HextechGunblade",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
         }
       ],
       "augments": [
@@ -4370,7 +4586,11 @@
             "TFT_Item_InfinityEdge",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
         }
       ],
       "augments": [
@@ -4488,7 +4708,11 @@
             "TFT_Item_HextechGunblade",
             "TFT14_Item_ArmorcladEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
+          "cost": 1,
+          "name": "Morgana",
+          "set": 14
         },
         {
           "apiName": "TFT14_Morgana",
@@ -4497,7 +4721,11 @@
             "TFT_Item_HextechGunblade",
             "TFT_Item_Artifact_BlightingJewel"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
+          "cost": 1,
+          "name": "Morgana",
+          "set": 14
         }
       ],
       "augments": [
@@ -4734,7 +4962,11 @@
             "TFT_Item_BlueBuff",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_le_blanc_L0ffx8qlRq.webp",
+          "cost": 2,
+          "name": "LeBlanc",
+          "set": 14
         },
         {
           "apiName": "TFT14_LeBlanc",
@@ -4743,7 +4975,11 @@
             "TFT_Item_SpearOfShojin",
             "TFT_Item_GuinsoosRageblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_le_blanc_L0ffx8qlRq.webp",
+          "cost": 2,
+          "name": "LeBlanc",
+          "set": 14
         }
       ],
       "augments": [
@@ -4871,7 +5107,11 @@
             "TFT_Item_Artifact_Mittens",
             "TFT4_Item_OrnnDeathsDefiance"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_graves_aSZKfH6dm6.webp",
+          "cost": 2,
+          "name": "Graves",
+          "set": 14
         },
         {
           "apiName": "TFT14_Graves",
@@ -4880,7 +5120,11 @@
             "TFT_Item_GuardianAngel",
             "TFT_Item_Artifact_SuspiciousTrenchCoat"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_graves_aSZKfH6dm6.webp",
+          "cost": 2,
+          "name": "Graves",
+          "set": 14
         }
       ],
       "augments": [
@@ -4985,7 +5229,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
         },
         {
           "apiName": "TFT14_Aphelios",
@@ -4993,7 +5241,11 @@
             "TFT_Item_Artifact_NavoriFlickerblades",
             "TFT5_Item_GuinsoosRagebladeRadiant"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
         }
       ],
       "augments": [
@@ -5608,5 +5860,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-02 14:55:25"
+  "lastUpdated": "2025-07-02 15:09:18"
 }
