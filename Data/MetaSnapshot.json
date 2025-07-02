@@ -5525,5 +5525,9 @@
         "icon": "tft14_jax_cybernetic_item_MEZK45N1yC.webp"
       }
     ]
+  },
+  "source": {
+    "name": "TFTAcademy",
+    "url": "https://tftacademy.com"
   }
 }
