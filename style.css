@@ -53,6 +53,52 @@ body {
 }
 
 /* =====================================================================
+    Contenedores Principales: #left, #right y #canvas-container
+===================================================================== */
+/* Players Container */
+#left {
+    width: 20%;
+    /* O ajusta según prefieras */
+    padding: 0.5rem;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+}
+
+#left-content {
+    display: flex;
+    flex-direction: column;
+    /* take only the height needed */
+    flex: 0 0 auto;
+}
+
+/* Comps Container */
+#right {
+    width: 40%;
+    padding: 0.5rem;
+    overflow: visible !important;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 0;
+}
+
+/* Canvas Container */
+#canvas-container {
+    flex: 1;
+    position: relative;
+    min-width: 300px;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100% !important;
+    height: 100% !important;
+}
+/* =====================================================================
     Botones y Elementos Interactivos
 ===================================================================== */
 button {
@@ -149,55 +195,6 @@ button:hover {
 .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
     content: attr(data-off);
     left: 20px;
-}
-
-/* =====================================================================
-    Contenedores Principales: #left, #right y #canvas-container
-===================================================================== */
-/* Players Container */
-#left {
-    width: 20%;
-    /* O ajusta según prefieras */
-    padding: 0.5rem;
-    overflow: visible !important;
-    display: flex;
-    flex-direction: column;
-}
-
-#left-content {
-    display: flex;
-    flex-direction: column;
-    /* take only the height needed */
-    flex: 0 0 auto;
-}
-
-/* Comps Container */
-#right {
-    width: 40%;
-    padding: 0.5rem;
-    overflow: visible !important;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    margin-left: 0;
-}
-
-
-
-/* Canvas Container */
-#canvas-container {
-    flex: 1;
-    position: relative;
-    min-width: 300px;
-}
-
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    width: 100% !important;
-    height: 100% !important;
 }
 
 /* =====================================================================
