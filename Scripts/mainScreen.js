@@ -32,7 +32,7 @@ const loadMetaSnapshot = async () => {
 
         // Extract unit data from compositions
         metaData.comps.forEach(comp => {
-            comp.itemizedChampions.forEach(champion => {
+            comp.champions.forEach(champion => {
                 const unitName = champion.name;
                 unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
                 unitCostMap[unitName] = champion.cost || 1;
@@ -1132,7 +1132,7 @@ function createUnitTooltip(itemApiNames) {
 function createUnitIcons(units, compIndex) {
     const unitIcons = document.createElement('div');
     unitIcons.className = 'unit-icons';
-    const champItemsList = metaSnapshotData.comps[compIndex].itemizedChampions;
+    const champItemsList = metaSnapshotData.comps[compIndex].champions;
 
     units.forEach(unit => {
         if (!unit || !unitImageMap[unit]) return;
@@ -1234,7 +1234,7 @@ function loadCompsFromJSON(metaData) {
     metaData.comps.forEach((comp, index) => {
         const tier = comp.tier;
         if (tiers[tier]) {
-            const allChamps = comp.itemizedChampions
+            const allChamps = comp.champions
                 .map(ch => ch.name);
 
             // Ensure mainChampion is first
@@ -1389,8 +1389,8 @@ const updateItemsContainer = (itemsContainer) => {
 
     const itemToChampionsMap = {};
 
-    // Base itemized champions: use this comp’s itemizedChampions
-    compData.itemizedChampions.forEach(champion => {
+    // Base itemized champions: use this comp’s champions
+    compData.champions.forEach(champion => {
         const champName = champion.name;
         champion.items.forEach(item => {
             if (item && activeItems.includes(item)) {
