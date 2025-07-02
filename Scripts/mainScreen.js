@@ -717,10 +717,10 @@ function drawLines() {
     renderAllLines();
     updateCompoColorBars();
     applyChampionFilters();
-    updateUnselectedChampionsTable();
+    updateHeavilyContestedChampionsTable();
 }
 
-function updateUnselectedChampionsTable() {
+function updateHeavilyContestedChampionsTable() {
     const container = document.getElementById('infoTableContainer');
     // clear any previous tables/titles
     container.querySelectorAll('.table-container').forEach(table => table.remove());
@@ -735,7 +735,7 @@ function updateUnselectedChampionsTable() {
         const player = link.player;
         const playerName = getPlayerName(player);
         const playerColor = player.dataset.color;
-        const unitIcons = compo.querySelectorAll('.unit-icons img');
+        const unitIcons = compo.querySelectorAll('.unit-icons .unit-icon-wrapper > img');
 
         unitIcons.forEach(img => {
             const champName = img.alt;
