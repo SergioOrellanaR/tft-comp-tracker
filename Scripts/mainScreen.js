@@ -1190,11 +1190,14 @@ function createAugmentItemContainer(mainAugment, mainItem) {
         const img = document.createElement('img');
         img.src = getAugmentWEBPImageUrl(mainAugment.apiName);
         img.alt = mainAugment.apiName;
+        img.title = mainAugment.apiName;    // show augment.apiName on hover
         container.appendChild(img);
     } else if ((!mainAugment || !mainAugment.apiName) && mainItem && mainItem.apiName) {
         const img = document.createElement('img');
         img.src = getItemWEBPImageUrl(mainItem.apiName);
         img.alt = mainItem.apiName;
+        // lookup human‐readable Name or fallback to apiName
+        img.title = (items.find(i => i.Item === mainItem.apiName)?.Name) || mainItem.apiName;
         container.appendChild(img);
     }
     return container;
