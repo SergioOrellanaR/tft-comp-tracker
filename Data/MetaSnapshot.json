@@ -114,7 +114,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Slayer Shaco Reroll",
+      "title": "Mad Hatter",
+      "metaTitle": "Slayer Shaco Reroll",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -237,7 +238,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Nitro Veigar Reroll",
+      "title": "Nitro Veigar",
+      "metaTitle": "Nitro Veigar Reroll",
       "style": "RR LV.6",
       "tier": "C"
     },
@@ -347,7 +349,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Cyberboss Kobuko Ziggs",
+      "title": "Cyberboss Fast 9",
+      "metaTitle": "Cyberboss Kobuko Ziggs",
       "style": "Fast 9",
       "tier": "C"
     },
@@ -479,7 +482,8 @@
         "apiName": "TFT14_Item_ImmortalEmblemItem",
         "id": "lzg43chsoxdp8kq"
       },
-      "title": "Golden Ox",
+      "title": "Golden Ox Force",
+      "metaTitle": "Golden Ox",
       "style": "Fast 8",
       "tier": "C"
     },
@@ -596,7 +600,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Dynamo Elise Reroll",
+      "title": "Dynamo Elise Braum",
+      "metaTitle": "Dynamo Elise Reroll",
       "style": "RR LV.7",
       "tier": "B"
     },
@@ -724,6 +729,7 @@
         "id": "6z08ottwh2lu8gi"
       },
       "title": "Anima Squad",
+      "metaTitle": "Anima Squad",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -859,6 +865,7 @@
         "id": "wteq7fj2dizmdme"
       },
       "title": "Exotech Zeri",
+      "metaTitle": "Exotech Zeri",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -978,7 +985,8 @@
         "apiName": "TFT14_Item_StreetDemonEmblemItem",
         "id": "aszcz3zn78fj32j"
       },
-      "title": "Street Demon Strategist",
+      "title": "Streetagists",
+      "metaTitle": "Street Demon Strategist",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -1102,7 +1110,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Marksman Aphelios Xayah Vanguard",
+      "title": "4/4 Marksman Vanguard",
+      "metaTitle": "Marksman Aphelios Xayah Vanguard",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -1235,6 +1244,7 @@
         "id": "ikg4hz9oe0qx8fn"
       },
       "title": "Executioner Reroll",
+      "metaTitle": "Executioner Reroll",
       "style": "RR LV.7",
       "tier": "C"
     },
@@ -1356,7 +1366,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Strategist AMP Annie",
+      "title": "Strategist AMP",
+      "metaTitle": "Strategist AMP Annie",
       "style": "Fast 9",
       "tier": "B"
     },
@@ -1478,7 +1489,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Kog'Maw Reroll",
+      "title": "Kog-Guards",
+      "metaTitle": "Kog'Maw Reroll",
       "style": "RR LV.5",
       "tier": "C"
     },
@@ -1605,7 +1617,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Twisted Fate Reroll",
+      "title": "Card Shark",
+      "metaTitle": "Twisted Fate Reroll",
       "style": "RR LV.6",
       "tier": "A"
     },
@@ -1725,6 +1738,7 @@
         "id": "ltzjfmlktfmd6u7"
       },
       "title": "Bastion Zeri",
+      "metaTitle": "Bastion Zeri",
       "style": "Fast 8",
       "tier": "C"
     },
@@ -1838,7 +1852,8 @@
         "apiName": "TFT14_Item_TechieEmblemItem",
         "id": "4binpfef7yrovsz"
       },
-      "title": "Techie Brand",
+      "title": "Tempo Techies",
+      "metaTitle": "Techie Brand",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -1967,7 +1982,8 @@
         "apiName": "TFT_Item_Artifact_BlightingJewel",
         "id": "b3lxyn8rdmsnze7"
       },
-      "title": "Bruiser Fiddlesticks Reroll",
+      "title": "Fiddlesticks Bruisers",
+      "metaTitle": "Bruiser Fiddlesticks Reroll",
       "style": "RR LV.7",
       "tier": "X"
     },
@@ -2073,7 +2089,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Cyberboss Veigar Reroll",
+      "title": "Cyberboss Veigar",
+      "metaTitle": "Cyberboss Veigar Reroll",
       "style": "RR LV.6",
       "tier": "B"
     },
@@ -2188,6 +2205,7 @@
         "id": "t4w0f7y7irw4xhv"
       },
       "title": "Divinicorp Zed",
+      "metaTitle": "Divinicorp Zed",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -2316,7 +2334,8 @@
         "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
         "id": "ltzjfmlktfmd6u7"
       },
-      "title": "Vayne Senna Slayer Reroll",
+      "title": "Slay Queens",
+      "metaTitle": "Vayne Senna Slayer Reroll",
       "style": "RR LV.6",
       "tier": "B"
     },
@@ -2434,6 +2453,7 @@
       },
       "mainItem": {},
       "title": "Button Mash Poppy",
+      "metaTitle": "Button Mash Poppy",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -2554,6 +2574,7 @@
       },
       "mainItem": {},
       "title": "Adaptive Strikes Jax",
+      "metaTitle": "Adaptive Strikes Jax",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -2660,6 +2681,7 @@
       },
       "mainItem": {},
       "title": "Cease and Desist Vi",
+      "metaTitle": "Cease and Desist Vi",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -2787,6 +2809,7 @@
       },
       "mainItem": {},
       "title": "Alter Ego Rhaast (Kayn)",
+      "metaTitle": "Alter Ego Rhaast (Kayn)",
       "style": "RR LV.6",
       "tier": "X"
     },
@@ -2901,6 +2924,7 @@
       },
       "mainItem": {},
       "title": "Chug Bug Gragas",
+      "metaTitle": "Chug Bug Gragas",
       "style": "RR LV.7",
       "tier": "X"
     },
@@ -3019,6 +3043,7 @@
       },
       "mainItem": {},
       "title": "Wolf Unchained Sylas",
+      "metaTitle": "Wolf Unchained Sylas",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -3122,7 +3147,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Nitro AMP Annie",
+      "title": "Nitro Annie ",
+      "metaTitle": "Nitro AMP Annie",
       "style": "Fast 8",
       "tier": "C"
     },
@@ -3234,7 +3260,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Street Demon Rengar Jinx",
+      "title": "Kitty Kitty Boom Boom",
+      "metaTitle": "Street Demon Rengar Jinx",
       "style": "RR LV.7",
       "tier": "C"
     },
@@ -3359,7 +3386,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Nitro Elise Jhin",
+      "title": "DyNitro",
+      "metaTitle": "Nitro Elise Jhin",
       "style": "RR LV.6",
       "tier": "C"
     },
@@ -3484,7 +3512,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Vex Exotech",
+      "title": "Vexotech",
+      "metaTitle": "Vex Exotech",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -3603,6 +3632,7 @@
         "id": "dzw94pr5u3h1m8s"
       },
       "title": "Boombot Urgot",
+      "metaTitle": "Boombot Urgot",
       "style": "Fast 9",
       "tier": "S"
     },
@@ -3730,7 +3760,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "AMP Naafiri Reroll",
+      "title": "AMP Naafiri",
+      "metaTitle": "AMP Naafiri Reroll",
       "style": "RR LV.6",
       "tier": "C"
     },
@@ -3860,7 +3891,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Dr. Mundo Techie Reroll",
+      "title": "Mundo Techies (Gorilla)",
+      "metaTitle": "Dr. Mundo Techie Reroll",
       "style": "RR LV.5",
       "tier": "B"
     },
@@ -3979,7 +4011,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Exotech Zeri Miss Fortune",
+      "title": "Bullet Time",
+      "metaTitle": "Exotech Zeri Miss Fortune",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -4099,7 +4132,8 @@
         "apiName": "TFT14_Item_SwiftEmblemItem",
         "id": "fqbe24473k5c7eu"
       },
-      "title": "Rapidfire Renekton",
+      "title": "Long Crocodile",
+      "metaTitle": "Rapidfire Renekton",
       "style": "Fast 9",
       "tier": "X"
     },
@@ -4238,7 +4272,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Vex Bruisers",
+      "title": "Vex Bruisers ",
+      "metaTitle": "Vex Bruisers",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -4358,7 +4393,8 @@
         "apiName": "TFT14_Item_DivinicorpEmblemItem",
         "id": "t4w0f7y7irw4xhv"
       },
-      "title": "Divinicorp Vex",
+      "title": "DiviniVex",
+      "metaTitle": "Divinicorp Vex",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -4475,7 +4511,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Scoped Weapons Shaco Reroll",
+      "title": "Shaco-ped Weapons",
+      "metaTitle": "Scoped Weapons Shaco Reroll",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -4601,7 +4638,8 @@
         "apiName": "TFT_Item_Artifact_BlightingJewel",
         "id": "b3lxyn8rdmsnze7"
       },
-      "title": "Bastion Morgana Reroll",
+      "title": "Bastion Morgana ",
+      "metaTitle": "Bastion Morgana Reroll",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -4721,7 +4759,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Dynamo Miss Fortune Elise",
+      "title": "Dynamo Flex",
+      "metaTitle": "Dynamo Miss Fortune Elise",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -4859,7 +4898,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Cypher Draven Leblanc Reroll",
+      "title": "5 Cypher Reroll",
+      "metaTitle": "Cypher Draven Leblanc Reroll",
       "style": "L. Streak",
       "tier": "A"
     },
@@ -4972,7 +5012,8 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Graves Reroll",
+      "title": "Golden Graves",
+      "metaTitle": "Graves Reroll",
       "style": "RR LV.6",
       "tier": "B"
     },
@@ -5101,7 +5142,8 @@
         "apiName": "TFT14_Item_GuardianEmblemItem",
         "id": "2s05rej4z0xwpi4"
       },
-      "title": "6 Vanguard Aphelios Xayah",
+      "title": "6 Vanguard Marksman",
+      "metaTitle": "6 Vanguard Aphelios Xayah",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -5199,7 +5241,8 @@
         "apiName": "TFT14_Item_GuardianEmblemItem",
         "id": "2s05rej4z0xwpi4"
       },
-      "title": "Vanguard Urgot Fast 9",
+      "title": "Vanguard Urgot",
+      "metaTitle": "Vanguard Urgot Fast 9",
       "style": "Fast 9",
       "tier": "A"
     }
@@ -5608,5 +5651,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-02 14:19:19"
+  "lastUpdated": "2025-07-02 14:46:21"
 }
