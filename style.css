@@ -83,6 +83,13 @@ body {
     margin-left: 0;
 }
 
+#right-content {
+    display: flex;
+    flex-direction: column;
+    /* take only the height needed */
+    flex: 0 0 auto;
+}
+
 /* Canvas Container */
 #canvas-container {
     flex: 1;
@@ -98,6 +105,7 @@ canvas {
     width: 100% !important;
     height: 100% !important;
 }
+
 /* =====================================================================
     Botones y Elementos Interactivos
 ===================================================================== */
@@ -196,6 +204,126 @@ button:hover {
     content: attr(data-off);
     left: 20px;
 }
+
+/* =====================================================================
+    Comp bar & buttons
+===================================================================== */
+.search-comp-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.hide-unselected-comps-button-container,
+.hide-contested-comps-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    cursor: pointer;
+}
+
+/*------ Unselected comps button  ------*/
+
+.hide-unselected-comps-button-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.hide-unselected-comps-button-label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+}
+
+.hide-unselected-comps-button-label svg {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition: all 0.3s;
+    fill: #fff;
+}
+
+.hide-unselected-comps-button-label svg:hover {
+    transform: scale(1.2);
+}
+
+.hide-unselected-comps-button-label input:checked~svg {
+    fill: #ffeb49;
+}
+
+/*------ End of unselected comps button  ------*/
+
+/*------ Contested comps button  ------*/
+.hide-contested-comps-button-label {
+    --color: #a5a5b0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color);
+}
+
+.hide-contested-comps-button-label .eye {
+    animation: keyframes-fill .5s;
+}
+
+.hide-contested-comps-button-label .eye-slash {
+    animation: keyframes-fill .5s;
+    display: none;
+}
+
+.hide-contested-comps-button-label input:checked~.eye {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.hide-contested-comps-button-label input:checked~.eye-slash {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hide-contested-comps-button-label input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+@keyframes keyframes-fill {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/*------ End of contested comps button  ------*/
 
 /* =====================================================================
     Elementos de Contenido: Items, Players, Comps y Tablas
@@ -569,19 +697,19 @@ input:focus~.input-border {
     margin-top: 16px;
 }
 
-#coreItemsContainer > div:nth-child(1) {
+#coreItemsContainer>div:nth-child(1) {
     border-color: rgba(255, 255, 255, 0.7);
 }
 
-#coreItemsContainer > div:nth-child(2) {
+#coreItemsContainer>div:nth-child(2) {
     border-color: rgba(255, 82, 82, 0.7);
 }
 
-#coreItemsContainer > div:nth-child(3) {
+#coreItemsContainer>div:nth-child(3) {
     border-color: rgba(255, 215, 0, 0.8);
 }
 
-#coreItemsContainer > div:nth-child(4) {
+#coreItemsContainer>div:nth-child(4) {
     border-color: rgba(100, 149, 237, 0.7);
 }
 
@@ -757,7 +885,7 @@ input:focus~.input-border {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
 
 .items-container {
@@ -811,7 +939,7 @@ input:focus~.input-border {
     transform: scale(1.08);
 }
 
-.unit-icon-wrapper{
+.unit-icon-wrapper {
     position: relative;
     display: inline-block;
 }
@@ -828,6 +956,7 @@ input:focus~.input-border {
     z-index: 10;
     gap: 4px;
 }
+
 /* =====================================================================
     Estilos para player cards
 ===================================================================== */
@@ -2046,7 +2175,7 @@ input:focus~.input-border {
         justify-content: right;
     }
 
-    .main-augment-item-container{
+    .main-augment-item-container {
         display: none !important;
     }
 

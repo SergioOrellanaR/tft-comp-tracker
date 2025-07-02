@@ -101,48 +101,67 @@ function toggleDoubleUpMode() {
     drawLines();
 }
 
-function enableSoloDragAndDrop() {
-    const playerElements = document.querySelectorAll('.item.player');
-    const throttledDrawLines = throttle(drawLines, 50); // Limitar a 1 llamada cada 50ms
+function enableDragAndDrop(isDoubleUp) {
+    const selector = isDoubleUp
+        ? '.team-container .item.player'
+        : '.item.player';
+    const throttledDraw = throttle(drawLines, 50);
 
-    playerElements.forEach(player => {
-
-        player.setAttribute('draggable', true); // Hacer que los elementos sean arrastrables
-
-        player.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', player.dataset.index); // Guardar el índice del jugador arrastrado
-            player.classList.add('dragging'); // Agregar clase para estilos visuales
+    document.querySelectorAll(selector).forEach(player => {
+        player.setAttribute('draggable', true);
+        player.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('text/plain', isDoubleUp ? '' : player.dataset.index);
+            player.classList.add('dragging');
         });
 
-        player.addEventListener('dragover', (e) => {
-            e.preventDefault(); // Permitir el drop
-            const dragging = document.querySelector('.dragging');
-            const playersContainer = document.getElementById('players');
-            const afterElement = getDragAfterElement(playersContainer, e.clientY);
-
-            if (afterElement == null || afterElement.parentNode !== playersContainer) {
-                playersContainer.appendChild(dragging);
-            } else {
-                playersContainer.insertBefore(dragging, afterElement);
-            }
-
-            throttledDrawLines(); // Redibujar las líneas con throttling
-        });
-
-        player.addEventListener('drop', (e) => {
-            e.preventDefault();
-            player.classList.remove('dragging'); // Quitar la clase al soltar
-            drawLines(); // Redibujar las líneas después de soltar
-        });
-
-        player.addEventListener('dragend', () => {
-            // Siempre redibujar las líneas al finalizar el arrastre
-            const dragging = document.querySelector('.dragging');
-            if (dragging) {
-                dragging.classList.remove('dragging'); // Quitar la clase si aún está presente
-            }
-            drawLines(); // Redibujar las líneas
-        });
+        if (isDoubleUp) {
+            // duo events
+            ['dragenter','dragover','drop','dragleave','dragend'].forEach(evt => {
+                player.addEventListener(evt, e => {
+                    e.preventDefault();
+                    if (evt === 'dragenter' && !player.classList.contains('dragging'))
+                        player.classList.add('drop-target');
+                    if (evt === 'dragleave') player.classList.remove('drop-target');
+                    if (evt === 'drop') {
+                        player.classList.remove('drop-target');
+                        const src = document.querySelector('.item.player.dragging');
+                        if (src && src !== player) {
+                            const c1 = src.closest('.team-container'),
+                                  c2 = player.closest('.team-container');
+                            if (c1 && c2 && c1 !== c2) {
+                                const placeholder = document.createElement('div');
+                                c2.replaceChild(placeholder, player);
+                                c1.replaceChild(player, src);
+                                c2.replaceChild(src, placeholder);
+                                updateTeamIcons([c1, c2]);
+                                updatePlayerColorBars();
+                            }
+                        }
+                    }
+                    if (evt === 'dragend') {
+                        player.classList.remove('dragging','drop-target');
+                    }
+                    throttledDraw();
+                });
+            });
+        } else {
+            // solo events
+            ['dragover','drop','dragend'].forEach(evt => {
+                player.addEventListener(evt, e => {
+                    if (evt === 'dragover') {
+                        e.preventDefault();
+                        const dragging = document.querySelector('.dragging');
+                        const afterEl = getDragAfterElement(playersContainer, e.clientY);
+                        if (!afterEl) playersContainer.appendChild(dragging);
+                        else playersContainer.insertBefore(dragging, afterEl);
+                    }
+                    if (evt === 'drop' || evt === 'dragend') {
+                        player.classList.remove('dragging');
+                    }
+                    throttledDraw();
+                });
+            });
+        }
     });
 }
 
@@ -184,81 +203,9 @@ function preloadPlayers() {
         }
     });
 
-    if (isDoubleUp) {
-        enableDuoDragAndDrop();
-    }
-    else {
-        enableSoloDragAndDrop();
-    }
+    enableDragAndDrop(isDoubleUp);
 
     updatePlayerColorBars(); // Llama una vez para establecer los color-bars fijos
-}
-
-function enableDuoDragAndDrop() {
-    const playerElements = document.querySelectorAll('.team-container .item.player');
-    const throttledDrawLines = throttle(drawLines, 50);
-
-    playerElements.forEach(player => {
-        player.setAttribute('draggable', true);
-        addDuoDragEvents(player, throttledDrawLines);
-    });
-}
-
-function addDuoDragEvents(player, throttledDrawLines) {
-    player.addEventListener('dragstart', (e) => {
-        e.dataTransfer.setData('text/plain', '');
-        player.classList.add('dragging');
-    });
-
-    player.addEventListener('dragenter', (e) => {
-        e.preventDefault();
-        if (!player.classList.contains('dragging')) {
-            player.classList.add('drop-target');
-        }
-    });
-
-    player.addEventListener('dragleave', () => {
-        player.classList.remove('drop-target');
-    });
-
-    player.addEventListener('dragover', (e) => {
-        e.preventDefault();
-    });
-
-    player.addEventListener('drop', (e) => {
-        e.preventDefault();
-        handlePlayerSwap(player, throttledDrawLines);
-    });
-
-    player.addEventListener('dragend', () => {
-        player.classList.remove('dragging', 'drop-target');
-        throttledDrawLines();
-    });
-}
-
-function handlePlayerSwap(targetPlayer, throttledDrawLines) {
-    targetPlayer.classList.remove('drop-target');
-    const draggingPlayer = document.querySelector('.team-container .item.player.dragging');
-
-    if (!draggingPlayer || draggingPlayer === targetPlayer) return;
-
-    const sourceContainer = draggingPlayer.closest('.team-container');
-    const targetContainer = targetPlayer.closest('.team-container');
-
-    if (!sourceContainer || !targetContainer || sourceContainer === targetContainer) return;
-
-    swapPlayers(draggingPlayer, targetPlayer, sourceContainer, targetContainer);
-    updateTeamIcons([sourceContainer, targetContainer]);
-    updatePlayerColorBars();
-    draggingPlayer.classList.remove('dragging');
-    throttledDrawLines();
-}
-
-function swapPlayers(player1, player2, container1, container2) {
-    const placeholder = document.createElement('div');
-    container2.replaceChild(placeholder, player2);
-    container1.replaceChild(player2, player1);
-    container2.replaceChild(player1, placeholder);
 }
 
 function updateTeamIcons(containers) {
@@ -691,23 +638,15 @@ window.addEventListener('load', () => {
     }, 250);
 });
 
-// Add ResizeObserver on the "left" element to call resizeCanvas whenever it resizes
-const leftElement = document.getElementById('left');
-if (leftElement && typeof ResizeObserver !== 'undefined') {
-    const resizeObserver = new ResizeObserver(() => {
-        resizeCanvas();
-    });
-    resizeObserver.observe(leftElement);
-}
-
-// Add ResizeObserver on the "players" element to call drawLines whenever it resizes
-const playersElement = document.getElementById('players');
-if (playersElement && typeof ResizeObserver !== 'undefined') {
-    const playersResizeObserver = new ResizeObserver(() => {
-        drawLines();
-    });
-    playersResizeObserver.observe(playersElement);
-}
+// Replace two ResizeObserver blocks with one
+['left','players'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(() => {
+            id === 'left' ? resizeCanvas() : drawLines();
+        }).observe(el);
+    }
+});
 
 var previousMultilines = {};
 function drawLines() {
@@ -1402,6 +1341,7 @@ const updateItemsContainer = (itemsContainer) => {
 
     // Include altBuilds champions
     compData.altBuilds.forEach(ab => {
+        console.log(`Processing altBuild for ${ab.name}`);
         const champ = ab.name;
         ab.items.forEach(item => {
             if (activeItems.includes(item)) {
@@ -1414,6 +1354,7 @@ const updateItemsContainer = (itemsContainer) => {
     const displayedItems = new Set();
 
     Object.entries(itemToChampionsMap).forEach(([item, champions]) => {
+        console.log(`Item: ${item}, Champions: ${champions.join(', ')}`);
         if (!displayedItems.has(item)) {
             const itemData = items.find(i => i.Item === item);
             if (itemData) {
@@ -1429,8 +1370,8 @@ const updateItemsContainer = (itemsContainer) => {
                 img.alt = itemData.Name;
                 img.title = `${itemData.Name} (Used by: ${uniqueChamps.join(', ')})`;
                 Object.assign(img.style, {
-                    width: '20px',
-                    height: '20px',
+                    width: '22px',
+                    height: '22px',
                     borderRadius: '4px',
                     objectFit: 'cover'
                 });
