@@ -33,7 +33,7 @@ const loadMetaSnapshot = async () => {
         // Extract unit data from compositions
         metaData.comps.forEach(comp => {
             comp.itemizedChampions.forEach(champion => {
-                const unitName = champion.apiName.replace('TFT14_', '');
+                const unitName = champion.name;
                 unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
                 unitCostMap[unitName] = champion.cost || 1;
                 
@@ -1188,11 +1188,11 @@ function loadCompsFromJSON(metaData) {
         const tier = comp.tier;
         if (tiers[tier]) {
             const allChamps = comp.itemizedChampions
-                .map(ch => ch.apiName.replace('TFT14_', ''));
+                .map(ch => ch.name);
 
             // Ensure mainChampion is first
             const mainChamp = comp.mainChampion?.apiName
-                ? comp.mainChampion.apiName.replace('TFT14_', '')
+                ? comp.mainChampion.name
                 : allChamps[0];
             if (!allChamps.includes(mainChamp)) allChamps.unshift(mainChamp);
 
@@ -1307,6 +1307,7 @@ function createCoreItemsButtons(metaItems) {
         sectionItems.forEach(itemObj => {
             const btn = document.createElement('button');
             btn.className = 'core-item-button';
+            btn.title = itemObj.name;
             // use the object’s apiName
             btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemObj.apiName)})`;
             btn.dataset.item = itemObj.apiName;
@@ -1316,7 +1317,7 @@ function createCoreItemsButtons(metaItems) {
                     const units = Array.from(
                         ctn.closest('.item.compo').querySelectorAll('.unit-icons img')
                     ).map(img => img.alt);
-                    updateItemsContainer(ctn, units);
+                    updateItemsContainer(ctn);
                 });
             };
             sectionDiv.appendChild(btn);
@@ -1328,7 +1329,7 @@ function createCoreItemsButtons(metaItems) {
     compsContainer.appendChild(container);
 }
 
-const updateItemsContainer = (itemsContainer, unitsInComp) => {
+const updateItemsContainer = (itemsContainer) => {
     itemsContainer.innerHTML = '';
 
     const activeItems = Array.from(
@@ -1343,7 +1344,7 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
 
     // Base itemized champions: use this comp’s itemizedChampions
     compData.itemizedChampions.forEach(champion => {
-        const champName = champion.apiName.replace('TFT14_', '');
+        const champName = champion.name;
         champion.items.forEach(item => {
             if (item && activeItems.includes(item)) {
                 if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
@@ -1354,7 +1355,7 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
 
     // Include altBuilds champions
     compData.altBuilds.forEach(ab => {
-        const champ = ab.apiName.replace('TFT14_', '');
+        const champ = ab.name;
         ab.items.forEach(item => {
             if (activeItems.includes(item)) {
                 if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
@@ -1368,6 +1369,7 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
     Object.entries(itemToChampionsMap).forEach(([item, champions]) => {
         if (!displayedItems.has(item)) {
             const itemData = items.find(i => i.Item === item);
+            console.log(`Processing item: ${item} for champions: ${champions.join(', ')}`);
             if (itemData) {
                 const img = document.createElement('img');
                 img.src = itemData.Url;
@@ -1385,7 +1387,7 @@ const updateItemsContainer = (itemsContainer, unitsInComp) => {
 };
 
 if (typeof itemsContainer !== 'undefined' && itemsContainer) {
-    const updateItemsContainerFn = () => updateItemsContainer(itemsContainer, unitsInComp);
+    const updateItemsContainerFn = () => updateItemsContainer(itemsContainer);
     itemsContainer.dataset.updateFn = updateItemsContainerFn.name;
     updateItemsContainerFn();
 }
