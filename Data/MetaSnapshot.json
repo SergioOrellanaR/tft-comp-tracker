@@ -1,0 +1,5535 @@
+{
+  "patch": "",
+  "comps": [
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Shaco",
+          "items": [
+            "TFT_Item_Artifact_ProwlersClaw",
+            "TFT_Item_Artifact_SpectralCutlass",
+            "TFT4_Item_OrnnDeathsDefiance"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Shaco",
+          "items": [
+            "TFT_Item_Quicksilver",
+            "TFT9_Item_OrnnHorizonFocus",
+            "TFT_Item_MadredsBloodrazor"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT7_Augment_LivingForge",
+          "id": "308fp51h1damsab"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT14_Augment_Strong_Vertical",
+          "id": "ilg6pzkggykpjzk"
+        },
+        {
+          "apiName": "TFT_Augment_GuardbreakerSpirit",
+          "id": "3necn9k6x4z6vby"
+        },
+        {
+          "apiName": "TFT7_Augment_LuckyGloves",
+          "id": "cmkjfl9o31oq3jb"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarket_ScopedWeapons",
+          "id": "rg2e5u7bpqi83ft"
+        },
+        {
+          "apiName": "TFT9_Augment_LongDistanceRelationship2",
+          "id": "xcqjbnjv10edi36"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-mad-hatter",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Shaco",
+          "boardIndex": 12,
+          "items": [
+            "TFT_Item_GuardianAngel",
+            "TFT_Item_Quicksilver",
+            "TFT_Item_Artifact_Mittens"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Braum",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_Redemption",
+            "TFT_Item_RedBuff",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_braum_cs4peGdzcS.webp",
+          "cost": 3,
+          "name": "Braum",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_Bloodthirster"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT6_Augment_PortableForge",
+        "id": "t7xi4c1opb4vjg2"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Shaco",
+        "cost": 1,
+        "id": "n69f8zoirb9qhif",
+        "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+        "name": "Shaco",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Slayer Shaco Reroll",
+      "style": "RR LV.5",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Veigar",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT9_Item_OrnnDeathfireGrasp"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT_Augment_Superstars",
+          "id": "35y9847rt32uk07"
+        },
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT14_Augment_Nitro_PolishedChrome",
+          "id": "qrws18k0du3qqy2"
+        },
+        {
+          "apiName": "TFT6_Augment_GachaAddict",
+          "id": "b3e52svau5ss4uq"
+        },
+        {
+          "apiName": "TFT7_Augment_PandorasBench",
+          "id": "k0d0icfcd7bkyff"
+        },
+        {
+          "apiName": "TFT_Augment_NoScoutNoPivot",
+          "id": "hnn1hifsig1u8pr"
+        },
+        {
+          "apiName": "TFT14_Augment_Nitro_SpareParts",
+          "id": "eyugh4sqlsg0x5d"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-d-rex",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Shyvana",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_RedBuff",
+            "TFT_Item_IonicSpark",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_shyvana_ZLycC8LTom.webp",
+          "cost": 2,
+          "name": "Shyvana",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Veigar",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_Leviathan",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
+          "cost": 2,
+          "name": "Veigar",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_Crownguard",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_SummonLevel4",
+        "cost": 4,
+        "id": "oytft49917z9ymy",
+        "championIcon": "tft14_summon_level4_qJMThdhkva.webp",
+        "name": "T-43X",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Nitro Veigar Reroll",
+      "style": "RR LV.6",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Kobuko",
+          "items": [
+            "TFT_Item_Artifact_UnendingDespair"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Ziggs",
+          "items": [
+            "TFT14_Item_TechieEmblemItem"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT_Augment_UpwardMobility",
+          "id": "9nf2icwjniqdrn5"
+        },
+        {
+          "apiName": "TFT6_Augment_MaxLevel10",
+          "id": "79c600096h3pml7"
+        },
+        {
+          "apiName": "TFT11_Augment_RainingGold",
+          "id": "gllcbutnsbu0k65"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT_Augment_Manaflow2",
+          "id": "j6i0luyb2k135qi"
+        },
+        {
+          "apiName": "TFT_Augment_BlazingSoul2",
+          "id": "a9bta6qgtk9u3c5"
+        },
+        {
+          "apiName": "TFT6_Augment_HighEndShopping",
+          "id": "pheouhcwaxzjknw"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-bomberman-ziggs",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_IonicSpark",
+            "TFT_Item_Crownguard",
+            "TFT_Item_Bloodthirster"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Brand",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_SpearOfShojin",
+            "TFT4_Item_OrnnMuramana",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Ziggs",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_Morellonomicon",
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_SpearOfShojin"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Kobuko",
+        "cost": 5,
+        "id": "qkq2cltbnn0mi2u",
+        "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+        "name": "Kobuko",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Cyberboss Kobuko Ziggs",
+      "style": "Fast 9",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Annie",
+          "items": [
+            "TFT4_Item_OrnnMuramana"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_GoldenOxCrest",
+          "id": "zwmr4tgcr8zsivl"
+        },
+        {
+          "apiName": "TFT14_Augment_GoldenOxCrown",
+          "id": "0ue8j9lggkgvnk5"
+        },
+        {
+          "apiName": "TFT9_Augment_PumpingUp2",
+          "id": "06i47o33glc41q7"
+        },
+        {
+          "apiName": "TFT14_Augment_Immortal_Vertical",
+          "id": "sb1jqkmgh54ewv4"
+        },
+        {
+          "apiName": "TFT9_Augment_AllThatShimmers",
+          "id": "ogl9btcowvtqn78"
+        },
+        {
+          "apiName": "TFT_Augment_FiresalePlus",
+          "id": "e86ab3l2v8qgumo"
+        },
+        {
+          "apiName": "TFT9_Augment_HealingOrbsII",
+          "id": "anm6q7ycq1gjqag"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-golden-oxdd",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Viego",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_UnstableConcoction",
+            "TFT_Item_GuardianAngel"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_viego_Sqil4FY2Gq.webp",
+          "cost": 5,
+          "name": "Viego",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aphelios",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Garen",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_garen_MCx1a5Elel.webp",
+          "cost": 5,
+          "name": "Garen",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_Deathblade"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zac",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zac_fe6Q9SvJal.webp",
+          "cost": 5,
+          "name": "Zac",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Viego",
+        "cost": 5,
+        "id": "sd57g7t815vnwyd",
+        "championIcon": "tft14_viego_Sqil4FY2Gq.webp",
+        "name": "Viego",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_ImmortalEmblemItem",
+        "id": "lzg43chsoxdp8kq"
+      },
+      "title": "Golden Ox",
+      "style": "Fast 8",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Elise",
+          "items": [
+            "TFT9_Item_OrnnDeathfireGrasp",
+            "TFT4_Item_OrnnZhonyasParadox"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_RiggedShopPlus",
+          "id": "0evuay3pf0mzkjv"
+        },
+        {
+          "apiName": "TFT_Augment_FiresalePlus",
+          "id": "e86ab3l2v8qgumo"
+        },
+        {
+          "apiName": "TFT_Augment_Trifecta2",
+          "id": "qcmcxz72ltf3s67"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT14_Augment_Thirsty_Vertical",
+          "id": "1t5s528ats6rr4m"
+        },
+        {
+          "apiName": "TFT_Augment_GlassCannonII",
+          "id": "mircr775korhsfc"
+        },
+        {
+          "apiName": "TFT_Augment_CalculatedEnhancement",
+          "id": "a4f5s29e8sr56mu"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-dynamo-miss-fortune",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_MissFortune",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_LastWhisper",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+          "cost": 4,
+          "name": "Miss Fortune",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Braum",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_GargoyleStoneplate",
+            "TFT_Item_NightHarvester",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_braum_cs4peGdzcS.webp",
+          "cost": 3,
+          "name": "Braum",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Elise",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_ArchangelsStaff"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aurora",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
+          "cost": 5,
+          "name": "Aurora",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_MissFortune",
+        "cost": 4,
+        "id": "xonwe1obip8stdo",
+        "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+        "name": "Miss Fortune",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Dynamo Elise Reroll",
+      "style": "RR LV.7",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Xayah",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT_Item_Artifact_Fishbones"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "items": [
+            "TFT4_Item_OrnnAnimaVisage",
+            "TFT_Item_Artifact_LightshieldCrest"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT7_Augment_ClutteredMind",
+          "id": "2gi62pjjvcazz33"
+        },
+        {
+          "apiName": "TFT14_Augment_AnimaSquad_SupportSpire",
+          "id": "yq3yf9zfnx4lkin"
+        },
+        {
+          "apiName": "TFT10_Augment_LittleBuddies",
+          "id": "7q0cbj58wwdv0r3"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT14_Augment_AnimaSquad_PowerUp",
+          "id": "cra5wzccfvjdtwm"
+        },
+        {
+          "apiName": "TFT14_Augment_AnimaSquadCirclet",
+          "id": "sv3w53em8h01h9k"
+        },
+        {
+          "apiName": "TFT_Augment_CloningFacility",
+          "id": "kgrwjfb1sjj0n1e"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-anima-squad",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_DragonsClaw",
+            "TFT_Item_BrambleVest"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Xayah",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aurora",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_Morellonomicon",
+            "TFT_Item_RabadonsDeathcap"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
+          "cost": 5,
+          "name": "Aurora",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 3,
+          "items": [
+            "TFT14_Item_DarkWebEmblemItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Leona",
+        "cost": 4,
+        "id": "hnu2mcji3or7flg",
+        "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+        "name": "Leona",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_DarkWebEmblemItem",
+        "id": "6z08ottwh2lu8gi"
+      },
+      "title": "Anima Squad",
+      "style": "Fast 8",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Zeri",
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT5_Item_RunaansHurricaneRadiant"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_ExotechCrown",
+          "id": "9yi7i4m8w4d30n9"
+        },
+        {
+          "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+          "id": "an791kscytn2cmc"
+        },
+        {
+          "apiName": "TFT_Augment_TraitTracker",
+          "id": "0wfs27c2keh7s8u"
+        },
+        {
+          "apiName": "TFT6_Augment_BinaryAirdrop",
+          "id": "5njkc6iijxesgr2"
+        },
+        {
+          "apiName": "TFT_Augment_ClimbTheLadder2",
+          "id": "f0hafpor4h3grgg"
+        },
+        {
+          "apiName": "TFT_Augment_ForwardThinking",
+          "id": "np2casdfpktsi4j"
+        },
+        {
+          "apiName": "TFT_Augment_Flexible",
+          "id": "76e73qhohcprxam"
+        },
+        {
+          "apiName": "TFT_Augment_Sponging",
+          "id": "o9x4szdm49oov7j"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-exotech-zeri",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Zeri",
+          "boardIndex": 14,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_RunaansHurricane",
+            "TFT14_ZeriCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Jhin",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_SpearOfShojin",
+            "TFT14_JhinCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_jhin_K3jg81FVDJ.webp",
+          "cost": 2,
+          "name": "Jhin",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Mordekaiser",
+          "boardIndex": 2,
+          "items": [
+            "TFT14_MordekaiserCyberneticItem",
+            "TFT_Item_RedBuff",
+            "TFT_Item_SpectralGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_mordekaiser_3yMV3DSbGN.webp",
+          "cost": 3,
+          "name": "Mordekaiser",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 1,
+          "items": [
+            "TFT14_JaxCyberneticItem",
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Garen",
+          "boardIndex": 3,
+          "items": [
+            "TFT14_Item_EdgeRunnerEmblemItem",
+            "TFT14_NaafiriCyberneticItem",
+            "TFT_Item_SteraksGage"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_garen_MCx1a5Elel.webp",
+          "cost": 5,
+          "name": "Garen",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Zeri",
+        "cost": 4,
+        "id": "ey6e4wiuta8g8y0",
+        "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+        "name": "Zeri",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_EdgeRunnerEmblemItem",
+        "id": "wteq7fj2dizmdme"
+      },
+      "title": "Exotech Zeri",
+      "style": "Fast 8",
+      "tier": "A"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Brand",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT9_Item_OrnnHorizonFocus"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT_Augment_FiresalePlus",
+          "id": "e86ab3l2v8qgumo"
+        },
+        {
+          "apiName": "TFT_Augment_Manaflow2",
+          "id": "j6i0luyb2k135qi"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT_Augment_BlazingSoul2",
+          "id": "a9bta6qgtk9u3c5"
+        },
+        {
+          "apiName": "TFT14_Augment_StreetDemon_Freestyling",
+          "id": "tycb7nrx9rvltxe"
+        },
+        {
+          "apiName": "TFT10_Augment_LittleBuddies",
+          "id": "7q0cbj58wwdv0r3"
+        },
+        {
+          "apiName": "TFT_Augment_ClimbTheLadder2",
+          "id": "f0hafpor4h3grgg"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-boulevard-of-broken-demons",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Brand",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Neeko",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_Crownguard",
+            "TFT_Item_Redemption",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_neeko_psECGKAQZl.webp",
+          "cost": 4,
+          "name": "Neeko",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Ziggs",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Samira",
+          "boardIndex": 20,
+          "items": [
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_samira_dqwHK8KQkm.webp",
+          "cost": 5,
+          "name": "Samira",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Brand",
+        "cost": 4,
+        "id": "7nbypj7kwsf1ngm",
+        "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+        "name": "Brand",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_StreetDemonEmblemItem",
+        "id": "aszcz3zn78fj32j"
+      },
+      "title": "Street Demon Strategist",
+      "style": "Fast 8",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Xayah",
+          "items": [
+            "TFT4_Item_OrnnTheCollector",
+            "TFT4_Item_OrnnMuramana",
+            "TFT9_Item_OrnnHorizonFocus"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Aphelios",
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_Marksman_Vertical",
+          "id": "efl9ftuj59j6v9o"
+        },
+        {
+          "apiName": "TFT9_Augment_PumpingUp",
+          "id": "rbn15x8pacqlrah"
+        },
+        {
+          "apiName": "TFT_Augment_Overheal",
+          "id": "jinqyezo6z2es83"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies3",
+          "id": "fimcjz7mapc2n2a"
+        },
+        {
+          "apiName": "TFT_Augment_ClockworkAccelerator",
+          "id": "ynebh92n0sub657"
+        },
+        {
+          "apiName": "TFT9_Augment_NotToday",
+          "id": "gwsq2y4bbd6dubg"
+        },
+        {
+          "apiName": "TFT_Augment_ThornPlatedArmor",
+          "id": "4qqbgtqjttc16qj"
+        },
+        {
+          "apiName": "TFT_Augment_BadLuckProtection",
+          "id": "5ehmsuxelge1u5a"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-marksman-vanguard",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Aphelios",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Jarvan",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_RedBuff"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_jarvan_cUnBW5pQjg.webp",
+          "cost": 3,
+          "name": "Jarvan IV",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_DragonsClaw",
+            "TFT_Item_GargoyleStoneplate",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Xayah",
+          "boardIndex": 22,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_LastWhisper",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Aphelios",
+        "cost": 4,
+        "id": "zo8wz90pnfy3x6h",
+        "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+        "name": "Aphelios",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Marksman Aphelios Xayah Vanguard",
+      "style": "Fast 8",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Rengar",
+          "items": [
+            "TFT_Item_Artifact_ProwlersClaw",
+            "TFT_Item_Artifact_SpectralCutlass",
+            "TFT_Item_Artifact_SilvermereDawn"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_ExecutionerCrest",
+          "id": "69ja7bri554ppld"
+        },
+        {
+          "apiName": "TFT14_Augment_ExecutionerCrown",
+          "id": "4yn2u0w99ndkra4"
+        },
+        {
+          "apiName": "TFT_Augment_Trifecta1",
+          "id": "pobqa1flz6o21d3"
+        },
+        {
+          "apiName": "TFT_Augment_RiggedShopPlus",
+          "id": "0evuay3pf0mzkjv"
+        },
+        {
+          "apiName": "TFT7_Augment_LivingForge",
+          "id": "308fp51h1damsab"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT_Augment_CookingPot",
+          "id": "of0estn5wr70gqa"
+        },
+        {
+          "apiName": "TFT14_Augment_StreetDemon_Freestyling",
+          "id": "tycb7nrx9rvltxe"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-executioner-graves",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Rengar",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_TitansResolve",
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_UnstableConcoction"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+          "cost": 3,
+          "name": "Rengar",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Varus",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_Morellonomicon"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_varus_vjE7X6XH3s.webp",
+          "cost": 3,
+          "name": "Varus",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Vex",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_RabadonsDeathcap",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Viego",
+          "boardIndex": 6,
+          "items": [
+            "TFT14_Item_CutterEmblemItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_viego_Sqil4FY2Gq.webp",
+          "cost": 5,
+          "name": "Viego",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Rengar",
+        "cost": 3,
+        "id": "paw25z0l10jn8ds",
+        "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+        "name": "Rengar",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_CutterEmblemItem",
+        "id": "ikg4hz9oe0qx8fn"
+      },
+      "title": "Executioner Reroll",
+      "style": "RR LV.7",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Annie",
+          "items": [
+            "TFT4_Item_OrnnMuramana"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Neeko",
+          "items": [
+            "TFT4_Item_OrnnAnimaVisage"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT6_Augment_MaxLevel10",
+          "id": "79c600096h3pml7"
+        },
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT_Augment_Manaflow2",
+          "id": "j6i0luyb2k135qi"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT14_Augment_Supercharge_Vertical",
+          "id": "yngh9g0d95j6x09"
+        },
+        {
+          "apiName": "TFT_Augment_OneBuffTwoBuff",
+          "id": "gue1izk0745ujlv"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketBlueBattery",
+          "id": "ibeppunb71g7sds"
+        },
+        {
+          "apiName": "TFT6_Augment_PandorasItems",
+          "id": "9dkifu3k33q065j"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-strategist-amp",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Annie",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_Leviathan",
+            "TFT_Item_StatikkShiv"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Yuumi",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_BlueBuff"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_yuumi_XJqH5JKYDa.webp",
+          "cost": 3,
+          "name": "Yuumi",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Samira",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_samira_dqwHK8KQkm.webp",
+          "cost": 5,
+          "name": "Samira",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zac",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zac_fe6Q9SvJal.webp",
+          "cost": 5,
+          "name": "Zac",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Annie",
+        "cost": 4,
+        "id": "fvwavs44s6pvlpe",
+        "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+        "name": "Annie",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Strategist AMP Annie",
+      "style": "Fast 9",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Vi",
+          "items": [
+            "TFT_Item_Artifact_UnendingDespair"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_KogMaw",
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT4_Item_OrnnTheCollector",
+            "TFT9_Item_OrnnHorizonFocus"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT7_Augment_PandorasBench",
+          "id": "k0d0icfcd7bkyff"
+        },
+        {
+          "apiName": "TFT_Augment_NoScoutNoPivot",
+          "id": "hnn1hifsig1u8pr"
+        },
+        {
+          "apiName": "TFT11_Augment_Buildabud",
+          "id": "u54wcyqajczu40h"
+        },
+        {
+          "apiName": "TFT_Augment_InvestmentStrategy2",
+          "id": "vkcicjnb8d6a3f1"
+        },
+        {
+          "apiName": "TFT_Augment_ClockworkAccelerator",
+          "id": "ynebh92n0sub657"
+        },
+        {
+          "apiName": "TFT_Augment_Overheal",
+          "id": "jinqyezo6z2es83"
+        },
+        {
+          "apiName": "TFT6_Augment_GachaAddict",
+          "id": "b3e52svau5ss4uq"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-ok-boomers",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_KogMaw",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_RunaansHurricane",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_kog_maw_5eTLEepVa2.webp",
+          "cost": 1,
+          "name": "Kog'Maw",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Vi",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_BrambleVest",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_SteraksGage"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+          "cost": 1,
+          "name": "Vi",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Skarner",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_NightHarvester",
+            "TFT_Item_RedBuff"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_skarner_7mKDY1oZpB.webp",
+          "cost": 2,
+          "name": "Skarner",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_KogMaw",
+        "cost": 1,
+        "id": "cb3i06s0vti47uu",
+        "championIcon": "tft14_kog_maw_5eTLEepVa2.webp",
+        "name": "Kog'Maw",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Kog'Maw Reroll",
+      "style": "RR LV.5",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_TwistedFate",
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT_Item_ArchangelsStaff",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_TwistedFate",
+          "items": [
+            "TFT7_Item_ShimmerscaleGamblersBlade",
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT6_Augment_PandorasItems",
+          "id": "9dkifu3k33q065j"
+        },
+        {
+          "apiName": "TFT10_Augment_HeroicGrabBag",
+          "id": "ko9plc1kecuegrv"
+        },
+        {
+          "apiName": "TFT14_Augment_MobCrest",
+          "id": "a92icw73vyfrkz6"
+        },
+        {
+          "apiName": "TFT9_Augment_PumpingUp",
+          "id": "rbn15x8pacqlrah"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT11_Augment_RadiantRefactor",
+          "id": "prv7bpq6g9p0tn9"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-card-shark",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_TwistedFate",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_ArchangelsStaff"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_twisted_fate_Bi3n5isUMU.webp",
+          "cost": 2,
+          "name": "Twisted Fate",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Braum",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_braum_cs4peGdzcS.webp",
+          "cost": 3,
+          "name": "Braum",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Draven",
+          "boardIndex": 26,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_draven_k0eBFHgB5J.webp",
+          "cost": 3,
+          "name": "Draven",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_MissFortune",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+          "cost": 4,
+          "name": "Miss Fortune",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_TwistedFate",
+        "cost": 2,
+        "id": "eu3r71r2kiq8coe",
+        "championIcon": "tft14_twisted_fate_Bi3n5isUMU.webp",
+        "name": "Twisted Fate",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Twisted Fate Reroll",
+      "style": "RR LV.6",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Zeri",
+          "items": [
+            "TFT14_ZeriCyberneticItem",
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT9_Augment_PumpingUp2",
+          "id": "06i47o33glc41q7"
+        },
+        {
+          "apiName": "TFT9_Augment_AllThatShimmers",
+          "id": "ogl9btcowvtqn78"
+        },
+        {
+          "apiName": "TFT11_Augment_RainingGold",
+          "id": "gllcbutnsbu0k65"
+        },
+        {
+          "apiName": "TFT_Augment_ClockworkAccelerator",
+          "id": "ynebh92n0sub657"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies3",
+          "id": "fimcjz7mapc2n2a"
+        },
+        {
+          "apiName": "TFT9_Augment_WhatDoesntKillYou",
+          "id": "7n8r9kx76a5agbm"
+        },
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT_Augment_FiresalePlus",
+          "id": "e86ab3l2v8qgumo"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-bastion-zeri",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Zeri",
+          "boardIndex": 14,
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Draven",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_draven_k0eBFHgB5J.webp",
+          "cost": 3,
+          "name": "Draven",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_Quicksilver"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Zeri",
+        "cost": 4,
+        "id": "ey6e4wiuta8g8y0",
+        "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+        "name": "Zeri",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
+        "id": "ltzjfmlktfmd6u7"
+      },
+      "title": "Bastion Zeri",
+      "style": "Fast 8",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Brand",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT9_Item_OrnnHorizonFocus"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Viego",
+          "items": [
+            "TFT4_Item_OrnnZhonyasParadox"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_TechieCrest",
+          "id": "410ubabb9e3qbd2"
+        },
+        {
+          "apiName": "TFT14_Augment_TechieCrown",
+          "id": "57h992aouzxxbaj"
+        },
+        {
+          "apiName": "TFT14_Augment_Techie_Splash",
+          "id": "lt2rm84j6wu357z"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT_Augment_GlassCannonII",
+          "id": "mircr775korhsfc"
+        },
+        {
+          "apiName": "TFT_Augment_Manaflow2",
+          "id": "j6i0luyb2k135qi"
+        },
+        {
+          "apiName": "TFT_Augment_CookingPot",
+          "id": "of0estn5wr70gqa"
+        },
+        {
+          "apiName": "TFT_Augment_BlazingSoul",
+          "id": "wxwzrt20eve3xma"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-techies",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Brand",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 3,
+          "items": [
+            "TFT14_Item_TechieEmblemItem",
+            "TFT_Item_RedBuff",
+            "TFT_Item_IonicSpark"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Viego",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_GuardianAngel",
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_UnstableConcoction"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_viego_Sqil4FY2Gq.webp",
+          "cost": 5,
+          "name": "Viego",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Brand",
+        "cost": 4,
+        "id": "7nbypj7kwsf1ngm",
+        "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+        "name": "Brand",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_TechieEmblemItem",
+        "id": "4binpfef7yrovsz"
+      },
+      "title": "Techie Brand",
+      "style": "Fast 8",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Fiddlesticks",
+          "items": [
+            "TFT_Item_ArchangelsStaff",
+            "TFT14_Item_BruiserEmblemItem",
+            "TFT_Item_Artifact_BlightingJewel"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Fiddlesticks",
+          "items": [
+            "TFT9_Item_OrnnHorizonFocus",
+            "TFT_Item_ArchangelsStaff",
+            "TFT_Item_ArchangelsStaff"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_RiggedShopPlus",
+          "id": "0evuay3pf0mzkjv"
+        },
+        {
+          "apiName": "TFT_Augment_Trifecta2",
+          "id": "qcmcxz72ltf3s67"
+        },
+        {
+          "apiName": "TFT_Augment_Lineup",
+          "id": "2pjf3652bni5d75"
+        },
+        {
+          "apiName": "TFT14_Augment_BruiserCrest",
+          "id": "6jyxcy51phc1iqa"
+        },
+        {
+          "apiName": "TFT_Augment_CookingPot",
+          "id": "of0estn5wr70gqa"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT_Augment_CrownguardSpirit",
+          "id": "upafbmyynbc6ah6"
+        },
+        {
+          "apiName": "TFT10_Augment_HeroicGrabBag",
+          "id": "ko9plc1kecuegrv"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-fiddlesticks-morde",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Fiddlesticks",
+          "boardIndex": 13,
+          "items": [
+            "TFT_Item_ArchangelsStaff",
+            "TFT_Item_ArchangelsStaff",
+            "TFT_Item_Artifact_BlightingJewel"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Chogath",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_Redemption",
+            "TFT_Item_NightHarvester",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
+          "cost": 4,
+          "name": "Cho'Gath",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_RedBuff",
+            "TFT_Item_IonicSpark"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Fiddlesticks",
+        "cost": 3,
+        "id": "l9mfgf3rv3p0awm",
+        "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+        "name": "Fiddlesticks",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT_Item_Artifact_BlightingJewel",
+        "id": "b3lxyn8rdmsnze7"
+      },
+      "title": "Bruiser Fiddlesticks Reroll",
+      "style": "RR LV.7",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Veigar",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT_Item_Artifact_Fishbones"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_Cyberboss_HighScore",
+          "id": "mgn5nw3640qrpo3"
+        },
+        {
+          "apiName": "TFT14_Augment_Cyberboss_Cower",
+          "id": "kmp34k6hm6llk1m"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT11_Augment_OverEncumbered",
+          "id": "rib3byu9wz4y1z9"
+        },
+        {
+          "apiName": "TFT_Augment_BlazingSoul2",
+          "id": "a9bta6qgtk9u3c5"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketBlueBattery",
+          "id": "ibeppunb71g7sds"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-cyberboss-reroll",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Veigar",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
+          "cost": 2,
+          "name": "Veigar",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Ziggs",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_RapidFireCannon",
+            "TFT_Item_RabadonsDeathcap"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_Crownguard",
+            "TFT_Item_IonicSpark"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_Cyberboss_HighScore",
+        "id": "mgn5nw3640qrpo3"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Veigar",
+        "cost": 2,
+        "id": "nm9n0fek034wmex",
+        "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
+        "name": "Veigar",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Cyberboss Veigar Reroll",
+      "style": "RR LV.6",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Renekton",
+          "items": [
+            "TFT14_Item_StrongEmblemItem"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Zed",
+          "items": [
+            "TFT4_Item_OrnnInfinityForce",
+            "TFT_Item_Artifact_Mittens"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_DivinicorpCrest",
+          "id": "vx9b24a09fdm67o"
+        },
+        {
+          "apiName": "TFT14_Augment_DivinicorpCrown",
+          "id": "yrwj60r5qp6ed4s"
+        },
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT_Augment_WealthyRehab2",
+          "id": "559i3h4u3q0crk3"
+        },
+        {
+          "apiName": "TFT9_Augment_PhreakyFriday",
+          "id": "4rw35tiu70xe1dc"
+        },
+        {
+          "apiName": "TFT9_Augment_NotToday",
+          "id": "gwsq2y4bbd6dubg"
+        },
+        {
+          "apiName": "TFT_Augment_SupportMining",
+          "id": "jn1x4w9cdlbq42a"
+        },
+        {
+          "apiName": "TFT_Augment_SwordOverflow",
+          "id": "b7u7qkqw7hgotc7"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-divinicorp-vex",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Garen",
+          "boardIndex": 3,
+          "items": [
+            "TFT14_Item_DivinicorpEmblemItem",
+            "TFT_Item_SteraksGage",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_garen_MCx1a5Elel.webp",
+          "cost": 5,
+          "name": "Garen",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 19,
+          "items": [
+            "TFT_Item_Quicksilver",
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_SteraksGage"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Zed",
+        "cost": 4,
+        "id": "3gqvq7uj4d17n5n",
+        "championIcon": "tft14_zed_i7ov02fjSN.webp",
+        "name": "Zed",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_DivinicorpEmblemItem",
+        "id": "t4w0f7y7irw4xhv"
+      },
+      "title": "Divinicorp Zed",
+      "style": "Fast 8",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Vayne",
+          "items": [
+            "TFT7_Item_ShimmerscaleGamblersBlade",
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_GuinsoosRageblade"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Jarvan",
+          "items": [
+            "TFT_Item_Artifact_UnendingDespair",
+            "TFT_Item_Artifact_SilvermereDawn",
+            "TFT9_Item_OrnnTrickstersGlass"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT9_Augment_PumpingUp",
+          "id": "rbn15x8pacqlrah"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT10_Augment_HeroicGrabBag",
+          "id": "ko9plc1kecuegrv"
+        },
+        {
+          "apiName": "TFT9_Augment_LongDistanceRelationship2",
+          "id": "xcqjbnjv10edi36"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT7_Augment_LivingForge",
+          "id": "308fp51h1damsab"
+        },
+        {
+          "apiName": "TFT_Augment_TwoMuchValue",
+          "id": "qak7qulq78pz2cv"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-slay-queen",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Vayne",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_vayne_avXey3niuy.webp",
+          "cost": 2,
+          "name": "Vayne",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Jarvan",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_RedBuff",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_jarvan_cUnBW5pQjg.webp",
+          "cost": 3,
+          "name": "Jarvan IV",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Senna",
+          "boardIndex": 26,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_senna_rmLaFEKcKN.webp",
+          "cost": 3,
+          "name": "Senna",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Vayne",
+        "cost": 2,
+        "id": "x8tuv1dur86pf6n",
+        "championIcon": "tft14_vayne_avXey3niuy.webp",
+        "name": "Vayne",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
+        "id": "ltzjfmlktfmd6u7"
+      },
+      "title": "Vayne Senna Slayer Reroll",
+      "style": "RR LV.6",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Poppy",
+          "items": [
+            "TFT_Item_Artifact_SeekersArmguard"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_PoppyCarry",
+          "id": "muht60kyj28r76y"
+        },
+        {
+          "apiName": "TFT9_Augment_MissedConnections",
+          "id": "5mlqjl605nnn2tr"
+        },
+        {
+          "apiName": "TFT7_Augment_BigFriend2",
+          "id": "hh37i2mdw33b0ns"
+        },
+        {
+          "apiName": "TFT14_Augment_Cyberboss_Cower",
+          "id": "kmp34k6hm6llk1m"
+        },
+        {
+          "apiName": "TFT14_Augment_Cyberboss_HighScore",
+          "id": "mgn5nw3640qrpo3"
+        },
+        {
+          "apiName": "TFT_Augment_Mentorship2",
+          "id": "mvyt6qsdhoc2zfr"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketGargantuanResolve",
+          "id": "4ezwd9h89rnves3"
+        },
+        {
+          "apiName": "TFT_Augment_StarryNightPlus",
+          "id": "66mxazbwpetl63e"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-button-mash-poppy",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Poppy",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_UnstableConcoction"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_poppy_ZKixNJBDtc.webp",
+          "cost": 1,
+          "name": "Poppy",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_Redemption",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Ziggs",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_RapidFireCannon",
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_ArchangelsStaff"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_PoppyCarry",
+        "id": "muht60kyj28r76y"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Poppy",
+        "cost": 1,
+        "id": "vwcul17q7i9vtqc",
+        "championIcon": "tft14_poppy_ZKixNJBDtc.webp",
+        "name": "Poppy",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Button Mash Poppy",
+      "style": "RR LV.5",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Jax",
+          "items": [
+            "TFT14_NaafiriCyberneticItem"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_JaxCarry",
+          "id": "jq5rx553wh8u0gd"
+        },
+        {
+          "apiName": "TFT7_Augment_BigFriend",
+          "id": "f7cf8j687rpf92j"
+        },
+        {
+          "apiName": "TFT_Augment_ClockworkAccelerator",
+          "id": "ynebh92n0sub657"
+        },
+        {
+          "apiName": "TFT_Augment_Overheal",
+          "id": "jinqyezo6z2es83"
+        },
+        {
+          "apiName": "TFT_Augment_HeroicGrabBagPlus",
+          "id": "tyacx4yvvs6s8dg"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketGargantuanResolve",
+          "id": "4ezwd9h89rnves3"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies3",
+          "id": "fimcjz7mapc2n2a"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarket_ScopedWeapons",
+          "id": "rg2e5u7bpqi83ft"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-adaptive-strikes-jax",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Jax",
+          "boardIndex": 2,
+          "items": [
+            "TFT14_NaafiriCyberneticItem",
+            "TFT_Item_Quicksilver",
+            "TFT_Item_Bloodthirster"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_jax_bIB9hPDcYq.webp",
+          "cost": 1,
+          "name": "Jax",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Mordekaiser",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_RedBuff",
+            "TFT14_MordekaiserCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_mordekaiser_3yMV3DSbGN.webp",
+          "cost": 3,
+          "name": "Mordekaiser",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_FrozenHeart",
+            "TFT14_SejuaniCyberneticItem",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zeri",
+          "boardIndex": 14,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_RunaansHurricane",
+            "TFT14_ZeriCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_JaxCarry",
+        "id": "jq5rx553wh8u0gd"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Jax",
+        "cost": 1,
+        "id": "pvxq4euvat98to3",
+        "championIcon": "tft14_jax_bIB9hPDcYq.webp",
+        "name": "Jax",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Adaptive Strikes Jax",
+      "style": "RR LV.5",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Vi",
+          "items": [
+            "TFT_Item_Artifact_SilvermereDawn"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_ViCarry",
+          "id": "km8ntdn95a47w6q"
+        },
+        {
+          "apiName": "TFT_Augment_Lineup",
+          "id": "2pjf3652bni5d75"
+        },
+        {
+          "apiName": "TFT9_Augment_HealingOrbsII",
+          "id": "anm6q7ycq1gjqag"
+        },
+        {
+          "apiName": "TFT10_Augment_InspiringEpitaph",
+          "id": "ku6f6b94ac099ta"
+        },
+        {
+          "apiName": "TFT14_Augment_Guardian_Vertical",
+          "id": "vbtdzr4wk3d0qd8"
+        },
+        {
+          "apiName": "TFT_Augment_ClimbTheLadder2",
+          "id": "f0hafpor4h3grgg"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketGargantuanResolve",
+          "id": "4ezwd9h89rnves3"
+        },
+        {
+          "apiName": "TFT_Augment_RanduinsImmovableObject",
+          "id": "2bmutxw5jcamzte"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-cease-and-desist-vi",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Vi",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_TitansResolve",
+            "TFT_Item_SteraksGage"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+          "cost": 1,
+          "name": "Vi",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_Redemption",
+            "TFT_Item_RedBuff",
+            "TFT_Item_SpectralGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_UnstableConcoction",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_ViCarry",
+        "id": "km8ntdn95a47w6q"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Vi",
+        "cost": 1,
+        "id": "jzwhpr5ug0b0idp",
+        "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+        "name": "Vi",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Cease and Desist Vi",
+      "style": "RR LV.5",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Rhaast",
+          "items": [
+            "TFT_Item_Artifact_ProwlersClaw",
+            "TFT_Item_Artifact_SilvermereDawn",
+            "TFT_Item_Artifact_SpectralCutlass"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Rhaast",
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_UnstableConcoction",
+            "TFT_Item_SteraksGage"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_RhaastCarry",
+          "id": "b556rgsylw1v0dc"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT9_Augment_HealingOrbsII",
+          "id": "anm6q7ycq1gjqag"
+        },
+        {
+          "apiName": "TFT_Augment_WealthyRehab2",
+          "id": "559i3h4u3q0crk3"
+        },
+        {
+          "apiName": "TFT_Augment_Overheal",
+          "id": "jinqyezo6z2es83"
+        },
+        {
+          "apiName": "TFT_Augment_HeroicGrabBagPlus",
+          "id": "tyacx4yvvs6s8dg"
+        },
+        {
+          "apiName": "TFT_Augment_GuardbreakerSpirit",
+          "id": "3necn9k6x4z6vby"
+        },
+        {
+          "apiName": "TFT9_Augment_ArmyBuilding",
+          "id": "trzpwstwtsa4lzc"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-alter-ego-rhaast-kayn",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Rhaast",
+          "boardIndex": 6,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_UnstableConcoction",
+            "TFT_Item_UnstableConcoction"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_rhaast_neLCf2ChLx.webp",
+          "cost": 2,
+          "name": "Rhaast",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Senna",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_senna_rmLaFEKcKN.webp",
+          "cost": 3,
+          "name": "Senna",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_RedBuff"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_RhaastCarry",
+        "id": "b556rgsylw1v0dc"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Rhaast",
+        "cost": 2,
+        "id": "yvz0kd1j1ut4no8",
+        "championIcon": "tft14_rhaast_neLCf2ChLx.webp",
+        "name": "Rhaast",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Alter Ego Rhaast (Kayn)",
+      "style": "RR LV.6",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Gragas",
+          "items": [
+            "TFT_Item_Artifact_TalismanOfAscension"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Fiddlesticks",
+          "items": [
+            "TFT9_Item_OrnnHorizonFocus",
+            "TFT_Item_Artifact_BlightingJewel"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_GragasCarry",
+          "id": "puthsydcptv7b7p"
+        },
+        {
+          "apiName": "TFT_Augment_RiggedShopPlus",
+          "id": "0evuay3pf0mzkjv"
+        },
+        {
+          "apiName": "TFT_Augment_Trifecta2",
+          "id": "qcmcxz72ltf3s67"
+        },
+        {
+          "apiName": "TFT10_Augment_InspiringEpitaph",
+          "id": "ku6f6b94ac099ta"
+        },
+        {
+          "apiName": "TFT7_Augment_BigFriend2",
+          "id": "hh37i2mdw33b0ns"
+        },
+        {
+          "apiName": "TFT_Augment_HeroicGrabBagPlus",
+          "id": "tyacx4yvvs6s8dg"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketGargantuanResolve",
+          "id": "4ezwd9h89rnves3"
+        },
+        {
+          "apiName": "TFT9_Augment_Commander_Ascension",
+          "id": "7qp9iawiqiwzian"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-chug-bug-gragas",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Gragas",
+          "boardIndex": 13,
+          "items": [
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_TitansResolve",
+            "TFT_Item_Quicksilver"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_gragas_hrDxxeDsX2.webp",
+          "cost": 3,
+          "name": "Gragas",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Fiddlesticks",
+          "boardIndex": 20,
+          "items": [
+            "TFT_Item_ArchangelsStaff",
+            "TFT_Item_ArchangelsStaff",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Mordekaiser",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_IonicSpark",
+            "TFT_Item_RedBuff",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_mordekaiser_3yMV3DSbGN.webp",
+          "cost": 3,
+          "name": "Mordekaiser",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_GragasCarry",
+        "id": "puthsydcptv7b7p"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Gragas",
+        "cost": 3,
+        "id": "m9itomntleu2bt8",
+        "championIcon": "tft14_gragas_hrDxxeDsX2.webp",
+        "name": "Gragas",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Chug Bug Gragas",
+      "style": "RR LV.7",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Sylas",
+          "items": [
+            "TFT_Item_Artifact_SeekersArmguard"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_StarryNightPlus",
+          "id": "66mxazbwpetl63e"
+        },
+        {
+          "apiName": "TFT_Augment_Lineup",
+          "id": "2pjf3652bni5d75"
+        },
+        {
+          "apiName": "TFT9_Augment_HealingOrbsII",
+          "id": "anm6q7ycq1gjqag"
+        },
+        {
+          "apiName": "TFT6_Augment_CyberneticImplants2",
+          "id": "94wshqz4wmfcq6c"
+        },
+        {
+          "apiName": "TFT_Augment_WealthyRehab2",
+          "id": "559i3h4u3q0crk3"
+        },
+        {
+          "apiName": "TFT10_Augment_InspiringEpitaph",
+          "id": "ku6f6b94ac099ta"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies2",
+          "id": "oam3x93qx6eluen"
+        },
+        {
+          "apiName": "TFT14_Augment_SylasCarry",
+          "id": "by636wxw1ps3hm5"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-wolf-unchained-sylas",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Sylas",
+          "boardIndex": 7,
+          "items": [
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_TitansResolve",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+          "cost": 1,
+          "name": "Sylas",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_BrambleVest",
+            "TFT_Item_DragonsClaw",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Xayah",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aurora",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_Morellonomicon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
+          "cost": 5,
+          "name": "Aurora",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_SylasCarry",
+        "id": "by636wxw1ps3hm5"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Sylas",
+        "cost": 1,
+        "id": "tfk73q1b0sk3csp",
+        "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+        "name": "Sylas",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Wolf Unchained Sylas",
+      "style": "RR LV.5",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Annie",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT_Item_BlueBuff",
+            "TFT_Item_Leviathan"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_Nitro_SpareParts",
+          "id": "eyugh4sqlsg0x5d"
+        },
+        {
+          "apiName": "TFT_Augment_BlazingSoul",
+          "id": "wxwzrt20eve3xma"
+        },
+        {
+          "apiName": "TFT9_Augment_PumpingUp2",
+          "id": "06i47o33glc41q7"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketBlueBattery",
+          "id": "ibeppunb71g7sds"
+        },
+        {
+          "apiName": "TFT14_Augment_Supercharge_Vertical",
+          "id": "yngh9g0d95j6x09"
+        },
+        {
+          "apiName": "TFT_Augment_BlazingSoul2",
+          "id": "a9bta6qgtk9u3c5"
+        },
+        {
+          "apiName": "TFT9_Augment_PumpingUp3",
+          "id": "ui6ifr8wzwwy1h8"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies2",
+          "id": "oam3x93qx6eluen"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-annie",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Yuumi",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_yuumi_XJqH5JKYDa.webp",
+          "cost": 3,
+          "name": "Yuumi",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Annie",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_BlueBuff",
+            "TFT_Item_Leviathan"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_NightHarvester"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_SummonLevel4",
+        "cost": 4,
+        "id": "oytft49917z9ymy",
+        "championIcon": "tft14_summon_level4_qJMThdhkva.webp",
+        "name": "T-43X",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Nitro AMP Annie",
+      "style": "Fast 8",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Rengar",
+          "items": [
+            "TFT_Item_Artifact_ProwlersClaw",
+            "TFT_Item_Artifact_SilvermereDawn",
+            "TFT_Item_Artifact_SpectralCutlass"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Jinx",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT14_Item_CutterEmblemItem"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_ExecutionerCrest",
+          "id": "69ja7bri554ppld"
+        },
+        {
+          "apiName": "TFT14_Augment_ExecutionerCrown",
+          "id": "4yn2u0w99ndkra4"
+        },
+        {
+          "apiName": "TFT_Augment_Trifecta1",
+          "id": "pobqa1flz6o21d3"
+        },
+        {
+          "apiName": "TFT_Augment_RiggedShopPlus",
+          "id": "0evuay3pf0mzkjv"
+        },
+        {
+          "apiName": "TFT7_Augment_LivingForge",
+          "id": "308fp51h1damsab"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT_Augment_CookingPot",
+          "id": "of0estn5wr70gqa"
+        },
+        {
+          "apiName": "TFT14_Augment_StreetDemon_Freestyling",
+          "id": "tycb7nrx9rvltxe"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-kitty-kitty-boom-boom",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Rengar",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_TitansResolve"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+          "cost": 3,
+          "name": "Rengar",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Jinx",
+          "boardIndex": 22,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_jinx_7JZwene7WE.webp",
+          "cost": 3,
+          "name": "Jinx",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Brand",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_Morellonomicon",
+            "TFT_Item_SpearOfShojin"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Rengar",
+        "cost": 3,
+        "id": "paw25z0l10jn8ds",
+        "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+        "name": "Rengar",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Street Demon Rengar Jinx",
+      "style": "RR LV.7",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Elise",
+          "items": [
+            "TFT9_Item_OrnnHorizonFocus",
+            "TFT9_Item_OrnnDeathfireGrasp"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT14_Augment_Nitro_PolishedChrome",
+          "id": "qrws18k0du3qqy2"
+        },
+        {
+          "apiName": "TFT7_Augment_PandorasBench",
+          "id": "k0d0icfcd7bkyff"
+        },
+        {
+          "apiName": "TFT_Augment_NoScoutNoPivot",
+          "id": "hnn1hifsig1u8pr"
+        },
+        {
+          "apiName": "TFT14_Augment_Nitro_SpareParts",
+          "id": "eyugh4sqlsg0x5d"
+        },
+        {
+          "apiName": "TFT_Augment_InvestmentStrategy2",
+          "id": "vkcicjnb8d6a3f1"
+        },
+        {
+          "apiName": "TFT6_Augment_GachaAddict",
+          "id": "b3e52svau5ss4uq"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-doggie",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Shyvana",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_IonicSpark",
+            "TFT_Item_DragonsClaw",
+            "TFT_Item_BrambleVest"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_shyvana_ZLycC8LTom.webp",
+          "cost": 2,
+          "name": "Shyvana",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Elise",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_RabadonsDeathcap",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_MissFortune",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+          "cost": 4,
+          "name": "Miss Fortune",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aurora",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
+          "cost": 5,
+          "name": "Aurora",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_SummonLevel4",
+        "cost": 4,
+        "id": "oytft49917z9ymy",
+        "championIcon": "tft14_summon_level4_qJMThdhkva.webp",
+        "name": "T-43X",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Nitro Elise Jhin",
+      "style": "RR LV.6",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Vex",
+          "items": [
+            "TFT_Item_Artifact_Fishbones",
+            "TFT5_Item_HextechGunbladeRadiant"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Varus",
+          "items": [
+            "TFT14_Item_ThirstyEmblemItem"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketBlueBattery",
+          "id": "ibeppunb71g7sds"
+        },
+        {
+          "apiName": "TFT6_Augment_PandorasItems",
+          "id": "9dkifu3k33q065j"
+        },
+        {
+          "apiName": "TFT14_Augment_Divinicorp_Splash",
+          "id": "yp48sdjm442lqpc"
+        },
+        {
+          "apiName": "TFT_Augment_SatedSpellweaver",
+          "id": "ff3lh5jor8h74rl"
+        },
+        {
+          "apiName": "TFT_Augment_SpiritLink1",
+          "id": "pqejsks0bqpcu0p"
+        },
+        {
+          "apiName": "TFT_Augment_Golemify",
+          "id": "h5cq8w6q6ua5usv"
+        },
+        {
+          "apiName": "TFT_Augment_ShareTheSpotlight",
+          "id": "84yso33v9zlfylg"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-vexotech",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Vex",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Mordekaiser",
+          "boardIndex": 4,
+          "items": [
+            "TFT14_MordekaiserCyberneticItem",
+            "TFT_Item_Crownguard",
+            "TFT_Item_NightHarvester"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_mordekaiser_3yMV3DSbGN.webp",
+          "cost": 3,
+          "name": "Mordekaiser",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Varus",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_RapidFireCannon",
+            "TFT_Item_StatikkShiv",
+            "TFT14_NaafiriCyberneticItem"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_varus_vjE7X6XH3s.webp",
+          "cost": 3,
+          "name": "Varus",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_Redemption",
+            "TFT_Item_AdaptiveHelm"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Vex",
+        "cost": 4,
+        "id": "51p4hydvt3fvqsf",
+        "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+        "name": "Vex",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Vex Exotech",
+      "style": "Fast 8",
+      "tier": "A"
+    },
+    {
+      "altBuilds": [],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_UpwardMobility",
+          "id": "9nf2icwjniqdrn5"
+        },
+        {
+          "apiName": "TFT9_Augment_FinalReserves",
+          "id": "f91d11a4lb8qb98"
+        },
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT7_Augment_ClutteredMind",
+          "id": "2gi62pjjvcazz33"
+        },
+        {
+          "apiName": "TFT_Augment_FiresalePlus",
+          "id": "e86ab3l2v8qgumo"
+        },
+        {
+          "apiName": "TFT14_Augment_BoomBotsCrest",
+          "id": "fzcul0flot6t2mt"
+        },
+        {
+          "apiName": "TFT_Augment_ForwardThinking",
+          "id": "np2casdfpktsi4j"
+        },
+        {
+          "apiName": "TFT6_Augment_HighEndShopping",
+          "id": "pheouhcwaxzjknw"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-boom-got",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_Deathblade",
+            "TFT_Item_RunaansHurricane",
+            "TFT_Item_GuinsoosRageblade"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Chogath",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_Redemption",
+            "TFT_Item_BrambleVest"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
+          "cost": 4,
+          "name": "Cho'Gath",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Vex",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_Morellonomicon",
+            "TFT_Item_BlueBuff"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zac",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_AdaptiveHelm"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zac_fe6Q9SvJal.webp",
+          "cost": 5,
+          "name": "Zac",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Urgot",
+        "cost": 5,
+        "id": "bvxdnu7u71w8xi0",
+        "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+        "name": "Urgot",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_BallistekEmblemItem",
+        "id": "dzw94pr5u3h1m8s"
+      },
+      "title": "Boombot Urgot",
+      "style": "Fast 9",
+      "tier": "S"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Naafiri",
+          "items": [
+            "TFT_Item_Artifact_SpectralCutlass",
+            "TFT_Item_UnstableConcoction",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Naafiri",
+          "items": [
+            "TFT_Item_Artifact_SuspiciousTrenchCoat",
+            "TFT_Item_SteraksGage",
+            "TFT_Item_GuardianAngel"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT9_Augment_Commander_RollingForDays",
+          "id": "pptmygu5lhj90sj"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT9_Augment_NotToday",
+          "id": "gwsq2y4bbd6dubg"
+        },
+        {
+          "apiName": "TFT7_Augment_LivingForge",
+          "id": "308fp51h1damsab"
+        },
+        {
+          "apiName": "TFT9_Augment_LongTimeCrafting",
+          "id": "h9vbfja2q7f7ype"
+        },
+        {
+          "apiName": "TFT9_Augment_BardPlaybook1",
+          "id": "d8gp7ol3ea86pfh"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-amp-naafiri",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Naafiri",
+          "boardIndex": 6,
+          "items": [
+            "TFT_Item_GuardianAngel",
+            "TFT14_JhinCyberneticItem",
+            "TFT_Item_UnstableConcoction"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_naafiri_xzTk0mIJs3.webp",
+          "cost": 2,
+          "name": "Naafiri",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Yuumi",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_yuumi_XJqH5JKYDa.webp",
+          "cost": 3,
+          "name": "Yuumi",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Neeko",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_RedBuff"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_neeko_psECGKAQZl.webp",
+          "cost": 4,
+          "name": "Neeko",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Samira",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_samira_dqwHK8KQkm.webp",
+          "cost": 5,
+          "name": "Samira",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT6_Augment_PortableForge",
+        "id": "t7xi4c1opb4vjg2"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Naafiri",
+        "cost": 2,
+        "id": "azcxe2hv0agccxu",
+        "championIcon": "tft14_naafiri_xzTk0mIJs3.webp",
+        "name": "Naafiri",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "AMP Naafiri Reroll",
+      "style": "RR LV.6",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_DrMundo",
+          "items": [
+            "TFT4_Item_OrnnAnimaVisage",
+            "TFT_Item_Artifact_InnervatingLocket"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Zyra",
+          "items": [
+            "TFT4_Item_OrnnMuramana"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT_Augment_NoScoutNoPivot",
+          "id": "hnn1hifsig1u8pr"
+        },
+        {
+          "apiName": "TFT_Augment_InvestmentStrategy2",
+          "id": "vkcicjnb8d6a3f1"
+        },
+        {
+          "apiName": "TFT_Augment_BeltOverflow",
+          "id": "e2zsczzkvcux14h"
+        },
+        {
+          "apiName": "TFT_Augment_CookingPot",
+          "id": "of0estn5wr70gqa"
+        },
+        {
+          "apiName": "TFT6_Augment_PandorasItems",
+          "id": "9dkifu3k33q065j"
+        },
+        {
+          "apiName": "TFT_Augment_Replication",
+          "id": "sybtbl6lgx76txe"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-zyra-bruisers",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_DrMundo",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_BrambleVest"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_dr_mundo_hOF3Xi07li.webp",
+          "cost": 1,
+          "name": "Dr. Mundo",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Seraphine",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_seraphine_IRo5116Qso.webp",
+          "cost": 1,
+          "name": "Seraphine",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Brand",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_SpearOfShojin"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_DrMundo",
+        "cost": 1,
+        "id": "fhb6dwcbxowhayq",
+        "championIcon": "tft14_dr_mundo_hOF3Xi07li.webp",
+        "name": "Dr. Mundo",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Dr. Mundo Techie Reroll",
+      "style": "RR LV.5",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Zeri",
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT_Item_RunaansHurricane",
+            "TFT14_JhinCyberneticItem"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+          "id": "an791kscytn2cmc"
+        },
+        {
+          "apiName": "TFT_Augment_TraitTracker",
+          "id": "0wfs27c2keh7s8u"
+        },
+        {
+          "apiName": "TFT6_Augment_BinaryAirdrop",
+          "id": "5njkc6iijxesgr2"
+        },
+        {
+          "apiName": "TFT_Augment_BadLuckProtection",
+          "id": "5ehmsuxelge1u5a"
+        },
+        {
+          "apiName": "TFT10_Augment_LittleBuddies",
+          "id": "7q0cbj58wwdv0r3"
+        },
+        {
+          "apiName": "TFT_Augment_SpiritLink1",
+          "id": "pqejsks0bqpcu0p"
+        },
+        {
+          "apiName": "TFT_Augment_EyeForAnEye",
+          "id": "uspgktzo2ol6kwr"
+        },
+        {
+          "apiName": "TFT_Augment_ItemCollector1",
+          "id": "j5n3dl5ci034uqt"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-bullet-time",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Zeri",
+          "boardIndex": 14,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT14_JhinCyberneticItem",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Mordekaiser",
+          "boardIndex": 2,
+          "items": [
+            "TFT14_MordekaiserCyberneticItem",
+            "TFT_Item_Crownguard",
+            "TFT_Item_SpectralGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_mordekaiser_3yMV3DSbGN.webp",
+          "cost": 3,
+          "name": "Mordekaiser",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_MissFortune",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_MadredsBloodrazor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+          "cost": 4,
+          "name": "Miss Fortune",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_Redemption",
+            "TFT_Item_FrozenHeart",
+            "TFT14_JaxCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Zeri",
+        "cost": 4,
+        "id": "ey6e4wiuta8g8y0",
+        "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+        "name": "Zeri",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Exotech Zeri Miss Fortune",
+      "style": "Fast 8",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Sejuani",
+          "items": [
+            "TFT4_Item_OrnnAnimaVisage",
+            "TFT_Item_Artifact_LightshieldCrest"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_CookingPot",
+          "id": "of0estn5wr70gqa"
+        },
+        {
+          "apiName": "TFT14_Augment_DuelistCrest",
+          "id": "yphpap4ke1a9xjv"
+        },
+        {
+          "apiName": "TFT_Augment_Golemify",
+          "id": "h5cq8w6q6ua5usv"
+        },
+        {
+          "apiName": "TFT_Augment_Dummify",
+          "id": "scyr1kl8bp3hx24"
+        },
+        {
+          "apiName": "TFT_Augment_Overheal",
+          "id": "jinqyezo6z2es83"
+        },
+        {
+          "apiName": "TFT_Augment_BeltOverflow",
+          "id": "e2zsczzkvcux14h"
+        },
+        {
+          "apiName": "TFT6_Augment_CyberneticImplants2",
+          "id": "94wshqz4wmfcq6c"
+        },
+        {
+          "apiName": "TFT6_Augment_PandorasItems",
+          "id": "9dkifu3k33q065j"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-long-crocodile",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 20,
+          "items": [
+            "TFT14_Item_SwiftEmblemItem",
+            "TFT_Item_RunaansHurricane",
+            "TFT_Item_Quicksilver"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Draven",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_Morellonomicon"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_draven_k0eBFHgB5J.webp",
+          "cost": 3,
+          "name": "Draven",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_Redemption",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zeri",
+          "boardIndex": 26,
+          "items": [
+            "TFT14_JhinCyberneticItem",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Renekton",
+        "cost": 5,
+        "id": "gqzcmy0axu1e65q",
+        "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+        "name": "Renekton",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_SwiftEmblemItem",
+        "id": "fqbe24473k5c7eu"
+      },
+      "title": "Rapidfire Renekton",
+      "style": "Fast 9",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Vex",
+          "items": [
+            "TFT5_Item_BlueBuffRadiant",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_Artifact_Fishbones"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Chogath",
+          "items": [
+            "TFT4_Item_OrnnAnimaVisage",
+            "TFT_Item_Artifact_InnervatingLocket"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketBlueBattery",
+          "id": "ibeppunb71g7sds"
+        },
+        {
+          "apiName": "TFT6_Augment_PandorasItems",
+          "id": "9dkifu3k33q065j"
+        },
+        {
+          "apiName": "TFT14_Augment_Divinicorp_Splash",
+          "id": "yp48sdjm442lqpc"
+        },
+        {
+          "apiName": "TFT_Augment_SatedSpellweaver",
+          "id": "ff3lh5jor8h74rl"
+        },
+        {
+          "apiName": "TFT_Augment_SpiritLink1",
+          "id": "pqejsks0bqpcu0p"
+        },
+        {
+          "apiName": "TFT_Augment_Golemify",
+          "id": "h5cq8w6q6ua5usv"
+        },
+        {
+          "apiName": "TFT_Augment_ShareTheSpotlight",
+          "id": "84yso33v9zlfylg"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-vex-bruisers",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Vex",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Mordekaiser",
+          "boardIndex": 5,
+          "items": [
+            "TFT14_MordekaiserCyberneticItem",
+            "TFT_Item_Crownguard",
+            "TFT_Item_NightHarvester"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_mordekaiser_3yMV3DSbGN.webp",
+          "cost": 3,
+          "name": "Mordekaiser",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Varus",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_RapidFireCannon",
+            "TFT_Item_StatikkShiv",
+            "TFT14_VarusCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_varus_vjE7X6XH3s.webp",
+          "cost": 3,
+          "name": "Varus",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Chogath",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_BrambleVest",
+            "TFT_Item_Redemption",
+            "TFT_Item_DragonsClaw"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
+          "cost": 4,
+          "name": "Cho'Gath",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Vex",
+        "cost": 4,
+        "id": "51p4hydvt3fvqsf",
+        "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+        "name": "Vex",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Vex Bruisers",
+      "style": "Fast 8",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Vex",
+          "items": [
+            "TFT5_Item_BlueBuffRadiant",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_Artifact_Fishbones"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_FiresalePlus",
+          "id": "e86ab3l2v8qgumo"
+        },
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT14_Augment_BlackMarketBlueBattery",
+          "id": "ibeppunb71g7sds"
+        },
+        {
+          "apiName": "TFT6_Augment_PandorasItems",
+          "id": "9dkifu3k33q065j"
+        },
+        {
+          "apiName": "TFT_Augment_SatedSpellweaver",
+          "id": "ff3lh5jor8h74rl"
+        },
+        {
+          "apiName": "TFT_Augment_SpiritLink1",
+          "id": "pqejsks0bqpcu0p"
+        },
+        {
+          "apiName": "TFT_Augment_Golemify",
+          "id": "h5cq8w6q6ua5usv"
+        },
+        {
+          "apiName": "TFT_Augment_ShareTheSpotlight",
+          "id": "84yso33v9zlfylg"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-divinivex",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Vex",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_RabadonsDeathcap"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Chogath",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_DragonsClaw",
+            "TFT_Item_BrambleVest",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
+          "cost": 4,
+          "name": "Cho'Gath",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 16,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 27,
+          "items": [
+            "TFT14_Item_DivinicorpEmblemItem",
+            "TFT_Item_MadredsBloodrazor",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Vex",
+        "cost": 4,
+        "id": "51p4hydvt3fvqsf",
+        "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+        "name": "Vex",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_DivinicorpEmblemItem",
+        "id": "t4w0f7y7irw4xhv"
+      },
+      "title": "Divinicorp Vex",
+      "style": "Fast 8",
+      "tier": "A"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Shaco",
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT9_Item_OrnnHorizonFocus"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_BlackMarket_ScopedWeapons",
+          "id": "rg2e5u7bpqi83ft"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT14_Augment_Strong_Vertical",
+          "id": "ilg6pzkggykpjzk"
+        },
+        {
+          "apiName": "TFT_Augment_GuardbreakerSpirit",
+          "id": "3necn9k6x4z6vby"
+        },
+        {
+          "apiName": "TFT_Augment_GlassCannonI",
+          "id": "l9g0g1oleroe19k"
+        },
+        {
+          "apiName": "TFT_Augment_GreaterMoonlight",
+          "id": "fiyxljkboiprro3"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-shaco-ped-weapons",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Shaco",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_MadredsBloodrazor",
+            "TFT_Item_Quicksilver"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Braum",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_DragonsClaw",
+            "TFT_Item_Redemption",
+            "TFT_Item_BrambleVest"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_braum_cs4peGdzcS.webp",
+          "cost": 3,
+          "name": "Braum",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Senna",
+          "boardIndex": 26,
+          "items": [
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_senna_rmLaFEKcKN.webp",
+          "cost": 3,
+          "name": "Senna",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_BlackMarket_ScopedWeapons",
+        "id": "rg2e5u7bpqi83ft"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Shaco",
+        "cost": 1,
+        "id": "n69f8zoirb9qhif",
+        "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+        "name": "Shaco",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Scoped Weapons Shaco Reroll",
+      "style": "RR LV.5",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Morgana",
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade",
+            "TFT14_Item_ArmorcladEmblemItem"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Morgana",
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_Artifact_BlightingJewel"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_StarryNight",
+          "id": "scpf46nuomfapde"
+        },
+        {
+          "apiName": "TFT_Augment_CookingPot",
+          "id": "of0estn5wr70gqa"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT7_Augment_LivingForge",
+          "id": "308fp51h1damsab"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT6_Augment_GachaAddict",
+          "id": "b3e52svau5ss4uq"
+        },
+        {
+          "apiName": "TFT_Augment_InvestmentStrategy2",
+          "id": "vkcicjnb8d6a3f1"
+        },
+        {
+          "apiName": "TFT7_Augment_Preparation",
+          "id": "7p2zcls5w4kkime"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-bastion-morgana",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Morgana",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_Artifact_BlightingJewel"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
+          "cost": 1,
+          "name": "Morgana",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Poppy",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_BrambleVest",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_GargoyleStoneplate"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_poppy_ZKixNJBDtc.webp",
+          "cost": 1,
+          "name": "Poppy",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aurora",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_Morellonomicon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
+          "cost": 5,
+          "name": "Aurora",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Morgana",
+        "cost": 1,
+        "id": "kvsmm3fzpstst27",
+        "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
+        "name": "Morgana",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT_Item_Artifact_BlightingJewel",
+        "id": "b3lxyn8rdmsnze7"
+      },
+      "title": "Bastion Morgana Reroll",
+      "style": "RR LV.5",
+      "tier": "X"
+    },
+    {
+      "altBuilds": [],
+      "augments": [
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT_Augment_PiercingLotus2",
+          "id": "ayeftsc3nz2bvge"
+        },
+        {
+          "apiName": "TFT14_Augment_Thirsty_Vertical",
+          "id": "1t5s528ats6rr4m"
+        },
+        {
+          "apiName": "TFT_Augment_CalculatedEnhancement",
+          "id": "a4f5s29e8sr56mu"
+        },
+        {
+          "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+          "id": "an791kscytn2cmc"
+        },
+        {
+          "apiName": "TFT9_Augment_BigGrabBag",
+          "id": "k1k420rnggn4b33"
+        },
+        {
+          "apiName": "TFT_Augment_CloningFacility",
+          "id": "kgrwjfb1sjj0n1e"
+        },
+        {
+          "apiName": "TFT_Augment_EyeForAnEye",
+          "id": "uspgktzo2ol6kwr"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-mf-dynamo-flex",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_MissFortune",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_Deathblade"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+          "cost": 4,
+          "name": "Miss Fortune",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Elise",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aurora",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
+          "cost": 5,
+          "name": "Aurora",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zac",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_AdaptiveHelm",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zac_fe6Q9SvJal.webp",
+          "cost": 5,
+          "name": "Zac",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_MissFortune",
+        "cost": 4,
+        "id": "xonwe1obip8stdo",
+        "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+        "name": "Miss Fortune",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Dynamo Miss Fortune Elise",
+      "style": "Fast 8",
+      "tier": "A"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_LeBlanc",
+          "items": [
+            "TFT4_Item_OrnnMuramana",
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_LeBlanc",
+          "items": [
+            "TFT_Item_Artifact_WitsEnd",
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_GuinsoosRageblade"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_Suits_CorporateCashOut",
+          "id": "dm31lhbj1at8q4f"
+        },
+        {
+          "apiName": "TFT_Augment_TitanicTitan",
+          "id": "jo70c28feviys6q"
+        },
+        {
+          "apiName": "TFT6_Augment_CalculatedLoss",
+          "id": "sizh925fx4wq4u2"
+        },
+        {
+          "apiName": "TFT_Augment_ShopGlitch",
+          "id": "qghhi80jgrkipjp"
+        },
+        {
+          "apiName": "TFT9_Augment_HighEndSector",
+          "id": "w6m7vr05zcycb9z"
+        },
+        {
+          "apiName": "TFT10_Augment_HeroicGrabBag",
+          "id": "ko9plc1kecuegrv"
+        },
+        {
+          "apiName": "TFT6_Augment_BinaryAirdrop",
+          "id": "5njkc6iijxesgr2"
+        },
+        {
+          "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+          "id": "an791kscytn2cmc"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-5-cypher",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_LeBlanc",
+          "boardIndex": 26,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_SpearOfShojin",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_le_blanc_L0ffx8qlRq.webp",
+          "cost": 2,
+          "name": "LeBlanc",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Draven",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_draven_k0eBFHgB5J.webp",
+          "cost": 3,
+          "name": "Draven",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Galio",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_GargoyleStoneplate",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_galio_4krO42Zg42.webp",
+          "cost": 3,
+          "name": "Galio",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 17,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_LeBlanc",
+        "cost": 2,
+        "id": "nz5uckg77udlb2j",
+        "championIcon": "tft14_le_blanc_L0ffx8qlRq.webp",
+        "name": "LeBlanc",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Cypher Draven Leblanc Reroll",
+      "style": "L. Streak",
+      "tier": "A"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Graves",
+          "items": [
+            "TFT_Item_Artifact_Mittens",
+            "TFT4_Item_OrnnDeathsDefiance"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Graves",
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_GuardianAngel",
+            "TFT_Item_Artifact_SuspiciousTrenchCoat"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_Immortal_Vertical",
+          "id": "sb1jqkmgh54ewv4"
+        },
+        {
+          "apiName": "TFT10_Augment_HeroicGrabBag",
+          "id": "ko9plc1kecuegrv"
+        },
+        {
+          "apiName": "TFT9_Augment_NotToday",
+          "id": "gwsq2y4bbd6dubg"
+        },
+        {
+          "apiName": "TFT6_Augment_PortableForge",
+          "id": "t7xi4c1opb4vjg2"
+        },
+        {
+          "apiName": "TFT6_Augment_BinaryAirdrop",
+          "id": "5njkc6iijxesgr2"
+        },
+        {
+          "apiName": "TFT7_Augment_Preparation",
+          "id": "7p2zcls5w4kkime"
+        },
+        {
+          "apiName": "TFT7_Augment_LivingForge",
+          "id": "308fp51h1damsab"
+        },
+        {
+          "apiName": "TFT_Augment_WealthyRehab2",
+          "id": "559i3h4u3q0crk3"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-golden-graves",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Graves",
+          "boardIndex": 13,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_Quicksilver",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_graves_aSZKfH6dm6.webp",
+          "cost": 2,
+          "name": "Graves",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Jarvan",
+          "boardIndex": 6,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_BrambleVest"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_jarvan_cUnBW5pQjg.webp",
+          "cost": 3,
+          "name": "Jarvan IV",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Aphelios",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_RunaansHurricane",
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Graves",
+        "cost": 2,
+        "id": "hy4d7y73oqb94as",
+        "championIcon": "tft14_graves_aSZKfH6dm6.webp",
+        "name": "Graves",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Graves Reroll",
+      "style": "RR LV.6",
+      "tier": "B"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Xayah",
+          "items": [
+            "TFT4_Item_OrnnTheCollector",
+            "TFT4_Item_OrnnMuramana",
+            "TFT9_Item_OrnnHorizonFocus"
+          ],
+          "stars": 1
+        },
+        {
+          "apiName": "TFT14_Aphelios",
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT5_Item_GuinsoosRagebladeRadiant"
+          ],
+          "stars": 1
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT14_Augment_Marksman_Vertical",
+          "id": "efl9ftuj59j6v9o"
+        },
+        {
+          "apiName": "TFT9_Augment_PumpingUp",
+          "id": "rbn15x8pacqlrah"
+        },
+        {
+          "apiName": "TFT_Augment_Overheal",
+          "id": "jinqyezo6z2es83"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies3",
+          "id": "fimcjz7mapc2n2a"
+        },
+        {
+          "apiName": "TFT_Augment_ClockworkAccelerator",
+          "id": "ynebh92n0sub657"
+        },
+        {
+          "apiName": "TFT9_Augment_NotToday",
+          "id": "gwsq2y4bbd6dubg"
+        },
+        {
+          "apiName": "TFT14_Augment_VanguardCrown",
+          "id": "rwfrr423xry5bi2"
+        },
+        {
+          "apiName": "TFT9_Augment_BlindingSpeed",
+          "id": "w0qlp91de2eb473"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-6-vanguard-marksman",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Aphelios",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_BrambleVest",
+            "TFT_Item_NightHarvester"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Xayah",
+          "boardIndex": 26,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_LastWhisper",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Garen",
+          "boardIndex": 1,
+          "items": [
+            "TFT14_Item_GuardianEmblemItem",
+            "TFT_Item_RedBuff"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_garen_MCx1a5Elel.webp",
+          "cost": 5,
+          "name": "Garen",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Aphelios",
+        "cost": 4,
+        "id": "zo8wz90pnfy3x6h",
+        "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+        "name": "Aphelios",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_GuardianEmblemItem",
+        "id": "2s05rej4z0xwpi4"
+      },
+      "title": "6 Vanguard Aphelios Xayah",
+      "style": "Fast 8",
+      "tier": "A"
+    },
+    {
+      "altBuilds": [],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_UpwardMobility",
+          "id": "9nf2icwjniqdrn5"
+        },
+        {
+          "apiName": "TFT9_Augment_FinalReserves",
+          "id": "f91d11a4lb8qb98"
+        },
+        {
+          "apiName": "TFT6_Augment_MaxLevel10",
+          "id": "79c600096h3pml7"
+        },
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT7_Augment_ClutteredMind",
+          "id": "2gi62pjjvcazz33"
+        },
+        {
+          "apiName": "TFT_Augment_FiresalePlus",
+          "id": "e86ab3l2v8qgumo"
+        },
+        {
+          "apiName": "TFT14_Augment_VanguardCirclet",
+          "id": "2f6g5cky6uwk5qp"
+        },
+        {
+          "apiName": "TFT_Augment_ForwardThinking",
+          "id": "np2casdfpktsi4j"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-vanguard-urgot",
+      "itemizedChampions": [
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_RunaansHurricane",
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_Deathblade"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Leona",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_RedBuff",
+            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Garen",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_Bloodthirster"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_garen_MCx1a5Elel.webp",
+          "cost": 5,
+          "name": "Garen",
+          "set": 14
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT14_Urgot",
+        "cost": 5,
+        "id": "bvxdnu7u71w8xi0",
+        "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+        "name": "Urgot",
+        "set": 14
+      },
+      "mainItem": {
+        "apiName": "TFT14_Item_GuardianEmblemItem",
+        "id": "2s05rej4z0xwpi4"
+      },
+      "title": "Vanguard Urgot Fast 9",
+      "style": "Fast 9",
+      "tier": "A"
+    }
+  ],
+  "items": {
+    "default": [
+      {
+        "apiName": "TFT_Item_AdaptiveHelm",
+        "name": "Adaptive Helm",
+        "icon": "tft_item_adaptive_helm_U7wrrPbXDT.webp"
+      },
+      {
+        "apiName": "TFT_Item_ArchangelsStaff",
+        "name": "Archangel's Staff",
+        "icon": "tft_item_archangels_staff_mYasboaZh4.webp"
+      },
+      {
+        "apiName": "TFT_Item_Bloodthirster",
+        "name": "Bloodthirster",
+        "icon": "tft_item_bloodthirster_CVee57ctt3.webp"
+      },
+      {
+        "apiName": "TFT_Item_BlueBuff",
+        "name": "Blue Buff",
+        "icon": "tft_item_blue_buff_E3nfykxnl0.webp"
+      },
+      {
+        "apiName": "TFT_Item_BrambleVest",
+        "name": "Bramble Vest",
+        "icon": "tft_item_bramble_vest_Zp2A11ZGx2.webp"
+      },
+      {
+        "apiName": "TFT_Item_Crownguard",
+        "name": "Crownguard",
+        "icon": "tft_item_crownguard_ptmJMf5jXj.webp"
+      },
+      {
+        "apiName": "TFT_Item_Deathblade",
+        "name": "Deathblade",
+        "icon": "tft_item_deathblade_NkMadHmFA6.webp"
+      },
+      {
+        "apiName": "TFT_Item_DragonsClaw",
+        "name": "Dragon's Claw",
+        "icon": "tft_item_dragons_claw_11zqQ3t6Bz.webp"
+      },
+      {
+        "apiName": "TFT_Item_GuardianAngel",
+        "name": "Edge of Night",
+        "icon": "tft_item_guardian_angel_Gno4EMREB6.webp"
+      },
+      {
+        "apiName": "TFT_Item_SpectralGauntlet",
+        "name": "Evenshroud",
+        "icon": "tft_item_spectral_gauntlet_wosbB93hx2.webp"
+      },
+      {
+        "apiName": "TFT_Item_GargoyleStoneplate",
+        "name": "Gargoyle Stoneplate",
+        "icon": "tft_item_gargoyle_stoneplate_P8bGvATZed.webp"
+      },
+      {
+        "apiName": "TFT_Item_MadredsBloodrazor",
+        "name": "Giant Slayer",
+        "icon": "tft_item_madreds_bloodrazor_5KJp4aHtIX.webp"
+      },
+      {
+        "apiName": "TFT_Item_GuinsoosRageblade",
+        "name": "Guinsoo's Rageblade",
+        "icon": "tft_item_guinsoos_rageblade_oP9A4tyNBm.webp"
+      },
+      {
+        "apiName": "TFT_Item_UnstableConcoction",
+        "name": "Hand Of Justice",
+        "icon": "tft_item_unstable_concoction_E9tPz1Akda.webp"
+      },
+      {
+        "apiName": "TFT_Item_HextechGunblade",
+        "name": "Hextech Gunblade",
+        "icon": "tft_item_hextech_gunblade_NNO96dl5XM.webp"
+      },
+      {
+        "apiName": "TFT_Item_InfinityEdge",
+        "name": "Infinity Edge",
+        "icon": "tft_item_infinity_edge_UqHnT8llVc.webp"
+      },
+      {
+        "apiName": "TFT_Item_IonicSpark",
+        "name": "Ionic Spark",
+        "icon": "tft_item_ionic_spark_9bgkwkvdnz.webp"
+      },
+      {
+        "apiName": "TFT_Item_JeweledGauntlet",
+        "name": "Jeweled Gauntlet",
+        "icon": "tft_item_jeweled_gauntlet_zaJPZp1fFI.webp"
+      },
+      {
+        "apiName": "TFT_Item_RunaansHurricane",
+        "name": "Kraken's Fury",
+        "icon": "tft_item_runaans_hurricane_vsZyI9R0RP.webp"
+      },
+      {
+        "apiName": "TFT_Item_LastWhisper",
+        "name": "Last Whisper",
+        "icon": "tft_item_last_whisper_sfsdF71s1d.webp"
+      },
+      {
+        "apiName": "TFT_Item_Morellonomicon",
+        "name": "Morellonomicon",
+        "icon": "tft_item_morellonomicon_s07g5UBjsF.webp"
+      },
+      {
+        "apiName": "TFT_Item_Leviathan",
+        "name": "Nashor's Tooth",
+        "icon": "tft_item_leviathan_wv3AK9EsdY.webp"
+      },
+      {
+        "apiName": "TFT_Item_FrozenHeart",
+        "name": "Protector's Vow",
+        "icon": "tft_item_frozen_heart_goQhTqoGYn.webp"
+      },
+      {
+        "apiName": "TFT_Item_Quicksilver",
+        "name": "Quicksilver",
+        "icon": "tft_item_quicksilver_kqxHgge57g.webp"
+      },
+      {
+        "apiName": "TFT_Item_RabadonsDeathcap",
+        "name": "Rabadon's Deathcap",
+        "icon": "tft_item_rabadons_deathcap_jdIlmIsDgI.webp"
+      },
+      {
+        "apiName": "TFT_Item_RapidFireCannon",
+        "name": "Red Buff",
+        "icon": "tft_item_rapid_fire_cannon_BTwF5W1TD6.webp"
+      },
+      {
+        "apiName": "TFT_Item_SpearOfShojin",
+        "name": "Spear of Shojin",
+        "icon": "tft_item_spear_of_shojin_i9F1FPBWxz.webp"
+      },
+      {
+        "apiName": "TFT_Item_Redemption",
+        "name": "Spirit Visage",
+        "icon": "tft_item_redemption_0BCSJfykeq.webp"
+      },
+      {
+        "apiName": "TFT_Item_NightHarvester",
+        "name": "Steadfast Heart",
+        "icon": "tft_item_night_harvester_VFicwnwSfz.webp"
+      },
+      {
+        "apiName": "TFT_Item_SteraksGage",
+        "name": "Sterak's Gage",
+        "icon": "tft_item_steraks_gage_vJr9aSMumg.webp"
+      },
+      {
+        "apiName": "TFT_Item_PowerGauntlet",
+        "name": "Striker's Flail",
+        "icon": "tft_item_power_gauntlet_ZVhKLfVmPl.webp"
+      },
+      {
+        "apiName": "TFT_Item_RedBuff",
+        "name": "Sunfire Cape",
+        "icon": "tft_item_red_buff_94uOMfDdWF.webp"
+      },
+      {
+        "apiName": "TFT_Item_ThiefsGloves",
+        "name": "Thief's Gloves",
+        "icon": "tft_item_thiefs_gloves_Zwz25z6Sbu.webp"
+      },
+      {
+        "apiName": "TFT_Item_TitansResolve",
+        "name": "Titan's Resolve",
+        "icon": "tft_item_titans_resolve_1sBIO9RGs4.webp"
+      },
+      {
+        "apiName": "TFT_Item_StatikkShiv",
+        "name": "Void Staff",
+        "icon": "tft_item_statikk_shiv_sWvCCGg6Nc.webp"
+      },
+      {
+        "apiName": "TFT_Item_WarmogsArmor",
+        "name": "Warmog's Armor",
+        "icon": "tft_item_warmogs_armor_43Ij0qhO4m.webp"
+      }
+    ],
+    "artifact": [
+      {
+        "apiName": "TFT4_Item_OrnnAnimaVisage",
+        "name": "Anima Visage",
+        "icon": "tft4_item_ornn_anima_visage_7jomGsTxFN.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_BlightingJewel",
+        "name": "Blighting Jewel",
+        "icon": "tft_item_artifact_blighting_jewel_BuARUuxMGW.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnDeathsDefiance",
+        "name": "Death's Defiance",
+        "icon": "tft4_item_ornn_deaths_defiance_9Zz6KLYJuZ.webp"
+      },
+      {
+        "apiName": "TFT9_Item_OrnnDeathfireGrasp",
+        "name": "Deathfire Grasp",
+        "icon": "tft9_item_ornn_deathfire_grasp_S36xXRWLhF.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_Fishbones",
+        "name": "Fishbones",
+        "icon": "tft_item_artifact_fishbones_tsAh7aKqQm.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
+        "name": "Flickerblade",
+        "icon": "tft_item_artifact_navori_flickerblades_6obho2tqGz.webp"
+      },
+      {
+        "apiName": "TFT7_Item_ShimmerscaleGamblersBlade",
+        "name": "Gambler's Blade",
+        "icon": "tft7_item_shimmerscale_gamblers_blade_TerO5eO6xs.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnTheCollector",
+        "name": "Gold Collector",
+        "icon": "tft4_item_ornn_the_collector_iHyseP3u4x.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnInfinityForce",
+        "name": "Infinity Force",
+        "icon": "tft4_item_ornn_infinity_force_x51nMvmpHC.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_InnervatingLocket",
+        "name": "Innervating Locket",
+        "icon": "tft_item_artifact_innervating_locket_wlZmzvWOGX.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_LightshieldCrest",
+        "name": "Lightshield Crest",
+        "icon": "tft_item_artifact_lightshield_crest_13QbjQONOb.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnMuramana",
+        "name": "Manazane",
+        "icon": "tft4_item_ornn_muramana_9zNimGGyYK.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_Mittens",
+        "name": "Mittens",
+        "icon": "tft_item_artifact_mittens_ZPHVQYIiAK.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_ProwlersClaw",
+        "name": "Prowler's Claw",
+        "icon": "tft_item_artifact_prowlers_claw_QD4VSO0jxP.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SeekersArmguard",
+        "name": "Seeker's Armguard",
+        "icon": "tft_item_artifact_seekers_armguard_brMOY6o5jJ.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SilvermereDawn",
+        "name": "Silvermere Dawn",
+        "icon": "tft_item_artifact_silvermere_dawn_MBcLFtZU6F.webp"
+      },
+      {
+        "apiName": "TFT9_Item_OrnnHorizonFocus",
+        "name": "Sniper's Focus",
+        "icon": "tft9_item_ornn_horizon_focus_8J1huAMx7k.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SpectralCutlass",
+        "name": "Spectral Cutlass",
+        "icon": "tft_item_artifact_spectral_cutlass_yJvBPtxvbC.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_SuspiciousTrenchCoat",
+        "name": "Suspicious Trench Coat",
+        "icon": "tft_item_artifact_suspicious_trench_coat_jU2LcS4cya.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_TalismanOfAscension",
+        "name": "Talisman Of Ascension",
+        "icon": "tft_item_artifact_talisman_of_ascension_5ua3mDYb6a.webp"
+      },
+      {
+        "apiName": "TFT9_Item_OrnnTrickstersGlass",
+        "name": "Trickster's Glass",
+        "icon": "tft9_item_ornn_tricksters_glass_lLUy9i4m6c.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_UnendingDespair",
+        "name": "Unending Despair",
+        "icon": "tft_item_artifact_unending_despair_roQrbGZ6yM.webp"
+      },
+      {
+        "apiName": "TFT_Item_Artifact_WitsEnd",
+        "name": "Wit's End",
+        "icon": "tft_item_artifact_wits_end_nVZQesfSyU.webp"
+      },
+      {
+        "apiName": "TFT4_Item_OrnnZhonyasParadox",
+        "name": "Zhonya's Paradox",
+        "icon": "tft4_item_ornn_zhonyas_paradox_Qs6MxF1LCm.webp"
+      }
+    ],
+    "emblem": [
+      {
+        "apiName": "TFT14_Item_DarkWebEmblemItem",
+        "name": "Anima Squad Emblem",
+        "icon": "tft14_item_dark_web_emblem_item_mtQ38639dm.webp"
+      },
+      {
+        "apiName": "TFT14_Item_ArmorcladEmblemItem",
+        "name": "Bastion Emblem",
+        "icon": "tft14_item_armorclad_emblem_item_iFPIw8tdbL.webp"
+      },
+      {
+        "apiName": "TFT14_Item_BruiserEmblemItem",
+        "name": "Bruiser Emblem",
+        "icon": "tft14_item_bruiser_emblem_item_Q3qczDUWxA.webp"
+      },
+      {
+        "apiName": "TFT14_Item_DivinicorpEmblemItem",
+        "name": "Divinicorp Emblem",
+        "icon": "tft14_item_divinicorp_emblem_item_CsZCN5wBRp.webp"
+      },
+      {
+        "apiName": "TFT14_Item_ThirstyEmblemItem",
+        "name": "Dynamo Emblem",
+        "icon": "tft14_item_thirsty_emblem_item_2z6FtIRzq6.webp"
+      },
+      {
+        "apiName": "TFT14_Item_CutterEmblemItem",
+        "name": "Executioner Emblem",
+        "icon": "tft14_item_cutter_emblem_item_0KCoUIRCIM.webp"
+      },
+      {
+        "apiName": "TFT14_Item_EdgeRunnerEmblemItem",
+        "name": "Exotech Emblem",
+        "icon": "tft14_item_edge_runner_emblem_item_toaasu62SK.webp"
+      },
+      {
+        "apiName": "TFT14_Item_SwiftEmblemItem",
+        "name": "Rapidfire Emblem",
+        "icon": "tft14_item_swift_emblem_item_CO0KE2g18s.webp"
+      },
+      {
+        "apiName": "TFT14_Item_StrongEmblemItem",
+        "name": "Slayer Emblem",
+        "icon": "tft14_item_strong_emblem_item_rKjEo6i6cL.webp"
+      },
+      {
+        "apiName": "TFT14_Item_TechieEmblemItem",
+        "name": "Techie Emblem",
+        "icon": "tft14_item_techie_emblem_item_ZsIVuepRje.webp"
+      },
+      {
+        "apiName": "TFT14_Item_GuardianEmblemItem",
+        "name": "Vanguard Emblem",
+        "icon": "tft14_item_guardian_emblem_item_63NlUtYbCA.webp"
+      }
+    ],
+    "trait": [
+      {
+        "apiName": "TFT14_MordekaiserCyberneticItem",
+        "name": "Corrupted Chassis",
+        "icon": "tft14_mordekaiser_cybernetic_item_oyL85u1v1E.webp"
+      },
+      {
+        "apiName": "TFT14_SejuaniCyberneticItem",
+        "name": "Cybercoil",
+        "icon": "tft14_sejuani_cybernetic_item_BvdJ7Jd1qJ.webp"
+      },
+      {
+        "apiName": "TFT14_ZeriCyberneticItem",
+        "name": "Flux Capacitor",
+        "icon": "tft14_zeri_cybernetic_item_PyGaUjGU2A.webp"
+      },
+      {
+        "apiName": "TFT14_VarusCyberneticItem",
+        "name": "Holobow",
+        "icon": "tft14_varus_cybernetic_item_1yWDOxCQsD.webp"
+      },
+      {
+        "apiName": "TFT14_NaafiriCyberneticItem",
+        "name": "Hyper Fangs",
+        "icon": "tft14_naafiri_cybernetic_item_xJ53Tufa5K.webp"
+      },
+      {
+        "apiName": "TFT14_JhinCyberneticItem",
+        "name": "Pulse Stabilizer",
+        "icon": "tft14_jhin_cybernetic_item_tRsGGEfMgv.webp"
+      },
+      {
+        "apiName": "TFT14_JaxCyberneticItem",
+        "name": "Repulsor Lantern",
+        "icon": "tft14_jax_cybernetic_item_MEZK45N1yC.webp"
+      }
+    ]
+  },
+  "source": {
+    "name": "TFTAcademy",
+    "url": "https://tftacademy.com"
+  },
+  "lastUpdated": "2025-07-02 10:36:14"
+}
