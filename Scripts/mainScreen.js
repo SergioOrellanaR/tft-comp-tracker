@@ -803,21 +803,23 @@ function applyChampionFilters() {
     // Build set of champions present on any linked comp
     const selectedChamps = {};
     links.forEach(link => {
-        link.compo.querySelectorAll('.unit-icons img').forEach(img => {
+        link.compo.querySelectorAll('.unit-icons .unit-icon-wrapper > img').forEach(img => {
             selectedChamps[img.alt] = true;
         });
     });
 
     // For each comp, hide star if it contains any selected champion
     document.querySelectorAll('.item.compo').forEach(compo => {
-        const unitIcons = compo.querySelectorAll('.unit-icons img');
+        // only grab the champion portraits, ignore item/tooltips
+        const unitIcons = compo.querySelectorAll('.unit-icons .unit-icon-wrapper > img');
+
         const hideStar = Array.from(unitIcons).some(img => selectedChamps[img.alt]);
         const starIcon = compo.querySelector('.star-icon');
         if (starIcon) {
             starIcon.style.visibility = hideStar ? 'hidden' : 'visible';
         }
 
-        // Gray out any contested champion icon
+        // Gray-out any contested champion icon
         unitIcons.forEach(img => {
             img.style.filter = selectedChamps[img.alt]
                 ? 'grayscale(100%)'
