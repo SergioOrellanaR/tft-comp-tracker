@@ -1,4 +1,5 @@
 {
+  "patch": "",
   "comps": [
     {
       "altBuilds": [
@@ -1337,7 +1338,7 @@
       "mainItem": {},
       "title": "Strategist AMP Annie",
       "style": "Fast 9",
-      "tier": "C"
+      "tier": "B"
     },
     {
       "altBuilds": [
@@ -1576,7 +1577,7 @@
       "mainItem": {},
       "title": "Twisted Fate Reroll",
       "style": "RR LV.6",
-      "tier": "B"
+      "tier": "A"
     },
     {
       "altBuilds": [
@@ -3448,7 +3449,15 @@
       "tier": "A"
     },
     {
-      "altBuilds": [],
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Urgot",
+          "items": [
+            "TFT_Item_BlueBuff"
+          ],
+          "stars": 1
+        }
+      ],
       "augments": [
         {
           "apiName": "TFT_Augment_UpwardMobility",
@@ -3489,9 +3498,9 @@
           "apiName": "TFT14_Urgot",
           "boardIndex": 21,
           "items": [
-            "TFT_Item_Deathblade",
             "TFT_Item_RunaansHurricane",
-            "TFT_Item_GuinsoosRageblade"
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_PowerGauntlet"
           ],
           "stars": 1,
           "championIcon": "tft14_urgot_Lp95L047Lk.webp",
@@ -3515,10 +3524,9 @@
         },
         {
           "apiName": "TFT14_Vex",
-          "boardIndex": 24,
+          "boardIndex": 23,
           "items": [
-            "TFT_Item_Morellonomicon",
-            "TFT_Item_BlueBuff"
+            "TFT_Item_Morellonomicon"
           ],
           "stars": 1,
           "championIcon": "tft14_vex_ea4LqaUwAu.webp",
@@ -5525,5 +5533,10 @@
         "icon": "tft14_jax_cybernetic_item_MEZK45N1yC.webp"
       }
     ]
-  }
+  },
+  "source": {
+    "name": "TFTAcademy",
+    "url": "https://tftacademy.com"
+  },
+  "lastUpdated": "2025-07-02 14:10:24"
 }
