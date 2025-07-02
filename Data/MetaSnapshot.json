@@ -57,7 +57,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-mad-hatter",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Shaco",
           "boardIndex": 12,
@@ -164,7 +164,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-d-rex",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Shyvana",
           "boardIndex": 4,
@@ -204,6 +204,26 @@
           "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
           "cost": 5,
           "name": "Kobuko",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kindred",
+          "boardIndex": 25,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft14_kindred_yzFdpqzDCZ.webp",
+          "cost": 1,
+          "name": "Kindred",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_NidaleeCougar",
+          "boardIndex": 12,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft14_nidalee_cougar_PnBcVn4WUq.webp",
+          "cost": 1,
+          "name": "Nidalee",
           "set": 14
         }
       ],
@@ -273,7 +293,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-bomberman-ziggs",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Kobuko",
           "boardIndex": 4,
@@ -376,7 +396,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-golden-oxdd",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Viego",
           "boardIndex": 2,
@@ -418,20 +438,6 @@
           "set": 14
         },
         {
-          "apiName": "TFT14_Urgot",
-          "boardIndex": 25,
-          "items": [
-            "TFT_Item_LastWhisper",
-            "TFT_Item_PowerGauntlet",
-            "TFT_Item_Deathblade"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
-          "cost": 5,
-          "name": "Urgot",
-          "set": 14
-        },
-        {
           "apiName": "TFT14_Zac",
           "boardIndex": 3,
           "items": [
@@ -443,6 +449,20 @@
           "championIcon": "tft14_zac_fe6Q9SvJal.webp",
           "cost": 5,
           "name": "Zac",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Urgot",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_Deathblade"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
           "set": 14
         }
       ],
@@ -509,7 +529,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-dynamo-miss-fortune",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_MissFortune",
           "boardIndex": 21,
@@ -634,7 +654,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-anima-squad",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Leona",
           "boardIndex": 2,
@@ -664,6 +684,18 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 3,
+          "items": [
+            "TFT14_Item_DarkWebEmblemItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Aurora",
           "boardIndex": 27,
           "items": [
@@ -675,18 +707,6 @@
           "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
           "cost": 5,
           "name": "Aurora",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Renekton",
-          "boardIndex": 3,
-          "items": [
-            "TFT14_Item_DarkWebEmblemItem"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
-          "cost": 5,
-          "name": "Renekton",
           "set": 14
         }
       ],
@@ -753,7 +773,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-exotech-zeri",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Zeri",
           "boardIndex": 14,
@@ -888,7 +908,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-boulevard-of-broken-demons",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Brand",
           "boardIndex": 27,
@@ -904,6 +924,19 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Ziggs",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_RapidFireCannon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Neeko",
           "boardIndex": 4,
           "items": [
@@ -915,19 +948,6 @@
           "championIcon": "tft14_neeko_psECGKAQZl.webp",
           "cost": 4,
           "name": "Neeko",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Ziggs",
-          "boardIndex": 25,
-          "items": [
-            "TFT_Item_StatikkShiv",
-            "TFT_Item_RapidFireCannon"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
-          "cost": 4,
-          "name": "Ziggs",
           "set": 14
         },
         {
@@ -1016,7 +1036,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-marksman-vanguard",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Aphelios",
           "boardIndex": 21,
@@ -1133,7 +1153,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-executioner-graves",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Rengar",
           "boardIndex": 4,
@@ -1270,7 +1290,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-strategist-amp",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Annie",
           "boardIndex": 21,
@@ -1394,7 +1414,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-ok-boomers",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_KogMaw",
           "boardIndex": 21,
@@ -1435,6 +1455,16 @@
           "championIcon": "tft14_skarner_7mKDY1oZpB.webp",
           "cost": 2,
           "name": "Skarner",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sylas",
+          "boardIndex": 3,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+          "cost": 1,
+          "name": "Sylas",
           "set": 14
         }
       ],
@@ -1508,7 +1538,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-card-shark",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_TwistedFate",
           "boardIndex": 27,
@@ -1524,6 +1554,19 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Draven",
+          "boardIndex": 26,
+          "items": [
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_draven_k0eBFHgB5J.webp",
+          "cost": 3,
+          "name": "Draven",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Braum",
           "boardIndex": 4,
           "items": [
@@ -1535,19 +1578,6 @@
           "championIcon": "tft14_braum_cs4peGdzcS.webp",
           "cost": 3,
           "name": "Braum",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Draven",
-          "boardIndex": 26,
-          "items": [
-            "TFT_Item_StatikkShiv",
-            "TFT_Item_LastWhisper"
-          ],
-          "stars": 3,
-          "championIcon": "tft14_draven_k0eBFHgB5J.webp",
-          "cost": 3,
-          "name": "Draven",
           "set": 14
         },
         {
@@ -1626,7 +1656,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-bastion-zeri",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Zeri",
           "boardIndex": 14,
@@ -1751,7 +1781,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-techies",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Brand",
           "boardIndex": 27,
@@ -1868,7 +1898,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-fiddlesticks-morde",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Fiddlesticks",
           "boardIndex": 13,
@@ -1987,7 +2017,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-cyberboss-reroll",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Veigar",
           "boardIndex": 24,
@@ -2100,7 +2130,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-divinicorp-vex",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Zed",
           "boardIndex": 4,
@@ -2217,7 +2247,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-slay-queen",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Vayne",
           "boardIndex": 27,
@@ -2335,7 +2365,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-button-mash-poppy",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Poppy",
           "boardIndex": 5,
@@ -2351,19 +2381,6 @@
           "set": 14
         },
         {
-          "apiName": "TFT14_Sejuani",
-          "boardIndex": 4,
-          "items": [
-            "TFT_Item_Redemption",
-            "TFT_Item_FrozenHeart"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
-          "cost": 4,
-          "name": "Sejuani",
-          "set": 14
-        },
-        {
           "apiName": "TFT14_Ziggs",
           "boardIndex": 27,
           "items": [
@@ -2375,6 +2392,19 @@
           "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
           "cost": 4,
           "name": "Ziggs",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_Redemption",
+            "TFT_Item_FrozenHeart"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
           "set": 14
         },
         {
@@ -2452,7 +2482,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-adaptive-strikes-jax",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Jax",
           "boardIndex": 2,
@@ -2482,20 +2512,6 @@
           "set": 14
         },
         {
-          "apiName": "TFT14_Sejuani",
-          "boardIndex": 3,
-          "items": [
-            "TFT_Item_FrozenHeart",
-            "TFT14_SejuaniCyberneticItem",
-            "TFT_Item_Redemption"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
-          "cost": 4,
-          "name": "Sejuani",
-          "set": 14
-        },
-        {
           "apiName": "TFT14_Zeri",
           "boardIndex": 14,
           "items": [
@@ -2507,6 +2523,20 @@
           "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
           "cost": 4,
           "name": "Zeri",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_FrozenHeart",
+            "TFT14_SejuaniCyberneticItem",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
           "set": 14
         }
       ],
@@ -2572,7 +2602,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-cease-and-desist-vi",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Vi",
           "boardIndex": 5,
@@ -2689,7 +2719,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-alter-ego-rhaast-kayn",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Rhaast",
           "boardIndex": 6,
@@ -2718,6 +2748,18 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Zed",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Leona",
           "boardIndex": 5,
           "items": [
@@ -2728,18 +2770,6 @@
           "championIcon": "tft14_leona_DzdoZtYJwy.webp",
           "cost": 4,
           "name": "Leona",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Zed",
-          "boardIndex": 4,
-          "items": [
-            "TFT_Item_ThiefsGloves"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_zed_i7ov02fjSN.webp",
-          "cost": 4,
-          "name": "Zed",
           "set": 14
         }
       ],
@@ -2813,7 +2843,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-chug-bug-gragas",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Gragas",
           "boardIndex": 13,
@@ -2919,7 +2949,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-wolf-unchained-sylas",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Sylas",
           "boardIndex": 7,
@@ -2935,6 +2965,19 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Xayah",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_InfinityEdge"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Leona",
           "boardIndex": 1,
           "items": [
@@ -2946,19 +2989,6 @@
           "championIcon": "tft14_leona_DzdoZtYJwy.webp",
           "cost": 4,
           "name": "Leona",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Xayah",
-          "boardIndex": 21,
-          "items": [
-            "TFT_Item_LastWhisper",
-            "TFT_Item_InfinityEdge"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
-          "cost": 4,
-          "name": "Xayah",
           "set": 14
         },
         {
@@ -3039,7 +3069,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-annie",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Yuumi",
           "boardIndex": 21,
@@ -3151,7 +3181,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-kitty-kitty-boom-boom",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Rengar",
           "boardIndex": 3,
@@ -3254,7 +3284,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-doggie",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Shyvana",
           "boardIndex": 4,
@@ -3306,6 +3336,16 @@
           "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
           "cost": 5,
           "name": "Aurora",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kindred",
+          "boardIndex": 21,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft14_kindred_yzFdpqzDCZ.webp",
+          "cost": 1,
+          "name": "Kindred",
           "set": 14
         }
       ],
@@ -3376,7 +3416,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-vexotech",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Vex",
           "boardIndex": 25,
@@ -3493,7 +3533,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-boom-got",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Urgot",
           "boardIndex": 21,
@@ -3622,7 +3662,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-amp-naafiri",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Naafiri",
           "boardIndex": 6,
@@ -3747,7 +3787,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-zyra-bruisers",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_DrMundo",
           "boardIndex": 3,
@@ -3787,6 +3827,26 @@
           "championIcon": "tft14_brand_dTWOjwgqeD.webp",
           "cost": 4,
           "name": "Brand",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Alistar",
+          "boardIndex": 1,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft14_alistar_1SQOCy5TYW.webp",
+          "cost": 1,
+          "name": "Alistar",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zyra",
+          "boardIndex": 23,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft14_zyra_rwwuKVWftm.webp",
+          "cost": 1,
+          "name": "Zyra",
           "set": 14
         }
       ],
@@ -3851,7 +3911,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-bullet-time",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Zeri",
           "boardIndex": 14,
@@ -3969,7 +4029,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-long-crocodile",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Renekton",
           "boardIndex": 20,
@@ -4098,7 +4158,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-vex-bruisers",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Vex",
           "boardIndex": 25,
@@ -4229,7 +4289,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-divinivex",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Vex",
           "boardIndex": 25,
@@ -4348,7 +4408,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-shaco-ped-weapons",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Shaco",
           "boardIndex": 27,
@@ -4364,6 +4424,18 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Senna",
+          "boardIndex": 26,
+          "items": [
+            "TFT_Item_LastWhisper"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_senna_rmLaFEKcKN.webp",
+          "cost": 3,
+          "name": "Senna",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Braum",
           "boardIndex": 4,
           "items": [
@@ -4375,18 +4447,6 @@
           "championIcon": "tft14_braum_cs4peGdzcS.webp",
           "cost": 3,
           "name": "Braum",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Senna",
-          "boardIndex": 26,
-          "items": [
-            "TFT_Item_LastWhisper"
-          ],
-          "stars": 3,
-          "championIcon": "tft14_senna_rmLaFEKcKN.webp",
-          "cost": 3,
-          "name": "Senna",
           "set": 14
         },
         {
@@ -4475,7 +4535,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-bastion-morgana",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Morgana",
           "boardIndex": 27,
@@ -4515,6 +4575,16 @@
           "championIcon": "tft14_aurora_Bdx75n2Fbb.webp",
           "cost": 5,
           "name": "Aurora",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Jax",
+          "boardIndex": 3,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft14_jax_bIB9hPDcYq.webp",
+          "cost": 1,
+          "name": "Jax",
           "set": 14
         }
       ],
@@ -4572,7 +4642,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-mf-dynamo-flex",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_MissFortune",
           "boardIndex": 25,
@@ -4711,7 +4781,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-5-cypher",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_LeBlanc",
           "boardIndex": 26,
@@ -4848,7 +4918,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-golden-graves",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Graves",
           "boardIndex": 13,
@@ -4961,7 +5031,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-6-vanguard-marksman",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Aphelios",
           "boardIndex": 27,
@@ -5072,7 +5142,7 @@
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-vanguard-urgot",
-      "itemizedChampions": [
+      "champions": [
         {
           "apiName": "TFT14_Urgot",
           "boardIndex": 21,
@@ -5538,5 +5608,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-02 14:10:24"
+  "lastUpdated": "2025-07-02 14:17:58"
 }
