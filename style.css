@@ -587,7 +587,7 @@ input:focus~.input-border {
     flex-direction: row;
     justify-content: center;
     align-content: start;
-    gap: 8px;
+    gap: 12px;
     padding: 4px 0;
     border: 2px solid #333;
     border-radius: 8px;
@@ -609,8 +609,8 @@ input:focus~.input-border {
 
 /* Buttons */
 .core-item-button {
-    width: 30px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
     background-size: cover !important;
     background-repeat: no-repeat;
     background-position: center;

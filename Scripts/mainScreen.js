@@ -47,15 +47,16 @@ const loadMetaSnapshot = async () => {
             });
         });
         
-        // Load items data
-        items = [
+        // Load items data (each section now contains objects with .apiName)
+        const allItems = [
             ...metaData.items.default,
             ...metaData.items.artifact,
             ...metaData.items.emblem,
             ...metaData.items.trait
-        ].map(itemApiName => ({
-            Item: itemApiName,
-            Url: getItemWEBPImageUrl(itemApiName)
+        ];
+        items = allItems.map(itemObj => ({
+            Item: itemObj.apiName,
+            Url: getItemWEBPImageUrl(itemObj.apiName)
         }));
         
         metaSnapshotData = metaData;
@@ -1303,14 +1304,12 @@ function createCoreItemsButtons(metaItems) {
         sectionDiv.appendChild(hdr);
 
         // buttons for each item in this section
-        sectionItems.forEach(itemApiName => {
+        sectionItems.forEach(itemObj => {
             const btn = document.createElement('button');
             btn.className = 'core-item-button';
-            btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemApiName)})`;
-            
-            // store apiName in data-item instead of title
-            btn.dataset.item = itemApiName;
-
+            // use the object’s apiName
+            btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemObj.apiName)})`;
+            btn.dataset.item = itemObj.apiName;
             btn.onclick = () => {
                 const active = btn.classList.toggle('active');
                 document.querySelectorAll('.items-container').forEach(ctn => {
