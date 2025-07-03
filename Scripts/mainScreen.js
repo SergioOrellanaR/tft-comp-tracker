@@ -67,45 +67,45 @@ function initCompFilter(metaData) {
         optionsMap.forEach(({ name, iconUrl, category }, key) => {
             // Determine visibility: category keyword filters or prefix match
             let show = false;
-            if (['unit','champion'].includes(val)) {
-            show = category === 'unit' && !selectedFilters.includes(name);
-            } else if (['default','artifact','emblem','trait'].includes(val)) {
-            show = category === val && !selectedFilters.includes(name);
+            if (['unit', 'champion'].includes(val)) {
+                show = category === 'unit' && !selectedFilters.includes(name);
+            } else if (['default', 'artifact', 'emblem', 'trait'].includes(val)) {
+                show = category === val && !selectedFilters.includes(name);
             } else {
-            show = key.startsWith(val) && !selectedFilters.includes(name);
+                show = key.startsWith(val) && !selectedFilters.includes(name);
             }
             if (show) {
-            const li = document.createElement('li');
-            // make the suggestion a flex container
-            li.style.display = 'flex';
-            li.style.alignItems = 'center';
-            li.style.padding = '4px 8px';
+                const li = document.createElement('li');
+                // make the suggestion a flex container
+                li.style.display = 'flex';
+                li.style.alignItems = 'center';
+                li.style.padding = '4px 8px';
 
-            if (iconUrl) {
-                const img = document.createElement('img');
-                img.src = iconUrl;
-                img.className = 'suggestion-icon';
-                li.appendChild(img);
-            }
+                if (iconUrl) {
+                    const img = document.createElement('img');
+                    img.src = iconUrl;
+                    img.className = 'suggestion-icon';
+                    li.appendChild(img);
+                }
 
-            // name on the left
-            const nameSpan = document.createElement('span');
-            nameSpan.textContent = name;
-            li.appendChild(nameSpan);
+                // name on the left
+                const nameSpan = document.createElement('span');
+                nameSpan.textContent = name;
+                li.appendChild(nameSpan);
 
-            // category on the right
-            const catSpan = document.createElement('span');
-            catSpan.id = 'comp-suggestion-category';     // assign an id
-            catSpan.textContent = `${category}`;
-            catSpan.style.opacity = '0.7';
-            catSpan.style.fontSize = '0.75em';
-            catSpan.style.fontStyle = 'italic';          // use italic font
-            // push to right
-            catSpan.style.marginLeft = 'auto';
-            li.appendChild(catSpan);
+                // category on the right
+                const catSpan = document.createElement('span');
+                catSpan.id = 'comp-suggestion-category';     // assign an id
+                catSpan.textContent = `${category}`;
+                catSpan.style.opacity = '0.7';
+                catSpan.style.fontSize = '0.75em';
+                catSpan.style.fontStyle = 'italic';          // use italic font
+                // push to right
+                catSpan.style.marginLeft = 'auto';
+                li.appendChild(catSpan);
 
-            li.addEventListener('click', () => selectOption(name));
-            frag.appendChild(li);
+                li.addEventListener('click', () => selectOption(name));
+                frag.appendChild(li);
             }
         });
         suggestions.innerHTML = '';
@@ -1771,3 +1771,44 @@ function initializeDuelCacheObject(riotId) {
 
 window.toggleDoubleUpMode = toggleDoubleUpMode;
 window.resetPlayers = resetPlayers;
+
+// New code for suggestion navigation
+const compSearchInput = document.getElementById('comp-search-input');
+const compSuggestions = document.getElementById('comp-suggestions');
+
+let compSuggestionIndex = -1;
+
+// reset index whenever you render new suggestions
+function renderCompSuggestions(items) {
+    // ...existing suggestion‐rendering logic...
+    compSuggestionIndex = -1;
+}
+
+// keyboard navigation
+compSearchInput.addEventListener('keydown', (e) => {
+    const items = compSuggestions.querySelectorAll('li');
+    if (!items.length) return;
+
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        compSuggestionIndex = (compSuggestionIndex + 1) % items.length;
+        updateSuggestionHighlight(items);
+    }
+    else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        compSuggestionIndex = (compSuggestionIndex - 1 + items.length) % items.length;
+        updateSuggestionHighlight(items);
+    }
+    else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (compSuggestionIndex >= 0) {
+            items[compSuggestionIndex].click();
+        }
+    }
+});
+
+function updateSuggestionHighlight(items) {
+    items.forEach((li, idx) => {
+        li.classList.toggle('selected', idx === compSuggestionIndex);
+    });
+}

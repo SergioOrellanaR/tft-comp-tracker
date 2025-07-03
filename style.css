@@ -2233,5 +2233,10 @@ input:focus~.input-border {
 .suggestions { position: absolute; top: 100%; left: 0; right: 0; background: var(--popUp-accent); border: 1px solid var(--button-accent); list-style: none; margin: 4px 0 0 0; padding: 4px 0; max-height: 200px; overflow-y: auto; z-index: 1000; }
 .suggestions li { padding: 4px 8px; display: flex; align-items: center; cursor: pointer; }
 .suggestions li:hover, .suggestions li.suggestion-active { background: var(--button-accent); }
+.suggestions li.selected {
+    background-color: var(--button-accent) !important;
+    transform: scale(1.00) !important;
+    background: var(--button-accent) !important;
+}
 .suggestion-icon { width: 20px; height: 20px; margin-right: 6px; }
 /* End multi-select styles */
