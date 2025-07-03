@@ -19,12 +19,12 @@ function initCompFilter(metaData) {
     // Build a lookup map for fast suggestion rendering
     const optionsMap = new Map();
     availableOptions.forEach(opt => {
-      const key = opt.toLowerCase();
-      // Determine icon url: champion or item
-      const champIcon = unitImageMap[opt];
-      const itemObj = items.find(i => i.Name === opt);
-      const iconUrl = champIcon || (itemObj && itemObj.Url) || '';
-      optionsMap.set(key, { name: opt, iconUrl });
+        const key = opt.toLowerCase();
+        // Determine icon url: champion or item
+        const champIcon = unitImageMap[opt];
+        const itemObj = items.find(i => i.Name === opt);
+        const iconUrl = champIcon || (itemObj && itemObj.Url) || '';
+        optionsMap.set(key, { name: opt, iconUrl });
     });
     const tagsContainer = document.getElementById('comp-tags-container');
     const input = document.getElementById('comp-search-input');
@@ -120,6 +120,27 @@ function initCompFilter(metaData) {
         onFilterChange();
     }
     function onFilterChange() {
+        console.log('Selected filters:', selectedFilters);
+        // detect any tag-item in DOM
+        const hasTags = !!document.querySelector('.tag-item');
+
+        // reset inputs and labels
+        [hideContestedBtn, hideUnselectedBtn].forEach(btn => {
+            if (btn) {
+                btn.checked = false;
+                const label = document.querySelector(`label[for="${btn.id}"]`);
+                (label || btn).style.display = hasTags ? 'none' : '';
+            }
+        });
+
+        // hide/show entire container elements
+        const contestedContainer = document.querySelector('.hide-contested-comps-btn-container');
+        const unselectedContainer = document.querySelector('.hide-unselected-comps-btn-container');
+        [contestedContainer, unselectedContainer].forEach(c => {
+            console.log('Setting display for', c?.className, 'to', hasTags ? 'none' : '');
+            if (c) c.style.display = hasTags ? 'none' : '';
+        });
+
         filterComps();
     }
     function filterComps() {
