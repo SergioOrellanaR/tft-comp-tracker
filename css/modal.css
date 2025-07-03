@@ -1,0 +1,358 @@
+/* =====================================================================
+    Modal and Popup Styles
+===================================================================== */
+.modal-title {
+    width: 100%;
+    height: 5%;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#popupOverlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1632px;
+    height: 816px;
+    background: var(--popUp-accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+/* Popup container */
+#headerModal {
+    display: flex;
+    background: var(--popUp-accent);
+    min-height: 40%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.playerHeaderModal {
+    flex: 1 1 0%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.player-card-wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerModalStatsContent {
+    flex: 2 1 0%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Popup container */
+#historyModal {
+    width: 100%;
+    height: 65%;
+    background: var(--popUp-accent);
+    border-radius: 8px;
+    padding: 20px;
+    gap: 10px;
+    position: relative;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    gap: 30px;
+}
+
+/* Close button */
+#popupCloseButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+/* Estilo para los elementos de historial de partidas */
+.match-item {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#donutContainer {
+    width: 100%;
+    height: 30%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+#duelStatsContainer {
+    width: 100%;
+    height: 70%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#player1Legend {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.04);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#player2Legend {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.04);
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#player1Legend:hover,
+#player2Legend:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#canvasContainer {
+    flex: 0 0 30%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+#donutChart {
+    width: 50%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.player-color-box {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.legend-text {
+    font-size: 1.0rem;
+    color: #fff;
+    margin: 0.5rem 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.duel-contested-div {
+    width: 100%;
+    height: 25%;
+    max-height: 25%;
+    text-align: center;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.duel-contested-label {
+    font-size: 14px;
+    font-weight: bold;
+    height: 60%;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.duel-contested-rectangle {
+    border: white 1px solid;
+    height: 40%;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.duel-contested-rectangle:hover {
+    filter: brightness(1.1);
+}
+
+/* New styles for duel stat components */
+.stats-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-left-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-right-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    white-space: nowrap;
+    gap: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-rect {
+    height: 20px;
+    border: 1px solid white;
+    min-width: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-rect:hover {
+    filter: brightness(1.5);
+}
+
+.duel-stat-number-left {
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-number-right {
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duel-stat-icon {
+    width: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stat-container {
+    width: 100%;
+    height: 35%;
+}
+
+.titleStatDiv {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* =====================================================================
+    New styles for color bar in match details
+===================================================================== */
+.color-bar-left {
+    display: block;
+    width: 1.5%;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+.color-bar-right {
+    display: block;
+    width: 1.5%;
+    height: 100%;
+}
+
+.color-bar-winner {
+    background-color: green;
+}
+
+.color-bar-loser {
+    background-color: red;
+}

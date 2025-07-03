@@ -1,0 +1,175 @@
+/* =====================================================================
+    Estilos para Buscador y Formulario
+===================================================================== */
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* Give the server selector 3/16 of the total width */
+.server-selector {
+    flex: 3;
+}
+
+.server-selector select {
+    width: 100%;
+    padding: 10px 8px;
+    border: none;
+    border-radius: 6px;
+    background: var(--main-accent);
+    color: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-right: 0;
+}
+
+/* Give the search input 6/8 of the total width */
+.search-input {
+    flex: 12;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input .playerInput {
+    color: var(--text-accent);
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+    display: block;
+    margin: 0;
+}
+
+.search-input .input-border {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:focus~.input-border {
+    width: 100%;
+}
+
+/* Give the search button 1/8 of the total width */
+.search-button-container {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    margin-left: 0;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+}
+
+.search-button:hover {
+    background: rgba(170, 170, 170, 0.062);
+    transition: 0.5s;
+}
+
+.search-button svg {
+    color: #fff;
+}
+
+/* Multi-select tags and suggestion dropdown */
+#comp-search-div { 
+    position: relative; 
+}
+
+.tags-container { 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 4px; 
+    margin-bottom: 4px; 
+}
+
+.tag-item { 
+    background: var(--button-accent); 
+    color: var(--text-accent); 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    display: flex; 
+    align-items: center; 
+    font-size: 0.9rem; 
+}
+
+.tag-item img.tag-icon { 
+    width: 16px; 
+    height: 16px; 
+    margin-right: 4px; 
+}
+
+.tag-item .tag-remove { 
+    background: none; 
+    border: none; 
+    color: var(--text-accent); 
+    margin-left: 4px; 
+    cursor: pointer; 
+    font-size: 1em; 
+}
+
+.suggestions { 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: 0; 
+    background: var(--popUp-accent); 
+    border: 1px solid var(--button-accent); 
+    list-style: none; 
+    margin: 4px 0 0 0; 
+    padding: 4px 0; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    z-index: 1000; 
+}
+
+.suggestions li { 
+    padding: 4px 8px; 
+    display: flex; 
+    align-items: center; 
+    cursor: pointer; 
+}
+
+.suggestions li:hover, .suggestions li.suggestion-active { 
+    background: var(--button-accent); 
+}
+
+.suggestions li.selected {
+    background-color: var(--button-accent) !important;
+    transform: scale(1.00) !important;
+    background: var(--button-accent) !important;
+}
+
+.suggestion-icon { 
+    width: 20px; 
+    height: 20px; 
+    margin-right: 6px; 
+}

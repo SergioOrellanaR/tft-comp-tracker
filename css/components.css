@@ -1,0 +1,468 @@
+/* =====================================================================
+    Elementos de Contenido: Items, Players, Comps y Tablas
+===================================================================== */
+.item {
+    padding: 4px 6px;
+    font-size: 0.75rem;
+    border: 1px solid #444;
+    margin: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    min-height: 30px;
+    transition: background-color 0.2s ease, background 0.3s ease, transform 0.2s ease;
+}
+
+.item:hover {
+    background-color: #444;
+}
+
+.item.player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.item.player.dragging {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.item.player:active {
+    cursor: grabbing;
+}
+
+.participant-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 8px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+/* Estilos para nombres de jugadores */
+.player-name {
+    flex: 1 1 auto;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600 !important;
+}
+
+.mini-rank-div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    min-width: 70px;
+}
+
+.mini-rank-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.mini-rank-img {
+    width: 28px;
+    height: 28px;
+}
+
+.mini-rank-text {
+    font-size: 0.8em;
+    opacity: 0.5;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.table-container div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+    gap: 8px;
+}
+
+.table-container div div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.table-container div div img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.table-container div div img[style*="border-image"] {
+    border-width: 4px;
+}
+
+/* =====================================================================
+    Estilos para Core Items
+===================================================================== */
+#coreItemsContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 16px;
+}
+
+#coreItemsContainer>div:nth-child(1) {
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+#coreItemsContainer>div:nth-child(2) {
+    border-color: rgba(255, 82, 82, 0.7);
+}
+
+#coreItemsContainer>div:nth-child(3) {
+    border-color: rgba(255, 215, 0, 0.8);
+}
+
+#coreItemsContainer>div:nth-child(4) {
+    border-color: rgba(100, 149, 237, 0.7);
+}
+
+/* Section wrapper */
+.core-items-section {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: start;
+    gap: 12px;
+    padding: 4px 0;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: var(--main-accent, #2c2c3b);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Section title */
+.core-items-section>h4 {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    color: var(--text-accent, #ddd);
+    border-bottom: 1px solid #444;
+    padding-bottom: 4px;
+    text-overflow: ellipsis;
+}
+
+/* Buttons */
+.core-item-button {
+    width: 29px;
+    height: 29px;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.core-item-button:hover {
+    transform: scale(1.1);
+    filter: grayscale(20%);
+}
+
+.core-item-button.active {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+    filter: none;
+}
+
+/* =====================================================================
+    Estilos para Items Container y Contador
+===================================================================== */
+.contested-counter {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff4c4c;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* =====================================================================
+    Colores según el Coste
+===================================================================== */
+[class^="unit-cost-"] {
+    width: 40px;
+    height: 40px;
+}
+
+.unit-cost-1 {
+    background: #808080;
+}
+
+.unit-cost-2 {
+    background: #4caf50;
+}
+
+.unit-cost-3 {
+    background: #2196f3;
+}
+
+.unit-cost-4 {
+    background: #9c27b0;
+}
+
+.unit-cost-5 {
+    background: #ffd700;
+}
+
+/* =====================================================================
+    Comps items
+===================================================================== */
+.item.compo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2px 6px;
+    margin: 2px 0;
+    color: #ddd;
+    font-size: 0.7rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    height: 36px;
+    min-height: 36px;
+}
+
+.item.compo:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.01);
+    cursor: pointer;
+    color: #fff;
+}
+
+.comp-style {
+    flex: 0 0 46px;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.7rem;
+    opacity: 0.75;
+}
+
+.comp-star {
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-augment-item-container {
+    width: 24px;
+    height: 24px;
+    margin: 0 4px;
+    flex-shrink: 0;
+}
+
+.main-augment-item-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.comp-info {
+    flex: 1;
+    text-align: left;
+    margin-left: 4px;
+    min-width: 80px;
+    font-weight: 500;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+.items-container {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    max-width: 300px;
+    overflow-x: auto;
+}
+
+/* Custom scrollbar for .items-container */
+.items-container::-webkit-scrollbar {
+    height: 7px;
+}
+
+.items-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.items-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2.5px;
+}
+
+.unit-icons {
+    display: flex;
+    gap: 5px;
+    min-width: 165px;
+    flex-wrap: nowrap;
+    justify-content: right;
+}
+
+.unit-icons img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.unit-icon-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.unit-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    padding: 4px;
+    background: #111;
+    border-radius: 10px;
+    z-index: 10;
+    gap: 4px;
+}
+
+/* Selección */
+.selected {
+    background-color: #555 !important;
+    transform: scale(1.02);
+}
+
+/* Contenedor interno para los players */
+.player-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Encabezado de tiers */
+.tier-header {
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 14px;
+    text-align: center;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+/* Tablas y Elementos de Campeones */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+}
+
+th {
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--button-accent);
+}
+
+#unselectedChampionsTable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+#unselectedChampionsTable div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 8px;
+}
+
+#unselectedChampionsTable div div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+#unselectedChampionsTable div div img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+}
+
+/* Títulos y contenedores genéricos para tablas */
+.table-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-accent);
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.3em;
+}
