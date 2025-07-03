@@ -8,80 +8,69 @@ let availableOptions = [];
 let selectedFilters = [];
 const debounce = (func, delay) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => func.apply(this, args), delay); }; };
 
+// Variables globales
+let selected = null;
+const links = [];
+let unitImageMap = {};
+let unitCostMap = {};
+let items = [];
+let units = [];
+let duelsCache = new Map();
+let metaSnapshotData = null;
+
+const compsContainer = document.getElementById('compos');
+const playersContainer = document.getElementById('players');
+const canvas = document.getElementById('lineCanvas');
+const ctx = canvas.getContext('2d');
+const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
+const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
+
 function initCompFilter(metaData) {
-    // Build available options from champion names and comp styles
-    const champNames = new Set();
-    metaData.comps.forEach(c => c.champions.forEach(ch => champNames.add(ch.name)));
-    const styles = new Set(metaData.comps.map(c => c.style).filter(Boolean));
-    // Include items in filter options
-    const itemNames = items.map(it => it.Name);
-    availableOptions = Array.from(new Set([...champNames, ...styles, ...itemNames]));
-    // Build a lookup map for fast suggestion rendering
+    // Build options map for champs, styles, and items
     const optionsMap = new Map();
-    availableOptions.forEach(opt => {
+    new Set([
+        ...metaData.comps.flatMap(c => c.champions.map(ch => ch.name)),
+        ...metaData.comps.map(c => c.style).filter(Boolean),
+        ...items.map(it => it.Name)
+    ]).forEach(opt => {
         const key = opt.toLowerCase();
-        // Determine icon url: champion or item
-        const champIcon = unitImageMap[opt];
-        const itemObj = items.find(i => i.Name === opt);
-        const iconUrl = champIcon || (itemObj && itemObj.Url) || '';
+        const iconUrl = unitImageMap[opt] || (items.find(i => i.Name === opt) || {}).Url || '';
         optionsMap.set(key, { name: opt, iconUrl });
     });
     const tagsContainer = document.getElementById('comp-tags-container');
     const input = document.getElementById('comp-search-input');
     const suggestions = document.getElementById('comp-suggestions');
 
-    const showSuggestions = () => {
-        const value = input.value.trim().toLowerCase();
+    const clearSuggestions = () => {
         suggestions.innerHTML = '';
-        if (!value) { suggestions.style.display = 'none'; return; }
-        let count = 0;
+        suggestions.style.display = 'none';
+    };
+
+    const renderSuggestions = () => {
+        const val = input.value.trim().toLowerCase();
+        if (!val) return clearSuggestions();
+        const frag = document.createDocumentFragment();
         optionsMap.forEach(({ name, iconUrl }, key) => {
-            if (key.startsWith(value) && !selectedFilters.includes(name)) {
+            if (key.startsWith(val) && !selectedFilters.includes(name)) {
                 const li = document.createElement('li');
                 if (iconUrl) {
-                    const img = document.createElement('img');
-                    img.src = iconUrl;
-                    img.className = 'suggestion-icon';
+                    const img = document.createElement('img'); img.src = iconUrl; img.className = 'suggestion-icon';
                     li.appendChild(img);
                 }
-                const span = document.createElement('span');
-                span.textContent = name;
+                const span = document.createElement('span'); span.textContent = name;
                 li.appendChild(span);
                 li.addEventListener('click', () => selectOption(name));
-                suggestions.appendChild(li);
-                count++;
+                frag.appendChild(li);
             }
         });
-        if (count === 0) {
-            suggestions.style.display = 'none';
-        } else {
-            suggestions.style.display = 'block';
-        }
+        suggestions.innerHTML = '';
+        suggestions.appendChild(frag);
+        suggestions.style.display = suggestions.childElementCount ? 'block' : 'none';
     };
-    const debouncedShow = debounce(showSuggestions, 300);
-    input.addEventListener('input', debouncedShow);
 
-    input.addEventListener('keydown', (e) => {
-        const items = Array.from(suggestions.querySelectorAll('li'));
-        if (suggestions.style.display === 'none' || items.length === 0) return;
-        let index = items.findIndex(i => i.classList.contains('suggestion-active'));
-        if (e.key === 'ArrowDown') {
-            e.preventDefault(); if (index >= 0) items[index].classList.remove('suggestion-active');
-            index = index < items.length - 1 ? index + 1 : 0;
-            items[index].classList.add('suggestion-active');
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault(); if (index >= 0) items[index].classList.remove('suggestion-active');
-            index = index > 0 ? index - 1 : items.length - 1;
-            items[index].classList.add('suggestion-active');
-        } else if (e.key === 'Enter') {
-            e.preventDefault(); if (index >= 0) selectOption(items[index].textContent);
-        }
-    });
-
-    document.addEventListener('click', (e) => {
-        if (!document.getElementById('comp-search-div').contains(e.target)) {
-            suggestions.style.display = 'none';
-        }
+    input.addEventListener('input', debounce(renderSuggestions, 300));
+    document.addEventListener('click', e => {
+        if (!e.target.closest('#comp-search-div')) clearSuggestions();
     });
 
     function selectOption(opt) {
@@ -154,24 +143,6 @@ function initCompFilter(metaData) {
         updateTierHeadersVisibility();
     }
 }
-
-// Variables globales
-let selected = null;
-const links = [];
-let unitImageMap = {};
-let unitCostMap = {};
-let items = [];
-let units = [];
-let duelsCache = new Map();
-let metaSnapshotData = null;
-
-const compsContainer = document.getElementById('compos');
-const playersContainer = document.getElementById('players');
-const canvas = document.getElementById('lineCanvas');
-const ctx = canvas.getContext('2d');
-const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
-const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
-
 // Replace loadUnitImages and loadItems functions
 const loadMetaSnapshot = async () => {
     try {
