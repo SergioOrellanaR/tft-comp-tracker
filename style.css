@@ -2223,3 +2223,14 @@ input:focus~.input-border {
         /* optional: adds "..." if it's a single line */
     }
 }
+
+/* Multi-select tags and suggestion dropdown */
+#comp-search-div { position: relative; }
+.tags-container { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+.tag-item { background: var(--button-accent); color: var(--text-accent); padding: 2px 6px; border-radius: 4px; display: flex; align-items: center; font-size: 0.9rem; }
+.tag-item .tag-remove { background: none; border: none; color: var(--text-accent); margin-left: 4px; cursor: pointer; font-size: 1em; }
+.suggestions { position: absolute; top: 100%; left: 0; right: 0; background: var(--popUp-accent); border: 1px solid var(--button-accent); list-style: none; margin: 4px 0 0 0; padding: 4px 0; max-height: 200px; overflow-y: auto; z-index: 1000; }
+.suggestions li { padding: 4px 8px; display: flex; align-items: center; cursor: pointer; }
+.suggestions li:hover, .suggestion-active { background: var(--button-accent); }
+.suggestion-icon { width: 20px; height: 20px; margin-right: 6px; }
+/* End multi-select styles */

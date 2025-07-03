@@ -3,6 +3,106 @@ import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, 
 import { createLoadingSpinner, openDuelModal } from './components.js';
 import { throttle, getContrastYIQ } from './utils.js';
 
+// Multi-select filter for compositions
+let availableOptions = [];
+let selectedFilters = [];
+const debounce = (func, delay) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => func.apply(this, args), delay); }; };
+
+function initCompFilter(metaData) {
+  // Build available options from champion names and comp styles
+  const champNames = new Set();
+  metaData.comps.forEach(c => c.champions.forEach(ch => champNames.add(ch.name)));
+  const styles = new Set(metaData.comps.map(c => c.style).filter(Boolean));
+  availableOptions = [...champNames, ...styles];
+  const tagsContainer = document.getElementById('comp-tags-container');
+  const input = document.getElementById('comp-search-input');
+  const suggestions = document.getElementById('comp-suggestions');
+
+  const showSuggestions = () => {
+    const value = input.value.trim().toLowerCase();
+    suggestions.innerHTML = '';
+    if (!value) { suggestions.style.display = 'none'; return; }
+    const filtered = availableOptions.filter(opt => opt.toLowerCase().includes(value) && !selectedFilters.includes(opt));
+    if (filtered.length === 0) { suggestions.style.display = 'none'; return; }
+    filtered.forEach(opt => {
+      const li = document.createElement('li');
+      // Icon for champion if available
+      const iconUrl = unitImageMap[opt];
+      if (iconUrl) {
+        const img = document.createElement('img');
+        img.src = iconUrl;
+        img.className = 'suggestion-icon';
+        li.appendChild(img);
+      }
+      const span = document.createElement('span');
+      span.textContent = opt;
+      li.appendChild(span);
+      li.addEventListener('click', () => selectOption(opt));
+      suggestions.appendChild(li);
+    });
+    suggestions.style.display = 'block';
+  };
+  const debouncedShow = debounce(showSuggestions, 300);
+  input.addEventListener('input', debouncedShow);
+
+  input.addEventListener('keydown', (e) => {
+    const items = Array.from(suggestions.querySelectorAll('li'));
+    if (suggestions.style.display === 'none' || items.length === 0) return;
+    let index = items.findIndex(i => i.classList.contains('suggestion-active'));
+    if (e.key === 'ArrowDown') {
+      e.preventDefault(); if (index >= 0) items[index].classList.remove('suggestion-active');
+      index = index < items.length - 1 ? index + 1 : 0;
+      items[index].classList.add('suggestion-active');
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault(); if (index >= 0) items[index].classList.remove('suggestion-active');
+      index = index > 0 ? index - 1 : items.length - 1;
+      items[index].classList.add('suggestion-active');
+    } else if (e.key === 'Enter') {
+      e.preventDefault(); if (index >= 0) selectOption(items[index].textContent);
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!document.getElementById('comp-search-div').contains(e.target)) {
+      suggestions.style.display = 'none';
+    }
+  });
+
+  function selectOption(opt) {
+    selectedFilters.push(opt);
+    const tag = document.createElement('div');
+    tag.className = 'tag-item';
+    tag.textContent = opt;
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'tag-remove';
+    removeBtn.textContent = '×';
+    removeBtn.addEventListener('click', () => removeTag(opt, tag));
+    tag.appendChild(removeBtn);
+    tagsContainer.appendChild(tag);
+    suggestions.innerHTML = '';
+    suggestions.style.display = 'none';
+    input.value = '';
+    input.focus();
+    onFilterChange();
+  }
+  function removeTag(opt, tagEl) {
+    selectedFilters = selectedFilters.filter(f => f !== opt);
+    tagEl.remove();
+    onFilterChange();
+  }
+  function onFilterChange() {
+    filterComps();
+  }
+  function filterComps() {
+    document.querySelectorAll('.item.compo').forEach(compEl => {
+      const tags = compEl.dataset.tags ? compEl.dataset.tags.split('|') : [];
+      const show = selectedFilters.every(f => tags.includes(f));
+      compEl.style.display = show ? '' : 'none';
+    });
+    updateTierHeadersVisibility();
+  }
+}
+
 // Variables globales
 let selected = null;
 const links = [];
@@ -84,6 +184,8 @@ function tryLoadDefaultData() {
         if (metaData) {
             loadCompsFromJSON(metaData);
             createCoreItemsButtons(metaData.items);
+            // Initialize multi-select filter for compositions
+            initCompFilter(metaData);
         }
     });
 }
@@ -1250,6 +1352,11 @@ function loadCompsFromJSON(metaData) {
                 mainAugment: comp.mainAugment || {},
                 mainItem: comp.mainItem || {}
             });
+            // Store tags for filtering (champion names and style)
+            const allChampsNames = comp.champions.map(ch => ch.name);
+            const tags = [...allChampsNames];
+            if (comp.style) tags.push(comp.style);
+            compoElement.dataset.tags = tags.join('|');
             tiers[tier].push({ name: comp.title, element: compoElement });
         }
     });
