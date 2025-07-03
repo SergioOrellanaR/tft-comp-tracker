@@ -27,6 +27,13 @@ const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
 
 function initCompFilter(metaData) {
     // Build options map for champs, styles, and items
+    // Define category sets
+    const unitSet = new Set(metaData.comps.flatMap(c => c.champions.map(ch => ch.name)));
+    const styleSet = new Set(metaData.comps.map(c => c.style).filter(Boolean));
+    const defaultSet = new Set(metaData.items.default.map(it => it.name));
+    const artifactSet = new Set(metaData.items.artifact.map(it => it.name));
+    const emblemSet = new Set(metaData.items.emblem.map(it => it.name));
+    const traitSet = new Set(metaData.items.trait.map(it => it.name));
     const optionsMap = new Map();
     new Set([
         ...metaData.comps.flatMap(c => c.champions.map(ch => ch.name)),
@@ -35,7 +42,14 @@ function initCompFilter(metaData) {
     ]).forEach(opt => {
         const key = opt.toLowerCase();
         const iconUrl = unitImageMap[opt] || (items.find(i => i.Name === opt) || {}).Url || '';
-        optionsMap.set(key, { name: opt, iconUrl });
+        // Determine category for each option
+        let category = 'unit';
+        if (styleSet.has(opt)) category = 'style';
+        else if (defaultSet.has(opt)) category = 'item';
+        else if (artifactSet.has(opt)) category = 'artifact';
+        else if (emblemSet.has(opt)) category = 'emblem';
+        else if (traitSet.has(opt)) category = 'trait';
+        optionsMap.set(key, { name: opt, iconUrl, category });
     });
     const tagsContainer = document.getElementById('comp-tags-container');
     const input = document.getElementById('comp-search-input');
@@ -50,17 +64,48 @@ function initCompFilter(metaData) {
         const val = input.value.trim().toLowerCase();
         if (!val) return clearSuggestions();
         const frag = document.createDocumentFragment();
-        optionsMap.forEach(({ name, iconUrl }, key) => {
-            if (key.startsWith(val) && !selectedFilters.includes(name)) {
-                const li = document.createElement('li');
-                if (iconUrl) {
-                    const img = document.createElement('img'); img.src = iconUrl; img.className = 'suggestion-icon';
-                    li.appendChild(img);
-                }
-                const span = document.createElement('span'); span.textContent = name;
-                li.appendChild(span);
-                li.addEventListener('click', () => selectOption(name));
-                frag.appendChild(li);
+        optionsMap.forEach(({ name, iconUrl, category }, key) => {
+            // Determine visibility: category keyword filters or prefix match
+            let show = false;
+            if (['unit','champion'].includes(val)) {
+            show = category === 'unit' && !selectedFilters.includes(name);
+            } else if (['default','artifact','emblem','trait'].includes(val)) {
+            show = category === val && !selectedFilters.includes(name);
+            } else {
+            show = key.startsWith(val) && !selectedFilters.includes(name);
+            }
+            if (show) {
+            const li = document.createElement('li');
+            // make the suggestion a flex container
+            li.style.display = 'flex';
+            li.style.alignItems = 'center';
+            li.style.padding = '4px 8px';
+
+            if (iconUrl) {
+                const img = document.createElement('img');
+                img.src = iconUrl;
+                img.className = 'suggestion-icon';
+                li.appendChild(img);
+            }
+
+            // name on the left
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = name;
+            li.appendChild(nameSpan);
+
+            // category on the right
+            const catSpan = document.createElement('span');
+            catSpan.id = 'comp-suggestion-category';     // assign an id
+            catSpan.textContent = `${category}`;
+            catSpan.style.opacity = '0.7';
+            catSpan.style.fontSize = '0.75em';
+            catSpan.style.fontStyle = 'italic';          // use italic font
+            // push to right
+            catSpan.style.marginLeft = 'auto';
+            li.appendChild(catSpan);
+
+            li.addEventListener('click', () => selectOption(name));
+            frag.appendChild(li);
             }
         });
         suggestions.innerHTML = '';
