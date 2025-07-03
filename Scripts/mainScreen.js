@@ -1806,18 +1806,23 @@ function renderCompSuggestions(items) {
 
 // keyboard navigation
 compSearchInput.addEventListener('keydown', (e) => {
-    const items = compSuggestions.querySelectorAll('li');
+    const suggestionItems = compSuggestions.querySelectorAll('li');
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        // remove any previously hovered suggestion
+        suggestionItems.forEach(item => item.classList.remove('hovered'));
+    }
+
     if (!items.length) return;
 
     if (e.key === 'ArrowDown') {
         e.preventDefault();
         compSuggestionIndex = (compSuggestionIndex + 1) % items.length;
-        updateSuggestionHighlight(items);
+        updateSuggestionHighlight(suggestionItems);
     }
     else if (e.key === 'ArrowUp') {
         e.preventDefault();
         compSuggestionIndex = (compSuggestionIndex - 1 + items.length) % items.length;
-        updateSuggestionHighlight(items);
+        updateSuggestionHighlight(suggestionItems);
     }
     else if (e.key === 'Enter') {
         e.preventDefault();
