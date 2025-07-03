@@ -102,11 +102,29 @@ function initCompFilter(metaData) {
         input.value = '';
         input.focus();
         onFilterChange();
+        // auto‐activate core‐item button if this tag matches an item name
+
+        if (itemObj) {
+            const btn = document.querySelector(`.core-item-button[data-item="${itemObj.Item}"]`);
+            if (btn && !btn.classList.contains('active')) {
+                btn.classList.add('active');
+                document.querySelectorAll('.items-container').forEach(ctn => updateItemsContainer(ctn));
+            }
+        }
     }
     function removeTag(opt, tagEl) {
         selectedFilters = selectedFilters.filter(f => f !== opt);
         tagEl.remove();
         onFilterChange();
+        // auto‐deactivate core‐item button if this tag matches an item name
+        const itemObj = items.find(it => it.Name === opt);
+        if (itemObj) {
+            const btn = document.querySelector(`.core-item-button[data-item="${itemObj.Item}"]`);
+            if (btn && btn.classList.contains('active')) {
+                btn.classList.remove('active');
+                document.querySelectorAll('.items-container').forEach(ctn => updateItemsContainer(ctn));
+            }
+        }
     }
     function onFilterChange() {
         console.log('Selected filters:', selectedFilters);
