@@ -4713,19 +4713,6 @@
           "cost": 1,
           "name": "Morgana",
           "set": 14
-        },
-        {
-          "apiName": "TFT14_Morgana",
-          "items": [
-            "TFT_Item_BlueBuff",
-            "TFT_Item_HextechGunblade",
-            "TFT_Item_Artifact_BlightingJewel"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
-          "cost": 1,
-          "name": "Morgana",
-          "set": 14
         }
       ],
       "augments": [
@@ -4794,7 +4781,7 @@
         },
         {
           "apiName": "TFT14_Aurora",
-          "boardIndex": 24,
+          "boardIndex": 21,
           "items": [
             "TFT_Item_StatikkShiv",
             "TFT_Item_Morellonomicon"
@@ -4825,13 +4812,10 @@
         "name": "Morgana",
         "set": 14
       },
-      "mainItem": {
-        "apiName": "TFT_Item_Artifact_BlightingJewel",
-        "id": "b3lxyn8rdmsnze7"
-      },
+      "mainItem": {},
       "title": "Bastion Morgana Reroll",
       "style": "RR LV.5",
-      "tier": "X"
+      "tier": "B"
     },
     {
       "altBuilds": [],
@@ -5860,5 +5844,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-03 06:00:04"
+  "lastUpdated": "2025-07-03 12:00:03"
 }
