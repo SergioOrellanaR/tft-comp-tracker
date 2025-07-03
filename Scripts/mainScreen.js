@@ -16,6 +16,16 @@ function initCompFilter(metaData) {
     // Include items in filter options
     const itemNames = items.map(it => it.Name);
     availableOptions = Array.from(new Set([...champNames, ...styles, ...itemNames]));
+    // Build a lookup map for fast suggestion rendering
+    const optionsMap = new Map();
+    availableOptions.forEach(opt => {
+      const key = opt.toLowerCase();
+      // Determine icon url: champion or item
+      const champIcon = unitImageMap[opt];
+      const itemObj = items.find(i => i.Name === opt);
+      const iconUrl = champIcon || (itemObj && itemObj.Url) || '';
+      optionsMap.set(key, { name: opt, iconUrl });
+    });
     const tagsContainer = document.getElementById('comp-tags-container');
     const input = document.getElementById('comp-search-input');
     const suggestions = document.getElementById('comp-suggestions');
@@ -24,27 +34,29 @@ function initCompFilter(metaData) {
         const value = input.value.trim().toLowerCase();
         suggestions.innerHTML = '';
         if (!value) { suggestions.style.display = 'none'; return; }
-        const filtered = availableOptions.filter(opt => opt.toLowerCase().includes(value) && !selectedFilters.includes(opt));
-        if (filtered.length === 0) { suggestions.style.display = 'none'; return; }
-        filtered.forEach(opt => {
-            const li = document.createElement('li');
-            // Icon for champion or item if available
-            const champIcon = unitImageMap[opt];
-            const itemObj = items.find(it => it.Name === opt);
-            const iconUrl = champIcon || (itemObj && itemObj.Url);
-            if (iconUrl) {
-                const img = document.createElement('img');
-                img.src = iconUrl;
-                img.className = 'suggestion-icon';
-                li.appendChild(img);
+        let count = 0;
+        optionsMap.forEach(({ name, iconUrl }, key) => {
+            if (key.startsWith(value) && !selectedFilters.includes(name)) {
+                const li = document.createElement('li');
+                if (iconUrl) {
+                    const img = document.createElement('img');
+                    img.src = iconUrl;
+                    img.className = 'suggestion-icon';
+                    li.appendChild(img);
+                }
+                const span = document.createElement('span');
+                span.textContent = name;
+                li.appendChild(span);
+                li.addEventListener('click', () => selectOption(name));
+                suggestions.appendChild(li);
+                count++;
             }
-            const span = document.createElement('span');
-            span.textContent = opt;
-            li.appendChild(span);
-            li.addEventListener('click', () => selectOption(opt));
-            suggestions.appendChild(li);
         });
-        suggestions.style.display = 'block';
+        if (count === 0) {
+            suggestions.style.display = 'none';
+        } else {
+            suggestions.style.display = 'block';
+        }
     };
     const debouncedShow = debounce(showSuggestions, 300);
     input.addEventListener('input', debouncedShow);
@@ -112,9 +124,11 @@ function initCompFilter(metaData) {
     }
     function filterComps() {
         document.querySelectorAll('.item.compo').forEach(compEl => {
+            // Always show if comp is linked to a player
+            const isLinked = links.some(l => l.compo === compEl);
             const tags = compEl.dataset.tags ? compEl.dataset.tags.split('|') : [];
-            const show = selectedFilters.every(f => tags.includes(f));
-            compEl.style.display = show ? '' : 'none';
+            const match = selectedFilters.every(f => tags.includes(f));
+            compEl.style.display = (isLinked || match) ? '' : 'none';
         });
         updateTierHeadersVisibility();
     }
@@ -1375,8 +1389,18 @@ function loadCompsFromJSON(metaData) {
                 const it = items.find(i => i.Item === itemApi);
                 return it ? it.Name : itemApi;
             }));
+            // Include altBuilds items in tags
+            const altBuildItemNames = (comp.altBuilds || []).flatMap(ab => (ab.items || []).map(itemApi => {
+                const it = items.find(i => i.Item === itemApi);
+                return it ? it.Name : itemApi;
+            }));
+            // Include mainItem in tags
+            const mainItemName = comp.mainItem?.apiName
+                ? (items.find(i => i.Item === comp.mainItem.apiName)?.Name)
+                : null;
+            const mainItemTags = mainItemName ? [mainItemName] : [];
             const styleTag = comp.style ? [comp.style] : [];
-            const tags = [...champNames, ...champItemNames, ...styleTag];
+            const tags = [...champNames, ...champItemNames, ...altBuildItemNames, ...mainItemTags, ...styleTag];
             compoElement.dataset.tags = tags.join('|');
             tiers[tier].push({ name: comp.title, element: compoElement });
         }
