@@ -3,6 +3,17 @@ import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, 
 import { createLoadingSpinner, openDuelModal } from './components.js';
 import { throttle, getContrastYIQ } from './utils.js';
 
+// inject unified hover/selected styling for comp‐suggestions
+const _compSuggestionStyle = document.createElement('style');
+_compSuggestionStyle.textContent = `
+  #comp-suggestions li:hover,
+  #comp-suggestions li.selected {
+    background-color: var(--suggestion-hover-bg, #eee);
+    cursor: pointer;
+  }
+`;
+document.head.appendChild(_compSuggestionStyle);
+
 // Multi-select filter for compositions
 let availableOptions = [];
 let selectedFilters = [];
@@ -111,6 +122,15 @@ function initCompFilter(metaData) {
         suggestions.innerHTML = '';
         suggestions.appendChild(frag);
         suggestions.style.display = suggestions.childElementCount ? 'block' : 'none';
+
+        // keep pointer hover in sync with arrow keys
+        const suggestionItems = suggestions.querySelectorAll('li');
+        suggestionItems.forEach((li, idx) => {
+          li.addEventListener('mouseenter', () => {
+            compSuggestionIndex = idx;
+            updateSuggestionHighlight(suggestionItems);
+          });
+        });
     };
 
     input.addEventListener('input', debounce(renderSuggestions, 300));
