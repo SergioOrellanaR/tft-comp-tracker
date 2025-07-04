@@ -1029,19 +1029,6 @@
     {
       "altBuilds": [
         {
-          "apiName": "TFT14_Xayah",
-          "items": [
-            "TFT4_Item_OrnnTheCollector",
-            "TFT4_Item_OrnnMuramana",
-            "TFT9_Item_OrnnHorizonFocus"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
-          "cost": 4,
-          "name": "Xayah",
-          "set": 14
-        },
-        {
           "apiName": "TFT14_Aphelios",
           "items": [
             "TFT_Item_Artifact_NavoriFlickerblades"
@@ -1050,6 +1037,19 @@
           "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
           "cost": 4,
           "name": "Aphelios",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_MissFortune",
+          "items": [
+            "TFT14_Item_MarksmanEmblemItem",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_SpearOfShojin"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+          "cost": 4,
+          "name": "Miss Fortune",
           "set": 14
         }
       ],
@@ -3669,7 +3669,9 @@
         {
           "apiName": "TFT14_Urgot",
           "items": [
-            "TFT_Item_BlueBuff"
+            "TFT_Item_BlueBuff",
+            "TFT_Item_Artifact_Fishbones",
+            "TFT9_Item_OrnnHorizonFocus"
           ],
           "stars": 1,
           "championIcon": "tft14_urgot_Lp95L047Lk.webp",
@@ -3729,6 +3731,18 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Vex",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_Morellonomicon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Chogath",
           "boardIndex": 1,
           "items": [
@@ -3740,18 +3754,6 @@
           "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
           "cost": 4,
           "name": "Cho'Gath",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Vex",
-          "boardIndex": 23,
-          "items": [
-            "TFT_Item_Morellonomicon"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
-          "cost": 4,
-          "name": "Vex",
           "set": 14
         },
         {
@@ -5782,6 +5784,11 @@
         "icon": "tft14_item_edge_runner_emblem_item_toaasu62SK.webp"
       },
       {
+        "apiName": "TFT14_Item_MarksmanEmblemItem",
+        "name": "Marksman Emblem",
+        "icon": "tft14_item_marksman_emblem_item_mMENZ56rWh.webp"
+      },
+      {
         "apiName": "TFT14_Item_SwiftEmblemItem",
         "name": "Rapidfire Emblem",
         "icon": "tft14_item_swift_emblem_item_CO0KE2g18s.webp"
@@ -5844,5 +5851,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-03 18:00:03"
+  "lastUpdated": "2025-07-04 00:00:03"
 }
