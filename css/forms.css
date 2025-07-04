@@ -158,6 +158,13 @@ input:focus~.input-border {
     cursor: pointer; 
 }
 
+/* Suggestion list item specific styles */
+.suggestions li {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+}
+
 .suggestions li:hover, .suggestions li.suggestion-active { 
     background: var(--button-accent); 
 }

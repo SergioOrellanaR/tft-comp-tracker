@@ -75,10 +75,6 @@ function initCompFilter(metaData) {
             }
             if (show) {
                 const li = document.createElement('li');
-                // make the suggestion a flex container
-                li.style.display = 'flex';
-                li.style.alignItems = 'center';
-                li.style.padding = '4px 8px';
 
                 if (iconUrl) {
                     const img = document.createElement('img');
@@ -668,11 +664,11 @@ async function updatePlayersDuelButtons(playerData, server) {
 
             if (playerData.name === player2Name) {
                 player.querySelector('.player-name').textContent = player.querySelector('.player-name').textContent.trim() + " (YOU)";
-                player.querySelector('.participant-info-container').style.marginLeft = '28px';
+                player.querySelector('.participant-info-container').classList.add('margin-you');
                 continue; // Skip the player if it's the same as the one in the duel button
             }
 
-            player.querySelector('.participant-info-container').style.marginLeft = '4px';
+            player.querySelector('.participant-info-container').classList.add('margin-small');
             // Create a spinner placeholder for the duel button
             const spinner = createLoadingSpinner();
             spinner.classList.add('duel-spinner');
@@ -701,7 +697,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             duelButton.className = 'duel-button';
             duelButton.title = 'Vs. History';
             duelButton.innerText = '⚔️';
-            player.querySelector('.participant-info-container').style.marginLeft = '0px';
+            player.querySelector('.participant-info-container').classList.add('margin-none');
             processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
             player.prepend(duelButton);
         }
@@ -1227,8 +1223,6 @@ function createStyleContainer(estilo) {
     styleContainer.className = 'comp-style';
     const compStyle = document.createElement('span');
     compStyle.textContent = estilo;
-    compStyle.style.opacity = '0.7';
-    compStyle.style.fontSize = '0.9em';
     styleContainer.appendChild(compStyle);
     return styleContainer;
 }
@@ -1281,10 +1275,6 @@ function createUnitTooltip(itemApiNames) {
             const ti = document.createElement('img');
             ti.src = it.Url;
             ti.alt = it.Name;
-            Object.assign(ti.style, {
-                width: '24px',
-                height: '24px'
-            });
             tooltip.appendChild(ti);
         }
     });
