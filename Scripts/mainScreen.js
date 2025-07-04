@@ -3,17 +3,6 @@ import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, 
 import { createLoadingSpinner, openDuelModal } from './components.js';
 import { throttle, getContrastYIQ } from './utils.js';
 
-// inject unified hover/selected styling for comp‐suggestions
-const _compSuggestionStyle = document.createElement('style');
-_compSuggestionStyle.textContent = `
-  #comp-suggestions li:hover,
-  #comp-suggestions li.selected {
-    background-color: var(--suggestion-hover-bg, #eee);
-    cursor: pointer;
-  }
-`;
-document.head.appendChild(_compSuggestionStyle);
-
 // Multi-select filter for compositions
 let availableOptions = [];
 let selectedFilters = [];
@@ -1798,42 +1787,30 @@ const compSuggestions = document.getElementById('comp-suggestions');
 
 let compSuggestionIndex = -1;
 
-// reset index whenever you render new suggestions
-function renderCompSuggestions(items) {
-    // ...existing suggestion‐rendering logic...
-    compSuggestionIndex = -1;
-}
-
 // keyboard navigation
 compSearchInput.addEventListener('keydown', (e) => {
     const suggestionItems = compSuggestions.querySelectorAll('li');
+    if (!suggestionItems.length) return;
+
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        // remove any previously hovered suggestion
-        suggestionItems.forEach(item => item.classList.remove('hovered'));
-    }
-
-    if (!items.length) return;
-
-    if (e.key === 'ArrowDown') {
         e.preventDefault();
-        compSuggestionIndex = (compSuggestionIndex + 1) % items.length;
-        updateSuggestionHighlight(suggestionItems);
-    }
-    else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        compSuggestionIndex = (compSuggestionIndex - 1 + items.length) % items.length;
+        compSuggestionIndex = e.key === 'ArrowDown'
+            ? (compSuggestionIndex + 1) % suggestionItems.length
+            : (compSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length;
         updateSuggestionHighlight(suggestionItems);
     }
     else if (e.key === 'Enter') {
         e.preventDefault();
         if (compSuggestionIndex >= 0) {
-            items[compSuggestionIndex].click();
+            // trigger the click on the highlighted item
+            suggestionItems[compSuggestionIndex].click();
         }
     }
 });
 
 function updateSuggestionHighlight(items) {
     items.forEach((li, idx) => {
+        console.log(`Highlighting item ${idx}: ${li.textContent}, selected index: ${compSuggestionIndex}`);
         li.classList.toggle('selected', idx === compSuggestionIndex);
     });
 }
