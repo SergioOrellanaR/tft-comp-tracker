@@ -10,7 +10,11 @@
             "TFT_Item_Artifact_SpectralCutlass",
             "TFT4_Item_OrnnDeathsDefiance"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
         },
         {
           "apiName": "TFT14_Shaco",
@@ -19,7 +23,11 @@
             "TFT9_Item_OrnnHorizonFocus",
             "TFT_Item_MadredsBloodrazor"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
         }
       ],
       "augments": [
@@ -114,8 +122,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Mad Hatter",
-      "metaTitle": "Slayer Shaco Reroll",
+      "title": "Slayer Shaco Reroll",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -127,7 +134,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnDeathfireGrasp"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
+          "cost": 2,
+          "name": "Veigar",
+          "set": 14
         }
       ],
       "augments": [
@@ -238,8 +249,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Nitro Veigar",
-      "metaTitle": "Nitro Veigar Reroll",
+      "title": "Nitro Veigar Reroll",
       "style": "RR LV.6",
       "tier": "C"
     },
@@ -250,14 +260,22 @@
           "items": [
             "TFT_Item_Artifact_UnendingDespair"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
         },
         {
           "apiName": "TFT14_Ziggs",
           "items": [
             "TFT14_Item_TechieEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
         }
       ],
       "augments": [
@@ -349,8 +367,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Cyberboss Fast 9",
-      "metaTitle": "Cyberboss Kobuko Ziggs",
+      "title": "Cyberboss Kobuko Ziggs",
       "style": "Fast 9",
       "tier": "C"
     },
@@ -361,7 +378,11 @@
           "items": [
             "TFT4_Item_OrnnMuramana"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
         }
       ],
       "augments": [
@@ -482,8 +503,7 @@
         "apiName": "TFT14_Item_ImmortalEmblemItem",
         "id": "lzg43chsoxdp8kq"
       },
-      "title": "Golden Ox Force",
-      "metaTitle": "Golden Ox",
+      "title": "Golden Ox",
       "style": "Fast 8",
       "tier": "C"
     },
@@ -495,7 +515,11 @@
             "TFT9_Item_OrnnDeathfireGrasp",
             "TFT4_Item_OrnnZhonyasParadox"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
         }
       ],
       "augments": [
@@ -600,8 +624,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Dynamo Elise Braum",
-      "metaTitle": "Dynamo Elise Reroll",
+      "title": "Dynamo Elise Reroll",
       "style": "RR LV.7",
       "tier": "B"
     },
@@ -613,7 +636,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
         },
         {
           "apiName": "TFT14_Leona",
@@ -621,7 +648,11 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_LightshieldCrest"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_leona_DzdoZtYJwy.webp",
+          "cost": 4,
+          "name": "Leona",
+          "set": 14
         }
       ],
       "augments": [
@@ -729,7 +760,6 @@
         "id": "6z08ottwh2lu8gi"
       },
       "title": "Anima Squad",
-      "metaTitle": "Anima Squad",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -741,7 +771,11 @@
             "TFT_Item_Artifact_NavoriFlickerblades",
             "TFT5_Item_RunaansHurricaneRadiant"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
         }
       ],
       "augments": [
@@ -865,7 +899,6 @@
         "id": "wteq7fj2dizmdme"
       },
       "title": "Exotech Zeri",
-      "metaTitle": "Exotech Zeri",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -877,7 +910,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
         }
       ],
       "augments": [
@@ -985,28 +1022,35 @@
         "apiName": "TFT14_Item_StreetDemonEmblemItem",
         "id": "aszcz3zn78fj32j"
       },
-      "title": "Streetagists",
-      "metaTitle": "Street Demon Strategist",
+      "title": "Street Demon Strategist",
       "style": "Fast 8",
       "tier": "B"
     },
     {
       "altBuilds": [
         {
-          "apiName": "TFT14_Xayah",
-          "items": [
-            "TFT4_Item_OrnnTheCollector",
-            "TFT4_Item_OrnnMuramana",
-            "TFT9_Item_OrnnHorizonFocus"
-          ],
-          "stars": 1
-        },
-        {
           "apiName": "TFT14_Aphelios",
           "items": [
             "TFT_Item_Artifact_NavoriFlickerblades"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_MissFortune",
+          "items": [
+            "TFT14_Item_MarksmanEmblemItem",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_SpearOfShojin"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
+          "cost": 4,
+          "name": "Miss Fortune",
+          "set": 14
         }
       ],
       "augments": [
@@ -1110,8 +1154,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "4/4 Marksman Vanguard",
-      "metaTitle": "Marksman Aphelios Xayah Vanguard",
+      "title": "Marksman Aphelios Xayah Vanguard",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -1124,7 +1167,11 @@
             "TFT_Item_Artifact_SpectralCutlass",
             "TFT_Item_Artifact_SilvermereDawn"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+          "cost": 3,
+          "name": "Rengar",
+          "set": 14
         }
       ],
       "augments": [
@@ -1244,7 +1291,6 @@
         "id": "ikg4hz9oe0qx8fn"
       },
       "title": "Executioner Reroll",
-      "metaTitle": "Executioner Reroll",
       "style": "RR LV.7",
       "tier": "C"
     },
@@ -1255,14 +1301,22 @@
           "items": [
             "TFT4_Item_OrnnMuramana"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
         },
         {
           "apiName": "TFT14_Neeko",
           "items": [
             "TFT4_Item_OrnnAnimaVisage"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_neeko_psECGKAQZl.webp",
+          "cost": 4,
+          "name": "Neeko",
+          "set": 14
         }
       ],
       "augments": [
@@ -1366,8 +1420,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Strategist AMP",
-      "metaTitle": "Strategist AMP Annie",
+      "title": "Strategist AMP Annie",
       "style": "Fast 9",
       "tier": "B"
     },
@@ -1378,7 +1431,11 @@
           "items": [
             "TFT_Item_Artifact_UnendingDespair"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+          "cost": 1,
+          "name": "Vi",
+          "set": 14
         },
         {
           "apiName": "TFT14_KogMaw",
@@ -1387,7 +1444,11 @@
             "TFT4_Item_OrnnTheCollector",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_kog_maw_5eTLEepVa2.webp",
+          "cost": 1,
+          "name": "Kog'Maw",
+          "set": 14
         }
       ],
       "augments": [
@@ -1489,8 +1550,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Kog-Guards",
-      "metaTitle": "Kog'Maw Reroll",
+      "title": "Kog'Maw Reroll",
       "style": "RR LV.5",
       "tier": "C"
     },
@@ -1503,7 +1563,11 @@
             "TFT_Item_ArchangelsStaff",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_twisted_fate_Bi3n5isUMU.webp",
+          "cost": 2,
+          "name": "Twisted Fate",
+          "set": 14
         },
         {
           "apiName": "TFT14_TwistedFate",
@@ -1512,7 +1576,11 @@
             "TFT_Item_GuinsoosRageblade",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_twisted_fate_Bi3n5isUMU.webp",
+          "cost": 2,
+          "name": "Twisted Fate",
+          "set": 14
         }
       ],
       "augments": [
@@ -1617,8 +1685,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Card Shark",
-      "metaTitle": "Twisted Fate Reroll",
+      "title": "Twisted Fate Reroll",
       "style": "RR LV.6",
       "tier": "A"
     },
@@ -1631,7 +1698,11 @@
             "TFT_Item_GuinsoosRageblade",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
         }
       ],
       "augments": [
@@ -1738,7 +1809,6 @@
         "id": "ltzjfmlktfmd6u7"
       },
       "title": "Bastion Zeri",
-      "metaTitle": "Bastion Zeri",
       "style": "Fast 8",
       "tier": "C"
     },
@@ -1750,14 +1820,22 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+          "cost": 4,
+          "name": "Brand",
+          "set": 14
         },
         {
           "apiName": "TFT14_Viego",
           "items": [
             "TFT4_Item_OrnnZhonyasParadox"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_viego_Sqil4FY2Gq.webp",
+          "cost": 5,
+          "name": "Viego",
+          "set": 14
         }
       ],
       "augments": [
@@ -1852,8 +1930,7 @@
         "apiName": "TFT14_Item_TechieEmblemItem",
         "id": "4binpfef7yrovsz"
       },
-      "title": "Tempo Techies",
-      "metaTitle": "Techie Brand",
+      "title": "Techie Brand",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -1866,7 +1943,11 @@
             "TFT14_Item_BruiserEmblemItem",
             "TFT_Item_Artifact_BlightingJewel"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
         },
         {
           "apiName": "TFT14_Fiddlesticks",
@@ -1875,7 +1956,11 @@
             "TFT_Item_ArchangelsStaff",
             "TFT_Item_ArchangelsStaff"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
         }
       ],
       "augments": [
@@ -1982,8 +2067,7 @@
         "apiName": "TFT_Item_Artifact_BlightingJewel",
         "id": "b3lxyn8rdmsnze7"
       },
-      "title": "Fiddlesticks Bruisers",
-      "metaTitle": "Bruiser Fiddlesticks Reroll",
+      "title": "Bruiser Fiddlesticks Reroll",
       "style": "RR LV.7",
       "tier": "X"
     },
@@ -1995,7 +2079,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
+          "cost": 2,
+          "name": "Veigar",
+          "set": 14
         }
       ],
       "augments": [
@@ -2089,8 +2177,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Cyberboss Veigar",
-      "metaTitle": "Cyberboss Veigar Reroll",
+      "title": "Cyberboss Veigar Reroll",
       "style": "RR LV.6",
       "tier": "B"
     },
@@ -2101,7 +2188,11 @@
           "items": [
             "TFT14_Item_StrongEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
+          "set": 14
         },
         {
           "apiName": "TFT14_Zed",
@@ -2109,7 +2200,11 @@
             "TFT4_Item_OrnnInfinityForce",
             "TFT_Item_Artifact_Mittens"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zed_i7ov02fjSN.webp",
+          "cost": 4,
+          "name": "Zed",
+          "set": 14
         }
       ],
       "augments": [
@@ -2205,7 +2300,6 @@
         "id": "t4w0f7y7irw4xhv"
       },
       "title": "Divinicorp Zed",
-      "metaTitle": "Divinicorp Zed",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -2218,7 +2312,11 @@
             "TFT_Item_GuinsoosRageblade",
             "TFT_Item_GuinsoosRageblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vayne_avXey3niuy.webp",
+          "cost": 2,
+          "name": "Vayne",
+          "set": 14
         },
         {
           "apiName": "TFT14_Jarvan",
@@ -2227,7 +2325,11 @@
             "TFT_Item_Artifact_SilvermereDawn",
             "TFT9_Item_OrnnTrickstersGlass"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_jarvan_cUnBW5pQjg.webp",
+          "cost": 3,
+          "name": "Jarvan IV",
+          "set": 14
         }
       ],
       "augments": [
@@ -2334,8 +2436,7 @@
         "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
         "id": "ltzjfmlktfmd6u7"
       },
-      "title": "Slay Queens",
-      "metaTitle": "Vayne Senna Slayer Reroll",
+      "title": "Vayne Senna Slayer Reroll",
       "style": "RR LV.6",
       "tier": "B"
     },
@@ -2346,7 +2447,11 @@
           "items": [
             "TFT_Item_Artifact_SeekersArmguard"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_poppy_ZKixNJBDtc.webp",
+          "cost": 1,
+          "name": "Poppy",
+          "set": 14
         }
       ],
       "augments": [
@@ -2453,7 +2558,6 @@
       },
       "mainItem": {},
       "title": "Button Mash Poppy",
-      "metaTitle": "Button Mash Poppy",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -2464,7 +2568,11 @@
           "items": [
             "TFT14_NaafiriCyberneticItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_jax_bIB9hPDcYq.webp",
+          "cost": 1,
+          "name": "Jax",
+          "set": 14
         }
       ],
       "augments": [
@@ -2574,7 +2682,6 @@
       },
       "mainItem": {},
       "title": "Adaptive Strikes Jax",
-      "metaTitle": "Adaptive Strikes Jax",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -2585,7 +2692,11 @@
           "items": [
             "TFT_Item_Artifact_SilvermereDawn"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+          "cost": 1,
+          "name": "Vi",
+          "set": 14
         }
       ],
       "augments": [
@@ -2681,7 +2792,6 @@
       },
       "mainItem": {},
       "title": "Cease and Desist Vi",
-      "metaTitle": "Cease and Desist Vi",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -2694,7 +2804,11 @@
             "TFT_Item_Artifact_SilvermereDawn",
             "TFT_Item_Artifact_SpectralCutlass"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rhaast_neLCf2ChLx.webp",
+          "cost": 2,
+          "name": "Rhaast",
+          "set": 14
         },
         {
           "apiName": "TFT14_Rhaast",
@@ -2703,7 +2817,11 @@
             "TFT_Item_UnstableConcoction",
             "TFT_Item_SteraksGage"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rhaast_neLCf2ChLx.webp",
+          "cost": 2,
+          "name": "Rhaast",
+          "set": 14
         }
       ],
       "augments": [
@@ -2809,7 +2927,6 @@
       },
       "mainItem": {},
       "title": "Alter Ego Rhaast (Kayn)",
-      "metaTitle": "Alter Ego Rhaast (Kayn)",
       "style": "RR LV.6",
       "tier": "X"
     },
@@ -2820,7 +2937,11 @@
           "items": [
             "TFT_Item_Artifact_TalismanOfAscension"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_gragas_hrDxxeDsX2.webp",
+          "cost": 3,
+          "name": "Gragas",
+          "set": 14
         },
         {
           "apiName": "TFT14_Fiddlesticks",
@@ -2828,7 +2949,11 @@
             "TFT9_Item_OrnnHorizonFocus",
             "TFT_Item_Artifact_BlightingJewel"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_fiddlesticks_DeZbbgMTOs.webp",
+          "cost": 3,
+          "name": "Fiddlesticks",
+          "set": 14
         }
       ],
       "augments": [
@@ -2924,7 +3049,6 @@
       },
       "mainItem": {},
       "title": "Chug Bug Gragas",
-      "metaTitle": "Chug Bug Gragas",
       "style": "RR LV.7",
       "tier": "X"
     },
@@ -2935,7 +3059,11 @@
           "items": [
             "TFT_Item_Artifact_SeekersArmguard"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+          "cost": 1,
+          "name": "Sylas",
+          "set": 14
         }
       ],
       "augments": [
@@ -3043,7 +3171,6 @@
       },
       "mainItem": {},
       "title": "Wolf Unchained Sylas",
-      "metaTitle": "Wolf Unchained Sylas",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -3056,7 +3183,11 @@
             "TFT_Item_BlueBuff",
             "TFT_Item_Leviathan"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_annie_UX2H7qzTb6.webp",
+          "cost": 4,
+          "name": "Annie",
+          "set": 14
         }
       ],
       "augments": [
@@ -3147,8 +3278,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Nitro Annie ",
-      "metaTitle": "Nitro AMP Annie",
+      "title": "Nitro AMP Annie",
       "style": "Fast 8",
       "tier": "C"
     },
@@ -3161,7 +3291,11 @@
             "TFT_Item_Artifact_SilvermereDawn",
             "TFT_Item_Artifact_SpectralCutlass"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_rengar_gVF4fg6W0W.webp",
+          "cost": 3,
+          "name": "Rengar",
+          "set": 14
         },
         {
           "apiName": "TFT14_Jinx",
@@ -3169,7 +3303,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT14_Item_CutterEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_jinx_7JZwene7WE.webp",
+          "cost": 3,
+          "name": "Jinx",
+          "set": 14
         }
       ],
       "augments": [
@@ -3260,8 +3398,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Kitty Kitty Boom Boom",
-      "metaTitle": "Street Demon Rengar Jinx",
+      "title": "Street Demon Rengar Jinx",
       "style": "RR LV.7",
       "tier": "C"
     },
@@ -3273,7 +3410,11 @@
             "TFT9_Item_OrnnHorizonFocus",
             "TFT9_Item_OrnnDeathfireGrasp"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
         }
       ],
       "augments": [
@@ -3386,8 +3527,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "DyNitro",
-      "metaTitle": "Nitro Elise Jhin",
+      "title": "Nitro Elise Jhin",
       "style": "RR LV.6",
       "tier": "C"
     },
@@ -3399,14 +3539,22 @@
             "TFT_Item_Artifact_Fishbones",
             "TFT5_Item_HextechGunbladeRadiant"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
         },
         {
           "apiName": "TFT14_Varus",
           "items": [
             "TFT14_Item_ThirstyEmblemItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_varus_vjE7X6XH3s.webp",
+          "cost": 3,
+          "name": "Varus",
+          "set": 14
         }
       ],
       "augments": [
@@ -3512,8 +3660,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Vexotech",
-      "metaTitle": "Vex Exotech",
+      "title": "Vex Exotech",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -3522,9 +3669,15 @@
         {
           "apiName": "TFT14_Urgot",
           "items": [
-            "TFT_Item_BlueBuff"
+            "TFT_Item_BlueBuff",
+            "TFT_Item_Artifact_Fishbones",
+            "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_urgot_Lp95L047Lk.webp",
+          "cost": 5,
+          "name": "Urgot",
+          "set": 14
         }
       ],
       "augments": [
@@ -3578,6 +3731,18 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Vex",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_Morellonomicon"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Chogath",
           "boardIndex": 1,
           "items": [
@@ -3589,18 +3754,6 @@
           "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
           "cost": 4,
           "name": "Cho'Gath",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Vex",
-          "boardIndex": 23,
-          "items": [
-            "TFT_Item_Morellonomicon"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
-          "cost": 4,
-          "name": "Vex",
           "set": 14
         },
         {
@@ -3632,7 +3785,6 @@
         "id": "dzw94pr5u3h1m8s"
       },
       "title": "Boombot Urgot",
-      "metaTitle": "Boombot Urgot",
       "style": "Fast 9",
       "tier": "S"
     },
@@ -3645,7 +3797,11 @@
             "TFT_Item_UnstableConcoction",
             "TFT_Item_InfinityEdge"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_naafiri_xzTk0mIJs3.webp",
+          "cost": 2,
+          "name": "Naafiri",
+          "set": 14
         },
         {
           "apiName": "TFT14_Naafiri",
@@ -3654,7 +3810,11 @@
             "TFT_Item_SteraksGage",
             "TFT_Item_GuardianAngel"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_naafiri_xzTk0mIJs3.webp",
+          "cost": 2,
+          "name": "Naafiri",
+          "set": 14
         }
       ],
       "augments": [
@@ -3760,8 +3920,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "AMP Naafiri",
-      "metaTitle": "AMP Naafiri Reroll",
+      "title": "AMP Naafiri Reroll",
       "style": "RR LV.6",
       "tier": "C"
     },
@@ -3773,14 +3932,22 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_InnervatingLocket"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_dr_mundo_hOF3Xi07li.webp",
+          "cost": 1,
+          "name": "Dr. Mundo",
+          "set": 14
         },
         {
           "apiName": "TFT14_Zyra",
           "items": [
             "TFT4_Item_OrnnMuramana"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zyra_rwwuKVWftm.webp",
+          "cost": 1,
+          "name": "Zyra",
+          "set": 14
         }
       ],
       "augments": [
@@ -3891,8 +4058,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Mundo Techies (Gorilla)",
-      "metaTitle": "Dr. Mundo Techie Reroll",
+      "title": "Dr. Mundo Techie Reroll",
       "style": "RR LV.5",
       "tier": "B"
     },
@@ -3905,7 +4071,11 @@
             "TFT_Item_RunaansHurricane",
             "TFT14_JhinCyberneticItem"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
         }
       ],
       "augments": [
@@ -4011,8 +4181,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Bullet Time",
-      "metaTitle": "Exotech Zeri Miss Fortune",
+      "title": "Exotech Zeri Miss Fortune",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -4024,7 +4193,11 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_LightshieldCrest"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
         }
       ],
       "augments": [
@@ -4132,8 +4305,7 @@
         "apiName": "TFT14_Item_SwiftEmblemItem",
         "id": "fqbe24473k5c7eu"
       },
-      "title": "Long Crocodile",
-      "metaTitle": "Rapidfire Renekton",
+      "title": "Rapidfire Renekton",
       "style": "Fast 9",
       "tier": "X"
     },
@@ -4146,7 +4318,11 @@
             "TFT_Item_HextechGunblade",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
         },
         {
           "apiName": "TFT14_Chogath",
@@ -4154,7 +4330,11 @@
             "TFT4_Item_OrnnAnimaVisage",
             "TFT_Item_Artifact_InnervatingLocket"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
+          "cost": 4,
+          "name": "Cho'Gath",
+          "set": 14
         }
       ],
       "augments": [
@@ -4272,8 +4452,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Vex Bruisers ",
-      "metaTitle": "Vex Bruisers",
+      "title": "Vex Bruisers",
       "style": "Fast 8",
       "tier": "B"
     },
@@ -4286,7 +4465,11 @@
             "TFT_Item_HextechGunblade",
             "TFT_Item_Artifact_Fishbones"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
+          "cost": 4,
+          "name": "Vex",
+          "set": 14
         }
       ],
       "augments": [
@@ -4393,8 +4576,7 @@
         "apiName": "TFT14_Item_DivinicorpEmblemItem",
         "id": "t4w0f7y7irw4xhv"
       },
-      "title": "DiviniVex",
-      "metaTitle": "Divinicorp Vex",
+      "title": "Divinicorp Vex",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -4406,7 +4588,11 @@
             "TFT_Item_InfinityEdge",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_shaco_kks7Sra3sL.webp",
+          "cost": 1,
+          "name": "Shaco",
+          "set": 14
         }
       ],
       "augments": [
@@ -4511,8 +4697,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Shaco-ped Weapons",
-      "metaTitle": "Scoped Weapons Shaco Reroll",
+      "title": "Scoped Weapons Shaco Reroll",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -4525,16 +4710,11 @@
             "TFT_Item_HextechGunblade",
             "TFT14_Item_ArmorcladEmblemItem"
           ],
-          "stars": 1
-        },
-        {
-          "apiName": "TFT14_Morgana",
-          "items": [
-            "TFT_Item_BlueBuff",
-            "TFT_Item_HextechGunblade",
-            "TFT_Item_Artifact_BlightingJewel"
-          ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
+          "cost": 1,
+          "name": "Morgana",
+          "set": 14
         }
       ],
       "augments": [
@@ -4603,7 +4783,7 @@
         },
         {
           "apiName": "TFT14_Aurora",
-          "boardIndex": 24,
+          "boardIndex": 21,
           "items": [
             "TFT_Item_StatikkShiv",
             "TFT_Item_Morellonomicon"
@@ -4634,14 +4814,10 @@
         "name": "Morgana",
         "set": 14
       },
-      "mainItem": {
-        "apiName": "TFT_Item_Artifact_BlightingJewel",
-        "id": "b3lxyn8rdmsnze7"
-      },
-      "title": "Bastion Morgana ",
-      "metaTitle": "Bastion Morgana Reroll",
+      "mainItem": {},
+      "title": "Bastion Morgana Reroll",
       "style": "RR LV.5",
-      "tier": "X"
+      "tier": "B"
     },
     {
       "altBuilds": [],
@@ -4759,8 +4935,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Dynamo Flex",
-      "metaTitle": "Dynamo Miss Fortune Elise",
+      "title": "Dynamo Miss Fortune Elise",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -4773,7 +4948,11 @@
             "TFT_Item_BlueBuff",
             "TFT_Item_HextechGunblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_le_blanc_L0ffx8qlRq.webp",
+          "cost": 2,
+          "name": "LeBlanc",
+          "set": 14
         },
         {
           "apiName": "TFT14_LeBlanc",
@@ -4782,7 +4961,11 @@
             "TFT_Item_SpearOfShojin",
             "TFT_Item_GuinsoosRageblade"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_le_blanc_L0ffx8qlRq.webp",
+          "cost": 2,
+          "name": "LeBlanc",
+          "set": 14
         }
       ],
       "augments": [
@@ -4898,8 +5081,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "5 Cypher Reroll",
-      "metaTitle": "Cypher Draven Leblanc Reroll",
+      "title": "Cypher Draven Leblanc Reroll",
       "style": "L. Streak",
       "tier": "A"
     },
@@ -4911,7 +5093,11 @@
             "TFT_Item_Artifact_Mittens",
             "TFT4_Item_OrnnDeathsDefiance"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_graves_aSZKfH6dm6.webp",
+          "cost": 2,
+          "name": "Graves",
+          "set": 14
         },
         {
           "apiName": "TFT14_Graves",
@@ -4920,7 +5106,11 @@
             "TFT_Item_GuardianAngel",
             "TFT_Item_Artifact_SuspiciousTrenchCoat"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_graves_aSZKfH6dm6.webp",
+          "cost": 2,
+          "name": "Graves",
+          "set": 14
         }
       ],
       "augments": [
@@ -5012,8 +5202,7 @@
         "set": 14
       },
       "mainItem": {},
-      "title": "Golden Graves",
-      "metaTitle": "Graves Reroll",
+      "title": "Graves Reroll",
       "style": "RR LV.6",
       "tier": "B"
     },
@@ -5026,7 +5215,11 @@
             "TFT4_Item_OrnnMuramana",
             "TFT9_Item_OrnnHorizonFocus"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
         },
         {
           "apiName": "TFT14_Aphelios",
@@ -5034,7 +5227,11 @@
             "TFT_Item_Artifact_NavoriFlickerblades",
             "TFT5_Item_GuinsoosRagebladeRadiant"
           ],
-          "stars": 1
+          "stars": 1,
+          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
+          "cost": 4,
+          "name": "Aphelios",
+          "set": 14
         }
       ],
       "augments": [
@@ -5142,8 +5339,7 @@
         "apiName": "TFT14_Item_GuardianEmblemItem",
         "id": "2s05rej4z0xwpi4"
       },
-      "title": "6 Vanguard Marksman",
-      "metaTitle": "6 Vanguard Aphelios Xayah",
+      "title": "6 Vanguard Aphelios Xayah",
       "style": "Fast 8",
       "tier": "A"
     },
@@ -5241,8 +5437,7 @@
         "apiName": "TFT14_Item_GuardianEmblemItem",
         "id": "2s05rej4z0xwpi4"
       },
-      "title": "Vanguard Urgot",
-      "metaTitle": "Vanguard Urgot Fast 9",
+      "title": "Vanguard Urgot Fast 9",
       "style": "Fast 9",
       "tier": "A"
     }
@@ -5589,6 +5784,11 @@
         "icon": "tft14_item_edge_runner_emblem_item_toaasu62SK.webp"
       },
       {
+        "apiName": "TFT14_Item_MarksmanEmblemItem",
+        "name": "Marksman Emblem",
+        "icon": "tft14_item_marksman_emblem_item_mMENZ56rWh.webp"
+      },
+      {
         "apiName": "TFT14_Item_SwiftEmblemItem",
         "name": "Rapidfire Emblem",
         "icon": "tft14_item_swift_emblem_item_CO0KE2g18s.webp"
@@ -5651,5 +5851,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-02 14:46:21"
+  "lastUpdated": "2025-07-04 14:23:02"
 }
