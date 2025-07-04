@@ -4,7 +4,6 @@ import { createLoadingSpinner, openDuelModal } from './components.js';
 import { throttle, getContrastYIQ } from './utils.js';
 
 // Multi-select filter for compositions
-let availableOptions = [];
 let selectedFilters = [];
 const debounce = (func, delay) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => func.apply(this, args), delay); }; };
 
@@ -14,7 +13,6 @@ const links = [];
 let unitImageMap = {};
 let unitCostMap = {};
 let items = [];
-let units = [];
 let duelsCache = new Map();
 let metaSnapshotData = null;
 
@@ -28,7 +26,6 @@ const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
 function initCompFilter(metaData) {
     // Build options map for champs, styles, and items
     // Define category sets
-    const unitSet = new Set(metaData.comps.flatMap(c => c.champions.map(ch => ch.name)));
     const styleSet = new Set(metaData.comps.map(c => c.style).filter(Boolean));
     const defaultSet = new Set(metaData.items.default.map(it => it.name));
     const artifactSet = new Set(metaData.items.artifact.map(it => it.name));
@@ -116,8 +113,10 @@ function initCompFilter(metaData) {
         const suggestionItems = suggestions.querySelectorAll('li');
         suggestionItems.forEach((li, idx) => {
           li.addEventListener('mouseenter', () => {
-            compSuggestionIndex = idx;
-            updateSuggestionHighlight(suggestionItems);
+            // Remove previous highlights
+            suggestionItems.forEach(item => item.classList.remove('selected'));
+            // Highlight current item
+            li.classList.add('selected');
           });
         });
     };
@@ -181,7 +180,6 @@ function initCompFilter(metaData) {
         }
     }
     function onFilterChange() {
-        console.log('Selected filters:', selectedFilters);
         // detect any tag-item in DOM
         const hasTags = !!document.querySelector('.tag-item');
 
@@ -198,7 +196,6 @@ function initCompFilter(metaData) {
         const contestedContainer = document.querySelector('.hide-contested-comps-btn-container');
         const unselectedContainer = document.querySelector('.hide-unselected-comps-btn-container');
         [contestedContainer, unselectedContainer].forEach(c => {
-            console.log('Setting display for', c?.className, 'to', hasTags ? 'none' : '');
             if (c) c.style.display = hasTags ? 'none' : '';
         });
 
@@ -221,26 +218,12 @@ const loadMetaSnapshot = async () => {
         const response = await fetch(CONFIG.routes.metaSnapshot);
         const metaData = await response.json();
 
-        // Load units data from items
-        metaData.items.default.concat(metaData.items.artifact, metaData.items.emblem, metaData.items.trait).forEach(itemApiName => {
-            // Map item API names to display names and URLs if needed
-            // This might need adjustment based on your item display requirements
-        });
-
         // Extract unit data from compositions
         metaData.comps.forEach(comp => {
             comp.champions.forEach(champion => {
                 const unitName = champion.name;
                 unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
                 unitCostMap[unitName] = champion.cost || 1;
-
-                // Create unit entry for items
-                units.push({
-                    Unit: unitName,
-                    Item1: champion.items[0] || '',
-                    Item2: champion.items[1] || '',
-                    Item3: champion.items[2] || ''
-                });
             });
         });
 
@@ -266,7 +249,6 @@ const loadMetaSnapshot = async () => {
 };
 
 function resizeCanvas() {
-    //alert('Canvas container width and height: ' + canvas.parentElement.clientWidth + 'x' + canvas.parentElement.clientHeight);
     canvas.width = canvas.parentElement.clientWidth;
     canvas.height = canvas.parentElement.clientHeight;
     drawLines();
@@ -286,7 +268,6 @@ function tryLoadDefaultData() {
 }
 
 function toggleDoubleUpMode() {
-    console.log('Toggling double-up mode');
     const checkbox = document.getElementById('color_mode');
     const active = checkbox.checked;
 
@@ -638,14 +619,12 @@ const searchPlayer = async () => {
         handleSpectatorData(spectatorData, playerData, server);
     } catch (error) {
         resetLoadingState(spinner, searchButton);
-        console.log(error);
         showMessage('Failed to fetch data');
     }
 };
 
 function handleSpectatorData(spectatorData, playerData, server) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
-    console.log(spectatorData);
 
     const colorModeCheckbox = document.getElementById('color_mode');
     if (colorModeCheckbox) {
@@ -726,7 +705,6 @@ async function updatePlayersDuelButtons(playerData, server) {
 }
 
 function processFindGamesResult(result, duelButton, player2Name, player, playerData, server) {
-    //console.log(result);
     if (isTimeoutOrFailedRetrieval(result)) {
         handleTimeoutOrFailedRetrieval(result, duelButton);
     }
@@ -806,7 +784,6 @@ function handleSuccessfulResult(result, duelButton, player2Name, player, playerD
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('DOM fully loaded and parsed');
     preloadPlayers();
     const serverSelector = document.getElementById('serverSelector');
     const serverRegionMap = CONFIG.serverRegionMap;
@@ -1424,7 +1401,6 @@ function loadCompsFromJSON(metaData) {
             const mainChamp = comp.mainChampion?.apiName
                 ? comp.mainChampion.name
                 : allChamps[0];
-            if (!allChamps.includes(mainChamp)) allChamps.unshift(mainChamp);
 
             // sort others by cost asc, then name
             const otherChamps = allChamps
@@ -1622,7 +1598,6 @@ const updateItemsContainer = (itemsContainer) => {
 
     // Include altBuilds champions
     compData.altBuilds.forEach(ab => {
-        console.log(`Processing altBuild for ${ab.name}`);
         const champ = ab.name;
         ab.items.forEach(item => {
             if (activeItems.includes(item)) {
@@ -1635,7 +1610,6 @@ const updateItemsContainer = (itemsContainer) => {
     const displayedItems = new Set();
 
     Object.entries(itemToChampionsMap).forEach(([item, champions]) => {
-        console.log(`Item: ${item}, Champions: ${champions.join(', ')}`);
         if (!displayedItems.has(item)) {
             const itemData = items.find(i => i.Item === item);
             if (itemData) {
@@ -1662,12 +1636,6 @@ const updateItemsContainer = (itemsContainer) => {
         }
     });
 };
-
-if (typeof itemsContainer !== 'undefined' && itemsContainer) {
-    const updateItemsContainerFn = () => updateItemsContainer(itemsContainer);
-    itemsContainer.dataset.updateFn = updateItemsContainerFn.name;
-    updateItemsContainerFn();
-}
 
 function createAndInsertPlayerRankDiv(participant) {
     const rankDiv = document.createElement('div');
@@ -1780,37 +1748,3 @@ function initializeDuelCacheObject(riotId) {
 
 window.toggleDoubleUpMode = toggleDoubleUpMode;
 window.resetPlayers = resetPlayers;
-
-// New code for suggestion navigation
-const compSearchInput = document.getElementById('comp-search-input');
-const compSuggestions = document.getElementById('comp-suggestions');
-
-let compSuggestionIndex = -1;
-
-// keyboard navigation
-compSearchInput.addEventListener('keydown', (e) => {
-    const suggestionItems = compSuggestions.querySelectorAll('li');
-    if (!suggestionItems.length) return;
-
-    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        compSuggestionIndex = e.key === 'ArrowDown'
-            ? (compSuggestionIndex + 1) % suggestionItems.length
-            : (compSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length;
-        updateSuggestionHighlight(suggestionItems);
-    }
-    else if (e.key === 'Enter') {
-        e.preventDefault();
-        if (compSuggestionIndex >= 0) {
-            // trigger the click on the highlighted item
-            suggestionItems[compSuggestionIndex].click();
-        }
-    }
-});
-
-function updateSuggestionHighlight(items) {
-    items.forEach((li, idx) => {
-        console.log(`Highlighting item ${idx}: ${li.textContent}, selected index: ${compSuggestionIndex}`);
-        li.classList.toggle('selected', idx === compSuggestionIndex);
-    });
-}
