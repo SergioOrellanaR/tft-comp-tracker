@@ -103,11 +103,6 @@ function initCompFilter(metaData) {
                 const catSpan = document.createElement('span');
                 catSpan.id = 'comp-suggestion-category';     // assign an id
                 catSpan.textContent = `${category}`;
-                catSpan.style.opacity = '0.7';
-                catSpan.style.fontSize = '0.75em';
-                catSpan.style.fontStyle = 'italic';          // use italic font
-                // push to right
-                catSpan.style.marginLeft = 'auto';
                 li.appendChild(catSpan);
 
                 li.addEventListener('click', () => selectOption(name));

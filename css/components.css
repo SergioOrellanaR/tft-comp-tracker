@@ -456,6 +456,13 @@ th {
     box-sizing: border-box;
 }
 
+#comp-suggestion-category {
+    opacity: 0.7;
+    font-size: 0.75em;
+    font-style: italic;
+    margin-left: auto;
+}
+
 /* Títulos y contenedores genéricos para tablas */
 .table-title {
     display: flex;
