@@ -69,7 +69,9 @@ function initCompFilter(metaData) {
             } else if (['default', 'artifact', 'emblem', 'trait'].includes(val)) {
                 show = category === val && !selectedFilters.includes(name);
             } else {
-                show = key.startsWith(val) && !selectedFilters.includes(name);
+                // Check if any word in the name starts with the search value
+                const words = name.toLowerCase().split(' ');
+                show = words.some(word => word.startsWith(val)) && !selectedFilters.includes(name);
             }
             if (show) {
                 const li = document.createElement('li');
@@ -82,6 +84,13 @@ function initCompFilter(metaData) {
                     const img = document.createElement('img');
                     img.src = iconUrl;
                     img.className = 'suggestion-icon';
+                    
+                    // Add cost-based border class for units
+                    if (category === 'unit') {
+                        const unitCost = unitCostMap[name] || 1;
+                        img.classList.add(`unit-cost-${unitCost}`);
+                    }
+                    
                     li.appendChild(img);
                 }
 
@@ -112,12 +121,12 @@ function initCompFilter(metaData) {
         // keep pointer hover in sync with arrow keys
         const suggestionItems = suggestions.querySelectorAll('li');
         suggestionItems.forEach((li, idx) => {
-          li.addEventListener('mouseenter', () => {
-            // Remove previous highlights
-            suggestionItems.forEach(item => item.classList.remove('selected'));
-            // Highlight current item
-            li.classList.add('selected');
-          });
+            li.addEventListener('mouseenter', () => {
+                // Remove previous highlights
+                suggestionItems.forEach(item => item.classList.remove('selected'));
+                // Highlight current item
+                li.classList.add('selected');
+            });
         });
     };
 
@@ -1746,5 +1755,40 @@ function initializeDuelCacheObject(riotId) {
     };
 }
 
+// New code for suggestion navigation
+const compSearchInput = document.getElementById('comp-search-input');
+const compSuggestions = document.getElementById('comp-suggestions');
+
+let compSuggestionIndex = -1;
+
+// keyboard navigation
+compSearchInput.addEventListener('keydown', (e) => {
+    const suggestionItems = compSuggestions.querySelectorAll('li');
+    if (!suggestionItems.length) return;
+
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        compSuggestionIndex = e.key === 'ArrowDown'
+            ? (compSuggestionIndex + 1) % suggestionItems.length
+            : (compSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length;
+        updateSuggestionHighlight(suggestionItems);
+    }
+    else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (compSuggestionIndex >= 0) {
+            // trigger the click on the highlighted item
+            suggestionItems[compSuggestionIndex].click();
+        }
+    }
+});
+
+function updateSuggestionHighlight(items) {
+    items.forEach((li, idx) => {
+        console.log(`Highlighting item ${idx}: ${li.textContent}, selected index: ${compSuggestionIndex}`);
+        li.classList.toggle('selected', idx === compSuggestionIndex);
+    });
+}
+
 window.toggleDoubleUpMode = toggleDoubleUpMode;
 window.resetPlayers = resetPlayers;
+
