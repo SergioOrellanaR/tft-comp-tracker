@@ -112,7 +112,8 @@ button:hover {
 }
 
 .hide-contested-comps-btn-container,
-.hide-unselected-comps-btn-container {
+.hide-unselected-comps-btn-container,
+.copy-share-url-btn-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,6 +220,20 @@ button:hover {
     50% {
         transform: scale(1.2);
     }
+}
+
+.copy-share-url-btn {
+    width: 100%;
+    height: 100%;
+    background: var(--button-accent);
+    color: var(--text-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-share-url-btn span {
+    font-size: 1.3em;
 }
 
 /* Animated Reset Button */
