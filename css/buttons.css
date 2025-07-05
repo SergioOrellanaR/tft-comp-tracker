@@ -103,7 +103,7 @@ button:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 0;
+    gap: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -120,6 +120,13 @@ button:hover {
     height: 30px;
     margin-left: 0;
     cursor: pointer;
+    padding: 2px;
+    background: var(--button-accent);
+    border: none;
+    border-radius: 4px;
+    color: var(--text-accent);
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 /*------ Unselected comps button  ------*/
@@ -196,6 +203,7 @@ button:hover {
 }
 
 .hide-unselected-comps-btn-label input {
+    position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
