@@ -122,6 +122,21 @@ function initCompFilter(metaData) {
     };
 
     input.addEventListener('input', debounce(renderSuggestions, 300));
+
+    // --- New: Filter comps by comp-name as you type ---
+    input.addEventListener('input', debounce(function() {
+        const val = input.value.trim().toLowerCase();
+        // Only apply if no tags are selected (so it doesn't interfere with tag filter)
+        if (selectedFilters.length === 0) {
+            document.querySelectorAll('.item.compo').forEach(compEl => {
+                const compNameEl = compEl.querySelector('.comp-name');
+                const compName = compNameEl ? compNameEl.textContent.toLowerCase() : '';
+                // Show if comp-name contains the input value
+                compEl.style.display = (!val || compName.includes(val)) ? '' : 'none';
+            });
+            updateTierHeadersVisibility && updateTierHeadersVisibility();
+        }
+    }, 200));
     document.addEventListener('click', e => {
         if (!e.target.closest('#comp-search-div')) clearSuggestions();
     });
