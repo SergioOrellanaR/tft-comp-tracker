@@ -1215,6 +1215,43 @@ const resetPlayers = () => {
     if (messageContainer) {
         messageContainer.style.display = 'none';
     }
+
+    // Reset all filters and filter UI
+    selectedFilters = [];
+    // Remove all tag elements
+    document.querySelectorAll('.tag-item').forEach(tag => tag.remove());
+    // Clear search input and suggestions
+    const compSearchInput = document.getElementById('comp-search-input');
+    if (compSearchInput) compSearchInput.value = '';
+    const compSuggestions = document.getElementById('comp-suggestions');
+    if (compSuggestions) {
+        compSuggestions.innerHTML = '';
+        compSuggestions.style.display = 'none';
+    }
+    // Show all compositions (reset filter effect)
+    document.querySelectorAll('.item.compo').forEach(compEl => {
+        compEl.style.display = '';
+    });
+    // Reset filter checkboxes to default (unchecked)
+    hideContestedBtn.checked = false;
+    hideUnselectedBtn.checked = false;
+
+    // Show filter buttons and their containers
+    [
+        document.querySelector('.hide-contested-comps-btn-container'),
+        document.querySelector('.hide-unselected-comps-btn-container')
+    ].forEach(container => {
+        if (container) container.style.display = '';
+    });
+    [
+        document.querySelector('label[for="hide-contested-comps-btn"]'),
+        document.querySelector('label[for="hide-unselected-comps-btn"]')
+    ].forEach(label => {
+        if (label) label.style.display = '';
+    });
+
+    // Re‐evaluate tier header visibility
+    updateTierHeadersVisibility && updateTierHeadersVisibility();
 };
 
 // Nueva función auxiliar para crear el contenedor de estilo
