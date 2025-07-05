@@ -614,9 +614,44 @@ function applyQueryParams() {
     }, 0);
 }
 
+
+// --- Helper: Link players to comps based on query params ---
+function linkPlayersToCompsFromQuery() {
+    const params = getQueryParams();
+    // Get all player elements in order
+    const playerDivs = Array.from(document.querySelectorAll('.item.player'));
+    // For each playerXComps param
+    for (let i = 1; i <= 8; i++) {
+        const key = `Player${i}Comps`;
+        if (params[key]) {
+            const compIndexes = params[key].split(',').map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n));
+            compIndexes.forEach(idx => {
+                // Find comp element by data-id (compo-INDEX)
+                const compEl = document.querySelector(`.item.compo[data-id="compo-${idx}"]`);
+                const playerEl = playerDivs[i - 1];
+                if (compEl && playerEl) {
+                    // Avoid duplicate links
+                    if (!links.some(l => l.compo === compEl && l.player === playerEl)) {
+                        links.push({ compo: compEl, player: playerEl });
+                    }
+                }
+            });
+        }
+    }
+    drawLines();
+}
+
 // Call this before loading default data
 applyQueryParams();
 tryLoadDefaultData();
+
+// After comps are loaded, link players to comps if query params present
+// Patch loadCompsFromJSON to call linkPlayersToCompsFromQuery at the end
+const _originalLoadCompsFromJSON = loadCompsFromJSON;
+loadCompsFromJSON = function(metaData) {
+    _originalLoadCompsFromJSON(metaData);
+    linkPlayersToCompsFromQuery();
+};
 
 function showMessage(message) {
     const messageContainer = document.getElementById('messageContainer');
