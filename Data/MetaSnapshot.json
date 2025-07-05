@@ -132,7 +132,7 @@
           "apiName": "TFT14_Veigar",
           "items": [
             "TFT4_Item_OrnnMuramana",
-            "TFT9_Item_OrnnDeathfireGrasp"
+            "TFT_Item_Artifact_Fishbones"
           ],
           "stars": 1,
           "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
@@ -178,26 +178,12 @@
       "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-d-rex",
       "champions": [
         {
-          "apiName": "TFT14_Shyvana",
-          "boardIndex": 4,
-          "items": [
-            "TFT_Item_RedBuff",
-            "TFT_Item_IonicSpark",
-            "TFT_Item_Redemption"
-          ],
-          "stars": 3,
-          "championIcon": "tft14_shyvana_ZLycC8LTom.webp",
-          "cost": 2,
-          "name": "Shyvana",
-          "set": 14
-        },
-        {
           "apiName": "TFT14_Veigar",
-          "boardIndex": 27,
+          "boardIndex": 25,
           "items": [
             "TFT_Item_BlueBuff",
-            "TFT_Item_Leviathan",
-            "TFT_Item_HextechGunblade"
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_PowerGauntlet"
           ],
           "stars": 3,
           "championIcon": "tft14_veigar_3OYjiQlOrB.webp",
@@ -206,11 +192,25 @@
           "set": 14
         },
         {
+          "apiName": "TFT14_Ziggs",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_Morellonomicon",
+            "TFT_Item_StatikkShiv"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
+          "cost": 4,
+          "name": "Ziggs",
+          "set": 14
+        },
+        {
           "apiName": "TFT14_Kobuko",
           "boardIndex": 3,
           "items": [
             "TFT_Item_Crownguard",
-            "TFT_Item_WarmogsArmor"
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_Bloodthirster"
           ],
           "stars": 1,
           "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
@@ -220,7 +220,7 @@
         },
         {
           "apiName": "TFT14_Kindred",
-          "boardIndex": 25,
+          "boardIndex": 27,
           "items": [],
           "stars": 3,
           "championIcon": "tft14_kindred_yzFdpqzDCZ.webp",
@@ -230,7 +230,7 @@
         },
         {
           "apiName": "TFT14_NidaleeCougar",
-          "boardIndex": 12,
+          "boardIndex": 2,
           "items": [],
           "stars": 3,
           "championIcon": "tft14_nidalee_cougar_PnBcVn4WUq.webp",
@@ -4148,7 +4148,7 @@
           "items": [
             "TFT_Item_InfinityEdge",
             "TFT_Item_PowerGauntlet",
-            "TFT_Item_MadredsBloodrazor"
+            "TFT14_Item_MarksmanEmblemItem"
           ],
           "stars": 1,
           "championIcon": "tft14_miss_fortune_Fq5bZoQyZh.webp",
@@ -4180,7 +4180,10 @@
         "name": "Zeri",
         "set": 14
       },
-      "mainItem": {},
+      "mainItem": {
+        "apiName": "TFT14_Item_MarksmanEmblemItem",
+        "id": "p31151l8jsy103j"
+      },
       "title": "Exotech Zeri Miss Fortune",
       "style": "Fast 8",
       "tier": "B"
@@ -4419,9 +4422,9 @@
           "apiName": "TFT14_Chogath",
           "boardIndex": 4,
           "items": [
+            "TFT_Item_WarmogsArmor",
             "TFT_Item_BrambleVest",
-            "TFT_Item_Redemption",
-            "TFT_Item_DragonsClaw"
+            "TFT_Item_Redemption"
           ],
           "stars": 1,
           "championIcon": "tft14_chogath_U5aD4rOCS7.webp",
@@ -5851,5 +5854,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-04 12:00:03"
+  "lastUpdated": "2025-07-05 12:00:03"
 }
