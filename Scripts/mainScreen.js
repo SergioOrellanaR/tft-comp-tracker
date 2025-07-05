@@ -558,6 +558,64 @@ function createEditIcon(span) {
     return icon;
 }
 
+
+// --- New: Support for query params to set mode and player names ---
+function getQueryParams() {
+    const params = {};
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+        params[decodeURIComponent(key)] = decodeURIComponent(value.replace(/\+/g, ' '));
+    });
+    return params;
+}
+
+
+function applyQueryParams() {
+    const params = getQueryParams();
+    let mode = params.mode ? params.mode.toLowerCase() : null;
+    if (mode === 'double') {
+        const checkbox = document.getElementById('color_mode');
+        if (checkbox && !checkbox.checked) {
+            checkbox.checked = true;
+            toggleDoubleUpMode();
+        }
+    } else if (mode === 'solo') {
+        const checkbox = document.getElementById('color_mode');
+        if (checkbox && checkbox.checked) {
+            checkbox.checked = false;
+            toggleDoubleUpMode();
+        }
+    }
+
+    // Always build 8 player names, using param or default
+    setTimeout(() => {
+        const isDoubleUp = document.body.classList.contains('double-up');
+        const defaultNames = getDefaultNames(isDoubleUp);
+        const playerNames = [];
+        for (let i = 1; i <= 8; i++) {
+            const key = `Player${i}`;
+            playerNames.push(params[key] ? params[key] : defaultNames[i - 1]);
+        }
+        playersContainer.innerHTML = '';
+        if (isDoubleUp) {
+            for (let i = 0; i < 8; i += 2) {
+                const p1 = createPlayerDiv(playerNames[i], i, true);
+                const p2 = createPlayerDiv(playerNames[i + 1], i + 1, true);
+                const teamIconData = getTeamIcon(i + 1);
+                const teamContainer = createTeamContainer(p1, p2, teamIconData, i + 1);
+                playersContainer.appendChild(teamContainer);
+            }
+        } else {
+            playerNames.forEach((name, idx) => {
+                playersContainer.appendChild(createPlayerDiv(name, idx, false));
+            });
+        }
+        enableDragAndDrop(isDoubleUp);
+        updatePlayerColorBars();
+    }, 0);
+}
+
+// Call this before loading default data
+applyQueryParams();
 tryLoadDefaultData();
 
 function showMessage(message) {
