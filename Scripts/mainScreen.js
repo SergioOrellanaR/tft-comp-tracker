@@ -1,3 +1,82 @@
+// --- Copy Share URL Button Functionality ---
+function getShareUrl() {
+    const url = new URL(window.location.origin + window.location.pathname);
+    // Mode
+    const isDoubleUp = document.body.classList.contains('double-up');
+    // Only add mode param if not solo
+    if (isDoubleUp) {
+        url.searchParams.set('mode', 'double');
+    } else {
+        url.searchParams.delete('mode');
+    }
+    // Players
+    const playerDivs = Array.from(document.querySelectorAll('.item.player'));
+    // Get default names for current mode
+    const isDoubleUpMode = document.body.classList.contains('double-up');
+    const defaultNames = getDefaultNames(isDoubleUpMode);
+    playerDivs.forEach((player, idx) => {
+        let name = player.querySelector('.player-name')?.textContent || '';
+        // Remove trailing ' (YOU)' if present
+        // Remove trailing ' (YOU)' if present
+        name = name.replace(/ \(YOU\)$/, '');
+        // Only add PlayerX param if name differs from default
+        if (name !== defaultNames[idx]) {
+            url.searchParams.set(`Player${idx + 1}`, name);
+        } else {
+            url.searchParams.delete(`Player${idx + 1}`);
+        }
+    });
+    // Comps linked to each player
+    playerDivs.forEach((player, idx) => {
+        const linkedComps = links
+            .filter(l => l.player === player)
+            .map(l => {
+                // Get comp index from data-id="compo-X"
+                const id = l.compo?.dataset?.id;
+                if (id && id.startsWith('compo-')) {
+                    return parseInt(id.replace('compo-', ''), 10);
+                }
+                return null;
+            })
+            .filter(n => n !== null);
+        if (linkedComps.length > 0) {
+            url.searchParams.set(`Player${idx + 1}Comps`, linkedComps.join(','));
+        }
+    });
+    return url.toString();
+}
+
+function copyShareUrlToClipboard() {
+    const shareUrl = getShareUrl();
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+            alert('Share URL copied to clipboard!');
+        }, () => {
+            alert('Failed to copy URL.');
+        });
+    } else {
+        // Fallback for older browsers
+        const tempInput = document.createElement('input');
+        tempInput.value = shareUrl;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        try {
+            document.execCommand('copy');
+            alert('Share URL copied to clipboard!');
+        } catch (err) {
+            alert('Failed to copy URL.');
+        }
+        document.body.removeChild(tempInput);
+    }
+}
+
+// Attach event listener after DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('copyShareUrlButton');
+    if (btn) {
+        btn.addEventListener('click', copyShareUrlToClipboard);
+    }
+});
 import { CONFIG } from './config.js';
 import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl, getChampionImageUrl, getAugmentWEBPImageUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
