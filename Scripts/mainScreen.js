@@ -206,7 +206,8 @@ function initCompFilter(metaData) {
             // Always show if comp is linked to a player
             const isLinked = links.some(l => l.compo === compEl);
             const tags = compEl.dataset.tags ? compEl.dataset.tags.split('|') : [];
-            const match = selectedFilters.every(f => tags.includes(f));
+            // OR logic: show if ANY selected filter is present in tags
+            const match = selectedFilters.length === 0 || selectedFilters.some(f => tags.includes(f));
             compEl.style.display = (isLinked || match) ? '' : 'none';
         });
         updateTierHeadersVisibility();
