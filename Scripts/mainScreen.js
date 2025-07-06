@@ -1,74 +1,3 @@
-// --- Copy Share URL Button Functionality ---
-function getShareUrl() {
-    const url = new URL(window.location.origin + window.location.pathname);
-    // Mode
-    const isDoubleUp = document.body.classList.contains('double-up');
-    // Only add mode param if not solo
-    if (isDoubleUp) {
-        url.searchParams.set('mode', 'double');
-    } else {
-        url.searchParams.delete('mode');
-    }
-    // Players
-    const playerDivs = Array.from(document.querySelectorAll('.item.player'));
-    // Get default names for current mode
-    const isDoubleUpMode = document.body.classList.contains('double-up');
-    const defaultNames = getDefaultNames(isDoubleUpMode);
-    playerDivs.forEach((player, idx) => {
-        let name = player.querySelector('.player-name')?.textContent || '';
-        // Remove trailing ' (YOU)' if present
-        name = name.replace(/ \(YOU\)$/, '');
-        // Only add PlayerX param if name differs from default
-        if (name !== defaultNames[idx]) {
-            url.searchParams.set(`Player${idx + 1}`, name);
-        } else {
-            url.searchParams.delete(`Player${idx + 1}`);
-        }
-    });
-    // Comps linked to each player
-    playerDivs.forEach((player, idx) => {
-        const linkedComps = links
-            .filter(l => l.player === player)
-            .map(l => {
-                // Get comp index from data-id="compo-X"
-                const id = l.compo?.dataset?.id;
-                if (id && id.startsWith('compo-')) {
-                    return parseInt(id.replace('compo-', ''), 10);
-                }
-                return null;
-            })
-            .filter(n => n !== null);
-        if (linkedComps.length > 0) {
-            url.searchParams.set(`Player${idx + 1}Comps`, linkedComps.join(','));
-        }
-    });
-    return url.toString();
-}
-
-function copyShareUrlToClipboard() {
-    const shareUrl = getShareUrl();
-    if (navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(shareUrl)
-            .then(() => {
-                alert('Share URL copied to clipboard!');
-            })
-            .catch(() => {
-                // Fallback prompt if writeText fails
-                prompt('Copy the URL below:', shareUrl);
-            });
-    } else {
-        // Older browsers: show prompt for manual copy
-        prompt('Copy the URL below:', shareUrl);
-    }
-}
-
-// Attach event listener after DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('copyShareUrlButton');
-    if (btn) {
-        btn.addEventListener('click', copyShareUrlToClipboard);
-    }
-});
 import { CONFIG } from './config.js';
 import { fetchPlayerSummary, fetchFindGames, fetchLiveGame, getMiniRankIconUrl, getItemWEBPImageUrl, getChampionImageUrl, getAugmentWEBPImageUrl } from './tftVersusHandler.js';
 import { createLoadingSpinner, openDuelModal } from './components.js';
@@ -93,6 +22,40 @@ const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
 const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
 const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
+
+// Unified DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', async () => {
+    // Copy Share URL Button
+    const btn = document.getElementById('copyShareUrlButton');
+    if (btn) {
+        btn.addEventListener('click', copyShareUrlToClipboard);
+    }
+
+    // Preload players and server selector
+    preloadPlayers();
+    const serverSelector = document.getElementById('serverSelector');
+    const serverRegionMap = CONFIG.serverRegionMap;
+    Object.keys(serverRegionMap).forEach(region => {
+        const option = document.createElement('option');
+        option.value = region;
+        option.textContent = region;
+        serverSelector.appendChild(option);
+    });
+
+    document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
+
+    document.getElementById('playerNameInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchPlayer();
+        }
+    });
+
+    document.getElementById('resetButton')?.addEventListener('click', resetPlayers);
+
+    // Tooltips
+    initHoverTooltips();
+});
 
 function initCompFilter(metaData) {
     // Build options map for champs, styles, and items
@@ -342,6 +305,70 @@ function resizeCanvas() {
 }
 
 window.addEventListener('resize', resizeCanvas);
+
+// --- Copy Share URL Button Functionality ---
+function getShareUrl() {
+    const url = new URL(window.location.origin + window.location.pathname);
+    // Mode
+    const isDoubleUp = document.body.classList.contains('double-up');
+    // Only add mode param if not solo
+    if (isDoubleUp) {
+        url.searchParams.set('mode', 'double');
+    } else {
+        url.searchParams.delete('mode');
+    }
+    // Players
+    const playerDivs = Array.from(document.querySelectorAll('.item.player'));
+    // Get default names for current mode
+    const isDoubleUpMode = document.body.classList.contains('double-up');
+    const defaultNames = getDefaultNames(isDoubleUpMode);
+    playerDivs.forEach((player, idx) => {
+        let name = player.querySelector('.player-name')?.textContent || '';
+        // Remove trailing ' (YOU)' if present
+        name = name.replace(/ \(YOU\)$/, '');
+        // Only add PlayerX param if name differs from default
+        if (name !== defaultNames[idx]) {
+            url.searchParams.set(`Player${idx + 1}`, name);
+        } else {
+            url.searchParams.delete(`Player${idx + 1}`);
+        }
+    });
+    // Comps linked to each player
+    playerDivs.forEach((player, idx) => {
+        const linkedComps = links
+            .filter(l => l.player === player)
+            .map(l => {
+                // Get comp index from data-id="compo-X"
+                const id = l.compo?.dataset?.id;
+                if (id && id.startsWith('compo-')) {
+                    return parseInt(id.replace('compo-', ''), 10);
+                }
+                return null;
+            })
+            .filter(n => n !== null);
+        if (linkedComps.length > 0) {
+            url.searchParams.set(`Player${idx + 1}Comps`, linkedComps.join(','));
+        }
+    });
+    return url.toString();
+}
+
+function copyShareUrlToClipboard() {
+    const shareUrl = getShareUrl();
+    if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(shareUrl)
+            .then(() => {
+                alert('Share URL copied to clipboard!');
+            })
+            .catch(() => {
+                // Fallback prompt if writeText fails
+                prompt('Copy the URL below:', shareUrl);
+            });
+    } else {
+        // Older browsers: show prompt for manual copy
+        prompt('Copy the URL below:', shareUrl);
+    }
+}
 
 function tryLoadDefaultData() {
     loadMetaSnapshot().then((metaData) => {
@@ -1051,9 +1078,6 @@ function drawLines() {
             const starIcon = compo.querySelector('.star-icon');
             const isUncontested = starIcon && starIcon.style.visibility !== 'hidden';
             compo.style.display = (isLinked || isUncontested) ? '' : 'none';
-            if (isLinked && compo.style.display === 'none') {
-                alert('GOLDEN RULE VIOLATION: linked comp hidden!');
-            }
         });
     }
 
@@ -1922,9 +1946,6 @@ function createCompToggle(button, otherButton, visibilityFn) {
             const isLinked = links.some(l => l.compo === compo);
             const visible = visibilityFn(this.checked, isLinked, compo);
             compo.style.display = visible ? '' : 'none';
-            if (isLinked && !visible) {
-                alert('GOLDEN RULE VIOLATION: linked comp hidden!');
-            }
         });
         updateTierHeadersVisibility();
         drawLines();
