@@ -1145,6 +1145,12 @@ function updateHeavilyContestedChampionsTable() {
             .forEach(cost => {
                 const row = document.createElement('div');
                 row.classList.add(`table-row-${cost}`);
+
+                // Add a header for each cost group as the first element in the row
+                const costHeader = document.createElement('h4');
+                costHeader.textContent = `${cost} Costs`;
+                row.appendChild(costHeader);
+
                 heavilyContestedByCost[cost].forEach(champ => {
                     const cell = document.createElement('div');
                     cell.classList.add('table-cell');

@@ -482,12 +482,27 @@ th {
     flex-direction: row;
     justify-content: center;
     align-content: start;
-    padding: 10px 0;
+    padding: 2px 0;
     gap: 20px;
     border: 2px solid #333;
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.table-row-1>h4,
+.table-row-2>h4,
+.table-row-3>h4,
+.table-row-4>h4,
+.table-row-5>h4 {
+    flex-basis: 100%;
+    text-align: center;
+    margin: 0 0 0 0;
+    padding: 0 0 6px 0;
+    font-weight: 600;
+    color: var(--text-accent, #ddd);
+    border-bottom: 1px solid #444;
+    text-overflow: ellipsis;
 }
 
 .table-row-1 {
