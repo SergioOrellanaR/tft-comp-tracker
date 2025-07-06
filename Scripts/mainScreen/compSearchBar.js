@@ -109,7 +109,10 @@ export function initCompFilter(metaData) {
         });
     };
 
-    input.addEventListener('input', debounce(renderSuggestions, 300));
+input.addEventListener('input', debounce(function() {
+    renderSuggestions();
+    drawLines();
+}, 300));
 
     // --- New: Filter comps by comp-name as you type ---
     input.addEventListener('input', debounce(function () {
