@@ -130,7 +130,6 @@ button:hover {
     transition: background 0.3s ease;
 }
 
-/*------ Unselected comps button  ------*/
 .hide-contested-comps-btn-label input {
     position: absolute;
     opacity: 0;
@@ -158,9 +157,10 @@ button:hover {
     fill: #fff;
 }
 
-.hide-contested-comps-btn-label svg:hover {
-    transform: scale(1.2);
+.hide-contested-comps-btn-label:hover svg {
+    filter: brightness(112%);
 }
+
 
 .hide-contested-comps-btn-label input:checked~svg {
     fill: #ffeb49;
@@ -233,7 +233,7 @@ button:hover {
 }
 
 .copy-share-url-btn span {
-    font-size: 1.3em;
+    font-size: 1.25em;
 }
 
 /* Animated Reset Button */
