@@ -5,9 +5,9 @@ const debounce = (func, delay) => { let timer; return (...args) => { clearTimeou
 
 // Multi-select filter for compositions
 export let selectedFilters = [];
-let compSuggestionIndex = -1;
 export const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
 export const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
+let compSuggestionIndex = -1;
 const compSearchInput = document.getElementById('comp-search-input');
 const compSuggestions = document.getElementById('comp-suggestions');
 
@@ -216,8 +216,6 @@ export function initCompFilter(metaData) {
         updateTierHeadersVisibility();
     }
 }
-
-
 
 // Add helper to hide empty tier-headers
 export function updateTierHeadersVisibility() {

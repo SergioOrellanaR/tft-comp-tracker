@@ -6,12 +6,6 @@ const canvas = document.getElementById('lineCanvas');
 var previousMultilines = {};
 const ctx = canvas.getContext('2d');
 
-export function resizeCanvas() {
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientHeight;
-    drawLines();
-}
-
 canvas.addEventListener('contextmenu', e => {
     e.preventDefault();
     const clickX = e.offsetX;
@@ -65,6 +59,12 @@ canvas.addEventListener('click', e => {
         }
     }
 });
+
+export function resizeCanvas() {
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+    drawLines();
+}
 
 export function drawLines() {
     clearCanvasAndResetCompos();

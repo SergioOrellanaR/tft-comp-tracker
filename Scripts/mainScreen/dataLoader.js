@@ -59,49 +59,6 @@ export function tryLoadDefaultData() {
     });
 }
 
-function createCoreItemsButtons(metaItems) {
-    const container = document.createElement('div');
-    container.id = 'coreItemsContainer';
-
-    Object.entries(metaItems).forEach(([section, sectionItems]) => {
-        // section header/container
-        const sectionDiv = document.createElement('div');
-        sectionDiv.className = 'core-items-section';
-        const hdr = document.createElement('h4');
-        hdr.textContent = section.charAt(0).toUpperCase() + section.slice(1);
-        sectionDiv.appendChild(hdr);
-
-        // buttons for each item in this section
-        sectionItems.forEach(itemObj => {
-            const btn = document.createElement('button');
-            btn.className = 'core-item-button';
-            btn.title = itemObj.name;
-            // use the object’s apiName
-            btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemObj.apiName)})`;
-            btn.dataset.item = itemObj.apiName;
-            btn.onclick = () => {
-                const active = btn.classList.toggle('active');
-                document.querySelectorAll('.items-container').forEach(ctn => {
-                    const units = Array.from(
-                        ctn.closest('.item.compo').querySelectorAll('.unit-icons img')
-                    ).map(img => img.alt);
-                    updateItemsContainer(ctn);
-                });
-            };
-            sectionDiv.appendChild(btn);
-        });
-
-        container.appendChild(sectionDiv);
-    });
-
-    compsContainer.appendChild(container);
-}
-
-loadCompsFromJSON = function (metaData) {
-    _originalLoadCompsFromJSON(metaData);
-    linkPlayersToCompsFromQuery();
-};
-
 export function loadCompsFromJSON(metaData) {
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [], X: [] };
@@ -176,6 +133,49 @@ export function loadCompsFromJSON(metaData) {
         }
     });
 }
+
+function createCoreItemsButtons(metaItems) {
+    const container = document.createElement('div');
+    container.id = 'coreItemsContainer';
+
+    Object.entries(metaItems).forEach(([section, sectionItems]) => {
+        // section header/container
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'core-items-section';
+        const hdr = document.createElement('h4');
+        hdr.textContent = section.charAt(0).toUpperCase() + section.slice(1);
+        sectionDiv.appendChild(hdr);
+
+        // buttons for each item in this section
+        sectionItems.forEach(itemObj => {
+            const btn = document.createElement('button');
+            btn.className = 'core-item-button';
+            btn.title = itemObj.name;
+            // use the object’s apiName
+            btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemObj.apiName)})`;
+            btn.dataset.item = itemObj.apiName;
+            btn.onclick = () => {
+                const active = btn.classList.toggle('active');
+                document.querySelectorAll('.items-container').forEach(ctn => {
+                    const units = Array.from(
+                        ctn.closest('.item.compo').querySelectorAll('.unit-icons img')
+                    ).map(img => img.alt);
+                    updateItemsContainer(ctn);
+                });
+            };
+            sectionDiv.appendChild(btn);
+        });
+
+        container.appendChild(sectionDiv);
+    });
+
+    compsContainer.appendChild(container);
+}
+
+loadCompsFromJSON = function (metaData) {
+    _originalLoadCompsFromJSON(metaData);
+    linkPlayersToCompsFromQuery();
+};
 
 function createCompoElement({ comp, index, estilo, units, teambuilderUrl, mainAugment, mainItem }) {
     const div = document.createElement('div');
