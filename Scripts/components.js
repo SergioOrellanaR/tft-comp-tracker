@@ -79,6 +79,7 @@ const loadMainCompanion = async (playerData, container) => {
             if (!response.ok) throw new Error('Error fetching companion data');
             companionDataCache = await response.json();
         }
+        console.log('Companion data loaded from cache:', companionDataCache.length, 'items');
         const myCompanion = companionDataCache.find(item => item.contentId === playerData.companion.content_id);
         if (!myCompanion) {
             console.warn('No se encontró companion con content_id:', playerData.companion.content_id);
@@ -689,7 +690,6 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
                         matchesData.total_pages = newMatchesData.total_pages;
                         matchesData.match_list = matchesData.match_list.concat(newMatchesData.match_list);
 
-                        // Update duelsCache for player2Name with the new matches data.
                         const duelData = duelsCache.get(player2Name) || {};
                         duelData.commonMatches = matchesData;
                         duelsCache.set(player2Name, duelData);

@@ -36,6 +36,7 @@ export const TRAIT_BACKGROUND_URL = {
 }
 
 export const CONFIG = {
+    notificationDuration: 3000,
     mainPlayerColor: '#000435',
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9', '#a0ff4c'],
     tierColors: {
