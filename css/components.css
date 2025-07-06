@@ -471,33 +471,25 @@ th {
     padding-bottom: 0.3em;
 }
 
-.table-row-1,
-.table-row-2,
-.table-row-3,
-.table-row-4,
-.table-row-5 {
+/* Shortened table-row styles */
+[class^="table-row-"] {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-content: start;
-    padding: 2px 0;
-    gap: 10px;
+    gap: 15px;
     border: 2px solid #333;
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.table-row-1>h4,
-.table-row-2>h4,
-.table-row-3>h4,
-.table-row-4>h4,
-.table-row-5>h4 {
+[class^="table-row-"]>h4 {
     flex-basis: 100%;
     text-align: center;
-    margin: 0 0 0 0;
+    margin: 0 0 -8px 0;
     padding: 0 0 6px 0;
     font-weight: 600;
     color: var(--text-accent, #ddd);
@@ -505,6 +497,7 @@ th {
     text-overflow: ellipsis;
 }
 
+/* Per-row border colors via custom property */
 .table-row-1 {
     border: 2px solid rgba(128, 128, 128, 0.7);
 }
@@ -537,6 +530,7 @@ th {
 .table-container div div img[style*="border-image"] {
     border-width: 4px;
 }
+
 /* =====================================================================
     Suggestion Icon Borders
 ===================================================================== */
