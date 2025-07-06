@@ -483,7 +483,7 @@ th {
     justify-content: center;
     align-content: start;
     padding: 2px 0;
-    gap: 20px;
+    gap: 10px;
     border: 2px solid #333;
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);
