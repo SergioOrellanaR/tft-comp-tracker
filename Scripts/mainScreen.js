@@ -1144,9 +1144,10 @@ function updateHeavilyContestedChampionsTable() {
         Object.keys(heavilyContestedByCost).sort((a, b) => a - b)
             .forEach(cost => {
                 const row = document.createElement('div');
+                row.classList.add(`table-row-${cost}`);
                 heavilyContestedByCost[cost].forEach(champ => {
                     const cell = document.createElement('div');
-                    cell.classList.add(`unit-cost-${cost}`);
+                    cell.classList.add('table-cell');
                     cell.style.position = 'relative';
 
                     const img = document.createElement('img');

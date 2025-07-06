@@ -106,32 +106,6 @@
     margin-top: 1rem;
 }
 
-.table-container div {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
-    gap: 8px;
-}
-
-.table-container div div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-}
-
-.table-container div div img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 4px;
-    border: 2px solid transparent;
-    box-sizing: border-box;
-}
-
-.table-container div div img[style*="border-image"] {
-    border-width: 4px;
-}
-
 /* =====================================================================
     Estilos para Core Items
 ===================================================================== */
@@ -497,6 +471,57 @@ th {
     padding-bottom: 0.3em;
 }
 
+.table-row-1,
+.table-row-2,
+.table-row-3,
+.table-row-4,
+.table-row-5 {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: start;
+    padding: 10px 0;
+    gap: 20px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: var(--main-accent, #2c2c3b);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.table-row-1 {
+    border: 2px solid rgba(128, 128, 128, 0.7);
+}
+
+.table-row-2 {
+    border: 2px solid rgba(76, 175, 80, 0.7);
+}
+
+.table-row-3 {
+    border: 2px solid rgba(33, 150, 243, 0.7);
+}
+
+.table-row-4 {
+    border: 2px solid rgba(156, 39, 176, 0.7);
+}
+
+.table-row-5 {
+    border: 2px solid rgba(255, 215, 0, 0.7);
+}
+
+.table-container div div img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.table-container div div img[style*="border-image"] {
+    border-width: 4px;
+}
 /* =====================================================================
     Suggestion Icon Borders
 ===================================================================== */
