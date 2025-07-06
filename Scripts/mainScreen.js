@@ -151,13 +151,13 @@ function initCompFilter(metaData) {
                     const img = document.createElement('img');
                     img.src = iconUrl;
                     img.className = 'suggestion-icon';
-                    
+
                     // Add cost-based border class for units
                     if (category === 'unit') {
                         const unitCost = unitCostMap[name] || 1;
                         img.classList.add(`unit-cost-${unitCost}`);
                     }
-                    
+
                     li.appendChild(img);
                 }
 
@@ -195,7 +195,7 @@ function initCompFilter(metaData) {
     input.addEventListener('input', debounce(renderSuggestions, 300));
 
     // --- New: Filter comps by comp-name as you type ---
-    input.addEventListener('input', debounce(function() {
+    input.addEventListener('input', debounce(function () {
         const val = input.value.trim().toLowerCase();
         // Only apply if no tags are selected (so it doesn't interfere with tag filter)
         if (selectedFilters.length === 0) {
@@ -633,7 +633,7 @@ function createEditIcon(span) {
 // --- New: Support for query params to set mode and player names ---
 function getQueryParams() {
     const params = {};
-    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         params[decodeURIComponent(key)] = decodeURIComponent(value.replace(/\+/g, ' '));
     });
     return params;
@@ -719,7 +719,7 @@ tryLoadDefaultData();
 // After comps are loaded, link players to comps if query params present
 // Patch loadCompsFromJSON to call linkPlayersToCompsFromQuery at the end
 const _originalLoadCompsFromJSON = loadCompsFromJSON;
-loadCompsFromJSON = function(metaData) {
+loadCompsFromJSON = function (metaData) {
     _originalLoadCompsFromJSON(metaData);
     linkPlayersToCompsFromQuery();
 };
@@ -1993,4 +1993,3 @@ function updateSuggestionHighlight(items) {
 
 window.toggleDoubleUpMode = toggleDoubleUpMode;
 window.resetPlayers = resetPlayers;
-
