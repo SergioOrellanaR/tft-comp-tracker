@@ -17,7 +17,6 @@ function getShareUrl() {
     playerDivs.forEach((player, idx) => {
         let name = player.querySelector('.player-name')?.textContent || '';
         // Remove trailing ' (YOU)' if present
-        // Remove trailing ' (YOU)' if present
         name = name.replace(/ \(YOU\)$/, '');
         // Only add PlayerX param if name differs from default
         if (name !== defaultNames[idx]) {
@@ -48,25 +47,18 @@ function getShareUrl() {
 
 function copyShareUrlToClipboard() {
     const shareUrl = getShareUrl();
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(shareUrl).then(() => {
-            alert('Share URL copied to clipboard!');
-        }, () => {
-            alert('Failed to copy URL.');
-        });
+    if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(shareUrl)
+            .then(() => {
+                alert('Share URL copied to clipboard!');
+            })
+            .catch(() => {
+                // Fallback prompt if writeText fails
+                prompt('Copy the URL below:', shareUrl);
+            });
     } else {
-        // Fallback for older browsers
-        const tempInput = document.createElement('input');
-        tempInput.value = shareUrl;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        try {
-            document.execCommand('copy');
-            alert('Share URL copied to clipboard!');
-        } catch (err) {
-            alert('Failed to copy URL.');
-        }
-        document.body.removeChild(tempInput);
+        // Older browsers: show prompt for manual copy
+        prompt('Copy the URL below:', shareUrl);
     }
 }
 
