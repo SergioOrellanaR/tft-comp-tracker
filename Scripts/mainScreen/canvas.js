@@ -129,7 +129,7 @@ function updateHeavilyContestedChampionsTable() {
         heavilyContestedTable.classList.add('table-container');
         const heavilyContestedTitle = document.createElement('h3');
         heavilyContestedTitle.classList.add('table-title');
-        heavilyContestedTitle.textContent = 'Heavily contested';
+        heavilyContestedTitle.textContent = 'Contested';
         container.appendChild(heavilyContestedTitle);
 
         Object.keys(heavilyContestedByCost).sort((a, b) => a - b)
