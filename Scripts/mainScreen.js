@@ -15,6 +15,7 @@ let unitCostMap = {};
 let items = [];
 let duelsCache = new Map();
 let metaSnapshotData = null;
+let compSuggestionIndex = -1;
 
 const compsContainer = document.getElementById('compos');
 const playersContainer = document.getElementById('players');
@@ -22,6 +23,10 @@ const canvas = document.getElementById('lineCanvas');
 const ctx = canvas.getContext('2d');
 const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
 const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
+const compSearchInput = document.getElementById('comp-search-input');
+const compSuggestions = document.getElementById('comp-suggestions');
+
+
 
 // Unified DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', async () => {
@@ -1004,32 +1009,7 @@ function handleSuccessfulResult(result, duelButton, player2Name, player, playerD
     });
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    preloadPlayers();
-    const serverSelector = document.getElementById('serverSelector');
-    const serverRegionMap = CONFIG.serverRegionMap;
-
-    Object.keys(serverRegionMap).forEach(region => {
-        const option = document.createElement('option');
-        option.value = region;
-        option.textContent = region;
-        serverSelector.appendChild(option);
-    });
-
-    document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
-
-    document.getElementById('playerNameInput').addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            searchPlayer();
-        }
-    });
-
-    document.getElementById('resetButton')?.addEventListener('click', resetPlayers);
-
-    // In your DOMContentLoaded listener, replace the placeholder with:
-    initHoverTooltips();
-});
+// Removed duplicate DOMContentLoaded listener. All setup is handled in the unified listener at the top of the file.
 
 function initHoverTooltips() {
     function setupHoverTooltip(labelSelector, inputSelector, checkedTitle, uncheckedTitle) {
@@ -1925,6 +1905,7 @@ function createAndInsertPlayerRankDiv(participant) {
 
     return rankDiv;
 }
+
 function updatePlayers(participants) {
     const playerElements = document.querySelectorAll('.item.player');
 
@@ -1998,12 +1979,6 @@ function initializeDuelCacheObject(riotId) {
         findGames: null,
     };
 }
-
-// New code for suggestion navigation
-const compSearchInput = document.getElementById('comp-search-input');
-const compSuggestions = document.getElementById('comp-suggestions');
-
-let compSuggestionIndex = -1;
 
 // keyboard navigation
 compSearchInput.addEventListener('keydown', (e) => {
