@@ -355,19 +355,33 @@ function getShareUrl() {
 
 function copyShareUrlToClipboard() {
     const shareUrl = getShareUrl();
+    const notificationMsg = 'Link copied! Share it to show players and comps from this game.';
     if (navigator.clipboard?.writeText) {
         navigator.clipboard.writeText(shareUrl)
             .then(() => {
-                alert('Share URL copied to clipboard!');
+                showNotification(notificationMsg);
             })
-            .catch(() => {
-                // Fallback prompt if writeText fails
-                prompt('Copy the URL below:', shareUrl);
-            });
     } else {
-        // Older browsers: show prompt for manual copy
-        prompt('Copy the URL below:', shareUrl);
+        prompt(promptMsg, shareUrl);
     }
+}
+
+// Notification helper
+function showNotification(message, duration = 3000) {
+    let notification = document.getElementById('copilot-notification');
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'copilot-notification';
+        // Only class, no inline style
+        notification.className = 'copilot-notification';
+        document.body.appendChild(notification);
+    }
+    notification.textContent = message;
+    notification.style.opacity = '1';
+    clearTimeout(notification._timeout);
+    notification._timeout = setTimeout(() => {
+        notification.style.opacity = '0';
+    }, duration);
 }
 
 function tryLoadDefaultData() {

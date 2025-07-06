@@ -30,3 +30,5 @@
 
 /* 10. Responsive styles last */
 @import url('./responsive.css');
+
+@import url('./copilot-notification.css');
