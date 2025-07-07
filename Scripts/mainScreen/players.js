@@ -376,6 +376,14 @@ function createTeamIcon(icon, player1, player2, container) {
     circle.classList.add('team-icon');
     circle._iconConfig = icon;
 
+    // ← disable selection & dragging
+    circle.style.userSelect        = 'none';
+    circle.style.MozUserSelect     = 'none';
+    circle.style.msUserSelect      = 'none';
+    circle.setAttribute('draggable', 'false');
+    // also prevent the native focus/selection rectangle
+    circle.onmousedown = e => e.preventDefault();
+
     setupTeamIcon(circle, icon, player1, player2, container);
 
     circle.onclick = (e) => {

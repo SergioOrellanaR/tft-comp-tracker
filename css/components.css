@@ -28,6 +28,7 @@
     padding: 4px 8px;
     width: 100%;
     box-sizing: border-box;
+    margin-bottom: 0px;
     cursor: pointer;
 }
 
@@ -372,6 +373,12 @@
 .selected {
     background-color: #555 !important;
     transform: scale(1.02);
+}
+
+#players {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 /* Contenedor interno para los players */
