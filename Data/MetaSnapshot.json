@@ -512,13 +512,25 @@
         {
           "apiName": "TFT14_Elise",
           "items": [
-            "TFT9_Item_OrnnDeathfireGrasp",
-            "TFT4_Item_OrnnZhonyasParadox"
+            "TFT4_Item_OrnnZhonyasParadox",
+            "TFT5_Item_BlueBuffRadiant"
           ],
           "stars": 1,
           "championIcon": "tft14_elise_TJuTNJLssu.webp",
           "cost": 3,
           "name": "Elise",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Braum",
+          "items": [
+            "TFT_Item_Artifact_UnendingDespair",
+            "TFT5_Item_GargoyleStoneplateRadiant"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_braum_cs4peGdzcS.webp",
+          "cost": 3,
+          "name": "Braum",
           "set": 14
         }
       ],
@@ -560,10 +572,10 @@
       "champions": [
         {
           "apiName": "TFT14_MissFortune",
-          "boardIndex": 21,
+          "boardIndex": 25,
           "items": [
             "TFT_Item_InfinityEdge",
-            "TFT_Item_LastWhisper",
+            "TFT_Item_Deathblade",
             "TFT_Item_PowerGauntlet"
           ],
           "stars": 1,
@@ -577,8 +589,8 @@
           "boardIndex": 3,
           "items": [
             "TFT_Item_GargoyleStoneplate",
-            "TFT_Item_NightHarvester",
-            "TFT_Item_WarmogsArmor"
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_BrambleVest"
           ],
           "stars": 3,
           "championIcon": "tft14_braum_cs4peGdzcS.webp",
@@ -588,10 +600,10 @@
         },
         {
           "apiName": "TFT14_Elise",
-          "boardIndex": 27,
+          "boardIndex": 21,
           "items": [
             "TFT_Item_BlueBuff",
-            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_HextechGunblade",
             "TFT_Item_ArchangelsStaff"
           ],
           "stars": 3,
@@ -602,7 +614,7 @@
         },
         {
           "apiName": "TFT14_Aurora",
-          "boardIndex": 25,
+          "boardIndex": 23,
           "items": [
             "TFT_Item_StatikkShiv",
             "TFT_Item_RapidFireCannon"
@@ -4699,7 +4711,20 @@
           "items": [
             "TFT_Item_BlueBuff",
             "TFT_Item_HextechGunblade",
-            "TFT14_Item_ArmorcladEmblemItem"
+            "TFT_Item_Artifact_BlightingJewel"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
+          "cost": 1,
+          "name": "Morgana",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Morgana",
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT4_Item_OrnnMuramana",
+            "TFT_Item_HextechGunblade"
           ],
           "stars": 1,
           "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
@@ -4749,8 +4774,8 @@
           "boardIndex": 27,
           "items": [
             "TFT_Item_BlueBuff",
-            "TFT_Item_HextechGunblade",
-            "TFT_Item_Artifact_BlightingJewel"
+            "TFT_Item_RabadonsDeathcap",
+            "TFT_Item_HextechGunblade"
           ],
           "stars": 3,
           "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
@@ -4867,8 +4892,8 @@
           "boardIndex": 27,
           "items": [
             "TFT_Item_BlueBuff",
-            "TFT_Item_JeweledGauntlet",
-            "TFT_Item_PowerGauntlet"
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_JeweledGauntlet"
           ],
           "stars": 3,
           "championIcon": "tft14_elise_TJuTNJLssu.webp",
@@ -4893,7 +4918,8 @@
           "apiName": "TFT14_Renekton",
           "boardIndex": 4,
           "items": [
-            "TFT_Item_ThiefsGloves"
+            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_SteraksGage"
           ],
           "stars": 1,
           "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
@@ -4927,7 +4953,7 @@
       },
       "mainItem": {},
       "title": "Dynamo Miss Fortune Elise",
-      "style": "Fast 8",
+      "style": "Fast 9",
       "tier": "A"
     },
     {
@@ -5081,8 +5107,9 @@
         {
           "apiName": "TFT14_Graves",
           "items": [
-            "TFT_Item_Artifact_Mittens",
-            "TFT4_Item_OrnnDeathsDefiance"
+            "TFT_Item_SteraksGage",
+            "TFT_Item_GuardianAngel",
+            "TFT_Item_Artifact_SuspiciousTrenchCoat"
           ],
           "stars": 1,
           "championIcon": "tft14_graves_aSZKfH6dm6.webp",
@@ -5093,9 +5120,8 @@
         {
           "apiName": "TFT14_Graves",
           "items": [
-            "TFT_Item_SteraksGage",
-            "TFT_Item_GuardianAngel",
-            "TFT_Item_Artifact_SuspiciousTrenchCoat"
+            "TFT_Item_Artifact_Mittens",
+            "TFT4_Item_OrnnDeathsDefiance"
           ],
           "stars": 1,
           "championIcon": "tft14_graves_aSZKfH6dm6.webp",
@@ -5122,10 +5148,6 @@
           "id": "t7xi4c1opb4vjg2"
         },
         {
-          "apiName": "TFT6_Augment_BinaryAirdrop",
-          "id": "5njkc6iijxesgr2"
-        },
-        {
           "apiName": "TFT7_Augment_Preparation",
           "id": "7p2zcls5w4kkime"
         },
@@ -5136,6 +5158,10 @@
         {
           "apiName": "TFT_Augment_WealthyRehab2",
           "id": "559i3h4u3q0crk3"
+        },
+        {
+          "apiName": "TFT_Augment_Overheal",
+          "id": "jinqyezo6z2es83"
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-golden-graves",
@@ -5745,11 +5771,6 @@
         "icon": "tft14_item_dark_web_emblem_item_mtQ38639dm.webp"
       },
       {
-        "apiName": "TFT14_Item_ArmorcladEmblemItem",
-        "name": "Bastion Emblem",
-        "icon": "tft14_item_armorclad_emblem_item_iFPIw8tdbL.webp"
-      },
-      {
         "apiName": "TFT14_Item_BruiserEmblemItem",
         "name": "Bruiser Emblem",
         "icon": "tft14_item_bruiser_emblem_item_Q3qczDUWxA.webp"
@@ -5842,5 +5863,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-07 00:00:03"
+  "lastUpdated": "2025-07-07 18:00:03"
 }
