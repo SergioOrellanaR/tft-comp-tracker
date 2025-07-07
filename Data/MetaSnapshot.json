@@ -2464,10 +2464,6 @@
           "id": "5mlqjl605nnn2tr"
         },
         {
-          "apiName": "TFT7_Augment_BigFriend2",
-          "id": "hh37i2mdw33b0ns"
-        },
-        {
           "apiName": "TFT14_Augment_Cyberboss_Cower",
           "id": "kmp34k6hm6llk1m"
         },
@@ -2480,19 +2476,23 @@
           "id": "mvyt6qsdhoc2zfr"
         },
         {
-          "apiName": "TFT14_Augment_BlackMarketGargantuanResolve",
-          "id": "4ezwd9h89rnves3"
-        },
-        {
           "apiName": "TFT_Augment_StarryNightPlus",
           "id": "66mxazbwpetl63e"
+        },
+        {
+          "apiName": "TFT14_Augment_Armorclad_Splash",
+          "id": "05q2tk9tn014pcp"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies2",
+          "id": "oam3x93qx6eluen"
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-button-mash-poppy",
       "champions": [
         {
           "apiName": "TFT14_Poppy",
-          "boardIndex": 5,
+          "boardIndex": 6,
           "items": [
             "TFT_Item_Bloodthirster",
             "TFT_Item_JeweledGauntlet",
@@ -2509,8 +2509,7 @@
           "boardIndex": 27,
           "items": [
             "TFT_Item_RapidFireCannon",
-            "TFT_Item_StatikkShiv",
-            "TFT_Item_ArchangelsStaff"
+            "TFT_Item_SpearOfShojin"
           ],
           "stars": 1,
           "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
@@ -2519,23 +2518,24 @@
           "set": 14
         },
         {
-          "apiName": "TFT14_Sejuani",
-          "boardIndex": 4,
+          "apiName": "TFT14_Renekton",
+          "boardIndex": 3,
           "items": [
-            "TFT_Item_Redemption",
-            "TFT_Item_FrozenHeart"
+            "TFT_Item_ThiefsGloves"
           ],
           "stars": 1,
-          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
-          "cost": 4,
-          "name": "Sejuani",
+          "championIcon": "tft14_renekton_ngUPLfxLLg.webp",
+          "cost": 5,
+          "name": "Renekton",
           "set": 14
         },
         {
           "apiName": "TFT14_Kobuko",
-          "boardIndex": 3,
+          "boardIndex": 5,
           "items": [
-            "TFT_Item_ThiefsGloves"
+            "TFT_Item_Crownguard",
+            "TFT_Item_IonicSpark",
+            "TFT_Item_WarmogsArmor"
           ],
           "stars": 1,
           "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
@@ -2562,19 +2562,7 @@
       "tier": "X"
     },
     {
-      "altBuilds": [
-        {
-          "apiName": "TFT14_Jax",
-          "items": [
-            "TFT14_NaafiriCyberneticItem"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_jax_bIB9hPDcYq.webp",
-          "cost": 1,
-          "name": "Jax",
-          "set": 14
-        }
-      ],
+      "altBuilds": [],
       "augments": [
         {
           "apiName": "TFT14_Augment_JaxCarry",
@@ -2640,20 +2628,6 @@
           "set": 14
         },
         {
-          "apiName": "TFT14_Zeri",
-          "boardIndex": 14,
-          "items": [
-            "TFT_Item_GuinsoosRageblade",
-            "TFT_Item_RunaansHurricane",
-            "TFT14_ZeriCyberneticItem"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
-          "cost": 4,
-          "name": "Zeri",
-          "set": 14
-        },
-        {
           "apiName": "TFT14_Sejuani",
           "boardIndex": 3,
           "items": [
@@ -2665,6 +2639,20 @@
           "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
           "cost": 4,
           "name": "Sejuani",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zeri",
+          "boardIndex": 14,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_RunaansHurricane",
+            "TFT14_ZeriCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
           "set": 14
         }
       ],
@@ -4989,10 +4977,6 @@
           "id": "qghhi80jgrkipjp"
         },
         {
-          "apiName": "TFT9_Augment_HighEndSector",
-          "id": "w6m7vr05zcycb9z"
-        },
-        {
           "apiName": "TFT10_Augment_HeroicGrabBag",
           "id": "ko9plc1kecuegrv"
         },
@@ -5003,6 +4987,10 @@
         {
           "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
           "id": "an791kscytn2cmc"
+        },
+        {
+          "apiName": "TFT9_Augment_LongDistanceRelationship2",
+          "id": "xcqjbnjv10edi36"
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-5-cypher",
@@ -5854,5 +5842,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-05 12:00:03"
+  "lastUpdated": "2025-07-07 00:00:03"
 }
