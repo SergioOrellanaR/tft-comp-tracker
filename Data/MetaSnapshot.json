@@ -5319,7 +5319,7 @@
           "boardIndex": 6,
           "items": [
             "TFT_Item_WarmogsArmor",
-            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_FrozenHeart",
             "TFT_Item_BrambleVest"
           ],
           "stars": 3,
@@ -5329,17 +5329,17 @@
           "set": 14
         },
         {
-          "apiName": "TFT14_Aphelios",
+          "apiName": "TFT14_Senna",
           "boardIndex": 27,
           "items": [
-            "TFT_Item_GuinsoosRageblade",
-            "TFT_Item_RunaansHurricane",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_LastWhisper",
             "TFT_Item_RapidFireCannon"
           ],
-          "stars": 1,
-          "championIcon": "tft14_aphelios_nzkbuDhuF6.webp",
-          "cost": 4,
-          "name": "Aphelios",
+          "stars": 3,
+          "championIcon": "tft14_senna_rmLaFEKcKN.webp",
+          "cost": 3,
+          "name": "Senna",
           "set": 14
         }
       ],
@@ -5997,5 +5997,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-09 07:33:54"
+  "lastUpdated": "2025-07-09 18:00:03"
 }
