@@ -315,25 +315,11 @@
       "url": "https://tftacademy.com/tierlist/comps/set-14-bomberman-ziggs",
       "champions": [
         {
-          "apiName": "TFT14_Kobuko",
-          "boardIndex": 4,
-          "items": [
-            "TFT_Item_IonicSpark",
-            "TFT_Item_Crownguard",
-            "TFT_Item_Bloodthirster"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
-          "cost": 5,
-          "name": "Kobuko",
-          "set": 14
-        },
-        {
           "apiName": "TFT14_Brand",
           "boardIndex": 27,
           "items": [
             "TFT_Item_SpearOfShojin",
-            "TFT4_Item_OrnnMuramana",
+            "TFT_Item_PowerGauntlet",
             "TFT_Item_JeweledGauntlet"
           ],
           "stars": 1,
@@ -347,27 +333,52 @@
           "boardIndex": 21,
           "items": [
             "TFT_Item_Morellonomicon",
-            "TFT_Item_StatikkShiv",
-            "TFT_Item_SpearOfShojin"
+            "TFT_Item_StatikkShiv"
           ],
           "stars": 1,
           "championIcon": "tft14_ziggs_Lx6vWUKOgd.webp",
           "cost": 4,
           "name": "Ziggs",
           "set": 14
+        },
+        {
+          "apiName": "TFT14_Viego",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_viego_Sqil4FY2Gq.webp",
+          "cost": 5,
+          "name": "Viego",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Kobuko",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_IonicSpark",
+            "TFT_Item_Crownguard",
+            "TFT_Item_Bloodthirster"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
+          "cost": 5,
+          "name": "Kobuko",
+          "set": 14
         }
       ],
       "mainAugment": {},
       "mainChampion": {
-        "apiName": "TFT14_Kobuko",
-        "cost": 5,
-        "id": "qkq2cltbnn0mi2u",
-        "championIcon": "tft14_kobuko_GF1XqI2Vjq.webp",
-        "name": "Kobuko",
+        "apiName": "TFT14_Brand",
+        "cost": 4,
+        "id": "7nbypj7kwsf1ngm",
+        "championIcon": "tft14_brand_dTWOjwgqeD.webp",
+        "name": "Brand",
         "set": 14
       },
       "mainItem": {},
-      "title": "Cyberboss Kobuko Ziggs",
+      "title": "Cyberboss Brand Fast 9",
       "style": "Fast 9",
       "tier": "C"
     },
@@ -3177,6 +3188,129 @@
     {
       "altBuilds": [
         {
+          "apiName": "TFT14_Zeri",
+          "items": [
+            "TFT_Item_Artifact_NavoriFlickerblades",
+            "TFT5_Item_RunaansHurricaneRadiant"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_BronzeForLife2",
+          "id": "zhtajsez3lhkatl"
+        },
+        {
+          "apiName": "TFT_Augment_BronzeForLifeI",
+          "id": "eri4r1280ci36df"
+        },
+        {
+          "apiName": "TFT11_Augment_Slammin",
+          "id": "talnqdzyvk9aiyl"
+        },
+        {
+          "apiName": "TFT7_Augment_ClutteredMind",
+          "id": "2gi62pjjvcazz33"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies3",
+          "id": "fimcjz7mapc2n2a"
+        },
+        {
+          "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+          "id": "an791kscytn2cmc"
+        },
+        {
+          "apiName": "TFT9_Augment_BigGrabBag",
+          "id": "k1k420rnggn4b33"
+        },
+        {
+          "apiName": "TFT_Augment_TraitTracker",
+          "id": "0wfs27c2keh7s8u"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-nitro-zeri",
+      "champions": [
+        {
+          "apiName": "TFT14_Jhin",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_jhin_K3jg81FVDJ.webp",
+          "cost": 2,
+          "name": "Jhin",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Elise",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_BlueBuff",
+            "TFT_Item_StatikkShiv"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_elise_TJuTNJLssu.webp",
+          "cost": 3,
+          "name": "Elise",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Sejuani",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_FrozenHeart",
+            "TFT_Item_RedBuff",
+            "TFT_Item_WarmogsArmor"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sejuani_ZsW3JDz3BA.webp",
+          "cost": 4,
+          "name": "Sejuani",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Zeri",
+          "boardIndex": 14,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT14_ZeriCyberneticItem",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zeri_yk2VcS1Jj4.webp",
+          "cost": 4,
+          "name": "Zeri",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT_Augment_BronzeForLife2",
+        "id": "zhtajsez3lhkatl"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_SummonLevel4",
+        "cost": 4,
+        "id": "oytft49917z9ymy",
+        "championIcon": "tft14_summon_level4_qJMThdhkva.webp",
+        "name": "T-43X",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Bronze For Life Nitro Zeri",
+      "style": "Fast 8",
+      "tier": "C"
+    },
+    {
+      "altBuilds": [
+        {
           "apiName": "TFT14_Annie",
           "items": [
             "TFT4_Item_OrnnMuramana",
@@ -5863,5 +5997,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-07 18:00:03"
+  "lastUpdated": "2025-07-09 07:33:54"
 }
