@@ -251,7 +251,7 @@
       "mainItem": {},
       "title": "Nitro Veigar Reroll",
       "style": "RR LV.6",
-      "tier": "C"
+      "tier": "B"
     },
     {
       "altBuilds": [
@@ -1445,7 +1445,7 @@
       "mainItem": {},
       "title": "Strategist AMP Annie",
       "style": "Fast 9",
-      "tier": "B"
+      "tier": "C"
     },
     {
       "altBuilds": [
@@ -5997,5 +5997,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-09 18:00:03"
+  "lastUpdated": "2025-07-10 00:00:03"
 }
