@@ -17,11 +17,9 @@ export function createPlayerDiv(name, index, isDoubleUp) {
     const editIcon = createEditIcon(span);
 
     // Create a fixed-width action container for edit-icon, spinner, duel-button, etc.
+    // Create a fixed-size action container for edit-icon, spinner, duel-button, etc.
     const actionContainer = document.createElement('div');
     actionContainer.classList.add('player-action-container');
-    actionContainer.style.width = '32px'; // Adjust as needed for consistent space
-    actionContainer.style.display = 'flex';
-    actionContainer.style.alignItems = 'center';
     actionContainer.appendChild(editIcon);
 
     const color = getPlayerColor(index, isDoubleUp);

@@ -124,6 +124,16 @@
     margin-top: 1rem;
 }
 
+.player-action-container {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
 /* =====================================================================
     Estilos para Core Items
 ===================================================================== */
