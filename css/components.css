@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 8px;
+    padding: 2px 5px;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 0px;
@@ -55,15 +55,7 @@
 
 /* Participant info container margin variants */
 .participant-info-container.margin-you {
-    margin-left: 28px;
-}
-
-.participant-info-container.margin-small {
-    margin-left: 4px;
-}
-
-.participant-info-container.margin-none {
-    margin-left: 0px;
+    margin-left: 8px;
 }
 
 /* Estilos para nombres de jugadores */
@@ -79,7 +71,7 @@
 .mini-rank-div {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: space-evenly;
     flex-shrink: 0;
     min-width: 70px;
 }
@@ -95,9 +87,26 @@
     height: 28px;
 }
 
+.mini-rank-icon-text {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+}
+
 .mini-rank-text {
     font-size: 0.8em;
-    opacity: 0.5;
+    opacity: 0.85;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.mini-rank-lp-text
+{
+    font-size: 0.8em;
+    opacity: 0.6;
 }
 
 .table-container {
@@ -107,13 +116,23 @@
     margin-top: 1rem;
 }
 
+.player-action-container {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
 /* =====================================================================
     Estilos para Core Items
 ===================================================================== */
 #coreItemsContainer {
     display: flex;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1.25rem;
     margin-top: 16px;
 }
 
@@ -142,7 +161,7 @@
     justify-content: center;
     align-content: start;
     gap: 12px;
-    padding: 4px 0;
+    padding: 4px 3px;
     border: 2px solid #333;
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);
@@ -506,23 +525,23 @@ th {
 
 /* Per-row border colors via custom property */
 .table-row-1 {
-    border: 2px solid rgba(128, 128, 128, 0.7);
+    border: 2px solid rgba(128, 128, 128, 0.45);
 }
 
 .table-row-2 {
-    border: 2px solid rgba(76, 175, 80, 0.7);
+    border: 2px solid rgba(76, 175, 80, 0.45);
 }
 
 .table-row-3 {
-    border: 2px solid rgba(33, 150, 243, 0.7);
+    border: 2px solid rgba(33, 150, 243, 0.45);
 }
 
 .table-row-4 {
-    border: 2px solid rgba(156, 39, 176, 0.7);
+    border: 2px solid rgba(156, 39, 176, 0.45);
 }
 
 .table-row-5 {
-    border: 2px solid rgba(255, 215, 0, 0.7);
+    border: 2px solid rgba(255, 215, 0, 0.45);
 }
 
 .table-container div div img {

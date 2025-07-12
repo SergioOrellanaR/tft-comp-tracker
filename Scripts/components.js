@@ -11,6 +11,7 @@ import {
     getTraitBackgroundUrl,
     getTFTSetImageUrl
 } from './tftVersusHandler.js';
+import { createAndInsertPlayerRankDiv } from './mainScreen/searchCurrentGame.js';
 import { CDRAGON_URL, CONFIG } from './config.js';
 import { getFormattedDateTime, getRelativeTime, convertToUserLocalDateTime } from './utils.js';
 
@@ -79,7 +80,6 @@ const loadMainCompanion = async (playerData, container) => {
             if (!response.ok) throw new Error('Error fetching companion data');
             companionDataCache = await response.json();
         }
-        console.log('Companion data loaded from cache:', companionDataCache.length, 'items');
         const myCompanion = companionDataCache.find(item => item.contentId === playerData.companion.content_id);
         if (!myCompanion) {
             console.warn('No se encontró companion con content_id:', playerData.companion.content_id);
@@ -549,8 +549,17 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     overlay.appendChild(closeBtn);
 
     overlay.appendChild(createTitleModal());
-    overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
-    overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, server));
+
+    // Ensure header and stats are loaded before rendering modals
+    const cachedData = duelsCache.get(player2Name) || {};
+    const headerPromise = cachedData.header ? Promise.resolve(cachedData.header) : fetchPlayerSummary(player2Name, server);
+    const statsPromise = cachedData.stats ? Promise.resolve(cachedData.stats) : fetchDuelStats(playerData.name, player2Name, server);
+
+    Promise.all([headerPromise, statsPromise]).then(([headerData, statsData]) => {
+        duelsCache.set(player2Name, { ...cachedData, header: headerData, stats: statsData });
+        overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
+        overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, server));
+    });
 }
 
 /* ============================================================================
@@ -596,8 +605,10 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
 
             historyModal.append(info, btn);
         } else {
-            // only insert matchesContainer once we have 10+ or no more pages
-            const container = buildMatchesContainer(match_list, historyModal);
+            console.log('duelsCache on createHistoryModal:', duelsCache);
+            console.log('player2Name on createHistoryModal:', player2Name);
+            console.log('duelsCache.get(player2Name) on createHistoryModal:', duelsCache.get(player2Name));
+            const container = buildMatchesContainer(match_list, historyModal, playerData.peak_ranks, duelsCache.get(player2Name).header?.peak_ranks || null);
             historyModal.appendChild(container);
 
             if (current_page < total_pages) {
@@ -677,7 +688,6 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
     function onScroll() {
         if (historyModal.scrollTop + historyModal.clientHeight >= historyModal.scrollHeight - 30) {
             if (!historyModal.isFetching) {
-                console.log('Fetching more common matches...');
                 historyModal.isFetching = true;
                 // Create and append the spinner at the end of the historyModal.
                 const spinner = createLoadingSpinner("Loading more matches");
@@ -685,7 +695,6 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
                 const nextPage = matchesData.current_page + 1;
                 fetchCommonMatches(playerData.name, player2Name, server, nextPage)
                     .then(newMatchesData => {
-                        console.log('New matches data fetched:', newMatchesData);
                         matchesData.current_page = newMatchesData.current_page;
                         matchesData.total_pages = newMatchesData.total_pages;
                         matchesData.match_list = matchesData.match_list.concat(newMatchesData.match_list);
@@ -694,7 +703,7 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
                         duelData.commonMatches = matchesData;
                         duelsCache.set(player2Name, duelData);
 
-                        const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list, historyModal);
+                        const newMatchesContainer = buildMatchesContainer(newMatchesData.match_list, historyModal, playerData.peak_ranks, duelData?.header?.peak_ranks || null);
                         historyModal.appendChild(newMatchesContainer);
 
                         // Remove the spinner once loading is done.
@@ -720,7 +729,7 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
     }
 }
 
-const buildMatchesContainer = (matches, state) => {
+const buildMatchesContainer = (matches, state, player1PeakRanks, player2PeakRanks) => {
     const matchesContainer = document.createElement('div');
     matchesContainer.className = 'matches-container';
     matches.forEach(match => {
@@ -730,7 +739,7 @@ const buildMatchesContainer = (matches, state) => {
             state.TFTSet = match.tft_set_number;
             console.log('TFTSet changed:', state.previousTFTSet, state.TFTSet);
             // Append the set label created by the new helper method.
-            matchesContainer.appendChild(createSetLabel(state.TFTSet));
+            matchesContainer.appendChild(createSetLabel(state.TFTSet, player1PeakRanks, player2PeakRanks));
         }
         const player1Placement = match.player1_game_details.placement;
         const player2Placement = match.player2_game_details.placement;
@@ -759,17 +768,73 @@ const buildMatchesContainer = (matches, state) => {
     return matchesContainer;
 };
 
-function createSetLabel(tftSet) {
-    const text = `Set ${tftSet}`;
-    const setLabel = document.createElement('div');
-    setLabel.className = 'match-set-label';
-    const imageUrl = getTFTSetImageUrl(tftSet);
-    if (imageUrl === null) {
-        setLabel.textContent = text;
-    } else {
-        setLabel.innerHTML = `<img src="${imageUrl}" alt="${text}" title="${text}" style="width:165px; height:86px; object-fit:cover; border-radius:10px; border:2px solid #ccc; box-shadow:0 2px 8px rgba(0, 0, 0, 0.2);">`;
+function createSetPeakRankDiv(setPeakRanks) {
+    if (setPeakRanks === null) {
+        return document.createElement('span'); // Return an empty span if no peak rank data.
     }
-    return setLabel;
+
+    const div = document.createElement('div');
+    div.className = 'set-peak-rank-div';
+
+    // "Peak rank" label
+    const additionalDiv = document.createElement('div');
+    additionalDiv.className = 'set-peak-rank-additional';
+    additionalDiv.textContent = 'Peak rank';
+    div.appendChild(additionalDiv);
+
+    // peak rank text
+    const textDiv = document.createElement('div');
+    textDiv.className = 'set-peak-rank-text';
+    textDiv.textContent = setPeakRanks.queue;
+    div.appendChild(textDiv);
+
+    // rank emblem
+    const rankEmblemDiv = createAndInsertPlayerRankDiv(
+        setPeakRanks.tier,
+        setPeakRanks.rank,
+        setPeakRanks.lp,
+        setPeakRanks.num_games
+    );
+    div.appendChild(rankEmblemDiv);
+
+    return div;
+}
+
+function createSetLabel(tftSet, player1PeakRanks, player2PeakRanks) {
+    const text = `Set ${tftSet}`
+    const setLabel = document.createElement('div')
+    setLabel.className = 'match-set-label'
+
+    const player1PeakRank = createSetPeakRankDiv(player1PeakRanks?.[String(tftSet)] ?? null);
+    const player2PeakRank = createSetPeakRankDiv(player2PeakRanks?.[String(tftSet)] ?? null);
+    const imageContainer = document.createElement('div')
+    imageContainer.className = 'match-set-image-container'
+    const imageUrl = getTFTSetImageUrl(tftSet)
+    if (imageUrl === null) {
+        imageContainer.textContent = text
+    } else {
+        imageContainer.innerHTML = `
+            <img
+                src="${imageUrl}"
+                alt="${text}"
+                title="${text}"
+                style="
+                    width:165px;
+                    height:86px;
+                    object-fit:cover;
+                    border-radius:10px;
+                    border:2px solid #ccc;
+                    box-shadow:0 2px 8px rgba(0, 0, 0, 0.2);
+                "
+            >
+        `
+    }
+
+    setLabel.appendChild(player1PeakRank)
+    setLabel.appendChild(imageContainer)
+    setLabel.appendChild(player2PeakRank)
+
+    return setLabel
 }
 
 // Helper function to create the contested div for a match.

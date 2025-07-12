@@ -48,6 +48,7 @@
     border-bottom: var(--border-height) solid var(--border-before-color);
     display: block;
     margin: 0;
+
 }
 
 .search-input .input-border {

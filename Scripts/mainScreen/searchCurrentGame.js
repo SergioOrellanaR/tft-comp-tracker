@@ -39,6 +39,7 @@ export const searchPlayer = async () => {
     messageContainer.style.display = 'block';
     // Append spinner so that it uses the same space as error messages
     const spinner = createLoadingSpinner();
+    spinner.style.marginLeft = '32px';
     messageContainer.appendChild(spinner);
     const searchButton = document.getElementById('searchPlayerButton');
     searchButton.disabled = true;
@@ -108,9 +109,10 @@ function handleSpectatorData(spectatorData, playerData, server) {
 
 async function updatePlayersDuelButtons(playerData, server) {
     const delayBetweenPlayers = 1000; // delay in milliseconds
-    // Remove the edit-icon from each player
-    document.querySelectorAll('.item.player .edit-icon').forEach(editIcon => {
-        editIcon.remove();
+    // Remove the edit-icon from each player's action container
+    document.querySelectorAll('.item.player .player-action-container').forEach(container => {
+        const editIcon = container.querySelector('.edit-icon');
+        if (editIcon) editIcon.remove();
     });
 
     const players = document.querySelectorAll('.item.player');
@@ -123,7 +125,9 @@ async function updatePlayersDuelButtons(playerData, server) {
             await new Promise(resolve => setTimeout(resolve, delayBetweenPlayers));
         }
 
-        if (!player.querySelector('.duel-button')) {
+        // Use the action container for all player actions
+        const actionContainer = player.querySelector('.player-action-container');
+        if (!actionContainer.querySelector('.duel-button')) {
             // Get the opponent's name from the player element.
             const player2Name = player.querySelector('.player-name').textContent.trim();
 
@@ -133,11 +137,11 @@ async function updatePlayersDuelButtons(playerData, server) {
                 continue; // Skip the player if it's the same as the one in the duel button
             }
 
-            player.querySelector('.participant-info-container').classList.add('margin-small');
             // Create a spinner placeholder for the duel button
             const spinner = createLoadingSpinner();
             spinner.classList.add('duel-spinner');
-            player.prepend(spinner);
+            actionContainer.innerHTML = '';
+            actionContainer.appendChild(spinner);
 
             // Start fetching duel data with a maximum of 10 seconds.
             const duelPromise = fetchFindGames(playerData.name, player2Name, server);
@@ -153,9 +157,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             }
 
             // Remove the spinner placeholder once a response is received.
-            if (spinner.parentElement) {
-                spinner.parentElement.removeChild(spinner);
-            }
+            actionContainer.innerHTML = '';
 
             // Create the actual duel button.
             const duelButton = document.createElement('button');
@@ -164,7 +166,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             duelButton.innerText = '⚔️';
             player.querySelector('.participant-info-container').classList.add('margin-none');
             processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
-            player.prepend(duelButton);
+            actionContainer.appendChild(duelButton);
         }
     }
 }
@@ -258,14 +260,13 @@ function updatePlayers(participants) {
                 // Create a new container for the player's name and rank information
                 const participantInfoContainer = document.createElement('div');
                 participantInfoContainer.classList.add('participant-info-container');
-                participantInfoContainer.style.marginLeft = '28px';
 
                 // Set the player's name and move it into the container
                 playerNameElement.textContent = participant.riotId;
                 participantInfoContainer.appendChild(playerNameElement);
 
                 // Create the mini rank div and add it to the container
-                const miniRankDiv = createAndInsertPlayerRankDiv(participant);
+                const miniRankDiv = createAndInsertPlayerRankDiv(participant.tier, participant.rank, participant.league_points);
                 participantInfoContainer.appendChild(miniRankDiv);
 
                 // Insert the container right before the div with class "color-bar"
@@ -283,35 +284,47 @@ function updatePlayers(participants) {
     });
 }
 
-function createAndInsertPlayerRankDiv(participant) {
+
+export function createAndInsertPlayerRankDiv(tier, playerRank, lp, numberOfGames = 0) {
     const rankDiv = document.createElement('div');
     rankDiv.classList.add('mini-rank-div');
 
-    const miniRankSvg = getMiniRankIconUrl(participant.tier);
+    // Create a container for the icon and first rank text
+    const iconAndRankDiv = document.createElement('div');
+    iconAndRankDiv.classList.add('mini-rank-icon-text');
+
+    const miniRankSvg = getMiniRankIconUrl(tier);
     const miniRankImg = document.createElement('img');
     miniRankImg.src = miniRankSvg;
     miniRankImg.classList.add('mini-rank-img');
-    miniRankImg.title = participant.tier;
+    miniRankImg.title = tier;
 
     let rank = '';
-    if (participant.tier !== 'CHALLENGER' && participant.tier !== 'MASTER' && participant.tier !== 'GRANDMASTER' && participant.tier !== 'UNRANKED') {
-        rank = participant.rank + ' - ';
+    if (tier !== 'CHALLENGER' && tier !== 'MASTER' && tier !== 'GRANDMASTER' && tier !== 'UNRANKED') {
+        rank = playerRank + ' - ';
     }
-    else if (participant.tier === 'UNRANKED') {
+    else if (tier === 'UNRANKED') {
         rank = 'Unranked';
     }
 
     const rankText = document.createElement('span');
     rankText.textContent = rank;
-    rankText.classList.add('mini-rank-text');
+    rankText.classList.add('mini-rank-text'); // first mini-rank-text
+
+    iconAndRankDiv.append(miniRankImg, rankText);
 
     const lpText = document.createElement('span');
-    if (participant.tier !== null && participant.tier !== 'UNRANKED') {
-        lpText.textContent = participant.league_points + ' LP';
+    if (tier !== null && tier !== 'UNRANKED') {
+        lpText.textContent = lp + ' LP';
     }
-    lpText.classList.add('mini-rank-text');
 
-    rankDiv.append(miniRankImg, rankText, lpText);
+    if (numberOfGames > 0) {
+        lpText.textContent += ` (${numberOfGames} Games)`;
+    }
+    
+    lpText.classList.add('mini-rank-lp-text'); // changed class name for second mini-rank-text
+
+    rankDiv.append(iconAndRankDiv, lpText);
 
     return rankDiv;
 }
