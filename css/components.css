@@ -53,13 +53,9 @@
     gap: 4px;
 }
 
-/* Participant info container margin variants */
-.participant-info-container.margin-you {
-    margin-left: 8px;
-}
-
 /* Estilos para nombres de jugadores */
 .player-name {
+    margin-left: -32px;
     flex: 1 1 auto;
     text-align: center;
     white-space: nowrap;
