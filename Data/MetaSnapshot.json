@@ -799,9 +799,25 @@
           "cost": 4,
           "name": "Zeri",
           "set": 14
+        },
+        {
+          "apiName": "TFT14_Mordekaiser",
+          "items": [
+            "TFT14_Item_GuardianEmblemItem",
+            "TFT14_MordekaiserCyberneticItem"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_mordekaiser_3yMV3DSbGN.webp",
+          "cost": 3,
+          "name": "Mordekaiser",
+          "set": 14
         }
       ],
       "augments": [
+        {
+          "apiName": "TFT_Augment_TraitTracker",
+          "id": "0wfs27c2keh7s8u"
+        },
         {
           "apiName": "TFT14_Augment_ExotechCrown",
           "id": "9yi7i4m8w4d30n9"
@@ -809,10 +825,6 @@
         {
           "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
           "id": "an791kscytn2cmc"
-        },
-        {
-          "apiName": "TFT_Augment_TraitTracker",
-          "id": "0wfs27c2keh7s8u"
         },
         {
           "apiName": "TFT6_Augment_BinaryAirdrop",
@@ -3804,7 +3816,6 @@
           "apiName": "TFT14_Urgot",
           "items": [
             "TFT_Item_BlueBuff",
-            "TFT_Item_Artifact_Fishbones",
             "TFT9_Item_OrnnHorizonFocus"
           ],
           "stars": 1,
@@ -3828,16 +3839,8 @@
           "id": "talnqdzyvk9aiyl"
         },
         {
-          "apiName": "TFT7_Augment_ClutteredMind",
-          "id": "2gi62pjjvcazz33"
-        },
-        {
           "apiName": "TFT_Augment_FiresalePlus",
           "id": "e86ab3l2v8qgumo"
-        },
-        {
-          "apiName": "TFT14_Augment_BoomBotsCrest",
-          "id": "fzcul0flot6t2mt"
         },
         {
           "apiName": "TFT_Augment_ForwardThinking",
@@ -3846,6 +3849,14 @@
         {
           "apiName": "TFT6_Augment_HighEndShopping",
           "id": "pheouhcwaxzjknw"
+        },
+        {
+          "apiName": "TFT6_Augment_MaxLevel10",
+          "id": "79c600096h3pml7"
+        },
+        {
+          "apiName": "TFT14_Augment_BoomBotsCrest",
+          "id": "fzcul0flot6t2mt"
         }
       ],
       "url": "https://tftacademy.com/tierlist/comps/set-14-boom-got",
@@ -3862,18 +3873,6 @@
           "championIcon": "tft14_urgot_Lp95L047Lk.webp",
           "cost": 5,
           "name": "Urgot",
-          "set": 14
-        },
-        {
-          "apiName": "TFT14_Vex",
-          "boardIndex": 23,
-          "items": [
-            "TFT_Item_Morellonomicon"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_vex_ea4LqaUwAu.webp",
-          "cost": 4,
-          "name": "Vex",
           "set": 14
         },
         {
@@ -4970,7 +4969,32 @@
       "tier": "B"
     },
     {
-      "altBuilds": [],
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Zac",
+          "items": [
+            "TFT_Item_UnstableTreasureChest"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_zac_fe6Q9SvJal.webp",
+          "cost": 5,
+          "name": "Zac",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Morgana",
+          "items": [
+            "TFT_Item_Artifact_BlightingJewel",
+            "TFT_Item_BlueBuff",
+            "TFT_Item_HextechGunblade"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_morgana_GSdV3RRaOu.webp",
+          "cost": 1,
+          "name": "Morgana",
+          "set": 14
+        }
+      ],
       "augments": [
         {
           "apiName": "TFT11_Augment_Slammin",
@@ -5440,8 +5464,8 @@
           "boardIndex": 4,
           "items": [
             "TFT_Item_WarmogsArmor",
-            "TFT_Item_BrambleVest",
-            "TFT_Item_NightHarvester"
+            "TFT_Item_RedBuff",
+            "TFT_Item_BrambleVest"
           ],
           "stars": 1,
           "championIcon": "tft14_leona_DzdoZtYJwy.webp",
@@ -5468,7 +5492,7 @@
           "boardIndex": 1,
           "items": [
             "TFT14_Item_GuardianEmblemItem",
-            "TFT_Item_RedBuff"
+            "TFT_Item_SteraksGage"
           ],
           "stars": 1,
           "championIcon": "tft14_garen_MCx1a5Elel.webp",
@@ -5591,6 +5615,116 @@
       "title": "Vanguard Urgot Fast 9",
       "style": "Fast 9",
       "tier": "A"
+    },
+    {
+      "altBuilds": [
+        {
+          "apiName": "TFT14_Sylas",
+          "items": [
+            "TFT_Item_Artifact_SeekersArmguard"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+          "cost": 1,
+          "name": "Sylas",
+          "set": 14
+        }
+      ],
+      "augments": [
+        {
+          "apiName": "TFT_Augment_StarryNightPlus",
+          "id": "66mxazbwpetl63e"
+        },
+        {
+          "apiName": "TFT_Augment_Lineup",
+          "id": "2pjf3652bni5d75"
+        },
+        {
+          "apiName": "TFT9_Augment_HealingOrbsII",
+          "id": "anm6q7ycq1gjqag"
+        },
+        {
+          "apiName": "TFT_Augment_WealthyRehab2",
+          "id": "559i3h4u3q0crk3"
+        },
+        {
+          "apiName": "TFT10_Augment_InspiringEpitaph",
+          "id": "ku6f6b94ac099ta"
+        },
+        {
+          "apiName": "TFT_Augment_BulkyBuddies2",
+          "id": "oam3x93qx6eluen"
+        },
+        {
+          "apiName": "TFT14_Augment_SylasCarry",
+          "id": "by636wxw1ps3hm5"
+        },
+        {
+          "apiName": "TFT14_Augment_Guardian_Vertical",
+          "id": "vbtdzr4wk3d0qd8"
+        }
+      ],
+      "url": "https://tftacademy.com/tierlist/comps/set-14-wolf-guard-sylas",
+      "champions": [
+        {
+          "apiName": "TFT14_Sylas",
+          "boardIndex": 7,
+          "items": [
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_ArchangelsStaff",
+            "TFT_Item_TitansResolve"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+          "cost": 1,
+          "name": "Sylas",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Vi",
+          "boardIndex": 1,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_RedBuff"
+          ],
+          "stars": 3,
+          "championIcon": "tft14_vi_c9tqBgxqxS.webp",
+          "cost": 1,
+          "name": "Vi",
+          "set": 14
+        },
+        {
+          "apiName": "TFT14_Xayah",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft14_xayah_hcLlCAzjh1.webp",
+          "cost": 4,
+          "name": "Xayah",
+          "set": 14
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT14_Augment_SylasCarry",
+        "id": "by636wxw1ps3hm5"
+      },
+      "mainChampion": {
+        "apiName": "TFT14_Sylas",
+        "cost": 1,
+        "id": "tfk73q1b0sk3csp",
+        "championIcon": "tft14_sylas_AEvpnsLasy.webp",
+        "name": "Sylas",
+        "set": 14
+      },
+      "mainItem": {},
+      "title": "Wolf Unchained Vanguard Sylas Reroll",
+      "style": "RR LV.5",
+      "tier": "X"
     }
   ],
   "items": {
@@ -5997,5 +6131,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-10 00:00:03"
+  "lastUpdated": "2025-07-12 00:00:03"
 }
