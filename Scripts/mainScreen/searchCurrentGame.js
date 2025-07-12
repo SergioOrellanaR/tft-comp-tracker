@@ -258,7 +258,6 @@ function updatePlayers(participants) {
                 // Create a new container for the player's name and rank information
                 const participantInfoContainer = document.createElement('div');
                 participantInfoContainer.classList.add('participant-info-container');
-                participantInfoContainer.style.marginLeft = '28px';
 
                 // Set the player's name and move it into the container
                 playerNameElement.textContent = participant.riotId;
@@ -287,6 +286,10 @@ function createAndInsertPlayerRankDiv(participant) {
     const rankDiv = document.createElement('div');
     rankDiv.classList.add('mini-rank-div');
 
+    // Create a container for the icon and first rank text
+    const iconAndRankDiv = document.createElement('div');
+    iconAndRankDiv.classList.add('mini-rank-icon-text');
+
     const miniRankSvg = getMiniRankIconUrl(participant.tier);
     const miniRankImg = document.createElement('img');
     miniRankImg.src = miniRankSvg;
@@ -303,15 +306,17 @@ function createAndInsertPlayerRankDiv(participant) {
 
     const rankText = document.createElement('span');
     rankText.textContent = rank;
-    rankText.classList.add('mini-rank-text');
+    rankText.classList.add('mini-rank-text'); // first mini-rank-text
+
+    iconAndRankDiv.append(miniRankImg, rankText);
 
     const lpText = document.createElement('span');
     if (participant.tier !== null && participant.tier !== 'UNRANKED') {
         lpText.textContent = participant.league_points + ' LP';
     }
-    lpText.classList.add('mini-rank-text');
+    lpText.classList.add('mini-rank-lp-text'); // changed class name for second mini-rank-text
 
-    rankDiv.append(miniRankImg, rankText, lpText);
+    rankDiv.append(iconAndRankDiv, lpText);
 
     return rankDiv;
 }

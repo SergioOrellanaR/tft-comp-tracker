@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 8px;
+    padding: 2px 5px;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 0px;
@@ -95,9 +95,26 @@
     height: 28px;
 }
 
+.mini-rank-icon-text {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+}
+
 .mini-rank-text {
     font-size: 0.8em;
-    opacity: 0.5;
+    opacity: 0.85;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.mini-rank-lp-text
+{
+    font-size: 0.8em;
+    opacity: 0.6;
 }
 
 .table-container {
