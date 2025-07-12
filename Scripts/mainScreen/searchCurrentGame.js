@@ -297,7 +297,7 @@ export function createAndInsertPlayerRankDiv(tier, playerRank, lp, numberOfGames
 
     let rank = '';
     if (tier !== 'CHALLENGER' && tier !== 'MASTER' && tier !== 'GRANDMASTER' && tier !== 'UNRANKED') {
-        rank = playerRank + ' - ';
+        rank = playerRank;
     }
     else if (tier === 'UNRANKED') {
         rank = 'Unranked';
