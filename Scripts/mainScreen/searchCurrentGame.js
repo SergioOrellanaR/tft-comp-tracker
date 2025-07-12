@@ -136,7 +136,6 @@ async function updatePlayersDuelButtons(playerData, server) {
                 continue; // Skip the player if it's the same as the one in the duel button
             }
 
-            player.querySelector('.participant-info-container').classList.add('margin-small');
             // Create a spinner placeholder for the duel button
             const spinner = createLoadingSpinner();
             spinner.classList.add('duel-spinner');

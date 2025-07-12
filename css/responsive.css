@@ -121,6 +121,18 @@
         display: none !important;
     }
 
+    #infoTableContainer{
+        display: none !important;
+    }
+
+    .participant-info-container.margin-you {
+    margin-left: 0px;
+}
+
+    .player-action-container {
+        display: none !important;
+    }
+
     .match-traits {
         display: none !important;
     }

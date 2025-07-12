@@ -55,15 +55,7 @@
 
 /* Participant info container margin variants */
 .participant-info-container.margin-you {
-    margin-left: 28px;
-}
-
-.participant-info-container.margin-small {
-    margin-left: 4px;
-}
-
-.participant-info-container.margin-none {
-    margin-left: 0px;
+    margin-left: 12px;
 }
 
 /* Estilos para nombres de jugadores */
