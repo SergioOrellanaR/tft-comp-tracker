@@ -55,7 +55,7 @@
 
 /* Participant info container margin variants */
 .participant-info-container.margin-you {
-    margin-left: 12px;
+    margin-left: 8px;
 }
 
 /* Estilos para nombres de jugadores */
@@ -132,7 +132,7 @@
 #coreItemsContainer {
     display: flex;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1.25rem;
     margin-top: 16px;
 }
 
@@ -161,7 +161,7 @@
     justify-content: center;
     align-content: start;
     gap: 12px;
-    padding: 4px 0;
+    padding: 4px 3px;
     border: 2px solid #333;
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);

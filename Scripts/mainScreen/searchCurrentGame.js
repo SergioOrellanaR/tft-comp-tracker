@@ -39,6 +39,7 @@ export const searchPlayer = async () => {
     messageContainer.style.display = 'block';
     // Append spinner so that it uses the same space as error messages
     const spinner = createLoadingSpinner();
+    spinner.style.marginLeft = '32px';
     messageContainer.appendChild(spinner);
     const searchButton = document.getElementById('searchPlayerButton');
     searchButton.disabled = true;
@@ -283,7 +284,8 @@ function updatePlayers(participants) {
     });
 }
 
-export function createAndInsertPlayerRankDiv(tier, playerRank, lp) {
+
+export function createAndInsertPlayerRankDiv(tier, playerRank, lp, numberOfGames = 0) {
     const rankDiv = document.createElement('div');
     rankDiv.classList.add('mini-rank-div');
 
@@ -315,6 +317,11 @@ export function createAndInsertPlayerRankDiv(tier, playerRank, lp) {
     if (tier !== null && tier !== 'UNRANKED') {
         lpText.textContent = lp + ' LP';
     }
+
+    if (numberOfGames > 0) {
+        lpText.textContent += ` (${numberOfGames} Games)`;
+    }
+    
     lpText.classList.add('mini-rank-lp-text'); // changed class name for second mini-rank-text
 
     rankDiv.append(iconAndRankDiv, lpText);

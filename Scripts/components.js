@@ -549,8 +549,17 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     overlay.appendChild(closeBtn);
 
     overlay.appendChild(createTitleModal());
-    overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
-    overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, server));
+
+    // Ensure header and stats are loaded before rendering modals
+    const cachedData = duelsCache.get(player2Name) || {};
+    const headerPromise = cachedData.header ? Promise.resolve(cachedData.header) : fetchPlayerSummary(player2Name, server);
+    const statsPromise = cachedData.stats ? Promise.resolve(cachedData.stats) : fetchDuelStats(playerData.name, player2Name, server);
+
+    Promise.all([headerPromise, statsPromise]).then(([headerData, statsData]) => {
+        duelsCache.set(player2Name, { ...cachedData, header: headerData, stats: statsData });
+        overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
+        overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, server));
+    });
 }
 
 /* ============================================================================
@@ -767,30 +776,26 @@ function createSetPeakRankDiv(setPeakRanks) {
     const div = document.createElement('div');
     div.className = 'set-peak-rank-div';
 
-    // wrap the existing text and emblem in their own container
-    const wrapper = document.createElement('div');
-    wrapper.className = 'set-peak-rank-wrapper';
+    // "Peak rank" label
+    const additionalDiv = document.createElement('div');
+    additionalDiv.className = 'set-peak-rank-additional';
+    additionalDiv.textContent = 'Peak rank';
+    div.appendChild(additionalDiv);
 
     // peak rank text
     const textDiv = document.createElement('div');
     textDiv.className = 'set-peak-rank-text';
     textDiv.textContent = setPeakRanks.queue;
-    wrapper.appendChild(textDiv);
+    div.appendChild(textDiv);
 
-    // rank emblem (calls your helper)
+    // rank emblem
     const rankEmblemDiv = createAndInsertPlayerRankDiv(
         setPeakRanks.tier,
         setPeakRanks.rank,
-        setPeakRanks.lp
+        setPeakRanks.lp,
+        setPeakRanks.num_games
     );
-    wrapper.appendChild(rankEmblemDiv);
-
-    const additionalDiv = document.createElement('div');
-    additionalDiv.className = 'set-peak-rank-additional';
-    additionalDiv.textContent = 'Set peak rank';
-    div.appendChild(additionalDiv);
-
-    div.appendChild(wrapper);
+    div.appendChild(rankEmblemDiv);
 
     return div;
 }
@@ -800,7 +805,8 @@ function createSetLabel(tftSet, player1PeakRanks, player2PeakRanks) {
     const setLabel = document.createElement('div')
     setLabel.className = 'match-set-label'
 
-    const player1PeakRank = createSetPeakRankDiv(player1PeakRanks[String(tftSet)] || null);
+    const player1PeakRank = createSetPeakRankDiv(player1PeakRanks?.[String(tftSet)] ?? null);
+    const player2PeakRank = createSetPeakRankDiv(player2PeakRanks?.[String(tftSet)] ?? null);
     const imageContainer = document.createElement('div')
     imageContainer.className = 'match-set-image-container'
     const imageUrl = getTFTSetImageUrl(tftSet)
@@ -823,8 +829,6 @@ function createSetLabel(tftSet, player1PeakRanks, player2PeakRanks) {
             >
         `
     }
-    console.log('player2PeakRanks:', player2PeakRanks);
-    const player2PeakRank = createSetPeakRankDiv(player2PeakRanks[String(tftSet)] || null);
 
     setLabel.appendChild(player1PeakRank)
     setLabel.appendChild(imageContainer)
