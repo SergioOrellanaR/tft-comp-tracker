@@ -1,5 +1,7 @@
 const TFT_VERSUS_API_BASE_URL = 'https://tft-versus.onrender.com/api';
 
+export const CURRENT_SEASON = 14;
+
 export const TFT_VERSUS_API_URL = {
     playerSummary: TFT_VERSUS_API_BASE_URL + '/header',
     findGames: TFT_VERSUS_API_BASE_URL + '/find',
