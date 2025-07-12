@@ -39,7 +39,6 @@ export const searchPlayer = async () => {
     messageContainer.style.display = 'block';
     // Append spinner so that it uses the same space as error messages
     const spinner = createLoadingSpinner();
-    spinner.style.marginLeft = '32px';
     messageContainer.appendChild(spinner);
     const searchButton = document.getElementById('searchPlayerButton');
     searchButton.disabled = true;
@@ -58,12 +57,8 @@ export const searchPlayer = async () => {
             showMessage(spectatorData.detail);
             return;
         }
-
-        console.log('Spectator Data:', spectatorData);
         resetLoadingState(spinner, searchButton);
-        console.log('Player Data 1:', playerData);
         handleSpectatorData(spectatorData, playerData, server);
-        console.log('Player Data 2:', playerData);
     } catch (error) {
         console.error('Error fetching data:', error);
         resetLoadingState(spinner, searchButton);
@@ -257,28 +252,29 @@ function updatePlayers(participants) {
         if (playerElements[index]) {
             const playerNameElement = playerElements[index].querySelector('span.player-name');
             if (playerNameElement) {
-                // Create a new container for the player's name and rank information
-                const participantInfoContainer = document.createElement('div');
-                participantInfoContainer.classList.add('participant-info-container');
+            // Create a new container for the player's name and rank information
+            const participantInfoContainer = document.createElement('div');
+            participantInfoContainer.classList.add('participant-info-container');
 
-                // Set the player's name and move it into the container
-                playerNameElement.textContent = participant.riotId;
-                participantInfoContainer.appendChild(playerNameElement);
+            // Set the player's name and move it into the container
+            playerNameElement.textContent = participant.riotId;
+            playerNameElement.style.marginLeft = '0px';  // make name italic
+            participantInfoContainer.appendChild(playerNameElement);
 
-                // Create the mini rank div and add it to the container
-                const miniRankDiv = createAndInsertPlayerRankDiv(participant.tier, participant.rank, participant.league_points);
-                participantInfoContainer.appendChild(miniRankDiv);
+            // Create the mini rank div and add it to the container
+            const miniRankDiv = createAndInsertPlayerRankDiv(participant.tier, participant.rank, participant.league_points);
+            participantInfoContainer.appendChild(miniRankDiv);
 
-                // Insert the container right before the div with class "color-bar"
-                const playerEl = playerElements[index];
-                const colorBar = playerEl.querySelector('.color-bar');
-                if (colorBar) {
-                    playerEl.insertBefore(participantInfoContainer, colorBar);
-                } else {
-                    playerEl.appendChild(participantInfoContainer);
-                }
+            // Insert the container right before the div with class "color-bar"
+            const playerEl = playerElements[index];
+            const colorBar = playerEl.querySelector('.color-bar');
+            if (colorBar) {
+                playerEl.insertBefore(participantInfoContainer, colorBar);
+            } else {
+                playerEl.appendChild(participantInfoContainer);
+            }
 
-                duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
+            duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
             }
         }
     });
