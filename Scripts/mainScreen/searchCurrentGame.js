@@ -265,7 +265,7 @@ function updatePlayers(participants) {
                 participantInfoContainer.appendChild(playerNameElement);
 
                 // Create the mini rank div and add it to the container
-                const miniRankDiv = createAndInsertPlayerRankDiv(participant);
+                const miniRankDiv = createAndInsertPlayerRankDiv(participant.tier, participant.rank, participant.league_points);
                 participantInfoContainer.appendChild(miniRankDiv);
 
                 // Insert the container right before the div with class "color-bar"
@@ -283,7 +283,7 @@ function updatePlayers(participants) {
     });
 }
 
-function createAndInsertPlayerRankDiv(participant) {
+function createAndInsertPlayerRankDiv(tier, playerRank, lp) {
     const rankDiv = document.createElement('div');
     rankDiv.classList.add('mini-rank-div');
 
@@ -291,17 +291,17 @@ function createAndInsertPlayerRankDiv(participant) {
     const iconAndRankDiv = document.createElement('div');
     iconAndRankDiv.classList.add('mini-rank-icon-text');
 
-    const miniRankSvg = getMiniRankIconUrl(participant.tier);
+    const miniRankSvg = getMiniRankIconUrl(tier);
     const miniRankImg = document.createElement('img');
     miniRankImg.src = miniRankSvg;
     miniRankImg.classList.add('mini-rank-img');
-    miniRankImg.title = participant.tier;
+    miniRankImg.title = tier;
 
     let rank = '';
-    if (participant.tier !== 'CHALLENGER' && participant.tier !== 'MASTER' && participant.tier !== 'GRANDMASTER' && participant.tier !== 'UNRANKED') {
-        rank = participant.rank + ' - ';
+    if (tier !== 'CHALLENGER' && tier !== 'MASTER' && tier !== 'GRANDMASTER' && tier !== 'UNRANKED') {
+        rank = playerRank + ' - ';
     }
-    else if (participant.tier === 'UNRANKED') {
+    else if (tier === 'UNRANKED') {
         rank = 'Unranked';
     }
 
@@ -312,8 +312,8 @@ function createAndInsertPlayerRankDiv(participant) {
     iconAndRankDiv.append(miniRankImg, rankText);
 
     const lpText = document.createElement('span');
-    if (participant.tier !== null && participant.tier !== 'UNRANKED') {
-        lpText.textContent = participant.league_points + ' LP';
+    if (tier !== null && tier !== 'UNRANKED') {
+        lpText.textContent = lp + ' LP';
     }
     lpText.classList.add('mini-rank-lp-text'); // changed class name for second mini-rank-text
 

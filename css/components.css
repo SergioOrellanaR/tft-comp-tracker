@@ -71,7 +71,7 @@
 .mini-rank-div {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: space-evenly;
     flex-shrink: 0;
     min-width: 70px;
 }
@@ -525,23 +525,23 @@ th {
 
 /* Per-row border colors via custom property */
 .table-row-1 {
-    border: 2px solid rgba(128, 128, 128, 0.7);
+    border: 2px solid rgba(128, 128, 128, 0.45);
 }
 
 .table-row-2 {
-    border: 2px solid rgba(76, 175, 80, 0.7);
+    border: 2px solid rgba(76, 175, 80, 0.45);
 }
 
 .table-row-3 {
-    border: 2px solid rgba(33, 150, 243, 0.7);
+    border: 2px solid rgba(33, 150, 243, 0.45);
 }
 
 .table-row-4 {
-    border: 2px solid rgba(156, 39, 176, 0.7);
+    border: 2px solid rgba(156, 39, 176, 0.45);
 }
 
 .table-row-5 {
-    border: 2px solid rgba(255, 215, 0, 0.7);
+    border: 2px solid rgba(255, 215, 0, 0.45);
 }
 
 .table-container div div img {
