@@ -108,9 +108,10 @@ function handleSpectatorData(spectatorData, playerData, server) {
 
 async function updatePlayersDuelButtons(playerData, server) {
     const delayBetweenPlayers = 1000; // delay in milliseconds
-    // Remove the edit-icon from each player
-    document.querySelectorAll('.item.player .edit-icon').forEach(editIcon => {
-        editIcon.remove();
+    // Remove the edit-icon from each player's action container
+    document.querySelectorAll('.item.player .player-action-container').forEach(container => {
+        const editIcon = container.querySelector('.edit-icon');
+        if (editIcon) editIcon.remove();
     });
 
     const players = document.querySelectorAll('.item.player');
@@ -123,7 +124,9 @@ async function updatePlayersDuelButtons(playerData, server) {
             await new Promise(resolve => setTimeout(resolve, delayBetweenPlayers));
         }
 
-        if (!player.querySelector('.duel-button')) {
+        // Use the action container for all player actions
+        const actionContainer = player.querySelector('.player-action-container');
+        if (!actionContainer.querySelector('.duel-button')) {
             // Get the opponent's name from the player element.
             const player2Name = player.querySelector('.player-name').textContent.trim();
 
@@ -137,7 +140,8 @@ async function updatePlayersDuelButtons(playerData, server) {
             // Create a spinner placeholder for the duel button
             const spinner = createLoadingSpinner();
             spinner.classList.add('duel-spinner');
-            player.prepend(spinner);
+            actionContainer.innerHTML = '';
+            actionContainer.appendChild(spinner);
 
             // Start fetching duel data with a maximum of 10 seconds.
             const duelPromise = fetchFindGames(playerData.name, player2Name, server);
@@ -153,9 +157,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             }
 
             // Remove the spinner placeholder once a response is received.
-            if (spinner.parentElement) {
-                spinner.parentElement.removeChild(spinner);
-            }
+            actionContainer.innerHTML = '';
 
             // Create the actual duel button.
             const duelButton = document.createElement('button');
@@ -164,7 +166,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             duelButton.innerText = '⚔️';
             player.querySelector('.participant-info-container').classList.add('margin-none');
             processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
-            player.prepend(duelButton);
+            actionContainer.appendChild(duelButton);
         }
     }
 }
