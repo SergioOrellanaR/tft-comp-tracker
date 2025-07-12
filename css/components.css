@@ -156,8 +156,8 @@
     flex-direction: row;
     justify-content: center;
     align-content: start;
-    gap: 12px;
-    padding: 4px 3px;
+    gap: 10px;
+    padding: 4px 4px;
     border: 2px solid #333;
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);

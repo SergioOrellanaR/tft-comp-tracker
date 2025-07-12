@@ -124,7 +124,7 @@ export function loadCompsFromJSON(metaData) {
 
             const header = document.createElement('div');
             header.className = 'tier-header';
-            header.textContent = `TIER ${t}${t === 'X' ? ' (SITUATIONAL)' : ''}`;
+            header.textContent = t === 'X' ? 'SITUATIONAL' : `TIER ${t}`;
             header.style.backgroundColor = CONFIG.tierColors[t];
             header.style.color = getContrastYIQ(CONFIG.tierColors[t]);
             compsContainer.appendChild(header);
