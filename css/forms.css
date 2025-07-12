@@ -48,6 +48,7 @@
     border-bottom: var(--border-height) solid var(--border-before-color);
     display: block;
     margin: 0;
+    text-align: center; 
 }
 
 .search-input .input-border {

@@ -283,7 +283,7 @@ function updatePlayers(participants) {
     });
 }
 
-function createAndInsertPlayerRankDiv(tier, playerRank, lp) {
+export function createAndInsertPlayerRankDiv(tier, playerRank, lp) {
     const rankDiv = document.createElement('div');
     rankDiv.classList.add('mini-rank-div');
 
