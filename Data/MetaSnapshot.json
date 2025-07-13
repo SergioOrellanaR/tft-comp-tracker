@@ -1603,19 +1603,6 @@
           "cost": 2,
           "name": "Twisted Fate",
           "set": 14
-        },
-        {
-          "apiName": "TFT14_TwistedFate",
-          "items": [
-            "TFT7_Item_ShimmerscaleGamblersBlade",
-            "TFT_Item_GuinsoosRageblade",
-            "TFT_Item_HextechGunblade"
-          ],
-          "stars": 1,
-          "championIcon": "tft14_twisted_fate_Bi3n5isUMU.webp",
-          "cost": 2,
-          "name": "Twisted Fate",
-          "set": 14
         }
       ],
       "augments": [
@@ -1722,7 +1709,7 @@
       "mainItem": {},
       "title": "Twisted Fate Reroll",
       "style": "RR LV.6",
-      "tier": "A"
+      "tier": "B"
     },
     {
       "altBuilds": [
@@ -5258,7 +5245,7 @@
       "mainItem": {},
       "title": "Cypher Draven Leblanc Reroll",
       "style": "L. Streak",
-      "tier": "A"
+      "tier": "S"
     },
     {
       "altBuilds": [
@@ -6131,5 +6118,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-12 00:00:03"
+  "lastUpdated": "2025-07-13 00:00:03"
 }
