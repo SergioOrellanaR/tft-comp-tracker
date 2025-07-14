@@ -2267,10 +2267,10 @@
       "champions": [
         {
           "apiName": "TFT14_Zed",
-          "boardIndex": 4,
+          "boardIndex": 2,
           "items": [
+            "TFT_Item_Quicksilver",
             "TFT_Item_InfinityEdge",
-            "TFT_Item_Bloodthirster",
             "TFT_Item_PowerGauntlet"
           ],
           "stars": 1,
@@ -2295,7 +2295,7 @@
         },
         {
           "apiName": "TFT14_Renekton",
-          "boardIndex": 19,
+          "boardIndex": 14,
           "items": [
             "TFT_Item_Quicksilver",
             "TFT_Item_Bloodthirster",
@@ -6118,5 +6118,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-13 00:00:03"
+  "lastUpdated": "2025-07-14 18:00:04"
 }
