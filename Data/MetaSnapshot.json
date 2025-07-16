@@ -1059,7 +1059,7 @@
       },
       "title": "Street Demon Strategist",
       "style": "Fast 8",
-      "tier": "B"
+      "tier": "A"
     },
     {
       "altBuilds": [
@@ -3533,7 +3533,7 @@
       "mainItem": {},
       "title": "Street Demon Rengar Jinx",
       "style": "RR LV.7",
-      "tier": "C"
+      "tier": "B"
     },
     {
       "altBuilds": [
@@ -5099,7 +5099,7 @@
       "mainItem": {},
       "title": "Dynamo Miss Fortune Elise",
       "style": "Fast 9",
-      "tier": "A"
+      "tier": "S"
     },
     {
       "altBuilds": [
@@ -6118,5 +6118,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-14 18:00:04"
+  "lastUpdated": "2025-07-16 12:00:04"
 }
