@@ -1305,6 +1305,77 @@
       "title": "Monster Trainer Kog'Maw Reroll",
       "style": "RR LV.7",
       "tier": "B"
+    },
+    {
+      "altBuilds": [],
+      "augments": [],
+      "url": "https://tftacademy.com/tierlist/comps/set-15-protocol-k",
+      "champions": [
+        {
+          "apiName": "TFT15_Kalista",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_Artifact_LudensTempest"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_kalista_tg4p6UFbFA.webp",
+          "cost": 1,
+          "name": "Kalista",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Sett",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_GargoyleStoneplate",
+            "TFT_Item_IonicSpark"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_sett_1GhMny2Zz9.webp",
+          "cost": 4,
+          "name": "Sett",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Aatrox",
+          "boardIndex": 6,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft15_aatrox_5B3CvDySDv.webp",
+          "cost": 1,
+          "name": "Aatrox",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Naafiri",
+          "boardIndex": 22,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft15_naafiri_G6nQtxmDb2.webp",
+          "cost": 1,
+          "name": "Naafiri",
+          "set": 15
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT15_Kalista",
+        "cost": 1,
+        "id": "13ch6doi6r3nhke",
+        "championIcon": "tft15_kalista_tg4p6UFbFA.webp",
+        "name": "Kalista",
+        "set": 15
+      },
+      "mainItem": {
+        "apiName": "TFT_Item_Artifact_LudensTempest",
+        "id": "m8o8a3fh2m95b6e"
+      },
+      "title": "Kalista Reroll",
+      "style": "RR LV.5",
+      "tier": "C"
     }
   ],
   "items": {
@@ -1510,5 +1581,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-17 06:00:03"
+  "lastUpdated": "2025-07-17 12:00:04"
 }
