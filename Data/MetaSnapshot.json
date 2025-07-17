@@ -773,7 +773,7 @@
       ],
       "mainAugment": {
         "apiName": "TFT15_Augment_MalphiteCarry",
-        "id": "xo563u3hz42h00p"
+        "id": "ew7qknjg0hny74d"
       },
       "mainChampion": {
         "apiName": "TFT15_Malphite",
@@ -835,20 +835,6 @@
           "set": 15
         },
         {
-          "apiName": "TFT15_Yuumi",
-          "boardIndex": 21,
-          "items": [
-            "TFT_Item_AdaptiveHelm",
-            "TFT_Item_JeweledGauntlet",
-            "TFT_Item_PowerGauntlet"
-          ],
-          "stars": 1,
-          "championIcon": "tft15_yuumi_tgDFuZ5UFE.webp",
-          "cost": 4,
-          "name": "Yuumi",
-          "set": 15
-        },
-        {
           "apiName": "TFT15_Leona",
           "boardIndex": 1,
           "items": [
@@ -861,11 +847,25 @@
           "cost": 4,
           "name": "Leona",
           "set": 15
+        },
+        {
+          "apiName": "TFT15_Yuumi",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_AdaptiveHelm",
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_yuumi_tgDFuZ5UFE.webp",
+          "cost": 4,
+          "name": "Yuumi",
+          "set": 15
         }
       ],
       "mainAugment": {
         "apiName": "TFT15_Augment_GarenCarry",
-        "id": "4f95lnp8h7d2xmy"
+        "id": "ontdbusl6siq6qd"
       },
       "mainChampion": {
         "apiName": "TFT15_Garen",
@@ -1141,7 +1141,7 @@
       ],
       "mainAugment": {
         "apiName": "TFT15_Augment_ZacCarry",
-        "id": "m493iahpop12ixv"
+        "id": "znx8nllyo1un7gf"
       },
       "mainChampion": {
         "apiName": "TFT15_Zac",
@@ -1202,7 +1202,7 @@
       ],
       "mainAugment": {
         "apiName": "TFT15_Augment_KennenCarry",
-        "id": "wadfpvu6qs8qz49"
+        "id": "mol0amnxrxrwh7b"
       },
       "mainChampion": {
         "apiName": "TFT15_Kennen",
@@ -1510,5 +1510,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-17 00:00:04"
+  "lastUpdated": "2025-07-17 06:00:03"
 }
