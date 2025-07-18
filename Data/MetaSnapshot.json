@@ -227,7 +227,7 @@
         "set": 15
       },
       "mainItem": {},
-      "title": "Mentor Mecha Fast 9",
+      "title": "Mentor Mech Ryze",
       "style": "Fast 9",
       "tier": "A"
     },
@@ -432,7 +432,7 @@
       "mainItem": {},
       "title": "Wraith Kayle Reroll",
       "style": "RR LV.5",
-      "tier": "S"
+      "tier": "A"
     },
     {
       "altBuilds": [],
@@ -578,20 +578,14 @@
       "mainItem": {},
       "title": "Sniper Bastion Jinx",
       "style": "Fast 8",
-      "tier": "A"
+      "tier": "S"
     },
     {
-      "altBuilds": [],
-      "augments": [],
-      "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
-      "champions": [
+      "altBuilds": [
         {
           "apiName": "TFT15_Karma",
-          "boardIndex": 21,
           "items": [
-            "TFT_Item_AdaptiveHelm",
-            "TFT_Item_PowerGauntlet",
-            "TFT_Item_JeweledGauntlet"
+            "TFT_Item_BlueBuff"
           ],
           "stars": 1,
           "championIcon": "tft15_karma_0wqLiuORQz.webp",
@@ -599,6 +593,21 @@
           "name": "Karma",
           "set": 15
         },
+        {
+          "apiName": "TFT15_Karma",
+          "items": [
+            "TFT_Item_SpearOfShojin"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_karma_0wqLiuORQz.webp",
+          "cost": 4,
+          "name": "Karma",
+          "set": 15
+        }
+      ],
+      "augments": [],
+      "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
+      "champions": [
         {
           "apiName": "TFT15_JarvanIV",
           "boardIndex": 3,
@@ -611,6 +620,20 @@
           "championIcon": "tft15_jarvan_iv_jPJgiEh2VG.webp",
           "cost": 4,
           "name": "Jarvan IV",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Karma",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_AdaptiveHelm",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_karma_0wqLiuORQz.webp",
+          "cost": 4,
+          "name": "Karma",
           "set": 15
         },
         {
@@ -630,11 +653,11 @@
       ],
       "mainAugment": {},
       "mainChampion": {
-        "apiName": "TFT15_Karma",
-        "cost": 4,
-        "id": "aa6ocnyeyxw0ljj",
-        "championIcon": "tft15_karma_0wqLiuORQz.webp",
-        "name": "Karma",
+        "apiName": "TFT15_Galio",
+        "cost": 11,
+        "id": "opcxaj0srkrqz7m",
+        "championIcon": "tft15_galio_hvVHGSz0CL.webp",
+        "name": "The Mighty Mech",
         "set": 15
       },
       "mainItem": {},
@@ -1687,6 +1710,155 @@
       "title": "Twilight Assault Shen Reroll",
       "style": "RR LV.6",
       "tier": "X"
+    },
+    {
+      "altBuilds": [],
+      "augments": [],
+      "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-xayah",
+      "champions": [
+        {
+          "apiName": "TFT15_Xayah",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_GuinsoosRageblade",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_RunaansHurricane"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_xayah_xwm1Khhslg.webp",
+          "cost": 2,
+          "name": "Xayah",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Shen",
+          "boardIndex": 5,
+          "items": [
+            "TFT_Item_SpectralGauntlet",
+            "TFT_Item_RedBuff",
+            "TFT_Item_Redemption"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_shen_7xfxjBSrJY.webp",
+          "cost": 2,
+          "name": "Shen",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Yasuo",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_TitansResolve",
+            "TFT_Item_Bloodthirster"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_yasuo_FK5F79eLBa.webp",
+          "cost": 3,
+          "name": "Yasuo",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_XinZhao",
+          "boardIndex": 0,
+          "items": [],
+          "stars": 3,
+          "championIcon": "tft15_xin_zhao_uzhOMkpCvU.webp",
+          "cost": 2,
+          "name": "Xin Zhao",
+          "set": 15
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT15_Xayah",
+        "cost": 2,
+        "id": "r9vtjyf8iuyzrm5",
+        "championIcon": "tft15_xayah_xwm1Khhslg.webp",
+        "name": "Xayah",
+        "set": 15
+      },
+      "mainItem": {},
+      "title": "Bastion Xayah",
+      "style": "RR LV.6",
+      "tier": "A"
+    },
+    {
+      "altBuilds": [],
+      "augments": [],
+      "url": "https://tftacademy.com/tierlist/comps/set-15-super-spreader",
+      "champions": [
+        {
+          "apiName": "TFT15_Malzahar",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_Morellonomicon",
+            "TFT_Item_Artifact_BlightingJewel"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_malzahar_aVGKFVa1Gq.webp",
+          "cost": 3,
+          "name": "Malzahar",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Rammus",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_GargoyleStoneplate",
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_Crownguard"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_rammus_1CVwyy8PZu.webp",
+          "cost": 3,
+          "name": "Rammus",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Yuumi",
+          "boardIndex": 23,
+          "items": [
+            "TFT_Item_RabadonsDeathcap",
+            "TFT_Item_StatikkShiv",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_yuumi_tgDFuZ5UFE.webp",
+          "cost": 4,
+          "name": "Yuumi",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Seraphine",
+          "boardIndex": 24,
+          "items": [
+            "TFT_Item_ThiefsGloves"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_seraphine_kA7e4Uq1W5.webp",
+          "cost": 5,
+          "name": "Seraphine",
+          "set": 15
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT15_Malzahar",
+        "cost": 3,
+        "id": "hpi25cqxdmjv4ag",
+        "championIcon": "tft15_malzahar_aVGKFVa1Gq.webp",
+        "name": "Malzahar",
+        "set": 15
+      },
+      "mainItem": {
+        "apiName": "TFT_Item_Artifact_BlightingJewel",
+        "id": "28a0vvy3k7yaj9a"
+      },
+      "title": "Prodigy Malzahar Reroll",
+      "style": "RR LV.7",
+      "tier": "A"
     }
   ],
   "items": {
@@ -1854,6 +2026,11 @@
     ],
     "artifact": [
       {
+        "apiName": "TFT_Item_Artifact_BlightingJewel",
+        "name": "Blighting Jewel",
+        "icon": "tft_item_artifact_blighting_jewel_oXb1P2iI15.webp"
+      },
+      {
         "apiName": "TFT_Item_Artifact_Dawncore",
         "name": "Dawncore",
         "icon": "tft_item_artifact_dawncore_Qs2bGQ7Wqj.webp"
@@ -1907,5 +2084,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-18 06:00:05"
+  "lastUpdated": "2025-07-18 12:00:05"
 }
