@@ -4,29 +4,29 @@
     {
       "altBuilds": [
         {
-          "apiName": "TFT15_KSante",
+          "apiName": "TFT15_Yuumi",
           "items": [
-            "TFT_Item_WarmogsArmor",
-            "TFT_Item_WarmogsArmor",
-            "TFT_Item_GargoyleStoneplate"
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_AdaptiveHelm"
           ],
           "stars": 1,
-          "championIcon": "tft15_ksante_Tagl7ji6Xk.webp",
+          "championIcon": "tft15_yuumi_tgDFuZ5UFE.webp",
           "cost": 4,
-          "name": "K'Sante",
+          "name": "Yuumi",
           "set": 15
         },
         {
-          "apiName": "TFT15_JarvanIV",
+          "apiName": "TFT15_Yuumi",
           "items": [
-            "TFT_Item_WarmogsArmor",
-            "TFT_Item_FrozenHeart",
-            "TFT_Item_FrozenHeart"
+            "TFT_Item_BlueBuff",
+            "TFT_Item_JeweledGauntlet",
+            "TFT4_Item_OrnnMuramana"
           ],
           "stars": 1,
-          "championIcon": "tft15_jarvan_iv_jPJgiEh2VG.webp",
+          "championIcon": "tft15_yuumi_tgDFuZ5UFE.webp",
           "cost": 4,
-          "name": "Jarvan IV",
+          "name": "Yuumi",
           "set": 15
         }
       ],
@@ -50,9 +50,9 @@
           "apiName": "TFT15_Yuumi",
           "boardIndex": 27,
           "items": [
-            "TFT_Item_AdaptiveHelm",
             "TFT_Item_JeweledGauntlet",
-            "TFT_Item_PowerGauntlet"
+            "TFT_Item_PowerGauntlet",
+            "TFT_Item_BlueBuff"
           ],
           "stars": 1,
           "championIcon": "tft15_yuumi_tgDFuZ5UFE.webp",
@@ -75,17 +75,17 @@
           "set": 15
         },
         {
-          "apiName": "TFT15_Ryze",
-          "boardIndex": 25,
+          "apiName": "TFT15_Seraphine",
+          "boardIndex": 21,
           "items": [
             "TFT_Item_RapidFireCannon",
             "TFT_Item_StatikkShiv",
             "TFT_Item_AdaptiveHelm"
           ],
           "stars": 1,
-          "championIcon": "tft15_ryze_YBiwWQS4Mt.webp",
-          "cost": 4,
-          "name": "Ryze",
+          "championIcon": "tft15_seraphine_kA7e4Uq1W5.webp",
+          "cost": 5,
+          "name": "Seraphine",
           "set": 15
         }
       ],
@@ -177,17 +177,17 @@
       "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
       "champions": [
         {
-          "apiName": "TFT15_Karma",
+          "apiName": "TFT15_Ryze",
           "boardIndex": 21,
           "items": [
-            "TFT_Item_SpearOfShojin",
             "TFT_Item_PowerGauntlet",
-            "TFT_Item_JeweledGauntlet"
+            "TFT_Item_BlueBuff",
+            "TFT_Item_RabadonsDeathcap"
           ],
           "stars": 1,
-          "championIcon": "tft15_karma_0wqLiuORQz.webp",
+          "championIcon": "tft15_ryze_YBiwWQS4Mt.webp",
           "cost": 4,
-          "name": "Karma",
+          "name": "Ryze",
           "set": 15
         },
         {
@@ -219,15 +219,15 @@
       ],
       "mainAugment": {},
       "mainChampion": {
-        "apiName": "TFT15_Karma",
+        "apiName": "TFT15_Ryze",
         "cost": 4,
-        "id": "aa6ocnyeyxw0ljj",
-        "championIcon": "tft15_karma_0wqLiuORQz.webp",
-        "name": "Karma",
+        "id": "bqdjiyh67ze9by2",
+        "championIcon": "tft15_ryze_YBiwWQS4Mt.webp",
+        "name": "Ryze",
         "set": 15
       },
       "mainItem": {},
-      "title": "Mentor Karma Fast 9",
+      "title": "Mentor Mecha Fast 9",
       "style": "Fast 9",
       "tier": "A"
     },
@@ -1792,6 +1792,11 @@
         "icon": "tft_item_quicksilver_Dy2Aohbg5o.webp"
       },
       {
+        "apiName": "TFT_Item_RabadonsDeathcap",
+        "name": "Rabadon's Deathcap",
+        "icon": "tft_item_rabadons_deathcap_FwNDyRU3qz.webp"
+      },
+      {
         "apiName": "TFT_Item_RapidFireCannon",
         "name": "Red Buff",
         "icon": "tft_item_rapid_fire_cannon_wIpn2B5bnO.webp"
@@ -1864,6 +1869,11 @@
         "icon": "tft_item_artifact_ludens_tempest_cfGK2z2sYK.webp"
       },
       {
+        "apiName": "TFT4_Item_OrnnMuramana",
+        "name": "Manazane",
+        "icon": "tft4_item_ornn_muramana_d1EJcUwAEF.webp"
+      },
+      {
         "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
         "name": "Navori Flickerblades",
         "icon": "tft_item_artifact_navori_flickerblades_OTWAo9MY0w.webp"
@@ -1897,5 +1907,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-18 00:00:04"
+  "lastUpdated": "2025-07-18 06:00:05"
 }
