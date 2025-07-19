@@ -139,6 +139,11 @@ function createCoreItemsButtons(metaItems) {
     container.id = 'coreItemsContainer';
 
     Object.entries(metaItems).forEach(([section, sectionItems]) => {
+        // Skip this section if there are no items
+        if (!Array.isArray(sectionItems) || sectionItems.length === 0) {
+            return;
+        }
+
         // section header/container
         const sectionDiv = document.createElement('div');
         sectionDiv.className = 'core-items-section';
@@ -151,15 +156,11 @@ function createCoreItemsButtons(metaItems) {
             const btn = document.createElement('button');
             btn.className = 'core-item-button';
             btn.title = itemObj.name;
-            // use the object’s apiName
             btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemObj.apiName)})`;
             btn.dataset.item = itemObj.apiName;
             btn.onclick = () => {
-                const active = btn.classList.toggle('active');
+                btn.classList.toggle('active');
                 document.querySelectorAll('.items-container').forEach(ctn => {
-                    const units = Array.from(
-                        ctn.closest('.item.compo').querySelectorAll('.unit-icons img')
-                    ).map(img => img.alt);
                     updateItemsContainer(ctn);
                 });
             };
