@@ -816,34 +816,7 @@
       "tier": "X"
     },
     {
-      "altBuilds": [
-        {
-          "apiName": "TFT15_KSante",
-          "items": [
-            "TFT_Item_WarmogsArmor",
-            "TFT_Item_WarmogsArmor",
-            "TFT_Item_GargoyleStoneplate"
-          ],
-          "stars": 1,
-          "championIcon": "tft15_ksante_Tagl7ji6Xk.webp",
-          "cost": 4,
-          "name": "K'Sante",
-          "set": 15
-        },
-        {
-          "apiName": "TFT15_JarvanIV",
-          "items": [
-            "TFT_Item_WarmogsArmor",
-            "TFT_Item_FrozenHeart",
-            "TFT_Item_FrozenHeart"
-          ],
-          "stars": 1,
-          "championIcon": "tft15_jarvan_iv_jPJgiEh2VG.webp",
-          "cost": 4,
-          "name": "Jarvan IV",
-          "set": 15
-        }
-      ],
+      "altBuilds": [],
       "augments": [],
       "url": "https://tftacademy.com/tierlist/comps/set-15-schoolyard-justice",
       "champions": [
@@ -903,7 +876,7 @@
         "set": 15
       },
       "mainItem": {},
-      "title": "Schoolyard Justice Garen",
+      "title": "Schoolyard Justice Garen Reroll",
       "style": "RR LV.5",
       "tier": "X"
     },
@@ -1779,7 +1752,7 @@
         "set": 15
       },
       "mainItem": {},
-      "title": "Bastion Xayah",
+      "title": "Bastion Edgelord Xayah Reroll",
       "style": "RR LV.6",
       "tier": "A"
     },
@@ -1859,6 +1832,70 @@
       "title": "Prodigy Malzahar Reroll",
       "style": "RR LV.7",
       "tier": "A"
+    },
+    {
+      "altBuilds": [],
+      "augments": [],
+      "url": "https://tftacademy.com/tierlist/comps/set-15-starfall-neeko",
+      "champions": [
+        {
+          "apiName": "TFT15_Neeko",
+          "boardIndex": 4,
+          "items": [
+            "TFT_Item_IonicSpark",
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_TitansResolve"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_neeko_hMo76mlmcX.webp",
+          "cost": 3,
+          "name": "Neeko",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Ahri",
+          "boardIndex": 27,
+          "items": [
+            "TFT_Item_JeweledGauntlet",
+            "TFT_Item_HextechGunblade",
+            "TFT_Item_AdaptiveHelm"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_ahri_a03k6RKpki.webp",
+          "cost": 3,
+          "name": "Ahri",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Karma",
+          "boardIndex": 25,
+          "items": [
+            "TFT_Item_RapidFireCannon",
+            "TFT_Item_JeweledGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_karma_0wqLiuORQz.webp",
+          "cost": 4,
+          "name": "Karma",
+          "set": 15
+        }
+      ],
+      "mainAugment": {
+        "apiName": "TFT15_Augment_NeekoCarry",
+        "id": "7iazqgvpb2qe5cg"
+      },
+      "mainChampion": {
+        "apiName": "TFT15_Neeko",
+        "cost": 3,
+        "id": "8jw59gq39gyy05j",
+        "championIcon": "tft15_neeko_hMo76mlmcX.webp",
+        "name": "Neeko",
+        "set": 15
+      },
+      "mainItem": {},
+      "title": "Starfall Neeko Reroll",
+      "style": "RR LV.7",
+      "tier": "X"
     }
   ],
   "items": {
@@ -2084,5 +2121,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-18 12:00:05"
+  "lastUpdated": "2025-07-19 00:00:04"
 }
