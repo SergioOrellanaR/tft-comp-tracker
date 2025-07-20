@@ -104,7 +104,7 @@
       },
       "title": "Battle Academia",
       "style": "Fast 8",
-      "tier": "A"
+      "tier": "B"
     },
     {
       "altBuilds": [],
@@ -306,7 +306,7 @@
       },
       "title": "Soul Fighter Samira",
       "style": "Fast 8",
-      "tier": "B"
+      "tier": "A"
     },
     {
       "altBuilds": [],
@@ -663,7 +663,7 @@
       "mainItem": {},
       "title": "Mighty Mech",
       "style": "Fast 8",
-      "tier": "B"
+      "tier": "A"
     },
     {
       "altBuilds": [],
@@ -951,7 +951,7 @@
       "mainItem": {},
       "title": "Mentor Yasuo Reroll",
       "style": "RR LV.7",
-      "tier": "A"
+      "tier": "B"
     },
     {
       "altBuilds": [],
@@ -1291,14 +1291,14 @@
       ],
       "mainAugment": {
         "apiName": "TFT6_Augment_PortableForge",
-        "id": "728cvp2vtcyfcqo"
+        "id": "t7xi4c1opb4vjg2"
       },
       "mainChampion": {
-        "apiName": "TFT15_KogMaw",
+        "apiName": "TFT15_Lulu",
         "cost": 3,
-        "id": "vw6ijt5ll0nrlxe",
-        "championIcon": "tft15_kog_maw_J5UzPOaEGe.webp",
-        "name": "Kog'Maw",
+        "id": "be9e721p842kxki",
+        "championIcon": "tft15_lulu_Mx9qcaPQQ8.webp",
+        "name": "Lulu",
         "set": 15
       },
       "mainItem": {},
@@ -1669,7 +1669,7 @@
       ],
       "mainAugment": {
         "apiName": "TFT15_Augment_ShenCarry",
-        "id": "2yb393xow1sds6q"
+        "id": "ly2sqyj0a9kb4hw"
       },
       "mainChampion": {
         "apiName": "TFT15_Shen",
@@ -1896,6 +1896,67 @@
       "title": "Starfall Neeko Reroll",
       "style": "RR LV.7",
       "tier": "X"
+    },
+    {
+      "altBuilds": [],
+      "augments": [],
+      "url": "https://tftacademy.com/tierlist/comps/set-15-perfect-cell-reroll",
+      "champions": [
+        {
+          "apiName": "TFT15_KaiSa",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_kai_sa_ty6AzNwL4V.webp",
+          "cost": 2,
+          "name": "Kai'Sa",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Darius",
+          "boardIndex": 2,
+          "items": [
+            "TFT_Item_SteraksGage",
+            "TFT_Item_Bloodthirster",
+            "TFT_Item_Quicksilver"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_darius_G4qVbIJdjC.webp",
+          "cost": 3,
+          "name": "Darius",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_Udyr",
+          "boardIndex": 3,
+          "items": [
+            "TFT_Item_RedBuff",
+            "TFT_Item_SpectralGauntlet"
+          ],
+          "stars": 1,
+          "championIcon": "tft15_udyr_Sfc05ImMiv.webp",
+          "cost": 3,
+          "name": "Udyr",
+          "set": 15
+        }
+      ],
+      "mainAugment": {},
+      "mainChampion": {
+        "apiName": "TFT15_KaiSa",
+        "cost": 2,
+        "id": "uztg0tnkarz40zm",
+        "championIcon": "tft15_kai_sa_ty6AzNwL4V.webp",
+        "name": "Kai'Sa",
+        "set": 15
+      },
+      "mainItem": {},
+      "title": "Mentor Supreme Cells Kai'Sa Reroll",
+      "style": "RR LV.6",
+      "tier": "S"
     }
   ],
   "items": {
@@ -2110,9 +2171,29 @@
     ],
     "emblem": [
       {
+        "apiName": "TFT15_Item_BattleAcademiaEmblemItem",
+        "name": "Battle Academia Emblem",
+        "icon": "tft15_item_battle_academia_emblem_item_VhPg4tMIUy.webp"
+      },
+      {
         "apiName": "TFT15_Item_CrystalRoseEmblemItem",
         "name": "Crystal Gambit Emblem",
         "icon": "tft15_item_crystal_rose_emblem_item_k78jLLfKDb.webp"
+      },
+      {
+        "apiName": "TFT15_Item_EdgelordEmblemItem",
+        "name": "Edgelord Emblem",
+        "icon": "tft15_item_edgelord_emblem_item_hdqxNxi8Zc.webp"
+      },
+      {
+        "apiName": "TFT15_Item_SoulFighterEmblemItem",
+        "name": "Soul Fighter Emblem",
+        "icon": "tft15_item_soul_fighter_emblem_item_RGSj6syB8j.webp"
+      },
+      {
+        "apiName": "TFT15_Item_StarGuardianEmblemItem",
+        "name": "Star Guardian Emblem",
+        "icon": "tft15_item_star_guardian_emblem_item_kV993YlvED.webp"
       }
     ],
     "trait": []
@@ -2121,5 +2202,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-19 00:00:04"
+  "lastUpdated": "2025-07-20 06:00:04"
 }
