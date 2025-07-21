@@ -539,11 +539,11 @@
         },
         {
           "apiName": "TFT15_Leona",
-          "boardIndex": 3,
+          "boardIndex": 4,
           "items": [
             "TFT_Item_FrozenHeart",
-            "TFT_Item_Redemption",
-            "TFT_Item_SpectralGauntlet"
+            "TFT_Item_WarmogsArmor",
+            "TFT_Item_Redemption"
           ],
           "stars": 1,
           "championIcon": "tft15_leona_pcXJcF4ef0.webp",
@@ -553,11 +553,10 @@
         },
         {
           "apiName": "TFT15_Varus",
-          "boardIndex": 21,
+          "boardIndex": 25,
           "items": [
             "TFT_Item_RapidFireCannon",
-            "TFT_Item_InfinityEdge",
-            "TFT_Item_SpearOfShojin"
+            "TFT_Item_LastWhisper"
           ],
           "stars": 1,
           "championIcon": "tft15_varus_Wh1OVDSDj3.webp",
@@ -575,7 +574,10 @@
         "name": "Jinx",
         "set": 15
       },
-      "mainItem": {},
+      "mainItem": {
+        "apiName": "TFT15_Item_SniperEmblemItem",
+        "id": "9yu10tiq1bbtv8f"
+      },
       "title": "Sniper Bastion Jinx",
       "style": "Fast 8",
       "tier": "S"
@@ -1631,7 +1633,7 @@
       "mainItem": {},
       "title": "Heavyweight Darius Jayce Reroll",
       "style": "RR LV.7",
-      "tier": "B"
+      "tier": "A"
     },
     {
       "altBuilds": [],
@@ -1840,7 +1842,7 @@
       "champions": [
         {
           "apiName": "TFT15_Neeko",
-          "boardIndex": 4,
+          "boardIndex": 3,
           "items": [
             "TFT_Item_IonicSpark",
             "TFT_Item_Bloodthirster",
@@ -1865,24 +1867,11 @@
           "cost": 3,
           "name": "Ahri",
           "set": 15
-        },
-        {
-          "apiName": "TFT15_Karma",
-          "boardIndex": 25,
-          "items": [
-            "TFT_Item_RapidFireCannon",
-            "TFT_Item_JeweledGauntlet"
-          ],
-          "stars": 1,
-          "championIcon": "tft15_karma_0wqLiuORQz.webp",
-          "cost": 4,
-          "name": "Karma",
-          "set": 15
         }
       ],
       "mainAugment": {
         "apiName": "TFT15_Augment_NeekoCarry",
-        "id": "7iazqgvpb2qe5cg"
+        "id": "8atyv5v96xc0q0v"
       },
       "mainChampion": {
         "apiName": "TFT15_Neeko",
@@ -1903,20 +1892,6 @@
       "url": "https://tftacademy.com/tierlist/comps/set-15-perfect-cell-reroll",
       "champions": [
         {
-          "apiName": "TFT15_KaiSa",
-          "boardIndex": 21,
-          "items": [
-            "TFT_Item_LastWhisper",
-            "TFT_Item_InfinityEdge",
-            "TFT_Item_PowerGauntlet"
-          ],
-          "stars": 3,
-          "championIcon": "tft15_kai_sa_ty6AzNwL4V.webp",
-          "cost": 2,
-          "name": "Kai'Sa",
-          "set": 15
-        },
-        {
           "apiName": "TFT15_Darius",
           "boardIndex": 2,
           "items": [
@@ -1928,6 +1903,20 @@
           "championIcon": "tft15_darius_G4qVbIJdjC.webp",
           "cost": 3,
           "name": "Darius",
+          "set": 15
+        },
+        {
+          "apiName": "TFT15_KaiSa",
+          "boardIndex": 21,
+          "items": [
+            "TFT_Item_LastWhisper",
+            "TFT_Item_InfinityEdge",
+            "TFT_Item_PowerGauntlet"
+          ],
+          "stars": 3,
+          "championIcon": "tft15_kai_sa_ty6AzNwL4V.webp",
+          "cost": 2,
+          "name": "Kai'Sa",
           "set": 15
         },
         {
@@ -1960,16 +1949,16 @@
       ],
       "mainAugment": {},
       "mainChampion": {
-        "apiName": "TFT15_KaiSa",
-        "cost": 2,
-        "id": "uztg0tnkarz40zm",
-        "championIcon": "tft15_kai_sa_ty6AzNwL4V.webp",
-        "name": "Kai'Sa",
+        "apiName": "TFT15_Darius",
+        "cost": 3,
+        "id": "dnr75z68lkskmrx",
+        "championIcon": "tft15_darius_G4qVbIJdjC.webp",
+        "name": "Darius",
         "set": 15
       },
       "mainItem": {},
       "title": "Mentor Supreme Cells Kai'Sa Reroll",
-      "style": "RR LV.6",
+      "style": "RR LV.7",
       "tier": "S"
     },
     {
@@ -2278,6 +2267,11 @@
         "icon": "tft15_item_edgelord_emblem_item_hdqxNxi8Zc.webp"
       },
       {
+        "apiName": "TFT15_Item_SniperEmblemItem",
+        "name": "Sniper Emblem",
+        "icon": "tft15_item_sniper_emblem_item_vVaBnYkZd3.webp"
+      },
+      {
         "apiName": "TFT15_Item_SoulFighterEmblemItem",
         "name": "Soul Fighter Emblem",
         "icon": "tft15_item_soul_fighter_emblem_item_RGSj6syB8j.webp"
@@ -2294,5 +2288,5 @@
     "name": "TFTAcademy",
     "url": "https://tftacademy.com"
   },
-  "lastUpdated": "2025-07-20 18:00:07"
+  "lastUpdated": "2025-07-21 00:00:05"
 }
