@@ -529,10 +529,12 @@ function createRightWrapper(rect, value) {
 
 // POP UP COMPONENTS
 export function openDuelModal(playerData, duelsCache, player2Name, player2Color, server) {
+    // Create overlay
     const overlay = document.createElement('div');
     overlay.id = 'popupOverlay';
     document.body.appendChild(overlay);
 
+    // Close button
     const closeBtn = document.createElement('button');
     closeBtn.id = 'popupCloseButton';
     closeBtn.innerText = 'X';
@@ -541,16 +543,45 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
     });
     overlay.appendChild(closeBtn);
 
-    // Ensure header and stats are loaded before rendering modals
-    const cachedData = duelsCache.get(player2Name) || {};
-    const headerPromise = cachedData.header ? Promise.resolve(cachedData.header) : fetchPlayerSummary(player2Name, server);
-    const statsPromise = cachedData.stats ? Promise.resolve(cachedData.stats) : fetchDuelStats(playerData.name, player2Name, server);
+    // Show loading spinner while we fetch data
+    const spinner = createLoadingSpinner('Loading duel data', 'This may take a moment…');
+    overlay.appendChild(spinner);
 
-    Promise.all([headerPromise, statsPromise]).then(([headerData, statsData]) => {
-        duelsCache.set(player2Name, { ...cachedData, header: headerData, stats: statsData });
-        overlay.appendChild(createHeaderModal(playerData, duelsCache, player2Name, player2Color, server));
-        overlay.appendChild(createHistoryModal(playerData, duelsCache, player2Name, server));
-    });
+    // Prepare fetch promises (use cache if available)
+    const cachedData = duelsCache.get(player2Name) || {};
+    const headerPromise = cachedData.header
+        ? Promise.resolve(cachedData.header)
+        : fetchPlayerSummary(player2Name, server);
+    const statsPromise = cachedData.stats
+        ? Promise.resolve(cachedData.stats)
+        : fetchDuelStats(playerData.name, player2Name, server);
+
+    Promise.all([headerPromise, statsPromise])
+        .then(([headerData, statsData]) => {
+            // Update cache
+            duelsCache.set(player2Name, {
+                ...cachedData,
+                header: headerData,
+                stats: statsData
+            });
+
+            // Remove spinner and render modals
+            spinner.remove();
+            overlay.appendChild(
+                createHeaderModal(playerData, duelsCache, player2Name, player2Color, server)
+            );
+            overlay.appendChild(
+                createHistoryModal(playerData, duelsCache, player2Name, server)
+            );
+        })
+        .catch(error => {
+            console.error('Error loading duel modal:', error);
+            spinner.remove();
+            const errorMsg = document.createElement('p');
+            errorMsg.textContent = 'Failed to load duel information.';
+            errorMsg.className = 'error-text';
+            overlay.appendChild(errorMsg);
+        });
 }
 
 /* ============================================================================
