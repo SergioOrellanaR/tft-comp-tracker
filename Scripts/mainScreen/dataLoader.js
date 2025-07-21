@@ -279,12 +279,16 @@ function createAugmentItemContainer(mainAugment, mainItem) {
         img.title = mainAugment.apiName;    // show augment.apiName on hover
         container.appendChild(img);
     } else if ((!mainAugment || !mainAugment.apiName) && mainItem && mainItem.apiName) {
-        const img = document.createElement('img');
-        img.src = getItemWEBPImageUrl(mainItem.apiName);
-        img.alt = mainItem.apiName;
-        // lookup human‐readable Name or fallback to apiName
-        img.title = (items.find(i => i.Item === mainItem.apiName)?.Name) || mainItem.apiName;
-        container.appendChild(img);
+        // Only add if NOT an emblem
+        const emblemApiNames = (metaSnapshotData?.items?.emblem || []).map(e => e.apiName);
+        if (!emblemApiNames.includes(mainItem.apiName)) {
+            const img = document.createElement('img');
+            img.src = getItemWEBPImageUrl(mainItem.apiName);
+            img.alt = mainItem.apiName;
+            // lookup human‐readable Name or fallback to apiName
+            img.title = (items.find(i => i.Item === mainItem.apiName)?.Name) || mainItem.apiName;
+            container.appendChild(img);
+        }
     }
     return container;
 }
@@ -323,6 +327,11 @@ const updateItemsContainer = (itemsContainer) => {
             }
         });
     });
+    // Ensure mainItem appears if selected
+    if (compData.mainItem && compData.mainItem.apiName && activeItems.includes(compData.mainItem.apiName)) {
+        if (!itemToChampionsMap[compData.mainItem.apiName]) itemToChampionsMap[compData.mainItem.apiName] = [];
+        itemToChampionsMap[compData.mainItem.apiName].push('Main Item');
+    }
 
     const displayedItems = new Set();
 
