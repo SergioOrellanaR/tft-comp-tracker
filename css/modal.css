@@ -25,6 +25,7 @@
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     z-index: 1000;
+    padding: 50px 0px 5px 0px;
 }
 
 /* Popup container */

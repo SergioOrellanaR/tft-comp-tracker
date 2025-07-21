@@ -144,13 +144,6 @@ export const createPlayerCard = async (playerData, server, containerId) => {
     }
 };
 
-function createTitleModal() {
-    const titleDiv = document.createElement('div');
-    titleDiv.className = 'modal-title';
-    titleDiv.textContent = 'Common games stats';
-    return titleDiv;
-}
-
 // Common method to create a colored square for legends.
 function createPlayerColorBox(color) {
     const colorBox = document.createElement('span');
@@ -547,8 +540,6 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
         document.body.removeChild(overlay);
     });
     overlay.appendChild(closeBtn);
-
-    overlay.appendChild(createTitleModal());
 
     // Ensure header and stats are loaded before rendering modals
     const cachedData = duelsCache.get(player2Name) || {};
