@@ -1,5 +1,7 @@
 const TFT_VERSUS_API_BASE_URL = 'https://tft-versus.onrender.com/api';
 
+export const CURRENT_SEASON = 14;
+
 export const TFT_VERSUS_API_URL = {
     playerSummary: TFT_VERSUS_API_BASE_URL + '/header',
     findGames: TFT_VERSUS_API_BASE_URL + '/find',
@@ -11,8 +13,11 @@ export const TFT_VERSUS_API_URL = {
 
 export const THIRD_PARTY_IMG_URL = {
     champions: 'https://cdn.metatft.com/file/metatft/champions',
-    items: 'https://cdn.metatft.com/file/metatft/items',
-    tiers: 'https://cdn.metatft.com/file/metatft/tiers'
+    pngItems: 'https://cdn.metatft.com/file/metatft/items',
+    webpItems: 'https://assets.tftacademy.com/items',
+    tiers: 'https://cdn.metatft.com/file/metatft/tiers',
+    setCover: 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_',
+    webPaugments: 'https://assets.tftacademy.com/augments'
 }
 
 export const CDRAGON_URL = {
@@ -32,27 +37,19 @@ export const TRAIT_BACKGROUND_URL = {
     unique: 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-tft-team-planner/global/default/images/cteamplanner_activetrait_kunique.png',
 }
 
-export const SET_IMAGE_BASE_URL = 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_';
-
 export const CONFIG = {
+    notificationDuration: 3000,
     mainPlayerColor: '#000435',
     colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9', '#a0ff4c'],
-    coreItems: [
-        "Guinsoo's Rageblade", "Archangel's Staff", "Blue Buff", "Spear of Shojin",
-        "Jeweled Gauntlet", "Infinity Edge", "Nashor's Tooth", "Morellonomicon",
-        "Kraken's Fury", "Hextech Gunblade", "Bloodthirster", "Edge of Night",
-        "Titan's Resolve", "Sterak's Gage", "Hand Of Justice"
-    ],
     tierColors: {
         S: '#FF7F7F',
         A: '#FFBF7F',
         B: '#FFFF7F',
-        C: '#BFFF7F'
+        C: '#BFFF7F',
+        X: '#BF7FFF'  // Add this line for X tier
     },
     routes: {
-        comps: 'Data/Comps.csv',
-        items: 'Data/Items.csv',
-        units: 'Data/Units.csv'
+        metaSnapshot: 'Data/MetaSnapshot.json'
     },
     iconOptions: [
         { name: 'Water', color: '#4cffe9', emoji: '💧' },

@@ -1,0 +1,50 @@
+/* =====================================================================
+    Global Reset y Estilos Base
+===================================================================== */
+input:-webkit-autofill {
+    -webkit-text-fill-color: white;
+    box-shadow: 0 0 0 1000px var(--main-accent) inset;
+    background-clip: content-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    overflow: auto;
+    background: var(--main-accent);
+    color: var(--text-accent);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}

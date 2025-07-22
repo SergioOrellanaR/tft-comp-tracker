@@ -1,4 +1,4 @@
-import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL, TRAIT_BACKGROUND_URL, SET_IMAGE_BASE_URL } from './config.js';
+import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL, TRAIT_BACKGROUND_URL } from './config.js';
 
 /**
  * Función genérica para realizar solicitudes a la API de TFT Versus.
@@ -111,8 +111,16 @@ export function getChampionImageUrl(championId) {
     return THIRD_PARTY_IMG_URL.champions + '/' + championId.toLowerCase() + '.png';
 }
 
-export function getItemImageUrl(itemId) {
-    return THIRD_PARTY_IMG_URL.items + '/' + itemId.toLowerCase() + '.png';
+export function getItemPNGImageUrl(itemId) {
+    return THIRD_PARTY_IMG_URL.pngItems + '/' + itemId.toLowerCase() + '.png';
+}
+
+export function getItemWEBPImageUrl(itemId) {
+    return THIRD_PARTY_IMG_URL.webpItems + '/' + itemId + '.webp';
+}
+
+export function getAugmentWEBPImageUrl(augmentId) {
+    return THIRD_PARTY_IMG_URL.webPaugments + '/' + augmentId + '.webp';
 }
 
 export function getTierImageUrl(tier) {
@@ -187,5 +195,5 @@ export function getTFTSetImageUrl(set) {
         }
     }
 
-    return `${SET_IMAGE_BASE_URL}${String(imageNumber).padStart(2, "0")}.jpg`;
+    return `${THIRD_PARTY_IMG_URL.setCover}${String(imageNumber).padStart(2, "0")}.jpg`;
 }

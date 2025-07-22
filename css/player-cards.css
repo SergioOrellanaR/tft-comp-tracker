@@ -1,0 +1,326 @@
+/* =====================================================================
+    Estilos para player cards
+===================================================================== */
+.player-card {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2),
+                0 1px 1px rgba(255, 255, 255, 0.05) inset;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.player-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.player-card:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 1px 3px rgba(255, 255, 255, 0.1) inset;
+    cursor: pointer;
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos para el ícono de edición */
+.edit-icon {
+    cursor: pointer;
+}
+
+/* Estilos para contenedor de equipo */
+.team-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, var(--tertiary-bg) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 
+                0 1px 3px rgba(255, 255, 255, 0.1) inset;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    transition: left 0.6s ease;
+}
+
+/* Estilos para icono de equipo */
+.team-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    margin: 6px 0;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+}
+
+.team-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Estilos para input editable de nombres */
+.editable-input {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 
+                0 1px 2px rgba(255, 255, 255, 0.1) inset;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.editable-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 
+                0 0 0 2px rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+/* Spinner de carga */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.loading-spinner div {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.spinner-text {
+    margin-top: 8px;
+    text-align: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilos para ellipsis animado */
+.animated-dot {
+    display: inline-block;
+    animation: dotJump 1s infinite;
+}
+
+@keyframes dotJump {
+    0%, 20%, 40%, 100% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(-5px);
+    }
+}
+
+/* =====================================================================
+    Nuevos Estilos para Datos de Jugador y Ranking
+===================================================================== */
+.player-data-container {
+    border: 1px solid white;
+    padding: 2%;
+    margin-bottom: 5px;
+    gap: 5%;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.match-set-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 8px;
+    padding: 20px 12px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-accent);
+    border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+}
+
+.set-peak-rank-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.set-peak-rank-additional {
+    font-size: 0.825em;
+    opacity: 0.95;
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.set-peak-rank-text {
+    font-size: 0.8em;
+    opacity: 0.6;
+    text-align: center;
+}
+
+.player-details-data-container {
+    height: 20%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.rank-data-container {
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 75%;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 8px;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+.rank-data-container>div {
+    width: 50%;
+}
+
+.profile-icon-data-container {
+    flex: 0 0 20%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.profile-icon-data-container img {
+    width: 65%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+.player-name-data-container {
+    flex: 0 0 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    font-weight: bold;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.player-server-data-container {
+    flex: 0 0 10%;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    padding-right: 3%;
+}
+
+.rank-icon-data-container {
+    width: 85%;
+    height: 85%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rank-icon-data-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: scale-down;
+    display: block;
+}
+
+.rank-info-data-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 6px;
+}
