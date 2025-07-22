@@ -319,6 +319,16 @@
     z-index: 1;
 }
 
+/* Mobile responsive border gradient */
+@media (max-width: 768px) {
+    .border-gradient {
+        left: -3px;
+        width: 3px;
+        height: 28px;
+        border-radius: 4px 0 0 4px;
+    }
+}
+
 .comp-style {
     flex: 0 0 46px;
     text-align: center;

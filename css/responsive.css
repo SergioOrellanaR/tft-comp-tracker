@@ -1,106 +1,154 @@
 /* =====================================================================
     Responsive layout
 ===================================================================== */
+
+/* =====================================================================
+    Mobile First - Small screens (phones)
+===================================================================== */
 @media (max-width: 768px) {
-
     html {
-        font-size: 12px;
+        font-size: 10px;
     }
 
-    body::after,
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        width: 30px;
-        height: 100%;
-        pointer-events: none;
-        z-index: 9999;
+    body {
+        flex-direction: row; /* MANTENER layout horizontal */
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
     }
 
-    body::after {
-        left: 0;
-        background: linear-gradient(to right, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
-    }
-
-    body::before {
-        right: 0;
-        background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
-    }
-
+    /* Canvas container - MANTENER VISIBLE pero más pequeño */
     #canvas-container {
-        min-width: 150px;
+        flex: 1;
+        min-width: 80px; /* Más estrecho pero visible */
+        position: relative;
     }
 
-    table {
-        width: 100%;
-        overflow-x: auto;
-        display: block;
+    /* Left panel - Players (más estrecho) */
+    #left {
+        width: 25%;
+        min-width: 140px;
+        padding: 0.5rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        overflow-y: auto;
     }
 
-    .btn-color-mode-switch>label.btn-color-mode-switch-inner {
-        height: 25px;
-    }
-
-    .btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
-        font-size: 10px;
-        right: 5px;
-    }
-
-    .btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
-        height: 15px;
-        font-size: 10px;
-    }
-
-    .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
-        left: 15px;
-    }
-
-    .table-container {
+    /* Right panel - Compositions (más estrecho) */
+    #right {
+        width: 35%;
+        min-width: 160px;
+        padding: 0.5rem;
+        margin-left: 0;
+        overflow-y: auto;
+        max-height: 100vh; /* Asegurar que tenga una altura máxima */
         display: flex;
         flex-direction: column;
-        margin-top: 1rem;
     }
 
-    .table-container div {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
-        gap: 2px !important;
+    /* Search bars - más compactas */
+    .search-bar,
+    .search-comp-bar {
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-bottom: 0.5rem;
     }
 
-    .table-container div div {
-        display: flex;
-        align-items: center;
+    .search-bar > *,
+    .search-comp-bar > * {
+        width: 100%;
+        min-width: 0;
     }
 
-    .table-container div div img {
-        width: 30px !important;
-        height: 30px !important;
-        border-radius: 4px !important;
-        object-fit: cover;
-        border: 0px solid transparent !important;
-        box-sizing: border-box !important;
+    .server-selector,
+    .set-selector {
+        flex: none;
     }
 
-    .table-container div div img[style*="border-image"] {
-        border-width: 1px !important;
+    .search-input {
+        flex: 1;
+        min-width: 0;
     }
 
-    .comp-info {
+    /* Double up button - más pequeño */
+    .double-up-btn-container {
+        margin-bottom: 0.5rem;
         text-align: center;
-        min-width: 10%;
-        text-overflow: ellipsis;
     }
 
+    .btn-color-mode-switch > label.btn-color-mode-switch-inner {
+        height: 20px;
+        font-size: 9px;
+    }
+
+    .btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
+        font-size: 8px;
+        right: 3px;
+    }
+
+    .btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
+        height: 12px;
+        font-size: 8px;
+    }
+
+    .btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner:before {
+        left: 12px;
+    }
+
+    /* Players - más compactos */
+    .item.player {
+        padding: 2px 4px;
+        font-size: 0.7rem;
+        min-height: 32px;
+    }
+
+    .player-name {
+        font-size: 0.65rem;
+        margin-left: -10px;
+    }
+
+    .mini-rank-div {
+        min-width: 40px;
+    }
+
+    .mini-rank-img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mini-rank-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .mini-rank-text {
+        font-size: 0.6em;
+    }
+
+    .mini-rank-lp-text {
+        font-size: 0.6em;
+    }
+
+    /* Ocultar botones de acción en mobile */
+    .player-action-container {
+        display: none !important;
+    }
+
+    /* Compositions - más compactas PERO LEGIBLES */
+    .item.compo {
+        padding: 3px 4px 3px 0px;
+        font-size: 0.75rem;
+        height: 28px; /* Más compacto para ver más comps */
+        min-height: 28px;
+        gap: 3px;
+    }
+
+    /* OCULTAR elementos para ahorrar espacio */
     .comp-star {
-        display: none;
+        display: none !important;
     }
 
     .main-augment-item-container {
-        display: none;
-    }
-
-    .unit-icons {
         display: none !important;
     }
 
@@ -108,77 +156,148 @@
         display: none !important;
     }
 
+    /* OCULTAR unit icons completamente */
+    .unit-icons {
+        display: none !important;
+    }
+
+    /* Info de composición más legible */
+    .comp-info {
+        font-size: 0.8rem;
+        min-width: 60px;
+        text-align: left;
+        flex: 1;
+        font-weight: 600; /* Más bold para mejor visibilidad */
+    }
+
+    .comp-style {
+        flex: 0 0 24px;
+        font-size: 0.65rem;
+    }
+
+    /* Gradient border para mobile - ajustado */
+    .border-gradient {
+        width: 3px;
+        left: -3px;
+        height: 28px; /* Ajustado a la nueva altura */
+        border-radius: 4px 0 0 4px;
+    }
+
+    .item.compo {
+        border-left: 3px solid transparent;
+    }
+
+    /* Asegurar que el contenedor de comps sea scrollable */
+    #comps {
+        flex: 1;
+        overflow-y: auto;
+        max-height: calc(100vh - 120px); /* Dejar espacio para barra de búsqueda */
+    }
+
+    /* Ocultar elementos secundarios pero MANTENER funcionalidad principal */
+    .table-container {
+        display: none !important;
+    }
+
+    #infoTableContainer {
+        display: none !important;
+    }
+
+    /* Ocultar core items */
     #coreItemsContainer {
         display: none !important;
     }
 
-    /*Part 2 - Adapted for mobile */
+    /* Tags container - hacer scrollable horizontal */
+    #comp-tags-container {
+        white-space: nowrap;
+        overflow-x: auto;
+        margin-bottom: 0.25rem;
+        padding: 2px 0;
+    }
+
+    #comp-tags-container::-webkit-scrollbar {
+        height: 3px;
+    }
+
+    #comp-tags-container::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    #comp-tags-container::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+    }
+
+    /* Popup/Modal overrides */
     #popupOverlay {
         display: none !important;
     }
 
-    .duel-button {
+    /* Botones más pequeños y OCULTAR botones innecesarios */
+    .search-button-container,
+    .copy-share-url-btn-container {
+        flex-shrink: 0;
+    }
+
+    /* OCULTAR botones de filtros en mobile */
+    .hide-contested-comps-btn-container,
+    .hide-unselected-comps-btn-container,
+    .copy-share-url-btn-container {
         display: none !important;
     }
 
-    #infoTableContainer{
-        display: none !important;
+    .search-button,
+    .copy-share-url-btn {
+        padding: 6px;
+        min-width: 32px;
+        height: 32px;
     }
 
-    .participant-info-container.margin-you {
-    margin-left: 0px;
-}
-
-    .player-action-container {
-        display: none !important;
+    .search-button svg {
+        width: 16px;
+        height: 16px;
     }
 
-    .match-traits {
-        display: none !important;
+    .animated-button {
+        padding: 6px 12px;
+        font-size: 0.7rem;
     }
 
-    .match-player-stats {
-        display: none !important;
+    /* Unit cost indicators */
+    [class^="unit-cost-"] {
+        width: 30px;
+        height: 30px;
     }
 
+    /* Match history - hide complex elements */
+    .match-traits,
+    .match-player-stats,
     .match-player-companion {
         display: none !important;
     }
 
     .match-champs {
-        width: 120%;
+        width: 100%;
         flex-direction: row;
         overflow-x: auto;
+        gap: 2px;
     }
 
     .match-champ {
-        width: 30px;
-        height: 30px;
-        margin: 2px;
+        width: 26px;
+        height: 26px;
+        margin: 1px;
+        flex-shrink: 0;
     }
 
     .match-player-placement {
-        width: 24px;
-        height: 24px;
-        font-size: 12px;
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
     }
 
-    #canvasContainer {
-        display: none !important;
-    }
-
-    .duel-stat-rect {
-        display: none !important;
-    }
-
-    .duel-contested-rectangle {
-        display: none !important;
-    }
-
-    .stats-wrapper {
-        gap: 5px;
-    }
-
+    /* Rank displays */
     .rank-icon-data-container {
         display: none !important;
     }
@@ -192,23 +311,89 @@
     .titleStatDiv {
         display: none !important;
     }
-
-    .duel-stat-center-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    [class^="unit-cost-"] {
-        width: 33px;
-        height: 33px;
-    }
 }
 
-@media (max-width: 1024px) {
+/* =====================================================================
+    Tablet - Medium screens
+===================================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    html {
+        font-size: 13px;
+    }
+
+    body {
+        flex-direction: row;
+    }
+
+    #left {
+        width: 25%;
+        min-width: 200px;
+    }
+
+    #right {
+        width: 45%;
+    }
+
+    #canvas-container {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    /* Simplify some elements for tablets */
+    .main-augment-item-container {
+        display: none;
+    }
+
+    .items-container {
+        max-width: 200px;
+    }
+
+    .unit-icons {
+        min-width: 140px;
+    }
+
+    .unit-icons img {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* Tables */
+    .table-container div {
+        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
+        gap: 4px !important;
+    }
+
+    .table-container div div img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    /* Hide complex match elements */
+    .match-traits,
+    .match-player-stats,
+    .match-player-companion {
+        display: none !important;
+    }
+
+    .match-champs {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .match-champ {
+        width: 28px;
+        height: 28px;
+        margin: 2px;
+    }
+
+    .match-player-placement {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    /* Popups */
     #popupOverlay {
         position: fixed;
         top: 50%;
@@ -223,83 +408,11 @@
         justify-content: center;
         z-index: 1000;
     }
+}
 
-    .match-traits {
-        display: none !important;
-    }
-
-    .match-player-stats {
-        display: none !important;
-    }
-
-    .match-player-companion {
-        display: none !important;
-    }
-
-    .match-champs {
-        width: 120%;
-        flex-direction: row;
-        overflow-x: auto;
-    }
-
-    .match-champ {
-        width: 30px;
-        height: 30px;
-        margin: 2px;
-    }
-
-    .match-player-placement {
-        width: 24px;
-        height: 24px;
-        font-size: 12px;
-    }
-
-    .unit-icons {
-        display: flex;
-        max-width: 80px;
-        justify-content: right;
-    }
-
-    .main-augment-item-container {
-        display: none !important;
-    }
-
-    #canvasContainer {
-        display: none !important;
-    }
-
-    .duel-stat-rect {
-        display: none !important;
-    }
-
-    .duel-contested-rectangle {
-        display: none !important;
-    }
-
-    .stats-wrapper {
-        gap: 5px;
-    }
-
-    .rank-icon-data-container {
-        display: none !important;
-    }
-
-    .rank-data-container {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .titleStatDiv {
-        display: none !important;
-    }
-
-    .duel-stat-center-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+/* =====================================================================
+    Large screens - Keep existing styles
+===================================================================== */
+@media (min-width: 1025px) {
+    /* Desktop styles are in main CSS files */
 }

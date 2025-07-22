@@ -191,3 +191,92 @@ input:focus~.input-border {
     height: 28px; 
     margin-right: 6px; 
 }
+
+/* =====================================================================
+    Mobile Responsive Forms
+===================================================================== */
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column;
+        gap: 0.25rem;
+        margin: 0.25rem 0;
+    }
+
+    .search-comp-bar {
+        flex-direction: column;
+        gap: 0.25rem;
+        margin: 0.25rem 0;
+    }
+
+    .server-selector,
+    .set-selector,
+    .search-input {
+        flex: none;
+        width: 100%;
+    }
+
+    .server-selector select,
+    .set-selector select {
+        width: 100%;
+        padding: 6px;
+        font-size: 0.75rem;
+        touch-action: manipulation;
+    }
+
+    .search-input .playerInput {
+        width: 100%;
+        padding: 6px;
+        font-size: 0.75rem;
+        touch-action: manipulation;
+    }
+
+    .search-button-container {
+        width: 100%;
+    }
+
+    .search-button {
+        width: 100%;
+        padding: 6px;
+        font-size: 0.8rem;
+        touch-action: manipulation;
+    }
+
+    /* Suggestions dropdown */
+    .suggestions {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 150px;
+        z-index: 1000;
+    }
+
+    .suggestions li {
+        padding: 8px;
+        font-size: 0.75rem;
+        touch-action: manipulation;
+    }
+
+    .suggestion-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Action buttons row for mobile */
+    .hide-contested-comps-btn-container,
+    .hide-unselected-comps-btn-container,
+    .copy-share-url-btn-container {
+        flex: none;
+        width: auto;
+    }
+
+    /* Mobile button sizing */
+    .hide-contested-comps-btn-label,
+    .hide-unselected-comps-btn-label,
+    .copy-share-url-btn {
+        min-width: 32px;
+        min-height: 32px;
+        padding: 6px;
+        touch-action: manipulation;
+    }
+}
