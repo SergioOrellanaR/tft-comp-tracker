@@ -289,12 +289,13 @@
     gap: 6px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 6px solid transparent;
     border-radius: 8px;
-    padding: 2px 6px;
+    padding: 2px 6px 2px 0px;
     margin: 2px 0;
     color: var(--text-secondary);
     font-size: 0.7rem;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, border-left-color 0.4s ease, border-left-width 0.4s ease;
     height: 36px;
     min-height: 36px;
 }
@@ -304,6 +305,18 @@
     transform: scale(1.01);
     cursor: pointer;
     color: var(--text-primary);
+}
+
+/* Gradient border element for multiple colors */
+.border-gradient {
+    position: absolute;
+    top: 0;
+    left: -6px;
+    width: 6px;
+    height: 36px;
+    border-radius: 8px 0 0 8px;
+    pointer-events: none;
+    z-index: 1;
 }
 
 .comp-style {

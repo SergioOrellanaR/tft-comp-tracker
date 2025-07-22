@@ -208,6 +208,14 @@ function clearCanvasAndResetCompos() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     document.querySelectorAll('.compo').forEach(c => {
         c.style.background = '';
+        c.style.borderLeftColor = 'transparent';
+        c.style.borderImage = '';
+        
+        // Remove gradient elements
+        const gradientEl = c.querySelector('.border-gradient');
+        if (gradientEl) gradientEl.remove();
+        
+        // Remove old color-bar elements
         const oldBar = c.querySelector('.color-bar');
         if (oldBar) oldBar.remove();
     });
@@ -271,6 +279,17 @@ function renderAllLines() {
 function updateCompoColorBars() {
     const compoColorMap = {};
 
+    // Reset all compos to transparent first
+    document.querySelectorAll('.compo').forEach(compo => {
+        compo.style.borderLeftColor = 'transparent';
+        compo.style.borderImage = '';
+        // Remove any existing gradient elements
+        const existingGradient = compo.querySelector('.border-gradient');
+        if (existingGradient) {
+            existingGradient.remove();
+        }
+    });
+
     links.forEach(link => {
         const compo = link.compo;
         const color = link.player.dataset.color;
@@ -284,27 +303,37 @@ function updateCompoColorBars() {
 
     Object.values(compoColorMap).forEach(({ compo, colors }) => {
         const colorArray = Array.from(colors);
-        const part = 100 / colorArray.length;
-        const gradient = colorArray
-            .map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`)
-            .join(', ');
-
-        compo.style.position = 'relative';
-        let bar = compo.querySelector('.color-bar');
-        if (!bar) {
-            bar = document.createElement('div');
-            compo.insertBefore(bar, compo.firstChild);
+        
+        if (colorArray.length === 1) {
+            // Single color - use solid border
+            compo.style.borderLeftColor = colorArray[0];
+            compo.style.borderImage = '';
+        } else if (colorArray.length > 1) {
+            // Multiple colors - use positioned element to preserve border-radius
+            compo.style.borderLeftColor = 'transparent';
+            compo.style.borderImage = '';
+            
+            // Create gradient element
+            const gradientEl = document.createElement('div');
+            gradientEl.className = 'border-gradient';
+            
+            const part = 100 / colorArray.length;
+            const gradient = colorArray
+                .map((color, i) => `${color} ${i * part}%, ${color} ${(i + 1) * part}%`)
+                .join(', ');
+            
+            // Only set the dynamic gradient background
+            gradientEl.style.background = `linear-gradient(to bottom, ${gradient})`;
+            
+            compo.style.position = 'relative';
+            compo.insertBefore(gradientEl, compo.firstChild);
         }
-        bar.className = 'color-bar';
-        Object.assign(bar.style, {
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            width: '6px',
-            bottom: '0',
-            borderRadius: '6px 0 0 6px',
-            background: `linear-gradient(to bottom, ${gradient})`
-        });
+        
+        // Remove any existing color-bar elements
+        const existingBar = compo.querySelector('.color-bar');
+        if (existingBar) {
+            existingBar.remove();
+        }
     });
 }
 
