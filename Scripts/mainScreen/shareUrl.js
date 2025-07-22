@@ -34,6 +34,11 @@ export function applyQueryParams() {
         }
     }
 
+    // Pre-select set based on URL param
+    if (params.set) {
+        const sel = document.getElementById('setSelector');
+        if (sel && sel.value !== params.set) sel.value = params.set;
+    }
     // Always build 8 player names, using param or default
     setTimeout(() => {
         const isDoubleUp = document.body.classList.contains('double-up');
@@ -98,6 +103,11 @@ function getShareUrl() {
     } else {
         url.searchParams.delete('mode');
     }
+    // Include selected set in URL params
+    const setSelector = document.getElementById('setSelector');
+    if (setSelector && setSelector.value) {
+        url.searchParams.set('set', setSelector.value);
+    }
     // Players
     const playerDivs = Array.from(document.querySelectorAll('.item.player'));
     // Get default names for current mode
@@ -153,12 +163,10 @@ function showNotification(message, duration = CONFIG.notificationDuration) {
 }
 
 // --- New: Support for query params to set mode and player names ---
-function getQueryParams() {
+export function getQueryParams() {
     const params = {};
     window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         params[decodeURIComponent(key)] = decodeURIComponent(value.replace(/\+/g, ' '));
     });
     return params;
 }
-
-

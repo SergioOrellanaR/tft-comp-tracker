@@ -1,5 +1,5 @@
 import { initCompFilter } from './compSearchBar.js';
-import { linkPlayersToCompsFromQuery } from './shareUrl.js';
+import { linkPlayersToCompsFromQuery, getQueryParams } from './shareUrl.js';
 import { CONFIG } from '../config.js';
 import { getContrastYIQ } from '../utils.js';
 import { getChampionImageUrl, getItemWEBPImageUrl, getAugmentWEBPImageUrl } from '../tftVersusHandler.js';
@@ -67,8 +67,12 @@ export function tryLoadDefaultData() {
                     option.textContent = setKey;
                     setSelector.appendChild(option);
                 });
-                // select last set by default
-                setSelector.value = keys[keys.length - 1];
+                // select set from URL param or last as default
+                const params = getQueryParams();
+                const defaultSet = params.set && keys.includes(params.set) ? params.set : keys[keys.length - 1];
+                setSelector.value = defaultSet;
+                
+                let isInitialLoad = true;
                 // Reload compositions on set change
                 setSelector.addEventListener('change', () => {
                     const selected = setSelector.value;
@@ -76,6 +80,20 @@ export function tryLoadDefaultData() {
                     if (setData) {
                         // reset player panels when changing set
                         resetPlayers();
+                        
+                        // Only clear composition URL parameters when user changes sets
+                        // (not during initial load)
+                        if (!isInitialLoad) {
+                            // Clear composition URL parameters when changing sets
+                            // since comp indexes are set-specific
+                            const url = new URL(window.location);
+                            for (let i = 1; i <= 8; i++) {
+                                url.searchParams.delete(`Player${i}Comps`);
+                            }
+                            // Update URL without reloading page
+                            window.history.replaceState({}, '', url);
+                        }
+                        
                         // update global items for suggestions to this set only
                         const sec = setData.items || {};
                         const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.trait||[])];
@@ -84,22 +102,16 @@ export function tryLoadDefaultData() {
                         loadCompsFromJSON(setData);
                         createCoreItemsButtons(setData.items);
                         initCompFilter(setData);
+                        
+                        // Only link players to comps from query on initial load
+                        if (isInitialLoad) {
+                            linkPlayersToCompsFromQuery();
+                            isInitialLoad = false;
+                        }
                     }
                 });
-            }
-            // Load default (last) set
-            const initialSet = setSelector?.value;
-            const initialData = metaData[initialSet];
-            if (initialData) {
-                // initialize items for initial set
-                const sec0 = initialData.items || {};
-                const arr0 = [...(sec0.default||[]), ...(sec0.artifact||[]), ...(sec0.emblem||[]), ...(sec0.trait||[])];
-                items = arr0.map(it => ({ Item: it.apiName, Name: it.name, Url: getItemWEBPImageUrl(it.apiName) }));
-                loadCompsFromJSON(initialData);
-                createCoreItemsButtons(initialData.items);
-                initCompFilter(initialData);
-                // reset players on initial load
-                resetPlayers();
+                // Immediately dispatch change to load default or URL set
+                setSelector.dispatchEvent(new Event('change'));
             }
         }
     });
