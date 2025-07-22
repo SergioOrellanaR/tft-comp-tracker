@@ -17,9 +17,9 @@
     --text-muted: #94a3b8;
     --text-accent: #3b82f6;
     
-    /* State Colors */
-    --error-color: #ff4c4c;
-    --success-color: #10b981;
+    /* State Colors - More vibrant but performance-friendly */
+    --error-color: #ef4444;
+    --success-color: #22c55e;
     --warning-color: #f59e0b;
     --info-color: #06b6d4;
     
@@ -35,10 +35,10 @@
     --border-secondary: #475569;
     --border-accent: #3b82f6;
     
-    /* Glass Effect */
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-hover: rgba(255, 255, 255, 0.08);
+    /* Glass Effect - Slightly more visible but still lightweight */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-hover: rgba(255, 255, 255, 0.12);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -51,10 +51,10 @@
     --gradient-secondary: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
     --gradient-dark: linear-gradient(135deg, #1a1a26 0%, #252532 100%);
     
-    /* Animation Durations */
-    --duration-fast: 0.15s;
-    --duration-normal: 0.3s;
-    --duration-slow: 0.5s;
+    /* Animation Durations - Optimized for 60fps */
+    --duration-fast: 0.12s;   /* Slightly faster for snappier feel */
+    --duration-normal: 0.25s; /* Reduced from 0.3s */
+    --duration-slow: 0.4s;    /* Reduced from 0.5s */
     
     /* Border Radius */
     --radius-sm: 0.375rem;
