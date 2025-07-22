@@ -29,7 +29,7 @@
 }
 
 .player-card:hover {
-    background: linear-gradient(135deg, var(--tertiary-bg) 0%, var(--secondary-bg) 100%);
+    filter: brightness(1.15);
     transform: translateY(-2px) scale(1.01);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
                 0 1px 3px rgba(255, 255, 255, 0.1) inset;
