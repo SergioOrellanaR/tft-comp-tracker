@@ -3,7 +3,7 @@ import { linkPlayersToCompsFromQuery } from './shareUrl.js';
 import { CONFIG } from '../config.js';
 import { getContrastYIQ } from '../utils.js';
 import { getChampionImageUrl, getItemWEBPImageUrl, getAugmentWEBPImageUrl } from '../tftVersusHandler.js';
-import { select } from './players.js';
+import { resetPlayers, select } from './players.js';
 
 export let unitImageMap = {};
 export let unitCostMap = {};
@@ -16,32 +16,37 @@ const _originalLoadCompsFromJSON = loadCompsFromJSON;
 const loadMetaSnapshot = async () => {
     try {
         const response = await fetch(CONFIG.routes.metaSnapshot);
-        const metaData = await response.json();
-
-        // Extract unit data from compositions
-        metaData.comps.forEach(comp => {
-            comp.champions.forEach(champion => {
-                const unitName = champion.name;
-                unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
-                unitCostMap[unitName] = champion.cost || 1;
+        const snapshot = await response.json();
+        // Extract unit data from all set compositions
+        Object.values(snapshot).forEach(setData => {
+            (setData.comps || []).forEach(comp => {
+                (comp.champions || []).forEach(champion => {
+                    const unitName = champion.name;
+                    unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
+                    unitCostMap[unitName] = champion.cost || 1;
+                });
             });
         });
-
-        // Load items data (each section now contains objects with .apiName)
-        const allItems = [
-            ...metaData.items.default,
-            ...metaData.items.artifact,
-            ...metaData.items.emblem,
-            ...metaData.items.trait
-        ];
-        items = allItems.map(itemObj => ({
+        // Load unique items data across all sets
+        let allItems = [];
+        Object.values(snapshot).forEach(setData => {
+            const it = setData.items || {};
+            allItems.push(...(it.default || []), ...(it.artifact || []), ...(it.emblem || []), ...(it.trait || []));
+        });
+        // Deduplicate items by apiName
+        const unique = new Map();
+        allItems.forEach(itemObj => {
+            if (itemObj.apiName && !unique.has(itemObj.apiName)) {
+                unique.set(itemObj.apiName, itemObj);
+            }
+        });
+        items = Array.from(unique.values()).map(itemObj => ({
             Item: itemObj.apiName,
-            Name: itemObj.name,                          // add human‐readable name
+            Name: itemObj.name,
             Url: getItemWEBPImageUrl(itemObj.apiName)
         }));
-
-        metaSnapshotData = metaData;
-        return metaData;
+        metaSnapshotData = snapshot;
+        return snapshot;
     } catch (error) {
         console.error('Error loading MetaSnapshot.json:', error);
         return null;
@@ -51,15 +56,58 @@ const loadMetaSnapshot = async () => {
 export function tryLoadDefaultData() {
     loadMetaSnapshot().then((metaData) => {
         if (metaData) {
-            loadCompsFromJSON(metaData);
-            createCoreItemsButtons(metaData.items);
-            // Initialize multi-select filter for compositions
-            initCompFilter(metaData);
+            // Populate set selector dropdown
+            const setSelector = document.getElementById('setSelector');
+            if (setSelector) {
+                const keys = Object.keys(metaData);
+                setSelector.innerHTML = '';
+                keys.forEach(setKey => {
+                    const option = document.createElement('option');
+                    option.value = setKey;
+                    option.textContent = setKey;
+                    setSelector.appendChild(option);
+                });
+                // select last set by default
+                setSelector.value = keys[keys.length - 1];
+                // Reload compositions on set change
+                setSelector.addEventListener('change', () => {
+                    const selected = setSelector.value;
+                    const setData = metaData[selected];
+                    if (setData) {
+                        // reset player panels when changing set
+                        resetPlayers();
+                        // update global items for suggestions to this set only
+                        const sec = setData.items || {};
+                        const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.trait||[])];
+                        items = arr.map(it => ({ Item: it.apiName, Name: it.name, Url: getItemWEBPImageUrl(it.apiName) }));
+                        // reload compositions and filter
+                        loadCompsFromJSON(setData);
+                        createCoreItemsButtons(setData.items);
+                        initCompFilter(setData);
+                    }
+                });
+            }
+            // Load default (last) set
+            const initialSet = setSelector?.value;
+            const initialData = metaData[initialSet];
+            if (initialData) {
+                // initialize items for initial set
+                const sec0 = initialData.items || {};
+                const arr0 = [...(sec0.default||[]), ...(sec0.artifact||[]), ...(sec0.emblem||[]), ...(sec0.trait||[])];
+                items = arr0.map(it => ({ Item: it.apiName, Name: it.name, Url: getItemWEBPImageUrl(it.apiName) }));
+                loadCompsFromJSON(initialData);
+                createCoreItemsButtons(initialData.items);
+                initCompFilter(initialData);
+                // reset players on initial load
+                resetPlayers();
+            }
         }
     });
 }
 
 export function loadCompsFromJSON(metaData) {
+    // Update global snapshot to current set so tooltips and icons reference correct data
+    metaSnapshotData = metaData;
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [], X: [] };
 

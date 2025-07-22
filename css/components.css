@@ -128,7 +128,7 @@
 #coreItemsContainer {
     display: flex;
     justify-content: space-between;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     padding: var(--spacing-sm);
 }
 
@@ -156,7 +156,7 @@
     flex-direction: row;
     justify-content: center;
     align-content: start;
-    gap: 10px;
+    gap: 6px;
     padding: 4px 4px;
     border: 2px solid var(--border-secondary);
     border-radius: 8px;
