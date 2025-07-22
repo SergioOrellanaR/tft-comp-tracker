@@ -41,6 +41,15 @@
 /* Estilos para el ícono de edición */
 .edit-icon {
     cursor: pointer;
+    position: relative;
+    z-index: 15;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos para contenedor de equipo */

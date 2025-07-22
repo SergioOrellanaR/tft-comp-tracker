@@ -119,6 +119,8 @@
     justify-content: center;
     flex-shrink: 0;
     overflow: hidden;
+    position: relative;
+    z-index: 10;
 }
 
 /* =====================================================================

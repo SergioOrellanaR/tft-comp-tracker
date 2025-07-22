@@ -295,14 +295,14 @@ function createEditableSpan(name) {
     span.classList.add('player-name');
     span.textContent = name;
 
-    span.ondblclick = () => {
+    const editHandler = () => {
         const input = document.createElement('input');
         input.classList.add('editable-input');
         const original = span.textContent;
 
         Object.assign(input, {
             type: 'text',
-            value: '',
+            value: '', // Start with empty text
             maxLength: 20,
         });
 
@@ -323,7 +323,9 @@ function createEditableSpan(name) {
                 const currentIndex = allPlayers.findIndex(p => p.contains(span));
                 const next = allPlayers[currentIndex + 1];
                 const nextSpan = next?.querySelector('.player-name');
-                if (nextSpan) nextSpan.dispatchEvent(new Event('dblclick'));
+                if (nextSpan) {
+                    nextSpan.dispatchEvent(new Event('dblclick'));
+                }
             }
         });
 
@@ -331,6 +333,14 @@ function createEditableSpan(name) {
         span.parentElement.insertBefore(input, span);
         input.focus();
     };
+
+    span.ondblclick = (e) => {
+        e.stopPropagation();
+        editHandler();
+    };
+    
+    // Store the edit handler so the edit icon can call it
+    span._editHandler = editHandler;
 
     return span;
 }
@@ -341,7 +351,10 @@ function createEditIcon(span) {
     icon.classList.add('edit-icon');
     icon.onclick = (e) => {
         e.stopPropagation();
-        span.ondblclick();
+        // Call the stored edit handler directly
+        if (span._editHandler) {
+            span._editHandler();
+        }
     };
     return icon;
 }
