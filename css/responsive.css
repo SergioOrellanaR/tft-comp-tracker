@@ -12,10 +12,11 @@
 
     body {
         flex-direction: row; /* MANTENER layout horizontal */
-        height: 100vh;
+        height: auto; /* Altura natural para scroll global */
         padding: 0;
         margin: 0;
-        overflow: hidden;
+        overflow: auto; /* Permitir scroll global */
+        min-height: 100vh; /* Mínimo pantalla completa */
     }
 
     /* Canvas container - MANTENER VISIBLE pero más pequeño */
@@ -31,7 +32,7 @@
         min-width: 140px;
         padding: 0.5rem;
         border-right: 1px solid rgba(255, 255, 255, 0.1);
-        overflow-y: auto;
+        overflow-y: visible; /* Sin scroll propio */
     }
 
     /* Right panel - Compositions (más estrecho) */
@@ -40,8 +41,8 @@
         min-width: 160px;
         padding: 0.5rem;
         margin-left: 0;
-        overflow-y: auto;
-        max-height: 100vh; /* Asegurar que tenga una altura máxima */
+        overflow-y: visible; /* Sin scroll propio */
+        max-height: none; /* Sin límite de altura */
         display: flex;
         flex-direction: column;
     }
@@ -407,6 +408,109 @@
         align-items: center;
         justify-content: center;
         z-index: 1000;
+    }
+}
+
+/* =====================================================================
+    Extra small screens (phones in landscape, small devices)
+===================================================================== */
+@media (max-width: 480px) {
+    html, body {
+        height: auto !important; /* Permitir altura natural */
+        overflow: auto !important; /* Permitir scroll global */
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: auto !important; /* Altura natural */
+        overflow: auto !important; /* Scroll global */
+        display: flex !important;
+        flex-direction: row !important;
+        min-height: 100vh; /* Mínimo de pantalla completa */
+    }
+
+    /* Right panel - Sin scroll propio, usar scroll de página */
+    #right {
+        width: 40%;
+        min-width: 120px;
+        padding: 0.25rem;
+        overflow-y: visible !important; /* No scroll propio */
+        max-height: none !important; /* Sin límite de altura */
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    /* Contenedor de comps - Sin scroll propio */
+    #comps {
+        flex: 1 !important;
+        overflow-y: visible !important; /* No scroll propio */
+        max-height: none !important; /* Sin límite de altura */
+        padding-right: 2px;
+        min-height: auto !important; /* Altura natural */
+        box-sizing: border-box;
+    }
+
+    /* Remover estilos de scrollbar personalizados */
+    #comps::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Composiciones aún más compactas */
+    .item.compo {
+        height: 24px !important;
+        min-height: 24px !important;
+        padding: 2px 3px 2px 0px !important;
+        margin: 1px 0 !important;
+        font-size: 0.7rem !important;
+    }
+
+    .comp-info {
+        font-size: 0.7rem !important;
+        min-width: 40px !important;
+        font-weight: 600 !important;
+    }
+
+    .comp-style {
+        flex: 0 0 18px !important;
+        font-size: 0.6rem !important;
+    }
+
+    /* Border gradient para pantallas muy pequeñas */
+    .border-gradient {
+        width: 2px !important;
+        left: -2px !important;
+        height: 24px !important;
+        border-radius: 3px 0 0 3px !important;
+    }
+
+    .item.compo {
+        border-left: 2px solid transparent !important;
+    }
+
+    /* Left panel más estrecho */
+    #left {
+        width: 30%;
+        min-width: 100px;
+        padding: 0.25rem;
+    }
+
+    /* Canvas más estrecho pero visible */
+    #canvas-container {
+        flex: 1;
+        min-width: 60px;
+    }
+
+    /* Search bars aún más compactas */
+    .search-comp-bar {
+        margin-bottom: 0.25rem;
+    }
+
+    .search-input {
+        padding: 4px;
+        font-size: 0.7rem;
     }
 }
 
