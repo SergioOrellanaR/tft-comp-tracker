@@ -4,8 +4,7 @@
 .item {
     padding: 4px 6px;
     font-size: 0.75rem;
-    border: 1px solid var(--border-secondary);
-    margin: 2px;
+    margin: 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
