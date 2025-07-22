@@ -4,12 +4,12 @@
 .item {
     padding: 4px 6px;
     font-size: 0.75rem;
-    border: 1px solid #444;
+    border: 1px solid var(--border-secondary);
     margin: 2px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: var(--tertiary-bg);
     border-radius: 6px;
     cursor: pointer;
     position: relative;
@@ -18,7 +18,7 @@
 }
 
 .item:hover {
-    background-color: #444;
+    background-color: var(--accent-bg);
 }
 
 .item.player {
@@ -159,7 +159,7 @@
     align-content: start;
     gap: 10px;
     padding: 4px 4px;
-    border: 2px solid #333;
+    border: 2px solid var(--border-secondary);
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -237,8 +237,8 @@
     position: absolute;
     top: -6px;
     right: -6px;
-    background: #ff4c4c;
-    color: #fff;
+    background: var(--error-color);
+    color: var(--text-primary);
     font-size: 0.7rem;
     font-weight: bold;
     width: 18px;
@@ -260,23 +260,23 @@
 }
 
 .unit-cost-1 {
-    background: #808080;
+    background: var(--tier-gray);
 }
 
 .unit-cost-2 {
-    background: #4caf50;
+    background: var(--tier-green);
 }
 
 .unit-cost-3 {
-    background: #2196f3;
+    background: var(--tier-blue);
 }
 
 .unit-cost-4 {
-    background: #9c27b0;
+    background: var(--tier-purple);
 }
 
 .unit-cost-5 {
-    background: #ffd700;
+    background: var(--tier-gold);
 }
 
 /* =====================================================================
@@ -292,7 +292,7 @@
     border-radius: 8px;
     padding: 2px 6px;
     margin: 2px 0;
-    color: #ddd;
+    color: var(--text-secondary);
     font-size: 0.7rem;
     transition: background 0.3s ease, transform 0.3s ease;
     height: 36px;
@@ -303,7 +303,7 @@
     background: rgba(255, 255, 255, 0.08);
     transform: scale(1.01);
     cursor: pointer;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 .comp-style {
@@ -346,7 +346,7 @@
     margin-left: 4px;
     min-width: 80px;
     font-weight: 500;
-    color: #fff;
+    color: var(--text-primary);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -402,7 +402,7 @@
     transform: translateX(-50%);
     display: none;
     padding: 4px;
-    background: #111;
+    background: var(--primary-bg);
     border-radius: 10px;
     z-index: 10;
     gap: 4px;
@@ -415,7 +415,7 @@
 
 /* Selección */
 .selected {
-    background-color: #555 !important;
+    background-color: var(--border-secondary) !important;
     transform: scale(1.02);
 }
 
@@ -433,7 +433,7 @@
     gap: 4px;
     margin-bottom: 16px;
     padding: 8px;
-    border: 1px solid #444;
+    border: 1px solid var(--border-secondary);
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
@@ -518,7 +518,7 @@ th {
     align-items: center;
     gap: 6px;
     color: var(--text-accent);
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid var(--border-secondary);
     padding-bottom: 0.3em;
 }
 
@@ -531,7 +531,7 @@ th {
     justify-content: center;
     align-content: start;
     gap: 15px;
-    border: 2px solid #333;
+    border: 2px solid var(--border-secondary);
     border-radius: 8px;
     background-color: var(--main-accent, #2c2c3b);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -544,7 +544,7 @@ th {
     padding: 0 0 6px 0;
     font-weight: 600;
     color: var(--text-accent, #ddd);
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--border-secondary);
     text-overflow: ellipsis;
 }
 
@@ -586,26 +586,26 @@ th {
     Suggestion Icon Borders
 ===================================================================== */
 .suggestion-icon.unit-cost-1 {
-    border: 2px solid #808080;
+    border: 2px solid var(--tier-gray);
     border-radius: 4px;
 }
 
 .suggestion-icon.unit-cost-2 {
-    border: 2px solid #4caf50;
+    border: 2px solid var(--tier-green);
     border-radius: 4px;
 }
 
 .suggestion-icon.unit-cost-3 {
-    border: 2px solid #2196f3;
+    border: 2px solid var(--tier-blue);
     border-radius: 4px;
 }
 
 .suggestion-icon.unit-cost-4 {
-    border: 2px solid #9c27b0;
+    border: 2px solid var(--tier-purple);
     border-radius: 4px;
 }
 
 .suggestion-icon.unit-cost-5 {
-    border: 2px solid #ffd700;
+    border: 2px solid var(--tier-gold);
     border-radius: 4px;
 }

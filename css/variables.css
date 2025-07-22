@@ -17,6 +17,19 @@
     --text-muted: #94a3b8;
     --text-accent: #3b82f6;
     
+    /* State Colors */
+    --error-color: #ff4c4c;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --info-color: #06b6d4;
+    
+    /* Tier Colors */
+    --tier-gray: #808080;
+    --tier-green: #4caf50;
+    --tier-blue: #2196f3;
+    --tier-purple: #9c27b0;
+    --tier-gold: #ffd700;
+    
     /* Border Colors */
     --border-primary: #334155;
     --border-secondary: #475569;
