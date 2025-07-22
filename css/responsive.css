@@ -1,0 +1,305 @@
+/* =====================================================================
+    Responsive layout
+===================================================================== */
+@media (max-width: 768px) {
+
+    html {
+        font-size: 12px;
+    }
+
+    body::after,
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        width: 30px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    body::after {
+        left: 0;
+        background: linear-gradient(to right, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
+    }
+
+    body::before {
+        right: 0;
+        background: linear-gradient(to left, rgba(28, 28, 43, 1), rgba(28, 28, 43, 0));
+    }
+
+    #canvas-container {
+        min-width: 150px;
+    }
+
+    table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+    }
+
+    .btn-color-mode-switch>label.btn-color-mode-switch-inner {
+        height: 25px;
+    }
+
+    .btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
+        font-size: 10px;
+        right: 5px;
+    }
+
+    .btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
+        height: 15px;
+        font-size: 10px;
+    }
+
+    .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
+        left: 15px;
+    }
+
+    .table-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    .table-container div {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)) !important;
+        gap: 2px !important;
+    }
+
+    .table-container div div {
+        display: flex;
+        align-items: center;
+    }
+
+    .table-container div div img {
+        width: 30px !important;
+        height: 30px !important;
+        border-radius: 4px !important;
+        object-fit: cover;
+        border: 0px solid transparent !important;
+        box-sizing: border-box !important;
+    }
+
+    .table-container div div img[style*="border-image"] {
+        border-width: 1px !important;
+    }
+
+    .comp-info {
+        text-align: center;
+        min-width: 10%;
+        text-overflow: ellipsis;
+    }
+
+    .comp-star {
+        display: none;
+    }
+
+    .main-augment-item-container {
+        display: none;
+    }
+
+    .unit-icons {
+        display: none !important;
+    }
+
+    .items-container {
+        display: none !important;
+    }
+
+    #coreItemsContainer {
+        display: none !important;
+    }
+
+    /*Part 2 - Adapted for mobile */
+    #popupOverlay {
+        display: none !important;
+    }
+
+    .duel-button {
+        display: none !important;
+    }
+
+    #infoTableContainer{
+        display: none !important;
+    }
+
+    .participant-info-container.margin-you {
+    margin-left: 0px;
+}
+
+    .player-action-container {
+        display: none !important;
+    }
+
+    .match-traits {
+        display: none !important;
+    }
+
+    .match-player-stats {
+        display: none !important;
+    }
+
+    .match-player-companion {
+        display: none !important;
+    }
+
+    .match-champs {
+        width: 120%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .match-champ {
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+    }
+
+    .match-player-placement {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    #canvasContainer {
+        display: none !important;
+    }
+
+    .duel-stat-rect {
+        display: none !important;
+    }
+
+    .duel-contested-rectangle {
+        display: none !important;
+    }
+
+    .stats-wrapper {
+        gap: 5px;
+    }
+
+    .rank-icon-data-container {
+        display: none !important;
+    }
+
+    .rank-data-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titleStatDiv {
+        display: none !important;
+    }
+
+    .duel-stat-center-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    [class^="unit-cost-"] {
+        width: 33px;
+        height: 33px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #popupOverlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        height: 90vh;
+        background: #1c1c2b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    .match-traits {
+        display: none !important;
+    }
+
+    .match-player-stats {
+        display: none !important;
+    }
+
+    .match-player-companion {
+        display: none !important;
+    }
+
+    .match-champs {
+        width: 120%;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .match-champ {
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+    }
+
+    .match-player-placement {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+
+    .unit-icons {
+        display: flex;
+        max-width: 80px;
+        justify-content: right;
+    }
+
+    .main-augment-item-container {
+        display: none !important;
+    }
+
+    #canvasContainer {
+        display: none !important;
+    }
+
+    .duel-stat-rect {
+        display: none !important;
+    }
+
+    .duel-contested-rectangle {
+        display: none !important;
+    }
+
+    .stats-wrapper {
+        gap: 5px;
+    }
+
+    .rank-icon-data-container {
+        display: none !important;
+    }
+
+    .rank-data-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titleStatDiv {
+        display: none !important;
+    }
+
+    .duel-stat-center-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

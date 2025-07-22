@@ -1,0 +1,328 @@
+/* =====================================================================
+    Botones y Elementos Interactivos
+===================================================================== */
+button {
+    padding: 8px;
+    background: var(--button-accent);
+    border: none;
+    border-radius: 4px;
+    color: var(--text-accent);
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(112%);
+}
+
+/* Double Up Toggle Button */
+.btn-double-up-btn-container {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-color-mode-switch {
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+    width: 100%;
+}
+
+.btn-color-mode-switch>label.btn-color-mode-switch-inner {
+    margin: 0px;
+    width: 100%;
+    height: 30px;
+    background-color: var(--button-accent);
+    border-radius: 26px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
+    content: attr(data-on);
+    position: absolute;
+    font-size: 14px;
+    font-weight: 600;
+    top: 5px;
+    right: 20px;
+    color: var(--text-accent);
+}
+
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
+    content: attr(data-off);
+    width: 50%;
+    height: 20px;
+    background: #fff;
+    border-radius: 26px;
+    position: absolute;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    left: 2px;
+    top: 2px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 6px -2px #111;
+    padding: 3px 0px;
+    color: #222;
+    font-weight: 600;
+}
+
+.btn-color-mode-switch input[type="checkbox"] {
+    width: 50%;
+    height: 20px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin: 0px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
+    background-color: var(--button-accent);
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
+    content: attr(data-on);
+    left: 49.5%;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
+    content: attr(data-off);
+    left: 20px;
+}
+
+/* Composition Search Bar Buttons */
+.search-comp-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.hide-contested-comps-btn-container,
+.hide-unselected-comps-btn-container,
+.copy-share-url-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 0;
+    cursor: pointer;
+    padding: 2px;
+    background: var(--button-accent);
+    border: none;
+    border-radius: 4px;
+    color: var(--text-accent);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.hide-contested-comps-btn-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.hide-contested-comps-btn-label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+}
+
+.hide-contested-comps-btn-label svg {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition: all 0.3s;
+    fill: #fff;
+    filter: brightness(90%);
+}
+
+.hide-contested-comps-btn-label:hover svg {
+    filter: brightness(100%);
+}
+
+
+.hide-contested-comps-btn-label input:checked~svg {
+    fill: #ffeb49;
+}
+
+/*------ Contested comps button  ------*/
+.hide-unselected-comps-btn-label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    fill: #fff;
+}
+
+.hide-unselected-comps-btn-label .eye {
+    animation: keyframes-fill .5s;
+    width: 100%;
+    height: 100%;
+    filter: brightness(92%);
+}
+
+.hide-unselected-comps-btn-label .eye-slash {
+    animation: keyframes-fill .5s;
+    display: none;
+    width: 100%;
+    height: 100%;
+    filter: brightness(92%);
+}
+
+.hide-unselected-comps-btn-label input:checked ~ .eye {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.hide-unselected-comps-btn-label input:checked ~ .eye-slash {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hide-unselected-comps-btn-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+@keyframes keyframes-fill {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Add brightness filter on hover */
+.hide-unselected-comps-btn-label:hover .eye,
+.hide-unselected-comps-btn-label:hover .eye-slash {
+    filter: brightness(100%);
+}
+
+.copy-share-url-btn {
+    width: 100%;
+    height: 100%;
+    background: var(--button-accent);
+    color: var(--text-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-share-url-btn span {
+    font-size: 1.25em;
+}
+
+/* Animated Reset Button */
+.animated-button {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    font-size: 15px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: #ffffff40;
+    box-shadow: 0 0 0 2px #ffffff20;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.animated-button span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--button-accent);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.animated-button span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.animated-button:hover {
+    box-shadow: 0 0 0 3px var(--button-accent);
+    color: #ffffff;
+}
+
+.animated-button:hover span:last-child {
+    width: 100%;
+    height: 150px;
+    opacity: 1;
+}
+
+/* Teambuilder Button */
+.teambuilder-btn-container {
+    margin-left: auto;
+}
+
+.teambuilder-btn {
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+}
+
+.teambuilder-btn:hover {
+    transform: scale(1.08);
+}
+
+/* Duel Button */
+.duel-button {
+    background: transparent;
+    cursor: pointer;
+    padding: 4px 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.duel-button:disabled {
+    box-shadow: none;
+    border: none;
+    cursor: default;
+}
+
+.duel-button:not(:disabled):hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
