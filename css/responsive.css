@@ -111,12 +111,15 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        flex: 1; /* Take all available space */
-        min-width: 0; /* Allow shrinking */
+        flex: 1 1 0; /* Use available space but allow shrinking to 0 */
+        min-width: 0; /* Allow shrinking below content size */
+        max-width: calc(100% - 45px); /* Reserve space for mini-rank-div */
     }
 
     .mini-rank-div {
         min-width: 40px;
+        max-width: 40px; /* Prevent growing in mobile */
+        flex-shrink: 0; /* Never shrink */
     }
 
     .mini-rank-img {

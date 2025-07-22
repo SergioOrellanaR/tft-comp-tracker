@@ -48,26 +48,30 @@
     width: 100%;
     box-sizing: border-box;
     cursor: pointer;
-    flex-wrap: wrap;
+    /* Removed flex-wrap to prevent wrapping */
     gap: 4px;
+    min-width: 0; /* Allow shrinking */
 }
 
 /* Estilos para nombres de jugadores */
 .player-name {
     margin-left: -25px;
-    flex: 1 1 auto;
+    flex: 1 1 0; /* Use available space but allow shrinking to 0 */
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600 !important;
+    min-width: 0; /* Allow shrinking below content size */
+    max-width: 100%; /* Prevent overflow */
 }
 
 .mini-rank-div {
     display: flex;
     align-items: center;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Never shrink */
     min-width: 70px;
+    max-width: 70px; /* Prevent growing */
 }
 
 .mini-rank-icon {
