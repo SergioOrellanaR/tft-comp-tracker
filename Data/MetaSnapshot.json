@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-22 12:00:03"
+    "lastUpdated": "2025-07-22 18:00:03"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-22 12:00:02"
+    "lastUpdated": "2025-07-22 18:00:02"
   },
   "SET 15": {
     "patch": "",
@@ -9258,7 +9258,19 @@
         "tier": "A"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Volibear",
+            "items": [
+              "TFT15_Item_SoulFighterEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_5TWsAaMxnG.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          }
+        ],
         "augments": [],
         "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
         "champions": [
@@ -9330,7 +9342,7 @@
           "apiName": "TFT15_Item_SoulFighterEmblemItem",
           "id": "c0ldchofzxw1jb7"
         },
-        "title": "Soul Fighter Samira",
+        "title": "Soul Society",
         "style": "Fast 8",
         "tier": "A"
       },
@@ -11252,7 +11264,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Juggernaut Ashe",
+        "title": "GilgamAshe, Queen of Heroes",
         "style": "Fast 8",
         "tier": "B"
       },
@@ -11676,6 +11688,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-22 12:00:02"
+    "lastUpdated": "2025-07-22 18:00:03"
   }
 }
