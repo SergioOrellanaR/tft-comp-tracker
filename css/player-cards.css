@@ -38,6 +38,18 @@
     border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Estilos para player-card seleccionado */
+.player-card.selected {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.04) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+}
+
+.player-card.selected::before {
+    display: none;
+}
+
 /* Estilos para el ícono de edición */
 .edit-icon {
     cursor: pointer;
