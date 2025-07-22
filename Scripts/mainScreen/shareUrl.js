@@ -1,6 +1,6 @@
 import { CONFIG } from '../config.js';
 
-import { createPlayerDiv, getDefaultNames, enableDragAndDrop, playersContainer, updatePlayerColorBars, toggleDoubleUpMode, getTeamIcon, createTeamContainer } from './players.js';
+import { createPlayerDiv, getDefaultNames, enableDragAndDrop, playersContainer, updatePlayerColors, toggleDoubleUpMode, getTeamIcon, createTeamContainer } from './players.js';
 
 import { drawLines, links } from './canvas.js';
 
@@ -63,7 +63,7 @@ export function applyQueryParams() {
             });
         }
         enableDragAndDrop(isDoubleUp);
-        updatePlayerColorBars();
+        updatePlayerColors();
     }, 0);
 }
 

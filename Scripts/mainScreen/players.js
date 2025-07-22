@@ -86,7 +86,7 @@ export function enableDragAndDrop(isDoubleUp) {
                                 c1.replaceChild(player, src);
                                 c2.replaceChild(src, placeholder);
                                 updateTeamIcons([c1, c2]);
-                                updatePlayerColorBars();
+                                updatePlayerColors();
                             }
                         }
                     }
@@ -142,7 +142,7 @@ export function preloadPlayers() {
 
     enableDragAndDrop(isDoubleUp);
 
-    updatePlayerColorBars(); // Llama una vez para establecer los color-bars fijos
+    updatePlayerColors(); // Llama una vez para establecer los colores fijos
 }
 
 export function getTeamIcon(index) {
@@ -218,48 +218,16 @@ export const resetPlayers = () => {
     updateTierHeadersVisibility && updateTierHeadersVisibility();
 };
 
-export function updatePlayerColorBars() {
+export function updatePlayerColors() {
     const players = document.querySelectorAll('.item.player');
     players.forEach(player => {
         if (document.body.classList.contains('double-up') && player.closest('.team-container')) {
-            // Instead of removing the bar, update the team container's color bar.
-            const container = player.closest('.team-container');
-            let bar = container.querySelector('.color-bar');
-            if (!bar) {
-                bar = document.createElement('div');
-                container.insertBefore(bar, container.firstChild);
-            }
-            bar.className = 'color-bar';
-            // Use the team container's border color (assumes format: "1px solid <color>")
-            const borderColor = container.style.border.split(' ')[2] || player.dataset.color;
-            Object.assign(bar.style, {
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                width: '6px',
-                height: '100%',
-                borderRadius: '6px 0 0 6px',
-                background: borderColor
-            });
+            // For double-up mode, the team container already has the border color
+            // No need to add individual player colors
         } else {
-            // For non double-up or players outside team container, use original behavior.
-            player.style.position = 'relative';
-            player.style.borderLeft = 'none';
-            let bar = player.querySelector('.color-bar');
-            if (!bar) {
-                bar = document.createElement('div');
-                player.appendChild(bar);
-            }
-            bar.className = 'color-bar';
-            Object.assign(bar.style, {
-                position: 'absolute',
-                top: '0',
-                right: '0',
-                width: '6px',
-                height: '100%',
-                borderRadius: '0 6px 6px 0',
-                background: player.dataset.color || 'transparent'
-            });
+            // For solo players, use border-right instead of color-bar
+            const color = player.dataset.color || 'transparent';
+            player.style.borderRight = `8px solid ${color}`;
         }
     });
 }
@@ -428,7 +396,7 @@ function setupTeamIcon(circle, icon, player1, player2, container) {
 function updateIconColor(circle, icon, player1, player2, container) {
     [player1, player2].forEach(player => {
         player.dataset.color = icon.color;
-        player.style.borderRight = `10px solid ${icon.color}`;
+        player.style.borderRight = `8px solid ${icon.color}`;
     });
 
     circle.textContent = icon.emoji;

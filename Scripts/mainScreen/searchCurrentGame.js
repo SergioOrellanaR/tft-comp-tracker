@@ -270,14 +270,9 @@ function updatePlayers(participants) {
             const miniRankDiv = createAndInsertPlayerRankDiv(participant.tier, participant.rank, participant.league_points);
             participantInfoContainer.appendChild(miniRankDiv);
 
-            // Insert the container right before the div with class "color-bar"
+            // Insert the container at the end of the player element
             const playerEl = playerElements[index];
-            const colorBar = playerEl.querySelector('.color-bar');
-            if (colorBar) {
-                playerEl.insertBefore(participantInfoContainer, colorBar);
-            } else {
-                playerEl.appendChild(participantInfoContainer);
-            }
+            playerEl.appendChild(participantInfoContainer);
 
             duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
             }

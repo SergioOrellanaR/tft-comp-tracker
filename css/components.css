@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 8px;
+    padding: 4px 0px 4px 8px;
     width: 100%;
     box-sizing: border-box;
     cursor: pointer;
@@ -54,7 +54,7 @@
 
 /* Estilos para nombres de jugadores */
 .player-name {
-    margin-left: -32px;
+    margin-left: -25px;
     flex: 1 1 auto;
     text-align: center;
     white-space: nowrap;
@@ -66,7 +66,6 @@
 .mini-rank-div {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     flex-shrink: 0;
     min-width: 70px;
 }
@@ -98,10 +97,10 @@
     right: 0;
 }
 
-.mini-rank-lp-text
-{
+.mini-rank-lp-text {
     font-size: 0.8em;
     opacity: 0.6;
+    margin-left: 5px;
 }
 
 .table-container {
