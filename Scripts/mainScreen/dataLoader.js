@@ -78,12 +78,10 @@ export function tryLoadDefaultData() {
                     const selected = setSelector.value;
                     const setData = metaData[selected];
                     if (setData) {
-                        // reset player panels when changing set
-                        resetPlayers();
-                        
-                        // Only clear composition URL parameters when user changes sets
-                        // (not during initial load)
+                        // Only reset player panels when user changes set after initial load
+                        // to preserve URL parameter player names on initial load
                         if (!isInitialLoad) {
+                            resetPlayers();
                             // Clear composition URL parameters when changing sets
                             // since comp indexes are set-specific
                             const url = new URL(window.location);
