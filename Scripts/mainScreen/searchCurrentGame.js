@@ -160,7 +160,12 @@ async function updatePlayersDuelButtons(playerData, server) {
             duelButton.title = 'Vs. History';
             duelButton.innerText = '⚔️';
             player.querySelector('.participant-info-container').classList.add('margin-none');
-            processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
+            try {
+                processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
+            } catch (error) {
+                // On error, show red exclamation and continue
+                handleTimeoutOrFailedRetrieval(null, duelButton);
+            }
             actionContainer.appendChild(duelButton);
         }
     }
