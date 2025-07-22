@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-22 06:00:03"
+    "lastUpdated": "2025-07-22 12:00:03"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-22 06:00:03"
+    "lastUpdated": "2025-07-22 12:00:02"
   },
   "SET 15": {
     "patch": "",
@@ -9255,7 +9255,7 @@
         "mainItem": {},
         "title": "Mentor Mech Ryze",
         "style": "Fast 9",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [],
@@ -9341,7 +9341,7 @@
         "champions": [
           {
             "apiName": "TFT15_Poppy",
-            "boardIndex": 4,
+            "boardIndex": 2,
             "items": [
               "TFT_Item_FrozenHeart",
               "TFT_Item_NightHarvester",
@@ -9395,9 +9395,9 @@
           "apiName": "TFT15_Item_StarGuardianEmblemItem",
           "id": "wn2be0bb9f60mox"
         },
-        "title": "Star Guardians",
+        "title": "Star Guardian Poppy Jinx",
         "style": "Fast 8",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [],
@@ -9542,7 +9542,7 @@
         "mainItem": {},
         "title": "The Crew Reroll",
         "style": "RR LV.5",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [],
@@ -9606,14 +9606,16 @@
         },
         "title": "Sniper Bastion Jinx",
         "style": "Fast 8",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
           {
             "apiName": "TFT15_Karma",
             "items": [
-              "TFT_Item_RabadonsDeathcap"
+              "TFT_Item_BlueBuff",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
             "championIcon": "tft15_karma_pQA8LxPfmd.webp",
@@ -9624,7 +9626,9 @@
           {
             "apiName": "TFT15_Karma",
             "items": [
-              "TFT_Item_AdaptiveHelm"
+              "TFT_Item_AdaptiveHelm",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_ArchangelsStaff"
             ],
             "stars": 1,
             "championIcon": "tft15_karma_pQA8LxPfmd.webp",
@@ -9717,8 +9721,8 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_BlueBuff"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
             "championIcon": "tft15_samira_wYuLZXAcRs.webp",
@@ -10051,25 +10055,25 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-d-d-d-duelists",
         "champions": [
           {
-            "apiName": "TFT15_KaiSa",
-            "boardIndex": 21,
+            "apiName": "TFT15_Gangplank",
+            "boardIndex": 0,
             "items": [
-              "TFT_Item_LastWhisper",
               "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Bloodthirster"
             ],
             "stars": 3,
-            "championIcon": "tft15_kai_sa_RjZS5jqIbw.webp",
+            "championIcon": "tft15_gangplank_zWDUqSXLKZ.webp",
             "cost": 2,
-            "name": "Kai'Sa",
+            "name": "Gangplank",
             "set": 15
           },
           {
             "apiName": "TFT15_Udyr",
             "boardIndex": 1,
             "items": [
-              "TFT_Item_WarmogsArmor",
               "TFT_Item_Redemption",
+              "TFT_Item_SpectralGauntlet",
               "TFT_Item_RedBuff"
             ],
             "stars": 3,
@@ -10095,11 +10099,11 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_KaiSa",
+          "apiName": "TFT15_Gangplank",
           "cost": 2,
-          "id": "uztg0tnkarz40zm",
-          "championIcon": "tft15_kai_sa_RjZS5jqIbw.webp",
-          "name": "Kai'Sa",
+          "id": "y1djoufilfl6mro",
+          "championIcon": "tft15_gangplank_zWDUqSXLKZ.webp",
+          "name": "Gangplank",
           "set": 15
         },
         "mainItem": {},
@@ -10418,50 +10422,37 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Swain",
-            "boardIndex": 4,
+            "apiName": "TFT15_Udyr",
+            "boardIndex": 1,
             "items": [
-              "TFT_Item_FrozenHeart",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_NightHarvester"
+              "TFT_Item_RedBuff",
+              "TFT_Item_NightHarvester",
+              "TFT_Item_SpectralGauntlet"
             ],
-            "stars": 3,
-            "championIcon": "tft15_swain_oAss1WGZ9o.webp",
+            "stars": 1,
+            "championIcon": "tft15_udyr_Zb2SmwUNWG.webp",
             "cost": 3,
-            "name": "Swain",
+            "name": "Udyr",
             "set": 15
           },
           {
             "apiName": "TFT15_Ashe",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_LastWhisper",
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane"
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_HextechGunblade"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_tUSocwbTaK.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
-            "cost": 5,
-            "name": "Zyra",
-            "set": 15
           }
         ],
         "mainAugment": {
           "apiName": "TFT15_Augment_ViCarry",
-          "id": "26l1jpxmc1jac30"
+          "id": "eqrugkmb9si840n"
         },
         "mainChampion": {
           "apiName": "TFT15_Vi",
@@ -10622,6 +10613,19 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_KogMaw",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_HextechGunblade"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kog_maw_JqqGidcRZ5.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Jayce",
             "boardIndex": 3,
             "items": [
@@ -10637,8 +10641,7 @@
             "apiName": "TFT15_Poppy",
             "boardIndex": 2,
             "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_SpectralGauntlet"
+              "TFT_Item_RedBuff"
             ],
             "stars": 1,
             "championIcon": "tft15_poppy_JKk94YLgrv.webp",
@@ -10782,7 +10785,7 @@
         "mainItem": {},
         "title": "Bastion Edgelord Xayah Reroll",
         "style": "RR LV.6",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [],
@@ -10913,7 +10916,21 @@
         "tier": "X"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Darius",
+            "items": [
+              "TFT_Item_Artifact_SilvermereDawn",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Bloodthirster"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_darius_HI6OKnRjLl.webp",
+            "cost": 3,
+            "name": "Darius",
+            "set": 15
+          }
+        ],
         "augments": [],
         "url": "https://tftacademy.com/tierlist/comps/set-15-perfect-cell-reroll",
         "champions": [
@@ -10946,19 +10963,6 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Udyr",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_udyr_Zb2SmwUNWG.webp",
-            "cost": 3,
-            "name": "Udyr",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Akali",
             "boardIndex": 7,
             "items": [
@@ -10983,7 +10987,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Mentor Supreme Cells Kai'Sa Reroll",
+        "title": "Mentor Supreme Cells Darius Reroll",
         "style": "RR LV.7",
         "tier": "S"
       },
@@ -11202,7 +11206,206 @@
         "mainItem": {},
         "title": "Protector Janna Reroll",
         "style": "RR LV.6",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [],
+        "augments": [],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-juggernaut-ashe",
+        "champions": [
+          {
+            "apiName": "TFT15_Ashe",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ashe_tUSocwbTaK.webp",
+            "cost": 4,
+            "name": "Ashe",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_NightHarvester",
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_BrambleVest"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_YXLKxJ2EyO.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Ashe",
+          "cost": 4,
+          "id": "i9i86hp49ftfmj8",
+          "championIcon": "tft15_ashe_tUSocwbTaK.webp",
+          "name": "Ashe",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Juggernaut Ashe",
+        "style": "Fast 8",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [],
+        "augments": [],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-yone-zyra-mech",
+        "champions": [
+          {
+            "apiName": "TFT15_Ryze",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_yuWax9Pr08.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_GoL4XQam1T.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Yone",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_TitansResolve",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yone_n18maRB9f3.webp",
+            "cost": 5,
+            "name": "Yone",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 24,
+            "items": [
+              "TFT_Item_AdaptiveHelm",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Ryze",
+          "cost": 4,
+          "id": "bqdjiyh67ze9by2",
+          "championIcon": "tft15_ryze_yuWax9Pr08.webp",
+          "name": "Ryze",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Yone Zyra Mech Fast 9",
+        "style": "Fast 9",
         "tier": "A"
+      },
+      {
+        "altBuilds": [],
+        "augments": [],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-executioner-katarina",
+        "champions": [
+          {
+            "apiName": "TFT15_Katarina",
+            "boardIndex": 13,
+            "items": [
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_UnstableConcoction",
+              "TFT_Item_RabadonsDeathcap"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_katarina_d7lNmaJHxH.webp",
+            "cost": 2,
+            "name": "Katarina",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Ryze",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_yuWax9Pr08.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Akali",
+            "boardIndex": 7,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_akali_3E47OzjHNE.webp",
+            "cost": 4,
+            "name": "Akali",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Leona",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_BrambleVest",
+              "TFT_Item_DragonsClaw"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_leona_I3NZo9ya33.webp",
+            "cost": 4,
+            "name": "Leona",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Katarina",
+          "cost": 2,
+          "id": "8poatx9ufbvfeux",
+          "championIcon": "tft15_katarina_d7lNmaJHxH.webp",
+          "name": "Katarina",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_DestroyerEmblemItem",
+          "id": "nwasklttbuco3bh"
+        },
+        "title": "Executioner Katarina",
+        "style": "RR LV.6",
+        "tier": "C"
       }
     ],
     "items": {
@@ -11447,6 +11650,11 @@
           "icon": "tft15_item_edgelord_emblem_item_fwimGaUIkO.webp"
         },
         {
+          "apiName": "TFT15_Item_DestroyerEmblemItem",
+          "name": "Executioner Emblem",
+          "icon": "tft15_item_destroyer_emblem_item_FU78VSsO79.webp"
+        },
+        {
           "apiName": "TFT15_Item_SniperEmblemItem",
           "name": "Sniper Emblem",
           "icon": "tft15_item_sniper_emblem_item_NS1qpklprI.webp"
@@ -11468,6 +11676,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-22 06:00:03"
+    "lastUpdated": "2025-07-22 12:00:02"
   }
 }
