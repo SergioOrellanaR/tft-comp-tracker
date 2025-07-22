@@ -15,43 +15,70 @@ const _originalLoadCompsFromJSON = loadCompsFromJSON;
 
 const loadMetaSnapshot = async () => {
     try {
+        // Add caching for the meta snapshot
+        const cacheKey = 'metaSnapshot';
+        const cached = sessionStorage.getItem(cacheKey);
+        
+        if (cached) {
+            try {
+                const snapshot = JSON.parse(cached);
+                processSnapshotData(snapshot);
+                return snapshot;
+            } catch (e) {
+                sessionStorage.removeItem(cacheKey);
+            }
+        }
+
         const response = await fetch(CONFIG.routes.metaSnapshot);
         const snapshot = await response.json();
-        // Extract unit data from all set compositions
-        Object.values(snapshot).forEach(setData => {
-            (setData.comps || []).forEach(comp => {
-                (comp.champions || []).forEach(champion => {
-                    const unitName = champion.name;
-                    unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
-                    unitCostMap[unitName] = champion.cost || 1;
-                });
-            });
-        });
-        // Load unique items data across all sets
-        let allItems = [];
-        Object.values(snapshot).forEach(setData => {
-            const it = setData.items || {};
-            allItems.push(...(it.default || []), ...(it.artifact || []), ...(it.emblem || []), ...(it.trait || []));
-        });
-        // Deduplicate items by apiName
-        const unique = new Map();
-        allItems.forEach(itemObj => {
-            if (itemObj.apiName && !unique.has(itemObj.apiName)) {
-                unique.set(itemObj.apiName, itemObj);
-            }
-        });
-        items = Array.from(unique.values()).map(itemObj => ({
-            Item: itemObj.apiName,
-            Name: itemObj.name,
-            Url: getItemWEBPImageUrl(itemObj.apiName)
-        }));
-        metaSnapshotData = snapshot;
+        
+        // Cache the response
+        try {
+            sessionStorage.setItem(cacheKey, JSON.stringify(snapshot));
+        } catch (e) {
+            console.warn('Could not cache meta snapshot:', e);
+        }
+        
+        processSnapshotData(snapshot);
         return snapshot;
     } catch (error) {
         console.error('Error loading MetaSnapshot.json:', error);
         return null;
     }
 };
+
+// Extract function to process snapshot data
+function processSnapshotData(snapshot) {
+    // Extract unit data from all set compositions
+    Object.values(snapshot).forEach(setData => {
+        (setData.comps || []).forEach(comp => {
+            (comp.champions || []).forEach(champion => {
+                const unitName = champion.name;
+                unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
+                unitCostMap[unitName] = champion.cost || 1;
+            });
+        });
+    });
+    // Load unique items data across all sets
+    let allItems = [];
+    Object.values(snapshot).forEach(setData => {
+        const it = setData.items || {};
+        allItems.push(...(it.default || []), ...(it.artifact || []), ...(it.emblem || []), ...(it.trait || []));
+    });
+    // Deduplicate items by apiName
+    const unique = new Map();
+    allItems.forEach(itemObj => {
+        if (itemObj.apiName && !unique.has(itemObj.apiName)) {
+            unique.set(itemObj.apiName, itemObj);
+        }
+    });
+    items = Array.from(unique.values()).map(itemObj => ({
+        Item: itemObj.apiName,
+        Name: itemObj.name,
+        Url: getItemWEBPImageUrl(itemObj.apiName)
+    }));
+    metaSnapshotData = snapshot;
+}
 
 export function tryLoadDefaultData() {
     loadMetaSnapshot().then((metaData) => {
