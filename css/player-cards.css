@@ -40,10 +40,10 @@
 
 /* Estilos para player-card seleccionado */
 .player-card.selected {
-    border-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(59, 130, 246, 0.4);
     background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.04) 0%, 
-        rgba(255, 255, 255, 0.02) 100%);
+        rgba(59, 130, 246, 0.03) 0%, 
+        rgba(59, 130, 246, 0.01) 100%);
 }
 
 .player-card.selected::before {
