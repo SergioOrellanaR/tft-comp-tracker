@@ -8,7 +8,9 @@ import { resetPlayers, select } from './players.js';
 export let unitImageMap = {};
 export let unitCostMap = {};
 export let items = [];
+// Data variables
 export let metaSnapshotData = null;
+let fullMetaSnapshot = null; // Keep full snapshot for source information
 
 const compsContainer = document.getElementById('compos');
 const _originalLoadCompsFromJSON = loadCompsFromJSON;
@@ -78,6 +80,7 @@ function processSnapshotData(snapshot) {
         Url: getItemWEBPImageUrl(itemObj.apiName)
     }));
     metaSnapshotData = snapshot;
+    fullMetaSnapshot = snapshot; // Keep full snapshot for source information
 }
 
 export function tryLoadDefaultData() {
@@ -217,6 +220,9 @@ export function loadCompsFromJSON(metaData) {
             tiers[t].forEach(({ element }) => compsContainer.appendChild(element));
         }
     });
+
+    // Add source credit at the end of comps section
+    addCompsSourceCredit();
 }
 
 function createCoreItemsButtons(metaItems) {
@@ -498,4 +504,38 @@ function createUnitTooltip(itemApiNames) {
     });
 
     return tooltip;
+}
+
+/**
+ * Adds a subtle source credit at the end of the compositions section
+ */
+function addCompsSourceCredit() {
+    // Extract source information from the current set data
+    const setSelector = document.getElementById('setSelector');
+    const currentSet = setSelector?.value;
+    
+    // Get the complete metadata from the full snapshot
+    if (currentSet && fullMetaSnapshot && fullMetaSnapshot[currentSet]?.source) {
+        const source = fullMetaSnapshot[currentSet].source;
+        
+        if (source.name && source.url) {
+            const creditDiv = document.createElement('div');
+            creditDiv.className = 'comps-source-credit';
+            
+            const creditText = document.createElement('span');
+            creditText.className = 'comps-credit-text';
+            creditText.textContent = 'Comps data from ';
+            
+            const creditLink = document.createElement('a');
+            creditLink.className = 'comps-credit-link';
+            creditLink.textContent = source.name;
+            creditLink.href = source.url;
+            creditLink.target = '_blank';
+            creditLink.rel = 'noopener';
+            
+            creditDiv.appendChild(creditText);
+            creditDiv.appendChild(creditLink);
+            compsContainer.appendChild(creditDiv);
+        }
+    }
 }

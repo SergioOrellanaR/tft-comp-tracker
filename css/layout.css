@@ -51,3 +51,37 @@ canvas {
     width: 100% !important;
     height: 100% !important;
 }
+
+/* =====================================================================
+    Data Source Credit - Integrated in Comps Section
+===================================================================== */
+.comps-source-credit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 12px;
+    margin: 12px 0 0 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.comps-credit-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+}
+
+.comps-credit-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.comps-credit-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
