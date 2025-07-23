@@ -14,15 +14,33 @@
 /* Give the server selector 3/16 of the total width */
 .server-selector {
     flex: 3;
+    position: relative;
 }
 /* For composition set selector, shrink to content width */
 .set-selector {
     flex: none;
+    position: relative;
+}
+
+/* Minimal dropdown arrow */
+.server-selector::after,
+.set-selector::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid rgba(255, 255, 255, 0.5);
+    pointer-events: none;
 }
 
 .server-selector select {
     width: 100%;
-    padding: 10px 8px;
+    padding: 10px 32px 10px 8px; /* Added right padding for arrow space */
     border: none;
     border-radius: 6px;
     background: var(--main-accent);
@@ -31,12 +49,18 @@
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
     margin-right: 0;
+    -webkit-appearance: none; /* Remove default arrow */
+    -moz-appearance: none;
+    appearance: none;
 }
 /* Set selector input auto width */
 .set-selector select {
     width: auto;
     min-width: 5ch;
-    padding: 8px;
+    padding: 8px 28px 8px 8px; /* Added right padding for arrow space */
+    -webkit-appearance: none; /* Remove default arrow */
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* Give the search input 6/8 of the total width */
