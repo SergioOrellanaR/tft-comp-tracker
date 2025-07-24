@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 06:00:03"
+    "lastUpdated": "2025-07-24 12:00:03"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 06:00:03"
+    "lastUpdated": "2025-07-24 12:00:02"
   },
   "SET 15": {
     "patch": "",
@@ -9130,7 +9130,7 @@
         },
         "title": "Battle Academia",
         "style": "Fast 8",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [],
@@ -9554,7 +9554,7 @@
         "mainItem": {},
         "title": "The Crew Reroll",
         "style": "RR LV.5",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [],
@@ -9618,7 +9618,7 @@
         },
         "title": "Sniper Bastion Jinx",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -9783,7 +9783,7 @@
         },
         "title": "Edgelord Volibear Samira",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [],
@@ -10059,7 +10059,7 @@
         },
         "title": "Sorcerer Ahri Reroll",
         "style": "RR LV.7",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [],
@@ -11021,7 +11021,7 @@
               "TFT_Item_Bloodthirster",
               "TFT_Item_TitansResolve"
             ],
-            "stars": 1,
+            "stars": 3,
             "championIcon": "tft15_darius_HI6OKnRjLl.webp",
             "cost": 3,
             "name": "Darius",
@@ -11039,19 +11039,6 @@
             "championIcon": "tft15_kai_sa_RjZS5jqIbw.webp",
             "cost": 2,
             "name": "Kai'Sa",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Udyr",
-            "boardIndex": 1,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_udyr_Zb2SmwUNWG.webp",
-            "cost": 3,
-            "name": "Udyr",
             "set": 15
           },
           {
@@ -12061,6 +12048,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 06:00:03"
+    "lastUpdated": "2025-07-24 12:00:02"
   }
 }
