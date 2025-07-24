@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 12:00:03"
+    "lastUpdated": "2025-07-24 18:00:02"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 12:00:02"
+    "lastUpdated": "2025-07-24 18:00:02"
   },
   "SET 15": {
     "patch": "",
@@ -9421,8 +9421,8 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_MadredsBloodrazor"
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_JeweledGauntlet"
             ],
             "stars": 3,
             "championIcon": "tft15_kayle_IneyNnw5O5.webp",
@@ -12048,6 +12048,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 12:00:02"
+    "lastUpdated": "2025-07-24 18:00:02"
   }
 }
