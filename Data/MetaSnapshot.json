@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-25 12:00:03"
+    "lastUpdated": "2025-07-25 18:00:03"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-25 12:00:03"
+    "lastUpdated": "2025-07-25 18:00:03"
   },
   "SET 15": {
     "patch": "",
@@ -9344,7 +9344,7 @@
         },
         "title": "Soul Fighter Samira Sett",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [],
@@ -10107,6 +10107,20 @@
             "cost": 3,
             "name": "Viego",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Ashe",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ashe_tUSocwbTaK.webp",
+            "cost": 4,
+            "name": "Ashe",
+            "set": 15
           }
         ],
         "mainAugment": {},
@@ -10121,7 +10135,7 @@
         "mainItem": {},
         "title": "Duelist Kai'Sa Reroll",
         "style": "RR LV.7",
-        "tier": "C"
+        "tier": "S"
       },
       {
         "altBuilds": [],
@@ -10217,30 +10231,6 @@
             "championIcon": "tft15_kennen_jZxIEKnlFK.webp",
             "cost": 1,
             "name": "Kennen",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Aatrox",
-            "boardIndex": 2,
-            "items": [
-              "TFT_Item_IonicSpark",
-              "TFT_Item_RedBuff",
-              "TFT_Item_WarmogsArmor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_aatrox_e15BKgOSdp.webp",
-            "cost": 1,
-            "name": "Aatrox",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Lucian",
-            "boardIndex": 27,
-            "items": [],
-            "stars": 3,
-            "championIcon": "tft15_lucian_X8tOAfHm4a.webp",
-            "cost": 1,
-            "name": "Lucian",
             "set": 15
           }
         ],
@@ -11313,7 +11303,7 @@
         "mainItem": {},
         "title": "Protector Janna Reroll",
         "style": "RR LV.6",
-        "tier": "C"
+        "tier": "A"
       },
       {
         "altBuilds": [],
@@ -12298,6 +12288,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-25 12:00:03"
+    "lastUpdated": "2025-07-25 18:00:02"
   }
 }
