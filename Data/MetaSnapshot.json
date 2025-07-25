@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 18:00:02"
+    "lastUpdated": "2025-07-25 00:00:02"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 18:00:02"
+    "lastUpdated": "2025-07-25 00:00:02"
   },
   "SET 15": {
     "patch": "",
@@ -11688,6 +11688,18 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_RQFepSorgm.webp",
+            "cost": 5,
+            "name": "Braum",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Yone",
             "boardIndex": 3,
             "items": [
@@ -11697,20 +11709,6 @@
             "championIcon": "tft15_yone_n18maRB9f3.webp",
             "cost": 5,
             "name": "Yone",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_AdaptiveHelm",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
-            "cost": 5,
-            "name": "Zyra",
             "set": 15
           },
           {
@@ -11728,15 +11726,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 4,
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 27,
             "items": [
-              "TFT_Item_ThiefsGloves"
+              "TFT_Item_AdaptiveHelm",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_braum_RQFepSorgm.webp",
+            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
             "cost": 5,
-            "name": "Braum",
+            "name": "Zyra",
             "set": 15
           }
         ],
@@ -12048,6 +12048,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-24 18:00:02"
+    "lastUpdated": "2025-07-25 00:00:02"
   }
 }
