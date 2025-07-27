@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-27 06:00:03"
+    "lastUpdated": "2025-07-27 12:00:02"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-27 06:00:03"
+    "lastUpdated": "2025-07-27 12:00:03"
   },
   "SET 15": {
     "patch": "",
@@ -9198,10 +9198,69 @@
         "tier": "B"
       },
       {
-        "altBuilds": [],
-        "augments": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Yone",
+            "items": [
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Artifact_Fishbones",
+              "TFT_Item_Artifact_RapidFirecannon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yone_n18maRB9f3.webp",
+            "cost": 5,
+            "name": "Yone",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
+          },
+          {
+            "apiName": "TFT11_Augment_RainingGold",
+            "id": "ecivk83dp32p2gx"
+          },
+          {
+            "apiName": "TFT7_Augment_ClutteredMind",
+            "id": "14wxe5y23xz2zf4"
+          },
+          {
+            "apiName": "TFT_Augment_EyeForAnEye",
+            "id": "3hlkkjtw98xku4n"
+          },
+          {
+            "apiName": "TFT9_Augment_HighEndSector",
+            "id": "ogaqb7xrgqurkkm"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "id": "gt0vo94i63kscus"
+          },
+          {
+            "apiName": "TFT6_Augment_SecondWind1",
+            "id": "kuwm7ix5jcx3614"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave",
+            "id": "fglageeo5o60w9x"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
         "champions": [
+          {
+            "apiName": "TFT15_Udyr",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_udyr_Zb2SmwUNWG.webp",
+            "cost": 3,
+            "name": "Udyr",
+            "set": 15
+          },
           {
             "apiName": "TFT15_JarvanIV",
             "boardIndex": 1,
@@ -9220,9 +9279,9 @@
             "apiName": "TFT15_Ryze",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_BlueBuff",
-              "TFT_Item_RabadonsDeathcap"
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
             "championIcon": "tft15_ryze_yuWax9Pr08.webp",
@@ -9234,7 +9293,9 @@
             "apiName": "TFT15_Yone",
             "boardIndex": 2,
             "items": [
-              "TFT_Item_ThiefsGloves"
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Quicksilver"
             ],
             "stars": 1,
             "championIcon": "tft15_yone_n18maRB9f3.webp",
@@ -9271,7 +9332,40 @@
             "set": 15
           }
         ],
-        "augments": [],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_SoulFighterCrest",
+            "id": "kqqtsjulk8l76i2"
+          },
+          {
+            "apiName": "TFT15_Augment_SoulFighter_SoulSurge",
+            "id": "jzjvx3ujpw1u8rd"
+          },
+          {
+            "apiName": "TFT_Augment_ClimbTheLadder2",
+            "id": "l1mmawjfnoqxblm"
+          },
+          {
+            "apiName": "TFT10_Augment_LittleBuddies",
+            "id": "i3cjcw1h3f628d2"
+          },
+          {
+            "apiName": "TFT_Augment_PairOfFours",
+            "id": "vkm9zsj45d12ugf"
+          },
+          {
+            "apiName": "TFT7_Augment_BandOfThieves1",
+            "id": "ngrdlt173htp1mk"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "id": "o3rj2tpq40mlghl"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
         "champions": [
           {
@@ -9347,22 +9441,93 @@
         "tier": "S"
       },
       {
-        "altBuilds": [],
-        "augments": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Jinx",
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_InfinityEdge"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jinx_ehQnREuUpR.webp",
+            "cost": 4,
+            "name": "Jinx",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jinx",
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_Deathblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jinx_ehQnREuUpR.webp",
+            "cost": 4,
+            "name": "Jinx",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_StarGuardianCrest",
+            "id": "c8xbnox8rfuywf4"
+          },
+          {
+            "apiName": "TFT_Augment_PairOfFours",
+            "id": "vkm9zsj45d12ugf"
+          },
+          {
+            "apiName": "TFT10_Augment_LittleBuddies",
+            "id": "i3cjcw1h3f628d2"
+          },
+          {
+            "apiName": "TFT_Augment_ClimbTheLadder2",
+            "id": "l1mmawjfnoqxblm"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "id": "gt0vo94i63kscus"
+          },
+          {
+            "apiName": "TFT_Augment_QualityOverQuantity",
+            "id": "y9l0k8nnzzbj7ob"
+          },
+          {
+            "apiName": "TFT7_Augment_BandOfThieves1",
+            "id": "ngrdlt173htp1mk"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-star-guardians",
         "champions": [
           {
             "apiName": "TFT15_Poppy",
             "boardIndex": 2,
             "items": [
-              "TFT_Item_FrozenHeart",
               "TFT_Item_NightHarvester",
+              "TFT_Item_RedBuff",
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 1,
             "championIcon": "tft15_poppy_JKk94YLgrv.webp",
             "cost": 4,
             "name": "Poppy",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Ahri",
+            "boardIndex": 24,
+            "items": [
+              "TFT_Item_AdaptiveHelm",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
+            "cost": 3,
+            "name": "Ahri",
             "set": 15
           },
           {
@@ -9383,9 +9548,8 @@
             "apiName": "TFT15_Seraphine",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_AdaptiveHelm",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_JeweledGauntlet"
             ],
             "stars": 1,
             "championIcon": "tft15_seraphine_IU0c4Wjtyi.webp",
@@ -9473,16 +9637,63 @@
         "tier": "B"
       },
       {
-        "altBuilds": [],
-        "augments": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_TwistedFate",
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_LastWhisper",
+              "TFT_Item_Morellonomicon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_JaCRYKgkmB.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_HeftyRolls",
+            "id": "nohchzbd2rugijf"
+          },
+          {
+            "apiName": "TFT_Augment_TreasureHunt",
+            "id": "kctegzkq76921oq"
+          },
+          {
+            "apiName": "TFT6_Augment_GachaAddict",
+            "id": "ib1wx8n4pp6lr86"
+          },
+          {
+            "apiName": "TFT7_Augment_PandorasBench",
+            "id": "e0gt6nx9dm9phew"
+          },
+          {
+            "apiName": "TFT9_Augment_MissedConnections",
+            "id": "92kkznw14tf6haa"
+          },
+          {
+            "apiName": "TFT15_Augment_TheCrew_SpaceCamp",
+            "id": "ud7yfotu91qzqyd"
+          },
+          {
+            "apiName": "TFT15_Augment_TheCrew_EscapeVelocity",
+            "id": "5d0j3aq5fwep4bv"
+          },
+          {
+            "apiName": "TFT_Augment_EvilBeyondMeasure",
+            "id": "ov3p4q932dmeq27"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crewboy-bebop",
         "champions": [
           {
             "apiName": "TFT15_Sivir",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_SpearOfShojin",
               "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
@@ -9507,7 +9718,7 @@
           },
           {
             "apiName": "TFT15_Ziggs",
-            "boardIndex": 24,
+            "boardIndex": 25,
             "items": [
               "TFT_Item_Morellonomicon",
               "TFT_Item_StatikkShiv",
@@ -9986,7 +10197,21 @@
         "tier": "C"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Gangplank",
+            "items": [
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Artifact_Fishbones",
+              "TFT_Item_Artifact_SpectralCutlass"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gangplank_zWDUqSXLKZ.webp",
+            "cost": 2,
+            "name": "Gangplank",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT15_Augment_ChallengerCrest",
@@ -10091,7 +10316,7 @@
         },
         "mainItem": {},
         "title": "Duelist Kai'Sa Reroll",
-        "style": "RR LV.7",
+        "style": "RR LV.6",
         "tier": "A"
       },
       {
@@ -11197,8 +11422,53 @@
         "tier": "C"
       },
       {
-        "altBuilds": [],
-        "augments": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_JarvanIV",
+            "items": [
+              "TFT15_Item_ProtectorEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_GoL4XQam1T.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_Keepers1",
+            "id": "v0q9ikqi45fpnvj"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2",
+            "id": "jp04upqcy8kkrr0"
+          },
+          {
+            "apiName": "TFT_Augment_CrownguardSpirit",
+            "id": "ain4pp5fpfmsudd"
+          },
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus",
+            "id": "jb86edcbptewqpc"
+          },
+          {
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection",
+            "id": "qbov2ca3pbz4vg1"
+          },
+          {
+            "apiName": "TFT_Augment_PlotArmor",
+            "id": "xp57tqme2su8mo9"
+          },
+          {
+            "apiName": "TFT_Augment_BeltOverflow",
+            "id": "q2iif767camklly"
+          },
+          {
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "id": "krmp7nozbwkt3pv"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-rerolling-of-the-shield-hero",
         "champions": [
           {
@@ -11379,6 +11649,18 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Gwen",
             "boardIndex": 11,
             "items": [
@@ -11404,18 +11686,6 @@
             "championIcon": "tft15_yone_n18maRB9f3.webp",
             "cost": 5,
             "name": "Yone",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
-            "cost": 5,
-            "name": "Zyra",
             "set": 15
           }
         ],
@@ -12046,6 +12316,11 @@
           "icon": "tft_item_crownguard_I5ANER7Jqa.webp"
         },
         {
+          "apiName": "TFT_Item_Deathblade",
+          "name": "Deathblade",
+          "icon": "tft_item_deathblade_VayGpcACXo.webp"
+        },
+        {
           "apiName": "TFT_Item_DragonsClaw",
           "name": "Dragon's Claw",
           "icon": "tft_item_dragons_claw_QVMXm2mb0Q.webp"
@@ -12248,6 +12523,11 @@
           "icon": "tft9_item_ornn_horizon_focus_UrM97L06jJ.webp"
         },
         {
+          "apiName": "TFT_Item_Artifact_SpectralCutlass",
+          "name": "Spectral Cutlass",
+          "icon": "tft_item_artifact_spectral_cutlass_xcHoNSF1CE.webp"
+        },
+        {
           "apiName": "TFT_Item_Artifact_StatikkShiv",
           "name": "Statikk Shiv",
           "icon": "tft_item_artifact_statikk_shiv_Z5HVHS3mXL.webp"
@@ -12273,6 +12553,11 @@
           "apiName": "TFT15_Item_JuggernautEmblemItem",
           "name": "Juggernaut Emblem",
           "icon": "tft15_item_juggernaut_emblem_item_qYYGsKAsNj.webp"
+        },
+        {
+          "apiName": "TFT15_Item_ProtectorEmblemItem",
+          "name": "Protector Emblem",
+          "icon": "tft15_item_protector_emblem_item_eeAKfm75ha.webp"
         },
         {
           "apiName": "TFT15_Item_SniperEmblemItem",
@@ -12301,6 +12586,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-27 06:00:02"
+    "lastUpdated": "2025-07-27 12:00:02"
   }
 }
