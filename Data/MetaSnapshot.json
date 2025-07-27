@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-27 12:00:02"
+    "lastUpdated": "2025-07-27 18:00:02"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-27 12:00:03"
+    "lastUpdated": "2025-07-27 18:00:03"
   },
   "SET 15": {
     "patch": "",
@@ -9836,19 +9836,6 @@
           {
             "apiName": "TFT15_Karma",
             "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_karma_pQA8LxPfmd.webp",
-            "cost": 4,
-            "name": "Karma",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Karma",
-            "items": [
               "TFT_Item_AdaptiveHelm",
               "TFT_Item_StatikkShiv",
               "TFT_Item_ArchangelsStaff"
@@ -9860,9 +9847,56 @@
             "set": 15
           }
         ],
-        "augments": [],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_SentaiRanger_BeTheHead_Gold",
+            "id": "0rhwbpdo9lwwzmx"
+          },
+          {
+            "apiName": "TFT15_Augment_SentaiRanger_BeTheArms",
+            "id": "ihbzoj9u3srh2tg"
+          },
+          {
+            "apiName": "TFT15_Augment_SentaiRanger_BeTheLegs",
+            "id": "xt60jx4hv80wfzt"
+          },
+          {
+            "apiName": "TFT6_Augment_SecondWind1",
+            "id": "kuwm7ix5jcx3614"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave",
+            "id": "fglageeo5o60w9x"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
+          },
+          {
+            "apiName": "TFT7_Augment_ClutteredMind",
+            "id": "14wxe5y23xz2zf4"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1",
+            "id": "xfi2bs7r3m38oep"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
         "champions": [
+          {
+            "apiName": "TFT15_Karma",
+            "boardIndex": 23,
+            "items": [
+              "TFT_Item_AdaptiveHelm",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_pQA8LxPfmd.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          },
           {
             "apiName": "TFT15_JarvanIV",
             "boardIndex": 3,
@@ -9878,17 +9912,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Karma",
+            "apiName": "TFT15_Ryze",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_ArchangelsStaff"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_pQA8LxPfmd.webp",
+            "championIcon": "tft15_ryze_yuWax9Pr08.webp",
             "cost": 4,
-            "name": "Karma",
+            "name": "Ryze",
             "set": 15
           },
           {
@@ -11015,6 +11049,20 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-super-spreader",
         "champions": [
           {
+            "apiName": "TFT15_Yuumi",
+            "boardIndex": 23,
+            "items": [
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
+            "cost": 4,
+            "name": "Yuumi",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Malzahar",
             "boardIndex": 21,
             "items": [
@@ -11043,20 +11091,6 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Yuumi",
-            "boardIndex": 23,
-            "items": [
-              "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_JeweledGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
-            "cost": 4,
-            "name": "Yuumi",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Seraphine",
             "boardIndex": 24,
             "items": [
@@ -11071,11 +11105,11 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Malzahar",
-          "cost": 3,
-          "id": "hpi25cqxdmjv4ag",
-          "championIcon": "tft15_malzahar_FqvktbQBDi.webp",
-          "name": "Malzahar",
+          "apiName": "TFT15_Yuumi",
+          "cost": 4,
+          "id": "dlxljgb656ie7ph",
+          "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
+          "name": "Yuumi",
           "set": 15
         },
         "mainItem": {
@@ -12586,6 +12620,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-27 12:00:02"
+    "lastUpdated": "2025-07-27 18:00:02"
   }
 }
