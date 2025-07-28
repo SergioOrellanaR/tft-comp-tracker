@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-28 12:00:03"
+    "lastUpdated": "2025-07-28 18:00:03"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-28 12:00:02"
+    "lastUpdated": "2025-07-28 18:00:02"
   },
   "SET 15": {
     "patch": "",
@@ -9582,7 +9582,8 @@
             "boardIndex": 24,
             "items": [
               "TFT_Item_AdaptiveHelm",
-              "TFT_Item_StatikkShiv"
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
             "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
@@ -10379,24 +10380,34 @@
         "tier": "B"
       },
       {
-        "altBuilds": [],
-        "augments": [],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-sorceror-ahri",
-        "champions": [
+        "altBuilds": [
           {
             "apiName": "TFT15_Ahri",
-            "boardIndex": 21,
             "items": [
-              "TFT_Item_Artifact_LudensTempest",
-              "TFT_Item_BlueBuff",
-              "TFT_Item_JeweledGauntlet"
+              "TFT4_Item_OrnnMuramana",
+              "TFT9_Item_OrnnDeathfireGrasp"
             ],
-            "stars": 3,
+            "stars": 1,
             "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
             "cost": 3,
             "name": "Ahri",
             "set": 15
           },
+          {
+            "apiName": "TFT15_Swain",
+            "items": [
+              "TFT_Item_Artifact_InnervatingLocket"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_swain_oAss1WGZ9o.webp",
+            "cost": 3,
+            "name": "Swain",
+            "set": 15
+          }
+        ],
+        "augments": [],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-sorceror-ahri",
+        "champions": [
           {
             "apiName": "TFT15_Swain",
             "boardIndex": 3,
@@ -10409,6 +10420,20 @@
             "championIcon": "tft15_swain_oAss1WGZ9o.webp",
             "cost": 3,
             "name": "Swain",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Ahri",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_Artifact_LudensTempest",
+              "TFT_Item_BlueBuff",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
+            "cost": 3,
+            "name": "Ahri",
             "set": 15
           },
           {
@@ -10427,18 +10452,15 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Ahri",
+          "apiName": "TFT15_Swain",
           "cost": 3,
-          "id": "6hrz10ac5be0alh",
-          "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
-          "name": "Ahri",
+          "id": "73xhffb5monbsbi",
+          "championIcon": "tft15_swain_oAss1WGZ9o.webp",
+          "name": "Swain",
           "set": 15
         },
-        "mainItem": {
-          "apiName": "TFT_Item_Artifact_LudensTempest",
-          "id": "m8o8a3fh2m95b6e"
-        },
-        "title": "Sorcerer Ahri Reroll",
+        "mainItem": {},
+        "title": "Sorceror Reroll",
         "style": "RR LV.7",
         "tier": "C"
       },
@@ -10707,7 +10729,40 @@
             "set": 15
           }
         ],
-        "augments": [],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge",
+            "id": "728cvp2vtcyfcqo"
+          },
+          {
+            "apiName": "TFT9_Augment_LongTimeCrafting",
+            "id": "ka552gzmz0k76rz"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge",
+            "id": "osp874mhhr17zcf"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus",
+            "id": "6k76q38ufvkrsrx"
+          },
+          {
+            "apiName": "TFT9_Augment_PumpingUp",
+            "id": "bmei4h2dbmav8y8"
+          },
+          {
+            "apiName": "TFT_Augment_Lineup",
+            "id": "w1r6zhrgjg1ex7r"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "id": "9c49zmdl0wgwhva"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "id": "1kr48ixmolea1q4"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-monster-trainer-kogmaw",
         "champions": [
           {
@@ -12469,7 +12524,40 @@
             "set": 15
           }
         ],
-        "augments": [],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge",
+            "id": "728cvp2vtcyfcqo"
+          },
+          {
+            "apiName": "TFT9_Augment_LongTimeCrafting",
+            "id": "ka552gzmz0k76rz"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge",
+            "id": "osp874mhhr17zcf"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus",
+            "id": "6k76q38ufvkrsrx"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "id": "9c49zmdl0wgwhva"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "id": "1kr48ixmolea1q4"
+          },
+          {
+            "apiName": "TFT_Augment_ShojinSpirit",
+            "id": "sgl6285s7zl21z6"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1",
+            "id": "xfi2bs7r3m38oep"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-monster-trainer-smolder",
         "champions": [
           {
@@ -12489,8 +12577,8 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
             "championIcon": "tft15_smolder_NCmn1LeB8X.webp",
@@ -12856,6 +12944,11 @@
           "icon": "tft_item_artifact_dawncore_5UycJJKdps.webp"
         },
         {
+          "apiName": "TFT9_Item_OrnnDeathfireGrasp",
+          "name": "Deathfire Grasp",
+          "icon": "tft9_item_ornn_deathfire_grasp_SdvIoK2y9r.webp"
+        },
+        {
           "apiName": "TFT_Item_Artifact_Fishbones",
           "name": "Fishbones",
           "icon": "tft_item_artifact_fishbones_aSKTq3mrQr.webp"
@@ -12874,6 +12967,11 @@
           "apiName": "TFT4_Item_OrnnTheCollector",
           "name": "Gold Collector",
           "icon": "tft4_item_ornn_the_collector_mEHU9pmdqC.webp"
+        },
+        {
+          "apiName": "TFT_Item_Artifact_InnervatingLocket",
+          "name": "Innervating Locket",
+          "icon": "tft_item_artifact_innervating_locket_5ZsjJf8eFH.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_LichBane",
@@ -12979,6 +13077,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-28 12:00:02"
+    "lastUpdated": "2025-07-28 18:00:02"
   }
 }
