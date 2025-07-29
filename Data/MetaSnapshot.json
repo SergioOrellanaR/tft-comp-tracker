@@ -2885,7 +2885,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-29 06:00:03"
+    "lastUpdated": "2025-07-29 12:00:03"
   },
   "SET 14": {
     "patch": "",
@@ -9022,7 +9022,7 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-29 06:00:02"
+    "lastUpdated": "2025-07-29 12:00:03"
   },
   "SET 15": {
     "patch": "",
@@ -9515,15 +9515,15 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Jinx",
+            "apiName": "TFT15_Ahri",
             "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_Deathblade"
+              "TFT_Item_BlueBuff",
+              "TFT_Item_Leviathan"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_ehQnREuUpR.webp",
-            "cost": 4,
-            "name": "Jinx",
+            "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
+            "cost": 3,
+            "name": "Ahri",
             "set": 15
           }
         ],
@@ -9564,20 +9564,6 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-star-guardians",
         "champions": [
           {
-            "apiName": "TFT15_Poppy",
-            "boardIndex": 2,
-            "items": [
-              "TFT_Item_NightHarvester",
-              "TFT_Item_RedBuff",
-              "TFT_Item_WarmogsArmor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_poppy_JKk94YLgrv.webp",
-            "cost": 4,
-            "name": "Poppy",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Ahri",
             "boardIndex": 24,
             "items": [
@@ -9606,6 +9592,20 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 2,
+            "items": [
+              "TFT_Item_NightHarvester",
+              "TFT_Item_RedBuff",
+              "TFT_Item_WarmogsArmor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_poppy_JKk94YLgrv.webp",
+            "cost": 4,
+            "name": "Poppy",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Seraphine",
             "boardIndex": 27,
             "items": [
@@ -9621,11 +9621,11 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Poppy",
-          "cost": 4,
-          "id": "gp1o7gpc9l2nnd5",
-          "championIcon": "tft15_poppy_JKk94YLgrv.webp",
-          "name": "Poppy",
+          "apiName": "TFT15_Ahri",
+          "cost": 3,
+          "id": "6hrz10ac5be0alh",
+          "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
+          "name": "Ahri",
           "set": 15
         },
         "mainItem": {
@@ -10409,20 +10409,6 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-sorceror-ahri",
         "champions": [
           {
-            "apiName": "TFT15_Swain",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_NightHarvester"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_swain_oAss1WGZ9o.webp",
-            "cost": 3,
-            "name": "Swain",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Ahri",
             "boardIndex": 21,
             "items": [
@@ -10434,6 +10420,20 @@
             "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
             "cost": 3,
             "name": "Ahri",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Swain",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_swain_oAss1WGZ9o.webp",
+            "cost": 3,
+            "name": "Swain",
             "set": 15
           },
           {
@@ -10452,15 +10452,15 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Swain",
+          "apiName": "TFT15_Ahri",
           "cost": 3,
-          "id": "73xhffb5monbsbi",
-          "championIcon": "tft15_swain_oAss1WGZ9o.webp",
-          "name": "Swain",
+          "id": "6hrz10ac5be0alh",
+          "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
+          "name": "Ahri",
           "set": 15
         },
         "mainItem": {},
-        "title": "Sorceror Reroll",
+        "title": "Sorcerer Reroll",
         "style": "RR LV.7",
         "tier": "C"
       },
@@ -12782,11 +12782,6 @@
           "icon": "tft_item_crownguard_I5ANER7Jqa.webp"
         },
         {
-          "apiName": "TFT_Item_Deathblade",
-          "name": "Deathblade",
-          "icon": "tft_item_deathblade_VayGpcACXo.webp"
-        },
-        {
           "apiName": "TFT_Item_DragonsClaw",
           "name": "Dragon's Claw",
           "icon": "tft_item_dragons_claw_QVMXm2mb0Q.webp"
@@ -13077,6 +13072,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-29 06:00:02"
+    "lastUpdated": "2025-07-29 12:00:02"
   }
 }
