@@ -75,7 +75,7 @@
     align-items: center;
     flex-shrink: 0; /* Never shrink */
     min-width: 70px;
-    max-width: 70px; /* Prevent growing */
+    max-width: 300px; /* Prevent growing */
 }
 
 .mini-rank-icon {
