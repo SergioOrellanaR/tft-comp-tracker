@@ -380,7 +380,7 @@
         },
         "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -3615,7 +3615,7 @@
             "items": [
               "TFT_Item_JeweledGauntlet",
               "TFT_Item_PowerGauntlet",
-              "TFT_Item_BlueBuff"
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 1,
             "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
@@ -4497,6 +4497,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-31 12:00:02"
+    "lastUpdated": "2025-07-31 18:00:02"
   }
 }
