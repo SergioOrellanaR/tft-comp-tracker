@@ -232,6 +232,18 @@
             "cost": 5,
             "name": "Yone",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
           }
         ],
         "mainAugment": {},
@@ -504,7 +516,7 @@
         },
         "title": "8 Star Guardian Ahri Carry",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -634,7 +646,7 @@
         "mainItem": {},
         "title": "6 Wraith Kayle Reroll",
         "style": "RR LV.5",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -1509,16 +1521,16 @@
             "id": "dgp19tpc4649e2s"
           },
           {
-            "apiName": "TFT7_Augment_LivingForge",
-            "id": "osp874mhhr17zcf"
-          },
-          {
             "apiName": "TFT_Augment_RiggedShopPlus",
             "id": "6k76q38ufvkrsrx"
           },
           {
             "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
             "id": "gt0vo94i63kscus"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge",
+            "id": "osp874mhhr17zcf"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-d-d-d-duelists",
@@ -4485,6 +4497,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-31 06:00:02"
+    "lastUpdated": "2025-07-31 12:00:02"
   }
 }
