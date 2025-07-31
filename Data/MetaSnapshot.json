@@ -819,6 +819,19 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-sniper-bastion",
         "champions": [
           {
+            "apiName": "TFT15_Varus",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_RapidFireCannon",
+              "TFT_Item_LastWhisper"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_varus_pEyBvGLfN6.webp",
+            "cost": 5,
+            "name": "Varus",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Jinx",
             "boardIndex": 27,
             "items": [
@@ -845,28 +858,15 @@
             "cost": 4,
             "name": "Leona",
             "set": 15
-          },
-          {
-            "apiName": "TFT15_Varus",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_RapidFireCannon",
-              "TFT_Item_LastWhisper"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_varus_pEyBvGLfN6.webp",
-            "cost": 5,
-            "name": "Varus",
-            "set": 15
           }
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Jinx",
-          "cost": 4,
-          "id": "noczcvq9q32riai",
-          "championIcon": "tft15_jinx_ehQnREuUpR.webp",
-          "name": "Jinx",
+          "apiName": "TFT15_Varus",
+          "cost": 5,
+          "id": "6k2bfw982ykxzp1",
+          "championIcon": "tft15_varus_pEyBvGLfN6.webp",
+          "name": "Varus",
           "set": 15
         },
         "mainItem": {
@@ -1366,7 +1366,40 @@
             "set": 15
           }
         ],
-        "augments": [],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge",
+            "id": "728cvp2vtcyfcqo"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge",
+            "id": "osp874mhhr17zcf"
+          },
+          {
+            "apiName": "TFT15_Augment_SpellslingerCrown",
+            "id": "cyomuvc4vm6fkwm"
+          },
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlus",
+            "id": "0mkcb66mr2rdq1b"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus",
+            "id": "6k76q38ufvkrsrx"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1",
+            "id": "xfi2bs7r3m38oep"
+          },
+          {
+            "apiName": "TFT_Augment_GlassCannonII",
+            "id": "652n68wyoksdcxo"
+          },
+          {
+            "apiName": "TFT9_Augment_Commander_RollingForDays",
+            "id": "5v55nk1b3ovkhey"
+          }
+        ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-sorceror-ahri",
         "champions": [
           {
@@ -1398,16 +1431,26 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Karma",
-            "boardIndex": 27,
+            "apiName": "TFT15_Gwen",
+            "boardIndex": 17,
             "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_pQA8LxPfmd.webp",
-            "cost": 4,
-            "name": "Karma",
+            "championIcon": "tft15_gwen_FALce8KxsP.webp",
+            "cost": 5,
+            "name": "Gwen",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Lux",
+            "boardIndex": 25,
+            "items": [],
+            "stars": 3,
+            "championIcon": "tft15_lux_vB0JC4WWVh.webp",
+            "cost": 2,
+            "name": "Lux",
             "set": 15
           }
         ],
@@ -1420,7 +1463,10 @@
           "name": "Ahri",
           "set": 15
         },
-        "mainItem": {},
+        "mainItem": {
+          "apiName": "TFT_Item_Artifact_LudensTempest",
+          "id": "m8o8a3fh2m95b6e"
+        },
         "title": "Luden's Ahri Sorceror Reroll",
         "style": "RR LV.7",
         "tier": "C"
@@ -3724,7 +3770,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Monster Trainer Smolder Reroll",
+        "title": "Juggernaut Smolder",
         "style": "RR LV.7",
         "tier": "A"
       },
@@ -3859,6 +3905,260 @@
         },
         "title": "Protector Xayah Reroll",
         "style": "RR LV.6",
+        "tier": "C"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Smolder",
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_smolder_NCmn1LeB8X.webp",
+            "cost": 3,
+            "name": "Smolder",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Smolder",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_smolder_NCmn1LeB8X.webp",
+            "cost": 3,
+            "name": "Smolder",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge",
+            "id": "728cvp2vtcyfcqo"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge",
+            "id": "osp874mhhr17zcf"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus",
+            "id": "6k76q38ufvkrsrx"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "id": "9c49zmdl0wgwhva"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "id": "1kr48ixmolea1q4"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1",
+            "id": "xfi2bs7r3m38oep"
+          },
+          {
+            "apiName": "TFT15_Augment_ProtectorCrest",
+            "id": "8exdvdx9o4nej56"
+          },
+          {
+            "apiName": "TFT15_Augment_ProtectorCirclet",
+            "id": "nzavzvh6xztzurs"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-how-to-train-your-dragon-protectors",
+        "champions": [
+          {
+            "apiName": "TFT15_Neeko",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_Redemption",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_neeko_kGRopo79XT.webp",
+            "cost": 3,
+            "name": "Neeko",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Smolder",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_smolder_NCmn1LeB8X.webp",
+            "cost": 3,
+            "name": "Smolder",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_EaFzgPwMMu.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rakan",
+            "boardIndex": 3,
+            "items": [],
+            "stars": 3,
+            "championIcon": "tft15_rakan_yldhr6wQ58.webp",
+            "cost": 2,
+            "name": "Rakan",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Lulu",
+          "cost": 3,
+          "id": "be9e721p842kxki",
+          "championIcon": "tft15_lulu_HBvZGmL7lW.webp",
+          "name": "Lulu",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Protector Smolder",
+        "style": "RR LV.7",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Jinx",
+            "items": [
+              "TFT4_Item_OrnnTheCollector",
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jinx_ehQnREuUpR.webp",
+            "cost": 4,
+            "name": "Jinx",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
+          },
+          {
+            "apiName": "TFT7_Augment_ClutteredMind",
+            "id": "14wxe5y23xz2zf4"
+          },
+          {
+            "apiName": "TFT7_Augment_BestFriends1",
+            "id": "cg5j5mvppin32zb"
+          },
+          {
+            "apiName": "TFT15_Augment_SniperCrown",
+            "id": "qqweutf6r56a03w"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers",
+            "id": "8q1gh8rt2dnicvo"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave",
+            "id": "fglageeo5o60w9x"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "id": "gt0vo94i63kscus"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "id": "o3rj2tpq40mlghl"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-sniper-varus",
+        "champions": [
+          {
+            "apiName": "TFT15_Varus",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_varus_pEyBvGLfN6.webp",
+            "cost": 5,
+            "name": "Varus",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_EaFzgPwMMu.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jinx",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jinx_ehQnREuUpR.webp",
+            "cost": 4,
+            "name": "Jinx",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Gwen",
+            "boardIndex": 21,
+            "items": [
+              "TFT15_Item_SniperEmblemItem",
+              "TFT_Item_Morellonomicon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gwen_FALce8KxsP.webp",
+            "cost": 5,
+            "name": "Gwen",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Varus",
+          "cost": 5,
+          "id": "6k2bfw982ykxzp1",
+          "championIcon": "tft15_varus_pEyBvGLfN6.webp",
+          "name": "Varus",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_SniperEmblemItem",
+          "id": "9yu10tiq1bbtv8f"
+        },
+        "title": "Sniper Varus",
+        "style": "Fast 8",
         "tier": "C"
       }
     ],
@@ -4185,6 +4485,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-07-31 00:00:02"
+    "lastUpdated": "2025-07-31 06:00:02"
   }
 }
