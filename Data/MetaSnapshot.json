@@ -125,7 +125,7 @@
         },
         "title": "7 Crystal Gambit Ashe Zyra",
         "style": "L. Streak",
-        "tier": "C"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -258,7 +258,7 @@
         "mainItem": {},
         "title": "Mighty Mech Mentors",
         "style": "Fast 9",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -646,7 +646,7 @@
         "mainItem": {},
         "title": "6 Wraith Kayle Reroll",
         "style": "RR LV.5",
-        "tier": "B"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -777,7 +777,7 @@
         "mainItem": {},
         "title": "The Crew Reroll",
         "style": "RR LV.5",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -1481,7 +1481,7 @@
         },
         "title": "Luden's Ahri Sorceror Reroll",
         "style": "RR LV.7",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -2482,7 +2482,7 @@
         "mainItem": {},
         "title": "Bastion Edgelord Xayah Reroll",
         "style": "RR LV.6",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [],
@@ -3287,7 +3287,7 @@
         "mainItem": {},
         "title": "Mighty Mech Legendaries",
         "style": "Fast 9",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -4497,6 +4497,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-01 00:00:02"
+    "lastUpdated": "2025-08-01 06:00:02"
   }
 }
