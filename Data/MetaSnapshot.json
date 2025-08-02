@@ -4087,6 +4087,19 @@
             "cost": 5,
             "name": "Gwen",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Karma",
+            "items": [
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_JeweledGauntlet",
+              "TFT4_Item_OrnnMuramana"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_pQA8LxPfmd.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
           }
         ],
         "augments": [
@@ -4608,6 +4621,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-01 18:00:02"
+    "lastUpdated": "2025-08-02 00:00:02"
   }
 }
