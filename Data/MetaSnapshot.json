@@ -449,9 +449,9 @@
             "apiName": "TFT15_Ahri",
             "boardIndex": 24,
             "items": [
+              "TFT_Item_JeweledGauntlet",
               "TFT_Item_AdaptiveHelm",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_RabadonsDeathcap"
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 3,
             "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
@@ -464,8 +464,8 @@
             "boardIndex": 21,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_PowerGauntlet"
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_SpearOfShojin"
             ],
             "stars": 1,
             "championIcon": "tft15_jinx_ehQnREuUpR.webp",
@@ -478,27 +478,13 @@
             "boardIndex": 2,
             "items": [
               "TFT_Item_NightHarvester",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_GargoyleStoneplate"
+              "TFT_Item_RedBuff",
+              "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
             "championIcon": "tft15_poppy_JKk94YLgrv.webp",
             "cost": 4,
             "name": "Poppy",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Seraphine",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_seraphine_IU0c4Wjtyi.webp",
-            "cost": 5,
-            "name": "Seraphine",
             "set": 15
           }
         ],
@@ -3515,7 +3501,7 @@
             "items": [
               "TFT_Item_JeweledGauntlet",
               "TFT_Item_PowerGauntlet",
-              "TFT_Item_RabadonsDeathcap"
+              "TFT_Item_HextechGunblade"
             ],
             "stars": 1,
             "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
@@ -3527,9 +3513,9 @@
             "apiName": "TFT15_Malzahar",
             "boardIndex": 25,
             "items": [
+              "TFT_Item_RapidFireCannon",
               "TFT_Item_StatikkShiv",
-              "TFT_Item_AdaptiveHelm",
-              "TFT_Item_Morellonomicon"
+              "TFT_Item_AdaptiveHelm"
             ],
             "stars": 3,
             "championIcon": "tft15_malzahar_FqvktbQBDi.webp",
@@ -4300,7 +4286,7 @@
         "mainItem": {},
         "title": "Strategist Protector Ksante",
         "style": "Fast 8",
-        "tier": "S"
+        "tier": "A"
       }
     ],
     "items": {
@@ -4621,6 +4607,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-02 06:00:02"
+    "lastUpdated": "2025-08-02 12:00:02"
   }
 }
