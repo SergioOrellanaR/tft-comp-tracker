@@ -3461,12 +3461,8 @@
         ],
         "augments": [
           {
-            "apiName": "TFT9_Augment_CustomerIsAlwaysRight",
-            "id": "2713605qomlzqsx"
-          },
-          {
-            "apiName": "TFT_Augment_CryMeARiver",
-            "id": "u6hd1ost413sjel"
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
           },
           {
             "apiName": "TFT_Augment_CrownguardSpirit",
@@ -3491,6 +3487,10 @@
           {
             "apiName": "TFT_Augment_GlassCannonII",
             "id": "652n68wyoksdcxo"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1",
+            "id": "xfi2bs7r3m38oep"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-shadow-cat",
@@ -4607,6 +4607,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-02 12:00:02"
+    "lastUpdated": "2025-08-02 18:00:02"
   }
 }
