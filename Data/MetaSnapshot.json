@@ -523,7 +523,8 @@
             "apiName": "TFT15_Kayle",
             "items": [
               "TFT_Item_GuinsoosRageblade",
-              "TFT7_Item_ShimmerscaleGamblersBlade"
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_GuardianAngel"
             ],
             "stars": 1,
             "championIcon": "tft15_kayle_IneyNnw5O5.webp",
@@ -546,10 +547,6 @@
             "id": "1kr48ixmolea1q4"
           },
           {
-            "apiName": "TFT7_Augment_BestFriends2",
-            "id": "y28ajc1btxsss9y"
-          },
-          {
             "apiName": "TFT9_Augment_PumpingUp",
             "id": "bmei4h2dbmav8y8"
           },
@@ -564,6 +561,10 @@
           {
             "apiName": "TFT_Augment_ShimmerscaleEssence",
             "id": "7ya435ie51h22hx"
+          },
+          {
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "id": "fdhaxduo2jtc4ny"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
@@ -1428,13 +1429,27 @@
             "boardIndex": 21,
             "items": [
               "TFT_Item_Artifact_LudensTempest",
-              "TFT_Item_BlueBuff",
-              "TFT_Item_JeweledGauntlet"
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_SpearOfShojin"
             ],
             "stars": 3,
             "championIcon": "tft15_ahri_XKF7dX0r2W.webp",
             "cost": 3,
             "name": "Ahri",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Lux",
+            "boardIndex": 23,
+            "items": [
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_AdaptiveHelm"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_lux_vB0JC4WWVh.webp",
+            "cost": 2,
+            "name": "Lux",
             "set": 15
           },
           {
@@ -1462,16 +1477,6 @@
             "championIcon": "tft15_gwen_FALce8KxsP.webp",
             "cost": 5,
             "name": "Gwen",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Lux",
-            "boardIndex": 25,
-            "items": [],
-            "stars": 3,
-            "championIcon": "tft15_lux_vB0JC4WWVh.webp",
-            "cost": 2,
-            "name": "Lux",
             "set": 15
           }
         ],
@@ -3563,7 +3568,7 @@
         "mainItem": {},
         "title": "Battle Academia Prodigy Yuumi",
         "style": "Fast 8",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -3946,7 +3951,7 @@
         "mainItem": {},
         "title": "Protector Smolder",
         "style": "RR LV.7",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -4192,7 +4197,7 @@
         "mainItem": {},
         "title": "Sorcerer Karma",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [],
@@ -4315,6 +4320,19 @@
             "cost": 2,
             "name": "Jhin",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_DrMundo",
+            "items": [
+              "TFT_Item_Artifact_InnervatingLocket",
+              "TFT9_Item_OrnnHullbreaker",
+              "TFT_Item_Artifact_TalismanOfAscension"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_dr_mundo_cfjldM5oBX.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
           }
         ],
         "augments": [
@@ -4335,10 +4353,6 @@
             "id": "0mkcb66mr2rdq1b"
           },
           {
-            "apiName": "TFT_Augment_Overheal",
-            "id": "3qp3zc9un3o1dp4"
-          },
-          {
             "apiName": "TFT_Augment_BeltOverflow",
             "id": "q2iif767camklly"
           },
@@ -4349,6 +4363,10 @@
           {
             "apiName": "TFT_Augment_ShimmerscaleEssence",
             "id": "7ya435ie51h22hx"
+          },
+          {
+            "apiName": "TFT6_Augment_PortableForge",
+            "id": "728cvp2vtcyfcqo"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-jhin-mundo",
@@ -4616,14 +4634,14 @@
           "icon": "tft_item_artifact_navori_flickerblades_ZNz2NgQ590.webp"
         },
         {
-          "apiName": "TFT7_Item_ShimmerscaleGamblersBlade",
-          "name": "Gambler's Blade",
-          "icon": "tft7_item_shimmerscale_gamblers_blade_p8K3Waesoh.webp"
-        },
-        {
           "apiName": "TFT4_Item_OrnnTheCollector",
           "name": "Gold Collector",
           "icon": "tft4_item_ornn_the_collector_mEHU9pmdqC.webp"
+        },
+        {
+          "apiName": "TFT9_Item_OrnnHullbreaker",
+          "name": "Hullcrusher",
+          "icon": "tft9_item_ornn_hullbreaker_qdbNoSJ8lo.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_InnervatingLocket",
@@ -4674,6 +4692,11 @@
           "apiName": "TFT_Item_Artifact_StatikkShiv",
           "name": "Statikk Shiv",
           "icon": "tft_item_artifact_statikk_shiv_Z5HVHS3mXL.webp"
+        },
+        {
+          "apiName": "TFT_Item_Artifact_TalismanOfAscension",
+          "name": "Talisman Of Ascension",
+          "icon": "tft_item_artifact_talisman_of_ascension_C9xX8YAN4v.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_WitsEnd",
@@ -4729,6 +4752,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-03 12:00:02"
+    "lastUpdated": "2025-08-03 18:00:02"
   }
 }
