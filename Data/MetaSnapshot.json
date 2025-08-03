@@ -2963,6 +2963,19 @@
             "cost": 4,
             "name": "Ashe",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Ashe",
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ashe_tUSocwbTaK.webp",
+            "cost": 4,
+            "name": "Ashe",
+            "set": 15
           }
         ],
         "augments": [
@@ -3005,9 +3018,9 @@
             "apiName": "TFT15_Ashe",
             "boardIndex": 27,
             "items": [
+              "TFT_Item_GuinsoosRageblade",
               "TFT_Item_RunaansHurricane",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_tUSocwbTaK.webp",
@@ -3055,7 +3068,7 @@
         "mainItem": {},
         "title": "6 Juggernaut Ashe Carry",
         "style": "Fast 8",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -4287,6 +4300,115 @@
         "title": "Strategist Protector Ksante",
         "style": "Fast 8",
         "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Jhin",
+            "items": [
+              "TFT_Item_Artifact_Fishbones",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jhin_8WzJgpGYHo.webp",
+            "cost": 2,
+            "name": "Jhin",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "id": "krmp7nozbwkt3pv"
+          },
+          {
+            "apiName": "TFT_Augment_AnExaltedAdventure",
+            "id": "y7y8yaydes3ljli"
+          },
+          {
+            "apiName": "TFT15_Augment_Luchador_TournamentTitans",
+            "id": "2dbl1cgp4di9aae"
+          },
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlus",
+            "id": "0mkcb66mr2rdq1b"
+          },
+          {
+            "apiName": "TFT_Augment_Overheal",
+            "id": "3qp3zc9un3o1dp4"
+          },
+          {
+            "apiName": "TFT_Augment_BeltOverflow",
+            "id": "q2iif767camklly"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers",
+            "id": "8q1gh8rt2dnicvo"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence",
+            "id": "7ya435ie51h22hx"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-jhin-mundo",
+        "champions": [
+          {
+            "apiName": "TFT15_Jhin",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_jhin_8WzJgpGYHo.webp",
+            "cost": 2,
+            "name": "Jhin",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_DrMundo",
+            "boardIndex": 2,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_Redemption",
+              "TFT_Item_DragonsClaw"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_dr_mundo_cfjldM5oBX.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Varus",
+            "boardIndex": 23,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_RapidFireCannon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_varus_pEyBvGLfN6.webp",
+            "cost": 5,
+            "name": "Varus",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Jhin",
+          "cost": 2,
+          "id": "2fa54fj2u6ysxje",
+          "championIcon": "tft15_jhin_8WzJgpGYHo.webp",
+          "name": "Jhin",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Mundo Jhin Reroll",
+        "style": "RR LV.6",
+        "tier": "C"
       }
     ],
     "items": {
@@ -4607,6 +4729,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-03 06:00:02"
+    "lastUpdated": "2025-08-03 12:00:02"
   }
 }
