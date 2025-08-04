@@ -503,7 +503,7 @@
         },
         "title": "8 Star Guardian Ahri Carry",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -1616,7 +1616,7 @@
         "mainItem": {},
         "title": "6 Duelist Gangplank Reroll",
         "style": "RR LV.6",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [],
@@ -3301,7 +3301,7 @@
         "mainItem": {},
         "title": "7 Battle Academia Katarina",
         "style": "RR LV.6",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -4307,13 +4307,119 @@
         "tier": "A"
       },
       {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_Keepers1",
+            "id": "v0q9ikqi45fpnvj"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2",
+            "id": "jp04upqcy8kkrr0"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
+          },
+          {
+            "apiName": "TFT11_Augment_Reinfourcement",
+            "id": "z16v9p1gkq0c15p"
+          },
+          {
+            "apiName": "TFT_Augment_BronzeForLife2",
+            "id": "loa7guyzr6f4pa7"
+          },
+          {
+            "apiName": "TFT_Augment_CloningFacility",
+            "id": "gqs8rkr2nsdci27"
+          },
+          {
+            "apiName": "TFT_Augment_BronzeForLifeI",
+            "id": "abxe7ii4a9l3q4b"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-all-out-ksante-copy",
+        "champions": [
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 20,
+            "items": [
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_EaFzgPwMMu.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_GoL4XQam1T.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Karma",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_pQA8LxPfmd.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Akali",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_akali_3E47OzjHNE.webp",
+            "cost": 4,
+            "name": "Akali",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT_Augment_BronzeForLife2",
+          "id": "loa7guyzr6f4pa7"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_KSante",
+          "cost": 4,
+          "id": "fu668lung21p8s8",
+          "championIcon": "tft15_ksante_EaFzgPwMMu.webp",
+          "name": "K'Sante",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "ALL OUT K'SANTE (copy)",
+        "style": "Fast 8",
+        "tier": "A"
+      },
+      {
         "altBuilds": [
           {
             "apiName": "TFT15_Jhin",
             "items": [
-              "TFT_Item_Artifact_Fishbones",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
             "championIcon": "tft15_jhin_8WzJgpGYHo.webp",
@@ -4376,7 +4482,7 @@
             "boardIndex": 21,
             "items": [
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_InfinityEdge",
+              "TFT_Item_Deathblade",
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
@@ -4426,7 +4532,7 @@
         "mainItem": {},
         "title": "Mundo Jhin Reroll",
         "style": "RR LV.6",
-        "tier": "C"
+        "tier": "B"
       }
     ],
     "items": {
@@ -4460,6 +4566,11 @@
           "apiName": "TFT_Item_Crownguard",
           "name": "Crownguard",
           "icon": "tft_item_crownguard_I5ANER7Jqa.webp"
+        },
+        {
+          "apiName": "TFT_Item_Deathblade",
+          "name": "Deathblade",
+          "icon": "tft_item_deathblade_VayGpcACXo.webp"
         },
         {
           "apiName": "TFT_Item_DragonsClaw",
@@ -4752,6 +4863,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-03 18:00:02"
+    "lastUpdated": "2025-08-04 00:00:02"
   }
 }
