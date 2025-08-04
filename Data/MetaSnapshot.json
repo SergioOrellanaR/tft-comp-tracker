@@ -3444,7 +3444,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Twisted Fate Gwen Yone Fast 9",
+        "title": "Fate/Zyra",
         "style": "Fast 9",
         "tier": "B"
       },
@@ -4423,7 +4423,9 @@
           {
             "apiName": "TFT15_Jhin",
             "items": [
-              "TFT_Item_Artifact_Fishbones"
+              "TFT_Item_Artifact_Fishbones",
+              "TFT_Item_Artifact_LudensTempest",
+              "TFT4_Item_OrnnTheCollector"
             ],
             "stars": 1,
             "championIcon": "tft15_jhin_8WzJgpGYHo.webp",
@@ -4867,6 +4869,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-04 12:00:02"
+    "lastUpdated": "2025-08-04 18:00:02"
   }
 }
