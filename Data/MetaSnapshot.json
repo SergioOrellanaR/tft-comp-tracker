@@ -1578,7 +1578,7 @@
           },
           {
             "apiName": "TFT15_Viego",
-            "boardIndex": 2,
+            "boardIndex": 13,
             "items": [
               "TFT_Item_JeweledGauntlet",
               "TFT_Item_UnstableConcoction",
@@ -2024,7 +2024,7 @@
             "boardIndex": 0,
             "items": [
               "TFT_Item_UnstableConcoction",
-              "TFT_Item_SteraksGage",
+              "TFT_Item_GuardianAngel",
               "TFT_Item_InfinityEdge"
             ],
             "stars": 3,
@@ -2041,37 +2041,24 @@
               "TFT_Item_NightHarvester",
               "TFT_Item_SpectralGauntlet"
             ],
-            "stars": 1,
+            "stars": 3,
             "championIcon": "tft15_udyr_Zb2SmwUNWG.webp",
             "cost": 3,
             "name": "Udyr",
             "set": 15
           },
           {
-            "apiName": "TFT15_Ashe",
+            "apiName": "TFT15_Smolder",
             "boardIndex": 21,
             "items": [
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_HextechGunblade"
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
             ],
-            "stars": 1,
-            "championIcon": "tft15_ashe_tUSocwbTaK.webp",
-            "cost": 4,
-            "name": "Ashe",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
-            "cost": 5,
-            "name": "Zyra",
+            "stars": 3,
+            "championIcon": "tft15_smolder_NCmn1LeB8X.webp",
+            "cost": 3,
+            "name": "Smolder",
             "set": 15
           }
         ],
@@ -3248,7 +3235,7 @@
         "champions": [
           {
             "apiName": "TFT15_Katarina",
-            "boardIndex": 4,
+            "boardIndex": 13,
             "items": [
               "TFT_Item_GuardianAngel",
               "TFT_Item_PowerGauntlet",
@@ -3258,20 +3245,6 @@
             "championIcon": "tft15_katarina_d7lNmaJHxH.webp",
             "cost": 2,
             "name": "Katarina",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Leona",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_BrambleVest",
-              "TFT_Item_DragonsClaw"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_leona_I3NZo9ya33.webp",
-            "cost": 4,
-            "name": "Leona",
             "set": 15
           },
           {
@@ -3286,6 +3259,20 @@
             "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
             "cost": 4,
             "name": "Yuumi",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Leona",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_BrambleVest",
+              "TFT_Item_DragonsClaw"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_leona_I3NZo9ya33.webp",
+            "cost": 4,
+            "name": "Leona",
             "set": 15
           }
         ],
@@ -3444,7 +3431,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Fate/Zyra",
+        "title": "Juggernaut Twisted Fate Zyra Fast 9",
         "style": "Fast 9",
         "tier": "B"
       },
@@ -4869,6 +4856,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-05 00:00:02"
+    "lastUpdated": "2025-08-05 06:00:03"
   }
 }
