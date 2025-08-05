@@ -4440,20 +4440,12 @@
             "id": "krmp7nozbwkt3pv"
           },
           {
-            "apiName": "TFT_Augment_AnExaltedAdventure",
-            "id": "y7y8yaydes3ljli"
-          },
-          {
             "apiName": "TFT15_Augment_Luchador_TournamentTitans",
             "id": "2dbl1cgp4di9aae"
           },
           {
             "apiName": "TFT_Augment_HeroicGrabBagPlus",
             "id": "0mkcb66mr2rdq1b"
-          },
-          {
-            "apiName": "TFT_Augment_BeltOverflow",
-            "id": "q2iif767camklly"
           },
           {
             "apiName": "TFT9_Augment_AllThatShimmers",
@@ -4466,6 +4458,14 @@
           {
             "apiName": "TFT6_Augment_PortableForge",
             "id": "728cvp2vtcyfcqo"
+          },
+          {
+            "apiName": "TFT6_Augment_Twins2",
+            "id": "qyiyt07sq2eo0nr"
+          },
+          {
+            "apiName": "TFT_Augment_CookingPot",
+            "id": "6obao4h24l5smp3"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-jhin-mundo",
@@ -4856,6 +4856,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-05 06:00:03"
+    "lastUpdated": "2025-08-05 12:00:02"
   }
 }
