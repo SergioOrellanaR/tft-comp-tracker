@@ -3362,116 +3362,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Gwen",
-            "items": [
-              "TFT9_Item_OrnnHorizonFocus",
-              "TFT_Item_Artifact_RapidFirecannon",
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_FALce8KxsP.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_UpwardMobility"
-          },
-          {
-            "apiName": "TFT9_Augment_HedgeFund"
-          },
-          {
-            "apiName": "TFT6_Augment_MaxLevel10"
-          },
-          {
-            "apiName": "TFT7_Augment_LategameSpecialist"
-          },
-          {
-            "apiName": "TFT6_Augment_CalculatedLoss"
-          },
-          {
-            "apiName": "TFT_Augment_DuoQueue"
-          },
-          {
-            "apiName": "TFT_Augment_ForwardThinking"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-yone-zyra-mech",
-        "champions": [
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_GoL4XQam1T.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
-            "cost": 5,
-            "name": "Zyra",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Gwen",
-            "boardIndex": 11,
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_GuardianAngel"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_FALce8KxsP.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yone",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SteraksGage",
-              "TFT_Item_Quicksilver"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yone_n18maRB9f3.webp",
-            "cost": 5,
-            "name": "Yone",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Galio",
-          "cost": 11,
-          "championIcon": "tft15_galio_BlRmgu2p2R.webp",
-          "name": "The Mighty Mech",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Mighty Mech Legendaries",
-        "style": "Fast 9",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_TwistedFate",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -4496,6 +4386,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-06 06:00:03"
+    "lastUpdated": "2025-08-06 12:00:03"
   }
 }
