@@ -511,20 +511,8 @@
             "apiName": "TFT15_Kayle",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kayle_IneyNnw5O5.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Kayle",
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_GuardianAngel"
+              "TFT_Item_Artifact_Fishbones",
+              "TFT4_Item_OrnnZhonyasParadox"
             ],
             "stars": 1,
             "championIcon": "tft15_kayle_IneyNnw5O5.webp",
@@ -1130,19 +1118,6 @@
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
-          },
-          {
-            "apiName": "TFT15_Malphite",
-            "items": [
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_malphite_Dduh9wPT2C.webp",
-            "cost": 1,
-            "name": "Malphite",
-            "set": 15
           }
         ],
         "augments": [
@@ -1183,11 +1158,11 @@
         "champions": [
           {
             "apiName": "TFT15_Malphite",
-            "boardIndex": 1,
+            "boardIndex": 9,
             "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_TitansResolve",
-              "TFT_Item_UnstableConcoction"
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_TitansResolve"
             ],
             "stars": 3,
             "championIcon": "tft15_malphite_Dduh9wPT2C.webp",
@@ -1196,17 +1171,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Sivir",
-            "boardIndex": 21,
+            "apiName": "TFT15_Shen",
+            "boardIndex": 3,
             "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_LastWhisper"
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_Crownguard",
+              "TFT_Item_Redemption"
             ],
             "stars": 3,
-            "championIcon": "tft15_sivir_cocy9WB815.webp",
-            "cost": 1,
-            "name": "Sivir",
+            "championIcon": "tft15_shen_krULvJ2n5m.webp",
+            "cost": 2,
+            "name": "Shen",
             "set": 15
           },
           {
@@ -1224,13 +1199,13 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Shen",
-            "boardIndex": 5,
+            "apiName": "TFT15_Sivir",
+            "boardIndex": 21,
             "items": [],
             "stars": 3,
-            "championIcon": "tft15_shen_krULvJ2n5m.webp",
-            "cost": 2,
-            "name": "Shen",
+            "championIcon": "tft15_sivir_cocy9WB815.webp",
+            "cost": 1,
+            "name": "Sivir",
             "set": 15
           }
         ],
@@ -1293,8 +1268,8 @@
             "apiName": "TFT15_Garen",
             "boardIndex": 0,
             "items": [
-              "TFT_Item_Bloodthirster",
               "TFT_Item_SteraksGage",
+              "TFT_Item_GuinsoosRageblade",
               "TFT_Item_Quicksilver"
             ],
             "stars": 1,
@@ -2009,12 +1984,12 @@
             "id": "o3rj2tpq40mlghl"
           },
           {
-            "apiName": "TFT7_Augment_BandOfThieves1",
-            "id": "ngrdlt173htp1mk"
+            "apiName": "TFT6_Augment_Keepers1",
+            "id": "v0q9ikqi45fpnvj"
           },
           {
-            "apiName": "TFT_Augment_EyeForAnEyePlus",
-            "id": "cljqoswhqghrpf7"
+            "apiName": "TFT_Augment_ItemCollector1",
+            "id": "h9tnyd7fdam0iqz"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-knuckledusters-vi",
@@ -2034,21 +2009,21 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Udyr",
+            "apiName": "TFT15_DrMundo",
             "boardIndex": 1,
             "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_NightHarvester",
-              "TFT_Item_SpectralGauntlet"
+              "TFT_Item_Redemption",
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_udyr_Zb2SmwUNWG.webp",
-            "cost": 3,
-            "name": "Udyr",
+            "championIcon": "tft15_dr_mundo_cfjldM5oBX.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
             "set": 15
           },
           {
-            "apiName": "TFT15_Smolder",
+            "apiName": "TFT15_Jhin",
             "boardIndex": 21,
             "items": [
               "TFT_Item_GuinsoosRageblade",
@@ -2056,9 +2031,9 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
-            "championIcon": "tft15_smolder_NCmn1LeB8X.webp",
-            "cost": 3,
-            "name": "Smolder",
+            "championIcon": "tft15_jhin_8WzJgpGYHo.webp",
+            "cost": 2,
+            "name": "Jhin",
             "set": 15
           }
         ],
@@ -2076,7 +2051,7 @@
         },
         "mainItem": {},
         "title": "Knuckledusters Vi Reroll",
-        "style": "L. Streak",
+        "style": "RR LV.6",
         "tier": "X"
       },
       {
@@ -4123,8 +4098,9 @@
             "apiName": "TFT15_Akali",
             "boardIndex": 2,
             "items": [
-              "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_UnstableConcoction"
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_GuardianAngel"
             ],
             "stars": 1,
             "championIcon": "tft15_akali_3E47OzjHNE.webp",
@@ -4428,10 +4404,6 @@
             "id": "fglageeo5o60w9x"
           },
           {
-            "apiName": "TFT6_Augment_PortableForge",
-            "id": "728cvp2vtcyfcqo"
-          },
-          {
             "apiName": "TFT_Augment_TwoMuchValue",
             "id": "krmp7nozbwkt3pv"
           },
@@ -4442,6 +4414,10 @@
           {
             "apiName": "TFT_Augment_EyeForAnEye",
             "id": "3hlkkjtw98xku4n"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1",
+            "id": "v0q9ikqi45fpnvj"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-pirate-king",
@@ -4831,6 +4807,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-07 00:00:02"
+    "lastUpdated": "2025-08-07 06:00:02"
   }
 }
