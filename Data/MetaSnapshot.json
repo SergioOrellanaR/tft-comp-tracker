@@ -1227,7 +1227,21 @@
         "tier": "X"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Garen",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Mittens",
+              "TFT_Item_Artifact_SpectralCutlass"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_garen_BK4VkB57vX.webp",
+            "cost": 1,
+            "name": "Garen",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT_Augment_Protagonist",
@@ -1268,41 +1282,14 @@
             "apiName": "TFT15_Garen",
             "boardIndex": 0,
             "items": [
-              "TFT_Item_SteraksGage",
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_Quicksilver"
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_TitansResolve"
             ],
             "stars": 1,
             "championIcon": "tft15_garen_BK4VkB57vX.webp",
             "cost": 1,
             "name": "Garen",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Ezreal",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_ezreal_qKEKpajtDY.webp",
-            "cost": 1,
-            "name": "Ezreal",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yuumi",
-            "boardIndex": 24,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_AdaptiveHelm"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
-            "cost": 4,
-            "name": "Yuumi",
             "set": 15
           },
           {
@@ -1317,6 +1304,20 @@
             "championIcon": "tft15_leona_I3NZo9ya33.webp",
             "cost": 4,
             "name": "Leona",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Yuumi",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_AdaptiveHelm",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yuumi_leZYgUVa1z.webp",
+            "cost": 4,
+            "name": "Yuumi",
             "set": 15
           }
         ],
@@ -1594,7 +1595,19 @@
         "tier": "A"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Zac",
+            "items": [
+              "TFT4_Item_OrnnZhonyasParadox"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zac_keT6QRfXX7.webp",
+            "cost": 1,
+            "name": "Zac",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT15_Augment_ZacCarry",
@@ -1625,15 +1638,15 @@
             "id": "ain4pp5fpfmsudd"
           },
           {
-            "apiName": "TFT_Augment_Crossfire2",
-            "id": "umsvfoa5rahfvd9"
+            "apiName": "TFT15_Augment_Heavyweight_RingTheBell",
+            "id": "5re2rw0y71v9749"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-perfect-form-zac",
         "champions": [
           {
             "apiName": "TFT15_Zac",
-            "boardIndex": 5,
+            "boardIndex": 6,
             "items": [
               "TFT_Item_ArchangelsStaff",
               "TFT_Item_JeweledGauntlet",
@@ -1646,37 +1659,40 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Malzahar",
-            "boardIndex": 25,
+            "apiName": "TFT15_Kayle",
+            "boardIndex": 27,
             "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_AdaptiveHelm"
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_HextechGunblade",
+              "TFT_Item_GuardianAngel"
             ],
-            "stars": 1,
-            "championIcon": "tft15_malzahar_FqvktbQBDi.webp",
-            "cost": 3,
-            "name": "Malzahar",
+            "stars": 3,
+            "championIcon": "tft15_kayle_IneyNnw5O5.webp",
+            "cost": 1,
+            "name": "Kayle",
             "set": 15
           },
           {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 6,
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 5,
             "items": [
-              "TFT_Item_ThiefsGloves"
+              "TFT_Item_RedBuff",
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_BrambleVest"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_EaFzgPwMMu.webp",
+            "championIcon": "tft15_poppy_JKk94YLgrv.webp",
             "cost": 4,
-            "name": "K'Sante",
+            "name": "Poppy",
             "set": 15
           },
           {
             "apiName": "TFT15_Varus",
-            "boardIndex": 27,
+            "boardIndex": 21,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_SpearOfShojin"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
             "championIcon": "tft15_varus_pEyBvGLfN6.webp",
@@ -4733,6 +4749,11 @@
           "icon": "tft4_item_ornn_muramana_4t2IL2gyHX.webp"
         },
         {
+          "apiName": "TFT_Item_Artifact_Mittens",
+          "name": "Mittens",
+          "icon": "tft_item_artifact_mittens_2CTPTlTgCg.webp"
+        },
+        {
           "apiName": "TFT_Item_Artifact_ProwlersClaw",
           "name": "Prowler's Claw",
           "icon": "tft_item_artifact_prowlers_claw_sCYgsidmbr.webp"
@@ -4821,6 +4842,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-07 12:00:02"
+    "lastUpdated": "2025-08-07 18:00:03"
   }
 }
