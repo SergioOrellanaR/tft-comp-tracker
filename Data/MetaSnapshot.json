@@ -4385,7 +4385,21 @@
         "tier": "B"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Gangplank",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gangplank_zWDUqSXLKZ.webp",
+            "cost": 2,
+            "name": "Gangplank",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT15_Augment_Mentor_TeachersCouncil",
@@ -4807,6 +4821,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-07 06:00:02"
+    "lastUpdated": "2025-08-07 12:00:02"
   }
 }
