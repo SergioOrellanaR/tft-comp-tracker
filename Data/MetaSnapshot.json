@@ -2286,7 +2286,19 @@
         "tier": "C"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Shen",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_shen_krULvJ2n5m.webp",
+            "cost": 2,
+            "name": "Shen",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT15_Augment_ShenCarry",
@@ -3545,7 +3557,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Juggernaut Smolder",
+        "title": "Monster Trainer Juggernanut Smolder",
         "style": "RR LV.7",
         "tier": "B"
       },
@@ -3808,7 +3820,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Protector Smolder",
+        "title": "Monster Trainer Protector Smolder",
         "style": "RR LV.7",
         "tier": "B"
       },
@@ -4842,6 +4854,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-08 00:00:02"
+    "lastUpdated": "2025-08-08 06:00:03"
   }
 }
