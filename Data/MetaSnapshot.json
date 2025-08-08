@@ -296,16 +296,16 @@
             "id": "vkm9zsj45d12ugf"
           },
           {
-            "apiName": "TFT7_Augment_BandOfThieves1",
-            "id": "ngrdlt173htp1mk"
-          },
-          {
             "apiName": "TFT11_Augment_Slammin",
             "id": "kbn90cz4j557hrr"
           },
           {
             "apiName": "TFT9_Augment_BigGrabBag",
             "id": "o3rj2tpq40mlghl"
+          },
+          {
+            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites",
+            "id": "ory0cehx78gplfd"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
@@ -4869,6 +4869,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-08 12:00:02"
+    "lastUpdated": "2025-08-08 18:00:03"
   }
 }
