@@ -4071,16 +4071,22 @@
         "tier": "S"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_KSante",
+            "items": [
+              "TFT15_Item_SupremeCellsEmblemItem",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_InfinityEdge"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_EaFzgPwMMu.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          }
+        ],
         "augments": [
-          {
-            "apiName": "TFT6_Augment_Keepers1",
-            "id": "v0q9ikqi45fpnvj"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2",
-            "id": "jp04upqcy8kkrr0"
-          },
           {
             "apiName": "TFT11_Augment_Slammin",
             "id": "kbn90cz4j557hrr"
@@ -4104,6 +4110,14 @@
           {
             "apiName": "TFT9_Augment_BardPlaybook3",
             "id": "9c49zmdl0wgwhva"
+          },
+          {
+            "apiName": "TFT15_Augment_SupremeCells_NewContenders",
+            "id": "hho1naadrueegzv"
+          },
+          {
+            "apiName": "TFT_Augment_GuardbreakerSpirit",
+            "id": "mr8cq4floho7bjn"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-all-out-ksante",
@@ -4470,7 +4484,7 @@
             "items": [
               "TFT_Item_GuinsoosRageblade",
               "TFT_Item_RunaansHurricane",
-              "TFT_Item_InfinityEdge"
+              "TFT_Item_GuardianAngel"
             ],
             "stars": 3,
             "championIcon": "tft15_gangplank_zWDUqSXLKZ.webp",
@@ -4497,7 +4511,8 @@
             "boardIndex": 4,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_GuardianAngel"
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_UnstableConcoction"
             ],
             "stars": 3,
             "championIcon": "tft15_yasuo_yb4LdZ1l9b.webp",
@@ -4854,6 +4869,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-08 06:00:03"
+    "lastUpdated": "2025-08-08 12:00:02"
   }
 }
