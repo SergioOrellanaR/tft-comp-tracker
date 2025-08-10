@@ -1001,7 +1001,21 @@
         "tier": "B"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Volibear",
+            "items": [
+              "TFT_Item_Deathblade",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_5TWsAaMxnG.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT11_Augment_Slammin",
@@ -1040,7 +1054,7 @@
         "champions": [
           {
             "apiName": "TFT15_Volibear",
-            "boardIndex": 16,
+            "boardIndex": 18,
             "items": [
               "TFT_Item_InfinityEdge",
               "TFT_Item_PowerGauntlet",
@@ -1050,19 +1064,6 @@
             "championIcon": "tft15_volibear_5TWsAaMxnG.webp",
             "cost": 4,
             "name": "Volibear",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 1,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_YXLKxJ2EyO.webp",
-            "cost": 4,
-            "name": "Sett",
             "set": 15
           },
           {
@@ -1080,8 +1081,21 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_YXLKxJ2EyO.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Braum",
-            "boardIndex": 4,
+            "boardIndex": 1,
             "items": [
               "TFT_Item_ThiefsGloves"
             ],
@@ -3063,7 +3077,7 @@
         "mainItem": {},
         "title": "6 Juggernaut Ashe Carry",
         "style": "Fast 8",
-        "tier": "B"
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -3317,7 +3331,7 @@
         "mainItem": {},
         "title": "Juggernaut Twisted Fate Zyra Fast 9",
         "style": "Fast 9",
-        "tier": "B"
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -4534,6 +4548,101 @@
         "title": "Mentor Gangplank Reroll",
         "style": "RR LV.6",
         "tier": "S"
+      },
+      {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin",
+            "id": "kbn90cz4j557hrr"
+          },
+          {
+            "apiName": "TFT7_Augment_ClutteredMind",
+            "id": "14wxe5y23xz2zf4"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers",
+            "id": "8q1gh8rt2dnicvo"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave",
+            "id": "fglageeo5o60w9x"
+          },
+          {
+            "apiName": "TFT_Augment_UpwardMobility",
+            "id": "4rqtk4mazdvi8y4"
+          },
+          {
+            "apiName": "TFT9_Augment_HedgeFund",
+            "id": "ra1ebze8wgvijas"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence",
+            "id": "7ya435ie51h22hx"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus",
+            "id": "xs5jwr240m392pw"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-95-varus",
+        "champions": [
+          {
+            "apiName": "TFT15_Varus",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_varus_pEyBvGLfN6.webp",
+            "cost": 5,
+            "name": "Varus",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_BrambleVest"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_EaFzgPwMMu.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_cR1pI6bvBt.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Varus",
+          "cost": 5,
+          "id": "6k2bfw982ykxzp1",
+          "championIcon": "tft15_varus_pEyBvGLfN6.webp",
+          "name": "Varus",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Varus Fast 9 Legendaries",
+        "style": "Fast 9",
+        "tier": "B"
       }
     ],
     "items": {
@@ -4869,6 +4978,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-10 06:00:02"
+    "lastUpdated": "2025-08-10 12:00:02"
   }
 }
