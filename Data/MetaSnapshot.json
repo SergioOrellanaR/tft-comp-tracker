@@ -4647,6 +4647,131 @@
         "title": "Varus Fast 9 Legendaries",
         "style": "Fast 9",
         "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Jayce",
+            "items": [
+              "TFT_Item_Artifact_SilvermereDawn",
+              "TFT_Item_Artifact_SilvermereDawn",
+              "TFT_Item_Bloodthirster"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jayce_VHEhbBk3Qo.webp",
+            "cost": 3,
+            "name": "Jayce",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Caitlyn",
+            "items": [
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_caitlyn_lVykoZAH4j.webp",
+            "cost": 3,
+            "name": "Caitlyn",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus",
+            "id": "jb86edcbptewqpc"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave",
+            "id": "fglageeo5o60w9x"
+          },
+          {
+            "apiName": "TFT15_Augment_BattleAcademia_TransferStudents",
+            "id": "xjgppmmdno70t2w"
+          },
+          {
+            "apiName": "TFT15_Augment_BattleAcademia_Hero101",
+            "id": "2pzii9yqsp13x8s"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus",
+            "id": "6k76q38ufvkrsrx"
+          },
+          {
+            "apiName": "TFT6_Augment_GachaAddict",
+            "id": "ib1wx8n4pp6lr86"
+          },
+          {
+            "apiName": "TFT6_Augment_PortableForge",
+            "id": "728cvp2vtcyfcqo"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge",
+            "id": "osp874mhhr17zcf"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-silver-jayce",
+        "champions": [
+          {
+            "apiName": "TFT15_Jayce",
+            "boardIndex": 13,
+            "items": [
+              "TFT_Item_Artifact_SilvermereDawn",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Bloodthirster"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_jayce_VHEhbBk3Qo.webp",
+            "cost": 3,
+            "name": "Jayce",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Caitlyn",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_LastWhisper",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_caitlyn_lVykoZAH4j.webp",
+            "cost": 3,
+            "name": "Caitlyn",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Leona",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_BrambleVest",
+              "TFT_Item_RedBuff",
+              "TFT_Item_DragonsClaw"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_leona_I3NZo9ya33.webp",
+            "cost": 4,
+            "name": "Leona",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Jayce",
+          "cost": 3,
+          "id": "0kaibo2flyue4o2",
+          "championIcon": "tft15_jayce_VHEhbBk3Qo.webp",
+          "name": "Jayce",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT_Item_Artifact_SilvermereDawn",
+          "id": "j3xicbu1uuayqf6"
+        },
+        "title": "Silver Jayce",
+        "style": "RR LV.7",
+        "tier": "X"
       }
     ],
     "items": {
@@ -4987,6 +5112,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-11 12:00:02"
+    "lastUpdated": "2025-08-11 18:00:02"
   }
 }
