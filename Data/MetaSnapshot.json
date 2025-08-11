@@ -637,21 +637,7 @@
         "tier": "A"
       },
       {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_TwistedFate",
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_JaCRYKgkmB.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
-            "set": 15
-          }
-        ],
+        "altBuilds": [],
         "augments": [
           {
             "apiName": "TFT_Augment_HeftyRolls",
@@ -717,14 +703,26 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_Shen",
+            "boardIndex": 10,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_shen_krULvJ2n5m.webp",
+            "cost": 2,
+            "name": "Shen",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Ziggs",
             "boardIndex": 25,
             "items": [
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_AdaptiveHelm"
+              "TFT_Item_AdaptiveHelm",
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_StatikkShiv"
             ],
-            "stars": 3,
+            "stars": 1,
             "championIcon": "tft15_ziggs_0GODucdgtS.webp",
             "cost": 3,
             "name": "Ziggs",
@@ -732,24 +730,16 @@
           },
           {
             "apiName": "TFT15_TwistedFate",
-            "boardIndex": 27,
+            "boardIndex": 23,
             "items": [
-              "TFT_Item_ThiefsGloves"
+              "TFT_Item_LastWhisper",
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_Morellonomicon"
             ],
             "stars": 3,
             "championIcon": "tft15_twisted_fate_JaCRYKgkmB.webp",
             "cost": 5,
             "name": "Twisted Fate",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Shen",
-            "boardIndex": 10,
-            "items": [],
-            "stars": 3,
-            "championIcon": "tft15_shen_krULvJ2n5m.webp",
-            "cost": 2,
-            "name": "Shen",
             "set": 15
           }
         ],
@@ -1987,7 +1977,21 @@
         "tier": "C"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Vi",
+            "items": [
+              "TFT_Item_Artifact_SilvermereDawn",
+              "TFT_Item_Artifact_SuspiciousTrenchCoat",
+              "TFT9_Item_OrnnHorizonFocus"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_vi_LUgOmP4LtL.webp",
+            "cost": 2,
+            "name": "Vi",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT15_Augment_ViCarry",
@@ -4920,6 +4924,11 @@
           "icon": "tft_item_artifact_statikk_shiv_Z5HVHS3mXL.webp"
         },
         {
+          "apiName": "TFT_Item_Artifact_SuspiciousTrenchCoat",
+          "name": "Suspicious Trench Coat",
+          "icon": "tft_item_artifact_suspicious_trench_coat_9ZssbLWfh3.webp"
+        },
+        {
           "apiName": "TFT_Item_Artifact_TalismanOfAscension",
           "name": "Talisman Of Ascension",
           "icon": "tft_item_artifact_talisman_of_ascension_C9xX8YAN4v.webp"
@@ -4978,6 +4987,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-11 00:00:02"
+    "lastUpdated": "2025-08-11 06:00:02"
   }
 }
