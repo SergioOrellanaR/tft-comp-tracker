@@ -3163,20 +3163,6 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Yuumi",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_DG7Q7MJx9E.webp",
-            "cost": 4,
-            "name": "Yuumi",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Leona",
             "boardIndex": 6,
             "items": [
@@ -3188,6 +3174,20 @@
             "championIcon": "tft15_leona_LE4qiz6udB.webp",
             "cost": 4,
             "name": "Leona",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Yuumi",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Morellonomicon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yuumi_DG7Q7MJx9E.webp",
+            "cost": 4,
+            "name": "Yuumi",
             "set": 15
           }
         ],
@@ -4782,7 +4782,7 @@
           "apiName": "TFT_Item_Artifact_SilvermereDawn",
           "id": "j3xicbu1uuayqf6"
         },
-        "title": "Silver Jayce",
+        "title": "Battle Academia Jayce Caitlyn Reroll",
         "style": "RR LV.7",
         "tier": "X"
       }
@@ -5131,6 +5131,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-12 12:00:03"
+    "lastUpdated": "2025-08-12 18:00:02"
   }
 }
