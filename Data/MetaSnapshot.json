@@ -1322,7 +1322,7 @@
             "items": [
               "TFT_Item_GuinsoosRageblade",
               "TFT_Item_Deathblade",
-              "TFT_Item_PowerGauntlet"
+              "TFT_Item_LastWhisper"
             ],
             "stars": 3,
             "championIcon": "tft15_jhin_2XsZauYa1y.webp",
@@ -1334,8 +1334,8 @@
             "apiName": "TFT15_DrMundo",
             "boardIndex": 2,
             "items": [
-              "TFT_Item_SpectralGauntlet",
               "TFT_Item_Redemption",
+              "TFT_Item_WarmogsArmor",
               "TFT_Item_DragonsClaw"
             ],
             "stars": 3,
@@ -1618,6 +1618,105 @@
         "mainItem": {},
         "title": "6 Wraith Kayle Reroll",
         "style": "RR LV.5",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_KSante",
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_ykg6KliKng.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Akali",
+            "items": [
+              "TFT_Item_Artifact_Dawncore",
+              "TFT4_Item_OrnnMuramana",
+              "TFT4_Item_OrnnZhonyasParadox"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_akali_X8KFZ2GEmC.webp",
+            "cost": 4,
+            "name": "Akali",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_ExpectedUnexpectedness"
+          },
+          {
+            "apiName": "TFT_Augment_Isekai_Strategist"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_BlazingSoul"
+          },
+          {
+            "apiName": "TFT_Augment_HighVoltage"
+          },
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT11_Augment_Reinfourcement"
+          },
+          {
+            "apiName": "TFT_Augment_SatedSpellweaver"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-protect-akali",
+        "champions": [
+          {
+            "apiName": "TFT15_Akali",
+            "boardIndex": 2,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_akali_X8KFZ2GEmC.webp",
+            "cost": 4,
+            "name": "Akali",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 1,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_IonicSpark",
+              "TFT_Item_WarmogsArmor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_ykg6KliKng.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Akali",
+          "cost": 4,
+          "championIcon": "tft15_akali_X8KFZ2GEmC.webp",
+          "name": "Akali",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Protect Akali",
+        "style": "Fast 8",
         "tier": "B"
       },
       {
@@ -4877,6 +4976,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-16 18:00:03"
+    "lastUpdated": "2025-08-17 00:00:03"
   }
 }
