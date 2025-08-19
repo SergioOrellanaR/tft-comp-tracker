@@ -460,119 +460,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Malzahar",
-            "items": [
-              "TFT_Item_Artifact_BlightingJewel",
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_HextechGunblade"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_malzahar_sdqZwFBOfF.webp",
-            "cost": 3,
-            "name": "Malzahar",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yuumi",
-            "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_JeweledGauntlet",
-              "TFT4_Item_OrnnMuramana"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_i6w4D61Ld5.webp",
-            "cost": 4,
-            "name": "Yuumi",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT_Augment_CrownguardSpirit"
-          },
-          {
-            "apiName": "TFT15_Augment_Prodigy_UnboundArcana"
-          },
-          {
-            "apiName": "TFT_Augment_WandOverflow"
-          },
-          {
-            "apiName": "TFT_Augment_Replication"
-          },
-          {
-            "apiName": "TFT9_Augment_BardPlaybook2"
-          },
-          {
-            "apiName": "TFT_Augment_GlassCannonII"
-          },
-          {
-            "apiName": "TFT_Augment_WaterLotus1"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-shadow-cat",
-        "champions": [
-          {
-            "apiName": "TFT15_Yuumi",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_HextechGunblade"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_i6w4D61Ld5.webp",
-            "cost": 4,
-            "name": "Yuumi",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Malzahar",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_RapidFireCannon",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_AdaptiveHelm"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_malzahar_sdqZwFBOfF.webp",
-            "cost": 3,
-            "name": "Malzahar",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Leona",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_NightHarvester",
-              "TFT_Item_Crownguard"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_leona_YY6w5UCd1G.webp",
-            "cost": 4,
-            "name": "Leona",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Yuumi",
-          "cost": 4,
-          "championIcon": "tft15_yuumi_i6w4D61Ld5.webp",
-          "name": "Yuumi",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Battle Academia Prodigy Yuumi",
-        "style": "Fast 8",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_DrMundo",
             "items": [
               "TFT_Item_Artifact_InnervatingLocket",
@@ -790,7 +677,7 @@
         "mainItem": {},
         "title": "Battle Academia Katarina Reroll",
         "style": "RR LV.6",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -1265,6 +1152,119 @@
         "tier": "A"
       },
       {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Malzahar",
+            "items": [
+              "TFT_Item_Artifact_BlightingJewel",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_HextechGunblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_malzahar_sdqZwFBOfF.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Yuumi",
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_JeweledGauntlet",
+              "TFT4_Item_OrnnMuramana"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yuumi_i6w4D61Ld5.webp",
+            "cost": 4,
+            "name": "Yuumi",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT_Augment_CrownguardSpirit"
+          },
+          {
+            "apiName": "TFT15_Augment_Prodigy_UnboundArcana"
+          },
+          {
+            "apiName": "TFT_Augment_WandOverflow"
+          },
+          {
+            "apiName": "TFT_Augment_Replication"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook2"
+          },
+          {
+            "apiName": "TFT_Augment_GlassCannonII"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-shadow-cat",
+        "champions": [
+          {
+            "apiName": "TFT15_Yuumi",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_HextechGunblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yuumi_i6w4D61Ld5.webp",
+            "cost": 4,
+            "name": "Yuumi",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Malzahar",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_RapidFireCannon",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_AdaptiveHelm"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_malzahar_sdqZwFBOfF.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Leona",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_NightHarvester",
+              "TFT_Item_Crownguard"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_leona_YY6w5UCd1G.webp",
+            "cost": 4,
+            "name": "Leona",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Yuumi",
+          "cost": 4,
+          "championIcon": "tft15_yuumi_i6w4D61Ld5.webp",
+          "name": "Yuumi",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Battle Academia Prodigy Yuumi",
+        "style": "Fast 8",
+        "tier": "B"
+      },
+      {
         "altBuilds": [],
         "augments": [
           {
@@ -1437,9 +1437,9 @@
             "apiName": "TFT15_Jhin",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_Deathblade",
-              "TFT_Item_LastWhisper"
+              "TFT_Item_LastWhisper",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
             "championIcon": "tft15_jhin_2XsZauYa1y.webp",
@@ -1967,6 +1967,99 @@
         },
         "mainItem": {},
         "title": "Monster Trainer Protector Smolder",
+        "style": "RR LV.7",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Smolder",
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_smolder_gO9ryftYFY.webp",
+            "cost": 3,
+            "name": "Smolder",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Smolder",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_smolder_gO9ryftYFY.webp",
+            "cost": 3,
+            "name": "Smolder",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook3"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-train-your-dragon-bastion",
+        "champions": [
+          {
+            "apiName": "TFT15_XinZhao",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_Crownguard",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_xin_zhao_u2UZFRt28J.webp",
+            "cost": 2,
+            "name": "Xin Zhao",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Smolder",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_smolder_gO9ryftYFY.webp",
+            "cost": 3,
+            "name": "Smolder",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Lulu",
+          "cost": 3,
+          "championIcon": "tft15_lulu_B8iUZIBY4u.webp",
+          "name": "Lulu",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Train Your Dragon (Bastion) ",
         "style": "RR LV.7",
         "tier": "B"
       },
@@ -2701,108 +2794,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Vi",
-            "items": [
-              "TFT_Item_Artifact_SilvermereDawn",
-              "TFT_Item_Artifact_SuspiciousTrenchCoat",
-              "TFT9_Item_OrnnHorizonFocus"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
-            "cost": 2,
-            "name": "Vi",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_ViCarry"
-          },
-          {
-            "apiName": "TFT_Augment_HeroicGrabBagPlus"
-          },
-          {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
-          },
-          {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT_Augment_ItemCollector1"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-knuckledusters-vi",
-        "champions": [
-          {
-            "apiName": "TFT15_Vi",
-            "boardIndex": 0,
-            "items": [
-              "TFT_Item_UnstableConcoction",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_InfinityEdge"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
-            "cost": 2,
-            "name": "Vi",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_DrMundo",
-            "boardIndex": 1,
-            "items": [
-              "TFT_Item_Redemption",
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Jhin",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
-            "cost": 2,
-            "name": "Jhin",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT15_Augment_ViCarry"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_Vi",
-          "cost": 2,
-          "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
-          "name": "Vi",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Knuckledusters Vi Reroll",
-        "style": "RR LV.6",
-        "tier": "X"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Garen",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -3014,6 +3005,108 @@
         "mainItem": {},
         "title": "Perfect Form Zac Reroll",
         "style": "RR LV.5",
+        "tier": "X"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Vi",
+            "items": [
+              "TFT_Item_Artifact_SilvermereDawn",
+              "TFT_Item_Artifact_SuspiciousTrenchCoat",
+              "TFT9_Item_OrnnHorizonFocus"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
+            "cost": 2,
+            "name": "Vi",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_ViCarry"
+          },
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlus"
+          },
+          {
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+          },
+          {
+            "apiName": "TFT_Augment_Lineup"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT_Augment_ItemCollector1"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-knuckledusters-vi",
+        "champions": [
+          {
+            "apiName": "TFT15_Vi",
+            "boardIndex": 0,
+            "items": [
+              "TFT_Item_UnstableConcoction",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_InfinityEdge"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
+            "cost": 2,
+            "name": "Vi",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_DrMundo",
+            "boardIndex": 1,
+            "items": [
+              "TFT_Item_Redemption",
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jhin",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
+            "cost": 2,
+            "name": "Jhin",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT15_Augment_ViCarry"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Vi",
+          "cost": 2,
+          "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
+          "name": "Vi",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Knuckledusters Vi Reroll",
+        "style": "RR LV.6",
         "tier": "X"
       },
       {
@@ -4996,6 +5089,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-19 00:00:03"
+    "lastUpdated": "2025-08-19 06:00:03"
   }
 }
