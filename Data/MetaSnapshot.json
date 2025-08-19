@@ -802,7 +802,7 @@
         },
         "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -1234,6 +1234,20 @@
             "championIcon": "tft15_malzahar_sdqZwFBOfF.webp",
             "cost": 3,
             "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_Redemption",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_ykg6KliKng.webp",
+            "cost": 4,
+            "name": "K'Sante",
             "set": 15
           },
           {
@@ -2066,7 +2080,7 @@
         "mainItem": {},
         "title": "Mighty Mech Mentors",
         "style": "Fast 9",
-        "tier": "B"
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -5092,6 +5106,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-19 12:00:03"
+    "lastUpdated": "2025-08-19 18:00:03"
   }
 }
