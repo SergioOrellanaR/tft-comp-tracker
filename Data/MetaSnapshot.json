@@ -822,7 +822,7 @@
             "apiName": "TFT15_Ashe",
             "items": [
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane",
               "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
@@ -865,7 +865,7 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane",
+              "TFT_Item_GuinsoosRageblade",
               "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
@@ -5106,6 +5106,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-19 18:00:03"
+    "lastUpdated": "2025-08-20 00:00:03"
   }
 }
