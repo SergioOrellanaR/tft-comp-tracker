@@ -4251,17 +4251,17 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-duelist-ashe-ok",
         "champions": [
           {
-            "apiName": "TFT15_Ashe",
-            "boardIndex": 27,
+            "apiName": "TFT15_Udyr",
+            "boardIndex": 3,
             "items": [
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_TitansResolve"
             ],
-            "stars": 1,
-            "championIcon": "tft15_ashe_Y1ZDYotffS.webp",
-            "cost": 4,
-            "name": "Ashe",
+            "stars": 3,
+            "championIcon": "tft15_udyr_Otu8Xsd5Qo.webp",
+            "cost": 3,
+            "name": "Udyr",
             "set": 15
           },
           {
@@ -4277,32 +4277,32 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Udyr",
-            "boardIndex": 3,
+            "apiName": "TFT15_Ashe",
+            "boardIndex": 27,
             "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_SteraksGage",
-              "TFT_Item_TitansResolve"
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_GuinsoosRageblade"
             ],
-            "stars": 3,
-            "championIcon": "tft15_udyr_Otu8Xsd5Qo.webp",
-            "cost": 3,
-            "name": "Udyr",
+            "stars": 1,
+            "championIcon": "tft15_ashe_Y1ZDYotffS.webp",
+            "cost": 4,
+            "name": "Ashe",
             "set": 15
           }
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Ashe",
-          "cost": 4,
-          "championIcon": "tft15_ashe_Y1ZDYotffS.webp",
-          "name": "Ashe",
+          "apiName": "TFT15_Udyr",
+          "cost": 3,
+          "championIcon": "tft15_udyr_Otu8Xsd5Qo.webp",
+          "name": "Udyr",
           "set": 15
         },
         "mainItem": {},
-        "title": "Duelist Ashe Udyr",
+        "title": "Colossal Udyr",
         "style": "Fast 8",
-        "tier": "B"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -5059,6 +5059,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-21 00:00:03"
+    "lastUpdated": "2025-08-21 06:00:03"
   }
 }
