@@ -571,105 +571,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_KaiSa",
-            "items": [
-              "TFT_Item_Artifact_Fishbones",
-              "TFT4_Item_OrnnMuramana",
-              "TFT9_Item_OrnnHorizonFocus"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
-            "cost": 2,
-            "name": "Kai'Sa",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT6_Augment_GachaAddict"
-          },
-          {
-            "apiName": "TFT_Augment_TragicalBlade"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT_Augment_GuardbreakerSpirit"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT15_Augment_Mentor_TeachersCouncil"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-jujutsu-kaisa-mentor",
-        "champions": [
-          {
-            "apiName": "TFT15_KaiSa",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
-            "cost": 2,
-            "name": "Kai'Sa",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Kobuko",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_BrambleVest",
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kobuko_j3DW28m9FP.webp",
-            "cost": 2,
-            "name": "Kobuko",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Akali",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_GuinsoosRageblade"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_akali_X8KFZ2GEmC.webp",
-            "cost": 4,
-            "name": "Akali",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_KaiSa",
-          "cost": 2,
-          "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
-          "name": "Kai'Sa",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Mentor Supreme Cells Kai'Sa Reroll",
-        "style": "RR LV.6",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Ashe",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -888,6 +789,105 @@
         },
         "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_KaiSa",
+            "items": [
+              "TFT_Item_Artifact_Fishbones",
+              "TFT4_Item_OrnnMuramana",
+              "TFT9_Item_OrnnHorizonFocus"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+            "cost": 2,
+            "name": "Kai'Sa",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_GachaAddict"
+          },
+          {
+            "apiName": "TFT_Augment_TragicalBlade"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers"
+          },
+          {
+            "apiName": "TFT_Augment_GuardbreakerSpirit"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook3"
+          },
+          {
+            "apiName": "TFT9_Augment_StarsAreBorn"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-jujutsu-kaisa-ok",
+        "champions": [
+          {
+            "apiName": "TFT15_KaiSa",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+            "cost": 2,
+            "name": "Kai'Sa",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rammus",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff",
+              "TFT_Item_GargoyleStoneplate"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_rammus_chVjRfHlYH.webp",
+            "cost": 3,
+            "name": "Rammus",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Akali",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_akali_X8KFZ2GEmC.webp",
+            "cost": 4,
+            "name": "Akali",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_KaiSa",
+          "cost": 2,
+          "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+          "name": "Kai'Sa",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Rammus Kai'Sa Reroll",
+        "style": "RR LV.6",
         "tier": "A"
       },
       {
@@ -4169,128 +4169,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_DrMundo",
-            "items": [
-              "TFT_Item_Artifact_InnervatingLocket",
-              "TFT7_Item_ShimmerscaleMogulsMail"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KaiSa",
-            "items": [
-              "TFT_Item_Artifact_Fishbones",
-              "TFT4_Item_OrnnMuramana",
-              "TFT9_Item_OrnnHorizonFocus"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
-            "cost": 2,
-            "name": "Kai'Sa",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
-          },
-          {
-            "apiName": "TFT6_Augment_GachaAddict"
-          },
-          {
-            "apiName": "TFT_Augment_TragicalBlade"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT_Augment_GuardbreakerSpirit"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-kaisa-reroll",
-        "champions": [
-          {
-            "apiName": "TFT15_KaiSa",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
-            "cost": 2,
-            "name": "Kai'Sa",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_DrMundo",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_Redemption",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Udyr",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_udyr_Otu8Xsd5Qo.webp",
-            "cost": 3,
-            "name": "Udyr",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_LeeSin",
-            "boardIndex": 1,
-            "items": [
-              "TFT15_Item_JuggernautEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
-            "cost": 5,
-            "name": "Lee Sin",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_KaiSa",
-          "cost": 2,
-          "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
-          "name": "Kai'Sa",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Juggernaut Kai'Sa Reroll",
-        "style": "RR LV.6",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Smolder",
             "items": [
               "TFT_Item_InfinityEdge",
@@ -4386,6 +4264,105 @@
         "title": "Bastion Smolder",
         "style": "RR LV.7",
         "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_KaiSa",
+            "items": [
+              "TFT_Item_Artifact_Fishbones",
+              "TFT4_Item_OrnnMuramana",
+              "TFT9_Item_OrnnHorizonFocus"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+            "cost": 2,
+            "name": "Kai'Sa",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_GachaAddict"
+          },
+          {
+            "apiName": "TFT_Augment_TragicalBlade"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers"
+          },
+          {
+            "apiName": "TFT_Augment_GuardbreakerSpirit"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_AnExaltedAdventure"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT15_Augment_Mentor_TeachersCouncil"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-jujutsu-kaisa-mentor",
+        "champions": [
+          {
+            "apiName": "TFT15_KaiSa",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+            "cost": 2,
+            "name": "Kai'Sa",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Kobuko",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_BrambleVest",
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kobuko_j3DW28m9FP.webp",
+            "cost": 2,
+            "name": "Kobuko",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Akali",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_akali_X8KFZ2GEmC.webp",
+            "cost": 4,
+            "name": "Akali",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_KaiSa",
+          "cost": 2,
+          "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+          "name": "Kai'Sa",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Mentor Supreme Cells Kai'Sa Reroll",
+        "style": "RR LV.6",
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -4709,6 +4686,128 @@
         "title": "Monster Trainer Juggernanut Smolder",
         "style": "RR LV.7",
         "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_DrMundo",
+            "items": [
+              "TFT_Item_Artifact_InnervatingLocket",
+              "TFT7_Item_ShimmerscaleMogulsMail"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KaiSa",
+            "items": [
+              "TFT_Item_Artifact_Fishbones",
+              "TFT4_Item_OrnnMuramana",
+              "TFT9_Item_OrnnHorizonFocus"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+            "cost": 2,
+            "name": "Kai'Sa",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+          },
+          {
+            "apiName": "TFT6_Augment_GachaAddict"
+          },
+          {
+            "apiName": "TFT_Augment_TragicalBlade"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers"
+          },
+          {
+            "apiName": "TFT_Augment_GuardbreakerSpirit"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_AnExaltedAdventure"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-kaisa-reroll",
+        "champions": [
+          {
+            "apiName": "TFT15_KaiSa",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+            "cost": 2,
+            "name": "Kai'Sa",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_DrMundo",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_Redemption",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Udyr",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_udyr_Otu8Xsd5Qo.webp",
+            "cost": 3,
+            "name": "Udyr",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_LeeSin",
+            "boardIndex": 1,
+            "items": [
+              "TFT15_Item_JuggernautEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
+            "cost": 5,
+            "name": "Lee Sin",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_KaiSa",
+          "cost": 2,
+          "championIcon": "tft15_kai_sa_VqEokCioXq.webp",
+          "name": "Kai'Sa",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Juggernaut Kai'Sa Reroll",
+        "style": "RR LV.6",
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -5142,6 +5241,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-21 18:00:04"
+    "lastUpdated": "2025-08-22 00:00:03"
   }
 }
