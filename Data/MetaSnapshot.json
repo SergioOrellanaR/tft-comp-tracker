@@ -315,7 +315,7 @@
             "items": [
               "TFT_Item_RunaansHurricane",
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_HextechGunblade"
+              "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_Y1ZDYotffS.webp",
@@ -813,7 +813,7 @@
         },
         "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -1052,18 +1052,6 @@
       },
       {
         "altBuilds": [
-          {
-            "apiName": "TFT15_Jinx",
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_InfinityEdge"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jinx_Nt9ndPtxtV.webp",
-            "cost": 4,
-            "name": "Jinx",
-            "set": 15
-          },
           {
             "apiName": "TFT15_Syndra",
             "items": [
@@ -1611,132 +1599,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Volibear",
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_GuardianAngel"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
-            "cost": 4,
-            "name": "Volibear",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Volibear",
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_RunaansHurricane"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
-            "cost": 4,
-            "name": "Volibear",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT11_Augment_RainingGold"
-          },
-          {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_SwordOverflow"
-          },
-          {
-            "apiName": "TFT_Augment_SliceOfLife"
-          },
-          {
-            "apiName": "TFT_Augment_EyeForAnEye"
-          },
-          {
-            "apiName": "TFT11_Augment_Reinfourcement"
-          },
-          {
-            "apiName": "TFT6_Augment_PandorasItems"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-sami-bear-edgelords",
-        "champions": [
-          {
-            "apiName": "TFT15_Volibear",
-            "boardIndex": 18,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_Deathblade"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
-            "cost": 4,
-            "name": "Volibear",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Samira",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_samira_Y82T3Ce6DA.webp",
-            "cost": 4,
-            "name": "Samira",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 1,
-            "items": [
-              "TFT15_Item_EdgelordEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_NBTlTZWr6g.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Volibear",
-          "cost": 4,
-          "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
-          "name": "Volibear",
-          "set": 15
-        },
-        "mainItem": {
-          "apiName": "TFT15_Item_EdgelordEmblemItem"
-        },
-        "title": "Edgelord Volibear Samira",
-        "style": "Fast 8",
-        "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Kayle",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -1953,92 +1815,7 @@
         "mainItem": {},
         "title": "Varus Fast 9 Legendaries",
         "style": "Fast 9",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_TwoMuchValue"
-          },
-          {
-            "apiName": "TFT_Augment_FindYourCenter"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_TheGodsEyeOpens"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-luxin-zhao",
-        "champions": [
-          {
-            "apiName": "TFT15_XinZhao",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_DragonsClaw",
-              "TFT_Item_BrambleVest"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xin_zhao_u2UZFRt28J.webp",
-            "cost": 2,
-            "name": "Xin Zhao",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Lux",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_Leviathan",
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_lux_merscIBomN.webp",
-            "cost": 2,
-            "name": "Lux",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Gwen",
-            "boardIndex": 24,
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_fGzZS2IqQV.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_XinZhao",
-          "cost": 2,
-          "championIcon": "tft15_xin_zhao_u2UZFRt28J.webp",
-          "name": "Xin Zhao",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Lux Xin Zhao Reroll",
-        "style": "RR LV.6",
-        "tier": "C"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -2138,6 +1915,217 @@
         "title": "Protector Akali",
         "style": "Fast 8",
         "tier": "C"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Volibear",
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Volibear",
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_RunaansHurricane"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT11_Augment_RainingGold"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+          },
+          {
+            "apiName": "TFT_Augment_SwordOverflow"
+          },
+          {
+            "apiName": "TFT_Augment_SliceOfLife"
+          },
+          {
+            "apiName": "TFT_Augment_EyeForAnEye"
+          },
+          {
+            "apiName": "TFT11_Augment_Reinfourcement"
+          },
+          {
+            "apiName": "TFT6_Augment_PandorasItems"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-sami-bear-edgelords",
+        "champions": [
+          {
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 18,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_Deathblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Samira",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_samira_Y82T3Ce6DA.webp",
+            "cost": 4,
+            "name": "Samira",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 1,
+            "items": [
+              "TFT15_Item_EdgelordEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_NBTlTZWr6g.webp",
+            "cost": 5,
+            "name": "Braum",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Volibear",
+          "cost": 4,
+          "championIcon": "tft15_volibear_9xq2pI6aq0.webp",
+          "name": "Volibear",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_EdgelordEmblemItem"
+        },
+        "title": "Edgelord Volibear Samira",
+        "style": "Fast 8",
+        "tier": "C"
+      },
+      {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_TwoMuchValue"
+          },
+          {
+            "apiName": "TFT_Augment_FindYourCenter"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers"
+          },
+          {
+            "apiName": "TFT15_Augment_SoulFighter_TheGodsEyeOpens"
+          },
+          {
+            "apiName": "TFT_Augment_AnExaltedAdventure"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-luxin-zhao",
+        "champions": [
+          {
+            "apiName": "TFT15_XinZhao",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_BrambleVest"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_xin_zhao_u2UZFRt28J.webp",
+            "cost": 2,
+            "name": "Xin Zhao",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Lux",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_Leviathan",
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_lux_merscIBomN.webp",
+            "cost": 2,
+            "name": "Lux",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Gwen",
+            "boardIndex": 24,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Morellonomicon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gwen_fGzZS2IqQV.webp",
+            "cost": 5,
+            "name": "Gwen",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_XinZhao",
+          "cost": 2,
+          "championIcon": "tft15_xin_zhao_u2UZFRt28J.webp",
+          "name": "Xin Zhao",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Lux Xin Zhao Reroll",
+        "style": "RR LV.6",
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -5265,6 +5253,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-22 18:00:03"
+    "lastUpdated": "2025-08-23 00:00:04"
   }
 }
