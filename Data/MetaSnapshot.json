@@ -45,9 +45,6 @@
             "apiName": "TFT15_Augment_BattleAcademia_TransferStudents"
           },
           {
-            "apiName": "TFT15_Augment_BattleAcademia_Hero101"
-          },
-          {
             "apiName": "TFT6_Augment_GachaAddict"
           },
           {
@@ -55,6 +52,9 @@
           },
           {
             "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT_Augment_SwordOverflow"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-silver-jayce",
@@ -123,7 +123,8 @@
             "apiName": "TFT15_Ashe",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT5_Item_GuinsoosRagebladeRadiant"
+              "TFT5_Item_GuinsoosRagebladeRadiant",
+              "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_Y1ZDYotffS.webp",
@@ -187,15 +188,16 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Viego",
-            "boardIndex": 17,
+            "apiName": "TFT15_Sett",
+            "boardIndex": 19,
             "items": [
-              "TFT_Item_ThiefsGloves"
+              "TFT_Item_RedBuff",
+              "TFT_Item_SpectralGauntlet"
             ],
-            "stars": 3,
-            "championIcon": "tft15_viego_BZVouxu2yr.webp",
-            "cost": 3,
-            "name": "Viego",
+            "stars": 1,
+            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
+            "cost": 4,
+            "name": "Sett",
             "set": 15
           },
           {
@@ -213,15 +215,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 19,
+            "apiName": "TFT15_LeeSin",
+            "boardIndex": 18,
             "items": [
-              "TFT_Item_SpectralGauntlet"
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_UnstableConcoction"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
-            "cost": 4,
-            "name": "Sett",
+            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
+            "cost": 5,
+            "name": "Lee Sin",
             "set": 15
           }
         ],
@@ -296,20 +300,6 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Swain",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_NightHarvester",
-              "TFT_Item_Redemption"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_swain_ILtwUvbZ5p.webp",
-            "cost": 3,
-            "name": "Swain",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Ashe",
             "boardIndex": 21,
             "items": [
@@ -324,17 +314,29 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 1,
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 3,
             "items": [
-              "TFT15_Item_CrystalRoseEmblemItem",
-              "TFT_Item_SteraksGage",
-              "TFT_Item_Bloodthirster"
+              "TFT15_Item_CrystalRoseEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_braum_NBTlTZWr6g.webp",
-            "cost": 5,
-            "name": "Braum",
+            "championIcon": "tft15_jarvan_iv_TEZ3N8yFaH.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 2,
+            "items": [
+              "TFT15_Item_CrystalRoseEmblemItem",
+              "TFT_Item_Redemption",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_ykg6KliKng.webp",
+            "cost": 4,
+            "name": "K'Sante",
             "set": 15
           }
         ],
@@ -469,24 +471,11 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Malzahar",
-            "items": [
-              "TFT_Item_Artifact_BlightingJewel",
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_HextechGunblade"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_malzahar_sdqZwFBOfF.webp",
-            "cost": 3,
-            "name": "Malzahar",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Yuumi",
             "items": [
-              "TFT_Item_BlueBuff",
               "TFT_Item_JeweledGauntlet",
-              "TFT4_Item_OrnnMuramana"
+              "TFT4_Item_OrnnMuramana",
+              "TFT_Item_HextechGunblade"
             ],
             "stars": 1,
             "championIcon": "tft15_yuumi_i6w4D61Ld5.webp",
@@ -4952,11 +4941,6 @@
           "icon": "tft_item_bloodthirster_bhkluEOqXh.webp"
         },
         {
-          "apiName": "TFT_Item_BlueBuff",
-          "name": "Blue Buff",
-          "icon": "tft_item_blue_buff_mfCfXsvPOZ.webp"
-        },
-        {
           "apiName": "TFT_Item_BrambleVest",
           "name": "Bramble Vest",
           "icon": "tft_item_bramble_vest_QVs8B1aBLw.webp"
@@ -5278,6 +5262,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-24 06:00:03"
+    "lastUpdated": "2025-08-24 12:00:03"
   }
 }
