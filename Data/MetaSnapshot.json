@@ -803,7 +803,19 @@
         "tier": "A"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_TwistedFate",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT11_Augment_Slammin"
@@ -862,16 +874,29 @@
           },
           {
             "apiName": "TFT15_Zyra",
-            "boardIndex": 21,
+            "boardIndex": 24,
             "items": [
               "TFT_Item_StatikkShiv",
-              "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 1,
             "championIcon": "tft15_zyra_cK4SJXr9k3.webp",
             "cost": 5,
             "name": "Zyra",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_TwistedFate",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
             "set": 15
           }
         ],
@@ -1549,6 +1574,142 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_LeeSin",
+            "items": [
+              "TFT_Item_Artifact_SilvermereDawn"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
+            "cost": 5,
+            "name": "Lee Sin",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_TwistedFate",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_WitsEnd"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_AuraFarming"
+          },
+          {
+            "apiName": "TFT6_Augment_CalculatedLoss"
+          },
+          {
+            "apiName": "TFT6_Augment_MaxLevel10"
+          },
+          {
+            "apiName": "TFT_Augment_UpwardMobility"
+          },
+          {
+            "apiName": "TFT9_Augment_HedgeFund"
+          },
+          {
+            "apiName": "TFT_Augment_InvestedPlus"
+          },
+          {
+            "apiName": "TFT_Augment_ForwardThinking"
+          },
+          {
+            "apiName": "TFT7_Augment_LategameSpecialist"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-fateedge-of-night-unlimited-blade-works",
+        "champions": [
+          {
+            "apiName": "TFT15_TwistedFate",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_LastWhisper",
+              "TFT_Item_Morellonomicon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_Redemption",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_NBTlTZWr6g.webp",
+            "cost": 5,
+            "name": "Braum",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_LeeSin",
+            "boardIndex": 5,
+            "items": [
+              "TFT15_Item_JuggernautEmblemItem",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_UnstableConcoction"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
+            "cost": 5,
+            "name": "Lee Sin",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_cK4SJXr9k3.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_TwistedFate",
+          "cost": 5,
+          "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
+          "name": "Twisted Fate",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Juggernaut Twisted Fate Zyra Fast 9",
+        "style": "Fast 9",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Kayle",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -1764,142 +1925,6 @@
         "mainItem": {},
         "title": "Lux Xin Zhao Reroll",
         "style": "RR LV.6",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_LeeSin",
-            "items": [
-              "TFT_Item_Artifact_SilvermereDawn"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
-            "cost": 5,
-            "name": "Lee Sin",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_TwistedFate",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_WitsEnd"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_AuraFarming"
-          },
-          {
-            "apiName": "TFT6_Augment_CalculatedLoss"
-          },
-          {
-            "apiName": "TFT6_Augment_MaxLevel10"
-          },
-          {
-            "apiName": "TFT_Augment_UpwardMobility"
-          },
-          {
-            "apiName": "TFT9_Augment_HedgeFund"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlus"
-          },
-          {
-            "apiName": "TFT_Augment_ForwardThinking"
-          },
-          {
-            "apiName": "TFT7_Augment_LategameSpecialist"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-fateedge-of-night-unlimited-blade-works",
-        "champions": [
-          {
-            "apiName": "TFT15_TwistedFate",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_Redemption",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_NightHarvester"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_NBTlTZWr6g.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_LeeSin",
-            "boardIndex": 5,
-            "items": [
-              "TFT15_Item_JuggernautEmblemItem",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_UnstableConcoction"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
-            "cost": 5,
-            "name": "Lee Sin",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_cK4SJXr9k3.webp",
-            "cost": 5,
-            "name": "Zyra",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_TwistedFate",
-          "cost": 5,
-          "championIcon": "tft15_twisted_fate_8DRT3DuIIC.webp",
-          "name": "Twisted Fate",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Juggernaut Twisted Fate Zyra Fast 9",
-        "style": "Fast 9",
         "tier": "B"
       },
       {
@@ -5253,6 +5278,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-23 18:00:03"
+    "lastUpdated": "2025-08-24 00:00:03"
   }
 }
