@@ -358,19 +358,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Gwen",
-            "items": [
-              "TFT9_Item_OrnnHorizonFocus",
-              "TFT_Item_Artifact_RapidFirecannon",
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_fGzZS2IqQV.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Karma",
             "items": [
               "TFT_Item_PowerGauntlet",
@@ -381,6 +368,19 @@
             "championIcon": "tft15_karma_bGBpBlZDUU.webp",
             "cost": 4,
             "name": "Karma",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Gwen",
+            "items": [
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Artifact_RapidFirecannon",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gwen_fGzZS2IqQV.webp",
+            "cost": 5,
+            "name": "Gwen",
             "set": 15
           }
         ],
@@ -404,10 +404,10 @@
             "apiName": "TFT15_Augment_SpellslingerCrown"
           },
           {
-            "apiName": "TFT15_Augment_Sorcerer_DazzlingDisplay"
+            "apiName": "TFT9_Augment_HighEndSector"
           },
           {
-            "apiName": "TFT9_Augment_HighEndSector"
+            "apiName": "TFT7_Augment_LivingForge"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-karma-sorcs",
@@ -5262,6 +5262,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-24 18:00:03"
+    "lastUpdated": "2025-08-25 00:00:03"
   }
 }
