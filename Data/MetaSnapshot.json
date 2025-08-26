@@ -4481,117 +4481,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Smolder",
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_smolder_gO9ryftYFY.webp",
-            "cost": 3,
-            "name": "Smolder",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Smolder",
-            "items": [
-              "TFT4_Item_OrnnMuramana",
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_smolder_gO9ryftYFY.webp",
-            "cost": 3,
-            "name": "Smolder",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT9_Augment_BardPlaybook3"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_ShojinSpirit"
-          },
-          {
-            "apiName": "TFT_Augment_WaterLotus1"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-monster-trainer-smolder",
-        "champions": [
-          {
-            "apiName": "TFT15_Udyr",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_udyr_Otu8Xsd5Qo.webp",
-            "cost": 3,
-            "name": "Udyr",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Smolder",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_smolder_gO9ryftYFY.webp",
-            "cost": 3,
-            "name": "Smolder",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_Redemption",
-              "TFT_Item_GargoyleStoneplate"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Lulu",
-          "cost": 3,
-          "championIcon": "tft15_lulu_B8iUZIBY4u.webp",
-          "name": "Lulu",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Monster Trainer Juggernanut Smolder",
-        "style": "RR LV.7",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_DrMundo",
             "items": [
               "TFT_Item_Artifact_InnervatingLocket",
@@ -4772,14 +4661,40 @@
             "apiName": "TFT15_KogMaw",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_GuinsoosRageblade",
               "TFT_Item_ArchangelsStaff",
-              "TFT_Item_HextechGunblade"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_SpearOfShojin"
             ],
             "stars": 3,
             "championIcon": "tft15_kog_maw_C4ehYCXhws.webp",
             "cost": 3,
             "name": "Kog'Maw",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Janna",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_RapidFireCannon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_janna_5V0JiYcKyD.webp",
+            "cost": 2,
+            "name": "Janna",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Neeko",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_NightHarvester",
+              "TFT_Item_Crownguard",
+              "TFT_Item_WarmogsArmor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_neeko_Dva0Gg1zL4.webp",
+            "cost": 3,
+            "name": "Neeko",
             "set": 15
           }
         ],
@@ -4787,10 +4702,10 @@
           "apiName": "TFT6_Augment_PortableForge"
         },
         "mainChampion": {
-          "apiName": "TFT15_Lulu",
+          "apiName": "TFT15_KogMaw",
           "cost": 3,
-          "championIcon": "tft15_lulu_B8iUZIBY4u.webp",
-          "name": "Lulu",
+          "championIcon": "tft15_kog_maw_C4ehYCXhws.webp",
+          "name": "Kog'Maw",
           "set": 15
         },
         "mainItem": {},
@@ -5138,6 +5053,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-26 06:00:03"
+    "lastUpdated": "2025-08-26 12:00:04"
   }
 }
