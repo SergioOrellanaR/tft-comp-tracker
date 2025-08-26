@@ -1397,20 +1397,6 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-how-to-train-your-dragon-protectors",
         "champions": [
           {
-            "apiName": "TFT15_Neeko",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_Redemption",
-              "TFT_Item_NightHarvester"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_neeko_Dva0Gg1zL4.webp",
-            "cost": 3,
-            "name": "Neeko",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Smolder",
             "boardIndex": 27,
             "items": [
@@ -1422,6 +1408,20 @@
             "championIcon": "tft15_smolder_gO9ryftYFY.webp",
             "cost": 3,
             "name": "Smolder",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Neeko",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_Redemption",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_neeko_Dva0Gg1zL4.webp",
+            "cost": 3,
+            "name": "Neeko",
             "set": 15
           },
           {
@@ -1449,10 +1449,10 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Lulu",
+          "apiName": "TFT15_Smolder",
           "cost": 3,
-          "championIcon": "tft15_lulu_B8iUZIBY4u.webp",
-          "name": "Lulu",
+          "championIcon": "tft15_smolder_gO9ryftYFY.webp",
+          "name": "Smolder",
           "set": 15
         },
         "mainItem": {},
@@ -4126,20 +4126,6 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-train-your-dragon-bastion",
         "champions": [
           {
-            "apiName": "TFT15_XinZhao",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_Crownguard",
-              "TFT_Item_FrozenHeart",
-              "TFT_Item_NightHarvester"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xin_zhao_u2UZFRt28J.webp",
-            "cost": 2,
-            "name": "Xin Zhao",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Smolder",
             "boardIndex": 27,
             "items": [
@@ -4152,14 +4138,28 @@
             "cost": 3,
             "name": "Smolder",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_XinZhao",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_Crownguard",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_xin_zhao_u2UZFRt28J.webp",
+            "cost": 2,
+            "name": "Xin Zhao",
+            "set": 15
           }
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Lulu",
+          "apiName": "TFT15_Smolder",
           "cost": 3,
-          "championIcon": "tft15_lulu_B8iUZIBY4u.webp",
-          "name": "Lulu",
+          "championIcon": "tft15_smolder_gO9ryftYFY.webp",
+          "name": "Smolder",
           "set": 15
         },
         "mainItem": {},
@@ -5053,6 +5053,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-26 12:00:04"
+    "lastUpdated": "2025-08-26 18:00:03"
   }
 }
