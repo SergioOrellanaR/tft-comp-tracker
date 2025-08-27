@@ -1271,7 +1271,7 @@
             "apiName": "TFT15_Augment_TheCrew_EscapeVelocity"
           },
           {
-            "apiName": "TFT_Augment_EvilBeyondMeasure"
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crewboy-bebop",
@@ -1320,9 +1320,9 @@
             "apiName": "TFT15_Ziggs",
             "boardIndex": 25,
             "items": [
-              "TFT_Item_AdaptiveHelm",
               "TFT_Item_ArchangelsStaff",
-              "TFT_Item_StatikkShiv"
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Leviathan"
             ],
             "stars": 3,
             "championIcon": "tft15_ziggs_VX8n7VwBE2.webp",
@@ -4585,6 +4585,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-27 00:00:05"
+    "lastUpdated": "2025-08-27 06:00:03"
   }
 }
