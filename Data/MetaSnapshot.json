@@ -3312,6 +3312,19 @@
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Malphite",
+            "items": [
+              "TFT_Item_Artifact_WitsEnd",
+              "TFT4_Item_OrnnZhonyasParadox",
+              "TFT_Item_Artifact_HorizonFocus"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_malphite_nlqw7JZ0sE.webp",
+            "cost": 1,
+            "name": "Malphite",
+            "set": 15
           }
         ],
         "augments": [
@@ -4777,6 +4790,11 @@
           "icon": "tft4_item_ornn_the_collector_uZHUj9G1S3.webp"
         },
         {
+          "apiName": "TFT_Item_Artifact_HorizonFocus",
+          "name": "Horizon Focus",
+          "icon": "tft_item_artifact_horizon_focus_GGwx7xE1UG.webp"
+        },
+        {
           "apiName": "TFT9_Item_OrnnHullbreaker",
           "name": "Hullcrusher",
           "icon": "tft9_item_ornn_hullbreaker_pYlj94nuuO.webp"
@@ -4911,6 +4929,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-28 12:00:03"
+    "lastUpdated": "2025-08-28 18:00:03"
   }
 }
