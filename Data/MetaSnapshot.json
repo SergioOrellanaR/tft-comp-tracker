@@ -7,7 +7,8 @@
           {
             "apiName": "TFT15_Senna",
             "items": [
-              "TFT4_Item_OrnnMuramana"
+              "TFT4_Item_OrnnMuramana",
+              "TFT4_Item_OrnnTheCollector"
             ],
             "stars": 1,
             "championIcon": "tft15_senna_uU3LTLktmN.webp",
@@ -73,6 +74,18 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_TEZ3N8yFaH.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Ryze",
             "boardIndex": 21,
             "items": [
@@ -87,15 +100,15 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 5,
+            "apiName": "TFT15_LeeSin",
+            "boardIndex": 2,
             "items": [
-              "TFT_Item_FrozenHeart"
+              "TFT15_Item_DestroyerEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_TEZ3N8yFaH.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
+            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
+            "cost": 5,
+            "name": "Lee Sin",
             "set": 15
           }
         ],
@@ -4589,6 +4602,11 @@
           "icon": "tft15_item_edgelord_emblem_item_LMPvGsxiAo.webp"
         },
         {
+          "apiName": "TFT15_Item_DestroyerEmblemItem",
+          "name": "Executioner Emblem",
+          "icon": "tft15_item_destroyer_emblem_item_NrEHubDl3Y.webp"
+        },
+        {
           "apiName": "TFT15_Item_JuggernautEmblemItem",
           "name": "Juggernaut Emblem",
           "icon": "tft15_item_juggernaut_emblem_item_YkEQHnty3o.webp"
@@ -4631,6 +4649,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-27 18:00:03"
+    "lastUpdated": "2025-08-28 00:00:03"
   }
 }
