@@ -18,16 +18,14 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Malzahar",
+            "apiName": "TFT15_Garen",
             "items": [
-              "TFT_Item_Artifact_BlightingJewel",
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_StatikkShiv"
+              "TFT_Item_Artifact_InnervatingLocket"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_sdqZwFBOfF.webp",
-            "cost": 3,
-            "name": "Malzahar",
+            "championIcon": "tft15_garen_aouEie0Dej.webp",
+            "cost": 1,
+            "name": "Garen",
             "set": 15
           }
         ],
@@ -362,6 +360,136 @@
         "mainItem": {},
         "title": "Varus Fast 9 Legendaries",
         "style": "Fast 9",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Malphite",
+            "items": [
+              "TFT_Item_Artifact_InnervatingLocket",
+              "TFT7_Item_ShimmerscaleMogulsMail"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_malphite_nlqw7JZ0sE.webp",
+            "cost": 1,
+            "name": "Malphite",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jhin",
+            "items": [
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
+            "cost": 2,
+            "name": "Jhin",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_HeftyRolls"
+          },
+          {
+            "apiName": "TFT_Augment_TreasureHunt"
+          },
+          {
+            "apiName": "TFT6_Augment_GachaAddict"
+          },
+          {
+            "apiName": "TFT7_Augment_PandorasBench"
+          },
+          {
+            "apiName": "TFT9_Augment_MissedConnections"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers"
+          },
+          {
+            "apiName": "TFT_Augment_HoldTheLine"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-sniper-squad",
+        "champions": [
+          {
+            "apiName": "TFT15_Sivir",
+            "boardIndex": 21,
+            "items": [],
+            "stars": 3,
+            "championIcon": "tft15_sivir_HgCYC1OGwZ.webp",
+            "cost": 1,
+            "name": "Sivir",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Malphite",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_BrambleVest",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_malphite_nlqw7JZ0sE.webp",
+            "cost": 1,
+            "name": "Malphite",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jhin",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_Deathblade",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
+            "cost": 2,
+            "name": "Jhin",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jinx",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_LastWhisper"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jinx_Nt9ndPtxtV.webp",
+            "cost": 4,
+            "name": "Jinx",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Gnar",
+            "boardIndex": 26,
+            "items": [],
+            "stars": 3,
+            "championIcon": "tft15_gnar_435xW5PxyK.webp",
+            "cost": 1,
+            "name": "Gnar",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Sivir",
+          "cost": 1,
+          "championIcon": "tft15_sivir_HgCYC1OGwZ.webp",
+          "name": "Sivir",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Crew Sniper Reroll",
+        "style": "RR LV.5",
         "tier": "A"
       },
       {
@@ -972,136 +1100,6 @@
         },
         "title": "7 Crystal Gambit Ashe Zyra",
         "style": "L. Streak",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Malphite",
-            "items": [
-              "TFT_Item_Artifact_InnervatingLocket",
-              "TFT7_Item_ShimmerscaleMogulsMail"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_malphite_nlqw7JZ0sE.webp",
-            "cost": 1,
-            "name": "Malphite",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Jhin",
-            "items": [
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
-            "cost": 2,
-            "name": "Jhin",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_HeftyRolls"
-          },
-          {
-            "apiName": "TFT_Augment_TreasureHunt"
-          },
-          {
-            "apiName": "TFT6_Augment_GachaAddict"
-          },
-          {
-            "apiName": "TFT7_Augment_PandorasBench"
-          },
-          {
-            "apiName": "TFT9_Augment_MissedConnections"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT_Augment_HoldTheLine"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-sniper-squad",
-        "champions": [
-          {
-            "apiName": "TFT15_Sivir",
-            "boardIndex": 21,
-            "items": [],
-            "stars": 3,
-            "championIcon": "tft15_sivir_HgCYC1OGwZ.webp",
-            "cost": 1,
-            "name": "Sivir",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Malphite",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_BrambleVest",
-              "TFT_Item_Redemption"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_malphite_nlqw7JZ0sE.webp",
-            "cost": 1,
-            "name": "Malphite",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Jhin",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_Deathblade",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
-            "cost": 2,
-            "name": "Jhin",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Jinx",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_LastWhisper"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jinx_Nt9ndPtxtV.webp",
-            "cost": 4,
-            "name": "Jinx",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Gnar",
-            "boardIndex": 26,
-            "items": [],
-            "stars": 3,
-            "championIcon": "tft15_gnar_435xW5PxyK.webp",
-            "cost": 1,
-            "name": "Gnar",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Sivir",
-          "cost": 1,
-          "championIcon": "tft15_sivir_HgCYC1OGwZ.webp",
-          "name": "Sivir",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Crew Sniper Reroll",
-        "style": "RR LV.5",
         "tier": "A"
       },
       {
@@ -2998,6 +2996,92 @@
         "tier": "X"
       },
       {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_DrMundoCarry"
+          },
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlus"
+          },
+          {
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+          },
+          {
+            "apiName": "TFT_Augment_Lineup"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_BeltOverflow"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-give-em-the-chair-dr-mundo",
+        "champions": [
+          {
+            "apiName": "TFT15_DrMundo",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Vi",
+            "boardIndex": 0,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
+            "cost": 2,
+            "name": "Vi",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 1,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT15_Augment_DrMundoCarry"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_DrMundo",
+          "cost": 2,
+          "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
+          "name": "Dr. Mundo",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Give 'em the Chair! Dr. Mundo Reroll",
+        "style": "RR LV.6",
+        "tier": "X"
+      },
+      {
         "altBuilds": [
           {
             "apiName": "TFT15_Garen",
@@ -3428,92 +3512,6 @@
         "mainItem": {},
         "title": "Nine Thousand Volts Kennen Reroll",
         "style": "RR LV.5",
-        "tier": "X"
-      },
-      {
-        "altBuilds": [],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_DrMundoCarry"
-          },
-          {
-            "apiName": "TFT_Augment_HeroicGrabBagPlus"
-          },
-          {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
-          },
-          {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT_Augment_BeltOverflow"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-give-em-the-chair-dr-mundo",
-        "champions": [
-          {
-            "apiName": "TFT15_DrMundo",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Vi",
-            "boardIndex": 0,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_vi_4qgBZ1FzrO.webp",
-            "cost": 2,
-            "name": "Vi",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 1,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff",
-              "TFT_Item_Redemption"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_S0WBaQPDG8.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT15_Augment_DrMundoCarry"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_DrMundo",
-          "cost": 2,
-          "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
-          "name": "Dr. Mundo",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Give 'em the Chair! Dr. Mundo Reroll",
-        "style": "RR LV.6",
         "tier": "X"
       },
       {
@@ -4734,6 +4732,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-29 06:00:03"
+    "lastUpdated": "2025-08-29 12:00:02"
   }
 }
