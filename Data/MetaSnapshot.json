@@ -1729,6 +1729,18 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
         "champions": [
           {
+            "apiName": "TFT15_Senna",
+            "boardIndex": 11,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_senna_uU3LTLktmN.webp",
+            "cost": 3,
+            "name": "Senna",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_JarvanIV",
             "boardIndex": 5,
             "items": [
@@ -4050,7 +4062,7 @@
         "mainItem": {},
         "title": "Sniper Jinx Flex",
         "style": "Fast 8",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -4827,6 +4839,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-30 18:00:03"
+    "lastUpdated": "2025-08-31 00:00:03"
   }
 }
