@@ -447,8 +447,8 @@
             "boardIndex": 4,
             "items": [
               "TFT_Item_NightHarvester",
-              "TFT_Item_IonicSpark",
-              "TFT_Item_RedBuff"
+              "TFT_Item_RedBuff",
+              "TFT_Item_GargoyleStoneplate"
             ],
             "stars": 1,
             "championIcon": "tft15_poppy_b23n9RZsub.webp",
@@ -4839,6 +4839,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-08-31 06:00:03"
+    "lastUpdated": "2025-08-31 12:00:03"
   }
 }
