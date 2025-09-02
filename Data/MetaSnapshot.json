@@ -2698,20 +2698,6 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Kayle",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_GuardianAngel"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kayle_GPKwS7ZiPb.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Aatrox",
             "boardIndex": 5,
             "items": [
@@ -2723,6 +2709,20 @@
             "championIcon": "tft15_aatrox_RX72J105bT.webp",
             "cost": 1,
             "name": "Aatrox",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Kayle",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_HextechGunblade",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kayle_GPKwS7ZiPb.webp",
+            "cost": 1,
+            "name": "Kayle",
             "set": 15
           },
           {
@@ -4949,6 +4949,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-01 18:00:03"
+    "lastUpdated": "2025-09-02 00:00:03"
   }
 }
