@@ -2539,131 +2539,6 @@
         "tier": "C"
       },
       {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_DrMundo",
-            "items": [
-              "TFT_Item_Artifact_InnervatingLocket",
-              "TFT9_Item_OrnnHullbreaker",
-              "TFT_Item_Artifact_TalismanOfAscension"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Jhin",
-            "items": [
-              "TFT_Item_Artifact_Fishbones",
-              "TFT_Item_Artifact_LudensTempest",
-              "TFT4_Item_OrnnTheCollector"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
-            "cost": 2,
-            "name": "Jhin",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_TwoMuchValue"
-          },
-          {
-            "apiName": "TFT15_Augment_Luchador_TournamentTitans"
-          },
-          {
-            "apiName": "TFT_Augment_HeroicGrabBagPlus"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          },
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT6_Augment_Twins2"
-          },
-          {
-            "apiName": "TFT_Augment_CookingPot"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-jhin-mundo",
-        "champions": [
-          {
-            "apiName": "TFT15_Jhin",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_jhin_2XsZauYa1y.webp",
-            "cost": 2,
-            "name": "Jhin",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_DrMundo",
-            "boardIndex": 2,
-            "items": [
-              "TFT_Item_Redemption",
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_DragonsClaw"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_dr_mundo_NyjLkVcZPl.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_LeeSin",
-            "boardIndex": 6,
-            "items": [
-              "TFT15_Item_JuggernautEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_lee_sin_XsUPFs2RqH.webp",
-            "cost": 5,
-            "name": "Lee Sin",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Varus",
-            "boardIndex": 23,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_RapidFireCannon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_varus_UOwowjC6Lt.webp",
-            "cost": 5,
-            "name": "Varus",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Jhin",
-          "cost": 2,
-          "championIcon": "tft15_jhin_2XsZauYa1y.webp",
-          "name": "Jhin",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Mundo Jhin Reroll",
-        "style": "RR LV.6",
-        "tier": "C"
-      },
-      {
         "altBuilds": [],
         "augments": [
           {
@@ -4102,8 +3977,8 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane"
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_GuardianAngel"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_Y1ZDYotffS.webp",
@@ -4129,8 +4004,8 @@
             "apiName": "TFT15_Zyra",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
             "championIcon": "tft15_zyra_cK4SJXr9k3.webp",
@@ -4920,11 +4795,6 @@
           "icon": "tft_item_artifact_horizon_focus_GGwx7xE1UG.webp"
         },
         {
-          "apiName": "TFT9_Item_OrnnHullbreaker",
-          "name": "Hullcrusher",
-          "icon": "tft9_item_ornn_hullbreaker_pYlj94nuuO.webp"
-        },
-        {
           "apiName": "TFT_Item_Artifact_InnervatingLocket",
           "name": "Innervating Locket",
           "icon": "tft_item_artifact_innervating_locket_rtCVVuNw4d.webp"
@@ -4983,11 +4853,6 @@
           "apiName": "TFT_Item_Artifact_SuspiciousTrenchCoat",
           "name": "Suspicious Trench Coat",
           "icon": "tft_item_artifact_suspicious_trench_coat_Eu2oPrWK1U.webp"
-        },
-        {
-          "apiName": "TFT_Item_Artifact_TalismanOfAscension",
-          "name": "Talisman Of Ascension",
-          "icon": "tft_item_artifact_talisman_of_ascension_Ki7Alst7cW.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_WitsEnd",
@@ -5059,6 +4924,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-05 06:00:03"
+    "lastUpdated": "2025-09-05 12:00:03"
   }
 }
