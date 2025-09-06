@@ -756,6 +756,17 @@
             "cost": 3,
             "name": "Senna",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Ryze",
+            "items": [
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_p8ohEzrT6c.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
           }
         ],
         "augments": [
@@ -786,6 +797,20 @@
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
         "champions": [
+          {
+            "apiName": "TFT15_Ryze",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_p8ohEzrT6c.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
+          },
           {
             "apiName": "TFT15_Senna",
             "boardIndex": 27,
@@ -827,20 +852,6 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Ryze",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ryze_p8ohEzrT6c.webp",
-            "cost": 4,
-            "name": "Ryze",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_LeeSin",
             "boardIndex": 2,
             "items": [
@@ -855,10 +866,10 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Senna",
-          "cost": 3,
-          "championIcon": "tft15_senna_cCHt7TNhsU.webp",
-          "name": "Senna",
+          "apiName": "TFT15_Ryze",
+          "cost": 4,
+          "championIcon": "tft15_ryze_p8ohEzrT6c.webp",
+          "name": "Ryze",
           "set": 15
         },
         "mainItem": {},
@@ -4924,6 +4935,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-05 18:00:03"
+    "lastUpdated": "2025-09-06 00:00:03"
   }
 }
