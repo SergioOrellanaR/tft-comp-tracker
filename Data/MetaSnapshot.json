@@ -312,7 +312,7 @@
             "items": [
               "TFT_Item_SpearOfShojin",
               "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
+              "TFT_Item_LastWhisper"
             ],
             "stars": 3,
             "championIcon": "tft15_kai_sa_fuqIfW4TSU.webp",
@@ -338,9 +338,9 @@
             "apiName": "TFT15_Rammus",
             "boardIndex": 6,
             "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff",
-              "TFT_Item_GargoyleStoneplate"
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_Redemption",
+              "TFT_Item_RedBuff"
             ],
             "stars": 3,
             "championIcon": "tft15_rammus_iGuh0He9L4.webp",
@@ -4414,8 +4414,8 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_SpearOfShojin"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_LastWhisper"
             ],
             "stars": 3,
             "championIcon": "tft15_kai_sa_fuqIfW4TSU.webp",
@@ -4427,9 +4427,9 @@
             "apiName": "TFT15_Kobuko",
             "boardIndex": 6,
             "items": [
-              "TFT_Item_SpectralGauntlet",
               "TFT_Item_BrambleVest",
-              "TFT_Item_FrozenHeart"
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_DragonsClaw"
             ],
             "stars": 3,
             "championIcon": "tft15_kobuko_MzB1C7zDxW.webp",
@@ -4464,130 +4464,6 @@
         "title": "Mentor Supreme Cells Kai'Sa Reroll",
         "style": "RR LV.6",
         "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_DrMundo",
-            "items": [
-              "TFT_Item_Artifact_InnervatingLocket",
-              "TFT7_Item_ShimmerscaleMogulsMail"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_dr_mundo_BEPvUd4H6g.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KaiSa",
-            "items": [
-              "TFT_Item_Artifact_Fishbones",
-              "TFT4_Item_OrnnMuramana",
-              "TFT9_Item_OrnnHorizonFocus"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kai_sa_fuqIfW4TSU.webp",
-            "cost": 2,
-            "name": "Kai'Sa",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
-          },
-          {
-            "apiName": "TFT_Augment_TragicalBlade"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT9_Augment_BardPlaybook1"
-          },
-          {
-            "apiName": "TFT9_Augment_OneTwosThree"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-kaisa-reroll",
-        "champions": [
-          {
-            "apiName": "TFT15_KaiSa",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kai_sa_fuqIfW4TSU.webp",
-            "cost": 2,
-            "name": "Kai'Sa",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_DrMundo",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_Redemption",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_dr_mundo_BEPvUd4H6g.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Udyr",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_udyr_UVQTKll8iG.webp",
-            "cost": 3,
-            "name": "Udyr",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_LeeSin",
-            "boardIndex": 3,
-            "items": [
-              "TFT15_Item_JuggernautEmblemItem",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SteraksGage"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_lee_sin_Fy30t1x4MN.webp",
-            "cost": 5,
-            "name": "Lee Sin",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_KaiSa",
-          "cost": 2,
-          "championIcon": "tft15_kai_sa_fuqIfW4TSU.webp",
-          "name": "Kai'Sa",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Juggernaut Kai'Sa Reroll",
-        "style": "RR LV.6",
-        "tier": "B"
       }
     ],
     "items": {
@@ -4934,6 +4810,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-07 06:00:03"
+    "lastUpdated": "2025-09-07 12:00:03"
   }
 }
