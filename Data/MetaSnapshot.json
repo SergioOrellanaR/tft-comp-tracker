@@ -199,6 +199,117 @@
               "TFT_Item_SpearOfShojin",
               "TFT_Item_Deathblade"
             ],
+            "stars": 1,
+            "championIcon": "tft15_senna_cCHt7TNhsU.webp",
+            "cost": 3,
+            "name": "Senna",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 2,
+            "items": [
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_kudujH2Tyc.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_LeeSin",
+            "boardIndex": 7,
+            "items": [
+              "TFT_Item_UnstableConcoction",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_lee_sin_Fy30t1x4MN.webp",
+            "cost": 5,
+            "name": "Lee Sin",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Ryze",
+          "cost": 4,
+          "championIcon": "tft15_ryze_p8ohEzrT6c.webp",
+          "name": "Ryze",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Mentor Ryze Senna",
+        "style": "Fast 8",
+        "tier": "S"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Senna",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT4_Item_OrnnTheCollector"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_senna_cCHt7TNhsU.webp",
+            "cost": 3,
+            "name": "Senna",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_PatienceIsAVirtue"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT9_Augment_HighEndSector"
+          },
+          {
+            "apiName": "TFT11_Augment_Calltochaos"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-senna-yasuo",
+        "champions": [
+          {
+            "apiName": "TFT15_Ryze",
+            "boardIndex": 22,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_p8ohEzrT6c.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Senna",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_LastWhisper",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_Deathblade"
+            ],
             "stars": 3,
             "championIcon": "tft15_senna_cCHt7TNhsU.webp",
             "cost": 3,
@@ -221,7 +332,7 @@
           },
           {
             "apiName": "TFT15_JarvanIV",
-            "boardIndex": 4,
+            "boardIndex": 3,
             "items": [
               "TFT_Item_FrozenHeart"
             ],
@@ -229,18 +340,6 @@
             "championIcon": "tft15_jarvan_iv_kudujH2Tyc.webp",
             "cost": 4,
             "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_LeeSin",
-            "boardIndex": 3,
-            "items": [
-              "TFT15_Item_DestroyerEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_lee_sin_Fy30t1x4MN.webp",
-            "cost": 5,
-            "name": "Lee Sin",
             "set": 15
           }
         ],
@@ -253,9 +352,9 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Mentor Ryze Senna",
-        "style": "Fast 8",
-        "tier": "S"
+        "title": "Mentor Senna Yasuo",
+        "style": "RR LV.7",
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -4751,11 +4850,6 @@
           "icon": "tft15_item_edgelord_emblem_item_4qNFXSCrq4.webp"
         },
         {
-          "apiName": "TFT15_Item_DestroyerEmblemItem",
-          "name": "Executioner Emblem",
-          "icon": "tft15_item_destroyer_emblem_item_3bdpmpBh6c.webp"
-        },
-        {
           "apiName": "TFT15_Item_JuggernautEmblemItem",
           "name": "Juggernaut Emblem",
           "icon": "tft15_item_juggernaut_emblem_item_VchcwSN8i1.webp"
@@ -4798,6 +4892,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-08 06:00:03"
+    "lastUpdated": "2025-09-08 12:00:03"
   }
 }
