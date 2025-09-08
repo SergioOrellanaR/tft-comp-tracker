@@ -126,18 +126,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Senna",
-            "items": [
-              "TFT4_Item_OrnnMuramana",
-              "TFT4_Item_OrnnTheCollector"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_senna_cCHt7TNhsU.webp",
-            "cost": 3,
-            "name": "Senna",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Ryze",
             "items": [
               "TFT_Item_Artifact_Fishbones"
@@ -4892,6 +4880,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-08 12:00:03"
+    "lastUpdated": "2025-09-08 18:00:03"
   }
 }
