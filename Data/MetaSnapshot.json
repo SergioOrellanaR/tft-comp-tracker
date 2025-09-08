@@ -157,29 +157,29 @@
             "apiName": "TFT9_Augment_HighEndSector"
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
             "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
           },
           {
             "apiName": "TFT_Augment_LastSecondSave"
           },
           {
-            "apiName": "TFT_Augment_Trifecta1"
-          },
-          {
             "apiName": "TFT_Augment_FiresalePlus"
           },
           {
+            "apiName": "TFT_Augment_WaterLotus1"
+          },
+          {
             "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
         "champions": [
           {
             "apiName": "TFT15_Ryze",
-            "boardIndex": 21,
+            "boardIndex": 22,
             "items": [
               "TFT_Item_ArchangelsStaff",
               "TFT_Item_StatikkShiv",
@@ -193,7 +193,7 @@
           },
           {
             "apiName": "TFT15_Senna",
-            "boardIndex": 27,
+            "boardIndex": 21,
             "items": [
               "TFT_Item_LastWhisper",
               "TFT_Item_SpearOfShojin",
@@ -207,7 +207,7 @@
           },
           {
             "apiName": "TFT15_Yasuo",
-            "boardIndex": 4,
+            "boardIndex": 0,
             "items": [
               "TFT_Item_GuardianAngel",
               "TFT_Item_InfinityEdge",
@@ -221,7 +221,7 @@
           },
           {
             "apiName": "TFT15_JarvanIV",
-            "boardIndex": 5,
+            "boardIndex": 4,
             "items": [
               "TFT_Item_FrozenHeart"
             ],
@@ -233,7 +233,7 @@
           },
           {
             "apiName": "TFT15_LeeSin",
-            "boardIndex": 2,
+            "boardIndex": 3,
             "items": [
               "TFT15_Item_DestroyerEmblemItem"
             ],
@@ -255,7 +255,7 @@
         "mainItem": {},
         "title": "Mentor Ryze Senna",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -672,13 +672,13 @@
             "apiName": "TFT_Augment_QualityOverQuantity"
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
-          },
-          {
             "apiName": "TFT_Augment_EyeForAnEye"
           },
           {
-            "apiName": "TFT_Augment_WorthTheWaitGold"
+            "apiName": "TFT6_Augment_Keepers2"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-star-guardians",
@@ -1735,43 +1735,31 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
         "champions": [
           {
-            "apiName": "TFT15_Senna",
-            "boardIndex": 11,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_senna_cCHt7TNhsU.webp",
-            "cost": 3,
-            "name": "Senna",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_IonicSpark",
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_kudujH2Tyc.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Karma",
             "boardIndex": 27,
             "items": [
               "TFT_Item_BlueBuff",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_ArchangelsStaff"
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
             "championIcon": "tft15_karma_COTuXByXiq.webp",
             "cost": 4,
             "name": "Karma",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_kudujH2Tyc.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
             "set": 15
           },
           {
@@ -3762,7 +3750,7 @@
         "champions": [
           {
             "apiName": "TFT15_Volibear",
-            "boardIndex": 18,
+            "boardIndex": 8,
             "items": [
               "TFT_Item_InfinityEdge",
               "TFT_Item_PowerGauntlet",
@@ -3790,7 +3778,7 @@
           },
           {
             "apiName": "TFT15_Sett",
-            "boardIndex": 3,
+            "boardIndex": 1,
             "items": [
               "TFT_Item_RedBuff",
               "TFT_Item_SpectralGauntlet"
@@ -3803,7 +3791,7 @@
           },
           {
             "apiName": "TFT15_Braum",
-            "boardIndex": 1,
+            "boardIndex": 3,
             "items": [
               "TFT15_Item_EdgelordEmblemItem"
             ],
@@ -4193,9 +4181,6 @@
             "apiName": "TFT7_Augment_BestFriends1"
           },
           {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
             "apiName": "TFT_Augment_LastSecondSave"
           },
           {
@@ -4206,6 +4191,9 @@
           },
           {
             "apiName": "TFT_Augment_HoldTheLine"
+          },
+          {
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-sniper-varus",
@@ -4215,7 +4203,7 @@
             "boardIndex": 25,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
+              "TFT_Item_RunaansHurricane",
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 1,
@@ -4810,6 +4798,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-08 00:00:03"
+    "lastUpdated": "2025-09-08 06:00:03"
   }
 }
