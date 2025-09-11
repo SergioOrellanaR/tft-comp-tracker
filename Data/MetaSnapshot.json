@@ -1915,39 +1915,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 4,
+            "apiName": "TFT15_Varus",
+            "boardIndex": 25,
             "items": [
-              "TFT_Item_RedBuff"
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_LastWhisper"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_u0GdPhbix7.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 13,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_ZxXLetL3dL.webp",
+            "championIcon": "tft15_varus_SQbPuLWDak.webp",
             "cost": 5,
-            "name": "Braum",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_LeeSin",
-            "boardIndex": 1,
-            "items": [
-              "TFT15_Item_JuggernautEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_lee_sin_oM0rkMVumc.webp",
-            "cost": 5,
-            "name": "Lee Sin",
+            "name": "Varus",
             "set": 15
           }
         ],
@@ -4948,11 +4926,6 @@
           "icon": "tft15_item_edgelord_emblem_item_DaY0zakOli.webp"
         },
         {
-          "apiName": "TFT15_Item_JuggernautEmblemItem",
-          "name": "Juggernaut Emblem",
-          "icon": "tft15_item_juggernaut_emblem_item_qH28MwEBx7.webp"
-        },
-        {
           "apiName": "TFT15_Item_ProtectorEmblemItem",
           "name": "Protector Emblem",
           "icon": "tft15_item_protector_emblem_item_AC7k1x81Zn.webp"
@@ -4990,6 +4963,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-11 12:00:03"
+    "lastUpdated": "2025-09-11 18:00:03"
   }
 }
