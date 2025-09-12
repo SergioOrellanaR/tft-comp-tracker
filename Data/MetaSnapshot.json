@@ -282,7 +282,7 @@
             "items": [
               "TFT_Item_StatikkShiv",
               "TFT_Item_Morellonomicon",
-              "TFT_Item_HextechGunblade"
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
             "championIcon": "tft15_malzahar_vvkR63amgZ.webp",
@@ -4949,6 +4949,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-12 00:00:03"
+    "lastUpdated": "2025-09-12 06:00:03"
   }
 }
