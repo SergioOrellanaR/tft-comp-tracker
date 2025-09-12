@@ -15,12 +15,20 @@
             "cost": 2,
             "name": "Xayah",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "items": [
+              "TFT15_Item_ProtectorEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_i7UP0ZKwLl.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
           }
         ],
         "augments": [
-          {
-            "apiName": "TFT6_Augment_Twins2"
-          },
           {
             "apiName": "TFT10_Augment_HeroicGrabBag"
           },
@@ -41,9 +49,12 @@
           },
           {
             "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+          },
+          {
+            "apiName": "TFT_Augment_PlotArmor"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-fan-service",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-protector-xayah",
         "champions": [
           {
             "apiName": "TFT15_Xayah",
@@ -61,7 +72,7 @@
           },
           {
             "apiName": "TFT15_Rakan",
-            "boardIndex": 3,
+            "boardIndex": 5,
             "items": [
               "TFT_Item_ArchangelsStaff",
               "TFT_Item_TitansResolve",
@@ -74,22 +85,20 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Rakan",
-            "boardIndex": 10,
+            "apiName": "TFT15_KSante",
+            "boardIndex": 4,
             "items": [
               "TFT_Item_SpectralGauntlet",
               "TFT_Item_RedBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
-            "cost": 2,
-            "name": "Rakan",
+            "championIcon": "tft15_ksante_SPcjyo1O4Z.webp",
+            "cost": 4,
+            "name": "K'Sante",
             "set": 15
           }
         ],
-        "mainAugment": {
-          "apiName": "TFT6_Augment_Twins2"
-        },
+        "mainAugment": {},
         "mainChampion": {
           "apiName": "TFT15_Xayah",
           "cost": 2,
@@ -98,7 +107,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Double Trouble Xayah Rakan Reroll",
+        "title": "Fan Service Xayah Rakan",
         "style": "RR LV.6",
         "tier": "S"
       },
@@ -1585,121 +1594,6 @@
         },
         "mainItem": {},
         "title": "Protector Kogmaw",
-        "style": "RR LV.7",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_KogMaw",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_StatikkShiv",
-              "TFT5_Item_SpearOfShojinRadiant"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KogMaw",
-            "items": [
-              "TFT_Item_Artifact_Dawncore",
-              "TFT4_Item_OrnnZhonyasParadox",
-              "TFT_Item_Artifact_WitsEnd"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT9_Augment_PumpingUp"
-          },
-          {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
-            "apiName": "TFT9_Augment_BardPlaybook3"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-kogmaw-trainer-heavy",
-        "champions": [
-          {
-            "apiName": "TFT15_KogMaw",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Kobuko",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_RedBuff",
-              "TFT_Item_NightHarvester"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kobuko_hBWsK5BApG.webp",
-            "cost": 2,
-            "name": "Kobuko",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Darius",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_UnstableConcoction",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_darius_GT0wXfxiMB.webp",
-            "cost": 3,
-            "name": "Darius",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_KogMaw",
-          "cost": 3,
-          "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
-          "name": "Kog'Maw",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Heavyweight Kog'Maw Reroll",
         "style": "RR LV.7",
         "tier": "B"
       },
@@ -4198,115 +4092,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Xayah",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "items": [
-              "TFT15_Item_ProtectorEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_i7UP0ZKwLl.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT9_Augment_PumpingUp"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2"
-          },
-          {
-            "apiName": "TFT_Augment_TwoMuchValue"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
-          },
-          {
-            "apiName": "TFT_Augment_PlotArmor"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-protector-xayah",
-        "champions": [
-          {
-            "apiName": "TFT15_Xayah",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Rakan",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_TitansResolve",
-              "TFT_Item_GargoyleStoneplate"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
-            "cost": 2,
-            "name": "Rakan",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_SPcjyo1O4Z.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Xayah",
-          "cost": 2,
-          "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-          "name": "Xayah",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Fan Service Xayah Rakan",
-        "style": "RR LV.6",
-        "tier": "S"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Smolder",
             "items": [
               "TFT_Item_InfinityEdge",
@@ -4506,6 +4291,106 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Xayah",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+            "cost": 2,
+            "name": "Xayah",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_Twins2"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT9_Augment_PumpingUp"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2"
+          },
+          {
+            "apiName": "TFT_Augment_TwoMuchValue"
+          },
+          {
+            "apiName": "TFT_Augment_AnExaltedAdventure"
+          },
+          {
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-fan-service",
+        "champions": [
+          {
+            "apiName": "TFT15_Xayah",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+            "cost": 2,
+            "name": "Xayah",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rakan",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_TitansResolve",
+              "TFT_Item_GargoyleStoneplate"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
+            "cost": 2,
+            "name": "Rakan",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rakan",
+            "boardIndex": 10,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
+            "cost": 2,
+            "name": "Rakan",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT6_Augment_Twins2"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Xayah",
+          "cost": 2,
+          "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+          "name": "Xayah",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Double Trouble Xayah Rakan Reroll",
+        "style": "RR LV.6",
+        "tier": "S"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Senna",
             "items": [
               "TFT4_Item_OrnnMuramana",
@@ -4612,6 +4497,207 @@
         "mainItem": {},
         "title": "Mentor Senna Yasuo",
         "style": "RR LV.7",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_KogMaw",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_StatikkShiv",
+              "TFT5_Item_SpearOfShojinRadiant"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KogMaw",
+            "items": [
+              "TFT_Item_Artifact_Dawncore",
+              "TFT4_Item_OrnnZhonyasParadox",
+              "TFT_Item_Artifact_WitsEnd"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT9_Augment_LongTimeCrafting"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT9_Augment_PumpingUp"
+          },
+          {
+            "apiName": "TFT_Augment_Lineup"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook3"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-kogmaw-trainer-heavy",
+        "champions": [
+          {
+            "apiName": "TFT15_KogMaw",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Kobuko",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_RedBuff",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kobuko_hBWsK5BApG.webp",
+            "cost": 2,
+            "name": "Kobuko",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Darius",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_UnstableConcoction",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_darius_GT0wXfxiMB.webp",
+            "cost": 3,
+            "name": "Darius",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT6_Augment_PortableForge"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_KogMaw",
+          "cost": 3,
+          "championIcon": "tft15_kog_maw_PMpcsQzCPL.webp",
+          "name": "Kog'Maw",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Heavyweight Kog'Maw Reroll",
+        "style": "RR LV.7",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT7_Augment_ClutteredMind"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT11_Augment_Reinfourcement"
+          },
+          {
+            "apiName": "TFT_Augment_HoldTheLine"
+          },
+          {
+            "apiName": "TFT_Augment_UnlimitedPower"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-malzahar-wraith-flex",
+        "champions": [
+          {
+            "apiName": "TFT15_Malzahar",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_RabadonsDeathcap"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_malzahar_vvkR63amgZ.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jinx",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jinx_7tYaNx2FQU.webp",
+            "cost": 4,
+            "name": "Jinx",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_NightHarvester",
+              "TFT_Item_Redemption",
+              "TFT_Item_SteraksGage"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_poppy_pMj5opVYWi.webp",
+            "cost": 4,
+            "name": "Poppy",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Malzahar",
+          "cost": 3,
+          "championIcon": "tft15_malzahar_vvkR63amgZ.webp",
+          "name": "Malzahar",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Malzahar Jinx Wraith",
+        "style": "Fast 8",
         "tier": "A"
       }
     ],
@@ -4949,6 +5035,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-12 06:00:03"
+    "lastUpdated": "2025-09-12 12:00:03"
   }
 }
