@@ -890,6 +890,92 @@
         "tier": "A"
       },
       {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT_Augment_Trifecta2"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_Lineup"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT_Augment_Replication"
+          },
+          {
+            "apiName": "TFT_Augment_ShojinSpirit"
+          },
+          {
+            "apiName": "TFT_Augment_GuardbreakerSpirit"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-fusion-ha",
+        "champions": [
+          {
+            "apiName": "TFT15_Darius",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_UnstableConcoction",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_darius_GT0wXfxiMB.webp",
+            "cost": 3,
+            "name": "Darius",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jayce",
+            "boardIndex": 13,
+            "items": [
+              "TFT_Item_BFSword",
+              "TFT_Item_BFSword",
+              "TFT_Item_BFSword"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_jayce_HKcAvXKU1X.webp",
+            "cost": 3,
+            "name": "Jayce",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_poppy_pMj5opVYWi.webp",
+            "cost": 4,
+            "name": "Poppy",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Darius",
+          "cost": 3,
+          "championIcon": "tft15_darius_GT0wXfxiMB.webp",
+          "name": "Darius",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Heavyweight Darius Reroll",
+        "style": "RR LV.7",
+        "tier": "A"
+      },
+      {
         "altBuilds": [
           {
             "apiName": "TFT15_Jinx",
@@ -4572,92 +4658,6 @@
         "title": "Malzahar Jinx Wraith",
         "style": "Fast 8",
         "tier": "A"
-      },
-      {
-        "altBuilds": [],
-        "augments": [
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT_Augment_Trifecta2"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT_Augment_Replication"
-          },
-          {
-            "apiName": "TFT_Augment_ShojinSpirit"
-          },
-          {
-            "apiName": "TFT_Augment_GuardbreakerSpirit"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-fusion-ha",
-        "champions": [
-          {
-            "apiName": "TFT15_Darius",
-            "boardIndex": 6,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_UnstableConcoction",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_darius_GT0wXfxiMB.webp",
-            "cost": 3,
-            "name": "Darius",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Jayce",
-            "boardIndex": 13,
-            "items": [
-              "TFT_Item_BFSword",
-              "TFT_Item_BFSword",
-              "TFT_Item_BFSword"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_jayce_HKcAvXKU1X.webp",
-            "cost": 3,
-            "name": "Jayce",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Poppy",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff",
-              "TFT_Item_Redemption"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_poppy_pMj5opVYWi.webp",
-            "cost": 4,
-            "name": "Poppy",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Darius",
-          "cost": 3,
-          "championIcon": "tft15_darius_GT0wXfxiMB.webp",
-          "name": "Darius",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Heavyweight Darius Reroll",
-        "style": "RR LV.7",
-        "tier": "A"
       }
     ],
     "items": {
@@ -4989,6 +4989,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-13 00:00:03"
+    "lastUpdated": "2025-09-13 06:00:03"
   }
 }
