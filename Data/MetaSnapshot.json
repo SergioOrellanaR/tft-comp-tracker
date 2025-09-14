@@ -2546,91 +2546,6 @@
         "tier": "C"
       },
       {
-        "altBuilds": [],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_TwoMuchValue"
-          },
-          {
-            "apiName": "TFT_Augment_FindYourCenter"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_TheGodsEyeOpens"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-luxin-zhao",
-        "champions": [
-          {
-            "apiName": "TFT15_XinZhao",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_SteraksGage",
-              "TFT_Item_TitansResolve"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xin_zhao_l474FmWbLY.webp",
-            "cost": 2,
-            "name": "Xin Zhao",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Lux",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_Leviathan",
-              "TFT_Item_BlueBuff",
-              "TFT_Item_JeweledGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_lux_2pahrJVUxC.webp",
-            "cost": 2,
-            "name": "Lux",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Gwen",
-            "boardIndex": 24,
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_ODOTNytrRq.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_XinZhao",
-          "cost": 2,
-          "championIcon": "tft15_xin_zhao_l474FmWbLY.webp",
-          "name": "Xin Zhao",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Lux Xin Zhao Reroll",
-        "style": "RR LV.6",
-        "tier": "C"
-      },
-      {
         "altBuilds": [
           {
             "apiName": "TFT15_Zac",
@@ -3935,103 +3850,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Xayah",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT7_Augment_BestFriends1"
-          },
-          {
-            "apiName": "TFT6_Augment_SecondWind1"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT_Augment_TwoMuchValue"
-          },
-          {
-            "apiName": "TFT_Augment_FindYourCenter"
-          },
-          {
-            "apiName": "TFT6_Augment_PandorasItems"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-xayah",
-        "champions": [
-          {
-            "apiName": "TFT15_XinZhao",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_SteraksGage",
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_TitansResolve"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xin_zhao_l474FmWbLY.webp",
-            "cost": 2,
-            "name": "Xin Zhao",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Xayah",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_RunaansHurricane"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Samira",
-            "boardIndex": 20,
-            "items": [
-              "TFT_Item_LastWhisper",
-              "TFT_Item_RapidFireCannon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_samira_KleTpLPbPh.webp",
-            "cost": 4,
-            "name": "Samira",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_XinZhao",
-          "cost": 2,
-          "championIcon": "tft15_xin_zhao_l474FmWbLY.webp",
-          "name": "Xin Zhao",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Xin Zhao Xayah Reroll",
-        "style": "RR LV.6",
-        "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Ashe",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -5320,6 +5138,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-13 18:00:03"
+    "lastUpdated": "2025-09-14 00:00:03"
   }
 }
