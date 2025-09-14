@@ -239,7 +239,7 @@
         "mainItem": {},
         "title": "Crew Sniper Reroll",
         "style": "RR LV.5",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -301,7 +301,7 @@
           },
           {
             "apiName": "TFT15_Darius",
-            "boardIndex": 3,
+            "boardIndex": 6,
             "items": [
               "TFT_Item_InfinityEdge",
               "TFT_Item_MadredsBloodrazor",
@@ -339,7 +339,7 @@
         "mainItem": {},
         "title": "Heavyweight Malzahar",
         "style": "RR LV.7",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -451,6 +451,121 @@
         },
         "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Viego",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Artifact_RapidFirecannon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_viego_345hZlTtqj.webp",
+            "cost": 3,
+            "name": "Viego",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Viego",
+            "items": [
+              "TFT4_Item_OrnnZhonyasParadox",
+              "TFT_Item_Artifact_WitsEnd",
+              "TFT_Item_Artifact_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_viego_345hZlTtqj.webp",
+            "cost": 3,
+            "name": "Viego",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_Overheal"
+          },
+          {
+            "apiName": "TFT9_Augment_LongTimeCrafting"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-reaper-viego",
+        "champions": [
+          {
+            "apiName": "TFT15_Viego",
+            "boardIndex": 12,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_viego_345hZlTtqj.webp",
+            "cost": 3,
+            "name": "Viego",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Samira",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_LastWhisper",
+              "TFT_Item_InfinityEdge"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_samira_KleTpLPbPh.webp",
+            "cost": 4,
+            "name": "Samira",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_u0GdPhbix7.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT6_Augment_PortableForge"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Viego",
+          "cost": 3,
+          "championIcon": "tft15_viego_345hZlTtqj.webp",
+          "name": "Viego",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Soul Fighter Viego Reroll",
+        "style": "RR LV.7",
         "tier": "A"
       },
       {
@@ -790,121 +905,6 @@
         "tier": "A"
       },
       {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Viego",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT9_Item_OrnnHorizonFocus",
-              "TFT_Item_Artifact_RapidFirecannon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_viego_345hZlTtqj.webp",
-            "cost": 3,
-            "name": "Viego",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Viego",
-            "items": [
-              "TFT4_Item_OrnnZhonyasParadox",
-              "TFT_Item_Artifact_WitsEnd",
-              "TFT_Item_Artifact_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_viego_345hZlTtqj.webp",
-            "cost": 3,
-            "name": "Viego",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT_Augment_Overheal"
-          },
-          {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-reaper-viego",
-        "champions": [
-          {
-            "apiName": "TFT15_Viego",
-            "boardIndex": 12,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_JeweledGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_viego_345hZlTtqj.webp",
-            "cost": 3,
-            "name": "Viego",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Samira",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_InfinityEdge"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_samira_KleTpLPbPh.webp",
-            "cost": 4,
-            "name": "Samira",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_Redemption"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_u0GdPhbix7.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_Viego",
-          "cost": 3,
-          "championIcon": "tft15_viego_345hZlTtqj.webp",
-          "name": "Viego",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Soul Fighter Viego Reroll",
-        "style": "RR LV.7",
-        "tier": "A"
-      },
-      {
         "altBuilds": [],
         "augments": [
           {
@@ -1058,7 +1058,7 @@
           },
           {
             "apiName": "TFT15_Poppy",
-            "boardIndex": 4,
+            "boardIndex": 5,
             "items": [
               "TFT_Item_NightHarvester",
               "TFT_Item_Redemption",
@@ -5138,6 +5138,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-14 00:00:03"
+    "lastUpdated": "2025-09-14 06:00:03"
   }
 }
