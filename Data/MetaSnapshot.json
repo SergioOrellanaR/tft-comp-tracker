@@ -33,13 +33,7 @@
             "apiName": "TFT10_Augment_HeroicGrabBag"
           },
           {
-            "apiName": "TFT9_Augment_PumpingUp"
-          },
-          {
             "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2"
           },
           {
             "apiName": "TFT_Augment_TwoMuchValue"
@@ -52,6 +46,12 @@
           },
           {
             "apiName": "TFT_Augment_PlotArmor"
+          },
+          {
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+          },
+          {
+            "apiName": "TFT6_Augment_PandorasItems"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-protector-xayah",
@@ -782,9 +782,6 @@
         "altBuilds": [],
         "augments": [
           {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
             "apiName": "TFT_Augment_Trifecta2"
           },
           {
@@ -804,6 +801,9 @@
           },
           {
             "apiName": "TFT_Augment_GuardbreakerSpirit"
+          },
+          {
+            "apiName": "TFT_Augment_SwordOverflow"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-fusion-ha",
@@ -4377,13 +4377,7 @@
             "apiName": "TFT10_Augment_HeroicGrabBag"
           },
           {
-            "apiName": "TFT9_Augment_PumpingUp"
-          },
-          {
             "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2"
           },
           {
             "apiName": "TFT_Augment_TwoMuchValue"
@@ -4393,6 +4387,12 @@
           },
           {
             "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+          },
+          {
+            "apiName": "TFT6_Augment_PandorasItems"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-fan-service",
@@ -5310,6 +5310,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-15 00:00:03"
+    "lastUpdated": "2025-09-15 06:00:03"
   }
 }
