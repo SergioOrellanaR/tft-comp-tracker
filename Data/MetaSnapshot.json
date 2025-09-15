@@ -932,7 +932,7 @@
           },
           {
             "apiName": "TFT15_Poppy",
-            "boardIndex": 5,
+            "boardIndex": 4,
             "items": [
               "TFT_Item_NightHarvester",
               "TFT_Item_Redemption",
@@ -5310,6 +5310,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-15 06:00:03"
+    "lastUpdated": "2025-09-15 12:00:03"
   }
 }
