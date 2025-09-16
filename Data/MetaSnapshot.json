@@ -109,15 +109,15 @@
         "mainItem": {},
         "title": "Fan Service Xayah Rakan",
         "style": "RR LV.6",
-        "tier": "S"
+        "tier": "B"
       },
       {
         "altBuilds": [
           {
             "apiName": "TFT15_Malzahar",
             "items": [
-              "TFT_Item_Artifact_BlightingJewel",
               "TFT_Item_StatikkShiv",
+              "TFT_Item_ArchangelsStaff",
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
@@ -129,39 +129,39 @@
         ],
         "augments": [
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
             "apiName": "TFT_Augment_RiggedShopPlus"
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
           },
           {
-            "apiName": "TFT_Augment_CryMeARiver"
+            "apiName": "TFT11_Augment_Calltochaos"
           },
           {
-            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
+            "apiName": "TFT7_Augment_LivingForge"
           },
           {
-            "apiName": "TFT_Augment_MagicRoll"
+            "apiName": "TFT6_Augment_PortableForge"
           },
           {
-            "apiName": "TFT_Augment_BeltOverflow"
+            "apiName": "TFT9_Augment_LongTimeCrafting"
           },
           {
-            "apiName": "TFT15_Augment_HeavyweightCirclet"
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT_Augment_DeadlierCaps"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-heavy-malzahar",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-super-spreader",
         "champions": [
           {
             "apiName": "TFT15_Malzahar",
-            "boardIndex": 27,
+            "boardIndex": 21,
             "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_RabadonsDeathcap"
+              "TFT_Item_Artifact_BlightingJewel",
+              "TFT_Item_HextechGunblade",
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 3,
             "championIcon": "tft15_malzahar_vvkR63amgZ.webp",
@@ -170,31 +170,42 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Darius",
-            "boardIndex": 6,
+            "apiName": "TFT15_Rammus",
+            "boardIndex": 2,
             "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_UnstableConcoction"
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_BrambleVest",
+              "TFT_Item_WarmogsArmor"
             ],
             "stars": 3,
-            "championIcon": "tft15_darius_GT0wXfxiMB.webp",
+            "championIcon": "tft15_rammus_dj6VyF2glt.webp",
             "cost": 3,
-            "name": "Darius",
+            "name": "Rammus",
             "set": 15
           },
           {
-            "apiName": "TFT15_Poppy",
-            "boardIndex": 5,
+            "apiName": "TFT15_Yuumi",
+            "boardIndex": 23,
             "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_NightHarvester",
-              "TFT_Item_BrambleVest"
+              "TFT_Item_RapidFireCannon"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_pMj5opVYWi.webp",
+            "championIcon": "tft15_yuumi_YAvhmELY5q.webp",
             "cost": 4,
-            "name": "Poppy",
+            "name": "Yuumi",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_NightHarvester",
+              "TFT_Flex_2"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_SPcjyo1O4Z.webp",
+            "cost": 4,
+            "name": "K'Sante",
             "set": 15
           }
         ],
@@ -206,10 +217,12 @@
           "name": "Malzahar",
           "set": 15
         },
-        "mainItem": {},
-        "title": "Heavyweight Malzahar",
+        "mainItem": {
+          "apiName": "TFT_Item_Artifact_BlightingJewel"
+        },
+        "title": "Prodigy Malzahar Reroll",
         "style": "RR LV.7",
-        "tier": "S"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -324,7 +337,7 @@
         "mainItem": {},
         "title": "Soul Fighter Viego Reroll",
         "style": "RR LV.7",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -370,7 +383,7 @@
         "champions": [
           {
             "apiName": "TFT15_Ryze",
-            "boardIndex": 22,
+            "boardIndex": 21,
             "items": [
               "TFT_Item_ArchangelsStaff",
               "TFT_Item_StatikkShiv",
@@ -663,7 +676,7 @@
         "mainItem": {},
         "title": "Rammus Kai'Sa Reroll",
         "style": "RR LV.6",
-        "tier": "A"
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -1638,7 +1651,7 @@
         "mainItem": {},
         "title": "Duelist Udyr Ashe",
         "style": "Fast 8",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -1989,7 +2002,7 @@
         "mainItem": {},
         "title": "7 Mighty Mech",
         "style": "Fast 8",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [],
@@ -2614,7 +2627,7 @@
         "mainItem": {},
         "title": "Sorcerer Karma",
         "style": "Fast 8",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -4027,7 +4040,7 @@
         "mainItem": {},
         "title": "6 Juggernaut Ashe Carry",
         "style": "Fast 8",
-        "tier": "B"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -4352,7 +4365,7 @@
         "mainItem": {},
         "title": "Mentor Supreme Cells Kai'Sa Reroll",
         "style": "RR LV.6",
-        "tier": "A"
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -4452,7 +4465,7 @@
         "mainItem": {},
         "title": "Double Trouble Xayah Rakan Reroll",
         "style": "RR LV.6",
-        "tier": "S"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -4872,8 +4885,8 @@
           {
             "apiName": "TFT15_Malzahar",
             "items": [
+              "TFT_Item_Artifact_BlightingJewel",
               "TFT_Item_StatikkShiv",
-              "TFT_Item_ArchangelsStaff",
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
@@ -4885,39 +4898,39 @@
         ],
         "augments": [
           {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
             "apiName": "TFT_Augment_RiggedShopPlus"
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+            "apiName": "TFT9_Augment_BigGrabBag"
           },
           {
-            "apiName": "TFT11_Augment_Calltochaos"
+            "apiName": "TFT_Augment_CryMeARiver"
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
           },
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT_Augment_MagicRoll"
           },
           {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
+            "apiName": "TFT_Augment_BeltOverflow"
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_DeadlierCaps"
+            "apiName": "TFT15_Augment_HeavyweightCirclet"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-super-spreader",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-heavy-malzahar",
         "champions": [
           {
             "apiName": "TFT15_Malzahar",
-            "boardIndex": 21,
+            "boardIndex": 27,
             "items": [
-              "TFT_Item_Artifact_BlightingJewel",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_StatikkShiv"
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
             "championIcon": "tft15_malzahar_vvkR63amgZ.webp",
@@ -4926,42 +4939,31 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Rammus",
-            "boardIndex": 2,
+            "apiName": "TFT15_Darius",
+            "boardIndex": 6,
             "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_BrambleVest",
-              "TFT_Item_WarmogsArmor"
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_UnstableConcoction"
             ],
             "stars": 3,
-            "championIcon": "tft15_rammus_dj6VyF2glt.webp",
+            "championIcon": "tft15_darius_GT0wXfxiMB.webp",
             "cost": 3,
-            "name": "Rammus",
+            "name": "Darius",
             "set": 15
           },
           {
-            "apiName": "TFT15_Yuumi",
-            "boardIndex": 23,
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 5,
             "items": [
-              "TFT_Item_RapidFireCannon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_YAvhmELY5q.webp",
-            "cost": 4,
-            "name": "Yuumi",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 4,
-            "items": [
+              "TFT_Item_WarmogsArmor",
               "TFT_Item_NightHarvester",
-              "TFT_Flex_2"
+              "TFT_Item_BrambleVest"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_SPcjyo1O4Z.webp",
+            "championIcon": "tft15_poppy_pMj5opVYWi.webp",
             "cost": 4,
-            "name": "K'Sante",
+            "name": "Poppy",
             "set": 15
           }
         ],
@@ -4973,12 +4975,10 @@
           "name": "Malzahar",
           "set": 15
         },
-        "mainItem": {
-          "apiName": "TFT_Item_Artifact_BlightingJewel"
-        },
-        "title": "Prodigy Malzahar Reroll",
+        "mainItem": {},
+        "title": "Heavyweight Malzahar",
         "style": "RR LV.7",
-        "tier": "A"
+        "tier": "B"
       }
     ],
     "items": {
@@ -5310,6 +5310,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-15 18:00:03"
+    "lastUpdated": "2025-09-16 00:00:03"
   }
 }
