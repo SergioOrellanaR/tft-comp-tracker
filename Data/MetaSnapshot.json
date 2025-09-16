@@ -174,20 +174,6 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
         "champions": [
           {
-            "apiName": "TFT15_Karma",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_karma_XEI80idpru.webp",
-            "cost": 4,
-            "name": "Karma",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_JarvanIV",
             "boardIndex": 4,
             "items": [
@@ -199,6 +185,20 @@
             "championIcon": "tft15_jarvan_iv_i7UP0ZKwLl.webp",
             "cost": 4,
             "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Karma",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_XEI80idpru.webp",
+            "cost": 4,
+            "name": "Karma",
             "set": 15
           },
           {
@@ -2731,6 +2731,93 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_DrMundo",
+            "items": [
+              "TFT_Item_Artifact_Fishbones",
+              "TFT9_Item_OrnnHorizonFocus"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_dr_mundo_6FoIKvLXr7.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_DrMundoCarry"
+          },
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlus"
+          },
+          {
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+          },
+          {
+            "apiName": "TFT_Augment_Lineup"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_BeltOverflow"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-give-em-the-chair-dr-mundo",
+        "champions": [
+          {
+            "apiName": "TFT15_DrMundo",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_dr_mundo_6FoIKvLXr7.webp",
+            "cost": 2,
+            "name": "Dr. Mundo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Vi",
+            "boardIndex": 0,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_vi_5NbERw384X.webp",
+            "cost": 2,
+            "name": "Vi",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT15_Augment_DrMundoCarry"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_DrMundo",
+          "cost": 2,
+          "championIcon": "tft15_dr_mundo_6FoIKvLXr7.webp",
+          "name": "Dr. Mundo",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Give 'em the Chair! Dr. Mundo Reroll",
+        "style": "RR LV.6",
+        "tier": "X"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Zac",
             "items": [
               "TFT4_Item_OrnnZhonyasParadox"
@@ -2838,93 +2925,6 @@
         "mainItem": {},
         "title": "Perfect Form Zac Reroll",
         "style": "RR LV.5",
-        "tier": "X"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_DrMundo",
-            "items": [
-              "TFT_Item_Artifact_Fishbones",
-              "TFT9_Item_OrnnHorizonFocus"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_dr_mundo_6FoIKvLXr7.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_DrMundoCarry"
-          },
-          {
-            "apiName": "TFT_Augment_HeroicGrabBagPlus"
-          },
-          {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
-          },
-          {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT_Augment_BeltOverflow"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-give-em-the-chair-dr-mundo",
-        "champions": [
-          {
-            "apiName": "TFT15_DrMundo",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_dr_mundo_6FoIKvLXr7.webp",
-            "cost": 2,
-            "name": "Dr. Mundo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Vi",
-            "boardIndex": 0,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff",
-              "TFT_Item_Redemption"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_vi_5NbERw384X.webp",
-            "cost": 2,
-            "name": "Vi",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT15_Augment_DrMundoCarry"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_DrMundo",
-          "cost": 2,
-          "championIcon": "tft15_dr_mundo_6FoIKvLXr7.webp",
-          "name": "Dr. Mundo",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Give 'em the Chair! Dr. Mundo Reroll",
-        "style": "RR LV.6",
         "tier": "X"
       },
       {
@@ -5310,6 +5310,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-16 12:00:03"
+    "lastUpdated": "2025-09-16 18:00:03"
   }
 }
