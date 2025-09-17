@@ -130,19 +130,6 @@
             "cost": 4,
             "name": "Karma",
             "set": 15
-          },
-          {
-            "apiName": "TFT15_Karma",
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_karma_XEI80idpru.webp",
-            "cost": 4,
-            "name": "Karma",
-            "set": 15
           }
         ],
         "augments": [
@@ -174,12 +161,25 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
         "champions": [
           {
+            "apiName": "TFT15_Senna",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_LastWhisper",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_senna_PElG2j3Sqo.webp",
+            "cost": 3,
+            "name": "Senna",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_JarvanIV",
             "boardIndex": 4,
             "items": [
               "TFT_Item_RedBuff",
               "TFT_Item_FrozenHeart",
-              "TFT_Item_SpectralGauntlet"
+              "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
             "championIcon": "tft15_jarvan_iv_i7UP0ZKwLl.webp",
@@ -205,7 +205,6 @@
             "apiName": "TFT15_Yone",
             "boardIndex": 6,
             "items": [
-              "TFT_Item_SteraksGage",
               "TFT_Item_GuardianAngel",
               "TFT_Item_Quicksilver"
             ],
@@ -590,12 +589,6 @@
             "apiName": "TFT10_Augment_HeroicGrabBag"
           },
           {
-            "apiName": "TFT9_Augment_PumpingUp"
-          },
-          {
-            "apiName": "TFT_Augment_BackupDancers"
-          },
-          {
             "apiName": "TFT_Augment_ExplosiveGrowthPlus"
           },
           {
@@ -603,6 +596,12 @@
           },
           {
             "apiName": "TFT_Augment_HeavyIsTheCrown"
+          },
+          {
+            "apiName": "TFT11_Augment_Buildabud"
+          },
+          {
+            "apiName": "TFT_Augment_WorthTheWaitGold"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
@@ -611,9 +610,9 @@
             "apiName": "TFT15_Kayle",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_MadredsBloodrazor",
               "TFT_Item_JeweledGauntlet",
-              "TFT_Item_PowerGauntlet"
+              "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
             "championIcon": "tft15_kayle_uMxVPY7joF.webp",
@@ -1619,6 +1618,18 @@
             "championIcon": "tft15_jhin_FS3rUmnBXQ.webp",
             "cost": 2,
             "name": "Jhin",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Vi",
+            "boardIndex": 7,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_vi_5NbERw384X.webp",
+            "cost": 2,
+            "name": "Vi",
             "set": 15
           },
           {
@@ -5177,6 +5188,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-17 06:00:03"
+    "lastUpdated": "2025-09-17 12:00:03"
   }
 }
