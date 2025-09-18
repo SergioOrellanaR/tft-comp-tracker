@@ -2506,10 +2506,10 @@
           },
           {
             "apiName": "TFT15_XinZhao",
-            "boardIndex": 3,
+            "boardIndex": 1,
             "items": [
-              "TFT_Item_GargoyleStoneplate",
               "TFT_Item_WarmogsArmor",
+              "TFT_Item_RedBuff",
               "TFT_Item_NightHarvester"
             ],
             "stars": 3,
@@ -2520,7 +2520,7 @@
           },
           {
             "apiName": "TFT15_Viego",
-            "boardIndex": 8,
+            "boardIndex": 7,
             "items": [
               "TFT_Item_GuinsoosRageblade",
               "TFT_Item_GuardianAngel"
@@ -5188,6 +5188,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-18 12:00:03"
+    "lastUpdated": "2025-09-18 18:00:03"
   }
 }
