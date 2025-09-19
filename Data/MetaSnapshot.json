@@ -1310,7 +1310,6 @@
           {
             "apiName": "TFT15_Xayah",
             "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
@@ -1320,14 +1319,12 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_JarvanIV",
-            "items": [
-              "TFT15_Item_ProtectorEmblemItem"
-            ],
+            "apiName": "TFT15_Volibear",
+            "items": [],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_i7UP0ZKwLl.webp",
+            "championIcon": "tft15_volibear_OiuToNJjnW.webp",
             "cost": 4,
-            "name": "Jarvan IV",
+            "name": "Volibear",
             "set": 15
           }
         ],
@@ -1345,27 +1342,27 @@
             "apiName": "TFT_Augment_AnExaltedAdventure"
           },
           {
-            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
-          },
-          {
-            "apiName": "TFT_Augment_PlotArmor"
-          },
-          {
             "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
           },
           {
             "apiName": "TFT6_Augment_PandorasItems"
+          },
+          {
+            "apiName": "TFT_Augment_SpiritLink1"
+          },
+          {
+            "apiName": "TFT15_Augment_BastionCrown"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-protector-xayah",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-xayah-bastion",
         "champions": [
           {
             "apiName": "TFT15_Xayah",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_GuinsoosRageblade",
               "TFT_Item_RunaansHurricane",
-              "TFT_Item_MadredsBloodrazor"
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
             "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
@@ -1374,30 +1371,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Rakan",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_TitansResolve",
-              "TFT_Item_GargoyleStoneplate"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
-            "cost": 2,
-            "name": "Rakan",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
+            "apiName": "TFT15_Shen",
             "boardIndex": 4,
             "items": [
+              "TFT_Item_RedBuff",
               "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff"
+              "TFT_Item_Redemption"
             ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_SPcjyo1O4Z.webp",
-            "cost": 4,
-            "name": "K'Sante",
+            "stars": 3,
+            "championIcon": "tft15_shen_5VAAoAKUn9.webp",
+            "cost": 2,
+            "name": "Shen",
             "set": 15
           }
         ],
@@ -1410,7 +1394,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Fan Service Xayah Rakan",
+        "title": "Bastion Xayah Reroll",
         "style": "RR LV.6",
         "tier": "B"
       },
@@ -3900,6 +3884,115 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Xayah",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+            "cost": 2,
+            "name": "Xayah",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "items": [
+              "TFT15_Item_ProtectorEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_i7UP0ZKwLl.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT_Augment_TwoMuchValue"
+          },
+          {
+            "apiName": "TFT_Augment_AnExaltedAdventure"
+          },
+          {
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+          },
+          {
+            "apiName": "TFT_Augment_PlotArmor"
+          },
+          {
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+          },
+          {
+            "apiName": "TFT6_Augment_PandorasItems"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-protector-xayah",
+        "champions": [
+          {
+            "apiName": "TFT15_Xayah",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+            "cost": 2,
+            "name": "Xayah",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rakan",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_TitansResolve",
+              "TFT_Item_GargoyleStoneplate"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
+            "cost": 2,
+            "name": "Rakan",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_SPcjyo1O4Z.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Xayah",
+          "cost": 2,
+          "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+          "name": "Xayah",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Fan Service Xayah Rakan",
+        "style": "RR LV.6",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Jinx",
             "items": [
               "TFT4_Item_OrnnTheCollector",
@@ -4221,106 +4314,6 @@
         "mainItem": {},
         "title": "Crew Sniper Reroll",
         "style": "RR LV.5",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Xayah",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT6_Augment_Twins2"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT_Augment_TwoMuchValue"
-          },
-          {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
-          },
-          {
-            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
-          },
-          {
-            "apiName": "TFT6_Augment_PandorasItems"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-fan-service",
-        "champions": [
-          {
-            "apiName": "TFT15_Xayah",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Rakan",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_TitansResolve",
-              "TFT_Item_GargoyleStoneplate"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
-            "cost": 2,
-            "name": "Rakan",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Rakan",
-            "boardIndex": 10,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
-            "cost": 2,
-            "name": "Rakan",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT6_Augment_Twins2"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_Xayah",
-          "cost": 2,
-          "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
-          "name": "Xayah",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Double Trouble Xayah Rakan Reroll",
-        "style": "RR LV.6",
         "tier": "B"
       },
       {
@@ -4766,6 +4759,106 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Xayah",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+            "cost": 2,
+            "name": "Xayah",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_Twins2"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT_Augment_TwoMuchValue"
+          },
+          {
+            "apiName": "TFT_Augment_AnExaltedAdventure"
+          },
+          {
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+          },
+          {
+            "apiName": "TFT6_Augment_PandorasItems"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-fan-service",
+        "champions": [
+          {
+            "apiName": "TFT15_Xayah",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+            "cost": 2,
+            "name": "Xayah",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rakan",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_TitansResolve",
+              "TFT_Item_GargoyleStoneplate"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
+            "cost": 2,
+            "name": "Rakan",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rakan",
+            "boardIndex": 10,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_rakan_sOmdfHNRLL.webp",
+            "cost": 2,
+            "name": "Rakan",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT6_Augment_Twins2"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Xayah",
+          "cost": 2,
+          "championIcon": "tft15_xayah_hESQM9Q4bT.webp",
+          "name": "Xayah",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Double Trouble Xayah Rakan Reroll",
+        "style": "RR LV.6",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Malzahar",
             "items": [
               "TFT_Item_Artifact_BlightingJewel",
@@ -5188,6 +5281,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-19 06:00:03"
+    "lastUpdated": "2025-09-19 12:00:03"
   }
 }
