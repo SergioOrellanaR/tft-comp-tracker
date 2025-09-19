@@ -599,9 +599,6 @@
           },
           {
             "apiName": "TFT11_Augment_Buildabud"
-          },
-          {
-            "apiName": "TFT_Augment_WorthTheWaitGold"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
@@ -612,7 +609,7 @@
             "items": [
               "TFT_Item_MadredsBloodrazor",
               "TFT_Item_JeweledGauntlet",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_RapidFireCannon"
             ],
             "stars": 3,
             "championIcon": "tft15_kayle_uMxVPY7joF.webp",
@@ -5281,6 +5278,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-19 12:00:03"
+    "lastUpdated": "2025-09-19 18:00:03"
   }
 }
