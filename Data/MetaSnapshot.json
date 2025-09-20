@@ -1004,7 +1004,7 @@
         "mainItem": {},
         "title": "The Crew Reroll",
         "style": "RR LV.5",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -5278,6 +5278,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-20 00:00:03"
+    "lastUpdated": "2025-09-20 06:00:03"
   }
 }
