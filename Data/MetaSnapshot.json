@@ -1139,7 +1139,7 @@
             "apiName": "TFT_Augment_Replication"
           },
           {
-            "apiName": "TFT_Augment_GlassCannonII"
+            "apiName": "TFT_Augment_Isekai_Sorcerer"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-karma-sorcs",
@@ -5435,6 +5435,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-22 12:00:03"
+    "lastUpdated": "2025-09-22 18:00:03"
   }
 }
