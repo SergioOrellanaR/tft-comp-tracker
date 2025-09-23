@@ -1247,9 +1247,9 @@
             "apiName": "TFT15_Yasuo",
             "boardIndex": 13,
             "items": [
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_UnstableConcoction",
-              "TFT15_Item_BastionEmblemItem"
+              "TFT15_Item_BastionEmblemItem",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
             "championIcon": "tft15_yasuo_bnSKJV21q8.webp",
@@ -5334,6 +5334,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-23 00:00:03"
+    "lastUpdated": "2025-09-23 06:00:03"
   }
 }
