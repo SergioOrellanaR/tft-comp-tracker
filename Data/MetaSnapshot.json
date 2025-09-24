@@ -367,118 +367,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Braum",
-            "items": [
-              "TFT15_Item_SoulFighterEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_ZxXLetL3dL.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_SoulFighterCrest"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_SoulSurge"
-          },
-          {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
-          },
-          {
-            "apiName": "TFT10_Augment_LittleBuddies"
-          },
-          {
-            "apiName": "TFT_Augment_PairOfFours"
-          },
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
-        "champions": [
-          {
-            "apiName": "TFT15_Samira",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_samira_KleTpLPbPh.webp",
-            "cost": 4,
-            "name": "Samira",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Volibear",
-            "boardIndex": 13,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_volibear_OiuToNJjnW.webp",
-            "cost": 4,
-            "name": "Volibear",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_Redemption",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_u0GdPhbix7.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Gwen",
-            "boardIndex": 7,
-            "items": [
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_ODOTNytrRq.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Samira",
-          "cost": 4,
-          "championIcon": "tft15_samira_KleTpLPbPh.webp",
-          "name": "Samira",
-          "set": 15
-        },
-        "mainItem": {
-          "apiName": "TFT15_Item_SoulFighterEmblemItem"
-        },
-        "title": "8 Soul Fighter Samira Carry",
-        "style": "Fast 8",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Garen",
             "items": [
               "TFT_Item_Artifact_InnervatingLocket",
@@ -605,6 +493,119 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Kayle",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones",
+              "TFT4_Item_OrnnZhonyasParadox"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kayle_uMxVPY7joF.webp",
+            "cost": 1,
+            "name": "Kayle",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Kayle",
+            "items": [
+              "TFT9_Item_CrownOfDemacia",
+              "TFT_Item_GuardianAngel",
+              "TFT5_Item_GuinsoosRagebladeRadiant"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kayle_uMxVPY7joF.webp",
+            "cost": 1,
+            "name": "Kayle",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_WorthTheWaitGold"
+          },
+          {
+            "apiName": "TFT9_Augment_MissedConnections"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_ExplosiveGrowthPlus"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
+          },
+          {
+            "apiName": "TFT11_Augment_Buildabud"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT_Augment_InvestedPlusPlus"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
+        "champions": [
+          {
+            "apiName": "TFT15_Kayle",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_RapidFireCannon"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kayle_uMxVPY7joF.webp",
+            "cost": 1,
+            "name": "Kayle",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zac",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_Redemption",
+              "TFT_Item_GargoyleStoneplate"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_zac_JqNoOu1SZZ.webp",
+            "cost": 1,
+            "name": "Zac",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Varus",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_LastWhisper"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_varus_SQbPuLWDak.webp",
+            "cost": 5,
+            "name": "Varus",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Kayle",
+          "cost": 1,
+          "championIcon": "tft15_kayle_uMxVPY7joF.webp",
+          "name": "Kayle",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "6 Wraith Kayle Reroll",
+        "style": "RR LV.5",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Caitlyn",
             "items": [
               "TFT9_Item_OrnnHorizonFocus",
@@ -718,114 +719,113 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Kayle",
+            "apiName": "TFT15_Braum",
             "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones",
-              "TFT4_Item_OrnnZhonyasParadox"
+              "TFT15_Item_SoulFighterEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_kayle_uMxVPY7joF.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Kayle",
-            "items": [
-              "TFT9_Item_CrownOfDemacia",
-              "TFT_Item_GuardianAngel",
-              "TFT5_Item_GuinsoosRagebladeRadiant"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kayle_uMxVPY7joF.webp",
-            "cost": 1,
-            "name": "Kayle",
+            "championIcon": "tft15_braum_ZxXLetL3dL.webp",
+            "cost": 5,
+            "name": "Braum",
             "set": 15
           }
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_WorthTheWaitGold"
+            "apiName": "TFT15_Augment_SoulFighterCrest"
           },
           {
-            "apiName": "TFT9_Augment_MissedConnections"
+            "apiName": "TFT15_Augment_SoulFighter_SoulSurge"
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT_Augment_ClimbTheLadder2"
           },
           {
-            "apiName": "TFT_Augment_ExplosiveGrowthPlus"
+            "apiName": "TFT10_Augment_LittleBuddies"
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT_Augment_PairOfFours"
           },
           {
-            "apiName": "TFT11_Augment_Buildabud"
+            "apiName": "TFT11_Augment_Slammin"
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT9_Augment_BigGrabBag"
           },
           {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
+            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
         "champions": [
           {
-            "apiName": "TFT15_Kayle",
+            "apiName": "TFT15_Samira",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_RapidFireCannon"
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
             ],
-            "stars": 3,
-            "championIcon": "tft15_kayle_uMxVPY7joF.webp",
-            "cost": 1,
-            "name": "Kayle",
+            "stars": 1,
+            "championIcon": "tft15_samira_KleTpLPbPh.webp",
+            "cost": 4,
+            "name": "Samira",
             "set": 15
           },
           {
-            "apiName": "TFT15_Zac",
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 13,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_OiuToNJjnW.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
             "boardIndex": 5,
             "items": [
               "TFT_Item_WarmogsArmor",
               "TFT_Item_Redemption",
-              "TFT_Item_GargoyleStoneplate"
+              "TFT_Item_SpectralGauntlet"
             ],
-            "stars": 3,
-            "championIcon": "tft15_zac_JqNoOu1SZZ.webp",
-            "cost": 1,
-            "name": "Zac",
+            "stars": 1,
+            "championIcon": "tft15_sett_u0GdPhbix7.webp",
+            "cost": 4,
+            "name": "Sett",
             "set": 15
           },
           {
-            "apiName": "TFT15_Varus",
-            "boardIndex": 21,
+            "apiName": "TFT15_Gwen",
+            "boardIndex": 7,
             "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_LastWhisper"
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_varus_SQbPuLWDak.webp",
+            "championIcon": "tft15_gwen_ODOTNytrRq.webp",
             "cost": 5,
-            "name": "Varus",
+            "name": "Gwen",
             "set": 15
           }
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Kayle",
-          "cost": 1,
-          "championIcon": "tft15_kayle_uMxVPY7joF.webp",
-          "name": "Kayle",
+          "apiName": "TFT15_Samira",
+          "cost": 4,
+          "championIcon": "tft15_samira_KleTpLPbPh.webp",
+          "name": "Samira",
           "set": 15
         },
-        "mainItem": {},
-        "title": "6 Wraith Kayle Reroll",
-        "style": "RR LV.5",
+        "mainItem": {
+          "apiName": "TFT15_Item_SoulFighterEmblemItem"
+        },
+        "title": "8 Soul Fighter Samira Carry",
+        "style": "Fast 8",
         "tier": "A"
       },
       {
@@ -1155,7 +1155,7 @@
         "mainItem": {},
         "title": "Soul Fighter Viego Reroll",
         "style": "RR LV.7",
-        "tier": "B"
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -2232,7 +2232,7 @@
         "mainItem": {},
         "title": "Battle Academia Katarina Reroll",
         "style": "RR LV.6",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -5366,6 +5366,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-24 06:00:03"
+    "lastUpdated": "2025-09-24 12:00:04"
   }
 }
