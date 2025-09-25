@@ -130,117 +130,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Karma",
-            "items": [
-              "TFT4_Item_OrnnMuramana",
-              "TFT_Item_Artifact_BlightingJewel"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_karma_xqUehfKSpz.webp",
-            "cost": 4,
-            "name": "Karma",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_SentaiRanger_BeTheHead_Gold"
-          },
-          {
-            "apiName": "TFT15_Augment_SentaiRanger_BeTheArms"
-          },
-          {
-            "apiName": "TFT15_Augment_SentaiRanger_BeTheLegs"
-          },
-          {
-            "apiName": "TFT6_Augment_SecondWind1"
-          },
-          {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT_Augment_WaterLotus1"
-          },
-          {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
-        "champions": [
-          {
-            "apiName": "TFT15_Senna",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_LastWhisper",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
-            "cost": 3,
-            "name": "Senna",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_FrozenHeart",
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Karma",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_karma_xqUehfKSpz.webp",
-            "cost": 4,
-            "name": "Karma",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yone",
-            "boardIndex": 6,
-            "items": [
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_Quicksilver"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yone_uK0FLbDi8x.webp",
-            "cost": 5,
-            "name": "Yone",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Galio",
-          "cost": 0,
-          "championIcon": "tft15_galio_CeU0HR23Ms.webp",
-          "name": "The Mighty Mech",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "7 Mighty Mech",
-        "style": "Fast 8",
-        "tier": "S"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_KogMaw",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -362,6 +251,117 @@
         "mainItem": {},
         "title": "Protector Kogmaw",
         "style": "RR LV.7",
+        "tier": "S"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Karma",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT_Item_Artifact_BlightingJewel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_xqUehfKSpz.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_SentaiRanger_BeTheHead_Gold"
+          },
+          {
+            "apiName": "TFT15_Augment_SentaiRanger_BeTheArms"
+          },
+          {
+            "apiName": "TFT15_Augment_SentaiRanger_BeTheLegs"
+          },
+          {
+            "apiName": "TFT6_Augment_SecondWind1"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          },
+          {
+            "apiName": "TFT_Augment_ClimbTheLadder2"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
+        "champions": [
+          {
+            "apiName": "TFT15_Senna",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_LastWhisper",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
+            "cost": 3,
+            "name": "Senna",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Karma",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_xqUehfKSpz.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Yone",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_Quicksilver"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yone_uK0FLbDi8x.webp",
+            "cost": 5,
+            "name": "Yone",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Galio",
+          "cost": 0,
+          "championIcon": "tft15_galio_CeU0HR23Ms.webp",
+          "name": "The Mighty Mech",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "7 Mighty Mech",
+        "style": "Fast 8",
         "tier": "S"
       },
       {
@@ -1041,121 +1041,6 @@
         "title": "Bastion Xayah Reroll",
         "style": "RR LV.6",
         "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Viego",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT9_Item_OrnnHorizonFocus",
-              "TFT_Item_Artifact_RapidFirecannon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
-            "cost": 3,
-            "name": "Viego",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Viego",
-            "items": [
-              "TFT4_Item_OrnnZhonyasParadox",
-              "TFT_Item_Artifact_WitsEnd",
-              "TFT_Item_Artifact_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
-            "cost": 3,
-            "name": "Viego",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT_Augment_Overheal"
-          },
-          {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-reaper-viego",
-        "champions": [
-          {
-            "apiName": "TFT15_Viego",
-            "boardIndex": 12,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_JeweledGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
-            "cost": 3,
-            "name": "Viego",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Samira",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_InfinityEdge"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
-            "cost": 4,
-            "name": "Samira",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_Redemption"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_Viego",
-          "cost": 3,
-          "championIcon": "tft15_viego_WRUKbOwuWg.webp",
-          "name": "Viego",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Soul Fighter Viego Reroll",
-        "style": "RR LV.7",
-        "tier": "C"
       },
       {
         "altBuilds": [
@@ -2233,6 +2118,121 @@
         "title": "Battle Academia Katarina Reroll",
         "style": "RR LV.6",
         "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Viego",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Artifact_RapidFirecannon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+            "cost": 3,
+            "name": "Viego",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Viego",
+            "items": [
+              "TFT4_Item_OrnnZhonyasParadox",
+              "TFT_Item_Artifact_WitsEnd",
+              "TFT_Item_Artifact_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+            "cost": 3,
+            "name": "Viego",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_Overheal"
+          },
+          {
+            "apiName": "TFT9_Augment_LongTimeCrafting"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-reaper-viego",
+        "champions": [
+          {
+            "apiName": "TFT15_Viego",
+            "boardIndex": 12,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+            "cost": 3,
+            "name": "Viego",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Samira",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_LastWhisper",
+              "TFT_Item_InfinityEdge"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+            "cost": 4,
+            "name": "Samira",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT6_Augment_PortableForge"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Viego",
+          "cost": 3,
+          "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+          "name": "Viego",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Soul Fighter Viego Reroll",
+        "style": "RR LV.7",
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -5366,6 +5366,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-25 06:00:03"
+    "lastUpdated": "2025-09-25 12:00:03"
   }
 }
