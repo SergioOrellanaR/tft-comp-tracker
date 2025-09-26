@@ -144,45 +144,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_SentaiRanger_BeTheHead_Gold"
-          },
-          {
-            "apiName": "TFT15_Augment_SentaiRanger_BeTheArms"
-          },
-          {
-            "apiName": "TFT15_Augment_SentaiRanger_BeTheLegs"
+            "apiName": "TFT_Augment_UpwardMobility"
           },
           {
             "apiName": "TFT6_Augment_SecondWind1"
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT_Augment_FiresalePlus"
           },
           {
             "apiName": "TFT11_Augment_Slammin"
           },
           {
-            "apiName": "TFT_Augment_WaterLotus1"
+            "apiName": "TFT_Augment_UnlimitedPower"
           },
           {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
+            "apiName": "TFT_Augment_InvestedPlus"
+          },
+          {
+            "apiName": "TFT_Augment_AuraFarming"
+          },
+          {
+            "apiName": "TFT_Augment_ForwardThinking"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
         "champions": [
-          {
-            "apiName": "TFT15_Senna",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_LastWhisper",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
-            "cost": 3,
-            "name": "Senna",
-            "set": 15
-          },
           {
             "apiName": "TFT15_JarvanIV",
             "boardIndex": 4,
@@ -216,7 +203,8 @@
             "boardIndex": 6,
             "items": [
               "TFT_Item_GuardianAngel",
-              "TFT_Item_Quicksilver"
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_Bloodthirster"
             ],
             "stars": 1,
             "championIcon": "tft15_yone_uK0FLbDi8x.webp",
@@ -235,7 +223,7 @@
         },
         "mainItem": {},
         "title": "7 Mighty Mech",
-        "style": "Fast 8",
+        "style": "Fast 9",
         "tier": "S"
       },
       {
@@ -597,7 +585,7 @@
         "mainItem": {},
         "title": "The Crew Reroll",
         "style": "RR LV.5",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -2191,9 +2179,9 @@
             "apiName": "TFT15_Janna",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_ArchangelsStaff"
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_Leviathan",
+              "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
             "championIcon": "tft15_janna_pO2VYB4buk.webp",
@@ -2251,7 +2239,7 @@
         "mainItem": {},
         "title": "Protector Janna Reroll",
         "style": "RR LV.6",
-        "tier": "C"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -5279,11 +5267,6 @@
           "icon": "tft_item_frozen_heart_WRSrBThB2v.webp"
         },
         {
-          "apiName": "TFT_Item_Quicksilver",
-          "name": "Quicksilver",
-          "icon": "tft_item_quicksilver_BGfUJAuW5x.webp"
-        },
-        {
           "apiName": "TFT_Item_RabadonsDeathcap",
           "name": "Rabadon's Deathcap",
           "icon": "tft_item_rabadons_deathcap_kPZ4A26eSq.webp"
@@ -5505,6 +5488,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-26 06:00:03"
+    "lastUpdated": "2025-09-26 12:00:03"
   }
 }
