@@ -54,7 +54,7 @@
             "apiName": "TFT6_Augment_Keepers2"
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT11_Augment_Reinfourcement"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-star-guardians",
@@ -5505,6 +5505,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-26 00:00:03"
+    "lastUpdated": "2025-09-26 06:00:03"
   }
 }
