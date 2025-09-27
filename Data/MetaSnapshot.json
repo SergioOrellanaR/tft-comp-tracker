@@ -595,6 +595,121 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Ahri",
+            "items": [
+              "TFT_Item_Artifact_LudensTempest",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ahri_2hFvyHleDP.webp",
+            "cost": 3,
+            "name": "Ahri",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Poppy",
+            "items": [
+              "TFT_Item_SteraksGage",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_Crownguard"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "cost": 4,
+            "name": "Poppy",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT9_Augment_LongTimeCrafting"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT15_Augment_StarGuardianCrest"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2"
+          },
+          {
+            "apiName": "TFT_Augment_CryMeARiver"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-ludens-ahri",
+        "champions": [
+          {
+            "apiName": "TFT15_Ahri",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_Artifact_LudensTempest"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_ahri_2hFvyHleDP.webp",
+            "cost": 3,
+            "name": "Ahri",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Jinx",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "cost": 4,
+            "name": "Jinx",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_NightHarvester",
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_Redemption"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "cost": 4,
+            "name": "Poppy",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Ahri",
+          "cost": 3,
+          "championIcon": "tft15_ahri_2hFvyHleDP.webp",
+          "name": "Ahri",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT_Item_Artifact_LudensTempest"
+        },
+        "title": "Luden Ahri Star Guardians",
+        "style": "RR LV.7",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Kobuko",
             "items": [
               "TFT_Item_Artifact_UnendingDespair"
@@ -5614,6 +5729,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-27 12:00:03"
+    "lastUpdated": "2025-09-27 18:00:03"
   }
 }
