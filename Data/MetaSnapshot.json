@@ -483,12 +483,6 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_HeftyRolls"
-          },
-          {
-            "apiName": "TFT_Augment_TreasureHunt"
-          },
-          {
             "apiName": "TFT6_Augment_GachaAddict"
           },
           {
@@ -501,10 +495,16 @@
             "apiName": "TFT15_Augment_TheCrew_SpaceCamp"
           },
           {
-            "apiName": "TFT15_Augment_TheCrew_EscapeVelocity"
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT6_Augment_HyperRoll"
+          },
+          {
+            "apiName": "TFT6_Augment_TradeSector"
+          },
+          {
+            "apiName": "TFT11_Augment_RainingGold"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crewboy-bebop",
@@ -5488,6 +5488,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-26 18:00:03"
+    "lastUpdated": "2025-09-27 00:00:03"
   }
 }
