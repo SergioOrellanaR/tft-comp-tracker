@@ -721,14 +721,16 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_JarvanIV",
+            "apiName": "TFT15_Janna",
             "items": [
-              "TFT15_Item_ProtectorEmblemItem"
+              "TFT_Item_Leviathan",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
+            "championIcon": "tft15_janna_pO2VYB4buk.webp",
+            "cost": 2,
+            "name": "Janna",
             "set": 15
           }
         ],
@@ -765,8 +767,8 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_JeweledGauntlet",
-              "TFT_Item_Leviathan",
-              "TFT_Item_MadredsBloodrazor"
+              "TFT_Item_BlueBuff",
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
             "championIcon": "tft15_janna_pO2VYB4buk.webp",
@@ -5843,6 +5845,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-28 06:00:03"
+    "lastUpdated": "2025-09-28 12:00:03"
   }
 }
