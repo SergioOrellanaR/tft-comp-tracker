@@ -459,6 +459,245 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_KogMaw",
+            "items": [
+              "TFT_Item_Artifact_Dawncore",
+              "TFT_Item_Artifact_LichBane",
+              "TFT_Item_Artifact_WitsEnd"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KogMaw",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_StatikkShiv",
+              "TFT5_Item_SpearOfShojinRadiant"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT9_Augment_LongTimeCrafting"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT9_Augment_PumpingUp"
+          },
+          {
+            "apiName": "TFT_Augment_Lineup"
+          },
+          {
+            "apiName": "TFT9_Augment_BardPlaybook3"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-monster-trainer-kogmaw",
+        "champions": [
+          {
+            "apiName": "TFT15_KogMaw",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Janna",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_RapidFireCannon",
+              "TFT_Item_ArchangelsStaff"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_janna_pO2VYB4buk.webp",
+            "cost": 2,
+            "name": "Janna",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Neeko",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_NightHarvester",
+              "TFT_Item_Crownguard",
+              "TFT_Item_WarmogsArmor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_neeko_HnLj8CsRwj.webp",
+            "cost": 3,
+            "name": "Neeko",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT6_Augment_PortableForge"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_KogMaw",
+          "cost": 3,
+          "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+          "name": "Kog'Maw",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Protector Kogmaw",
+        "style": "RR LV.7",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Kayle",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones",
+              "TFT4_Item_OrnnZhonyasParadox"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "cost": 1,
+            "name": "Kayle",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Kayle",
+            "items": [
+              "TFT9_Item_CrownOfDemacia",
+              "TFT_Item_GuardianAngel",
+              "TFT5_Item_GuinsoosRagebladeRadiant"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "cost": 1,
+            "name": "Kayle",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_WorthTheWaitGold"
+          },
+          {
+            "apiName": "TFT9_Augment_MissedConnections"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_ExplosiveGrowthPlus"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
+          },
+          {
+            "apiName": "TFT11_Augment_Buildabud"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT_Augment_InvestedPlusPlus"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
+        "champions": [
+          {
+            "apiName": "TFT15_Kayle",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_RapidFireCannon"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "cost": 1,
+            "name": "Kayle",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zac",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_Redemption",
+              "TFT_Item_GargoyleStoneplate"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_zac_o9tkqASn1u.webp",
+            "cost": 1,
+            "name": "Zac",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Varus",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_LastWhisper"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
+            "cost": 5,
+            "name": "Varus",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Kayle",
+          "cost": 1,
+          "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+          "name": "Kayle",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "6 Wraith Kayle Reroll",
+        "style": "RR LV.5",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Samira",
             "items": [
               "TFT_Item_Deathblade",
@@ -581,245 +820,6 @@
         },
         "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Kayle",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones",
-              "TFT4_Item_OrnnZhonyasParadox"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Kayle",
-            "items": [
-              "TFT9_Item_CrownOfDemacia",
-              "TFT_Item_GuardianAngel",
-              "TFT5_Item_GuinsoosRagebladeRadiant"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_WorthTheWaitGold"
-          },
-          {
-            "apiName": "TFT9_Augment_MissedConnections"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_ExplosiveGrowthPlus"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          },
-          {
-            "apiName": "TFT11_Augment_Buildabud"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
-        "champions": [
-          {
-            "apiName": "TFT15_Kayle",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_RapidFireCannon"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zac",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_Redemption",
-              "TFT_Item_GargoyleStoneplate"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_zac_o9tkqASn1u.webp",
-            "cost": 1,
-            "name": "Zac",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Varus",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_LastWhisper"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
-            "cost": 5,
-            "name": "Varus",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Kayle",
-          "cost": 1,
-          "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
-          "name": "Kayle",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "6 Wraith Kayle Reroll",
-        "style": "RR LV.5",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_KogMaw",
-            "items": [
-              "TFT_Item_Artifact_Dawncore",
-              "TFT_Item_Artifact_LichBane",
-              "TFT_Item_Artifact_WitsEnd"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KogMaw",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_StatikkShiv",
-              "TFT5_Item_SpearOfShojinRadiant"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT9_Augment_PumpingUp"
-          },
-          {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
-            "apiName": "TFT9_Augment_BardPlaybook3"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-monster-trainer-kogmaw",
-        "champions": [
-          {
-            "apiName": "TFT15_KogMaw",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Janna",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_RapidFireCannon",
-              "TFT_Item_ArchangelsStaff"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_janna_pO2VYB4buk.webp",
-            "cost": 2,
-            "name": "Janna",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Neeko",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_NightHarvester",
-              "TFT_Item_Crownguard",
-              "TFT_Item_WarmogsArmor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_neeko_HnLj8CsRwj.webp",
-            "cost": 3,
-            "name": "Neeko",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_KogMaw",
-          "cost": 3,
-          "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
-          "name": "Kog'Maw",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Protector Kogmaw",
-        "style": "RR LV.7",
         "tier": "A"
       },
       {
@@ -1012,7 +1012,7 @@
           },
           {
             "apiName": "TFT15_Shen",
-            "boardIndex": 10,
+            "boardIndex": 11,
             "items": [
               "TFT_Item_ThiefsGloves"
             ],
@@ -1028,7 +1028,7 @@
             "items": [
               "TFT_Item_StatikkShiv",
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_Leviathan"
+              "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
             "championIcon": "tft15_ziggs_shBszX7szX.webp",
@@ -1062,6 +1062,93 @@
         "mainItem": {},
         "title": "The Crew Reroll",
         "style": "RR LV.5",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Yasuo",
+            "items": [
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "cost": 3,
+            "name": "Yasuo",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT15_Augment_BastionCrest"
+          },
+          {
+            "apiName": "TFT_Augment_CookingPot"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-yasuo",
+        "champions": [
+          {
+            "apiName": "TFT15_Yasuo",
+            "boardIndex": 13,
+            "items": [
+              "TFT15_Item_BastionEmblemItem",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "cost": 3,
+            "name": "Yasuo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Swain",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_Redemption",
+              "TFT_Item_RedBuff",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_swain_GinvIVhB7Z.webp",
+            "cost": 3,
+            "name": "Swain",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Yasuo",
+          "cost": 3,
+          "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+          "name": "Yasuo",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_BastionEmblemItem"
+        },
+        "title": "Bastion Yasuo Reroll",
+        "style": "Fast 8",
         "tier": "B"
       },
       {
@@ -1499,93 +1586,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Yasuo",
-            "items": [
-              "TFT9_Item_OrnnHorizonFocus",
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
-            "cost": 3,
-            "name": "Yasuo",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
-          },
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT15_Augment_BastionCrest"
-          },
-          {
-            "apiName": "TFT_Augment_CookingPot"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-yasuo",
-        "champions": [
-          {
-            "apiName": "TFT15_Yasuo",
-            "boardIndex": 13,
-            "items": [
-              "TFT15_Item_BastionEmblemItem",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
-            "cost": 3,
-            "name": "Yasuo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Swain",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_Redemption",
-              "TFT_Item_RedBuff",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_swain_GinvIVhB7Z.webp",
-            "cost": 3,
-            "name": "Swain",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Yasuo",
-          "cost": 3,
-          "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
-          "name": "Yasuo",
-          "set": 15
-        },
-        "mainItem": {
-          "apiName": "TFT15_Item_BastionEmblemItem"
-        },
-        "title": "Bastion Yasuo Reroll",
-        "style": "Fast 8",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Katarina",
             "items": [
               "TFT4_Item_OrnnZhonyasParadox",
@@ -1802,15 +1802,14 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Senna",
+            "apiName": "TFT15_Ryze",
             "items": [
-              "TFT4_Item_OrnnMuramana",
-              "TFT4_Item_OrnnTheCollector"
+              "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
-            "cost": 3,
-            "name": "Senna",
+            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+            "cost": 4,
+            "name": "Ryze",
             "set": 15
           }
         ],
@@ -1819,36 +1818,36 @@
             "apiName": "TFT11_Augment_Slammin"
           },
           {
+            "apiName": "TFT9_Augment_HighEndSector"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
+          },
+          {
             "apiName": "TFT_Augment_FiresalePlus"
           },
           {
             "apiName": "TFT_Augment_WaterLotus1"
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT11_Augment_RadiantRefactor"
           },
           {
-            "apiName": "TFT_Augment_PatienceIsAVirtue"
-          },
-          {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT9_Augment_HighEndSector"
-          },
-          {
-            "apiName": "TFT11_Augment_Calltochaos"
+            "apiName": "TFT9_Augment_BigGrabBag"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-senna-yasuo",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
         "champions": [
           {
             "apiName": "TFT15_Ryze",
-            "boardIndex": 22,
+            "boardIndex": 21,
             "items": [
               "TFT_Item_ArchangelsStaff",
               "TFT_Item_StatikkShiv",
-              "TFT_Item_PowerGauntlet"
+              "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
             "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
@@ -1857,36 +1856,8 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Senna",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_LastWhisper",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_Deathblade"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
-            "cost": 3,
-            "name": "Senna",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yasuo",
-            "boardIndex": 0,
-            "items": [
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_UnstableConcoction"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
-            "cost": 3,
-            "name": "Yasuo",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_JarvanIV",
-            "boardIndex": 3,
+            "boardIndex": 2,
             "items": [
               "TFT_Item_FrozenHeart"
             ],
@@ -1894,6 +1865,20 @@
             "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
             "cost": 4,
             "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 7,
+            "items": [
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_03H17SR4Xc.webp",
+            "cost": 4,
+            "name": "Volibear",
             "set": 15
           }
         ],
@@ -1906,9 +1891,9 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Mentor Senna Yasuo",
-        "style": "RR LV.7",
-        "tier": "B"
+        "title": "Mentor Ryze Senna",
+        "style": "Fast 8",
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -3689,102 +3674,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Ryze",
-            "items": [
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
-            "cost": 4,
-            "name": "Ryze",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT9_Augment_HighEndSector"
-          },
-          {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_WaterLotus1"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
-        "champions": [
-          {
-            "apiName": "TFT15_Ryze",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
-            "cost": 4,
-            "name": "Ryze",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 2,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Volibear",
-            "boardIndex": 7,
-            "items": [
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_GuardianAngel"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_volibear_03H17SR4Xc.webp",
-            "cost": 4,
-            "name": "Volibear",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Ryze",
-          "cost": 4,
-          "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
-          "name": "Ryze",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Mentor Ryze Senna",
-        "style": "Fast 8",
-        "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Jinx",
             "items": [
               "TFT4_Item_OrnnTheCollector",
@@ -4766,6 +4655,116 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Senna",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT4_Item_OrnnTheCollector"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
+            "cost": 3,
+            "name": "Senna",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_PatienceIsAVirtue"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT9_Augment_HighEndSector"
+          },
+          {
+            "apiName": "TFT11_Augment_Calltochaos"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-senna-yasuo",
+        "champions": [
+          {
+            "apiName": "TFT15_Ryze",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Senna",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_LastWhisper",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_Deathblade"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
+            "cost": 3,
+            "name": "Senna",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Yasuo",
+            "boardIndex": 0,
+            "items": [
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_UnstableConcoction"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "cost": 3,
+            "name": "Yasuo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 1,
+            "items": [
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Ryze",
+          "cost": 4,
+          "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+          "name": "Ryze",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Mentor Senna Yasuo",
+        "style": "RR LV.7",
+        "tier": "C"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_KogMaw",
             "items": [
               "TFT_Item_Artifact_Dawncore",
@@ -5620,6 +5619,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-09-29 18:00:03"
+    "lastUpdated": "2025-09-30 00:00:04"
   }
 }
