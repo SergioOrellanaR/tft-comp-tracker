@@ -853,9 +853,6 @@
             "apiName": "TFT_Augment_ClimbTheLadder2"
           },
           {
-            "apiName": "TFT_Augment_PairOfFours"
-          },
-          {
             "apiName": "TFT11_Augment_Slammin"
           },
           {
@@ -866,6 +863,9 @@
           },
           {
             "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+          },
+          {
+            "apiName": "TFT_Augment_AuraFarming"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
@@ -5855,6 +5855,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-03 06:00:03"
+    "lastUpdated": "2025-10-03 12:00:03"
   }
 }
