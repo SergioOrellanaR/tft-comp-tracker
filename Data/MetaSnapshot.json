@@ -966,9 +966,6 @@
             "apiName": "TFT9_Augment_MissedConnections"
           },
           {
-            "apiName": "TFT15_Augment_TheCrew_SpaceCamp"
-          },
-          {
             "apiName": "TFT_Augment_ShimmerscaleEssence"
           },
           {
@@ -978,7 +975,10 @@
             "apiName": "TFT6_Augment_TradeSector"
           },
           {
-            "apiName": "TFT11_Augment_RainingGold"
+            "apiName": "TFT_Augment_WorthTheWaitGold"
+          },
+          {
+            "apiName": "TFT11_Augment_Buildabud"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crewboy-bebop",
@@ -1928,8 +1928,7 @@
             "apiName": "TFT15_Caitlyn",
             "items": [
               "TFT9_Item_OrnnHorizonFocus",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SpearOfShojin"
+              "TFT4_Item_OrnnMuramana"
             ],
             "stars": 1,
             "championIcon": "tft15_caitlyn_XZ3EnQsdlE.webp",
@@ -1980,6 +1979,20 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-silver-jayce",
         "champions": [
           {
+            "apiName": "TFT15_Caitlyn",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_LastWhisper",
+              "TFT_Item_BlueBuff"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_caitlyn_XZ3EnQsdlE.webp",
+            "cost": 3,
+            "name": "Caitlyn",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Jayce",
             "boardIndex": 13,
             "items": [
@@ -1991,20 +2004,6 @@
             "championIcon": "tft15_jayce_ioAybla6Ac.webp",
             "cost": 3,
             "name": "Jayce",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Caitlyn",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_caitlyn_XZ3EnQsdlE.webp",
-            "cost": 3,
-            "name": "Caitlyn",
             "set": 15
           },
           {
@@ -2024,10 +2023,10 @@
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Jayce",
+          "apiName": "TFT15_Caitlyn",
           "cost": 3,
-          "championIcon": "tft15_jayce_ioAybla6Ac.webp",
-          "name": "Jayce",
+          "championIcon": "tft15_caitlyn_XZ3EnQsdlE.webp",
+          "name": "Caitlyn",
           "set": 15
         },
         "mainItem": {},
@@ -5856,6 +5855,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-03 00:00:03"
+    "lastUpdated": "2025-10-03 06:00:03"
   }
 }
