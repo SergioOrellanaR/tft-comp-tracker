@@ -484,9 +484,7 @@
           {
             "apiName": "TFT15_Akali",
             "items": [
-              "TFT_Item_Leviathan",
-              "TFT_Item_Leviathan",
-              "TFT_Item_SpearOfShojin"
+              "TFT5_Item_LeviathanRadiant"
             ],
             "stars": 1,
             "championIcon": "tft15_akali_oSySVaH0me.webp",
@@ -1418,6 +1416,17 @@
             "cost": 2,
             "name": "Katarina",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Katarina",
+            "items": [
+              "TFT5_Item_HandOfJusticeRadiant"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_katarina_0uuCKv25La.webp",
+            "cost": 2,
+            "name": "Katarina",
+            "set": 15
           }
         ],
         "augments": [
@@ -1431,9 +1440,6 @@
             "apiName": "TFT9_Augment_BardPlaybook3"
           },
           {
-            "apiName": "TFT15_Augment_BattleAcademia_Hero101"
-          },
-          {
             "apiName": "TFT6_Augment_PortableForge"
           },
           {
@@ -1444,6 +1450,9 @@
           },
           {
             "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_SatedSpellweaver"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-executioner-katarina",
@@ -1456,24 +1465,24 @@
               "TFT_Item_UnstableConcoction",
               "TFT_Item_Leviathan"
             ],
-            "stars": 1,
+            "stars": 3,
             "championIcon": "tft15_katarina_0uuCKv25La.webp",
             "cost": 2,
             "name": "Katarina",
             "set": 15
           },
           {
-            "apiName": "TFT15_Leona",
+            "apiName": "TFT15_Rakan",
             "boardIndex": 6,
             "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_BrambleVest",
-              "TFT_Item_DragonsClaw"
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_NightHarvester",
+              "TFT_Item_WarmogsArmor"
             ],
-            "stars": 1,
-            "championIcon": "tft15_leona_FFx1m68T7t.webp",
-            "cost": 4,
-            "name": "Leona",
+            "stars": 3,
+            "championIcon": "tft15_rakan_usHt7rnBv9.webp",
+            "cost": 2,
+            "name": "Rakan",
             "set": 15
           },
           {
@@ -5847,6 +5856,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-02 18:00:03"
+    "lastUpdated": "2025-10-03 00:00:03"
   }
 }
