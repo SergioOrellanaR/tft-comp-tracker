@@ -584,7 +584,8 @@
           {
             "apiName": "TFT15_Kobuko",
             "items": [
-              "TFT_Item_Artifact_UnendingDespair"
+              "TFT_Item_Artifact_UnendingDespair",
+              "TFT_Item_Artifact_HorizonFocus"
             ],
             "stars": 1,
             "championIcon": "tft15_kobuko_74MbAFrqSF.webp",
@@ -595,7 +596,7 @@
           {
             "apiName": "TFT15_Janna",
             "items": [
-              "TFT_Item_Leviathan",
+              "TFT4_Item_OrnnMuramana",
               "TFT_Item_JeweledGauntlet",
               "TFT_Item_MadredsBloodrazor"
             ],
@@ -5855,6 +5856,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-03 18:00:03"
+    "lastUpdated": "2025-10-04 00:00:03"
   }
 }
