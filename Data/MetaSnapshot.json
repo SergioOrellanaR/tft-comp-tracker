@@ -817,133 +817,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Samira",
-            "items": [
-              "TFT_Item_Deathblade",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
-            "cost": 4,
-            "name": "Samira",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_Redemption",
-              "TFT_Item_WarmogsArmor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_SoulFighterCrest"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_SoulSurge"
-          },
-          {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
-          },
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
-          },
-          {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_AuraFarming"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
-        "champions": [
-          {
-            "apiName": "TFT15_Samira",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_LastWhisper",
-              "TFT_Item_InfinityEdge"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
-            "cost": 4,
-            "name": "Samira",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Volibear",
-            "boardIndex": 13,
-            "items": [
-              "TFT15_Item_SoulFighterEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_volibear_03H17SR4Xc.webp",
-            "cost": 4,
-            "name": "Volibear",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_BrambleVest",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_DragonsClaw"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Gwen",
-            "boardIndex": 18,
-            "items": [
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_quYNXXHQ8m.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Samira",
-          "cost": 4,
-          "championIcon": "tft15_samira_UPmG7q2Adz.webp",
-          "name": "Samira",
-          "set": 15
-        },
-        "mainItem": {
-          "apiName": "TFT15_Item_SoulFighterEmblemItem"
-        },
-        "title": "8 Soul Fighter Samira Carry",
-        "style": "Fast 8",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Katarina",
             "items": [
               "TFT4_Item_OrnnZhonyasParadox",
@@ -1052,6 +925,108 @@
         "mainItem": {},
         "title": "Battle Academia Katarina Reroll",
         "style": "RR LV.6",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Yasuo",
+            "items": [
+              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "cost": 3,
+            "name": "Yasuo",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT15_Augment_BastionCrest"
+          },
+          {
+            "apiName": "TFT_Augment_CookingPot"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-yasuo",
+        "champions": [
+          {
+            "apiName": "TFT15_Yasuo",
+            "boardIndex": 13,
+            "items": [
+              "TFT15_Item_BastionEmblemItem",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "cost": 3,
+            "name": "Yasuo",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Swain",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_Redemption",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_swain_GinvIVhB7Z.webp",
+            "cost": 3,
+            "name": "Swain",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KogMaw",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Yasuo",
+          "cost": 3,
+          "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+          "name": "Yasuo",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_BastionEmblemItem"
+        },
+        "title": "Bastion Yasuo Reroll",
+        "style": "Fast 8",
         "tier": "B"
       },
       {
@@ -1178,102 +1153,127 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Yasuo",
+            "apiName": "TFT15_Samira",
             "items": [
-              "TFT9_Item_OrnnHorizonFocus",
+              "TFT_Item_Deathblade",
               "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
+              "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
-            "cost": 3,
-            "name": "Yasuo",
+            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+            "cost": 4,
+            "name": "Samira",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "items": [
+              "TFT_Item_GargoyleStoneplate",
+              "TFT_Item_Redemption",
+              "TFT_Item_WarmogsArmor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "cost": 4,
+            "name": "Sett",
             "set": 15
           }
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT15_Augment_SoulFighterCrest"
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT15_Augment_SoulFighter_SoulSurge"
           },
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT_Augment_ClimbTheLadder2"
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT11_Augment_Slammin"
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT9_Augment_BigGrabBag"
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
           },
           {
-            "apiName": "TFT15_Augment_BastionCrest"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
           },
           {
-            "apiName": "TFT_Augment_CookingPot"
+            "apiName": "TFT_Augment_AuraFarming"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-yasuo",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
         "champions": [
           {
-            "apiName": "TFT15_Yasuo",
-            "boardIndex": 13,
-            "items": [
-              "TFT15_Item_BastionEmblemItem",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
-            "cost": 3,
-            "name": "Yasuo",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Swain",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_Redemption",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_swain_GinvIVhB7Z.webp",
-            "cost": 3,
-            "name": "Swain",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KogMaw",
+            "apiName": "TFT15_Samira",
             "boardIndex": 27,
             "items": [
               "TFT_Item_SpearOfShojin",
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_LastWhisper",
+              "TFT_Item_InfinityEdge"
             ],
-            "stars": 3,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
+            "stars": 1,
+            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+            "cost": 4,
+            "name": "Samira",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 13,
+            "items": [
+              "TFT15_Item_SoulFighterEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_03H17SR4Xc.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Sett",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_BrambleVest",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_DragonsClaw"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "cost": 4,
+            "name": "Sett",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Gwen",
+            "boardIndex": 18,
+            "items": [
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gwen_quYNXXHQ8m.webp",
+            "cost": 5,
+            "name": "Gwen",
             "set": 15
           }
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Yasuo",
-          "cost": 3,
-          "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
-          "name": "Yasuo",
+          "apiName": "TFT15_Samira",
+          "cost": 4,
+          "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+          "name": "Samira",
           "set": 15
         },
         "mainItem": {
-          "apiName": "TFT15_Item_BastionEmblemItem"
+          "apiName": "TFT15_Item_SoulFighterEmblemItem"
         },
-        "title": "Bastion Yasuo Reroll",
+        "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
         "tier": "B"
       },
@@ -5856,6 +5856,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-05 06:00:03"
+    "lastUpdated": "2025-10-05 12:00:03"
   }
 }
