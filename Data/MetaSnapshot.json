@@ -287,10 +287,10 @@
         "champions": [
           {
             "apiName": "TFT15_Senna",
-            "boardIndex": 12,
+            "boardIndex": 11,
             "items": [
               "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_Deathblade",
+              "TFT_Item_SteraksGage",
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 1,
@@ -301,7 +301,7 @@
           },
           {
             "apiName": "TFT15_JarvanIV",
-            "boardIndex": 4,
+            "boardIndex": 5,
             "items": [
               "TFT_Item_FrozenHeart",
               "TFT_Item_FrozenHeart"
@@ -5856,6 +5856,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-06 12:00:03"
+    "lastUpdated": "2025-10-06 18:00:03"
   }
 }
