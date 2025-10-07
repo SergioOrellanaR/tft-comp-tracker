@@ -395,9 +395,6 @@
             "apiName": "TFT_Augment_RiggedShopPlus"
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
-          },
-          {
             "apiName": "TFT10_Augment_HeroicGrabBag"
           },
           {
@@ -405,6 +402,9 @@
           },
           {
             "apiName": "TFT15_Augment_Bastion_RaidBoss"
+          },
+          {
+            "apiName": "TFT_Augment_HeavyIsTheCrown"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kogmaw-trainer-bastion",
@@ -3855,9 +3855,6 @@
             "apiName": "TFT7_Augment_LivingForge"
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
-          },
-          {
             "apiName": "TFT10_Augment_HeroicGrabBag"
           },
           {
@@ -3868,6 +3865,9 @@
           },
           {
             "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_HeavyIsTheCrown"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-monster-trainer-kogmaw",
@@ -5289,9 +5289,6 @@
             "apiName": "TFT_Augment_RiggedShopPlus"
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
-          },
-          {
             "apiName": "TFT10_Augment_HeroicGrabBag"
           },
           {
@@ -5299,6 +5296,9 @@
           },
           {
             "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_HeavyIsTheCrown"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kogmaw-trainer-heavy",
@@ -5866,6 +5866,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-07 06:00:04"
+    "lastUpdated": "2025-10-07 12:00:03"
   }
 }
