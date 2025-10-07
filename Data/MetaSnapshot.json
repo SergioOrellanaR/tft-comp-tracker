@@ -760,6 +760,20 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_KogMaw",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_GuinsoosRageblade"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "cost": 3,
+            "name": "Kog'Maw",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Swain",
             "boardIndex": 5,
             "items": [
@@ -774,17 +788,13 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_KogMaw",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_GuinsoosRageblade"
-            ],
+            "apiName": "TFT15_Shen",
+            "boardIndex": 4,
+            "items": [],
             "stars": 3,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
-            "cost": 3,
-            "name": "Kog'Maw",
+            "championIcon": "tft15_shen_gSwpfObVpf.webp",
+            "cost": 2,
+            "name": "Shen",
             "set": 15
           }
         ],
@@ -5856,6 +5866,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-07 00:00:03"
+    "lastUpdated": "2025-10-07 06:00:04"
   }
 }
