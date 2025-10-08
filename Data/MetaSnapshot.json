@@ -11,7 +11,7 @@
               "TFT_Item_Artifact_HorizonFocus"
             ],
             "stars": 1,
-            "championIcon": "tft15_kobuko_74MbAFrqSF.webp",
+            "championIcon": "tft15_kobuko_uTMW1Ks8ky.webp",
             "cost": 2,
             "name": "Kobuko",
             "set": 15
@@ -24,7 +24,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_janna_pO2VYB4buk.webp",
+            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
             "cost": 2,
             "name": "Janna",
             "set": 15
@@ -67,7 +67,7 @@
               "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
-            "championIcon": "tft15_janna_pO2VYB4buk.webp",
+            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
             "cost": 2,
             "name": "Janna",
             "set": 15
@@ -81,7 +81,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 3,
-            "championIcon": "tft15_kobuko_74MbAFrqSF.webp",
+            "championIcon": "tft15_kobuko_uTMW1Ks8ky.webp",
             "cost": 2,
             "name": "Kobuko",
             "set": 15
@@ -93,7 +93,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -105,7 +105,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
             "cost": 4,
             "name": "Ryze",
             "set": 15
@@ -115,7 +115,7 @@
         "mainChampion": {
           "apiName": "TFT15_Janna",
           "cost": 2,
-          "championIcon": "tft15_janna_pO2VYB4buk.webp",
+          "championIcon": "tft15_janna_5Sk3eiJusk.webp",
           "name": "Janna",
           "set": 15
         },
@@ -134,7 +134,7 @@
               "TFT_Item_Artifact_WitsEnd"
             ],
             "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -147,7 +147,7 @@
               "TFT5_Item_SpearOfShojinRadiant"
             ],
             "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -190,7 +190,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -202,7 +202,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 3,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "championIcon": "tft15_yasuo_kPbatbUj5G.webp",
             "cost": 3,
             "name": "Yasuo",
             "set": 15
@@ -216,7 +216,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 3,
-            "championIcon": "tft15_swain_GinvIVhB7Z.webp",
+            "championIcon": "tft15_swain_ZUSNJL4g13.webp",
             "cost": 3,
             "name": "Swain",
             "set": 15
@@ -228,7 +228,7 @@
         "mainChampion": {
           "apiName": "TFT15_KogMaw",
           "cost": 3,
-          "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+          "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
           "name": "Kog'Maw",
           "set": 15
         },
@@ -247,7 +247,7 @@
               "TFT_Item_Artifact_WitsEnd"
             ],
             "stars": 1,
-            "championIcon": "tft15_katarina_0uuCKv25La.webp",
+            "championIcon": "tft15_katarina_7kipVWeb9S.webp",
             "cost": 2,
             "name": "Katarina",
             "set": 15
@@ -258,7 +258,7 @@
               "TFT5_Item_HandOfJusticeRadiant"
             ],
             "stars": 1,
-            "championIcon": "tft15_katarina_0uuCKv25La.webp",
+            "championIcon": "tft15_katarina_7kipVWeb9S.webp",
             "cost": 2,
             "name": "Katarina",
             "set": 15
@@ -301,7 +301,7 @@
               "TFT_Item_Leviathan"
             ],
             "stars": 3,
-            "championIcon": "tft15_katarina_0uuCKv25La.webp",
+            "championIcon": "tft15_katarina_7kipVWeb9S.webp",
             "cost": 2,
             "name": "Katarina",
             "set": 15
@@ -315,7 +315,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 3,
-            "championIcon": "tft15_rakan_usHt7rnBv9.webp",
+            "championIcon": "tft15_rakan_XNyFz1bRy6.webp",
             "cost": 2,
             "name": "Rakan",
             "set": 15
@@ -329,7 +329,7 @@
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
-            "championIcon": "tft15_yuumi_gzNqLz87Y2.webp",
+            "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
             "cost": 4,
             "name": "Yuumi",
             "set": 15
@@ -341,7 +341,7 @@
         "mainChampion": {
           "apiName": "TFT15_Katarina",
           "cost": 2,
-          "championIcon": "tft15_katarina_0uuCKv25La.webp",
+          "championIcon": "tft15_katarina_7kipVWeb9S.webp",
           "name": "Katarina",
           "set": 15
         },
@@ -359,7 +359,7 @@
               "TFT_Item_Artifact_BlightingJewel"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_xqUehfKSpz.webp",
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
             "cost": 4,
             "name": "Karma",
             "set": 15
@@ -402,7 +402,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 1,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
+            "championIcon": "tft15_senna_Ddtili5jlj.webp",
             "cost": 3,
             "name": "Senna",
             "set": 15
@@ -415,7 +415,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -429,7 +429,7 @@
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_xqUehfKSpz.webp",
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
             "cost": 4,
             "name": "Karma",
             "set": 15
@@ -441,7 +441,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 1,
-            "championIcon": "tft15_yone_uK0FLbDi8x.webp",
+            "championIcon": "tft15_yone_u0ubNByUF2.webp",
             "cost": 5,
             "name": "Yone",
             "set": 15
@@ -451,7 +451,7 @@
         "mainChampion": {
           "apiName": "TFT15_Galio",
           "cost": 0,
-          "championIcon": "tft15_galio_CeU0HR23Ms.webp",
+          "championIcon": "tft15_galio_ZzkrzIZsmK.webp",
           "name": "The Mighty Mech",
           "set": 15
         },
@@ -470,7 +470,7 @@
               "TFT_Item_InfinityEdge"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -483,7 +483,7 @@
               "TFT_Item_Crownguard"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
             "cost": 4,
             "name": "Poppy",
             "set": 15
@@ -526,7 +526,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -538,7 +538,7 @@
               "TFT_Item_SpectralGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -552,7 +552,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
             "cost": 4,
             "name": "Poppy",
             "set": 15
@@ -564,7 +564,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 1,
-            "championIcon": "tft15_seraphine_NN7mMkx1vJ.webp",
+            "championIcon": "tft15_seraphine_bBlvRWHjUk.webp",
             "cost": 5,
             "name": "Seraphine",
             "set": 15
@@ -574,7 +574,7 @@
         "mainChampion": {
           "apiName": "TFT15_Jinx",
           "cost": 4,
-          "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+          "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
           "name": "Jinx",
           "set": 15
         },
@@ -596,7 +596,7 @@
               "TFT_Item_Artifact_Dawncore"
             ],
             "stars": 1,
-            "championIcon": "tft15_akali_oSySVaH0me.webp",
+            "championIcon": "tft15_akali_RDEHeibKu0.webp",
             "cost": 4,
             "name": "Akali",
             "set": 15
@@ -607,7 +607,7 @@
               "TFT5_Item_LeviathanRadiant"
             ],
             "stars": 1,
-            "championIcon": "tft15_akali_oSySVaH0me.webp",
+            "championIcon": "tft15_akali_RDEHeibKu0.webp",
             "cost": 4,
             "name": "Akali",
             "set": 15
@@ -650,7 +650,7 @@
               "TFT_Item_Quicksilver"
             ],
             "stars": 1,
-            "championIcon": "tft15_akali_oSySVaH0me.webp",
+            "championIcon": "tft15_akali_RDEHeibKu0.webp",
             "cost": 4,
             "name": "Akali",
             "set": 15
@@ -664,7 +664,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -678,7 +678,7 @@
               "TFT_Item_ArchangelsStaff"
             ],
             "stars": 1,
-            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
             "cost": 4,
             "name": "Ryze",
             "set": 15
@@ -688,7 +688,7 @@
         "mainChampion": {
           "apiName": "TFT15_Akali",
           "cost": 4,
-          "championIcon": "tft15_akali_oSySVaH0me.webp",
+          "championIcon": "tft15_akali_RDEHeibKu0.webp",
           "name": "Akali",
           "set": 15
         },
@@ -709,7 +709,7 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "championIcon": "tft15_yasuo_kPbatbUj5G.webp",
             "cost": 3,
             "name": "Yasuo",
             "set": 15
@@ -752,7 +752,7 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "championIcon": "tft15_yasuo_kPbatbUj5G.webp",
             "cost": 3,
             "name": "Yasuo",
             "set": 15
@@ -766,7 +766,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -780,7 +780,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_swain_GinvIVhB7Z.webp",
+            "championIcon": "tft15_swain_ZUSNJL4g13.webp",
             "cost": 3,
             "name": "Swain",
             "set": 15
@@ -790,7 +790,7 @@
             "boardIndex": 4,
             "items": [],
             "stars": 3,
-            "championIcon": "tft15_shen_gSwpfObVpf.webp",
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
             "cost": 2,
             "name": "Shen",
             "set": 15
@@ -800,7 +800,7 @@
         "mainChampion": {
           "apiName": "TFT15_Yasuo",
           "cost": 3,
-          "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+          "championIcon": "tft15_yasuo_kPbatbUj5G.webp",
           "name": "Yasuo",
           "set": 15
         },
@@ -821,7 +821,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+            "championIcon": "tft15_samira_NEXitL7G05.webp",
             "cost": 4,
             "name": "Samira",
             "set": 15
@@ -834,7 +834,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "championIcon": "tft15_sett_Q4MuDXHHzA.webp",
             "cost": 4,
             "name": "Sett",
             "set": 15
@@ -877,7 +877,7 @@
               "TFT_Item_InfinityEdge"
             ],
             "stars": 1,
-            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+            "championIcon": "tft15_samira_NEXitL7G05.webp",
             "cost": 4,
             "name": "Samira",
             "set": 15
@@ -889,7 +889,7 @@
               "TFT15_Item_SoulFighterEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_volibear_03H17SR4Xc.webp",
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
             "cost": 4,
             "name": "Volibear",
             "set": 15
@@ -903,7 +903,7 @@
               "TFT_Item_DragonsClaw"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "championIcon": "tft15_sett_Q4MuDXHHzA.webp",
             "cost": 4,
             "name": "Sett",
             "set": 15
@@ -917,7 +917,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_gwen_quYNXXHQ8m.webp",
+            "championIcon": "tft15_gwen_6MIlMtCsFs.webp",
             "cost": 5,
             "name": "Gwen",
             "set": 15
@@ -927,7 +927,7 @@
         "mainChampion": {
           "apiName": "TFT15_Samira",
           "cost": 4,
-          "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+          "championIcon": "tft15_samira_NEXitL7G05.webp",
           "name": "Samira",
           "set": 15
         },
@@ -947,7 +947,7 @@
               "TFT7_Item_ShimmerscaleMogulsMail"
             ],
             "stars": 1,
-            "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+            "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
             "cost": 1,
             "name": "Malphite",
             "set": 15
@@ -986,7 +986,7 @@
             "boardIndex": 21,
             "items": [],
             "stars": 3,
-            "championIcon": "tft15_sivir_wdPkawphmx.webp",
+            "championIcon": "tft15_sivir_ZrUUvwyvOI.webp",
             "cost": 1,
             "name": "Sivir",
             "set": 15
@@ -1000,7 +1000,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 3,
-            "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+            "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
             "cost": 1,
             "name": "Malphite",
             "set": 15
@@ -1012,7 +1012,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 3,
-            "championIcon": "tft15_shen_gSwpfObVpf.webp",
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
             "cost": 2,
             "name": "Shen",
             "set": 15
@@ -1026,7 +1026,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_ziggs_shBszX7szX.webp",
+            "championIcon": "tft15_ziggs_iFWjOGvArI.webp",
             "cost": 3,
             "name": "Ziggs",
             "set": 15
@@ -1040,7 +1040,7 @@
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
-            "championIcon": "tft15_twisted_fate_7uScrUxqeN.webp",
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
             "cost": 5,
             "name": "Twisted Fate",
             "set": 15
@@ -1050,7 +1050,7 @@
         "mainChampion": {
           "apiName": "TFT15_Sivir",
           "cost": 1,
-          "championIcon": "tft15_sivir_wdPkawphmx.webp",
+          "championIcon": "tft15_sivir_ZrUUvwyvOI.webp",
           "name": "Sivir",
           "set": 15
         },
@@ -1069,7 +1069,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 1,
-            "championIcon": "tft15_garen_eTrahQ5OUS.webp",
+            "championIcon": "tft15_garen_HlYdjKVaS0.webp",
             "cost": 1,
             "name": "Garen",
             "set": 15
@@ -1082,7 +1082,7 @@
               "TFT_Item_HextechGunblade"
             ],
             "stars": 1,
-            "championIcon": "tft15_yuumi_gzNqLz87Y2.webp",
+            "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
             "cost": 4,
             "name": "Yuumi",
             "set": 15
@@ -1125,7 +1125,7 @@
               "TFT_Item_HextechGunblade"
             ],
             "stars": 1,
-            "championIcon": "tft15_yuumi_gzNqLz87Y2.webp",
+            "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
             "cost": 4,
             "name": "Yuumi",
             "set": 15
@@ -1138,7 +1138,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
             "cost": 3,
             "name": "Malzahar",
             "set": 15
@@ -1152,7 +1152,7 @@
               "TFT_Item_NightHarvester"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -1166,7 +1166,7 @@
               "TFT_Item_Crownguard"
             ],
             "stars": 1,
-            "championIcon": "tft15_leona_FFx1m68T7t.webp",
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
             "set": 15
@@ -1176,7 +1176,7 @@
         "mainChampion": {
           "apiName": "TFT15_Yuumi",
           "cost": 4,
-          "championIcon": "tft15_yuumi_gzNqLz87Y2.webp",
+          "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
           "name": "Yuumi",
           "set": 15
         },
@@ -1195,7 +1195,7 @@
               "TFT4_Item_OrnnZhonyasParadox"
             ],
             "stars": 1,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
             "cost": 1,
             "name": "Kayle",
             "set": 15
@@ -1208,7 +1208,7 @@
               "TFT5_Item_GuinsoosRagebladeRadiant"
             ],
             "stars": 1,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
             "cost": 1,
             "name": "Kayle",
             "set": 15
@@ -1251,7 +1251,7 @@
               "TFT_Item_RapidFireCannon"
             ],
             "stars": 3,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
             "cost": 1,
             "name": "Kayle",
             "set": 15
@@ -1265,7 +1265,7 @@
               "TFT_Item_GargoyleStoneplate"
             ],
             "stars": 3,
-            "championIcon": "tft15_zac_o9tkqASn1u.webp",
+            "championIcon": "tft15_zac_R7LdWEeJDr.webp",
             "cost": 1,
             "name": "Zac",
             "set": 15
@@ -1279,7 +1279,7 @@
               "TFT_Item_LastWhisper"
             ],
             "stars": 1,
-            "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
+            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
             "cost": 5,
             "name": "Varus",
             "set": 15
@@ -1289,7 +1289,7 @@
         "mainChampion": {
           "apiName": "TFT15_Kayle",
           "cost": 1,
-          "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+          "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
           "name": "Kayle",
           "set": 15
         },
@@ -1307,7 +1307,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
@@ -1350,7 +1350,7 @@
               "TFT_Item_SpearOfShojin"
             ],
             "stars": 1,
-            "championIcon": "tft15_zyra_pmfl5GDVC3.webp",
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
             "cost": 5,
             "name": "Zyra",
             "set": 15
@@ -1362,7 +1362,7 @@
               "TFT15_Item_CrystalRoseEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -1376,7 +1376,7 @@
               "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
-            "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
@@ -1390,7 +1390,7 @@
               "TFT_Item_SpectralGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -1400,7 +1400,7 @@
         "mainChampion": {
           "apiName": "TFT15_Zyra",
           "cost": 5,
-          "championIcon": "tft15_zyra_pmfl5GDVC3.webp",
+          "championIcon": "tft15_zyra_WeFnGxBine.webp",
           "name": "Zyra",
           "set": 15
         },
@@ -1419,7 +1419,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
             "cost": 2,
             "name": "Xayah",
             "set": 15
@@ -1428,7 +1428,7 @@
             "apiName": "TFT15_Volibear",
             "items": [],
             "stars": 1,
-            "championIcon": "tft15_volibear_03H17SR4Xc.webp",
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
             "cost": 4,
             "name": "Volibear",
             "set": 15
@@ -1471,7 +1471,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
             "cost": 2,
             "name": "Xayah",
             "set": 15
@@ -1485,7 +1485,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 3,
-            "championIcon": "tft15_shen_gSwpfObVpf.webp",
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
             "cost": 2,
             "name": "Shen",
             "set": 15
@@ -1495,7 +1495,7 @@
         "mainChampion": {
           "apiName": "TFT15_Xayah",
           "cost": 2,
-          "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+          "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
           "name": "Xayah",
           "set": 15
         },
@@ -1510,11 +1510,10 @@
             "apiName": "TFT15_DrMundo",
             "items": [
               "TFT_Item_Artifact_InnervatingLocket",
-              "TFT9_Item_OrnnHullbreaker",
-              "TFT_Item_Artifact_TalismanOfAscension"
+              "TFT7_Item_ShimmerscaleMogulsMail"
             ],
             "stars": 1,
-            "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+            "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
             "cost": 2,
             "name": "Dr. Mundo",
             "set": 15
@@ -1522,12 +1521,10 @@
           {
             "apiName": "TFT15_Jhin",
             "items": [
-              "TFT_Item_Artifact_Fishbones",
-              "TFT_Item_Artifact_LudensTempest",
               "TFT4_Item_OrnnTheCollector"
             ],
             "stars": 1,
-            "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
             "cost": 2,
             "name": "Jhin",
             "set": 15
@@ -1570,7 +1567,7 @@
               "TFT_Item_Deathblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
             "cost": 2,
             "name": "Jhin",
             "set": 15
@@ -1583,7 +1580,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_gnar_OQsDMIWTwU.webp",
+            "championIcon": "tft15_gnar_6LzH0E2Taz.webp",
             "cost": 1,
             "name": "Gnar",
             "set": 15
@@ -1597,7 +1594,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+            "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
             "cost": 2,
             "name": "Dr. Mundo",
             "set": 15
@@ -1609,7 +1606,7 @@
         "mainChampion": {
           "apiName": "TFT15_Jhin",
           "cost": 2,
-          "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+          "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
           "name": "Jhin",
           "set": 15
         },
@@ -1628,7 +1625,7 @@
               "TFT4_Item_OrnnMuramana"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_xqUehfKSpz.webp",
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
             "cost": 4,
             "name": "Karma",
             "set": 15
@@ -1671,7 +1668,7 @@
               "TFT_Item_JeweledGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_xqUehfKSpz.webp",
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
             "cost": 4,
             "name": "Karma",
             "set": 15
@@ -1685,7 +1682,7 @@
               "TFT_Item_NightHarvester"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -1699,7 +1696,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_gwen_quYNXXHQ8m.webp",
+            "championIcon": "tft15_gwen_6MIlMtCsFs.webp",
             "cost": 5,
             "name": "Gwen",
             "set": 15
@@ -1709,7 +1706,7 @@
         "mainChampion": {
           "apiName": "TFT15_Karma",
           "cost": 4,
-          "championIcon": "tft15_karma_xqUehfKSpz.webp",
+          "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
           "name": "Karma",
           "set": 15
         },
@@ -1726,7 +1723,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
             "cost": 4,
             "name": "Ryze",
             "set": 15
@@ -1769,7 +1766,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
             "cost": 4,
             "name": "Ryze",
             "set": 15
@@ -1781,7 +1778,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -1795,7 +1792,7 @@
               "TFT_Item_GuardianAngel"
             ],
             "stars": 1,
-            "championIcon": "tft15_volibear_03H17SR4Xc.webp",
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
             "cost": 4,
             "name": "Volibear",
             "set": 15
@@ -1805,7 +1802,7 @@
         "mainChampion": {
           "apiName": "TFT15_Ryze",
           "cost": 4,
-          "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+          "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
           "name": "Ryze",
           "set": 15
         },
@@ -1824,7 +1821,7 @@
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
             "cost": 3,
             "name": "Malzahar",
             "set": 15
@@ -1867,7 +1864,7 @@
               "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
-            "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
             "cost": 3,
             "name": "Malzahar",
             "set": 15
@@ -1881,7 +1878,7 @@
               "TFT_Item_UnstableConcoction"
             ],
             "stars": 3,
-            "championIcon": "tft15_darius_KqS1x0r5lO.webp",
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
             "cost": 3,
             "name": "Darius",
             "set": 15
@@ -1895,7 +1892,7 @@
               "TFT_Item_BrambleVest"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
             "cost": 4,
             "name": "Poppy",
             "set": 15
@@ -1905,7 +1902,7 @@
         "mainChampion": {
           "apiName": "TFT15_Malzahar",
           "cost": 3,
-          "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
           "name": "Malzahar",
           "set": 15
         },
@@ -1923,7 +1920,7 @@
               "TFT4_Item_OrnnMuramana"
             ],
             "stars": 1,
-            "championIcon": "tft15_caitlyn_XZ3EnQsdlE.webp",
+            "championIcon": "tft15_caitlyn_SYPEYe2EUi.webp",
             "cost": 3,
             "name": "Caitlyn",
             "set": 15
@@ -1936,7 +1933,7 @@
               "TFT_Item_SteraksGage"
             ],
             "stars": 1,
-            "championIcon": "tft15_jayce_ioAybla6Ac.webp",
+            "championIcon": "tft15_jayce_qRHoj02oyh.webp",
             "cost": 3,
             "name": "Jayce",
             "set": 15
@@ -1979,7 +1976,7 @@
               "TFT_Item_BlueBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_caitlyn_XZ3EnQsdlE.webp",
+            "championIcon": "tft15_caitlyn_SYPEYe2EUi.webp",
             "cost": 3,
             "name": "Caitlyn",
             "set": 15
@@ -1993,7 +1990,7 @@
               "TFT_Item_TitansResolve"
             ],
             "stars": 3,
-            "championIcon": "tft15_jayce_ioAybla6Ac.webp",
+            "championIcon": "tft15_jayce_qRHoj02oyh.webp",
             "cost": 3,
             "name": "Jayce",
             "set": 15
@@ -2007,7 +2004,7 @@
               "TFT_Item_DragonsClaw"
             ],
             "stars": 1,
-            "championIcon": "tft15_leona_FFx1m68T7t.webp",
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
             "set": 15
@@ -2017,7 +2014,7 @@
         "mainChampion": {
           "apiName": "TFT15_Caitlyn",
           "cost": 3,
-          "championIcon": "tft15_caitlyn_XZ3EnQsdlE.webp",
+          "championIcon": "tft15_caitlyn_SYPEYe2EUi.webp",
           "name": "Caitlyn",
           "set": 15
         },
@@ -2036,7 +2033,7 @@
               "TFT_Item_Artifact_RapidFirecannon"
             ],
             "stars": 1,
-            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+            "championIcon": "tft15_viego_dLdXoUJA1e.webp",
             "cost": 3,
             "name": "Viego",
             "set": 15
@@ -2049,7 +2046,7 @@
               "TFT_Item_Artifact_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+            "championIcon": "tft15_viego_dLdXoUJA1e.webp",
             "cost": 3,
             "name": "Viego",
             "set": 15
@@ -2092,7 +2089,7 @@
               "TFT_Item_JeweledGauntlet"
             ],
             "stars": 3,
-            "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+            "championIcon": "tft15_viego_dLdXoUJA1e.webp",
             "cost": 3,
             "name": "Viego",
             "set": 15
@@ -2106,7 +2103,7 @@
               "TFT_Item_InfinityEdge"
             ],
             "stars": 1,
-            "championIcon": "tft15_samira_UPmG7q2Adz.webp",
+            "championIcon": "tft15_samira_NEXitL7G05.webp",
             "cost": 4,
             "name": "Samira",
             "set": 15
@@ -2120,7 +2117,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "championIcon": "tft15_sett_Q4MuDXHHzA.webp",
             "cost": 4,
             "name": "Sett",
             "set": 15
@@ -2132,7 +2129,7 @@
         "mainChampion": {
           "apiName": "TFT15_Viego",
           "cost": 3,
-          "championIcon": "tft15_viego_WRUKbOwuWg.webp",
+          "championIcon": "tft15_viego_dLdXoUJA1e.webp",
           "name": "Viego",
           "set": 15
         },
@@ -2151,7 +2148,7 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -2164,7 +2161,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -2207,7 +2204,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -2219,7 +2216,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 3,
-            "championIcon": "tft15_jayce_ioAybla6Ac.webp",
+            "championIcon": "tft15_jayce_qRHoj02oyh.webp",
             "cost": 3,
             "name": "Jayce",
             "set": 15
@@ -2233,7 +2230,7 @@
               "TFT_Item_UnstableConcoction"
             ],
             "stars": 3,
-            "championIcon": "tft15_darius_KqS1x0r5lO.webp",
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
             "cost": 3,
             "name": "Darius",
             "set": 15
@@ -2247,7 +2244,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
             "cost": 4,
             "name": "Poppy",
             "set": 15
@@ -2257,7 +2254,7 @@
         "mainChampion": {
           "apiName": "TFT15_Smolder",
           "cost": 3,
-          "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+          "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
           "name": "Smolder",
           "set": 15
         },
@@ -2269,23 +2266,12 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Braum",
-            "items": [
-              "TFT_Item_Artifact_SuspiciousTrenchCoat"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_dLIV7eCvei.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_TwistedFate",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
-            "championIcon": "tft15_twisted_fate_7uScrUxqeN.webp",
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
             "cost": 5,
             "name": "Twisted Fate",
             "set": 15
@@ -2326,7 +2312,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 1,
-            "championIcon": "tft15_braum_dLIV7eCvei.webp",
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
             "cost": 5,
             "name": "Braum",
             "set": 15
@@ -2340,7 +2326,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 1,
-            "championIcon": "tft15_leona_FFx1m68T7t.webp",
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
             "set": 15
@@ -2354,7 +2340,7 @@
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
-            "championIcon": "tft15_gwen_quYNXXHQ8m.webp",
+            "championIcon": "tft15_gwen_6MIlMtCsFs.webp",
             "cost": 5,
             "name": "Gwen",
             "set": 15
@@ -2368,7 +2354,7 @@
               "TFT_Item_HextechGunblade"
             ],
             "stars": 1,
-            "championIcon": "tft15_twisted_fate_7uScrUxqeN.webp",
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
             "cost": 5,
             "name": "Twisted Fate",
             "set": 15
@@ -2382,7 +2368,7 @@
               "TFT_Item_JeweledGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_zyra_pmfl5GDVC3.webp",
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
             "cost": 5,
             "name": "Zyra",
             "set": 15
@@ -2392,7 +2378,7 @@
         "mainChampion": {
           "apiName": "TFT15_Braum",
           "cost": 5,
-          "championIcon": "tft15_braum_dLIV7eCvei.webp",
+          "championIcon": "tft15_braum_mDoqnN1ncU.webp",
           "name": "Braum",
           "set": 15
         },
@@ -2409,7 +2395,7 @@
               "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
-            "championIcon": "tft15_twisted_fate_7uScrUxqeN.webp",
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
             "cost": 5,
             "name": "Twisted Fate",
             "set": 15
@@ -2452,7 +2438,7 @@
               "TFT_Item_BlueBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
+            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
             "cost": 5,
             "name": "Varus",
             "set": 15
@@ -2464,7 +2450,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -2478,7 +2464,7 @@
               "TFT_Item_BrambleVest"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -2490,7 +2476,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_braum_dLIV7eCvei.webp",
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
             "cost": 5,
             "name": "Braum",
             "set": 15
@@ -2503,7 +2489,7 @@
               "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 1,
-            "championIcon": "tft15_zyra_pmfl5GDVC3.webp",
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
             "cost": 5,
             "name": "Zyra",
             "set": 15
@@ -2513,7 +2499,7 @@
         "mainChampion": {
           "apiName": "TFT15_Varus",
           "cost": 5,
-          "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
+          "championIcon": "tft15_varus_RKpDP6wbbD.webp",
           "name": "Varus",
           "set": 15
         },
@@ -2532,7 +2518,7 @@
               "TFT9_Item_OrnnHorizonFocus"
             ],
             "stars": 1,
-            "championIcon": "tft15_kai_sa_eQGyZJeKZM.webp",
+            "championIcon": "tft15_kai_sa_tpBna7cuua.webp",
             "cost": 2,
             "name": "Kai'Sa",
             "set": 15
@@ -2545,7 +2531,7 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_kai_sa_eQGyZJeKZM.webp",
+            "championIcon": "tft15_kai_sa_tpBna7cuua.webp",
             "cost": 2,
             "name": "Kai'Sa",
             "set": 15
@@ -2588,7 +2574,7 @@
               "TFT_Item_BlueBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_kai_sa_eQGyZJeKZM.webp",
+            "championIcon": "tft15_kai_sa_tpBna7cuua.webp",
             "cost": 2,
             "name": "Kai'Sa",
             "set": 15
@@ -2602,7 +2588,7 @@
               "TFT_Item_UnstableConcoction"
             ],
             "stars": 3,
-            "championIcon": "tft15_darius_KqS1x0r5lO.webp",
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
             "cost": 3,
             "name": "Darius",
             "set": 15
@@ -2616,7 +2602,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_rammus_ReSxa1GuAX.webp",
+            "championIcon": "tft15_rammus_xCBHYQIs2x.webp",
             "cost": 3,
             "name": "Rammus",
             "set": 15
@@ -2626,7 +2612,7 @@
         "mainChampion": {
           "apiName": "TFT15_KaiSa",
           "cost": 2,
-          "championIcon": "tft15_kai_sa_eQGyZJeKZM.webp",
+          "championIcon": "tft15_kai_sa_tpBna7cuua.webp",
           "name": "Kai'Sa",
           "set": 15
         },
@@ -2645,7 +2631,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
@@ -2688,7 +2674,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 1,
-            "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
@@ -2700,7 +2686,7 @@
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
             "cost": 1,
             "name": "Kayle",
             "set": 15
@@ -2714,7 +2700,7 @@
               "TFT_Item_TitansResolve"
             ],
             "stars": 3,
-            "championIcon": "tft15_udyr_j0naq9FoJf.webp",
+            "championIcon": "tft15_udyr_B49GVzlQLv.webp",
             "cost": 3,
             "name": "Udyr",
             "set": 15
@@ -2727,7 +2713,7 @@
               "TFT_Item_SpectralGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "championIcon": "tft15_sett_Q4MuDXHHzA.webp",
             "cost": 4,
             "name": "Sett",
             "set": 15
@@ -2741,7 +2727,7 @@
               "TFT_Item_UnstableConcoction"
             ],
             "stars": 1,
-            "championIcon": "tft15_lee_sin_c7F8WI3lis.webp",
+            "championIcon": "tft15_lee_sin_GuBbxaeX0e.webp",
             "cost": 5,
             "name": "Lee Sin",
             "set": 15
@@ -2751,7 +2737,7 @@
         "mainChampion": {
           "apiName": "TFT15_Ashe",
           "cost": 4,
-          "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+          "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
           "name": "Ashe",
           "set": 15
         },
@@ -2768,7 +2754,7 @@
               "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
-            "championIcon": "tft15_shen_gSwpfObVpf.webp",
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
             "cost": 2,
             "name": "Shen",
             "set": 15
@@ -2811,7 +2797,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_shen_gSwpfObVpf.webp",
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
             "cost": 2,
             "name": "Shen",
             "set": 15
@@ -2825,7 +2811,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 3,
-            "championIcon": "tft15_xin_zhao_qWrLYYokuS.webp",
+            "championIcon": "tft15_xin_zhao_VwhptDRNGN.webp",
             "cost": 2,
             "name": "Xin Zhao",
             "set": 15
@@ -2837,7 +2823,7 @@
               "TFT_Item_LastWhisper"
             ],
             "stars": 1,
-            "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
             "cost": 2,
             "name": "Xayah",
             "set": 15
@@ -2849,7 +2835,7 @@
         "mainChampion": {
           "apiName": "TFT15_Shen",
           "cost": 2,
-          "championIcon": "tft15_shen_gSwpfObVpf.webp",
+          "championIcon": "tft15_shen_BAV77uE26x.webp",
           "name": "Shen",
           "set": 15
         },
@@ -2867,7 +2853,7 @@
               "TFT_Item_Artifact_InnervatingLocket"
             ],
             "stars": 1,
-            "championIcon": "tft15_garen_eTrahQ5OUS.webp",
+            "championIcon": "tft15_garen_HlYdjKVaS0.webp",
             "cost": 1,
             "name": "Garen",
             "set": 15
@@ -2910,7 +2896,7 @@
               "TFT_Item_SpearOfShojin"
             ],
             "stars": 3,
-            "championIcon": "tft15_garen_eTrahQ5OUS.webp",
+            "championIcon": "tft15_garen_HlYdjKVaS0.webp",
             "cost": 1,
             "name": "Garen",
             "set": 15
@@ -2924,7 +2910,7 @@
               "TFT_Item_SpectralGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_leona_FFx1m68T7t.webp",
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
             "set": 15
@@ -2938,7 +2924,7 @@
               "TFT_Item_JeweledGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_yuumi_gzNqLz87Y2.webp",
+            "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
             "cost": 4,
             "name": "Yuumi",
             "set": 15
@@ -2950,7 +2936,7 @@
         "mainChampion": {
           "apiName": "TFT15_Garen",
           "cost": 1,
-          "championIcon": "tft15_garen_eTrahQ5OUS.webp",
+          "championIcon": "tft15_garen_HlYdjKVaS0.webp",
           "name": "Garen",
           "set": 15
         },
@@ -2968,7 +2954,7 @@
               "TFT9_Item_OrnnHorizonFocus"
             ],
             "stars": 1,
-            "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+            "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
             "cost": 2,
             "name": "Dr. Mundo",
             "set": 15
@@ -3011,7 +2997,7 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
-            "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+            "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
             "cost": 2,
             "name": "Dr. Mundo",
             "set": 15
@@ -3025,7 +3011,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 3,
-            "championIcon": "tft15_vi_3s9xXTsfHj.webp",
+            "championIcon": "tft15_vi_4Vn7a4vyy6.webp",
             "cost": 2,
             "name": "Vi",
             "set": 15
@@ -3037,7 +3023,7 @@
         "mainChampion": {
           "apiName": "TFT15_DrMundo",
           "cost": 2,
-          "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+          "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
           "name": "Dr. Mundo",
           "set": 15
         },
@@ -3055,7 +3041,7 @@
               "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
-            "championIcon": "tft15_kennen_wckENHTzU5.webp",
+            "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
             "cost": 1,
             "name": "Kennen",
             "set": 15
@@ -3098,7 +3084,7 @@
               "TFT_Item_Leviathan"
             ],
             "stars": 3,
-            "championIcon": "tft15_kennen_wckENHTzU5.webp",
+            "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
             "cost": 1,
             "name": "Kennen",
             "set": 15
@@ -3111,7 +3097,7 @@
               "TFT_Item_ArchangelsStaff"
             ],
             "stars": 3,
-            "championIcon": "tft15_janna_pO2VYB4buk.webp",
+            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
             "cost": 2,
             "name": "Janna",
             "set": 15
@@ -3125,7 +3111,7 @@
               "TFT_Item_NightHarvester"
             ],
             "stars": 3,
-            "championIcon": "tft15_rakan_usHt7rnBv9.webp",
+            "championIcon": "tft15_rakan_XNyFz1bRy6.webp",
             "cost": 2,
             "name": "Rakan",
             "set": 15
@@ -3137,7 +3123,7 @@
         "mainChampion": {
           "apiName": "TFT15_Kennen",
           "cost": 1,
-          "championIcon": "tft15_kennen_wckENHTzU5.webp",
+          "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
           "name": "Kennen",
           "set": 15
         },
@@ -3156,7 +3142,7 @@
               "TFT_Item_Artifact_HorizonFocus"
             ],
             "stars": 1,
-            "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+            "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
             "cost": 1,
             "name": "Malphite",
             "set": 15
@@ -3169,7 +3155,7 @@
               "TFT_Item_Leviathan"
             ],
             "stars": 1,
-            "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+            "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
             "cost": 1,
             "name": "Malphite",
             "set": 15
@@ -3212,7 +3198,7 @@
               "TFT_Item_SpearOfShojin"
             ],
             "stars": 3,
-            "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+            "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
             "cost": 1,
             "name": "Malphite",
             "set": 15
@@ -3226,7 +3212,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 3,
-            "championIcon": "tft15_shen_gSwpfObVpf.webp",
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
             "cost": 2,
             "name": "Shen",
             "set": 15
@@ -3240,7 +3226,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 3,
-            "championIcon": "tft15_ziggs_shBszX7szX.webp",
+            "championIcon": "tft15_ziggs_iFWjOGvArI.webp",
             "cost": 3,
             "name": "Ziggs",
             "set": 15
@@ -3250,7 +3236,7 @@
             "boardIndex": 21,
             "items": [],
             "stars": 3,
-            "championIcon": "tft15_sivir_wdPkawphmx.webp",
+            "championIcon": "tft15_sivir_ZrUUvwyvOI.webp",
             "cost": 1,
             "name": "Sivir",
             "set": 15
@@ -3262,7 +3248,7 @@
         "mainChampion": {
           "apiName": "TFT15_Malphite",
           "cost": 1,
-          "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+          "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
           "name": "Malphite",
           "set": 15
         },
@@ -3277,11 +3263,10 @@
             "apiName": "TFT15_Vi",
             "items": [
               "TFT_Item_Artifact_SilvermereDawn",
-              "TFT_Item_Artifact_SuspiciousTrenchCoat",
               "TFT9_Item_OrnnHorizonFocus"
             ],
             "stars": 1,
-            "championIcon": "tft15_vi_3s9xXTsfHj.webp",
+            "championIcon": "tft15_vi_4Vn7a4vyy6.webp",
             "cost": 2,
             "name": "Vi",
             "set": 15
@@ -3324,7 +3309,7 @@
               "TFT_Item_InfinityEdge"
             ],
             "stars": 3,
-            "championIcon": "tft15_vi_3s9xXTsfHj.webp",
+            "championIcon": "tft15_vi_4Vn7a4vyy6.webp",
             "cost": 2,
             "name": "Vi",
             "set": 15
@@ -3338,7 +3323,7 @@
               "TFT_Item_SpectralGauntlet"
             ],
             "stars": 3,
-            "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+            "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
             "cost": 2,
             "name": "Dr. Mundo",
             "set": 15
@@ -3352,7 +3337,7 @@
               "TFT_Item_Deathblade"
             ],
             "stars": 1,
-            "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
             "cost": 2,
             "name": "Jhin",
             "set": 15
@@ -3364,7 +3349,7 @@
         "mainChampion": {
           "apiName": "TFT15_Vi",
           "cost": 2,
-          "championIcon": "tft15_vi_3s9xXTsfHj.webp",
+          "championIcon": "tft15_vi_4Vn7a4vyy6.webp",
           "name": "Vi",
           "set": 15
         },
@@ -3383,7 +3368,7 @@
               "TFT_Item_GuardianAngel"
             ],
             "stars": 1,
-            "championIcon": "tft15_neeko_HnLj8CsRwj.webp",
+            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
             "cost": 3,
             "name": "Neeko",
             "set": 15
@@ -3396,7 +3381,7 @@
               "TFT4_Item_OrnnZhonyasParadox"
             ],
             "stars": 1,
-            "championIcon": "tft15_neeko_HnLj8CsRwj.webp",
+            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
             "cost": 3,
             "name": "Neeko",
             "set": 15
@@ -3439,7 +3424,7 @@
               "TFT_Item_GuardianAngel"
             ],
             "stars": 3,
-            "championIcon": "tft15_neeko_HnLj8CsRwj.webp",
+            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
             "cost": 3,
             "name": "Neeko",
             "set": 15
@@ -3453,7 +3438,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_janna_pO2VYB4buk.webp",
+            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
             "cost": 2,
             "name": "Janna",
             "set": 15
@@ -3467,7 +3452,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -3479,7 +3464,7 @@
         "mainChampion": {
           "apiName": "TFT15_Neeko",
           "cost": 3,
-          "championIcon": "tft15_neeko_HnLj8CsRwj.webp",
+          "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
           "name": "Neeko",
           "set": 15
         },
@@ -3496,7 +3481,7 @@
               "TFT4_Item_OrnnZhonyasParadox"
             ],
             "stars": 1,
-            "championIcon": "tft15_zac_o9tkqASn1u.webp",
+            "championIcon": "tft15_zac_R7LdWEeJDr.webp",
             "cost": 1,
             "name": "Zac",
             "set": 15
@@ -3539,7 +3524,7 @@
               "TFT_Item_GuardianAngel"
             ],
             "stars": 3,
-            "championIcon": "tft15_zac_o9tkqASn1u.webp",
+            "championIcon": "tft15_zac_R7LdWEeJDr.webp",
             "cost": 1,
             "name": "Zac",
             "set": 15
@@ -3551,7 +3536,7 @@
               "TFT_Item_RapidFireCannon"
             ],
             "stars": 1,
-            "championIcon": "tft15_kayle_5S5t2Z0VCd.webp",
+            "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
             "cost": 1,
             "name": "Kayle",
             "set": 15
@@ -3565,7 +3550,7 @@
               "TFT_Item_IonicSpark"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -3579,7 +3564,7 @@
               "TFT_Item_LastWhisper"
             ],
             "stars": 1,
-            "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
+            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
             "cost": 5,
             "name": "Varus",
             "set": 15
@@ -3591,7 +3576,7 @@
         "mainChampion": {
           "apiName": "TFT15_Zac",
           "cost": 1,
-          "championIcon": "tft15_zac_o9tkqASn1u.webp",
+          "championIcon": "tft15_zac_R7LdWEeJDr.webp",
           "name": "Zac",
           "set": 15
         },
@@ -3609,7 +3594,7 @@
               "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -3651,7 +3636,7 @@
               "TFT_Item_LastWhisper"
             ],
             "stars": 1,
-            "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
+            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
             "cost": 5,
             "name": "Varus",
             "set": 15
@@ -3665,7 +3650,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -3679,7 +3664,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 1,
-            "championIcon": "tft15_leona_FFx1m68T7t.webp",
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
             "set": 15
@@ -3689,7 +3674,7 @@
         "mainChampion": {
           "apiName": "TFT15_Varus",
           "cost": 5,
-          "championIcon": "tft15_varus_AUDbaKl6dQ.webp",
+          "championIcon": "tft15_varus_RKpDP6wbbD.webp",
           "name": "Varus",
           "set": 15
         },
@@ -3710,7 +3695,7 @@
               "TFT_Item_Artifact_WitsEnd"
             ],
             "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -3723,7 +3708,7 @@
               "TFT5_Item_SpearOfShojinRadiant"
             ],
             "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -3766,7 +3751,7 @@
               "TFT_Item_SpearOfShojin"
             ],
             "stars": 3,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -3779,7 +3764,7 @@
               "TFT_Item_ArchangelsStaff"
             ],
             "stars": 3,
-            "championIcon": "tft15_janna_pO2VYB4buk.webp",
+            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
             "cost": 2,
             "name": "Janna",
             "set": 15
@@ -3793,7 +3778,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 3,
-            "championIcon": "tft15_neeko_HnLj8CsRwj.webp",
+            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
             "cost": 3,
             "name": "Neeko",
             "set": 15
@@ -3805,7 +3790,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -3817,7 +3802,7 @@
         "mainChampion": {
           "apiName": "TFT15_KogMaw",
           "cost": 3,
-          "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+          "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
           "name": "Kog'Maw",
           "set": 15
         },
@@ -3836,7 +3821,7 @@
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
             "cost": 3,
             "name": "Malzahar",
             "set": 15
@@ -3879,7 +3864,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 3,
-            "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
             "cost": 3,
             "name": "Malzahar",
             "set": 15
@@ -3893,7 +3878,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 3,
-            "championIcon": "tft15_rammus_ReSxa1GuAX.webp",
+            "championIcon": "tft15_rammus_xCBHYQIs2x.webp",
             "cost": 3,
             "name": "Rammus",
             "set": 15
@@ -3905,7 +3890,7 @@
               "TFT_Item_RapidFireCannon"
             ],
             "stars": 1,
-            "championIcon": "tft15_yuumi_gzNqLz87Y2.webp",
+            "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
             "cost": 4,
             "name": "Yuumi",
             "set": 15
@@ -3918,7 +3903,7 @@
               "TFT_Flex_2"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -3928,7 +3913,7 @@
         "mainChampion": {
           "apiName": "TFT15_Malzahar",
           "cost": 3,
-          "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
           "name": "Malzahar",
           "set": 15
         },
@@ -3948,7 +3933,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
@@ -3961,7 +3946,7 @@
               "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
-            "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
@@ -4004,7 +3989,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
             "name": "Ashe",
             "set": 15
@@ -4018,7 +4003,7 @@
               "TFT_Item_BrambleVest"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "championIcon": "tft15_sett_Q4MuDXHHzA.webp",
             "cost": 4,
             "name": "Sett",
             "set": 15
@@ -4031,7 +4016,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_zyra_pmfl5GDVC3.webp",
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
             "cost": 5,
             "name": "Zyra",
             "set": 15
@@ -4041,7 +4026,7 @@
         "mainChampion": {
           "apiName": "TFT15_Ashe",
           "cost": 4,
-          "championIcon": "tft15_ashe_PM4yHydfwm.webp",
+          "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
           "name": "Ashe",
           "set": 15
         },
@@ -4059,7 +4044,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
             "cost": 2,
             "name": "Xayah",
             "set": 15
@@ -4070,7 +4055,7 @@
               "TFT15_Item_ProtectorEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -4113,7 +4098,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
             "cost": 2,
             "name": "Xayah",
             "set": 15
@@ -4127,7 +4112,7 @@
               "TFT_Item_GargoyleStoneplate"
             ],
             "stars": 3,
-            "championIcon": "tft15_rakan_usHt7rnBv9.webp",
+            "championIcon": "tft15_rakan_XNyFz1bRy6.webp",
             "cost": 2,
             "name": "Rakan",
             "set": 15
@@ -4140,7 +4125,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -4150,7 +4135,7 @@
         "mainChampion": {
           "apiName": "TFT15_Xayah",
           "cost": 2,
-          "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+          "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
           "name": "Xayah",
           "set": 15
         },
@@ -4167,7 +4152,7 @@
               "TFT_Item_Artifact_UnendingDespair"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
             "cost": 4,
             "name": "Poppy",
             "set": 15
@@ -4210,7 +4195,7 @@
               "TFT_Item_SpearOfShojin"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -4223,7 +4208,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_ksante_9YWRCtExd3.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
             "cost": 4,
             "name": "K'Sante",
             "set": 15
@@ -4237,7 +4222,7 @@
               "TFT_Item_SteraksGage"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
             "cost": 4,
             "name": "Poppy",
             "set": 15
@@ -4249,7 +4234,7 @@
         "mainChampion": {
           "apiName": "TFT15_Jinx",
           "cost": 4,
-          "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+          "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
           "name": "Jinx",
           "set": 15
         },
@@ -4268,7 +4253,7 @@
               "TFT_Item_Artifact_TalismanOfAscension"
             ],
             "stars": 1,
-            "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+            "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
             "cost": 2,
             "name": "Dr. Mundo",
             "set": 15
@@ -4281,7 +4266,7 @@
               "TFT4_Item_OrnnTheCollector"
             ],
             "stars": 1,
-            "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
             "cost": 2,
             "name": "Jhin",
             "set": 15
@@ -4324,7 +4309,7 @@
               "TFT_Item_Deathblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
             "cost": 2,
             "name": "Jhin",
             "set": 15
@@ -4336,7 +4321,7 @@
               "TFT_Item_ThiefsGloves"
             ],
             "stars": 3,
-            "championIcon": "tft15_vi_3s9xXTsfHj.webp",
+            "championIcon": "tft15_vi_4Vn7a4vyy6.webp",
             "cost": 2,
             "name": "Vi",
             "set": 15
@@ -4350,7 +4335,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_dr_mundo_19mrFvFUSj.webp",
+            "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
             "cost": 2,
             "name": "Dr. Mundo",
             "set": 15
@@ -4362,7 +4347,7 @@
               "TFT15_Item_JuggernautEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_lee_sin_c7F8WI3lis.webp",
+            "championIcon": "tft15_lee_sin_GuBbxaeX0e.webp",
             "cost": 5,
             "name": "Lee Sin",
             "set": 15
@@ -4372,7 +4357,7 @@
         "mainChampion": {
           "apiName": "TFT15_Jhin",
           "cost": 2,
-          "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+          "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
           "name": "Jhin",
           "set": 15
         },
@@ -4391,7 +4376,7 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 1,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -4404,7 +4389,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -4447,7 +4432,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -4461,7 +4446,7 @@
               "TFT_Item_NightHarvester"
             ],
             "stars": 3,
-            "championIcon": "tft15_xin_zhao_qWrLYYokuS.webp",
+            "championIcon": "tft15_xin_zhao_VwhptDRNGN.webp",
             "cost": 2,
             "name": "Xin Zhao",
             "set": 15
@@ -4471,7 +4456,7 @@
         "mainChampion": {
           "apiName": "TFT15_Smolder",
           "cost": 3,
-          "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+          "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
           "name": "Smolder",
           "set": 15
         },
@@ -4490,7 +4475,7 @@
               "TFT9_Item_OrnnHorizonFocus"
             ],
             "stars": 1,
-            "championIcon": "tft15_kai_sa_eQGyZJeKZM.webp",
+            "championIcon": "tft15_kai_sa_tpBna7cuua.webp",
             "cost": 2,
             "name": "Kai'Sa",
             "set": 15
@@ -4533,7 +4518,7 @@
               "TFT_Item_BlueBuff"
             ],
             "stars": 3,
-            "championIcon": "tft15_kai_sa_eQGyZJeKZM.webp",
+            "championIcon": "tft15_kai_sa_tpBna7cuua.webp",
             "cost": 2,
             "name": "Kai'Sa",
             "set": 15
@@ -4547,7 +4532,7 @@
               "TFT_Item_DragonsClaw"
             ],
             "stars": 3,
-            "championIcon": "tft15_kobuko_74MbAFrqSF.webp",
+            "championIcon": "tft15_kobuko_uTMW1Ks8ky.webp",
             "cost": 2,
             "name": "Kobuko",
             "set": 15
@@ -4561,7 +4546,7 @@
               "TFT_Item_UnstableConcoction"
             ],
             "stars": 3,
-            "championIcon": "tft15_darius_KqS1x0r5lO.webp",
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
             "cost": 3,
             "name": "Darius",
             "set": 15
@@ -4571,7 +4556,7 @@
         "mainChampion": {
           "apiName": "TFT15_KaiSa",
           "cost": 2,
-          "championIcon": "tft15_kai_sa_eQGyZJeKZM.webp",
+          "championIcon": "tft15_kai_sa_tpBna7cuua.webp",
           "name": "Kai'Sa",
           "set": 15
         },
@@ -4588,7 +4573,7 @@
               "TFT7_Item_ShimmerscaleMogulsMail"
             ],
             "stars": 1,
-            "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+            "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
             "cost": 1,
             "name": "Malphite",
             "set": 15
@@ -4600,7 +4585,7 @@
               "TFT_Item_Artifact_LudensTempest"
             ],
             "stars": 1,
-            "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
             "cost": 2,
             "name": "Jhin",
             "set": 15
@@ -4639,7 +4624,7 @@
             "boardIndex": 21,
             "items": [],
             "stars": 3,
-            "championIcon": "tft15_sivir_wdPkawphmx.webp",
+            "championIcon": "tft15_sivir_ZrUUvwyvOI.webp",
             "cost": 1,
             "name": "Sivir",
             "set": 15
@@ -4653,7 +4638,7 @@
               "TFT_Item_Redemption"
             ],
             "stars": 3,
-            "championIcon": "tft15_malphite_V8d2uf2B3c.webp",
+            "championIcon": "tft15_malphite_eUs4E48ceZ.webp",
             "cost": 1,
             "name": "Malphite",
             "set": 15
@@ -4667,7 +4652,7 @@
               "TFT_Item_PowerGauntlet"
             ],
             "stars": 3,
-            "championIcon": "tft15_jhin_HHNQMBzEuI.webp",
+            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
             "cost": 2,
             "name": "Jhin",
             "set": 15
@@ -4681,7 +4666,7 @@
               "TFT_Item_LastWhisper"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -4691,7 +4676,7 @@
             "boardIndex": 26,
             "items": [],
             "stars": 3,
-            "championIcon": "tft15_gnar_OQsDMIWTwU.webp",
+            "championIcon": "tft15_gnar_6LzH0E2Taz.webp",
             "cost": 1,
             "name": "Gnar",
             "set": 15
@@ -4701,7 +4686,7 @@
         "mainChampion": {
           "apiName": "TFT15_Sivir",
           "cost": 1,
-          "championIcon": "tft15_sivir_wdPkawphmx.webp",
+          "championIcon": "tft15_sivir_ZrUUvwyvOI.webp",
           "name": "Sivir",
           "set": 15
         },
@@ -4719,7 +4704,7 @@
               "TFT4_Item_OrnnTheCollector"
             ],
             "stars": 1,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
+            "championIcon": "tft15_senna_Ddtili5jlj.webp",
             "cost": 3,
             "name": "Senna",
             "set": 15
@@ -4761,7 +4746,7 @@
               "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
-            "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
             "cost": 4,
             "name": "Ryze",
             "set": 15
@@ -4775,7 +4760,7 @@
               "TFT_Item_Deathblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
+            "championIcon": "tft15_senna_Ddtili5jlj.webp",
             "cost": 3,
             "name": "Senna",
             "set": 15
@@ -4789,7 +4774,7 @@
               "TFT_Item_UnstableConcoction"
             ],
             "stars": 3,
-            "championIcon": "tft15_yasuo_qBB3oNfOMx.webp",
+            "championIcon": "tft15_yasuo_kPbatbUj5G.webp",
             "cost": 3,
             "name": "Yasuo",
             "set": 15
@@ -4801,7 +4786,7 @@
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -4811,7 +4796,7 @@
         "mainChampion": {
           "apiName": "TFT15_Ryze",
           "cost": 4,
-          "championIcon": "tft15_ryze_pXBbqWLNsd.webp",
+          "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
           "name": "Ryze",
           "set": 15
         },
@@ -4829,7 +4814,7 @@
               "TFT15_Item_DestroyerEmblemItem"
             ],
             "stars": 1,
-            "championIcon": "tft15_lucian_oisCjQac0u.webp",
+            "championIcon": "tft15_lucian_b4P6xGK7PI.webp",
             "cost": 1,
             "name": "Lucian",
             "set": 15
@@ -4872,7 +4857,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_lucian_oisCjQac0u.webp",
+            "championIcon": "tft15_lucian_b4P6xGK7PI.webp",
             "cost": 1,
             "name": "Lucian",
             "set": 15
@@ -4886,7 +4871,7 @@
               "TFT_Item_RapidFireCannon"
             ],
             "stars": 3,
-            "championIcon": "tft15_senna_aNYBR8fBHh.webp",
+            "championIcon": "tft15_senna_Ddtili5jlj.webp",
             "cost": 3,
             "name": "Senna",
             "set": 15
@@ -4899,7 +4884,7 @@
               "TFT_Item_IonicSpark"
             ],
             "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HLyYbO6ZLk.webp",
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
@@ -4909,7 +4894,7 @@
         "mainChampion": {
           "apiName": "TFT15_Galio",
           "cost": 0,
-          "championIcon": "tft15_galio_CeU0HR23Ms.webp",
+          "championIcon": "tft15_galio_ZzkrzIZsmK.webp",
           "name": "The Mighty Mech",
           "set": 15
         },
@@ -4927,7 +4912,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
             "cost": 2,
             "name": "Xayah",
             "set": 15
@@ -4970,7 +4955,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
             "cost": 2,
             "name": "Xayah",
             "set": 15
@@ -4984,7 +4969,7 @@
               "TFT_Item_GargoyleStoneplate"
             ],
             "stars": 3,
-            "championIcon": "tft15_rakan_usHt7rnBv9.webp",
+            "championIcon": "tft15_rakan_XNyFz1bRy6.webp",
             "cost": 2,
             "name": "Rakan",
             "set": 15
@@ -4997,7 +4982,7 @@
               "TFT_Item_RedBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_rakan_usHt7rnBv9.webp",
+            "championIcon": "tft15_rakan_XNyFz1bRy6.webp",
             "cost": 2,
             "name": "Rakan",
             "set": 15
@@ -5009,7 +4994,7 @@
         "mainChampion": {
           "apiName": "TFT15_Xayah",
           "cost": 2,
-          "championIcon": "tft15_xayah_1beASWFHbJ.webp",
+          "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
           "name": "Xayah",
           "set": 15
         },
@@ -5028,7 +5013,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 1,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -5041,7 +5026,7 @@
               "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -5084,7 +5069,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
             "cost": 3,
             "name": "Smolder",
             "set": 15
@@ -5098,7 +5083,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 1,
-            "championIcon": "tft15_sett_HoOk9NGozK.webp",
+            "championIcon": "tft15_sett_Q4MuDXHHzA.webp",
             "cost": 4,
             "name": "Sett",
             "set": 15
@@ -5112,7 +5097,7 @@
               "TFT_Item_GuardianAngel"
             ],
             "stars": 1,
-            "championIcon": "tft15_lee_sin_c7F8WI3lis.webp",
+            "championIcon": "tft15_lee_sin_GuBbxaeX0e.webp",
             "cost": 5,
             "name": "Lee Sin",
             "set": 15
@@ -5122,7 +5107,7 @@
         "mainChampion": {
           "apiName": "TFT15_Smolder",
           "cost": 3,
-          "championIcon": "tft15_smolder_izZTH6CwNu.webp",
+          "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
           "name": "Smolder",
           "set": 15
         },
@@ -5141,7 +5126,7 @@
               "TFT_Item_Artifact_LichBane"
             ],
             "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -5154,7 +5139,7 @@
               "TFT5_Item_SpearOfShojinRadiant"
             ],
             "stars": 1,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -5197,7 +5182,7 @@
               "TFT_Item_GuinsoosRageblade"
             ],
             "stars": 3,
-            "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+            "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
             "cost": 3,
             "name": "Kog'Maw",
             "set": 15
@@ -5211,7 +5196,7 @@
               "TFT_Item_NightHarvester"
             ],
             "stars": 3,
-            "championIcon": "tft15_kobuko_74MbAFrqSF.webp",
+            "championIcon": "tft15_kobuko_uTMW1Ks8ky.webp",
             "cost": 2,
             "name": "Kobuko",
             "set": 15
@@ -5225,7 +5210,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 3,
-            "championIcon": "tft15_darius_KqS1x0r5lO.webp",
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
             "cost": 3,
             "name": "Darius",
             "set": 15
@@ -5237,7 +5222,7 @@
         "mainChampion": {
           "apiName": "TFT15_KogMaw",
           "cost": 3,
-          "championIcon": "tft15_kog_maw_CGcgbzFLvl.webp",
+          "championIcon": "tft15_kog_maw_X0uuTcFhee.webp",
           "name": "Kog'Maw",
           "set": 15
         },
@@ -5285,7 +5270,7 @@
               "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
             "cost": 3,
             "name": "Malzahar",
             "set": 15
@@ -5299,7 +5284,7 @@
               "TFT_Item_MadredsBloodrazor"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -5313,7 +5298,7 @@
               "TFT_Item_SteraksGage"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_HsyY3Fy0w6.webp",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
             "cost": 4,
             "name": "Poppy",
             "set": 15
@@ -5323,7 +5308,7 @@
         "mainChampion": {
           "apiName": "TFT15_Malzahar",
           "cost": 3,
-          "championIcon": "tft15_malzahar_fPDIKDKCMY.webp",
+          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
           "name": "Malzahar",
           "set": 15
         },
@@ -5371,7 +5356,7 @@
               "TFT_Item_SpearOfShojin"
             ],
             "stars": 1,
-            "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+            "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
             "cost": 4,
             "name": "Jinx",
             "set": 15
@@ -5385,7 +5370,7 @@
               "TFT_Item_WarmogsArmor"
             ],
             "stars": 1,
-            "championIcon": "tft15_leona_FFx1m68T7t.webp",
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
             "set": 15
@@ -5397,7 +5382,7 @@
         "mainChampion": {
           "apiName": "TFT15_Jinx",
           "cost": 4,
-          "championIcon": "tft15_jinx_gQ4sqC0gZH.webp",
+          "championIcon": "tft15_jinx_DrpFpVlM4Z.webp",
           "name": "Jinx",
           "set": 15
         },
@@ -5412,338 +5397,333 @@
         {
           "apiName": "TFT_Item_ArchangelsStaff",
           "name": "Archangel's Staff",
-          "icon": "tft_item_archangels_staff_uHk426A2uF.webp"
+          "icon": "tft_item_archangels_staff_s0mNAr32WD.webp"
         },
         {
           "apiName": "TFT_Item_Bloodthirster",
           "name": "Bloodthirster",
-          "icon": "tft_item_bloodthirster_kGZqBVUzhr.webp"
+          "icon": "tft_item_bloodthirster_4rUVUEnO6X.webp"
         },
         {
           "apiName": "TFT_Item_BlueBuff",
           "name": "Blue Buff",
-          "icon": "tft_item_blue_buff_hFEX9Wtezb.webp"
+          "icon": "tft_item_blue_buff_j2UJdXiUZf.webp"
         },
         {
           "apiName": "TFT_Item_BrambleVest",
           "name": "Bramble Vest",
-          "icon": "tft_item_bramble_vest_7qtCL3rCg4.webp"
+          "icon": "tft_item_bramble_vest_ozx5RZrSBe.webp"
         },
         {
           "apiName": "TFT_Item_Crownguard",
           "name": "Crownguard",
-          "icon": "tft_item_crownguard_nqbNMG5Z4n.webp"
+          "icon": "tft_item_crownguard_zDELl9K4Tg.webp"
         },
         {
           "apiName": "TFT_Item_Deathblade",
           "name": "Deathblade",
-          "icon": "tft_item_deathblade_Tvdzp85Cen.webp"
+          "icon": "tft_item_deathblade_1vADOeOAlu.webp"
         },
         {
           "apiName": "TFT_Item_DragonsClaw",
           "name": "Dragon's Claw",
-          "icon": "tft_item_dragons_claw_AEJnv7Bi18.webp"
+          "icon": "tft_item_dragons_claw_0aS3EkbNji.webp"
         },
         {
           "apiName": "TFT_Item_GuardianAngel",
           "name": "Edge of Night",
-          "icon": "tft_item_guardian_angel_xulXEGMS5S.webp"
+          "icon": "tft_item_guardian_angel_uMovdQhRDg.webp"
         },
         {
           "apiName": "TFT_Item_SpectralGauntlet",
           "name": "Evenshroud",
-          "icon": "tft_item_spectral_gauntlet_vLI3nlTpJd.webp"
+          "icon": "tft_item_spectral_gauntlet_uwFo3uMMkA.webp"
         },
         {
           "apiName": "TFT_Item_GargoyleStoneplate",
           "name": "Gargoyle Stoneplate",
-          "icon": "tft_item_gargoyle_stoneplate_BCE71uVuJM.webp"
+          "icon": "tft_item_gargoyle_stoneplate_xFQrtGxs2i.webp"
         },
         {
           "apiName": "TFT_Item_MadredsBloodrazor",
           "name": "Giant Slayer",
-          "icon": "tft_item_madreds_bloodrazor_VmDNVz1wXA.webp"
+          "icon": "tft_item_madreds_bloodrazor_svaPXAegGh.webp"
         },
         {
           "apiName": "TFT_Item_GuinsoosRageblade",
           "name": "Guinsoo's Rageblade",
-          "icon": "tft_item_guinsoos_rageblade_mvVcyANuYQ.webp"
+          "icon": "tft_item_guinsoos_rageblade_mYXdAN3EIV.webp"
         },
         {
           "apiName": "TFT_Item_UnstableConcoction",
           "name": "Hand Of Justice",
-          "icon": "tft_item_unstable_concoction_jrIGjFLi1O.webp"
+          "icon": "tft_item_unstable_concoction_6553i0NyXd.webp"
         },
         {
           "apiName": "TFT_Item_HextechGunblade",
           "name": "Hextech Gunblade",
-          "icon": "tft_item_hextech_gunblade_wfURtYYmPX.webp"
+          "icon": "tft_item_hextech_gunblade_4YjacjTW1l.webp"
         },
         {
           "apiName": "TFT_Item_InfinityEdge",
           "name": "Infinity Edge",
-          "icon": "tft_item_infinity_edge_2PpO2SRhXx.webp"
+          "icon": "tft_item_infinity_edge_GkxYHfeldu.webp"
         },
         {
           "apiName": "TFT_Item_IonicSpark",
           "name": "Ionic Spark",
-          "icon": "tft_item_ionic_spark_BwbxDcKO35.webp"
+          "icon": "tft_item_ionic_spark_r5shUdArn3.webp"
         },
         {
           "apiName": "TFT_Item_JeweledGauntlet",
           "name": "Jeweled Gauntlet",
-          "icon": "tft_item_jeweled_gauntlet_TAc6QCMy1e.webp"
+          "icon": "tft_item_jeweled_gauntlet_xD9KXjoLiH.webp"
         },
         {
           "apiName": "TFT_Item_RunaansHurricane",
           "name": "Kraken's Fury",
-          "icon": "tft_item_runaans_hurricane_aynNBUgPKu.webp"
+          "icon": "tft_item_runaans_hurricane_aRBqhiTHqX.webp"
         },
         {
           "apiName": "TFT_Item_LastWhisper",
           "name": "Last Whisper",
-          "icon": "tft_item_last_whisper_LM2pPFR00a.webp"
+          "icon": "tft_item_last_whisper_7EOupXN6pG.webp"
         },
         {
           "apiName": "TFT_Item_Morellonomicon",
           "name": "Morellonomicon",
-          "icon": "tft_item_morellonomicon_6RiXwQB7lj.webp"
+          "icon": "tft_item_morellonomicon_tBsLId5w3l.webp"
         },
         {
           "apiName": "TFT_Item_Leviathan",
           "name": "Nashor's Tooth",
-          "icon": "tft_item_leviathan_ZYzxaZJYAR.webp"
+          "icon": "tft_item_leviathan_Bnb9vaGQNo.webp"
         },
         {
           "apiName": "TFT_Item_FrozenHeart",
           "name": "Protector's Vow",
-          "icon": "tft_item_frozen_heart_WRSrBThB2v.webp"
+          "icon": "tft_item_frozen_heart_cbBeG6HeKU.webp"
         },
         {
           "apiName": "TFT_Item_Quicksilver",
           "name": "Quicksilver",
-          "icon": "tft_item_quicksilver_BGfUJAuW5x.webp"
+          "icon": "tft_item_quicksilver_dhuLZRPkmJ.webp"
         },
         {
           "apiName": "TFT_Item_RabadonsDeathcap",
           "name": "Rabadon's Deathcap",
-          "icon": "tft_item_rabadons_deathcap_kPZ4A26eSq.webp"
+          "icon": "tft_item_rabadons_deathcap_uVuT0MJ8wp.webp"
         },
         {
           "apiName": "TFT_Item_RapidFireCannon",
           "name": "Red Buff",
-          "icon": "tft_item_rapid_fire_cannon_I5mJcoi7ll.webp"
+          "icon": "tft_item_rapid_fire_cannon_BspIj6MJze.webp"
         },
         {
           "apiName": "TFT_Item_SpearOfShojin",
           "name": "Spear of Shojin",
-          "icon": "tft_item_spear_of_shojin_g2PrSziVgp.webp"
+          "icon": "tft_item_spear_of_shojin_8fYHiMHMDw.webp"
         },
         {
           "apiName": "TFT_Item_Redemption",
           "name": "Spirit Visage",
-          "icon": "tft_item_redemption_5Sw9Ztcqsd.webp"
+          "icon": "tft_item_redemption_kcsdC2Bh2f.webp"
         },
         {
           "apiName": "TFT_Item_NightHarvester",
           "name": "Steadfast Heart",
-          "icon": "tft_item_night_harvester_JwCXZJKbVX.webp"
+          "icon": "tft_item_night_harvester_NCKbWZyblQ.webp"
         },
         {
           "apiName": "TFT_Item_SteraksGage",
           "name": "Sterak's Gage",
-          "icon": "tft_item_steraks_gage_VGUhOZarIK.webp"
+          "icon": "tft_item_steraks_gage_WpHkwZvgNx.webp"
         },
         {
           "apiName": "TFT_Item_PowerGauntlet",
           "name": "Striker's Flail",
-          "icon": "tft_item_power_gauntlet_xpKRGFpqBV.webp"
+          "icon": "tft_item_power_gauntlet_jZUrjPcal5.webp"
         },
         {
           "apiName": "TFT_Item_RedBuff",
           "name": "Sunfire Cape",
-          "icon": "tft_item_red_buff_0aGMdIQ9Vy.webp"
+          "icon": "tft_item_red_buff_eeUDoHUfoz.webp"
         },
         {
           "apiName": "TFT_Item_ThiefsGloves",
           "name": "Thief's Gloves",
-          "icon": "tft_item_thiefs_gloves_52BsSeTaJs.webp"
+          "icon": "tft_item_thiefs_gloves_zRh9sxG6ZE.webp"
         },
         {
           "apiName": "TFT_Item_TitansResolve",
           "name": "Titan's Resolve",
-          "icon": "tft_item_titans_resolve_rOTUfiON0h.webp"
+          "icon": "tft_item_titans_resolve_PvaBSJbqD5.webp"
         },
         {
           "apiName": "TFT_Item_StatikkShiv",
           "name": "Void Staff",
-          "icon": "tft_item_statikk_shiv_ADfB0wiyEE.webp"
+          "icon": "tft_item_statikk_shiv_FtmZmk2Blj.webp"
         },
         {
           "apiName": "TFT_Item_WarmogsArmor",
           "name": "Warmog's Armor",
-          "icon": "tft_item_warmogs_armor_napKfZKHiM.webp"
+          "icon": "tft_item_warmogs_armor_pKhwDlqiOQ.webp"
         }
       ],
       "artifact": [
         {
           "apiName": "TFT_Item_Artifact_BlightingJewel",
           "name": "Blighting Jewel",
-          "icon": "tft_item_artifact_blighting_jewel_gFx1DLH0KX.webp"
+          "icon": "tft_item_artifact_blighting_jewel_ZS6A0eMg2h.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_Dawncore",
           "name": "Dawncore",
-          "icon": "tft_item_artifact_dawncore_Hsy4aDIiAe.webp"
+          "icon": "tft_item_artifact_dawncore_4lEMf9swFA.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_Fishbones",
           "name": "Fishbones",
-          "icon": "tft_item_artifact_fishbones_k70SgmpZBc.webp"
+          "icon": "tft_item_artifact_fishbones_yozkIK8yF2.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_NavoriFlickerblades",
           "name": "Flickerblades",
-          "icon": "tft_item_artifact_navori_flickerblades_Llnodj29ei.webp"
+          "icon": "tft_item_artifact_navori_flickerblades_txdTIWapV2.webp"
         },
         {
           "apiName": "TFT4_Item_OrnnTheCollector",
           "name": "Gold Collector",
-          "icon": "tft4_item_ornn_the_collector_7wm4UsO5VC.webp"
+          "icon": "tft4_item_ornn_the_collector_kK8FJN8fjA.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_HorizonFocus",
           "name": "Horizon Focus",
-          "icon": "tft_item_artifact_horizon_focus_rzpWzJ0UGi.webp"
+          "icon": "tft_item_artifact_horizon_focus_VOIzNwry3f.webp"
         },
         {
           "apiName": "TFT9_Item_OrnnHullbreaker",
           "name": "Hullcrusher",
-          "icon": "tft9_item_ornn_hullbreaker_o9SXHeilc2.webp"
+          "icon": "tft9_item_ornn_hullbreaker_dxYaRmg3aP.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_InnervatingLocket",
           "name": "Innervating Locket",
-          "icon": "tft_item_artifact_innervating_locket_t1CKD8lSIG.webp"
+          "icon": "tft_item_artifact_innervating_locket_SghNa1E9If.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_LichBane",
           "name": "Lich Bane",
-          "icon": "tft_item_artifact_lich_bane_HbeFp6SQ9N.webp"
+          "icon": "tft_item_artifact_lich_bane_xNBMsgoHFn.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_LudensTempest",
           "name": "Luden's Tempest",
-          "icon": "tft_item_artifact_ludens_tempest_lEj28r2tqd.webp"
+          "icon": "tft_item_artifact_ludens_tempest_jqDbCn7Se2.webp"
         },
         {
           "apiName": "TFT4_Item_OrnnMuramana",
           "name": "Manazane",
-          "icon": "tft4_item_ornn_muramana_JB8Mz15dql.webp"
+          "icon": "tft4_item_ornn_muramana_MNuEZwPaSU.webp"
         },
         {
           "apiName": "TFT7_Item_ShimmerscaleMogulsMail",
           "name": "Mogul's Mail",
-          "icon": "tft7_item_shimmerscale_moguls_mail_L7pPczyF9h.webp"
+          "icon": "tft7_item_shimmerscale_moguls_mail_rK4GJsH3nK.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_RapidFirecannon",
           "name": "Rapid Firecannon",
-          "icon": "tft_item_artifact_rapid_firecannon_srdlcuDrao.webp"
+          "icon": "tft_item_artifact_rapid_firecannon_BKhL4cj4nu.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_SilvermereDawn",
           "name": "Silvermere Dawn",
-          "icon": "tft_item_artifact_silvermere_dawn_3t4dQzb1f0.webp"
+          "icon": "tft_item_artifact_silvermere_dawn_7b2JS3JddP.webp"
         },
         {
           "apiName": "TFT9_Item_OrnnHorizonFocus",
           "name": "Sniper's Focus",
-          "icon": "tft9_item_ornn_horizon_focus_3uuTWmFtG4.webp"
+          "icon": "tft9_item_ornn_horizon_focus_mtRSUwJbOI.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_StatikkShiv",
           "name": "Statikk Shiv",
-          "icon": "tft_item_artifact_statikk_shiv_E37fpcnYiR.webp"
-        },
-        {
-          "apiName": "TFT_Item_Artifact_SuspiciousTrenchCoat",
-          "name": "Suspicious Trench Coat",
-          "icon": "tft_item_artifact_suspicious_trench_coat_irZCGsFCN5.webp"
+          "icon": "tft_item_artifact_statikk_shiv_8uPSpM6xnA.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_TalismanOfAscension",
           "name": "Talisman Of Ascension",
-          "icon": "tft_item_artifact_talisman_of_ascension_xqVcHRMQxV.webp"
+          "icon": "tft_item_artifact_talisman_of_ascension_E1phEubbXy.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_UnendingDespair",
           "name": "Unending Despair",
-          "icon": "tft_item_artifact_unending_despair_MczFjIeN93.webp"
+          "icon": "tft_item_artifact_unending_despair_mjdWaSF7Ez.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_WitsEnd",
           "name": "Wit's End",
-          "icon": "tft_item_artifact_wits_end_tyiCzAlIkx.webp"
+          "icon": "tft_item_artifact_wits_end_vP9217eBuX.webp"
         },
         {
           "apiName": "TFT4_Item_OrnnZhonyasParadox",
           "name": "Zhonya's Paradox",
-          "icon": "tft4_item_ornn_zhonyas_paradox_pfiASxMpMG.webp"
+          "icon": "tft4_item_ornn_zhonyas_paradox_EpFiKsHzrj.webp"
         }
       ],
       "emblem": [
         {
           "apiName": "TFT15_Item_BastionEmblemItem",
           "name": "Bastion Emblem",
-          "icon": "tft15_item_bastion_emblem_item_hS0ict3FFy.webp"
+          "icon": "tft15_item_bastion_emblem_item_ZrZJZgg1m2.webp"
         },
         {
           "apiName": "TFT15_Item_CrystalRoseEmblemItem",
           "name": "Crystal Gambit Emblem",
-          "icon": "tft15_item_crystal_rose_emblem_item_95f4ioHt4h.webp"
+          "icon": "tft15_item_crystal_rose_emblem_item_I7YCW2HkbY.webp"
         },
         {
           "apiName": "TFT15_Item_DestroyerEmblemItem",
           "name": "Executioner Emblem",
-          "icon": "tft15_item_destroyer_emblem_item_NwpDhDCe1x.webp"
+          "icon": "tft15_item_destroyer_emblem_item_CjCtMhIWlE.webp"
         },
         {
           "apiName": "TFT15_Item_JuggernautEmblemItem",
           "name": "Juggernaut Emblem",
-          "icon": "tft15_item_juggernaut_emblem_item_IpBXvbbNIS.webp"
+          "icon": "tft15_item_juggernaut_emblem_item_Eoaca9BDVO.webp"
         },
         {
           "apiName": "TFT15_Item_ProtectorEmblemItem",
           "name": "Protector Emblem",
-          "icon": "tft15_item_protector_emblem_item_Qmk8laSgtF.webp"
+          "icon": "tft15_item_protector_emblem_item_oDzI8y4vKl.webp"
         },
         {
           "apiName": "TFT15_Item_SniperEmblemItem",
           "name": "Sniper Emblem",
-          "icon": "tft15_item_sniper_emblem_item_5iJZ4enBG1.webp"
+          "icon": "tft15_item_sniper_emblem_item_vlaziQOm2Y.webp"
         },
         {
           "apiName": "TFT15_Item_SoulFighterEmblemItem",
           "name": "Soul Fighter Emblem",
-          "icon": "tft15_item_soul_fighter_emblem_item_uIEGeajjoD.webp"
+          "icon": "tft15_item_soul_fighter_emblem_item_SVgJ6z102J.webp"
         },
         {
           "apiName": "TFT15_Item_StarGuardianEmblemItem",
           "name": "Star Guardian Emblem",
-          "icon": "tft15_item_star_guardian_emblem_item_61W6WsK4xv.webp"
+          "icon": "tft15_item_star_guardian_emblem_item_3wMmyRmeHU.webp"
         },
         {
           "apiName": "TFT15_Item_SupremeCellsEmblemItem",
           "name": "Supreme Cells Emblem",
-          "icon": "tft15_item_supreme_cells_emblem_item_so0A4bjpCP.webp"
+          "icon": "tft15_item_supreme_cells_emblem_item_rB2tJSKwIx.webp"
         }
       ],
       "trait": [
         {
           "apiName": "TFT9_Item_CrownOfDemacia",
           "name": "Crown of Demacia",
-          "icon": "tft9_item_crown_of_demacia_ShChG5w0Ab.webp"
+          "icon": "tft9_item_crown_of_demacia_jijfHVMw58.webp"
         }
       ]
     },
@@ -5751,6 +5731,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-08 12:00:03"
+    "lastUpdated": "2025-10-08 18:00:03"
   }
 }
