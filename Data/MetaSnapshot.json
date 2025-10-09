@@ -2923,9 +2923,9 @@
             "apiName": "TFT15_Yuumi",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_JeweledGauntlet"
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 1,
             "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
@@ -5838,6 +5838,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-09 06:00:04"
+    "lastUpdated": "2025-10-09 12:00:03"
   }
 }
