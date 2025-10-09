@@ -941,6 +941,106 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Malzahar",
+            "items": [
+              "TFT_Item_Artifact_BlightingJewel",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_CryMeARiver"
+          },
+          {
+            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
+          },
+          {
+            "apiName": "TFT_Augment_BeltOverflow"
+          },
+          {
+            "apiName": "TFT15_Augment_HeavyweightCirclet"
+          },
+          {
+            "apiName": "TFT_Augment_WandOverflow"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-heavy-malzahar",
+        "champions": [
+          {
+            "apiName": "TFT15_Malzahar",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_BlueBuff",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Darius",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_UnstableConcoction"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
+            "cost": 3,
+            "name": "Darius",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_NightHarvester",
+              "TFT_Item_BrambleVest"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
+            "cost": 4,
+            "name": "Poppy",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Malzahar",
+          "cost": 3,
+          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+          "name": "Malzahar",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Heavyweight Malzahar",
+        "style": "RR LV.7",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Malphite",
             "items": [
               "TFT_Item_Artifact_InnervatingLocket",
@@ -1301,119 +1401,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Ashe",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
-            "cost": 4,
-            "name": "Ashe",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_CrystalRoseCrown"
-          },
-          {
-            "apiName": "TFT15_Augment_CrystalRoseCrest"
-          },
-          {
-            "apiName": "TFT_Augment_AimForTheTop"
-          },
-          {
-            "apiName": "TFT_Augment_TitanicTitan"
-          },
-          {
-            "apiName": "TFT9_Augment_TiniestTitan"
-          },
-          {
-            "apiName": "TFT7_Augment_LategameSpecialist"
-          },
-          {
-            "apiName": "TFT6_Augment_CalculatedLoss"
-          },
-          {
-            "apiName": "TFT_Augment_UpwardMobility"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-crystal-gamba",
-        "champions": [
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 23,
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_WeFnGxBine.webp",
-            "cost": 5,
-            "name": "Zyra",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 3,
-            "items": [
-              "TFT15_Item_CrystalRoseEmblemItem"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Ashe",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
-            "cost": 4,
-            "name": "Ashe",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 2,
-            "items": [
-              "TFT15_Item_CrystalRoseEmblemItem",
-              "TFT_Item_Redemption",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Zyra",
-          "cost": 5,
-          "championIcon": "tft15_zyra_WeFnGxBine.webp",
-          "name": "Zyra",
-          "set": 15
-        },
-        "mainItem": {
-          "apiName": "TFT15_Item_CrystalRoseEmblemItem"
-        },
-        "title": "7 Crystal Gambit Ashe Zyra",
-        "style": "L. Streak",
-        "tier": "B"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Xayah",
             "items": [
               "TFT_Item_Artifact_Fishbones"
@@ -1618,16 +1605,251 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Karma",
+            "apiName": "TFT15_Ashe",
             "items": [
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_JeweledGauntlet",
-              "TFT4_Item_OrnnMuramana"
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT_Item_Artifact_Fishbones"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
             "cost": 4,
-            "name": "Karma",
+            "name": "Ashe",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_CrystalRoseCrown"
+          },
+          {
+            "apiName": "TFT15_Augment_CrystalRoseCrest"
+          },
+          {
+            "apiName": "TFT_Augment_AimForTheTop"
+          },
+          {
+            "apiName": "TFT_Augment_TitanicTitan"
+          },
+          {
+            "apiName": "TFT9_Augment_TiniestTitan"
+          },
+          {
+            "apiName": "TFT7_Augment_LategameSpecialist"
+          },
+          {
+            "apiName": "TFT6_Augment_CalculatedLoss"
+          },
+          {
+            "apiName": "TFT_Augment_UpwardMobility"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-crystal-gamba",
+        "champions": [
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 23,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 3,
+            "items": [
+              "TFT15_Item_CrystalRoseEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Ashe",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_RunaansHurricane"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
+            "cost": 4,
+            "name": "Ashe",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 2,
+            "items": [
+              "TFT15_Item_CrystalRoseEmblemItem",
+              "TFT_Item_Redemption",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Zyra",
+          "cost": 5,
+          "championIcon": "tft15_zyra_WeFnGxBine.webp",
+          "name": "Zyra",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_CrystalRoseEmblemItem"
+        },
+        "title": "7 Crystal Gambit Ashe Zyra",
+        "style": "L. Streak",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_TwistedFate",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_MaxLevel10"
+          },
+          {
+            "apiName": "TFT_Augment_UpwardMobility"
+          },
+          {
+            "apiName": "TFT9_Augment_HedgeFund"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT7_Augment_LategameSpecialist"
+          },
+          {
+            "apiName": "TFT_Augment_ForwardThinking"
+          },
+          {
+            "apiName": "TFT_Augment_InvestedPlusPlus"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-95",
+        "champions": [
+          {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_ThiefsGloves"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+            "cost": 5,
+            "name": "Braum",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Leona",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_BrambleVest",
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_WarmogsArmor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
+            "cost": 4,
+            "name": "Leona",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Gwen",
+            "boardIndex": 16,
+            "items": [
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_Morellonomicon"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gwen_6MIlMtCsFs.webp",
+            "cost": 5,
+            "name": "Gwen",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_TwistedFate",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_HextechGunblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Braum",
+          "cost": 5,
+          "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+          "name": "Braum",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Bastion Fast 9",
+        "style": "Fast 9",
+        "tier": "C"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_TwistedFate",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
             "set": 15
           }
         ],
@@ -1639,47 +1861,45 @@
             "apiName": "TFT7_Augment_ClutteredMind"
           },
           {
-            "apiName": "TFT15_Augment_SpellslingerCrown"
+            "apiName": "TFT9_Augment_AllThatShimmers"
           },
           {
-            "apiName": "TFT9_Augment_HighEndSector"
+            "apiName": "TFT_Augment_UpwardMobility"
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT9_Augment_HedgeFund"
           },
           {
-            "apiName": "TFT_Augment_Replication"
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
           },
           {
-            "apiName": "TFT_Augment_Isekai_Sorcerer"
+            "apiName": "TFT6_Augment_MaxLevel10"
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT_Augment_FiresalePlus"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-karma-sorcs",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-95-varus",
         "champions": [
           {
-            "apiName": "TFT15_Karma",
+            "apiName": "TFT15_Varus",
             "boardIndex": 27,
             "items": [
+              "TFT_Item_InfinityEdge",
               "TFT_Item_PowerGauntlet",
-              "TFT_Item_BlueBuff",
-              "TFT_Item_JeweledGauntlet"
+              "TFT_Item_BlueBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
-            "cost": 4,
-            "name": "Karma",
+            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
+            "cost": 5,
+            "name": "Varus",
             "set": 15
           },
           {
             "apiName": "TFT15_JarvanIV",
-            "boardIndex": 5,
+            "boardIndex": 4,
             "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_FrozenHeart",
-              "TFT_Item_NightHarvester"
+              "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
             "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
@@ -1688,32 +1908,57 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Gwen",
-            "boardIndex": 15,
+            "apiName": "TFT15_KSante",
+            "boardIndex": 5,
             "items": [
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_StatikkShiv"
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_BrambleVest"
             ],
             "stars": 1,
-            "championIcon": "tft15_gwen_6MIlMtCsFs.webp",
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
             "cost": 5,
-            "name": "Gwen",
+            "name": "Braum",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
+            "cost": 5,
+            "name": "Zyra",
             "set": 15
           }
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Karma",
-          "cost": 4,
-          "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
-          "name": "Karma",
+          "apiName": "TFT15_Varus",
+          "cost": 5,
+          "championIcon": "tft15_varus_RKpDP6wbbD.webp",
+          "name": "Varus",
           "set": 15
         },
         "mainItem": {},
-        "title": "Sorcerer Karma",
-        "style": "Fast 8",
-        "tier": "B"
+        "title": "Varus Fast 9 Legendaries",
+        "style": "Fast 9",
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -1809,106 +2054,208 @@
         "mainItem": {},
         "title": "Mentor Ryze Senna",
         "style": "Fast 8",
-        "tier": "C"
+        "tier": "B"
       },
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Malzahar",
+            "apiName": "TFT15_Volibear",
             "items": [
-              "TFT_Item_Artifact_BlightingJewel",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_GuardianAngel"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-            "cost": 3,
-            "name": "Malzahar",
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
+            "cost": 4,
+            "name": "Volibear",
             "set": 15
           }
         ],
         "augments": [
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT11_Augment_Slammin"
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT11_Augment_RainingGold"
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
           },
           {
-            "apiName": "TFT_Augment_CryMeARiver"
+            "apiName": "TFT_Augment_SwordOverflow"
           },
           {
-            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
+            "apiName": "TFT_Augment_SliceOfLife"
           },
           {
-            "apiName": "TFT_Augment_MagicRoll"
+            "apiName": "TFT_Augment_EyeForAnEye"
           },
           {
-            "apiName": "TFT_Augment_BeltOverflow"
+            "apiName": "TFT11_Augment_Reinfourcement"
           },
           {
-            "apiName": "TFT15_Augment_HeavyweightCirclet"
+            "apiName": "TFT6_Augment_PandorasItems"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-heavy-malzahar",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-sami-bear-edgelords",
         "champions": [
           {
-            "apiName": "TFT15_Malzahar",
-            "boardIndex": 27,
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 12,
             "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-            "cost": 3,
-            "name": "Malzahar",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Darius",
-            "boardIndex": 6,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_UnstableConcoction"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
-            "cost": 3,
-            "name": "Darius",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Poppy",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_NightHarvester",
-              "TFT_Item_BrambleVest"
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_InfinityEdge"
             ],
             "stars": 1,
-            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
             "cost": 4,
-            "name": "Poppy",
+            "name": "Volibear",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Samira",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_LastWhisper",
+              "TFT_Item_InfinityEdge"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_samira_NEXitL7G05.webp",
+            "cost": 4,
+            "name": "Samira",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_BlueBuff"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+            "cost": 5,
+            "name": "Braum",
             "set": 15
           }
         ],
         "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Malzahar",
-          "cost": 3,
-          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-          "name": "Malzahar",
+          "apiName": "TFT15_Volibear",
+          "cost": 4,
+          "championIcon": "tft15_volibear_lsJedZglVr.webp",
+          "name": "Volibear",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_RingKingsEmblemItem"
+        },
+        "title": "Edgelord Volibear Samira",
+        "style": "Fast 8",
+        "tier": "C"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Karma",
+            "items": [
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_JeweledGauntlet",
+              "TFT4_Item_OrnnMuramana"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT7_Augment_ClutteredMind"
+          },
+          {
+            "apiName": "TFT15_Augment_SpellslingerCrown"
+          },
+          {
+            "apiName": "TFT9_Augment_HighEndSector"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT_Augment_Replication"
+          },
+          {
+            "apiName": "TFT_Augment_Isekai_Sorcerer"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-karma-sorcs",
+        "champions": [
+          {
+            "apiName": "TFT15_Karma",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_BlueBuff",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Gwen",
+            "boardIndex": 15,
+            "items": [
+              "TFT_Item_Morellonomicon",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_StatikkShiv"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gwen_6MIlMtCsFs.webp",
+            "cost": 5,
+            "name": "Gwen",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Karma",
+          "cost": 4,
+          "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
+          "name": "Karma",
           "set": 15
         },
         "mainItem": {},
-        "title": "Heavyweight Malzahar",
-        "style": "RR LV.7",
+        "title": "Sorcerer Karma",
+        "style": "Fast 8",
         "tier": "C"
       },
       {
@@ -2266,251 +2613,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_TwistedFate",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT6_Augment_MaxLevel10"
-          },
-          {
-            "apiName": "TFT_Augment_UpwardMobility"
-          },
-          {
-            "apiName": "TFT9_Augment_HedgeFund"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          },
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT7_Augment_LategameSpecialist"
-          },
-          {
-            "apiName": "TFT_Augment_ForwardThinking"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-95",
-        "champions": [
-          {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Leona",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_BrambleVest",
-              "TFT_Item_DragonsClaw",
-              "TFT_Item_WarmogsArmor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
-            "cost": 4,
-            "name": "Leona",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Gwen",
-            "boardIndex": 16,
-            "items": [
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_gwen_6MIlMtCsFs.webp",
-            "cost": 5,
-            "name": "Gwen",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_TwistedFate",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_HextechGunblade"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_JeweledGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_WeFnGxBine.webp",
-            "cost": 5,
-            "name": "Zyra",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Braum",
-          "cost": 5,
-          "championIcon": "tft15_braum_mDoqnN1ncU.webp",
-          "name": "Braum",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Bastion Fast 9",
-        "style": "Fast 9",
-        "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_TwistedFate",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT7_Augment_ClutteredMind"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT_Augment_UpwardMobility"
-          },
-          {
-            "apiName": "TFT9_Augment_HedgeFund"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          },
-          {
-            "apiName": "TFT6_Augment_MaxLevel10"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-95-varus",
-        "champions": [
-          {
-            "apiName": "TFT15_Varus",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_BlueBuff"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
-            "cost": 5,
-            "name": "Varus",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_DragonsClaw",
-              "TFT_Item_BrambleVest"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_WeFnGxBine.webp",
-            "cost": 5,
-            "name": "Zyra",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Varus",
-          "cost": 5,
-          "championIcon": "tft15_varus_RKpDP6wbbD.webp",
-          "name": "Varus",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Varus Fast 9 Legendaries",
-        "style": "Fast 9",
-        "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_KaiSa",
             "items": [
               "TFT_Item_Artifact_Fishbones",
@@ -2648,19 +2750,19 @@
             "apiName": "TFT7_Augment_LivingForge"
           },
           {
-            "apiName": "TFT7_Augment_BandOfThieves1"
-          },
-          {
             "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT15_Augment_Duelist_AdaptiveStyle"
           },
           {
             "apiName": "TFT_Augment_FindYourCenter"
           },
           {
             "apiName": "TFT9_Augment_HighEndSector"
+          },
+          {
+            "apiName": "TFT6_Augment_PandorasItems"
+          },
+          {
+            "apiName": "TFT_Augment_SwordOverflow"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-duelist-ashe-ok",
@@ -2669,9 +2771,9 @@
             "apiName": "TFT15_Ashe",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
@@ -2745,104 +2847,6 @@
         "title": "Duelist Udyr Ashe",
         "style": "Fast 8",
         "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Shen",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_shen_BAV77uE26x.webp",
-            "cost": 2,
-            "name": "Shen",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_ShenCarry"
-          },
-          {
-            "apiName": "TFT15_Augment_Bastion_RaidBoss"
-          },
-          {
-            "apiName": "TFT15_Augment_BastionCirclet"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
-            "apiName": "TFT7_Augment_BestFriends2"
-          },
-          {
-            "apiName": "TFT_Augment_BackupDancers"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-twilight-assault-shen",
-        "champions": [
-          {
-            "apiName": "TFT15_Shen",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_shen_BAV77uE26x.webp",
-            "cost": 2,
-            "name": "Shen",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_XinZhao",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_xin_zhao_VwhptDRNGN.webp",
-            "cost": 2,
-            "name": "Xin Zhao",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Xayah",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_LastWhisper"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT15_Augment_ShenCarry"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_Shen",
-          "cost": 2,
-          "championIcon": "tft15_shen_BAV77uE26x.webp",
-          "name": "Shen",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Twilight Assault Shen Reroll",
-        "style": "RR LV.6",
-        "tier": "X"
       },
       {
         "altBuilds": [
@@ -2948,6 +2952,104 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Shen",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
+            "cost": 2,
+            "name": "Shen",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_ShenCarry"
+          },
+          {
+            "apiName": "TFT15_Augment_Bastion_RaidBoss"
+          },
+          {
+            "apiName": "TFT15_Augment_BastionCirclet"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
+          },
+          {
+            "apiName": "TFT7_Augment_BestFriends2"
+          },
+          {
+            "apiName": "TFT_Augment_BackupDancers"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-twilight-assault-shen",
+        "champions": [
+          {
+            "apiName": "TFT15_Shen",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_HextechGunblade",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_shen_BAV77uE26x.webp",
+            "cost": 2,
+            "name": "Shen",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_XinZhao",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_xin_zhao_VwhptDRNGN.webp",
+            "cost": 2,
+            "name": "Xin Zhao",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Xayah",
+            "boardIndex": 25,
+            "items": [
+              "TFT_Item_LastWhisper"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
+            "cost": 2,
+            "name": "Xayah",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT15_Augment_ShenCarry"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Shen",
+          "cost": 2,
+          "championIcon": "tft15_shen_BAV77uE26x.webp",
+          "name": "Shen",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Twilight Assault Shen Reroll",
+        "style": "RR LV.6",
+        "tier": "X"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_DrMundo",
             "items": [
               "TFT_Item_Artifact_Fishbones",
@@ -3030,106 +3132,6 @@
         "mainItem": {},
         "title": "Give 'em the Chair! Dr. Mundo Reroll",
         "style": "RR LV.6",
-        "tier": "X"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Kennen",
-            "items": [
-              "TFT_Item_Artifact_StatikkShiv",
-              "TFT_Item_Artifact_NavoriFlickerblades"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
-            "cost": 1,
-            "name": "Kennen",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_KennenCarry"
-          },
-          {
-            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
-          },
-          {
-            "apiName": "TFT15_Augment_ProtectorCrest"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2"
-          },
-          {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
-          },
-          {
-            "apiName": "TFT_Augment_Protagonist"
-          },
-          {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-nine-thousand-volts-kennen",
-        "champions": [
-          {
-            "apiName": "TFT15_Kennen",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_Leviathan"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
-            "cost": 1,
-            "name": "Kennen",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Janna",
-            "boardIndex": 23,
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_ArchangelsStaff"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
-            "cost": 2,
-            "name": "Janna",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Rakan",
-            "boardIndex": 1,
-            "items": [
-              "TFT_Item_Redemption",
-              "TFT_Item_RedBuff",
-              "TFT_Item_NightHarvester"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_rakan_XNyFz1bRy6.webp",
-            "cost": 2,
-            "name": "Rakan",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT15_Augment_KennenCarry"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_Kennen",
-          "cost": 1,
-          "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
-          "name": "Kennen",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Nine Thousand Volts Kennen Reroll",
-        "style": "RR LV.5",
         "tier": "X"
       },
       {
@@ -3471,6 +3473,106 @@
         "mainItem": {},
         "title": "Starfall Neeko Reroll",
         "style": "RR LV.7",
+        "tier": "X"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Kennen",
+            "items": [
+              "TFT_Item_Artifact_StatikkShiv",
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
+            "cost": 1,
+            "name": "Kennen",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_KennenCarry"
+          },
+          {
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+          },
+          {
+            "apiName": "TFT15_Augment_ProtectorCrest"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2"
+          },
+          {
+            "apiName": "TFT_Augment_HeavyIsTheCrown"
+          },
+          {
+            "apiName": "TFT_Augment_Protagonist"
+          },
+          {
+            "apiName": "TFT_Augment_ClimbTheLadder2"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-nine-thousand-volts-kennen",
+        "champions": [
+          {
+            "apiName": "TFT15_Kennen",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_Leviathan"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
+            "cost": 1,
+            "name": "Kennen",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Janna",
+            "boardIndex": 23,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_ArchangelsStaff"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
+            "cost": 2,
+            "name": "Janna",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rakan",
+            "boardIndex": 1,
+            "items": [
+              "TFT_Item_Redemption",
+              "TFT_Item_RedBuff",
+              "TFT_Item_NightHarvester"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_rakan_XNyFz1bRy6.webp",
+            "cost": 2,
+            "name": "Rakan",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT15_Augment_KennenCarry"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Kennen",
+          "cost": 1,
+          "championIcon": "tft15_kennen_RXMZc4WRjv.webp",
+          "name": "Kennen",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Nine Thousand Volts Kennen Reroll",
+        "style": "RR LV.5",
         "tier": "X"
       },
       {
@@ -5694,6 +5796,11 @@
           "icon": "tft15_item_juggernaut_emblem_item_Eoaca9BDVO.webp"
         },
         {
+          "apiName": "TFT15_Item_RingKingsEmblemItem",
+          "name": "Luchador Emblem",
+          "icon": "tft15_item_ring_kings_emblem_item_8OGkSmYLkD.webp"
+        },
+        {
           "apiName": "TFT15_Item_ProtectorEmblemItem",
           "name": "Protector Emblem",
           "icon": "tft15_item_protector_emblem_item_oDzI8y4vKl.webp"
@@ -5731,6 +5838,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-08 18:00:03"
+    "lastUpdated": "2025-10-09 00:00:04"
   }
 }
