@@ -1716,6 +1716,91 @@
         "tier": "B"
       },
       {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_RiggedShopPlus"
+          },
+          {
+            "apiName": "TFT6_Augment_CalculatedLoss"
+          },
+          {
+            "apiName": "TFT_Augment_DeadlierCaps"
+          },
+          {
+            "apiName": "TFT_Augment_CryMeARiver"
+          },
+          {
+            "apiName": "TFT10_Augment_HeroicGrabBag"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT_Augment_WandOverflow"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-crystal-visions",
+        "champions": [
+          {
+            "apiName": "TFT15_Malzahar",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_RabadonsDeathcap",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Swain",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_BrambleVest",
+              "TFT_Item_DragonsClaw"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_swain_ZUSNJL4g13.webp",
+            "cost": 3,
+            "name": "Swain",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Malzahar",
+          "cost": 3,
+          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+          "name": "Malzahar",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Crystal Gambit Malzahar Reroll",
+        "style": "RR LV.7",
+        "tier": "B"
+      },
+      {
         "altBuilds": [
           {
             "apiName": "TFT15_TwistedFate",
@@ -3916,119 +4001,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Malzahar",
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-            "cost": 3,
-            "name": "Malzahar",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
-          },
-          {
-            "apiName": "TFT11_Augment_Calltochaos"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_DeadlierCaps"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-super-spreader",
-        "champions": [
-          {
-            "apiName": "TFT15_Malzahar",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_Artifact_BlightingJewel",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_StatikkShiv"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-            "cost": 3,
-            "name": "Malzahar",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Rammus",
-            "boardIndex": 2,
-            "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_BrambleVest",
-              "TFT_Item_WarmogsArmor"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_rammus_xCBHYQIs2x.webp",
-            "cost": 3,
-            "name": "Rammus",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yuumi",
-            "boardIndex": 23,
-            "items": [
-              "TFT_Item_RapidFireCannon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
-            "cost": 4,
-            "name": "Yuumi",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_NightHarvester",
-              "TFT_Flex_2"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Malzahar",
-          "cost": 3,
-          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-          "name": "Malzahar",
-          "set": 15
-        },
-        "mainItem": {
-          "apiName": "TFT_Item_Artifact_BlightingJewel"
-        },
-        "title": "Prodigy Malzahar Reroll",
-        "style": "RR LV.7",
-        "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Ashe",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -5838,6 +5810,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-10 18:00:03"
+    "lastUpdated": "2025-10-11 00:00:03"
   }
 }
