@@ -976,8 +976,8 @@
             "apiName": "TFT15_Malzahar",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_RabadonsDeathcap",
               "TFT_Item_BlueBuff",
+              "TFT_Item_MadredsBloodrazor",
               "TFT_Item_JeweledGauntlet"
             ],
             "stars": 3,
@@ -994,22 +994,10 @@
               "TFT_Item_NightHarvester",
               "TFT_Item_WarmogsArmor"
             ],
-            "stars": 1,
+            "stars": 3,
             "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
             "cost": 3,
             "name": "Neeko",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 10,
-            "items": [
-              "TFT_Item_SteraksGage"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
-            "cost": 4,
-            "name": "K'Sante",
             "set": 15
           },
           {
@@ -1023,6 +1011,18 @@
             "cost": 4,
             "name": "Jarvan IV",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 10,
+            "items": [
+              "TFT_Item_SteraksGage"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
           }
         ],
         "mainAugment": {},
@@ -1034,7 +1034,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "ProStrat Malz",
+        "title": "Protector Malzahar",
         "style": "RR LV.7",
         "tier": "A"
       },
@@ -6145,6 +6145,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-12 18:00:04"
+    "lastUpdated": "2025-10-13 00:00:04"
   }
 }
