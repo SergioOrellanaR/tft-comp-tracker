@@ -3630,7 +3630,7 @@
         "champions": [
           {
             "apiName": "TFT15_Neeko",
-            "boardIndex": 3,
+            "boardIndex": 4,
             "items": [
               "TFT_Item_ArchangelsStaff",
               "TFT_Item_JeweledGauntlet",
@@ -3643,22 +3643,20 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Janna",
-            "boardIndex": 27,
+            "apiName": "TFT15_Ryze",
+            "boardIndex": 24,
             "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_GuinsoosRageblade"
+              "TFT_Item_StatikkShiv"
             ],
-            "stars": 3,
-            "championIcon": "tft15_janna_5Sk3eiJusk.webp",
-            "cost": 2,
-            "name": "Janna",
+            "stars": 1,
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
+            "cost": 4,
+            "name": "Ryze",
             "set": 15
           },
           {
             "apiName": "TFT15_KSante",
-            "boardIndex": 2,
+            "boardIndex": 3,
             "items": [
               "TFT_Item_DragonsClaw",
               "TFT_Item_BrambleVest",
@@ -6147,6 +6145,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-14 06:00:03"
+    "lastUpdated": "2025-10-14 12:00:04"
   }
 }
