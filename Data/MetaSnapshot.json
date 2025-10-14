@@ -3632,9 +3632,9 @@
             "apiName": "TFT15_Neeko",
             "boardIndex": 4,
             "items": [
-              "TFT_Item_ArchangelsStaff",
               "TFT_Item_JeweledGauntlet",
-              "TFT_Item_GuardianAngel"
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_TitansResolve"
             ],
             "stars": 3,
             "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
@@ -3841,43 +3841,31 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Kayle",
-            "boardIndex": 25,
-            "items": [
-              "TFT_Item_RapidFireCannon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_NightHarvester",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_IonicSpark"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Varus",
+            "apiName": "TFT15_Malzahar",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_LastWhisper"
+              "TFT_Item_BlueBuff",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Poppy",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_BrambleVest"
             ],
             "stars": 1,
-            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
-            "cost": 5,
-            "name": "Varus",
+            "championIcon": "tft15_poppy_o79Hbcurjn.webp",
+            "cost": 4,
+            "name": "Poppy",
             "set": 15
           }
         ],
@@ -6145,6 +6133,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-14 12:00:04"
+    "lastUpdated": "2025-10-14 18:00:03"
   }
 }
