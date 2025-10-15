@@ -3496,9 +3496,6 @@
             "apiName": "TFT15_Augment_Juggernaut_Indomitable"
           },
           {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
             "apiName": "TFT_Augment_LastSecondSave"
           },
           {
@@ -3509,6 +3506,9 @@
           },
           {
             "apiName": "TFT_Augment_ItemCollector1"
+          },
+          {
+            "apiName": "TFT_Augment_SwordOverflow"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-knuckledusters-vi",
@@ -3531,9 +3531,9 @@
             "apiName": "TFT15_DrMundo",
             "boardIndex": 1,
             "items": [
+              "TFT_Item_DragonsClaw",
               "TFT_Item_Redemption",
-              "TFT_Item_RedBuff",
-              "TFT_Item_SpectralGauntlet"
+              "TFT_Item_BrambleVest"
             ],
             "stars": 3,
             "championIcon": "tft15_dr_mundo_sRHyaUzxi2.webp",
@@ -3542,17 +3542,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Jhin",
+            "apiName": "TFT15_Smolder",
             "boardIndex": 21,
             "items": [
-              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_BlueBuff",
               "TFT_Item_InfinityEdge",
-              "TFT_Item_Deathblade"
+              "TFT_Item_LastWhisper"
             ],
-            "stars": 1,
-            "championIcon": "tft15_jhin_GrKhDJI7rn.webp",
-            "cost": 2,
-            "name": "Jhin",
+            "stars": 3,
+            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
+            "cost": 3,
+            "name": "Smolder",
             "set": 15
           }
         ],
@@ -3809,19 +3809,19 @@
             "apiName": "TFT9_Augment_MissedConnections"
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
-            "apiName": "TFT_Augment_WaterLotus1"
-          },
-          {
-            "apiName": "TFT6_Augment_SecondWind1"
-          },
-          {
             "apiName": "TFT9_Augment_BigGrabBag"
           },
           {
             "apiName": "TFT_Augment_CrownguardSpirit"
+          },
+          {
+            "apiName": "TFT_Augment_WandOverflow"
+          },
+          {
+            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
+          },
+          {
+            "apiName": "TFT15_Augment_HeavyweightCirclet"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-perfect-form-zac",
@@ -6133,6 +6133,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-14 18:00:03"
+    "lastUpdated": "2025-10-15 00:00:03"
   }
 }
