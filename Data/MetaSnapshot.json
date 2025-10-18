@@ -691,11 +691,8 @@
         "altBuilds": [
           {
             "apiName": "TFT15_Akali",
-            "boardIndex": 2,
             "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_Artifact_Dawncore"
+              "TFT5_Item_LeviathanRadiant"
             ],
             "stars": 1,
             "championIcon": "tft15_akali_RDEHeibKu0.webp",
@@ -705,8 +702,11 @@
           },
           {
             "apiName": "TFT15_Akali",
+            "boardIndex": 2,
             "items": [
-              "TFT5_Item_LeviathanRadiant"
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_Artifact_Dawncore"
             ],
             "stars": 1,
             "championIcon": "tft15_akali_RDEHeibKu0.webp",
@@ -5907,6 +5907,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-17 18:00:04"
+    "lastUpdated": "2025-10-18 00:00:04"
   }
 }
