@@ -1916,6 +1916,94 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Gangplank",
+            "boardIndex": 7,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_HextechGunblade",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_gangplank_516P98mGKR.webp",
+            "cost": 2,
+            "name": "Gangplank",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_PortableForge"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers2"
+          },
+          {
+            "apiName": "TFT7_Augment_LivingForge"
+          },
+          {
+            "apiName": "TFT6_Augment_Keepers1"
+          },
+          {
+            "apiName": "TFT_Augment_SwordOverflow"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+          },
+          {
+            "apiName": "TFT_Augment_AnotherOne"
+          },
+          {
+            "apiName": "TFT_Augment_ShojinSpirit"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-d-d-d-duelists",
+        "champions": [
+          {
+            "apiName": "TFT15_Gangplank",
+            "boardIndex": 7,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_Artifact_RapidFirecannon",
+              "TFT_Item_SpearOfShojin"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_gangplank_516P98mGKR.webp",
+            "cost": 2,
+            "name": "Gangplank",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Udyr",
+            "boardIndex": 1,
+            "items": [
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_udyr_B49GVzlQLv.webp",
+            "cost": 3,
+            "name": "Udyr",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Gangplank",
+          "cost": 2,
+          "championIcon": "tft15_gangplank_516P98mGKR.webp",
+          "name": "Gangplank",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT_Item_Artifact_RapidFirecannon"
+        },
+        "title": "Duelist Gangplank Reroll",
+        "style": "RR LV.6",
+        "tier": "C"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_TwistedFate",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades"
@@ -3762,94 +3850,6 @@
         "title": "Perfect Form Zac Reroll",
         "style": "RR LV.5",
         "tier": "X"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Gangplank",
-            "boardIndex": 7,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_HextechGunblade",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_gangplank_516P98mGKR.webp",
-            "cost": 2,
-            "name": "Gangplank",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT6_Augment_PortableForge"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers2"
-          },
-          {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT_Augment_SwordOverflow"
-          },
-          {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_AnotherOne"
-          },
-          {
-            "apiName": "TFT_Augment_ShojinSpirit"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-d-d-d-duelists",
-        "champions": [
-          {
-            "apiName": "TFT15_Gangplank",
-            "boardIndex": 7,
-            "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_Artifact_RapidFirecannon",
-              "TFT_Item_SpearOfShojin"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_gangplank_516P98mGKR.webp",
-            "cost": 2,
-            "name": "Gangplank",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Udyr",
-            "boardIndex": 1,
-            "items": [
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_udyr_B49GVzlQLv.webp",
-            "cost": 3,
-            "name": "Udyr",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Gangplank",
-          "cost": 2,
-          "championIcon": "tft15_gangplank_516P98mGKR.webp",
-          "name": "Gangplank",
-          "set": 15
-        },
-        "mainItem": {
-          "apiName": "TFT_Item_Artifact_RapidFirecannon"
-        },
-        "title": "Duelist Gangplank Reroll",
-        "style": "RR LV.6",
-        "tier": "C"
       },
       {
         "altBuilds": [
@@ -5995,6 +5995,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-20 06:00:04"
+    "lastUpdated": "2025-10-20 12:00:04"
   }
 }
