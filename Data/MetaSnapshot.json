@@ -181,11 +181,11 @@
         "champions": [
           {
             "apiName": "TFT15_Katarina",
-            "boardIndex": 13,
+            "boardIndex": 6,
             "items": [
-              "TFT_Item_GuardianAngel",
               "TFT_Item_UnstableConcoction",
-              "TFT_Item_Leviathan"
+              "TFT_Item_Leviathan",
+              "TFT_Item_GuardianAngel"
             ],
             "stars": 3,
             "championIcon": "tft15_katarina_7kipVWeb9S.webp",
@@ -195,7 +195,7 @@
           },
           {
             "apiName": "TFT15_Rakan",
-            "boardIndex": 6,
+            "boardIndex": 24,
             "items": [
               "TFT_Item_GargoyleStoneplate",
               "TFT_Item_NightHarvester",
@@ -209,7 +209,7 @@
           },
           {
             "apiName": "TFT15_Yuumi",
-            "boardIndex": 27,
+            "boardIndex": 18,
             "items": [
               "TFT_Item_RabadonsDeathcap",
               "TFT_Item_StatikkShiv",
@@ -1928,6 +1928,19 @@
             "cost": 2,
             "name": "Gangplank",
             "set": 15
+          },
+          {
+            "apiName": "TFT15_Gangplank",
+            "items": [
+              "TFT5_Item_SpearOfShojinRadiant",
+              "TFT_Item_Quicksilver",
+              "TFT_Item_HextechGunblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_gangplank_516P98mGKR.webp",
+            "cost": 2,
+            "name": "Gangplank",
+            "set": 15
           }
         ],
         "augments": [
@@ -1935,13 +1948,7 @@
             "apiName": "TFT6_Augment_PortableForge"
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
-          },
-          {
             "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
           },
           {
             "apiName": "TFT_Augment_SwordOverflow"
@@ -1954,13 +1961,19 @@
           },
           {
             "apiName": "TFT_Augment_ShojinSpirit"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT6_Augment_RadiantRelics"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-d-d-d-duelists",
         "champions": [
           {
             "apiName": "TFT15_Gangplank",
-            "boardIndex": 7,
+            "boardIndex": 15,
             "items": [
               "TFT_Item_SpearOfShojin",
               "TFT_Item_Artifact_RapidFirecannon",
@@ -1974,7 +1987,7 @@
           },
           {
             "apiName": "TFT15_Udyr",
-            "boardIndex": 1,
+            "boardIndex": 8,
             "items": [
               "TFT_Item_SpectralGauntlet",
               "TFT_Item_RedBuff"
@@ -3084,6 +3097,19 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_Ezreal",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_Leviathan"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_ezreal_COPzExpBMX.webp",
+            "cost": 1,
+            "name": "Ezreal",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Leona",
             "boardIndex": 1,
             "items": [
@@ -3095,20 +3121,6 @@
             "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yuumi",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yuumi_TKCXGBbhR2.webp",
-            "cost": 4,
-            "name": "Yuumi",
             "set": 15
           }
         ],
@@ -5995,6 +6007,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-20 12:00:04"
+    "lastUpdated": "2025-10-20 18:00:03"
   }
 }
