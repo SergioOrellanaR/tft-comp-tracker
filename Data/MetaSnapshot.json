@@ -881,9 +881,7 @@
           "name": "Akali",
           "set": 15
         },
-        "mainItem": {
-          "apiName": "TFT15_Item_SupremeCellsEmblemItem"
-        },
+        "mainItem": {},
         "title": "Supreme Cell Mech Akali",
         "style": "Fast 8",
         "tier": "A"
@@ -1059,8 +1057,21 @@
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
         "champions": [
           {
+            "apiName": "TFT15_Aatrox",
+            "boardIndex": 0,
+            "items": [
+              "TFT_Item_IonicSpark",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_aatrox_bOvehdTMiw.webp",
+            "cost": 1,
+            "name": "Aatrox",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Senna",
-            "boardIndex": 11,
+            "boardIndex": 6,
             "items": [
               "TFT_Item_RabadonsDeathcap",
               "TFT_Item_SteraksGage",
@@ -1074,9 +1085,8 @@
           },
           {
             "apiName": "TFT15_JarvanIV",
-            "boardIndex": 5,
+            "boardIndex": 11,
             "items": [
-              "TFT_Item_FrozenHeart",
               "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
@@ -1090,7 +1100,6 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_BlueBuff",
-              "TFT_Item_StatikkShiv",
               "TFT_Item_Morellonomicon"
             ],
             "stars": 1,
@@ -1101,7 +1110,7 @@
           },
           {
             "apiName": "TFT15_Yone",
-            "boardIndex": 3,
+            "boardIndex": 10,
             "items": [
               "TFT_Item_ThiefsGloves"
             ],
@@ -6009,6 +6018,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-21 12:00:04"
+    "lastUpdated": "2025-10-21 18:00:04"
   }
 }
