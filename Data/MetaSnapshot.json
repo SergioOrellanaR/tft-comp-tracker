@@ -3556,8 +3556,8 @@
             "apiName": "TFT15_Neeko",
             "items": [
               "TFT_Item_JeweledGauntlet",
-              "TFT_Item_UnstableConcoction",
-              "TFT_Item_GuardianAngel"
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_TitansResolve"
             ],
             "stars": 1,
             "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
@@ -3622,15 +3622,17 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Ryze",
+            "apiName": "TFT15_Ahri",
             "boardIndex": 24,
             "items": [
-              "TFT_Item_StatikkShiv"
+              "TFT_Item_BlueBuff",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap"
             ],
-            "stars": 1,
-            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
-            "cost": 4,
-            "name": "Ryze",
+            "stars": 3,
+            "championIcon": "tft15_ahri_tMkiEeH1E5.webp",
+            "cost": 3,
+            "name": "Ahri",
             "set": 15
           },
           {
@@ -6007,6 +6009,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-21 06:00:04"
+    "lastUpdated": "2025-10-21 12:00:04"
   }
 }
