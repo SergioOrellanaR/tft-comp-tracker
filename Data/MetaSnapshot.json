@@ -707,7 +707,7 @@
         "mainItem": {},
         "title": "Luchador Volibear",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "B"
       },
       {
         "altBuilds": [
@@ -6183,6 +6183,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-23 12:00:04"
+    "lastUpdated": "2025-10-23 18:00:05"
   }
 }
