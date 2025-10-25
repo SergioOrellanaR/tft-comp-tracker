@@ -506,7 +506,9 @@
             "apiName": "TFT15_Braum",
             "boardIndex": 3,
             "items": [
-              "TFT_Item_ThiefsGloves"
+              "TFT_Item_BlueBuff",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
             "championIcon": "tft15_braum_mDoqnN1ncU.webp",
@@ -526,6 +528,20 @@
             "championIcon": "tft15_leona_6DGvKdAGTq.webp",
             "cost": 4,
             "name": "Leona",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Seraphine",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_Leviathan",
+              "TFT_Item_Leviathan"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_seraphine_bBlvRWHjUk.webp",
+            "cost": 5,
+            "name": "Seraphine",
             "set": 15
           },
           {
@@ -554,20 +570,6 @@
             "championIcon": "tft15_zyra_WeFnGxBine.webp",
             "cost": 5,
             "name": "Zyra",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Seraphine",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_Leviathan",
-              "TFT_Item_Leviathan"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_seraphine_bBlvRWHjUk.webp",
-            "cost": 5,
-            "name": "Seraphine",
             "set": 15
           }
         ],
@@ -6179,6 +6181,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-25 06:00:04"
+    "lastUpdated": "2025-10-25 12:00:03"
   }
 }
