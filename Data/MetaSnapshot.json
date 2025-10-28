@@ -2967,121 +2967,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Neeko",
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_TitansResolve"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
-            "cost": 3,
-            "name": "Neeko",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Neeko",
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_ArchangelsStaff",
-              "TFT4_Item_OrnnZhonyasParadox"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
-            "cost": 3,
-            "name": "Neeko",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT15_Augment_NeekoCarry"
-          },
-          {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
-            "apiName": "TFT_Augment_CrownguardSpirit"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT_Augment_WaterLotus1"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT_Augment_WandOverflow"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-starfall-neeko",
-        "champions": [
-          {
-            "apiName": "TFT15_Neeko",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_GuardianAngel",
-              "TFT_Item_TitansResolve"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
-            "cost": 3,
-            "name": "Neeko",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Ahri",
-            "boardIndex": 24,
-            "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_ahri_tMkiEeH1E5.webp",
-            "cost": 3,
-            "name": "Ahri",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_DragonsClaw",
-              "TFT_Item_BrambleVest",
-              "TFT_Item_RedBuff"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          }
-        ],
-        "mainAugment": {
-          "apiName": "TFT15_Augment_NeekoCarry"
-        },
-        "mainChampion": {
-          "apiName": "TFT15_Neeko",
-          "cost": 3,
-          "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
-          "name": "Neeko",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Starfall Neeko Reroll",
-        "style": "RR LV.7",
-        "tier": "X"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Vi",
             "items": [
               "TFT_Item_Artifact_SilvermereDawn",
@@ -3899,6 +3784,121 @@
         "mainItem": {},
         "title": "Nine Thousand Volts Kennen Reroll",
         "style": "RR LV.5",
+        "tier": "X"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Neeko",
+            "items": [
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_TitansResolve"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
+            "cost": 3,
+            "name": "Neeko",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Neeko",
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_ArchangelsStaff",
+              "TFT4_Item_OrnnZhonyasParadox"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
+            "cost": 3,
+            "name": "Neeko",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT15_Augment_NeekoCarry"
+          },
+          {
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
+          },
+          {
+            "apiName": "TFT_Augment_CrownguardSpirit"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          },
+          {
+            "apiName": "TFT_Augment_WandOverflow"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-starfall-neeko",
+        "champions": [
+          {
+            "apiName": "TFT15_Neeko",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_TitansResolve"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
+            "cost": 3,
+            "name": "Neeko",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Ahri",
+            "boardIndex": 24,
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_ahri_tMkiEeH1E5.webp",
+            "cost": 3,
+            "name": "Ahri",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_BrambleVest",
+              "TFT_Item_RedBuff"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          }
+        ],
+        "mainAugment": {
+          "apiName": "TFT15_Augment_NeekoCarry"
+        },
+        "mainChampion": {
+          "apiName": "TFT15_Neeko",
+          "cost": 3,
+          "championIcon": "tft15_neeko_VEkvCAIB3x.webp",
+          "name": "Neeko",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Starfall Neeko Reroll",
+        "style": "RR LV.7",
         "tier": "X"
       },
       {
@@ -6094,6 +6094,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-28 12:00:04"
+    "lastUpdated": "2025-10-28 18:00:04"
   }
 }
