@@ -131,6 +131,120 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Volibear",
+            "items": [
+              "TFT15_Item_BastionEmblemItem"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT6_Augment_MaxLevel10"
+          },
+          {
+            "apiName": "TFT_Augment_UpwardMobility"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
+          },
+          {
+            "apiName": "TFT7_Augment_LategameSpecialist"
+          },
+          {
+            "apiName": "TFT_Augment_ForwardThinking"
+          },
+          {
+            "apiName": "TFT_Augment_InvestedPlusPlus"
+          },
+          {
+            "apiName": "TFT_Augment_SwordOverflow"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-edgelord-95",
+        "champions": [
+          {
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_UnstableConcoction"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Leona",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_SpectralGauntlet",
+              "TFT_Item_WarmogsArmor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
+            "cost": 4,
+            "name": "Leona",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+            "cost": 5,
+            "name": "Braum",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Yone",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_SteraksGage",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_yone_u0ubNByUF2.webp",
+            "cost": 5,
+            "name": "Yone",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Volibear",
+          "cost": 4,
+          "championIcon": "tft15_volibear_lsJedZglVr.webp",
+          "name": "Volibear",
+          "set": 15
+        },
+        "mainItem": {
+          "apiName": "TFT15_Item_BastionEmblemItem"
+        },
+        "title": "Bastion Volibear Edgelord",
+        "style": "Fast 9",
+        "tier": "A"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_LeeSin",
             "items": [
               "TFT_Item_Artifact_SilvermereDawn"
@@ -1738,7 +1852,7 @@
             "items": [
               "TFT_Item_StatikkShiv",
               "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_MadredsBloodrazor"
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
             "championIcon": "tft15_ziggs_iFWjOGvArI.webp",
@@ -3078,12 +3192,6 @@
             "apiName": "TFT15_Augment_BastionCirclet"
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
-          },
-          {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
             "apiName": "TFT7_Augment_BestFriends2"
           },
           {
@@ -3091,6 +3199,12 @@
           },
           {
             "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT_Augment_HeavyIsTheCrown"
+          },
+          {
+            "apiName": "TFT_Augment_ClimbTheLadder1"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-twilight-assault-shen",
@@ -6082,6 +6196,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-10-31 06:00:05"
+    "lastUpdated": "2025-10-31 12:00:04"
   }
 }
