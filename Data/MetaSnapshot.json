@@ -34,13 +34,13 @@
             "apiName": "TFT11_Augment_Reinfourcement"
           },
           {
-            "apiName": "TFT15_Augment_CrystalRoseCirclet"
-          },
-          {
             "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
           },
           {
             "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crystal-gamba",
@@ -50,7 +50,7 @@
             "boardIndex": 21,
             "items": [
               "TFT_Item_RunaansHurricane",
-              "TFT_Item_RunaansHurricane",
+              "TFT_Item_GuinsoosRageblade",
               "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
@@ -6196,6 +6196,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-01 12:00:04"
+    "lastUpdated": "2025-11-01 18:00:04"
   }
 }
