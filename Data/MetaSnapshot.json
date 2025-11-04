@@ -551,6 +551,20 @@
             "set": 15
           },
           {
+            "apiName": "TFT15_Darius",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_TitansResolve",
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_SteraksGage"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
+            "cost": 3,
+            "name": "Darius",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_Rammus",
             "boardIndex": 5,
             "items": [
@@ -562,20 +576,6 @@
             "championIcon": "tft15_rammus_xCBHYQIs2x.webp",
             "cost": 3,
             "name": "Rammus",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Darius",
-            "boardIndex": 6,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_TitansResolve",
-              "TFT_Item_Bloodthirster"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
-            "cost": 3,
-            "name": "Darius",
             "set": 15
           }
         ],
@@ -992,8 +992,8 @@
             "boardIndex": 6,
             "items": [
               "TFT_Item_InfinityEdge",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_UnstableConcoction"
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Bloodthirster"
             ],
             "stars": 3,
             "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
@@ -4861,7 +4861,7 @@
             "apiName": "TFT15_Darius",
             "boardIndex": 6,
             "items": [
-              "TFT_Item_InfinityEdge",
+              "TFT_Item_SteraksGage",
               "TFT_Item_Bloodthirster",
               "TFT_Item_TitansResolve"
             ],
@@ -5939,7 +5939,7 @@
             "apiName": "TFT15_KSante",
             "boardIndex": 10,
             "items": [
-              "TFT_Item_SteraksGage"
+              "TFT_Item_ThiefsGloves"
             ],
             "stars": 1,
             "championIcon": "tft15_ksante_jgz2S3esYw.webp",
@@ -6311,6 +6311,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-04 06:00:04"
+    "lastUpdated": "2025-11-04 12:00:04"
   }
 }
