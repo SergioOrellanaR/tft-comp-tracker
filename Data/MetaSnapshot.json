@@ -4845,22 +4845,8 @@
           {
             "apiName": "TFT15_Smolder",
             "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_GuinsoosRageblade"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
-            "cost": 3,
-            "name": "Smolder",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Smolder",
-            "items": [
               "TFT4_Item_OrnnMuramana",
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones"
+              "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
             "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
@@ -5282,22 +5268,8 @@
           {
             "apiName": "TFT15_Smolder",
             "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
-            "cost": 3,
-            "name": "Smolder",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Smolder",
-            "items": [
               "TFT4_Item_OrnnMuramana",
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones"
+              "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
             "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
@@ -5382,8 +5354,8 @@
             "apiName": "TFT15_Ashe",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT5_Item_GuinsoosRagebladeRadiant",
-              "TFT_Item_Artifact_Fishbones"
+              "TFT_Item_Artifact_Fishbones",
+              "TFT5_Item_RunaansHurricaneRadiant"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
@@ -5406,9 +5378,6 @@
             "apiName": "TFT11_Augment_RadiantRefactor"
           },
           {
-            "apiName": "TFT_Augment_FindYourCenter"
-          },
-          {
             "apiName": "TFT9_Augment_HighEndSector"
           },
           {
@@ -5416,6 +5385,9 @@
           },
           {
             "apiName": "TFT_Augment_SwordOverflow"
+          },
+          {
+            "apiName": "TFT_Augment_AnotherOne"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-duelist-ashe-ok",
@@ -5424,8 +5396,8 @@
             "apiName": "TFT15_Ashe",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_GuinsoosRageblade",
               "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
@@ -5435,24 +5407,12 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Kayle",
-            "boardIndex": 24,
-            "items": [
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_kayle_4SbHt9zZjN.webp",
-            "cost": 1,
-            "name": "Kayle",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_Udyr",
-            "boardIndex": 3,
+            "boardIndex": 5,
             "items": [
-              "TFT_Item_GargoyleStoneplate",
-              "TFT_Item_SteraksGage",
-              "TFT_Item_TitansResolve"
+              "TFT_Item_RedBuff",
+              "TFT_Item_Redemption",
+              "TFT_Item_SpectralGauntlet"
             ],
             "stars": 3,
             "championIcon": "tft15_udyr_B49GVzlQLv.webp",
@@ -5461,21 +5421,8 @@
             "set": 15
           },
           {
-            "apiName": "TFT15_Sett",
-            "boardIndex": 19,
-            "items": [
-              "TFT_Item_RedBuff",
-              "TFT_Item_SpectralGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_sett_Q4MuDXHHzA.webp",
-            "cost": 4,
-            "name": "Sett",
-            "set": 15
-          },
-          {
             "apiName": "TFT15_LeeSin",
-            "boardIndex": 18,
+            "boardIndex": 4,
             "items": [
               "TFT_Item_GuardianAngel",
               "TFT_Item_InfinityEdge",
@@ -5497,7 +5444,7 @@
           "set": 15
         },
         "mainItem": {},
-        "title": "Duelist Udyr Ashe",
+        "title": "Duelist Ashe",
         "style": "Fast 8",
         "tier": "C"
       },
@@ -6250,6 +6197,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-06 12:00:04"
+    "lastUpdated": "2025-11-06 18:00:05"
   }
 }
