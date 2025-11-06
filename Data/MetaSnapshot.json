@@ -595,19 +595,7 @@
         "tier": "A"
       },
       {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Xayah",
-            "items": [
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_xayah_JUkM6Fkddj.webp",
-            "cost": 2,
-            "name": "Xayah",
-            "set": 15
-          }
-        ],
+        "altBuilds": [],
         "augments": [
           {
             "apiName": "TFT10_Augment_HeroicGrabBag"
@@ -909,22 +897,8 @@
           {
             "apiName": "TFT15_Smolder",
             "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
-            "cost": 3,
-            "name": "Smolder",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Smolder",
-            "items": [
               "TFT4_Item_OrnnMuramana",
-              "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_Fishbones"
+              "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
             "championIcon": "tft15_smolder_uYTPcJDNSZ.webp",
@@ -1359,7 +1333,9 @@
             "apiName": "TFT15_Volibear",
             "boardIndex": 13,
             "items": [
-              "TFT15_Item_SoulFighterEmblemItem"
+              "TFT15_Item_SoulFighterEmblemItem",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Bloodthirster"
             ],
             "stars": 1,
             "championIcon": "tft15_volibear_lsJedZglVr.webp",
@@ -1386,7 +1362,6 @@
             "boardIndex": 18,
             "items": [
               "TFT_Item_Morellonomicon",
-              "TFT_Item_GuardianAngel",
               "TFT_Item_StatikkShiv"
             ],
             "stars": 1,
@@ -2098,6 +2073,92 @@
         "title": "Supreme Cell Mech Akali",
         "style": "Fast 8",
         "tier": "B"
+      },
+      {
+        "altBuilds": [],
+        "augments": [
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT_Augment_UnlimitedPower"
+          },
+          {
+            "apiName": "TFT_Augment_InvestedPlus"
+          },
+          {
+            "apiName": "TFT_Augment_AuraFarming"
+          },
+          {
+            "apiName": "TFT_Augment_ForwardThinking"
+          },
+          {
+            "apiName": "TFT_Augment_Flexible"
+          },
+          {
+            "apiName": "TFT_Augment_WandOverflow"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
+        "champions": [
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_RedBuff",
+              "TFT_Item_FrozenHeart",
+              "TFT_Item_SpectralGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Karma",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_BlueBuff",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_JeweledGauntlet"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_SteraksGage",
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Galio",
+          "cost": 0,
+          "championIcon": "tft15_galio_ZzkrzIZsmK.webp",
+          "name": "The Mighty Mech",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "7 Mighty Mech",
+        "style": "Fast 9",
+        "tier": "C"
       },
       {
         "altBuilds": [
@@ -2833,115 +2894,6 @@
         "mainItem": {},
         "title": "Soul Fighter Viego Reroll",
         "style": "RR LV.7",
-        "tier": "C"
-      },
-      {
-        "altBuilds": [],
-        "augments": [
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT_Augment_UnlimitedPower"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlus"
-          },
-          {
-            "apiName": "TFT_Augment_AuraFarming"
-          },
-          {
-            "apiName": "TFT_Augment_ForwardThinking"
-          },
-          {
-            "apiName": "TFT_Augment_Flexible"
-          },
-          {
-            "apiName": "TFT_Augment_WandOverflow"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
-        "champions": [
-          {
-            "apiName": "TFT15_Aatrox",
-            "boardIndex": 0,
-            "items": [
-              "TFT_Item_IonicSpark",
-              "TFT_Item_SpectralGauntlet",
-              "TFT_Item_SteraksGage"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_aatrox_bOvehdTMiw.webp",
-            "cost": 1,
-            "name": "Aatrox",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Senna",
-            "boardIndex": 6,
-            "items": [
-              "TFT_Item_RabadonsDeathcap",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_UnstableConcoction"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_senna_Ddtili5jlj.webp",
-            "cost": 3,
-            "name": "Senna",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 11,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Karma",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_Morellonomicon"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
-            "cost": 4,
-            "name": "Karma",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Yone",
-            "boardIndex": 10,
-            "items": [
-              "TFT_Item_ThiefsGloves"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_yone_u0ubNByUF2.webp",
-            "cost": 5,
-            "name": "Yone",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Galio",
-          "cost": 0,
-          "championIcon": "tft15_galio_ZzkrzIZsmK.webp",
-          "name": "The Mighty Mech",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "7 Mighty Mech",
-        "style": "Fast 9",
         "tier": "C"
       },
       {
@@ -6311,6 +6263,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-06 00:00:04"
+    "lastUpdated": "2025-11-06 06:00:04"
   }
 }
