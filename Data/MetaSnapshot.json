@@ -3972,19 +3972,6 @@
             "cost": 4,
             "name": "Ashe",
             "set": 15
-          },
-          {
-            "apiName": "TFT15_Ashe",
-            "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_RunaansHurricane"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
-            "cost": 4,
-            "name": "Ashe",
-            "set": 15
           }
         ],
         "augments": [
@@ -4004,13 +3991,13 @@
             "apiName": "TFT7_Augment_ClutteredMind"
           },
           {
-            "apiName": "TFT_Augment_Lineup"
-          },
-          {
             "apiName": "TFT_Augment_Sponging"
           },
           {
             "apiName": "TFT9_Augment_AllThatShimmers"
+          },
+          {
+            "apiName": "TFT_Augment_AnotherOne"
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-juggernaut-ashe",
@@ -4021,7 +4008,7 @@
             "items": [
               "TFT_Item_GuinsoosRageblade",
               "TFT_Item_RunaansHurricane",
-              "TFT_Item_MadredsBloodrazor"
+              "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
             "championIcon": "tft15_ashe_7Ho0RNSk1n.webp",
@@ -5852,8 +5839,8 @@
             "boardIndex": 27,
             "items": [
               "TFT_Item_BlueBuff",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_JeweledGauntlet"
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_RabadonsDeathcap"
             ],
             "stars": 3,
             "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
@@ -6263,6 +6250,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-06 06:00:04"
+    "lastUpdated": "2025-11-06 12:00:04"
   }
 }
