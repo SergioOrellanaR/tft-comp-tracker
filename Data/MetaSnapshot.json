@@ -5,115 +5,127 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_Malzahar",
+            "apiName": "TFT15_TwistedFate",
             "items": [
-              "TFT_Item_Artifact_BlightingJewel",
-              "TFT4_Item_OrnnMuramana"
+              "TFT_Item_Artifact_NavoriFlickerblades"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-            "cost": 3,
-            "name": "Malzahar",
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
             "set": 15
           }
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_Twins2"
+            "apiName": "TFT6_Augment_MaxLevel10"
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT_Augment_UpwardMobility"
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+            "apiName": "TFT9_Augment_HedgeFund"
           },
           {
-            "apiName": "TFT11_Augment_Calltochaos"
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT11_Augment_Slammin"
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT7_Augment_LategameSpecialist"
           },
           {
-            "apiName": "TFT_Augment_DeadlierCaps"
+            "apiName": "TFT_Augment_ForwardThinking"
           },
           {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT_Augment_InvestedPlusPlus"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-malzahar",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-95",
         "champions": [
           {
-            "apiName": "TFT15_Malzahar",
-            "boardIndex": 27,
+            "apiName": "TFT15_Braum",
+            "boardIndex": 3,
             "items": [
-              "TFT_Item_Leviathan",
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-            "cost": 3,
-            "name": "Malzahar",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Malzahar",
-            "boardIndex": 24,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_BlueBuff"
+              "TFT_Item_BlueBuff",
+              "TFT_Item_SteraksGage",
+              "TFT_Item_FrozenHeart"
             ],
             "stars": 1,
-            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-            "cost": 3,
-            "name": "Malzahar",
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+            "cost": 5,
+            "name": "Braum",
             "set": 15
           },
           {
-            "apiName": "TFT15_Darius",
-            "boardIndex": 6,
-            "items": [
-              "TFT_Item_TitansResolve",
-              "TFT_Item_Bloodthirster",
-              "TFT_Item_SteraksGage"
-            ],
-            "stars": 3,
-            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
-            "cost": 3,
-            "name": "Darius",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Rammus",
-            "boardIndex": 5,
+            "apiName": "TFT15_Leona",
+            "boardIndex": 4,
             "items": [
               "TFT_Item_BrambleVest",
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_DragonsClaw"
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_WarmogsArmor"
             ],
-            "stars": 3,
-            "championIcon": "tft15_rammus_xCBHYQIs2x.webp",
-            "cost": 3,
-            "name": "Rammus",
+            "stars": 1,
+            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
+            "cost": 4,
+            "name": "Leona",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Seraphine",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_Leviathan",
+              "TFT_Item_Leviathan"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_seraphine_bBlvRWHjUk.webp",
+            "cost": 5,
+            "name": "Seraphine",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_TwistedFate",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_GuinsoosRageblade",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_HextechGunblade"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 24,
+            "items": [
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_SpearOfShojin",
+              "TFT_Item_RabadonsDeathcap"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
+            "cost": 5,
+            "name": "Zyra",
             "set": 15
           }
         ],
-        "mainAugment": {
-          "apiName": "TFT6_Augment_Twins2"
-        },
+        "mainAugment": {},
         "mainChampion": {
-          "apiName": "TFT15_Malzahar",
-          "cost": 3,
-          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
-          "name": "Malzahar",
+          "apiName": "TFT15_Braum",
+          "cost": 5,
+          "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+          "name": "Braum",
           "set": 15
         },
         "mainItem": {},
-        "title": "Double Trouble Malzahar Reroll",
-        "style": "RR LV.7",
+        "title": "Bastion Fast 9",
+        "style": "Fast 9",
         "tier": "S"
       },
       {
@@ -243,127 +255,115 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_TwistedFate",
+            "apiName": "TFT15_Malzahar",
             "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades"
+              "TFT_Item_Artifact_BlightingJewel",
+              "TFT4_Item_OrnnMuramana"
             ],
             "stars": 1,
-            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+            "cost": 3,
+            "name": "Malzahar",
             "set": 15
           }
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_MaxLevel10"
+            "apiName": "TFT6_Augment_Twins2"
           },
           {
-            "apiName": "TFT_Augment_UpwardMobility"
+            "apiName": "TFT_Augment_RiggedShopPlus"
           },
           {
-            "apiName": "TFT9_Augment_HedgeFund"
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT11_Augment_Calltochaos"
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT7_Augment_LivingForge"
           },
           {
-            "apiName": "TFT7_Augment_LategameSpecialist"
+            "apiName": "TFT_Augment_FiresalePlus"
           },
           {
-            "apiName": "TFT_Augment_ForwardThinking"
+            "apiName": "TFT_Augment_DeadlierCaps"
           },
           {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
+            "apiName": "TFT6_Augment_GachaAddict"
           }
         ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-95",
+        "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-malzahar",
         "champions": [
           {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_BlueBuff",
-              "TFT_Item_SteraksGage",
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Leona",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_BrambleVest",
-              "TFT_Item_DragonsClaw",
-              "TFT_Item_WarmogsArmor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_leona_6DGvKdAGTq.webp",
-            "cost": 4,
-            "name": "Leona",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Seraphine",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_JeweledGauntlet",
-              "TFT_Item_Leviathan",
-              "TFT_Item_Leviathan"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_seraphine_bBlvRWHjUk.webp",
-            "cost": 5,
-            "name": "Seraphine",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_TwistedFate",
+            "apiName": "TFT15_Malzahar",
             "boardIndex": 27,
             "items": [
-              "TFT_Item_GuinsoosRageblade",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_HextechGunblade"
+              "TFT_Item_Leviathan",
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_RabadonsDeathcap"
             ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
+            "stars": 3,
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+            "cost": 3,
+            "name": "Malzahar",
             "set": 15
           },
           {
-            "apiName": "TFT15_Zyra",
+            "apiName": "TFT15_Malzahar",
             "boardIndex": 24,
             "items": [
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_SpearOfShojin",
-              "TFT_Item_RabadonsDeathcap"
+              "TFT_Item_JeweledGauntlet",
+              "TFT_Item_BlueBuff"
             ],
             "stars": 1,
-            "championIcon": "tft15_zyra_WeFnGxBine.webp",
-            "cost": 5,
-            "name": "Zyra",
+            "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+            "cost": 3,
+            "name": "Malzahar",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Darius",
+            "boardIndex": 6,
+            "items": [
+              "TFT_Item_TitansResolve",
+              "TFT_Item_Bloodthirster",
+              "TFT_Item_SteraksGage"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_darius_3Bs7SrYBMI.webp",
+            "cost": 3,
+            "name": "Darius",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Rammus",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_BrambleVest",
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_DragonsClaw"
+            ],
+            "stars": 3,
+            "championIcon": "tft15_rammus_xCBHYQIs2x.webp",
+            "cost": 3,
+            "name": "Rammus",
             "set": 15
           }
         ],
-        "mainAugment": {},
+        "mainAugment": {
+          "apiName": "TFT6_Augment_Twins2"
+        },
         "mainChampion": {
-          "apiName": "TFT15_Braum",
-          "cost": 5,
-          "championIcon": "tft15_braum_mDoqnN1ncU.webp",
-          "name": "Braum",
+          "apiName": "TFT15_Malzahar",
+          "cost": 3,
+          "championIcon": "tft15_malzahar_yFDUSMPCQ4.webp",
+          "name": "Malzahar",
           "set": 15
         },
         "mainItem": {},
-        "title": "Bastion Fast 9",
-        "style": "Fast 9",
+        "title": "Double Trouble Malzahar Reroll",
+        "style": "RR LV.7",
         "tier": "S"
       },
       {
@@ -6057,6 +6057,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-10 12:00:04"
+    "lastUpdated": "2025-11-10 18:00:04"
   }
 }
