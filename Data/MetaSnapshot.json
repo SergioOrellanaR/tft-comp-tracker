@@ -7,12 +7,26 @@
           {
             "apiName": "TFT15_TwistedFate",
             "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades"
+              "TFT_Item_Artifact_NavoriFlickerblades",
+              "TFT4_Item_OrnnZhonyasParadox",
+              "TFT_Item_Artifact_WitsEnd"
             ],
             "stars": 1,
             "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
             "cost": 5,
             "name": "Twisted Fate",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Braum",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT9_Item_OrnnTrickstersGlass"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+            "cost": 5,
+            "name": "Braum",
             "set": 15
           }
         ],
@@ -133,7 +147,9 @@
           {
             "apiName": "TFT15_LeeSin",
             "items": [
-              "TFT_Item_Artifact_SilvermereDawn"
+              "TFT4_Item_OrnnMuramana",
+              "TFT_Item_Artifact_SpectralCutlass",
+              "TFT_Item_Artifact_ProwlersClaw"
             ],
             "stars": 1,
             "championIcon": "tft15_lee_sin_GuBbxaeX0e.webp",
@@ -145,7 +161,8 @@
             "apiName": "TFT15_TwistedFate",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
-              "TFT_Item_Artifact_WitsEnd"
+              "TFT_Item_Artifact_WitsEnd",
+              "TFT4_Item_OrnnZhonyasParadox"
             ],
             "stars": 1,
             "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
@@ -5833,6 +5850,11 @@
           "icon": "tft7_item_shimmerscale_moguls_mail_rK4GJsH3nK.webp"
         },
         {
+          "apiName": "TFT_Item_Artifact_ProwlersClaw",
+          "name": "Prowler's Claw",
+          "icon": "tft_item_artifact_prowlers_claw_fikYXtoWtU.webp"
+        },
+        {
           "apiName": "TFT_Item_Artifact_RapidFirecannon",
           "name": "Rapid Firecannon",
           "icon": "tft_item_artifact_rapid_firecannon_BKhL4cj4nu.webp"
@@ -5861,6 +5883,11 @@
           "apiName": "TFT_Item_Artifact_TalismanOfAscension",
           "name": "Talisman Of Ascension",
           "icon": "tft_item_artifact_talisman_of_ascension_E1phEubbXy.webp"
+        },
+        {
+          "apiName": "TFT9_Item_OrnnTrickstersGlass",
+          "name": "Trickster's Glass",
+          "icon": "tft9_item_ornn_tricksters_glass_PeMBUidA8Z.webp"
         },
         {
           "apiName": "TFT_Item_Artifact_UnendingDespair",
@@ -5942,6 +5969,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-18 06:00:05"
+    "lastUpdated": "2025-11-18 12:00:05"
   }
 }
