@@ -561,7 +561,7 @@
         "mainItem": {},
         "title": "Heavyweight Darius Reroll",
         "style": "RR LV.7",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -689,7 +689,7 @@
         },
         "title": "8 Soul Fighter Samira Carry",
         "style": "Fast 8",
-        "tier": "A"
+        "tier": "S"
       },
       {
         "altBuilds": [
@@ -4670,7 +4670,7 @@
         "mainItem": {},
         "title": "Heavyweight Darius Reroll",
         "style": "RR LV.7",
-        "tier": "S"
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -6152,6 +6152,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-21 06:00:05"
+    "lastUpdated": "2025-11-21 12:00:05"
   }
 }
