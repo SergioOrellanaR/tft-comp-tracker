@@ -369,7 +369,20 @@
         "tier": "S"
       },
       {
-        "altBuilds": [],
+        "altBuilds": [
+          {
+            "apiName": "TFT15_Karma",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT_Item_Artifact_BlightingJewel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_karma_eCW1RK3Ilt.webp",
+            "cost": 4,
+            "name": "Karma",
+            "set": 15
+          }
+        ],
         "augments": [
           {
             "apiName": "TFT_Augment_FiresalePlus"
@@ -431,8 +444,8 @@
             "boardIndex": 5,
             "items": [
               "TFT_Item_SteraksGage",
-              "TFT_Item_Bloodthirster",
-              "TFT_Item_GuardianAngel"
+              "TFT_Item_GuardianAngel",
+              "TFT_Item_RunaansHurricane"
             ],
             "stars": 1,
             "championIcon": "tft15_volibear_lsJedZglVr.webp",
@@ -457,6 +470,18 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Braum",
+            "items": [
+              "TFT4_Item_OrnnMuramana",
+              "TFT9_Item_OrnnTrickstersGlass"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+            "cost": 5,
+            "name": "Braum",
+            "set": 15
+          },
+          {
             "apiName": "TFT15_TwistedFate",
             "items": [
               "TFT_Item_Artifact_NavoriFlickerblades",
@@ -467,18 +492,6 @@
             "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
             "cost": 5,
             "name": "Twisted Fate",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Braum",
-            "items": [
-              "TFT4_Item_OrnnMuramana",
-              "TFT9_Item_OrnnTrickstersGlass"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
-            "cost": 5,
-            "name": "Braum",
             "set": 15
           }
         ],
@@ -6153,6 +6166,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-25 00:00:04"
+    "lastUpdated": "2025-11-25 06:00:05"
   }
 }
