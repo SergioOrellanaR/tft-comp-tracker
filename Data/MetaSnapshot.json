@@ -1176,127 +1176,6 @@
       {
         "altBuilds": [
           {
-            "apiName": "TFT15_TwistedFate",
-            "items": [
-              "TFT_Item_Artifact_NavoriFlickerblades"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
-            "cost": 5,
-            "name": "Twisted Fate",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT7_Augment_ClutteredMind"
-          },
-          {
-            "apiName": "TFT9_Augment_AllThatShimmers"
-          },
-          {
-            "apiName": "TFT_Augment_UpwardMobility"
-          },
-          {
-            "apiName": "TFT9_Augment_HedgeFund"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          },
-          {
-            "apiName": "TFT6_Augment_MaxLevel10"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-95-varus",
-        "champions": [
-          {
-            "apiName": "TFT15_Varus",
-            "boardIndex": 27,
-            "items": [
-              "TFT_Item_InfinityEdge",
-              "TFT_Item_PowerGauntlet",
-              "TFT_Item_BlueBuff"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
-            "cost": 5,
-            "name": "Varus",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 4,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_KSante",
-            "boardIndex": 5,
-            "items": [
-              "TFT_Item_WarmogsArmor",
-              "TFT_Item_DragonsClaw",
-              "TFT_Item_BrambleVest"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
-            "cost": 4,
-            "name": "K'Sante",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Braum",
-            "boardIndex": 3,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
-            "cost": 5,
-            "name": "Braum",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Zyra",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_RabadonsDeathcap"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_zyra_WeFnGxBine.webp",
-            "cost": 5,
-            "name": "Zyra",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Varus",
-          "cost": 5,
-          "championIcon": "tft15_varus_RKpDP6wbbD.webp",
-          "name": "Varus",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Varus Fast 9 Legendaries",
-        "style": "Fast 9",
-        "tier": "A"
-      },
-      {
-        "altBuilds": [
-          {
             "apiName": "TFT15_Katarina",
             "items": [
               "TFT5_Item_HandOfJusticeRadiant"
@@ -1518,6 +1397,127 @@
         "title": "8 Star Guardian Ahri Carry",
         "style": "Fast 8",
         "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
+            "apiName": "TFT15_TwistedFate",
+            "items": [
+              "TFT_Item_Artifact_NavoriFlickerblades"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_twisted_fate_k4TrXpaXbG.webp",
+            "cost": 5,
+            "name": "Twisted Fate",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT7_Augment_ClutteredMind"
+          },
+          {
+            "apiName": "TFT9_Augment_AllThatShimmers"
+          },
+          {
+            "apiName": "TFT_Augment_UpwardMobility"
+          },
+          {
+            "apiName": "TFT9_Augment_HedgeFund"
+          },
+          {
+            "apiName": "TFT_Augment_ShimmerscaleEssence"
+          },
+          {
+            "apiName": "TFT6_Augment_MaxLevel10"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-95-varus",
+        "champions": [
+          {
+            "apiName": "TFT15_Varus",
+            "boardIndex": 27,
+            "items": [
+              "TFT_Item_InfinityEdge",
+              "TFT_Item_PowerGauntlet",
+              "TFT_Item_BlueBuff"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_varus_RKpDP6wbbD.webp",
+            "cost": 5,
+            "name": "Varus",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 4,
+            "items": [
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_KSante",
+            "boardIndex": 5,
+            "items": [
+              "TFT_Item_WarmogsArmor",
+              "TFT_Item_DragonsClaw",
+              "TFT_Item_BrambleVest"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ksante_jgz2S3esYw.webp",
+            "cost": 4,
+            "name": "K'Sante",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Braum",
+            "boardIndex": 3,
+            "items": [
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_braum_mDoqnN1ncU.webp",
+            "cost": 5,
+            "name": "Braum",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Zyra",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_RabadonsDeathcap"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_zyra_WeFnGxBine.webp",
+            "cost": 5,
+            "name": "Zyra",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Varus",
+          "cost": 5,
+          "championIcon": "tft15_varus_RKpDP6wbbD.webp",
+          "name": "Varus",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Varus Fast 9 Legendaries",
+        "style": "Fast 9",
+        "tier": "A"
       },
       {
         "altBuilds": [
@@ -2101,6 +2101,102 @@
       {
         "altBuilds": [
           {
+            "apiName": "TFT15_Ryze",
+            "items": [
+              "TFT_Item_Artifact_Fishbones"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
+          }
+        ],
+        "augments": [
+          {
+            "apiName": "TFT11_Augment_Slammin"
+          },
+          {
+            "apiName": "TFT9_Augment_HighEndSector"
+          },
+          {
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+          },
+          {
+            "apiName": "TFT_Augment_LastSecondSave"
+          },
+          {
+            "apiName": "TFT_Augment_FiresalePlus"
+          },
+          {
+            "apiName": "TFT_Augment_WaterLotus1"
+          },
+          {
+            "apiName": "TFT11_Augment_RadiantRefactor"
+          },
+          {
+            "apiName": "TFT9_Augment_BigGrabBag"
+          }
+        ],
+        "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
+        "champions": [
+          {
+            "apiName": "TFT15_Ryze",
+            "boardIndex": 21,
+            "items": [
+              "TFT_Item_ArchangelsStaff",
+              "TFT_Item_StatikkShiv",
+              "TFT_Item_MadredsBloodrazor"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
+            "cost": 4,
+            "name": "Ryze",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_JarvanIV",
+            "boardIndex": 2,
+            "items": [
+              "TFT_Item_FrozenHeart"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
+            "cost": 4,
+            "name": "Jarvan IV",
+            "set": 15
+          },
+          {
+            "apiName": "TFT15_Volibear",
+            "boardIndex": 7,
+            "items": [
+              "TFT_Item_RunaansHurricane",
+              "TFT_Item_MadredsBloodrazor",
+              "TFT_Item_GuardianAngel"
+            ],
+            "stars": 1,
+            "championIcon": "tft15_volibear_lsJedZglVr.webp",
+            "cost": 4,
+            "name": "Volibear",
+            "set": 15
+          }
+        ],
+        "mainAugment": {},
+        "mainChampion": {
+          "apiName": "TFT15_Ryze",
+          "cost": 4,
+          "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
+          "name": "Ryze",
+          "set": 15
+        },
+        "mainItem": {},
+        "title": "Mentor Ryze Senna",
+        "style": "Fast 8",
+        "tier": "B"
+      },
+      {
+        "altBuilds": [
+          {
             "apiName": "TFT15_Malphite",
             "items": [
               "TFT7_Item_ShimmerscaleMogulsMail"
@@ -2389,102 +2485,6 @@
         "title": "Bastion Xayah Reroll",
         "style": "RR LV.6",
         "tier": "C"
-      },
-      {
-        "altBuilds": [
-          {
-            "apiName": "TFT15_Ryze",
-            "items": [
-              "TFT_Item_Artifact_Fishbones"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
-            "cost": 4,
-            "name": "Ryze",
-            "set": 15
-          }
-        ],
-        "augments": [
-          {
-            "apiName": "TFT11_Augment_Slammin"
-          },
-          {
-            "apiName": "TFT9_Augment_HighEndSector"
-          },
-          {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_LastSecondSave"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_WaterLotus1"
-          },
-          {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          }
-        ],
-        "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
-        "champions": [
-          {
-            "apiName": "TFT15_Ryze",
-            "boardIndex": 21,
-            "items": [
-              "TFT_Item_ArchangelsStaff",
-              "TFT_Item_StatikkShiv",
-              "TFT_Item_MadredsBloodrazor"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
-            "cost": 4,
-            "name": "Ryze",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_JarvanIV",
-            "boardIndex": 2,
-            "items": [
-              "TFT_Item_FrozenHeart"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_jarvan_iv_HIYrxz28RJ.webp",
-            "cost": 4,
-            "name": "Jarvan IV",
-            "set": 15
-          },
-          {
-            "apiName": "TFT15_Volibear",
-            "boardIndex": 7,
-            "items": [
-              "TFT_Item_RunaansHurricane",
-              "TFT_Item_MadredsBloodrazor",
-              "TFT_Item_GuardianAngel"
-            ],
-            "stars": 1,
-            "championIcon": "tft15_volibear_lsJedZglVr.webp",
-            "cost": 4,
-            "name": "Volibear",
-            "set": 15
-          }
-        ],
-        "mainAugment": {},
-        "mainChampion": {
-          "apiName": "TFT15_Ryze",
-          "cost": 4,
-          "championIcon": "tft15_ryze_3pDGgk9ikP.webp",
-          "name": "Ryze",
-          "set": 15
-        },
-        "mainItem": {},
-        "title": "Mentor Ryze Senna",
-        "style": "Fast 8",
-        "tier": "B"
       },
       {
         "altBuilds": [
@@ -6166,6 +6166,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-11-30 12:00:05"
+    "lastUpdated": "2025-11-30 18:00:05"
   }
 }
