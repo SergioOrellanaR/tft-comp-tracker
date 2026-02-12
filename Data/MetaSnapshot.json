@@ -19,28 +19,28 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_Twins2"
+            "apiName": "TFT6_Augment_Twins2",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+            "apiName": "TFT11_Augment_Calltochaos",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Calltochaos"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT_Augment_DeadlierCaps",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_DeadlierCaps"
-          },
-          {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT6_Augment_GachaAddict",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-malzahar",
@@ -98,7 +98,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT6_Augment_Twins2"
+          "apiName": "TFT6_Augment_Twins2",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Malzahar",
@@ -143,28 +144,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_AuraFarming"
+            "apiName": "TFT_Augment_AuraFarming",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_CalculatedLoss"
+            "apiName": "TFT6_Augment_CalculatedLoss",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_MaxLevel10"
+            "apiName": "TFT6_Augment_MaxLevel10",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_UpwardMobility"
+            "apiName": "TFT_Augment_UpwardMobility",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_InvestedPlus"
+            "apiName": "TFT_Augment_InvestedPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ForwardThinking"
+            "apiName": "TFT_Augment_ForwardThinking",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LategameSpecialist"
+            "apiName": "TFT7_Augment_LategameSpecialist",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-fateedge-of-night-unlimited-blade-works",
@@ -270,28 +279,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_SoulFighterCrest"
+            "apiName": "TFT15_Augment_SoulFighterCrest",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_SoulFighter_SoulSurge"
+            "apiName": "TFT15_Augment_SoulFighter_SoulSurge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
+            "apiName": "TFT_Augment_ClimbTheLadder2",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
+            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AuraFarming"
+            "apiName": "TFT_Augment_AuraFarming",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-soul-mira",
@@ -385,28 +402,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT_Augment_UnlimitedPower",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_UnlimitedPower"
+            "apiName": "TFT_Augment_InvestedPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_InvestedPlus"
+            "apiName": "TFT_Augment_AuraFarming",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AuraFarming"
+            "apiName": "TFT_Augment_ForwardThinking",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ForwardThinking"
+            "apiName": "TFT_Augment_Flexible",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Flexible"
-          },
-          {
-            "apiName": "TFT_Augment_WandOverflow"
+            "apiName": "TFT_Augment_WandOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mighty-morphin-mecha",
@@ -497,28 +518,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_MaxLevel10"
+            "apiName": "TFT6_Augment_MaxLevel10",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_UpwardMobility"
+            "apiName": "TFT_Augment_UpwardMobility",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_HedgeFund"
+            "apiName": "TFT9_Augment_HedgeFund",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT7_Augment_LategameSpecialist",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LategameSpecialist"
+            "apiName": "TFT_Augment_ForwardThinking",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ForwardThinking"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
+            "apiName": "TFT_Augment_InvestedPlusPlus",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-bastion-95",
@@ -638,28 +663,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Overheal"
+            "apiName": "TFT_Augment_Overheal",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
+            "apiName": "TFT9_Augment_LongTimeCrafting",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-soul-reaper-viego",
@@ -708,7 +741,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
+          "apiName": "TFT6_Augment_PortableForge",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Viego",
@@ -726,28 +760,28 @@
         "altBuilds": [],
         "augments": [
           {
-            "apiName": "TFT_Augment_Trifecta2"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT_Augment_Lineup",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Lineup"
+            "apiName": "TFT_Augment_Replication",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT_Augment_ShojinSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Replication"
+            "apiName": "TFT_Augment_GuardbreakerSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShojinSpirit"
-          },
-          {
-            "apiName": "TFT_Augment_GuardbreakerSpirit"
-          },
-          {
-            "apiName": "TFT_Augment_SwordOverflow"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-fusion-ha",
@@ -837,28 +871,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_CalculatedLoss"
+            "apiName": "TFT6_Augment_CalculatedLoss",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_PandorasItems2"
+            "apiName": "TFT9_Augment_PandorasItems2",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_CustomerIsAlwaysRight"
+            "apiName": "TFT9_Augment_CustomerIsAlwaysRight",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnotherOne"
+            "apiName": "TFT_Augment_AnotherOne",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Reinfourcement"
+            "apiName": "TFT11_Augment_Reinfourcement",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crystal-gamba",
@@ -965,28 +1007,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SatedSpellweaver"
+            "apiName": "TFT_Augment_SatedSpellweaver",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_SupremeCellsCirclet"
+            "apiName": "TFT15_Augment_SupremeCellsCirclet",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnotherOne"
+            "apiName": "TFT_Augment_AnotherOne",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_BronzeForLife2"
+            "apiName": "TFT_Augment_BronzeForLife2",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mecha-kali",
@@ -1078,28 +1128,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Replication"
+            "apiName": "TFT_Augment_Replication",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook2"
+            "apiName": "TFT9_Augment_BardPlaybook2",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_BeltOverflow"
+            "apiName": "TFT_Augment_BeltOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Reinfourcement"
+            "apiName": "TFT11_Augment_Reinfourcement",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_DeadlierCaps"
+            "apiName": "TFT_Augment_DeadlierCaps",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-shadow-cat",
@@ -1202,28 +1260,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT9_Augment_BardPlaybook1"
+            "apiName": "TFT9_Augment_BardPlaybook1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TreasureHunt"
+            "apiName": "TFT_Augment_TreasureHunt",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_RadiantRelics"
+            "apiName": "TFT6_Augment_RadiantRelics",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SatedSpellweaver"
+            "apiName": "TFT_Augment_SatedSpellweaver",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-executioner-katarina",
@@ -1272,7 +1338,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT11_Augment_RadiantRefactor"
+          "apiName": "TFT11_Augment_RadiantRefactor",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Katarina",
@@ -1304,28 +1371,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_StarGuardianCrest"
+            "apiName": "TFT15_Augment_StarGuardianCrest",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
+            "apiName": "TFT_Augment_ClimbTheLadder2",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_QualityOverQuantity"
+            "apiName": "TFT_Augment_QualityOverQuantity",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_EyeForAnEye"
+            "apiName": "TFT_Augment_EyeForAnEye",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
+            "apiName": "TFT6_Augment_Keepers2",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Reinfourcement"
+            "apiName": "TFT11_Augment_Reinfourcement",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-star-guardians",
@@ -1414,28 +1489,24 @@
         ],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_ClutteredMind"
+            "apiName": "TFT7_Augment_ClutteredMind",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_AllThatShimmers"
+            "apiName": "TFT_Augment_UpwardMobility",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_UpwardMobility"
+            "apiName": "TFT9_Augment_HedgeFund",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_HedgeFund"
-          },
-          {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
-          },
-          {
-            "apiName": "TFT6_Augment_MaxLevel10"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT6_Augment_MaxLevel10",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-95-varus",
@@ -1550,28 +1621,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TwoMuchValue"
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_PatienceIsAVirtue"
+            "apiName": "TFT_Augment_PatienceIsAVirtue",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook1"
+            "apiName": "TFT9_Augment_BardPlaybook1",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_DeadlierCaps"
+            "apiName": "TFT_Augment_DeadlierCaps",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Strategist_GamePlan"
+            "apiName": "TFT15_Augment_Strategist_GamePlan",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_CookingPot"
+            "apiName": "TFT_Augment_CookingPot",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-rerolling-of-the-shield-hero",
@@ -1673,28 +1752,24 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_WorthTheWaitGold"
+            "apiName": "TFT_Augment_WorthTheWaitGold",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_MissedConnections"
+            "apiName": "TFT9_Augment_MissedConnections",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ExplosiveGrowthPlus"
+            "apiName": "TFT_Augment_ExplosiveGrowthPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT_Augment_InvestedPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Buildabud"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_CookingPot"
+            "apiName": "TFT_Augment_CookingPot",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kayle-reroll",
@@ -1802,28 +1877,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
+            "apiName": "TFT9_Augment_LongTimeCrafting",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT15_Augment_Bastion_RaidBoss",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Bastion_RaidBoss"
-          },
-          {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kogmaw-trainer-bastion",
@@ -1872,7 +1951,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
+          "apiName": "TFT6_Augment_PortableForge",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_KogMaw",
@@ -1916,28 +1996,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT_Augment_LastSecondSave",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT15_Augment_BattleAcademia_TransferStudents",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_BattleAcademia_TransferStudents"
+            "apiName": "TFT6_Augment_GachaAddict",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT_Augment_SwordOverflow"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-silver-jayce",
@@ -2016,28 +2100,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_ClutteredMind"
+            "apiName": "TFT7_Augment_ClutteredMind",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_SpellslingerCrown"
+            "apiName": "TFT15_Augment_SpellslingerCrown",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_HighEndSector"
+            "apiName": "TFT9_Augment_HighEndSector",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Replication"
+            "apiName": "TFT_Augment_Replication",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Isekai_Sorcerer"
+            "apiName": "TFT_Augment_Isekai_Sorcerer",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-karma-sorcs",
@@ -2114,28 +2206,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_HighEndSector"
+            "apiName": "TFT9_Augment_HighEndSector",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT_Augment_LastSecondSave",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT_Augment_WaterLotus1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WaterLotus1"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-mecha-fast-9",
@@ -2210,28 +2306,28 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT6_Augment_GachaAddict",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_PandorasBench"
+            "apiName": "TFT7_Augment_PandorasBench",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_MissedConnections"
+            "apiName": "TFT9_Augment_MissedConnections",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT6_Augment_HyperRoll",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_HyperRoll"
+            "apiName": "TFT6_Augment_TradeSector",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_TradeSector"
-          },
-          {
-            "apiName": "TFT_Augment_WorthTheWaitGold"
-          },
-          {
-            "apiName": "TFT11_Augment_Buildabud"
+            "apiName": "TFT_Augment_WorthTheWaitGold",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crewboy-bebop",
@@ -2330,28 +2426,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_MaxLevel10"
+            "apiName": "TFT6_Augment_MaxLevel10",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_UpwardMobility"
+            "apiName": "TFT_Augment_UpwardMobility",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT7_Augment_LategameSpecialist",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LategameSpecialist"
+            "apiName": "TFT_Augment_ForwardThinking",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ForwardThinking"
+            "apiName": "TFT_Augment_InvestedPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
-          },
-          {
-            "apiName": "TFT_Augment_SwordOverflow"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-edgelord-95",
@@ -2418,28 +2518,36 @@
         "altBuilds": [],
         "augments": [
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TwoMuchValue"
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
+            "apiName": "TFT_Augment_AnExaltedAdventure",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PandorasItems"
+            "apiName": "TFT6_Augment_PandorasItems",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SpiritLink1"
+            "apiName": "TFT_Augment_SpiritLink1",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_BastionCrown"
+            "apiName": "TFT15_Augment_BastionCrown",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-xayah-bastion",
@@ -2504,28 +2612,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_Mentor_TeachersCouncil"
+            "apiName": "TFT15_Augment_Mentor_TeachersCouncil",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT_Augment_LastSecondSave",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TwoMuchValue"
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT_Augment_EyeForAnEye",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_EyeForAnEye"
-          },
-          {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-pirate-king",
@@ -2617,28 +2729,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT6_Augment_GachaAddict",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TragicalBlade"
+            "apiName": "TFT_Augment_TragicalBlade",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_GuardbreakerSpirit"
+            "apiName": "TFT_Augment_GuardbreakerSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_StarsAreBorn"
+            "apiName": "TFT9_Augment_StarsAreBorn",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-jujutsu-kaisa-ok",
@@ -2703,28 +2823,28 @@
         "altBuilds": [],
         "augments": [
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT6_Augment_CalculatedLoss",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_CalculatedLoss"
+            "apiName": "TFT_Augment_DeadlierCaps",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_DeadlierCaps"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT_Augment_WandOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
-          },
-          {
-            "apiName": "TFT_Augment_WandOverflow"
-          },
-          {
-            "apiName": "TFT15_Augment_CrystalRoseCrest"
+            "apiName": "TFT15_Augment_CrystalRoseCrest",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crystal-visions",
@@ -2817,28 +2937,28 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_TwoMuchValue"
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_AllThatShimmers"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT_Augment_FindYourCenter",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SwordOverflow"
-          },
-          {
-            "apiName": "TFT_Augment_FindYourCenter"
-          },
-          {
-            "apiName": "TFT_Augment_BeltOverflow"
+            "apiName": "TFT_Augment_BeltOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-jhin-mundo",
@@ -2913,28 +3033,32 @@
         "altBuilds": [],
         "augments": [
           {
-            "apiName": "TFT_Augment_TwoMuchValue"
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_FindYourCenter"
+            "apiName": "TFT_Augment_FindYourCenter",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites"
+            "apiName": "TFT15_Augment_SoulFighter_TournamentFavorites",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
+            "apiName": "TFT_Augment_AnExaltedAdventure",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShimmerscaleEssence"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
-          },
-          {
-            "apiName": "TFT9_Augment_BardPlaybook1"
+            "apiName": "TFT9_Augment_BardPlaybook1",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-shining-bright-lux",
@@ -3024,28 +3148,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_Protagonist"
+            "apiName": "TFT_Augment_Protagonist",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_GarenCarry"
+            "apiName": "TFT15_Augment_GarenCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_MissedConnections"
+            "apiName": "TFT9_Augment_MissedConnections",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
+            "apiName": "TFT_Augment_ClimbTheLadder2",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_BattleAcademia_Hero101"
+            "apiName": "TFT15_Augment_BattleAcademia_Hero101",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_BestFriends2"
+            "apiName": "TFT7_Augment_BestFriends2",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HomeCooking"
+            "apiName": "TFT_Augment_HomeCooking",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-schoolyard-justice",
@@ -3093,7 +3225,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_GarenCarry"
+          "apiName": "TFT15_Augment_GarenCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Garen",
@@ -3123,28 +3256,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_ShenCarry"
+            "apiName": "TFT15_Augment_ShenCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Bastion_RaidBoss"
+            "apiName": "TFT15_Augment_Bastion_RaidBoss",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_BastionCirclet"
+            "apiName": "TFT15_Augment_BastionCirclet",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_BestFriends2"
+            "apiName": "TFT7_Augment_BestFriends2",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_BackupDancers"
+            "apiName": "TFT_Augment_BackupDancers",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ClimbTheLadder1"
+            "apiName": "TFT_Augment_ClimbTheLadder1",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-twilight-assault-shen",
@@ -3191,7 +3332,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_ShenCarry"
+          "apiName": "TFT15_Augment_ShenCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Shen",
@@ -3222,28 +3364,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_DrMundoCarry"
+            "apiName": "TFT15_Augment_DrMundoCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
+            "apiName": "TFT6_Augment_Keepers2",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_BeltOverflow"
+            "apiName": "TFT_Augment_BeltOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-give-em-the-chair-dr-mundo",
@@ -3278,7 +3428,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_DrMundoCarry"
+          "apiName": "TFT15_Augment_DrMundoCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_DrMundo",
@@ -3309,28 +3460,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_ViCarry"
+            "apiName": "TFT15_Augment_ViCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT_Augment_LastSecondSave",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ItemCollector1"
+            "apiName": "TFT_Augment_ItemCollector1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SwordOverflow"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-knuckledusters-vi",
@@ -3379,7 +3538,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_ViCarry"
+          "apiName": "TFT15_Augment_ViCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Vi",
@@ -3424,28 +3584,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_MalphiteCarry"
+            "apiName": "TFT15_Augment_MalphiteCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
+            "apiName": "TFT6_Augment_Keepers2",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_MissedConnections"
+            "apiName": "TFT9_Augment_MissedConnections",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT_Augment_LastSecondSave",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_ProtectorCrest"
+            "apiName": "TFT15_Augment_ProtectorCrest",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT6_Augment_GachaAddict",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-tectonic-titan",
@@ -3504,7 +3672,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_MalphiteCarry"
+          "apiName": "TFT15_Augment_MalphiteCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Malphite",
@@ -3534,28 +3703,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_Protagonist"
+            "apiName": "TFT_Augment_Protagonist",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_ZacCarry"
+            "apiName": "TFT15_Augment_ZacCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_MissedConnections"
+            "apiName": "TFT9_Augment_MissedConnections",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_CrownguardSpirit"
+            "apiName": "TFT_Augment_CrownguardSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WandOverflow"
+            "apiName": "TFT_Augment_WandOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
+            "apiName": "TFT15_Augment_Heavyweight_RingTheBell",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_HeavyweightCirclet"
+            "apiName": "TFT15_Augment_HeavyweightCirclet",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-perfect-form-zac",
@@ -3604,7 +3781,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_ZacCarry"
+          "apiName": "TFT15_Augment_ZacCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Zac",
@@ -3635,28 +3813,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_KennenCarry"
+            "apiName": "TFT15_Augment_KennenCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_ProtectorCrest"
+            "apiName": "TFT15_Augment_ProtectorCrest",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
+            "apiName": "TFT6_Augment_Keepers2",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Protagonist"
+            "apiName": "TFT_Augment_Protagonist",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ClimbTheLadder2"
+            "apiName": "TFT_Augment_ClimbTheLadder2",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-nine-thousand-volts-kennen",
@@ -3704,7 +3890,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_KennenCarry"
+          "apiName": "TFT15_Augment_KennenCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Kennen",
@@ -3749,28 +3936,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_NeekoCarry"
+            "apiName": "TFT15_Augment_NeekoCarry",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus"
+            "apiName": "TFT_Augment_HeroicGrabBagPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_LastSecondSave"
+            "apiName": "TFT_Augment_LastSecondSave",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_CrownguardSpirit"
+            "apiName": "TFT_Augment_CrownguardSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WaterLotus1"
+            "apiName": "TFT_Augment_WaterLotus1",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WandOverflow"
+            "apiName": "TFT_Augment_WandOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-starfall-neeko",
@@ -3819,7 +4014,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_NeekoCarry"
+          "apiName": "TFT15_Augment_NeekoCarry",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Neeko",
@@ -3865,28 +4061,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SwordOverflow"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnotherOne"
+            "apiName": "TFT_Augment_AnotherOne",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShojinSpirit"
+            "apiName": "TFT_Augment_ShojinSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_RadiantRelics"
+            "apiName": "TFT6_Augment_RadiantRelics",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-d-d-d-duelists",
@@ -3965,28 +4169,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
+            "apiName": "TFT9_Augment_LongTimeCrafting",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Lineup"
+            "apiName": "TFT_Augment_Lineup",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-monster-trainer-kogmaw",
@@ -4046,7 +4254,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
+          "apiName": "TFT6_Augment_PortableForge",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_KogMaw",
@@ -4077,28 +4286,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_JuggernautCrest"
+            "apiName": "TFT15_Augment_JuggernautCrest",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_JuggernautCrown"
+            "apiName": "TFT15_Augment_JuggernautCrown",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Juggernaut_Indomitable"
+            "apiName": "TFT15_Augment_Juggernaut_Indomitable",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_ClutteredMind"
+            "apiName": "TFT7_Augment_ClutteredMind",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_AllThatShimmers"
+            "apiName": "TFT_Augment_AnotherOne",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnotherOne"
-          },
-          {
-            "apiName": "TFT9_Augment_HighEndSector"
+            "apiName": "TFT9_Augment_HighEndSector",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-juggernaut-ashe",
@@ -4186,28 +4399,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TwoMuchValue"
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
+            "apiName": "TFT_Augment_AnExaltedAdventure",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_PlotArmor"
+            "apiName": "TFT_Augment_PlotArmor",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PandorasItems"
+            "apiName": "TFT6_Augment_PandorasItems",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-protector-xayah",
@@ -4283,28 +4504,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_BestFriends1"
+            "apiName": "TFT7_Augment_BestFriends1",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
+            "apiName": "TFT6_Augment_Keepers2",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_HighEndSector"
+            "apiName": "TFT9_Augment_HighEndSector",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-sniper-varus",
@@ -4352,7 +4581,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+          "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Jinx",
@@ -4384,28 +4614,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT6_Augment_GachaAddict",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TragicalBlade"
+            "apiName": "TFT_Augment_TragicalBlade",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_AllThatShimmers"
+            "apiName": "TFT_Augment_GuardbreakerSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_GuardbreakerSpirit"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT_Augment_AnExaltedAdventure",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
-          },
-          {
-            "apiName": "TFT15_Augment_Mentor_TeachersCouncil"
+            "apiName": "TFT15_Augment_Mentor_TeachersCouncil",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-jujutsu-kaisa-mentor",
@@ -4483,28 +4717,28 @@
         ],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT_Augment_WaterLotus1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WaterLotus1"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT_Augment_PatienceIsAVirtue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_PatienceIsAVirtue"
+            "apiName": "TFT9_Augment_HighEndSector",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
-          },
-          {
-            "apiName": "TFT9_Augment_HighEndSector"
-          },
-          {
-            "apiName": "TFT11_Augment_Calltochaos"
+            "apiName": "TFT11_Augment_Calltochaos",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-mentor-senna-yasuo",
@@ -4604,28 +4838,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT_Augment_CryMeARiver",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_CryMeARiver"
+            "apiName": "TFT15_Augment_Heavyweight_RingTheBell",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
+            "apiName": "TFT_Augment_BeltOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_BeltOverflow"
+            "apiName": "TFT15_Augment_HeavyweightCirclet",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_HeavyweightCirclet"
-          },
-          {
-            "apiName": "TFT_Augment_WandOverflow"
+            "apiName": "TFT_Augment_WandOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-heavy-malzahar",
@@ -4703,28 +4941,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT_Augment_WaterLotus1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WaterLotus1"
+            "apiName": "TFT15_Augment_JuggernautCrown",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_JuggernautCrown"
-          },
-          {
-            "apiName": "TFT_Augment_ShojinSpirit"
+            "apiName": "TFT_Augment_ShojinSpirit",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-train-your-dragon-juggs",
@@ -4802,28 +5044,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_GachaAddict"
+            "apiName": "TFT6_Augment_GachaAddict",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeadStart"
+            "apiName": "TFT_Augment_HeadStart",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_DeadlierCaps"
+            "apiName": "TFT_Augment_DeadlierCaps",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WorthTheWaitGold"
+            "apiName": "TFT_Augment_WorthTheWaitGold",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Buildabud"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SwordOverflow"
-          },
-          {
-            "apiName": "TFT9_Augment_StarsAreBorn"
+            "apiName": "TFT9_Augment_StarsAreBorn",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-drift-duo-lucian",
@@ -4901,28 +5147,28 @@
         ],
         "augments": [
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT6_Augment_CalculatedLoss",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_CalculatedLoss"
+            "apiName": "TFT_Augment_DeadlierCaps",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_DeadlierCaps"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT_Augment_UnlimitedPower",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_UnlimitedPower"
-          },
-          {
-            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
-          },
-          {
-            "apiName": "TFT15_Augment_CrystalRoseCrest"
+            "apiName": "TFT15_Augment_CrystalRoseCrest",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-crystal-ahri",
@@ -5002,28 +5248,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT_Augment_CryMeARiver",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_CryMeARiver"
+            "apiName": "TFT_Augment_BeltOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_BeltOverflow"
+            "apiName": "TFT_Augment_WandOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_WandOverflow"
+            "apiName": "TFT_Augment_PatienceIsAVirtue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_PatienceIsAVirtue"
-          },
-          {
-            "apiName": "TFT_Augment_InvestedPlusPlus"
+            "apiName": "TFT_Augment_InvestedPlusPlus",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-prostrat-malz",
@@ -5112,28 +5362,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_RingKingCrest"
+            "apiName": "TFT15_Augment_RingKingCrest",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_ShojinSpirit"
+            "apiName": "TFT_Augment_ShojinSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_GuardbreakerSpirit"
+            "apiName": "TFT_Augment_GuardbreakerSpirit",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
+            "apiName": "TFT6_Augment_Keepers2",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SwordOverflow"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-444-voli",
@@ -5236,28 +5494,28 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT9_Augment_BardPlaybook3",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BardPlaybook3"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
-          },
-          {
-            "apiName": "TFT_Augment_SpiritLink1"
-          },
-          {
-            "apiName": "TFT_Augment_FiresalePlus"
+            "apiName": "TFT_Augment_SpiritLink1",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-train-your-dragon-bastion",
@@ -5336,28 +5594,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_HighEndSector"
+            "apiName": "TFT9_Augment_HighEndSector",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PandorasItems"
+            "apiName": "TFT6_Augment_PandorasItems",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_SwordOverflow"
+            "apiName": "TFT_Augment_SwordOverflow",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnotherOne"
+            "apiName": "TFT_Augment_AnotherOne",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-duelist-ashe-ok",
@@ -5422,28 +5688,32 @@
         "altBuilds": [],
         "augments": [
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RainingGold"
+            "apiName": "TFT11_Augment_RainingGold",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_EyeForAnEye"
+            "apiName": "TFT_Augment_EyeForAnEye",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Reinfourcement"
+            "apiName": "TFT11_Augment_Reinfourcement",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_LittleBuddies"
+            "apiName": "TFT_Augment_Replication",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_Replication"
-          },
-          {
-            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-volibear-jinx",
@@ -5534,28 +5804,36 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_Twins2"
+            "apiName": "TFT6_Augment_Twins2",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_TwoMuchValue"
+            "apiName": "TFT_Augment_TwoMuchValue",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_AnExaltedAdventure"
+            "apiName": "TFT_Augment_AnExaltedAdventure",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Protector_PreemptiveProtection"
+            "apiName": "TFT15_Augment_Protector_PreemptiveProtection",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_PandorasItems"
+            "apiName": "TFT6_Augment_PandorasItems",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-double-trouble-fan-service",
@@ -5603,7 +5881,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT6_Augment_Twins2"
+          "apiName": "TFT6_Augment_Twins2",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Xayah",
@@ -5648,28 +5927,32 @@
         ],
         "augments": [
           {
-            "apiName": "TFT6_Augment_PortableForge"
+            "apiName": "TFT6_Augment_PortableForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_LongTimeCrafting"
+            "apiName": "TFT9_Augment_LongTimeCrafting",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_LivingForge"
+            "apiName": "TFT7_Augment_LivingForge",
+            "disabled": false
           },
           {
-            "apiName": "TFT_Augment_RiggedShopPlus"
+            "apiName": "TFT10_Augment_HeroicGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT10_Augment_HeroicGrabBag"
+            "apiName": "TFT15_Augment_Heavyweight_RingTheBell",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_Heavyweight_RingTheBell"
+            "apiName": "TFT11_Augment_RadiantRefactor",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_RadiantRefactor"
-          },
-          {
-            "apiName": "TFT_Augment_HeavyIsTheCrown"
+            "apiName": "TFT_Augment_HeavyIsTheCrown",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-kogmaw-trainer-heavy",
@@ -5718,7 +6001,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT6_Augment_PortableForge"
+          "apiName": "TFT6_Augment_PortableForge",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_KogMaw",
@@ -5736,28 +6020,36 @@
         "altBuilds": [],
         "augments": [
           {
-            "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+            "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+            "disabled": false
           },
           {
-            "apiName": "TFT11_Augment_Slammin"
+            "apiName": "TFT11_Augment_Slammin",
+            "disabled": false
           },
           {
-            "apiName": "TFT7_Augment_BestFriends1"
+            "apiName": "TFT7_Augment_BestFriends1",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus"
+            "apiName": "TFT9_Augment_BuildingACollectionPlusPlus",
+            "disabled": false
           },
           {
-            "apiName": "TFT9_Augment_BigGrabBag"
+            "apiName": "TFT9_Augment_BigGrabBag",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers1"
+            "apiName": "TFT6_Augment_Keepers1",
+            "disabled": false
           },
           {
-            "apiName": "TFT6_Augment_Keepers2"
+            "apiName": "TFT6_Augment_Keepers2",
+            "disabled": false
           },
           {
-            "apiName": "TFT15_Augment_BastionCirclet"
+            "apiName": "TFT15_Augment_BastionCirclet",
+            "disabled": false
           }
         ],
         "url": "https://tftacademy.com/tierlist/comps/set-15-tiny-team-bastions",
@@ -5792,7 +6084,8 @@
           }
         ],
         "mainAugment": {
-          "apiName": "TFT15_Augment_StarGuardian_TinyTeam"
+          "apiName": "TFT15_Augment_StarGuardian_TinyTeam",
+          "disabled": false
         },
         "mainChampion": {
           "apiName": "TFT15_Jinx",
@@ -6166,6 +6459,6 @@
       "name": "TFTAcademy",
       "url": "https://tftacademy.com"
     },
-    "lastUpdated": "2025-12-05 00:00:05"
+    "lastUpdated": "2026-02-12 18:01:45"
   }
 }
