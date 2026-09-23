@@ -1,274 +1,202 @@
-import { items, unitImageMap, unitCostMap, updateItemsContainer } from './dataLoader.js';
-import { links, drawLines } from './canvas.js';
+import { items, unitImageMap, unitCostMap } from './dataLoader.js';
+import { links } from './matrix.js';
+import { setPickerItem } from './itemPicker.js';
 
-const debounce = (func, delay) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => func.apply(this, args), delay); }; };
+const debounce = (func, delay) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => func(...args), delay); }; };
 
-// Multi-select filter for compositions
+// Multi-select tag filter (OR) plus a free-text comp-name filter while no tag is set
 export let selectedFilters = [];
-export const hideContestedBtn = document.getElementById('hide-contested-comps-btn');
-export const hideUnselectedBtn = document.getElementById('hide-unselected-comps-btn');
+let viewFilter = 'all'; // 'all' | 'open' | 'linked'
 let compSuggestionIndex = -1;
 const compSearchInput = document.getElementById('comp-search-input');
 const compSuggestions = document.getElementById('comp-suggestions');
+const tagsContainer = document.getElementById('comp-tags-container');
+const sheetCount = document.getElementById('sheetCount');
 // Rebuilt on every set change; the input/document listeners below are attached only once
 let optionsMap = new Map();
 let filterListenersAttached = false;
-let addFilterTag = null; // selectOption of the current initCompFilter closure
 
-// Add a champ/item/style tag filter from outside the search box (e.g. the transitions tab)
+// Add a champ/item/style tag filter from outside the search box (e.g. the set summary tab)
 export function addCompFilter(name) {
-    if (!addFilterTag || selectedFilters.includes(name)) return;
-    addFilterTag(name);
+    if (selectedFilters.includes(name)) return;
+    selectOption(name, { focus: false });
 }
 
+// Which comp rows are shown. Linked comps always stay visible.
+export function applyCompVisibility() {
+    const text = selectedFilters.length ? '' : compSearchInput.value.trim().toLowerCase();
+    document.querySelectorAll('#compos .item.compo').forEach(compEl => {
+        const isLinked = links.some(l => l.compo === compEl);
+        const tags = compEl.dataset.tags ? compEl.dataset.tags.split('|') : [];
+        const tagMatch = !selectedFilters.length || selectedFilters.some(f => tags.includes(f));
+        const textMatch = !text || compEl.querySelector('.comp-name')?.textContent.toLowerCase().includes(text);
+        const viewMatch = viewFilter === 'all' || (viewFilter === 'open' && compEl.dataset.state === 'open');
+        compEl.hidden = !(isLinked || (tagMatch && textMatch && viewMatch && viewFilter !== 'linked'));
+    });
+    updateTierHeadersVisibility();
+}
+
+// Tier headers: hidden when empty, with the count of visible comps
+export function updateTierHeadersVisibility() {
+    let total = 0;
+    document.querySelectorAll('#compos .tier-header').forEach(header => {
+        let visible = 0;
+        for (let el = header.nextElementSibling; el && !el.classList.contains('tier-header'); el = el.nextElementSibling) {
+            if (el.classList.contains('compo') && !el.hidden) visible++;
+        }
+        header.hidden = visible === 0;
+        const count = header.querySelector('.tier-count');
+        if (count) count.textContent = `${visible} ${visible === 1 ? 'comp' : 'comps'}`;
+        total += visible;
+    });
+    if (sheetCount) {
+        const scouted = new Set(links.map(l => l.player)).size;
+        const players = document.querySelectorAll('#players .item.player').length;
+        sheetCount.textContent = `${total} comps · ${scouted} of ${players} players scouted`;
+    }
+}
+
+export function resetCompFilters() {
+    [...selectedFilters].forEach(opt => removeTag(opt));
+    compSearchInput.value = '';
+    clearSuggestions();
+    setViewFilter('all');
+}
+
+function setViewFilter(filter) {
+    viewFilter = filter;
+    document.querySelectorAll('.view-filter [data-filter]').forEach(b =>
+        b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
+    applyCompVisibility();
+}
+
+document.querySelectorAll('.view-filter [data-filter]').forEach(btn =>
+    btn.addEventListener('click', () => setViewFilter(btn.dataset.filter)));
+
 export function initCompFilter(metaData) {
-    // Build options map for champs, styles, and items
-    // Define category sets
     const styleSet = new Set(metaData.comps.map(c => c.style).filter(Boolean));
-    const defaultSet = new Set(metaData.items.default.map(it => it.name));
-    const artifactSet = new Set(metaData.items.artifact.map(it => it.name));
-    const emblemSet = new Set(metaData.items.emblem.map(it => it.name));
-    const traitSet = new Set(metaData.items.trait.map(it => it.name));
+    const sets = {
+        item: new Set((metaData.items.default || []).map(it => it.name)),
+        artifact: new Set((metaData.items.artifact || []).map(it => it.name)),
+        emblem: new Set((metaData.items.emblem || []).map(it => it.name)),
+        radiant: new Set((metaData.items.radiant || []).map(it => it.name)),
+        trait: new Set((metaData.items.trait || []).map(it => it.name)),
+    };
     optionsMap = new Map();
     new Set([
         ...metaData.comps.flatMap(c => c.champions.map(ch => ch.name)),
-        ...metaData.comps.map(c => c.style).filter(Boolean),
+        ...styleSet,
         ...items.map(it => it.Name)
     ]).forEach(opt => {
-        const key = opt.toLowerCase();
         const iconUrl = unitImageMap[opt] || (items.find(i => i.Name === opt) || {}).Url || '';
-        // Determine category for each option
-        let category = 'unit';
-        if (styleSet.has(opt)) category = 'style';
-        else if (defaultSet.has(opt)) category = 'item';
-        else if (artifactSet.has(opt)) category = 'artifact';
-        else if (emblemSet.has(opt)) category = 'emblem';
-        else if (traitSet.has(opt)) category = 'trait';
-        optionsMap.set(key, { name: opt, iconUrl, category });
+        let category = styleSet.has(opt) ? 'style' : 'unit';
+        Object.entries(sets).forEach(([cat, set]) => { if (category === 'unit' && set.has(opt)) category = cat; });
+        optionsMap.set(opt.toLowerCase(), { name: opt, iconUrl, category });
     });
-    const tagsContainer = document.getElementById('comp-tags-container');
-    const input = document.getElementById('comp-search-input');
-    const suggestions = document.getElementById('comp-suggestions');
 
-    const clearSuggestions = () => {
-        suggestions.innerHTML = '';
-        suggestions.style.display = 'none';
-    };
-
-    const renderSuggestions = () => {
-        compSuggestionIndex = -1;
-        const val = input.value.trim().toLowerCase();
-        if (!val) return clearSuggestions();
-        const frag = document.createDocumentFragment();
-        optionsMap.forEach(({ name, iconUrl, category }, key) => {
-            // Determine visibility: category keyword filters or prefix match
-            let show = false;
-            if (['unit', 'champion'].includes(val)) {
-                show = category === 'unit' && !selectedFilters.includes(name);
-            } else if (['default', 'artifact', 'emblem', 'trait'].includes(val)) {
-                show = category === val && !selectedFilters.includes(name);
-            } else {
-                // Check if any word in the name starts with the search value
-                const words = name.toLowerCase().split(' ');
-                show = words.some(word => word.startsWith(val)) && !selectedFilters.includes(name);
-            }
-            if (show) {
-                const li = document.createElement('li');
-
-                if (iconUrl) {
-                    const img = document.createElement('img');
-                    img.src = iconUrl;
-                    img.className = 'suggestion-icon';
-
-                    // Add cost-based border class for units
-                    if (category === 'unit') {
-                        const unitCost = unitCostMap[name] || 1;
-                        img.classList.add(`unit-cost-${unitCost}`);
-                    }
-
-                    li.appendChild(img);
-                }
-
-                // name on the left
-                const nameSpan = document.createElement('span');
-                nameSpan.textContent = name;
-                li.appendChild(nameSpan);
-
-                // category on the right
-                const catSpan = document.createElement('span');
-                catSpan.id = 'comp-suggestion-category';     // assign an id
-                catSpan.textContent = `${category}`;
-                li.appendChild(catSpan);
-
-                li.addEventListener('click', () => selectOption(name));
-                frag.appendChild(li);
-            }
-        });
-        suggestions.innerHTML = '';
-        suggestions.appendChild(frag);
-        suggestions.style.display = suggestions.childElementCount ? 'block' : 'none';
-
-        // keep pointer hover in sync with arrow keys
-        const suggestionItems = suggestions.querySelectorAll('li');
-        suggestionItems.forEach((li, idx) => {
-            li.addEventListener('mouseenter', () => {
-                // Remove previous highlights
-                suggestionItems.forEach(item => item.classList.remove('selected'));
-                // Highlight current item
-                li.classList.add('selected');
-            });
-        });
-    };
-
-    addFilterTag = selectOption;
     if (filterListenersAttached) return;
     filterListenersAttached = true;
 
-    input.addEventListener('input', debounce(function() {
+    compSearchInput.addEventListener('input', debounce(() => {
         renderSuggestions();
-        drawLines();
-    }, 300));
-
-    // --- New: Filter comps by comp-name as you type ---
-    input.addEventListener('input', debounce(function () {
-        const val = input.value.trim().toLowerCase();
-        // Only apply if no tags are selected (so it doesn't interfere with tag filter)
-        if (selectedFilters.length === 0) {
-            document.querySelectorAll('.item.compo').forEach(compEl => {
-                const compNameEl = compEl.querySelector('.comp-name');
-                const compName = compNameEl ? compNameEl.textContent.toLowerCase() : '';
-                // Show if comp-name contains the input value
-                compEl.style.display = (!val || compName.includes(val)) ? '' : 'none';
-            });
-            updateTierHeadersVisibility && updateTierHeadersVisibility();
-        }
-    }, 200));
+        applyCompVisibility();
+    }, 150));
     document.addEventListener('click', e => {
         if (!e.target.closest('#comp-search-div')) clearSuggestions();
     });
+    // Backspace on an empty box drops the last tag
+    compSearchInput.addEventListener('keydown', e => {
+        if (e.key === 'Backspace' && !compSearchInput.value && selectedFilters.length) removeTag(selectedFilters.at(-1));
+    });
+}
 
-    function selectOption(opt) {
-        selectedFilters.push(opt);
-        const tag = document.createElement('div');
-        tag.className = 'tag-item';
-        // Add icon inside tag
-        const champIcon = unitImageMap[opt];
-        const itemObj = items.find(it => it.Name === opt);
-        const iconUrl = champIcon || (itemObj && itemObj.Url);
+function clearSuggestions() {
+    compSuggestions.innerHTML = '';
+    compSuggestions.style.display = 'none';
+}
+
+function renderSuggestions() {
+    compSuggestionIndex = -1;
+    const val = compSearchInput.value.trim().toLowerCase();
+    if (!val) return clearSuggestions();
+    const frag = document.createDocumentFragment();
+    optionsMap.forEach(({ name, iconUrl, category }) => {
+        if (selectedFilters.includes(name)) return;
+        const show = ['unit', 'champion'].includes(val) ? category === 'unit'
+            : ['item', 'artifact', 'emblem', 'radiant', 'trait', 'style'].includes(val) ? category === val
+            : name.toLowerCase().split(' ').some(word => word.startsWith(val));
+        if (!show) return;
+        const li = document.createElement('li');
         if (iconUrl) {
             const img = document.createElement('img');
             img.src = iconUrl;
-            img.className = 'tag-icon';
-            tag.appendChild(img);
+            img.className = 'suggestion-icon';
+            if (category === 'unit') img.style.setProperty('--cc', `var(--c${unitCostMap[name] || 1})`);
+            li.appendChild(img);
         }
-        const span = document.createElement('span');
-        span.textContent = opt;
-        tag.appendChild(span);
-        // Remove button
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'tag-remove';
-        removeBtn.textContent = '×';
-        removeBtn.addEventListener('click', () => removeTag(opt, tag));
-        tag.appendChild(removeBtn);
-        tagsContainer.appendChild(tag);
-        suggestions.innerHTML = '';
-        suggestions.style.display = 'none';
-        input.value = '';
-        input.focus();
-        onFilterChange();
-        // auto‐activate core‐item button if this tag matches an item name
-
-        if (itemObj) {
-            const btn = document.querySelector(`.core-item-button[data-item="${itemObj.Item}"]`);
-            if (btn && !btn.classList.contains('active')) {
-                btn.classList.add('active');
-                document.querySelectorAll('.items-container').forEach(ctn => updateItemsContainer(ctn));
-            }
-        }
-    }
-    function removeTag(opt, tagEl) {
-        selectedFilters = selectedFilters.filter(f => f !== opt);
-        tagEl.remove();
-        onFilterChange();
-        // auto‐deactivate core‐item button if this tag matches an item name
-        const itemObj = items.find(it => it.Name === opt);
-        if (itemObj) {
-            const btn = document.querySelector(`.core-item-button[data-item="${itemObj.Item}"]`);
-            if (btn && btn.classList.contains('active')) {
-                btn.classList.remove('active');
-                document.querySelectorAll('.items-container').forEach(ctn => updateItemsContainer(ctn));
-            }
-        }
-    }
-    function onFilterChange() {
-        // detect any tag-item in DOM
-        const hasTags = !!document.querySelector('.tag-item');
-
-        // reset inputs and labels
-        [hideContestedBtn, hideUnselectedBtn].forEach(btn => {
-            if (btn) {
-                btn.checked = false;
-                const label = document.querySelector(`label[for="${btn.id}"]`);
-                (label || btn).style.display = hasTags ? 'none' : '';
-            }
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = name;
+        const catSpan = document.createElement('span');
+        catSpan.className = 'suggestion-category';
+        catSpan.textContent = category;
+        li.append(nameSpan, catSpan);
+        li.addEventListener('click', () => selectOption(name));
+        li.addEventListener('mouseenter', () => {
+            compSuggestions.querySelectorAll('li').forEach(item => item.classList.remove('selected'));
+            li.classList.add('selected');
         });
-
-        // hide/show entire container elements
-        const contestedContainer = document.querySelector('.hide-contested-comps-btn-container');
-        const unselectedContainer = document.querySelector('.hide-unselected-comps-btn-container');
-        [contestedContainer, unselectedContainer].forEach(c => {
-            if (c) c.style.display = hasTags ? 'none' : '';
-        });
-
-        filterComps();
-    }
-    function filterComps() {
-        document.querySelectorAll('.item.compo').forEach(compEl => {
-            // Always show if comp is linked to a player
-            const isLinked = links.some(l => l.compo === compEl);
-            const tags = compEl.dataset.tags ? compEl.dataset.tags.split('|') : [];
-            // OR logic: show if ANY selected filter is present in tags
-            const match = selectedFilters.length === 0 || selectedFilters.some(f => tags.includes(f));
-            compEl.style.display = (isLinked || match) ? '' : 'none';
-        });
-        updateTierHeadersVisibility();
-    }
+        frag.appendChild(li);
+    });
+    compSuggestions.innerHTML = '';
+    compSuggestions.appendChild(frag);
+    compSuggestions.style.display = compSuggestions.childElementCount ? 'block' : 'none';
 }
 
-// Add helper to hide empty tier-headers
-export function updateTierHeadersVisibility() {
-    document.querySelectorAll('.tier-header').forEach(header => {
-        let sibling = header.nextElementSibling;
-        let hasVisibleCompo = false;
-        while (sibling && !sibling.classList.contains('tier-header')) {
-            if (sibling.classList.contains('item') &&
-                sibling.classList.contains('compo') &&
-                sibling.style.display !== 'none') {
-                hasVisibleCompo = true;
-                break;
-            }
-            sibling = sibling.nextElementSibling;
-        }
-        header.style.display = hasVisibleCompo ? '' : 'none';
-    });
+function selectOption(opt, { focus = true } = {}) {
+    if (selectedFilters.includes(opt)) return;
+    selectedFilters.push(opt);
+    const tag = document.createElement('span');
+    tag.className = 'tag-item';
+    tag.dataset.value = opt;
+    const itemObj = items.find(it => it.Name === opt);
+    const iconUrl = unitImageMap[opt] || itemObj?.Url;
+    if (iconUrl) {
+        const img = document.createElement('img');
+        img.src = iconUrl;
+        img.className = 'tag-icon';
+        img.alt = '';
+        tag.appendChild(img);
+    }
+    const span = document.createElement('span');
+    span.textContent = opt;
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'tag-remove';
+    removeBtn.setAttribute('aria-label', `Remove ${opt}`);
+    removeBtn.textContent = '×';
+    removeBtn.addEventListener('click', e => { e.stopPropagation(); removeTag(opt); });
+    tag.append(span, removeBtn);
+    tagsContainer.appendChild(tag);
+    compSearchInput.value = '';
+    clearSuggestions();
+    if (focus) compSearchInput.focus();
+    // an item tag also shows that item on the rows that use it
+    if (itemObj) setPickerItem(itemObj.Item, true);
+    applyCompVisibility();
 }
 
-export function createCompToggle(button, otherButton, visibilityFn) {
-    button?.addEventListener('change', function () {
-        if (this.checked && otherButton.checked) otherButton.checked = false;
-        document.querySelectorAll('.item.compo').forEach(compo => {
-            const isLinked = links.some(l => l.compo === compo);
-            const visible = visibilityFn(this.checked, isLinked, compo);
-            compo.style.display = visible ? '' : 'none';
-        });
-        updateTierHeadersVisibility();
-        drawLines();
-    });
+function removeTag(opt) {
+    selectedFilters = selectedFilters.filter(f => f !== opt);
+    tagsContainer.querySelector(`.tag-item[data-value="${CSS.escape(opt)}"]`)?.remove();
+    const itemObj = items.find(it => it.Name === opt);
+    if (itemObj) setPickerItem(itemObj.Item, false);
+    applyCompVisibility();
 }
 
 // keyboard navigation
 compSearchInput.addEventListener('keydown', (e) => {
     const suggestionItems = compSuggestions.querySelectorAll('li');
+    if (e.key === 'Escape') { clearSuggestions(); return; }
     if (!suggestionItems.length) return;
 
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
@@ -276,19 +204,10 @@ compSearchInput.addEventListener('keydown', (e) => {
         compSuggestionIndex = e.key === 'ArrowDown'
             ? (compSuggestionIndex + 1) % suggestionItems.length
             : (compSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length;
-        updateSuggestionHighlight(suggestionItems);
-    }
-    else if (e.key === 'Enter') {
+        suggestionItems.forEach((li, idx) => li.classList.toggle('selected', idx === compSuggestionIndex));
+        suggestionItems[compSuggestionIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
         e.preventDefault();
-        if (compSuggestionIndex >= 0 && compSuggestionIndex < suggestionItems.length) {
-            // trigger the click on the highlighted item
-            suggestionItems[compSuggestionIndex].click();
-        }
+        (suggestionItems[compSuggestionIndex] || suggestionItems[0]).click();
     }
 });
-
-function updateSuggestionHighlight(items) {
-    items.forEach((li, idx) => {
-        li.classList.toggle('selected', idx === compSuggestionIndex);
-    });
-}

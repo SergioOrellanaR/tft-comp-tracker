@@ -2,7 +2,8 @@ import { CONFIG } from '../config.js';
 
 import { createPlayerDiv, getDefaultNames, enableDragAndDrop, playersContainer, updatePlayerColors, toggleDoubleUpMode, getTeamIcon, createTeamContainer } from './players.js';
 
-import { drawLines, links } from './canvas.js';
+import { renderLinks, links } from './matrix.js';
+import { getPlayerItems, setPlayerItems, refreshPlayerItems } from './playerItems.js';
 
 export function copyShareUrlToClipboard() {
     const shareUrl = getShareUrl();
@@ -68,6 +69,12 @@ export function applyQueryParams() {
         }
         enableDragAndDrop(isDoubleUp);
         updatePlayerColors();
+        // items in each player's box
+        [...document.querySelectorAll('.item.player')].forEach((player, idx) => {
+            const list = (params[`Player${idx + 1}Items`] || '').split(',').map(s => s.trim()).filter(Boolean);
+            if (list.length) setPlayerItems(player, list);
+        });
+        refreshPlayerItems();
         // A cached MetaSnapshot can render the comps before these cards exist, so link here too
         linkPlayersToCompsFromQuery();
     }, 0);
@@ -96,7 +103,7 @@ export function linkPlayersToCompsFromQuery() {
             });
         }
     }
-    drawLines();
+    renderLinks();
 }
 
 function getShareUrl() {
@@ -146,6 +153,8 @@ function getShareUrl() {
         if (linkedComps.length > 0) {
             url.searchParams.set(`Player${idx + 1}Comps`, linkedComps.join(','));
         }
+        const playerItems = getPlayerItems(player);
+        if (playerItems.length) url.searchParams.set(`Player${idx + 1}Items`, playerItems.join(','));
     });
     return url.toString();
 }

@@ -12,10 +12,9 @@ export const TFT_VERSUS_API_URL = {
 export const THIRD_PARTY_IMG_URL = {
     champions: 'https://cdn.metatft.com/file/metatft/champions',
     pngItems: 'https://cdn.metatft.com/file/metatft/items',
-    webpItems: 'https://assets.tftacademy.com/items',
     tiers: 'https://cdn.metatft.com/file/metatft/tiers',
     setCover: 'https://wiki.leagueoflegends.com/en-us/images/Teamfight_Tactics_Cover_',
-    webPaugments: 'https://assets.tftacademy.com/augments'
+    augments: 'https://cdn.metatft.com/file/metatft/augments'
 }
 
 export const CDRAGON_URL = {
@@ -38,22 +37,23 @@ export const TRAIT_BACKGROUND_URL = {
 export const CONFIG = {
     notificationDuration: 3000,
     mainPlayerColor: '#000435',
-    colors: ['#ff4c4c', '#4c6aff', '#4cff9a', '#ffffff', '#c74cff', '#ffb703', '#4cffe9', '#a0ff4c'],
+    // Lobby player colors: distinct hues that stay readable on the light sheet
+    colors: ['#E5484D', '#3E63DD', '#30A46C', '#2B2F36', '#8E4EC6', '#F59E0B', '#0EA5B7', '#65A30D'],
     tierColors: {
-        S: '#FF7F7F',
-        A: '#FFBF7F',
-        B: '#FFFF7F',
-        C: '#BFFF7F',
-        X: '#BF7FFF'  // Add this line for X tier
+        S: '#C8372D',
+        A: '#D98A12',
+        B: '#1E7FD6',
+        C: '#6B7380',
+        X: '#9AA3AF'
     },
     routes: {
         metaSnapshot: 'Data/MetaSnapshot.json'
     },
     iconOptions: [
-        { name: 'Water', color: '#4cffe9', emoji: '💧' },
-        { name: 'Fire', color: '#ff69b4', emoji: '🔥' },
-        { name: 'Moon', color: '#c74cff', emoji: '🌙' },
-        { name: 'Thunder', color: '#ffee4c', emoji: '⚡' }
+        { name: 'Water', color: '#0EA5B7', emoji: '💧' },
+        { name: 'Fire', color: '#E5484D', emoji: '🔥' },
+        { name: 'Moon', color: '#8E4EC6', emoji: '🌙' },
+        { name: 'Thunder', color: '#F59E0B', emoji: '⚡' }
     ],
     serverRegionMap: {
         NA: "NA1",

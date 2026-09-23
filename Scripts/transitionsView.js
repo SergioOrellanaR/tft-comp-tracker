@@ -1,7 +1,7 @@
 // Transitions tab: early (1-3 cost) → late (4-5 cost) champions that want the same items.
-// Reads the same MetaSnapshot set as the tracker: champions (TFT Academy role/traits/stats) with live
+// Reads the same MetaSnapshot set as the tracker: champions (CommunityDragon traits/stats, derived role) with live
 // S/A item tiers (MetaTFT), plus components and recipes. Re-renders when the set selector changes.
-import { links } from './mainScreen/canvas.js';
+import { links } from './mainScreen/matrix.js';
 import { getCurrentSetData } from './mainScreen/dataLoader.js';
 import { getChampionImageUrl, getItemWEBPImageUrl } from './tftVersusHandler.js';
 
@@ -40,6 +40,7 @@ function buildData(set) {
     const itemNames = new Map();
     const addNames = list => (list || []).forEach(it => it?.apiName && itemNames.set(it.apiName, it.name));
     Object.values(set.items || {}).forEach(addNames);
+    Object.entries(set.conditions || {}).forEach(([api, cond]) => cond.name && itemNames.set(api, cond.name));
     addNames(set.components);
     addNames(set.recipes);
 
@@ -50,7 +51,7 @@ function buildData(set) {
             return {
                 key: c.name, name: c.name, apiName: c.apiName, cost: c.cost, traits: c.traits || [], stats: c.stats || {},
                 type: c.role, damageType: damage === 'Magic' ? 'Magic' : 'Attack', roleName,
-                tiers: { core: [], ...c.items }, artifacts: c.artifacts, variants: c.variants,
+                tiers: { core: [], ...c.items }, holds: c.holds, variants: c.variants,
             };
         });
 
@@ -605,14 +606,16 @@ function openChampionDrawer(key) {
         html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${TIER_LABEL[t]}</span><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
     }));
     html += `</div>`;
-    const artifacts = champ.artifacts;
-    if (artifacts && (artifacts.S.length || artifacts.A.length)) {
-        html += `<div class="tv-d-section"><div class="tv-d-label">Artifacts</div><div class="tv-item-row-icons">`;
-        ['S', 'A'].forEach(t => artifacts[t].forEach(([item, avg, games]) => {
-            html += `<span class="tv-tier-item"><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt="${itemName(item)}" title="${itemName(item)}: ${avg.toFixed(2)} avg, ${games.toLocaleString('en')} games"><span class="tv-tier-badge tier-${t}">${t}</span></span>`;
-        }));
+    // artifacts, emblems and radiants TFT Flow gives this champion in some comp (best tier of those)
+    [['artifact', 'Artifacts'], ['radiant', 'Radiants'], ['emblem', 'Emblems']].forEach(([kind, label]) => {
+        const rows = champ.holds?.[kind] || [];
+        if (!rows.length) return;
+        html += `<div class="tv-d-section"><div class="tv-d-label">${label}</div><div class="tv-item-row-icons">`;
+        rows.forEach(([item, tier]) => {
+            html += `<span class="tv-tier-item"><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt="${itemName(item)}" title="${itemName(item)}"><span class="tv-tier-badge tier-${tier}">${tier}</span></span>`;
+        });
         html += `</div></div>`;
-    }
+    });
     content.insertAdjacentHTML('beforeend', html);
 
     if (champ.cost >= 4) {

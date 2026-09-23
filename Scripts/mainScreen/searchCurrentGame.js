@@ -1,8 +1,8 @@
-import { drawLines } from './canvas.js';
+import { renderLinks } from './matrix.js';
 import { CONFIG } from '../config.js';
 import { createLoadingSpinner, openDuelModal } from '../components.js';
 import { fetchPlayerSummary, fetchLiveGame, fetchFindGames, getMiniRankIconUrl } from '../tftVersusHandler.js';
-import { duelsCache, resetPlayers, toggleDoubleUpMode } from './players.js';
+import { duelsCache, resetPlayers, toggleDoubleUpMode, setPlayerAvatar } from './players.js';
 
 // Incremented on every search so duel-button loops from a previous search stop touching the UI
 let searchGeneration = 0;
@@ -78,12 +78,12 @@ function showMessage(message) {
     messageContainer.textContent = message;
     messageContainer.style.display = 'block';
 
-    drawLines();
+    renderLinks();
 
     clearTimeout(messageTimeout);
     messageTimeout = setTimeout(() => {
         messageContainer.style.display = 'none';
-        drawLines();
+        renderLinks();
     }, 3000);
 }
 
@@ -137,8 +137,7 @@ async function updatePlayersDuelButtons(playerData, server, generation) {
             const player2Name = player.querySelector('.player-name').textContent.trim();
 
             if (playerData.name === player2Name) {
-                player.querySelector('.player-name').textContent = player.querySelector('.player-name').textContent.trim() + " (YOU)";
-                player.querySelector('.participant-info-container').classList.add('margin-you');
+                player.classList.add('is-you');
                 continue; // Skip the player if it's the same as the one in the duel button
             }
 
@@ -170,7 +169,6 @@ async function updatePlayersDuelButtons(playerData, server, generation) {
             duelButton.className = 'duel-button';
             duelButton.title = 'Vs. History';
             duelButton.innerText = '⚔️';
-            player.querySelector('.participant-info-container').classList.add('margin-none');
             try {
                 processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
             } catch (error) {
@@ -273,9 +271,15 @@ function updatePlayers(participants) {
             const participantInfoContainer = document.createElement('div');
             participantInfoContainer.classList.add('participant-info-container');
 
-            // Set the player's name and move it into the container
-            playerNameElement.textContent = participant.riotId;
-            playerNameElement.style.marginLeft = '0px';  // make name italic
+            // Set the player's name (tag dimmed; textContent stays the full Riot ID) and move it into the container
+            const [gameName, tagLine] = (participant.riotId || '').split('#');
+            playerNameElement.textContent = gameName;
+            if (tagLine) {
+                const tag = document.createElement('span');
+                tag.className = 'riot-tag';
+                tag.textContent = '#' + tagLine;
+                playerNameElement.appendChild(tag);
+            }
             participantInfoContainer.appendChild(playerNameElement);
 
             // Create the mini rank div and add it to the container
@@ -284,7 +288,9 @@ function updatePlayers(participants) {
 
             // Insert the container at the end of the player element
             const playerEl = playerElements[index];
-            playerEl.appendChild(participantInfoContainer);
+            playerEl.insertBefore(participantInfoContainer, playerEl.querySelector('.player-items'));
+            playerEl.title = participant.riotId;
+            setPlayerAvatar(playerEl, participant.profileIconId);
 
             duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
             }

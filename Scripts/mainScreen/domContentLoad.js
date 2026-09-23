@@ -1,50 +1,58 @@
 import { CONFIG } from '../config.js';
-
-import {
-    preloadPlayers,
-    resetPlayers
-} from './players.js';
-
-import {
-    copyShareUrlToClipboard
-} from './shareUrl.js';
-
+import { preloadPlayers, resetPlayers, toggleDoubleUpMode } from './players.js';
+import { copyShareUrlToClipboard } from './shareUrl.js';
 import { searchPlayer } from './searchCurrentGame.js';
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('copyShareUrlButton')?.addEventListener('click', copyShareUrlToClipboard);
 
-// Unified DOMContentLoaded event listener
-document.addEventListener('DOMContentLoaded', async () => {
-    // Copy Share URL Button
-    const btn = document.getElementById('copyShareUrlButton');
-    if (btn) {
-        btn.addEventListener('click', copyShareUrlToClipboard);
-    }
-
-    // Preload players and server selector
     preloadPlayers();
     const serverSelector = document.getElementById('serverSelector');
-    const serverRegionMap = CONFIG.serverRegionMap;
-    Object.keys(serverRegionMap).forEach(region => {
+    Object.keys(CONFIG.serverRegionMap).forEach(region => {
         const option = document.createElement('option');
         option.value = region;
         option.textContent = region;
         serverSelector.appendChild(option);
     });
+    // Remember the region between visits
+    try {
+        const saved = localStorage.getItem('region');
+        if (saved && CONFIG.serverRegionMap[saved]) serverSelector.value = saved;
+    } catch { /* storage unavailable */ }
+    serverSelector.addEventListener('change', () => {
+        try { localStorage.setItem('region', serverSelector.value); } catch { /* storage unavailable */ }
+    });
 
+    const input = document.getElementById('playerNameInput');
     document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
-
-    document.getElementById('playerNameInput').addEventListener('keydown', (e) => {
+    input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
             searchPlayer();
+        } else if (e.key === 'Escape') {
+            input.blur();
         }
     });
+    // "/" jumps to the player search from anywhere
+    document.addEventListener('keydown', e => {
+        if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (e.target.closest('input, textarea, select, [contenteditable]')) return;
+        e.preventDefault();
+        input.focus();
+        input.select();
+    });
+
+    // Solo / Double Up (the hidden checkbox stays the source of truth for the rest of the app)
+    const checkbox = document.getElementById('color_mode');
+    document.querySelectorAll('.mode-switch [data-mode]').forEach(btn => btn.addEventListener('click', () => {
+        const double = btn.dataset.mode === 'double';
+        if (checkbox.checked === double) return;
+        checkbox.checked = double;
+        toggleDoubleUpMode();
+    }));
 
     document.getElementById('resetButton')?.addEventListener('click', resetPlayers);
     document.getElementById('copyPlayerNamesButton')?.addEventListener('click', copyPlayerNames);
-
-    // Tooltips
-    initHoverTooltips();
 });
 
 // Copy the lobby's player names, one per line
@@ -63,30 +71,4 @@ function copyPlayerNames(e) {
     } else {
         prompt('Player names', names);
     }
-}
-
-function initHoverTooltips() {
-    function setupHoverTooltip(labelSelector, inputSelector, checkedTitle, uncheckedTitle) {
-        const label = document.querySelector(labelSelector);
-        const input = document.querySelector(inputSelector);
-        if (label && input) {
-            label.addEventListener('mouseenter', () => {
-                label.title = input.checked ? checkedTitle : uncheckedTitle;
-            });
-        }
-    }
-
-    setupHoverTooltip(
-        '.hide-contested-comps-btn-label',
-        '#hide-contested-comps-btn',
-        'Press to show all compositions',
-        'Press to show uncontested and linked compositions only'
-    );
-
-    setupHoverTooltip(
-        '.hide-unselected-comps-btn-label',
-        '#hide-unselected-comps-btn',
-        'Press to show unlinked compositions',
-        'Press to hide unlinked compositions'
-    );
 }

@@ -1,69 +1,55 @@
-import { CONFIG } from '../config.js';
+import { CONFIG, CDRAGON_URL } from '../config.js';
 import { throttle } from '../utils.js';
-import { drawLines, links } from './canvas.js';
-import { hideUnselectedBtn, hideContestedBtn, selectedFilters, updateTierHeadersVisibility } from './compSearchBar.js';
+import { renderLinks, links } from './matrix.js';
+import { resetCompFilters } from './compSearchBar.js';
 
-// Variables globales
-let selected = null;
 export let duelsCache = new Map();
 
 export const playersContainer = document.getElementById('players');
 
+// A player is a column header of the lobby matrix
 export function createPlayerDiv(name, index, isDoubleUp) {
     const div = document.createElement('div');
     div.classList.add('item', 'player', 'player-card');
 
+    const avatar = document.createElement('span');
+    avatar.className = 'player-avatar';
+    avatar.innerHTML = `<img alt="" hidden><b>${index + 1}</b>`;
+
     const span = createEditableSpan(name);
     const editIcon = createEditIcon(span);
 
-    // Create a fixed-width action container for edit-icon, spinner, duel-button, etc.
+    // Holds the edit icon, then the spinner and duel button once a live game is loaded
     const actionContainer = document.createElement('div');
     actionContainer.classList.add('player-action-container');
     actionContainer.appendChild(editIcon);
 
-    const color = getPlayerColor(index, isDoubleUp);
-    div.dataset.color = color;
+    div.dataset.color = getPlayerColor(index, isDoubleUp);
+    div.style.setProperty('--pc', div.dataset.color);
+    div.title = name;
 
-    div.append(actionContainer, span);
-    div.onclick = () => select(div, 'player');
+    // Items, artifacts and emblems dropped on this player (see playerItems.js)
+    const itemBox = document.createElement('div');
+    itemBox.className = 'player-items empty';
+    itemBox.innerHTML = '<span class="slot"></span>'.repeat(6);
 
+    div.append(actionContainer, avatar, span, itemBox);
     return div;
 }
 
-export function select(el, type) {
-    if (selected && selected.el === el && selected.type === type) {
-        el.classList.remove('selected');
-        selected = null;
-        return;
-    }
-
-    if (selected && selected.type !== type) {
-        const a = type === 'player' ? selected.el : el;
-        const b = type === 'player' ? el : selected.el;
-        const exists = links.find(link => link.compo === a && link.player === b);
-        if (exists) links.splice(links.indexOf(exists), 1);
-        else links.push({ compo: a, player: b });
-        selected.el.classList.remove('selected');
-        selected = null;
-        drawLines();
-    } else {
-        if (selected) selected.el.classList.remove('selected');
-        selected = { el, type };
-        el.classList.add('selected');
-    }
-}
-
-// Drop any pending player/comp selection (its element may be about to be removed)
-export function clearSelection() {
-    if (selected) selected.el.classList.remove('selected');
-    selected = null;
+// Profile icon from the live game (Riot spectator participants carry profileIconId)
+export function setPlayerAvatar(player, profileIconId) {
+    const img = player.querySelector('.player-avatar img');
+    if (!img || profileIconId == null) return;
+    img.src = `${CDRAGON_URL.profileIcons}/${profileIconId}.jpg`;
+    img.onload = () => { img.hidden = false; };
 }
 
 export function enableDragAndDrop(isDoubleUp) {
     const selector = isDoubleUp
         ? '.team-container .item.player'
         : '.item.player';
-    const throttledDraw = throttle(drawLines, 50);
+    const throttledRender = throttle(renderLinks, 50);
 
     document.querySelectorAll(selector).forEach(player => {
         player.setAttribute('draggable', true);
@@ -73,7 +59,7 @@ export function enableDragAndDrop(isDoubleUp) {
         });
 
         if (isDoubleUp) {
-            // duo events
+            // swap players between teams
             ['dragenter', 'dragover', 'drop', 'dragleave', 'dragend'].forEach(evt => {
                 player.addEventListener(evt, e => {
                     e.preventDefault();
@@ -99,25 +85,25 @@ export function enableDragAndDrop(isDoubleUp) {
                     if (evt === 'dragend') {
                         player.classList.remove('dragging', 'drop-target');
                     }
-                    throttledDraw();
+                    throttledRender();
                 });
             });
         } else {
-            // solo events
+            // reorder columns
             ['dragover', 'drop', 'dragend'].forEach(evt => {
                 player.addEventListener(evt, e => {
                     if (evt === 'dragover') {
                         e.preventDefault();
                         const dragging = document.querySelector('.item.player.dragging');
                         if (!dragging) return;
-                        const afterEl = getDragAfterElement(playersContainer, e.clientY);
+                        const afterEl = getDragAfterElement(playersContainer, e.clientX);
                         if (!afterEl) playersContainer.appendChild(dragging);
-                        else playersContainer.insertBefore(dragging, afterEl);
+                        else if (afterEl !== dragging.nextElementSibling) playersContainer.insertBefore(dragging, afterEl);
                     }
                     if (evt === 'drop' || evt === 'dragend') {
                         player.classList.remove('dragging');
                     }
-                    throttledDraw();
+                    throttledRender();
                 });
             });
         }
@@ -128,10 +114,9 @@ export function preloadPlayers() {
     const isDoubleUp = document.body.classList.contains('double-up');
     const defaultNames = getDefaultNames(isDoubleUp);
 
-    // Verificar si ya hay jugadores cargados
     if (playersContainer.children.length > 0) return;
 
-    playersContainer.innerHTML = ''; // Limpiar solo si está vacío
+    playersContainer.innerHTML = '';
 
     defaultNames.forEach((name, index) => {
         const playerDiv = createPlayerDiv(name, index, isDoubleUp);
@@ -148,8 +133,7 @@ export function preloadPlayers() {
     });
 
     enableDragAndDrop(isDoubleUp);
-
-    updatePlayerColors(); // Llama una vez para establecer los colores fijos
+    updatePlayerColors();
 }
 
 export function getTeamIcon(index) {
@@ -160,21 +144,17 @@ export function getTeamIcon(index) {
 export function createTeamContainer(player1, player2, icon, index) {
     const container = document.createElement('div');
     container.classList.add('team-container');
-    container.style.border = `1px solid ${icon.color}`;
     const iconCircle = createTeamIcon(icon, player1, player2, container);
     container.append(player1, iconCircle, player2);
     return container;
 }
 
 export const resetPlayers = () => {
-    // Clear all canvas links and redraw
-    clearSelection();
     links.splice(0, links.length);
-    drawLines();
 
-    // Clear player container and reset player names/icons to defaults
     document.getElementById('players').innerHTML = '';
     preloadPlayers();
+    renderLinks();
 
     duelsCache = new Map();
 
@@ -182,61 +162,15 @@ export const resetPlayers = () => {
     const modal = document.getElementById('popupOverlay');
     if (modal) modal.parentNode.removeChild(modal);
 
-    // Set messageContainer display to 'none'
     const messageContainer = document.getElementById('messageContainer');
-    if (messageContainer) {
-        messageContainer.style.display = 'none';
-    }
+    if (messageContainer) messageContainer.style.display = 'none';
 
-    // Reset all filters and filter UI
-    selectedFilters.splice(0, selectedFilters.length);
-    // Remove all tag elements
-    document.querySelectorAll('.tag-item').forEach(tag => tag.remove());
-    // Clear search input and suggestions
-    const compSearchInput = document.getElementById('comp-search-input');
-    if (compSearchInput) compSearchInput.value = '';
-    const compSuggestions = document.getElementById('comp-suggestions');
-    if (compSuggestions) {
-        compSuggestions.innerHTML = '';
-        compSuggestions.style.display = 'none';
-    }
-    // Show all compositions (reset filter effect)
-    document.querySelectorAll('.item.compo').forEach(compEl => {
-        compEl.style.display = '';
-    });
-    // Reset filter checkboxes to default (unchecked)
-    hideContestedBtn.checked = false;
-    hideUnselectedBtn.checked = false;
-
-    // Show filter buttons and their containers
-    [
-        document.querySelector('.hide-contested-comps-btn-container'),
-        document.querySelector('.hide-unselected-comps-btn-container')
-    ].forEach(container => {
-        if (container) container.style.display = '';
-    });
-    [
-        document.querySelector('label[for="hide-contested-comps-btn"]'),
-        document.querySelector('label[for="hide-unselected-comps-btn"]')
-    ].forEach(label => {
-        if (label) label.style.display = '';
-    });
-
-    // Re‐evaluate tier header visibility
-    updateTierHeadersVisibility && updateTierHeadersVisibility();
+    resetCompFilters();
 };
 
 export function updatePlayerColors() {
-    const players = document.querySelectorAll('.item.player');
-    players.forEach(player => {
-        if (document.body.classList.contains('double-up') && player.closest('.team-container')) {
-            // For double-up mode, the team container already has the border color
-            // No need to add individual player colors
-        } else {
-            // For solo players, use border-right instead of color-bar
-            const color = player.dataset.color || 'transparent';
-            player.style.borderRight = `8px solid ${color}`;
-        }
+    document.querySelectorAll('.item.player').forEach(player => {
+        player.style.setProperty('--pc', player.dataset.color || 'transparent');
     });
 }
 
@@ -250,15 +184,14 @@ export function toggleDoubleUpMode() {
     const checkbox = document.getElementById('color_mode');
     const active = checkbox.checked;
 
-    // Aplica o remueve el modo double-up
     document.body.classList.toggle('double-up', active);
+    document.querySelectorAll('.mode-switch [data-mode]').forEach(b =>
+        b.setAttribute('aria-pressed', String((b.dataset.mode === 'double') === active)));
 
-    // Lógica de reinicio
-    clearSelection();
     links.splice(0, links.length);
     document.getElementById('players').innerHTML = '';
     preloadPlayers();
-    drawLines();
+    renderLinks();
 }
 
 function getPlayerColor(index, isDoubleUp) {
@@ -279,30 +212,32 @@ function createEditableSpan(name) {
 
         Object.assign(input, {
             type: 'text',
-            value: '', // Start with empty text
+            value: '',
             maxLength: 20,
+            placeholder: original,
         });
 
         input.onblur = () => {
             span.textContent = input.value.trim().substring(0, 20) || original;
-            span.style.display = 'inline';
+            span.closest('.item.player')?.setAttribute('title', span.textContent);
+            span.style.display = '';
             input.remove();
-            drawLines();
+            renderLinks();
         };
 
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
+                input.blur();
+            } else if (e.key === 'Escape') {
+                input.value = '';
                 input.blur();
             } else if (e.key === 'Tab') {
                 e.preventDefault();
                 input.blur();
                 const allPlayers = Array.from(document.querySelectorAll('.item.player'));
                 const currentIndex = allPlayers.findIndex(p => p.contains(span));
-                const next = allPlayers[currentIndex + 1];
-                const nextSpan = next?.querySelector('.player-name');
-                if (nextSpan) {
-                    nextSpan.dispatchEvent(new Event('dblclick'));
-                }
+                const next = allPlayers[currentIndex + (e.shiftKey ? -1 : 1)];
+                next?.querySelector('.player-name')?.dispatchEvent(new Event('dblclick'));
             }
         });
 
@@ -315,7 +250,7 @@ function createEditableSpan(name) {
         e.stopPropagation();
         editHandler();
     };
-    
+
     // Store the edit handler so the edit icon can call it
     span._editHandler = editHandler;
 
@@ -323,31 +258,29 @@ function createEditableSpan(name) {
 }
 
 function createEditIcon(span) {
-    const icon = document.createElement('span');
-    icon.textContent = '✎';
+    const icon = document.createElement('button');
+    icon.type = 'button';
+    icon.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>';
     icon.classList.add('edit-icon');
+    icon.title = 'Rename';
+    icon.setAttribute('aria-label', 'Rename player');
     icon.onclick = (e) => {
         e.stopPropagation();
-        // Call the stored edit handler directly
-        if (span._editHandler) {
-            span._editHandler();
-        }
+        span._editHandler?.();
     };
     return icon;
 }
 
-function getDragAfterElement(container, y) {
+function getDragAfterElement(container, x) {
     const draggableElements = [...container.querySelectorAll('.item.player:not(.dragging)')];
 
     return draggableElements.reduce((closest, child) => {
         const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-
+        const offset = x - box.left - box.width / 2;
         if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child };
-        } else {
-            return closest;
+            return { offset, element: child };
         }
+        return closest;
     }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
 
@@ -365,21 +298,14 @@ function updateTeamIcons(containers) {
 }
 
 function createTeamIcon(icon, player1, player2, container) {
-    let currentIndex = 0;
+    let currentIndex = CONFIG.iconOptions.indexOf(icon);
 
-    const circle = document.createElement('div');
+    const circle = document.createElement('button');
+    circle.type = 'button';
     circle.classList.add('team-icon');
     circle._iconConfig = icon;
-
-    // ← disable selection & dragging
-    circle.style.userSelect        = 'none';
-    circle.style.MozUserSelect     = 'none';
-    circle.style.msUserSelect      = 'none';
     circle.setAttribute('draggable', 'false');
-    // also prevent the native focus/selection rectangle
     circle.onmousedown = e => e.preventDefault();
-
-    setupTeamIcon(circle, icon, player1, player2, container);
 
     circle.onclick = (e) => {
         e.stopPropagation();
@@ -392,25 +318,18 @@ function createTeamIcon(icon, player1, player2, container) {
         updateIconColor(circle, newIcon, p1, p2, container);
     };
 
-    return circle;
-}
-
-function setupTeamIcon(circle, icon, player1, player2, container) {
-    circle.style.border = `2px solid ${icon.color}`;
-    circle.textContent = icon.emoji;
-    circle.title = icon.name;
     updateIconColor(circle, icon, player1, player2, container);
+    return circle;
 }
 
 function updateIconColor(circle, icon, player1, player2, container) {
     [player1, player2].forEach(player => {
         player.dataset.color = icon.color;
-        player.style.borderRight = `8px solid ${icon.color}`;
+        player.style.setProperty('--pc', icon.color);
     });
 
     circle.textContent = icon.emoji;
     circle.title = icon.name;
-    circle.style.border = `2px solid ${icon.color}`;
-    container.style.border = `1px solid ${icon.color}`;
-    drawLines();
+    container.style.setProperty('--pc', icon.color);
+    if (player1.isConnected) renderLinks();
 }

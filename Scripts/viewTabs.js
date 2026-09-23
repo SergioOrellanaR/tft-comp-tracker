@@ -1,6 +1,5 @@
 // Top-level views: the lobby tracker and the set summary (champion transitions). The active view is kept
 // in the URL hash (#summary) so it survives reloads; share URLs are built from the query string and don't carry it.
-import { resizeCanvas } from './mainScreen/canvas.js';
 import { addCompFilter } from './mainScreen/compSearchBar.js';
 
 const VIEWS = ['tracker', 'summary'];
@@ -23,8 +22,6 @@ export function showView(view) {
 
     if (view === 'tracker') {
         transitionsModule?.closeTransitionsDrawer();
-        // canvas was 0x0 while hidden; reading the new layout here is synchronous
-        resizeCanvas();
     } else {
         openTransitions();
     }

@@ -1,84 +1,15 @@
 /* =====================================================================
-    View tabs (Lobby / Transitions)
-===================================================================== */
-body {
-    flex-wrap: wrap;
-    align-content: flex-start;
-}
-
-.view-tabs {
-    flex: 0 0 100%;
-    display: flex;
-    align-items: stretch;
-    gap: var(--spacing-lg);
-    padding: 0 var(--spacing-md);
-    height: 44px;
-    background: var(--secondary-bg);
-    border-bottom: 1px solid var(--border-primary);
-    position: sticky;
-    top: 0;
-    z-index: 30;
-}
-
-.view-tabs-brand {
-    align-self: center;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--text-primary);
-    margin-right: var(--spacing-sm);
-    white-space: nowrap;
-}
-
-.view-tabs [role="tab"] {
-    appearance: none;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    color: var(--text-muted);
-    font: inherit;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 0 2px;
-    cursor: pointer;
-    transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease;
-}
-
-.view-tabs [role="tab"]:hover { color: var(--text-primary); }
-
-.view-tabs [role="tab"][aria-selected="true"] {
-    color: var(--text-primary);
-    border-bottom-color: var(--primary-accent);
-}
-
-.view-tabs [role="tab"]:focus-visible,
-#transitions-view button:focus-visible {
-    outline: 2px solid var(--accent-hover);
-    outline-offset: 2px;
-}
-
-#tracker-view {
-    flex: 0 0 100%;
-    display: flex;
-    flex-direction: row;
-    min-width: 0;
-}
-
-#tracker-view[hidden],
-#transitions-view[hidden] { display: none; }
-
-/* =====================================================================
     Transitions view
 ===================================================================== */
 #transitions-view {
     /* game-meaning colors: damage types and unit cost */
-    --tv-ad: #E0995C; --tv-ad-soft: rgba(224, 153, 92, 0.16);
-    --tv-ap: #A99BF0; --tv-ap-soft: rgba(169, 155, 240, 0.16);
-    --tv-tank: #6FB4CB; --tv-tank-soft: rgba(111, 180, 203, 0.16);
-    --tv-c1: var(--tier-gray); --tv-c2: var(--tier-green); --tv-c3: var(--tier-blue);
-    --tv-c4: var(--tier-purple); --tv-c5: #d4a017;
-    --tv-accent-soft: rgba(59, 130, 246, 0.22);
+    --tv-ad: #C0661F; --tv-ad-soft: rgba(192, 102, 31, 0.12);
+    --tv-ap: #6E56CF; --tv-ap-soft: rgba(110, 86, 207, 0.12);
+    --tv-tank: #2E7F9E; --tv-tank-soft: rgba(46, 127, 158, 0.12);
+    --tv-c1: var(--c1); --tv-c2: var(--c2); --tv-c3: var(--c3);
+    --tv-c4: var(--c4); --tv-c5: var(--c5);
+    --tv-accent-soft: rgba(30, 111, 217, 0.14);
 
-    flex: 0 0 100%;
     max-width: 1280px;
     margin: 0 auto;
     padding: var(--spacing-md) var(--spacing-md) var(--spacing-xl);
@@ -108,7 +39,7 @@ body {
 /* ---------- toolbar: phase + components ---------- */
 .tv-toolbar {
     position: sticky;
-    top: 44px;
+    top: var(--header-h);
     z-index: 5;
     display: flex;
     flex-wrap: wrap;
@@ -251,7 +182,7 @@ body {
 /* ---------- drawer ---------- */
 .tv-backdrop {
     position: fixed; inset: 0; z-index: 40;
-    background: rgba(5, 5, 10, 0.55);
+    background: rgba(21, 24, 29, 0.35);
     opacity: 0; pointer-events: none; transition: opacity 0.16s ease;
 }
 .tv-backdrop.open { opacity: 1; pointer-events: auto; }
@@ -302,11 +233,13 @@ body {
 .tv-stat small { color: var(--text-muted); font-size: 10px; margin-left: 4px; }
 
 .tv-tier-badge { font-size: 10px; font-weight: 800; padding: 1px 5px; border-radius: 4px; flex: none; }
-.tv-tier-badge.tier-S { background: var(--tv-c5); color: #1b1405; }
+.tv-tier-badge.tier-S { background: var(--tv-c5); color: #fff; }
 /* Core sits above S: same gold, but outlined so it reads as its own tier */
 .tv-tier-badge.tier-core { background: transparent; color: var(--tv-c5); box-shadow: inset 0 0 0 1.5px var(--tv-c5); }
 #transitions-view .tv-item-icon.is-core { border-color: var(--tv-c5); box-shadow: 0 0 0 1px var(--tv-c5); }
 .tv-tier-badge.tier-A { background: var(--tv-accent-soft); color: var(--accent-light); }
+.tv-tier-badge.tier-B { background: var(--sunk); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--rule); }
+.tv-tier-badge.tier-C, .tv-tier-badge.tier-D { background: var(--sunk); color: var(--muted); }
 
 .tv-synergy-list { display: flex; flex-direction: column; }
 .tv-synergy-row {
@@ -328,8 +261,6 @@ body {
 
 /* ---------- small screens ---------- */
 @media (max-width: 768px) {
-    .view-tabs { gap: var(--spacing-md); }
-    .view-tabs-brand { display: none; }
     #transitions-view { font-size: 13px; }
     .tv-item-boxes { grid-template-columns: 1fr; }
     .tv-role-row { grid-template-columns: 1fr; gap: 4px; }
@@ -341,34 +272,3 @@ body {
     .tv-drawer, .tv-backdrop, .tv-chip { transition: none; }
     .tv-loading[aria-busy="true"]::after { animation-duration: 2s; }
 }
-
-/* =====================================================================
-    Lobby extras
-===================================================================== */
-.set-selector[hidden] { display: none !important; }
-
-.players-actions {
-    position: relative;
-    margin-top: 0.5rem;
-}
-
-/* Deliberately near-invisible: a power-user shortcut to copy the lobby's names */
-.copy-names-btn {
-    position: absolute;
-    right: 2px;
-    bottom: -16px;
-    padding: 2px;
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 10px;
-    line-height: 1;
-    opacity: 0.12;
-    cursor: pointer;
-    transition: opacity var(--duration-fast) ease;
-}
-.copy-names-btn:hover,
-.copy-names-btn:focus-visible { opacity: 0.8; }
-
-/* Core items in the lobby's unit tooltips */
-.unit-tooltip img.is-core { outline: 1.5px solid #d4a017; outline-offset: -1px; border-radius: 4px; }

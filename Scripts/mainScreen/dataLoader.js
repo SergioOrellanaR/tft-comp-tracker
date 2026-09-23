@@ -1,16 +1,16 @@
 import { initCompFilter } from './compSearchBar.js';
 import { linkPlayersToCompsFromQuery, getQueryParams } from './shareUrl.js';
 import { CONFIG } from '../config.js';
-import { getContrastYIQ } from '../utils.js';
 import { getChampionImageUrl, getItemWEBPImageUrl, getAugmentWEBPImageUrl } from '../tftVersusHandler.js';
-import { resetPlayers, select } from './players.js';
+import { resetPlayers } from './players.js';
+import { renderLinks } from './matrix.js';
+import { initItemPicker } from './itemPicker.js';
 
 export let unitImageMap = {};
 export let unitCostMap = {};
 export let items = [];
 // Data variables
 export let metaSnapshotData = null;
-let fullMetaSnapshot = null; // Keep full snapshot for source information
 let currentSetData = null;
 
 // Data of the set picked in the set selector; the transitions tab reads the same data as the tracker
@@ -22,8 +22,8 @@ const _originalLoadCompsFromJSON = loadCompsFromJSON;
 const loadMetaSnapshot = async () => {
     try {
         // Add caching for the meta snapshot
-        // Versioned: the snapshot format gained champions/recipes/components (MetaTFT items)
-        const cacheKey = 'metaSnapshot:v3';
+        // Versioned: bump when the format changes (v4: TFT Flow comps and item conditions)
+        const cacheKey = 'metaSnapshot:v4';
         const cached = sessionStorage.getItem(cacheKey);
         
         if (cached) {
@@ -82,7 +82,7 @@ function processSnapshotData(snapshot) {
     let allItems = [];
     Object.values(snapshot).forEach(setData => {
         const it = setData.items || {};
-        allItems.push(...(it.default || []), ...(it.artifact || []), ...(it.emblem || []), ...(it.trait || []));
+        allItems.push(...(it.default || []), ...(it.artifact || []), ...(it.emblem || []), ...(it.radiant || []), ...(it.trait || []));
     });
     // Deduplicate items by apiName
     const unique = new Map();
@@ -97,7 +97,6 @@ function processSnapshotData(snapshot) {
         Url: getItemWEBPImageUrl(itemObj.apiName)
     }));
     metaSnapshotData = snapshot;
-    fullMetaSnapshot = snapshot; // Keep full snapshot for source information
 }
 
 export function tryLoadDefaultData() {
@@ -138,6 +137,7 @@ export function tryLoadDefaultData() {
                             const url = new URL(window.location);
                             for (let i = 1; i <= 8; i++) {
                                 url.searchParams.delete(`Player${i}Comps`);
+                                url.searchParams.delete(`Player${i}Items`);
                             }
                             // Update URL without reloading page
                             window.history.replaceState({}, '', url);
@@ -147,12 +147,13 @@ export function tryLoadDefaultData() {
                         buildUnitMaps([setData]);
                         // update global items for suggestions to this set only
                         const sec = setData.items || {};
-                        const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.trait||[])];
+                        const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.radiant||[]), ...(sec.trait||[])];
                         items = arr.map(it => ({ Item: it.apiName, Name: it.name, Url: getItemWEBPImageUrl(it.apiName) }));
                         // reload compositions and filter
                         loadCompsFromJSON(setData);
-                        createCoreItemsButtons(setData.items);
                         initCompFilter(setData);
+                        initItemPicker(setData);
+                        updatePatchLabel(selected, setData);
                         currentSetData = setData;
                         document.dispatchEvent(new CustomEvent('tft:setchange', { detail: setData }));
                         
@@ -175,398 +176,175 @@ export function loadCompsFromJSON(metaData) {
     metaSnapshotData = metaData;
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [], X: [] };
+    const itemName = api => items.find(i => i.Item === api)?.Name || api;
 
     metaData.comps.forEach((comp, index) => {
-        const tier = comp.tier;
-        if (tiers[tier]) {
-            const allChamps = comp.champions
-                .map(ch => ch.name);
-
-            // Ensure mainChampion is first
-            const mainChamp = comp.mainChampion?.apiName
-                ? comp.mainChampion.name
-                : allChamps[0];
-
-            // sort others by cost asc, then name
-            const otherChamps = allChamps
-                .filter(u => u !== mainChamp)
-                .sort((a, b) => {
-                    const costA = unitCostMap[a] ?? Infinity;
-                    const costB = unitCostMap[b] ?? Infinity;
-                    if (costA !== costB) return costA - costB;
-                    return a.localeCompare(b);
-                });
-
-            const sortedUnits = [mainChamp, ...otherChamps];
-
-            const compoElement = createCompoElement({
-                comp: comp.title,
-                index,
-                estilo: comp.style,
-                units: sortedUnits,
-                teambuilderUrl: comp.url,
-                mainAugment: comp.mainAugment || {},
-                mainItem: comp.mainItem || {}
-            });
-            // Store tags for filtering: champions, their items, and style
-            const champNames = comp.champions.map(ch => ch.name);
-            const champItemNames = comp.champions.flatMap(ch => [...(ch.items || []), ...(ch.artifacts || [])].map(itemApi => {
-                const it = items.find(i => i.Item === itemApi);
-                return it ? it.Name : itemApi;
-            }));
-            // Include altBuilds items in tags
-            const altBuildItemNames = (comp.altBuilds || []).flatMap(ab => [...(ab.items || []), ...(ab.artifacts || [])].map(itemApi => {
-                const it = items.find(i => i.Item === itemApi);
-                return it ? it.Name : itemApi;
-            }));
-            // Include mainItem in tags
-            const mainItemName = comp.mainItem?.apiName
-                ? (items.find(i => i.Item === comp.mainItem.apiName)?.Name)
-                : null;
-            const mainItemTags = mainItemName ? [mainItemName] : [];
-            const styleTag = comp.style ? [comp.style] : [];
-            const tags = [...champNames, ...champItemNames, ...altBuildItemNames, ...mainItemTags, ...styleTag];
-            compoElement.dataset.tags = tags.join('|');
-            tiers[tier].push({ name: comp.title, element: compoElement });
-        }
+        if (!tiers[comp.tier]) return;
+        const compoElement = createCompoElement(comp, index);
+        // Tags for filtering: champions, their items and artifacts (alt builds too), key item and style
+        const tags = [
+            ...comp.champions.map(ch => ch.name),
+            ...[...comp.champions, ...(comp.altBuilds || [])].flatMap(ch => [...(ch.items || []), ...(ch.artifacts || [])].map(itemName)),
+            ...(comp.mainItem?.apiName ? [itemName(comp.mainItem.apiName)] : []),
+            ...(comp.style ? [comp.style] : []),
+        ];
+        compoElement.dataset.tags = tags.join('|');
+        tiers[comp.tier].push({ name: comp.title, element: compoElement });
     });
 
     ['S', 'A', 'B', 'C', 'X'].forEach(t => {
-        if (tiers[t].length > 0) {
-            tiers[t].sort((a, b) => a.name.localeCompare(b.name));
-
-            const header = document.createElement('div');
-            header.className = 'tier-header';
-            header.textContent = t === 'X' ? 'SITUATIONAL' : `TIER ${t}`;
-            header.style.backgroundColor = CONFIG.tierColors[t];
-            header.style.color = getContrastYIQ(CONFIG.tierColors[t]);
-            compsContainer.appendChild(header);
-
-            tiers[t].forEach(({ element }) => compsContainer.appendChild(element));
-        }
+        if (!tiers[t].length) return;
+        tiers[t].sort((a, b) => a.name.localeCompare(b.name));
+        const header = document.createElement('div');
+        header.className = 'tier-header';
+        header.dataset.tier = t;
+        header.innerHTML = `<b class="tier-badge t-${t}">${t}</b><span class="tier-label">${t === 'X' ? 'Situational' : `Tier ${t}`}</span><span class="tier-count"></span>`;
+        compsContainer.appendChild(header);
+        tiers[t].forEach(({ element }) => compsContainer.appendChild(element));
     });
 
-    // Add source credit at the end of comps section
     addCompsSourceCredit();
-}
-
-function createCoreItemsButtons(metaItems) {
-    const container = document.createElement('div');
-    container.id = 'coreItemsContainer';
-
-    Object.entries(metaItems || {}).forEach(([section, sectionItems]) => {
-        // Skip this section if there are no items
-        if (!Array.isArray(sectionItems) || sectionItems.length === 0) {
-            return;
-        }
-
-        // section header/container
-        const sectionDiv = document.createElement('div');
-        sectionDiv.className = 'core-items-section';
-        const hdr = document.createElement('h4');
-        hdr.textContent = section.charAt(0).toUpperCase() + section.slice(1);
-        sectionDiv.appendChild(hdr);
-
-        // buttons for each item in this section
-        sectionItems.forEach(itemObj => {
-            const btn = document.createElement('button');
-            btn.className = 'core-item-button';
-            btn.title = itemObj.name;
-            btn.style.backgroundImage = `url(${getItemWEBPImageUrl(itemObj.apiName)})`;
-            btn.dataset.item = itemObj.apiName;
-            btn.onclick = () => {
-                btn.classList.toggle('active');
-                document.querySelectorAll('.items-container').forEach(ctn => {
-                    updateItemsContainer(ctn);
-                });
-            };
-            sectionDiv.appendChild(btn);
-        });
-
-        container.appendChild(sectionDiv);
-    });
-
-    compsContainer.appendChild(container);
 }
 
 loadCompsFromJSON = function (metaData) {
     _originalLoadCompsFromJSON(metaData);
     linkPlayersToCompsFromQuery();
+    renderLinks();
 };
 
-function createCompoElement({ comp, index, estilo, units, teambuilderUrl, mainAugment, mainItem }) {
+// One matrix row: the comp and one cell per lobby player
+function createCompoElement(comp, index) {
     const div = document.createElement('div');
     div.className = 'item compo';
     div.dataset.id = 'compo-' + index;
+    div.dataset.tier = comp.tier;
 
-    const styleContainer = createStyleContainer(estilo);
-    const starContainer = createUncontestedContainer();
-    const augmentItemContainer = createAugmentItemContainer(mainAugment, mainItem);
+    const cell = document.createElement('div');
+    cell.className = 'comp-cell';
 
-    const compInfo = createCompInfo(comp);
-    const itemsContainer = createItemsContainer();
-    const unitIcons = createUnitIcons(units, index);
-    const tbButtonDiv = createTeambuilderButton(teambuilderUrl);
+    const info = document.createElement('div');
+    info.className = 'comp-info';
+    const name = document.createElement('span');
+    name.className = 'comp-name';
+    name.textContent = comp.title;
+    // lit while none of its carries is taken by a lobby player
+    const star = document.createElement('span');
+    star.className = 'star-icon';
+    star.title = 'Uncontested';
+    star.textContent = '★';
+    name.prepend(star);
+    const style = document.createElement('small');
+    style.className = 'comp-style';
+    style.textContent = comp.style || '';
+    const keyItem = createKeyItem(comp.mainAugment, comp.mainItem);
+    if (keyItem) style.prepend(keyItem);
+    info.append(name, style);
 
-    div.append(styleContainer, starContainer, augmentItemContainer, compInfo, itemsContainer, unitIcons);
-    if (tbButtonDiv) div.appendChild(tbButtonDiv);
+    const itemsContainer = document.createElement('div');
+    itemsContainer.className = 'items-container';
 
-    div.onclick = () => select(div, 'compo');
+    cell.append(info, createUnitIcons(comp), itemsContainer);
+    const tb = createTeambuilderButton(comp.url);
+    if (tb) cell.appendChild(tb);
+    div.appendChild(cell);
+
+    for (let k = 0; k < 8; k++) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'link-cell';
+        b.dataset.slot = k;
+        b.setAttribute('aria-label', `Player ${k + 1} plays ${comp.title}`);
+        b.setAttribute('aria-pressed', 'false');
+        div.appendChild(b);
+    }
+
     return div;
 }
 
-// Nueva función auxiliar para crear el contenedor de estilo
-function createStyleContainer(estilo) {
-    const styleContainer = document.createElement('div');
-    styleContainer.className = 'comp-style';
-    const compStyle = document.createElement('span');
-    compStyle.textContent = estilo;
-    styleContainer.appendChild(compStyle);
-    return styleContainer;
-}
-
-// Nueva función auxiliar para crear el contenedor de estrella
-function createUncontestedContainer() {
-    const starContainer = document.createElement('div');
-    starContainer.className = 'comp-star';
-    Object.assign(starContainer.style, {
-
-    });
-
-    const starIcon = document.createElement('span');
-    starIcon.className = 'star-icon';
-    starIcon.textContent = '⭐';
-    //starIcon.style.visibility = 'hidden';
-    // Show tooltip text on hover
-    starIcon.title = 'Uncontested';
-
-    starContainer.appendChild(starIcon);
-    return starContainer;
-}
-
-// Nueva función auxiliar para crear la info de la composición
-function createCompInfo(comp) {
-    const compInfo = document.createElement('div');
-    compInfo.className = 'comp-info';
-    const compName = document.createElement('span');
-    compName.className = 'comp-name';
-    compName.textContent = comp;
-    compInfo.appendChild(compName);
-    return compInfo;
-}
-
-// Nueva función auxiliar para crear el contenedor de items
-function createItemsContainer() {
-    const itemsContainer = document.createElement('div');
-    itemsContainer.className = 'items-container';
-    return itemsContainer;
-}
-
-// Nueva función auxiliar para crear el botón de teambuilder
 function createTeambuilderButton(teambuilderUrl) {
     if (!teambuilderUrl) return null;
-    const tbDiv = document.createElement('div');
-    tbDiv.className = 'teambuilder-btn-container';
-    const tbButton = document.createElement('a');
-    tbButton.className = 'teambuilder-btn';
-    tbButton.href = teambuilderUrl;
-    tbButton.target = '_blank';
-    tbButton.title = "Open in teambuilder";
-    tbButton.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="15" height="15" viewBox="0 0 24 24">
-            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3z"/>
-            <path d="M5 5h4V3H5c-1.1 0-2 .9-2 2v4h2V5z"/>
-            <path d="M5 19h4v2H5c-1.1 0-2-.9-2-2v-4h2v4z"/>
-            <path d="M19 19h-4v2h4c1.1 0 2-.9 2-2v-4h-2v4z"/>
-        </svg>`;
-    tbButton.addEventListener('click', e => e.stopPropagation());
-    tbDiv.appendChild(tbButton);
-    return tbDiv;
+    const a = document.createElement('a');
+    a.className = 'teambuilder-btn';
+    a.href = teambuilderUrl;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.title = 'Open guide';
+    a.setAttribute('aria-label', 'Open guide');
+    a.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+    return a;
 }
 
-// Refactorización de createCompoElement utilizando las funciones auxiliares
-function createAugmentItemContainer(mainAugment, mainItem) {
-    const container = document.createElement('div');
-    container.className = 'main-augment-item-container';
-    if (mainAugment && mainAugment.apiName) {
-        const img = document.createElement('img');
-        img.src = getAugmentWEBPImageUrl(mainAugment.apiName);
-        img.alt = mainAugment.apiName;
-        img.title = mainAugment.apiName;    // show augment.apiName on hover
-        container.appendChild(img);
-    } else if ((!mainAugment || !mainAugment.apiName) && mainItem && mainItem.apiName) {
-        // Only add if NOT an emblem
-        const emblemApiNames = (metaSnapshotData?.items?.emblem || []).map(e => e.apiName);
-        if (!emblemApiNames.includes(mainItem.apiName)) {
-            const img = document.createElement('img');
-            img.src = getItemWEBPImageUrl(mainItem.apiName);
-            img.alt = mainItem.apiName;
-            // lookup human‐readable Name or fallback to apiName
-            img.title = (items.find(i => i.Item === mainItem.apiName)?.Name) || mainItem.apiName;
-            container.appendChild(img);
-        }
-    }
-    return container;
+// The comp's key augment or item (emblems, radiants...) next to its style
+function createKeyItem(mainAugment, mainItem) {
+    const api = mainAugment?.apiName || mainItem?.apiName;
+    if (!api) return null;
+    const img = document.createElement('img');
+    img.className = 'key-item';
+    img.src = mainAugment?.apiName ? getAugmentWEBPImageUrl(api) : getItemWEBPImageUrl(api);
+    img.alt = '';
+    img.title = items.find(i => i.Item === api)?.Name || api;
+    return img;
 }
 
-export const updateItemsContainer = (itemsContainer) => {
-    itemsContainer.innerHTML = '';
-
-    const activeItems = Array.from(
-        document.querySelectorAll('.core-item-button.active')
-    ).map(button => button.dataset.item);
-
-    const compElement = itemsContainer.closest('.item.compo');
-    const compIndex = parseInt(compElement.dataset.id.split('-')[1], 10);
-    const compData = metaSnapshotData.comps[compIndex];
-
-    const itemToChampionsMap = {};
-
-    // Base itemized champions: use this comp’s champions
-    (compData.champions || []).forEach(champion => {
-        const champName = champion.name;
-        [...(champion.items || []), ...(champion.artifacts || [])].forEach(item => {
-            if (item && activeItems.includes(item)) {
-                if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
-                itemToChampionsMap[item].push(champName);
-            }
-        });
-    });
-
-    // Include altBuilds champions
-    (compData.altBuilds || []).forEach(ab => {
-        const champ = ab.name;
-        [...(ab.items || []), ...(ab.artifacts || [])].forEach(item => {
-            if (activeItems.includes(item)) {
-                if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
-                itemToChampionsMap[item].push(champ);
-            }
-        });
-    });
-    // Ensure mainItem appears if selected
-    if (compData.mainItem && compData.mainItem.apiName && activeItems.includes(compData.mainItem.apiName)) {
-        if (!itemToChampionsMap[compData.mainItem.apiName]) itemToChampionsMap[compData.mainItem.apiName] = [];
-        itemToChampionsMap[compData.mainItem.apiName].push('Main Item');
-    }
-
-    const displayedItems = new Set();
-
-    Object.entries(itemToChampionsMap).forEach(([item, champions]) => {
-        if (!displayedItems.has(item)) {
-            const itemData = items.find(i => i.Item === item);
-            if (itemData) {
-                // remove duplicate champion names
-                const uniqueChamps = [
-                    ...new Set(
-                        champions
-                            .filter(champ => champ && champ.trim() !== '')
-                    )
-                ];
-                const img = document.createElement('img');
-                img.src = itemData.Url;
-                img.alt = itemData.Name;
-                img.title = `${itemData.Name} (Used by: ${uniqueChamps.join(', ')})`;
-                Object.assign(img.style, {
-                    width: '22px',
-                    height: '22px',
-                    borderRadius: '4px',
-                    objectFit: 'cover'
-                });
-                itemsContainer.appendChild(img);
-                displayedItems.add(item);
-            }
-        }
-    });
-};
-
-// Nueva función auxiliar para crear los iconos de unidades
-function createUnitIcons(units, compIndex) {
+// Carries (main champion first, then by cost) with their build under each portrait
+function createUnitIcons(comp) {
     const unitIcons = document.createElement('div');
     unitIcons.className = 'unit-icons';
-    const champItemsList = metaSnapshotData.comps[compIndex].champions;
+    const main = comp.mainChampion?.name;
+    const champs = [...comp.champions].sort((a, b) =>
+        (b.name === main) - (a.name === main) || (a.cost ?? 9) - (b.cost ?? 9) || a.name.localeCompare(b.name));
+    const setChamps = metaSnapshotData.champions || [];
 
-    units.forEach(unit => {
-        if (!unit || !unitImageMap[unit]) return;
-
-        const img = document.createElement('img');
-        img.src = `${unitImageMap[unit]}?w=28`;
-        img.alt = unit;
-
-        // wrapper for hover tooltip
+    champs.forEach(ch => {
+        if (!unitImageMap[ch.name]) return;
         const wrapper = document.createElement('div');
         wrapper.className = 'unit-icon-wrapper';
+        wrapper.style.setProperty('--cc', `var(--c${ch.cost || unitCostMap[ch.name] || 1})`);
+        if (ch.stars >= 3) wrapper.dataset.stars = ch.stars;
+
+        const img = document.createElement('img');
+        img.src = `${unitImageMap[ch.name]}?w=64`;
+        img.alt = ch.name;
+        img.loading = 'lazy';
+        const builds = [...(ch.items || []), ...(ch.artifacts || [])].map(api => items.find(i => i.Item === api)?.Name || api);
+        img.title = builds.length ? `${ch.name}: ${builds.join(', ')}` : ch.name;
         wrapper.appendChild(img);
 
-        // build tooltip of item-icons via helper
-        const champObj = champItemsList.find(ch => ch.name === unit);
-        // build items first, then the unit's best artifacts
-        const itemApiNames = [...(champObj?.items || []), ...(champObj?.artifacts || [])];
-        if (itemApiNames.length) {
-            const champion = (metaSnapshotData.champions || []).find(ch => ch.name === unit);
-            const coreItems = new Set((champion?.items?.core || []).map(row => row[0]));
-            const tooltip = createUnitTooltip(itemApiNames, coreItems);
-            wrapper.appendChild(tooltip);
-            wrapper.addEventListener('mouseenter', () => tooltip.style.display = 'flex');
-            wrapper.addEventListener('mouseleave', () => tooltip.style.display = 'none');
-        }
-
+        // Core items (built in ~3/4 of the unit's full builds) get a gold ring
+        const core = new Set((setChamps.find(c => c.name === ch.name)?.items?.core || []).map(row => row[0]));
+        const its = document.createElement('span');
+        its.className = 'unit-items';
+        (ch.items || []).slice(0, 3).forEach(api => {
+            const it = document.createElement('img');
+            it.src = getItemWEBPImageUrl(api);
+            it.alt = '';
+            if (core.has(api)) it.classList.add('is-core');
+            its.appendChild(it);
+        });
+        wrapper.appendChild(its);
         unitIcons.appendChild(wrapper);
     });
-
     return unitIcons;
 }
 
-// Nueva función auxiliar para crear el tooltip de items de una unidad
-// Core items (built in ~3/4 of the unit's full builds) get a gold ring
-function createUnitTooltip(itemApiNames, coreItems = new Set()) {
-    const tooltip = document.createElement('div');
-    tooltip.className = 'unit-tooltip';
-
-    itemApiNames.forEach(api => {
-        const it = items.find(i => i.Item === api);
-        if (it) {
-            const ti = document.createElement('img');
-            ti.src = it.Url;
-            ti.alt = it.Name;
-            ti.title = coreItems.has(api) ? `${it.Name} (core)` : it.Name;
-            if (coreItems.has(api)) ti.classList.add('is-core');
-            tooltip.appendChild(ti);
-        }
-    });
-
-    return tooltip;
+function updatePatchLabel(setKey, setData) {
+    const label = document.getElementById('patchLabel');
+    if (!label) return;
+    const setName = setKey.replace(/^SET\s*/i, 'Set ');
+    label.innerHTML = `${setName}${setData.patch ? ` · <b>${setData.patch}</b>` : ''}`;
 }
 
-/**
- * Adds a subtle source credit at the end of the compositions section
- */
+// Sources under the sheet: comps from TFT Flow, items from MetaTFT
 function addCompsSourceCredit() {
-    // Extract source information from the current set data
-    const setSelector = document.getElementById('setSelector');
-    const currentSet = setSelector?.value;
-    
-    // Get the complete metadata from the full snapshot
-    if (currentSet && fullMetaSnapshot && fullMetaSnapshot[currentSet]?.source) {
-        const source = fullMetaSnapshot[currentSet].source;
-        
-        if (source.name && source.url) {
-            const creditDiv = document.createElement('div');
-            creditDiv.className = 'comps-source-credit';
-            
-            const creditText = document.createElement('span');
-            creditText.className = 'comps-credit-text';
-            creditText.textContent = 'Comps data from ';
-            
-            const creditLink = document.createElement('a');
-            creditLink.className = 'comps-credit-link';
-            creditLink.textContent = source.name;
-            creditLink.href = source.url;
-            creditLink.target = '_blank';
-            creditLink.rel = 'noopener';
-            
-            creditDiv.appendChild(creditText);
-            creditDiv.appendChild(creditLink);
-            compsContainer.appendChild(creditDiv);
-        }
-    }
+    const set = metaSnapshotData;
+    const link = src => src?.name && src?.url ? `<a href="${src.url}" target="_blank" rel="noopener">${src.name}</a>` : '';
+    const parts = [
+        set?.source && `Comps from ${link(set.source)}`,
+        set?.itemsSource && `items from ${link(set.itemsSource)}`,
+    ].filter(Boolean);
+    if (!parts.length) return;
+    const creditDiv = document.createElement('div');
+    creditDiv.className = 'comps-source-credit';
+    creditDiv.innerHTML = parts.join(', ');
+    compsContainer.appendChild(creditDiv);
 }

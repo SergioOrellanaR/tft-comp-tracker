@@ -119,12 +119,13 @@ export function getItemPNGImageUrl(itemId) {
     return THIRD_PARTY_IMG_URL.pngItems + '/' + itemId.toLowerCase() + '.png';
 }
 
+// Items, artifacts, emblems and radiants by apiName (MetaTFT's CDN)
 export function getItemWEBPImageUrl(itemId) {
-    return THIRD_PARTY_IMG_URL.webpItems + '/' + itemId + '.webp';
+    return THIRD_PARTY_IMG_URL.pngItems + '/' + itemId.toLowerCase() + '.png';
 }
 
 export function getAugmentWEBPImageUrl(augmentId) {
-    return THIRD_PARTY_IMG_URL.webPaugments + '/' + augmentId + '.webp';
+    return THIRD_PARTY_IMG_URL.augments + '/' + augmentId.toLowerCase() + '.png';
 }
 
 export function getTierImageUrl(tier) {
