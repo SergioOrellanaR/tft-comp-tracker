@@ -12,11 +12,14 @@ async function fetchFromTFTVersusAPI(endpoint) {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        if (!response.ok && response.status !== 404) {
-            throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
+        const data = await response.json();
+        if (!response.ok) {
+            // Surface the real HTTP status alongside the error body (e.g. { detail: "..." })
+            // so callers can distinguish "not found" from "rate limited", etc.
+            return { ...data, status: response.status };
         }
 
-        return await response.json();
+        return data;
     } catch (error) {
         console.error(`Failed to fetch data from ${endpoint}:`, error);
         throw error;

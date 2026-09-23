@@ -188,6 +188,7 @@ function isTimeoutOrFailedRetrieval(result) {
     return (
         result === "timeout" ||
         !result ||
+        result.status !== undefined || // backend returned an HTTP error (404, 429, etc.)
         (result.FAILED_RETRIEVAL.length > 0 &&
             result.SUCCESSFUL_RETRIEVAL.length === 0 &&
             result.ALREADY_ON_DB.length === 0)
