@@ -2,7 +2,7 @@
 // Reads the same MetaSnapshot set as the tracker: champions (CommunityDragon traits/stats, derived role) with live
 // S/A item tiers (MetaTFT), plus components and recipes. Re-renders when the set selector changes.
 import { links } from './mainScreen/matrix.js';
-import { getCurrentSetData } from './mainScreen/dataLoader.js';
+import { getCurrentSetData, getSnapshotSets } from './mainScreen/dataLoader.js';
 import { getChampionImageUrl, getItemWEBPImageUrl } from './tftVersusHandler.js';
 
 let DATA = null;
@@ -51,7 +51,7 @@ function buildData(set) {
             return {
                 key: c.name, name: c.name, apiName: c.apiName, cost: c.cost, traits: c.traits || [], stats: c.stats || {},
                 type: c.role, damageType: damage === 'Magic' ? 'Magic' : 'Attack', roleName,
-                tiers: { core: [], ...c.items }, holds: c.holds, variants: c.variants,
+                tiers: { core: [], ...c.items }, artifacts: c.artifacts, emblems: c.emblems, variants: c.variants,
             };
         });
 
@@ -121,6 +121,7 @@ export async function initTransitionsView(container, { filterComps } = {}) {
                 <button type="button" class="tv-phase-btn" data-phase="late" aria-pressed="false" title="4-5 cost">Late</button>
             </div>
             <div class="tv-comp-slot"></div>
+            <select class="tv-set-select" aria-label="Set" hidden></select>
         </div>
         <div class="tv-transitions-root"><div class="tv-loading" aria-busy="true"></div></div>
         <footer class="tv-foot"></footer>
@@ -131,25 +132,42 @@ export async function initTransitionsView(container, { filterComps } = {}) {
         </aside>`;
     initPhaseFilter();
     initDrawer();
+    // The summary follows the lobby's set until another one is picked here
     document.addEventListener('tft:setchange', e => loadSet(e.detail));
+    $('.tv-set-select').addEventListener('change', e => {
+        const set = getSnapshotSets()[e.target.value];
+        if (set) loadSet(set);
+    });
     const set = getCurrentSetData();
     if (set) loadSet(set);
+}
+
+// Live / PBE picker, shown only while more than one set is published
+function renderSetSelect(set) {
+    const select = $('.tv-set-select');
+    const sets = getSnapshotSets();
+    const keys = Object.keys(sets);
+    select.hidden = keys.length < 2;
+    select.innerHTML = keys.map(k => `<option value="${k}">${k.replace(/^SET\s*/i, 'Set ')} · ${sets[k]?.status === 'pbe' ? 'PBE' : 'Live'}</option>`).join('');
+    const current = keys.find(k => sets[k] === set);
+    if (current) select.value = current;
 }
 
 function loadSet(set) {
     if (!root) return;
     closeTransitionsDrawer();
+    renderSetSelect(set);
     DATA = buildData(set);
     activeItem = null;
     pickedComps = [];
     if (!DATA.champions.length) {
         $('.tv-comp-slot').innerHTML = '';
-        $('.tv-transitions-root').innerHTML = `<div class="tv-loading">No item stats for this set yet. Pick the live set above the comps.</div>`;
+        $('.tv-transitions-root').innerHTML = `<div class="tv-loading">No item stats for this set yet.</div>`;
         $('.tv-foot').textContent = '';
         return;
     }
     const src = s => s ? `<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>` : '';
-    $('.tv-foot').innerHTML = `Items ${src(DATA.itemsSource)}${DATA.patch ? `, patch ${DATA.patch}` : ''}. Roles ${src(DATA.compsSource)}.`;
+    $('.tv-foot').innerHTML = `Items, artifacts and emblems from ${src(DATA.itemsSource)}${DATA.patch ? `, patch ${DATA.patch}` : ''}.`;
     renderTransitions();
 }
 
@@ -606,15 +624,15 @@ function openChampionDrawer(key) {
         html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${TIER_LABEL[t]}</span><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
     }));
     html += `</div>`;
-    // artifacts, emblems and radiants TFT Flow gives this champion in some comp (best tier of those)
-    [['artifact', 'Artifacts'], ['radiant', 'Radiants'], ['emblem', 'Emblems']].forEach(([kind, label]) => {
-        const rows = champ.holds?.[kind] || [];
-        if (!rows.length) return;
-        html += `<div class="tv-d-section"><div class="tv-d-label">${label}</div><div class="tv-item-row-icons">`;
-        rows.forEach(([item, tier]) => {
-            html += `<span class="tv-tier-item"><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt="${itemName(item)}" title="${itemName(item)}"><span class="tv-tier-badge tier-${tier}">${tier}</span></span>`;
-        });
-        html += `</div></div>`;
+    // artifacts and emblems: MetaTFT tiers, each against the champion's others of the same kind
+    [['artifacts', 'Artifacts'], ['emblems', 'Emblems']].forEach(([key, label]) => {
+        const special = champ[key];
+        if (!special || !['S', 'A'].some(t => special[t]?.length)) return;
+        html += `<div class="tv-d-section"><div class="tv-d-label">${label}</div>`;
+        ['S', 'A'].forEach(t => (special[t] || []).forEach(([item, avg, games]) => {
+            html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${t}</span><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
+        }));
+        html += `</div>`;
     });
     content.insertAdjacentHTML('beforeend', html);
 

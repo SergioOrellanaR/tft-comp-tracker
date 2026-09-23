@@ -8946,6 +8946,18 @@
           "name": "Hellfire Hatchet"
         },
         {
+          "apiName": "DA_Artifact_HorizonFocus",
+          "name": "Horizon Focus"
+        },
+        {
+          "apiName": "DA_Artifact_Hullcrusher",
+          "name": "Hullcrusher"
+        },
+        {
+          "apiName": "DA_Artifact_InfinityForce",
+          "name": "Infinity Force"
+        },
+        {
           "apiName": "DA_Artifact_LichBane",
           "name": "Lich Bane"
         },
@@ -9040,12 +9052,20 @@
           "name": "Fae Emblem"
         },
         {
+          "apiName": "DA_18_EmblemFloraFatalis",
+          "name": "Flora Fatalis Emblem"
+        },
+        {
           "apiName": "DA_18_EmblemFloraFatalisAugment",
           "name": "Flora Fatalis Emblem"
         },
         {
           "apiName": "DA_18_EmblemHunter",
           "name": "Hunter Emblem"
+        },
+        {
+          "apiName": "DA_18_EmblemInferno",
+          "name": "Inferno Emblem"
         },
         {
           "apiName": "DA_18_EmblemInvoker",
@@ -9074,6 +9094,10 @@
         {
           "apiName": "DA_18_EmblemSpellweaver",
           "name": "Spellweaver Emblem"
+        },
+        {
+          "apiName": "DA_18_EmblemSprykin",
+          "name": "Sprykin Emblem"
         },
         {
           "apiName": "DA_18_EmblemVanguard",
@@ -9162,31 +9186,11 @@
         "name": "B.F. Sword"
       },
       {
-        "apiName": "TFT_Item_BFSword",
-        "name": "B.F. Sword"
-      },
-      {
         "apiName": "DA_Component_ChainVest",
         "name": "Chain Vest"
       },
       {
-        "apiName": "TFT_Item_ChainVest",
-        "name": "Chain Vest"
-      },
-      {
-        "apiName": "DA_Component_FryingPan",
-        "name": "Frying Pan"
-      },
-      {
-        "apiName": "TFT_Item_FryingPan",
-        "name": "Frying Pan"
-      },
-      {
         "apiName": "DA_Component_GiantsBelt",
-        "name": "Giant's Belt"
-      },
-      {
-        "apiName": "TFT_Item_GiantsBelt",
         "name": "Giant's Belt"
       },
       {
@@ -9194,15 +9198,7 @@
         "name": "Needlessly Large Rod"
       },
       {
-        "apiName": "TFT_Item_NeedlesslyLargeRod",
-        "name": "Needlessly Large Rod"
-      },
-      {
         "apiName": "DA_Component_NegatronCloak",
-        "name": "Negatron Cloak"
-      },
-      {
-        "apiName": "TFT_Item_NegatronCloak",
         "name": "Negatron Cloak"
       },
       {
@@ -9210,32 +9206,12 @@
         "name": "Recurve Bow"
       },
       {
-        "apiName": "TFT_Item_RecurveBow",
-        "name": "Recurve Bow"
-      },
-      {
         "apiName": "DA_Component_SparringGloves",
         "name": "Sparring Gloves"
       },
       {
-        "apiName": "TFT_Item_SparringGloves",
-        "name": "Sparring Gloves"
-      },
-      {
-        "apiName": "DA_Component_Spatula",
-        "name": "Spatula"
-      },
-      {
-        "apiName": "TFT_Item_Spatula",
-        "name": "Spatula"
-      },
-      {
         "apiName": "DA_Component_TearOfTheGoddess",
         "name": "Tear Of The Goddess"
-      },
-      {
-        "apiName": "TFT_Item_TearOfTheGoddess",
-        "name": "Tear of the Goddess"
       }
     ],
     "recipes": [
@@ -9248,27 +9224,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_AdaptiveHelm",
-        "name": "Adaptive Helm",
-        "from": [
-          "TFT_Item_NegatronCloak",
-          "TFT_Item_TearOfTheGoddess"
-        ]
-      },
-      {
         "apiName": "DA_ArchangelsStaff",
         "name": "Archangel's Staff",
         "from": [
           "DA_Component_NeedlesslyLargeRod",
           "DA_Component_TearOfTheGoddess"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_ArchangelsStaff",
-        "name": "Archangel's Staff",
-        "from": [
-          "TFT_Item_NeedlesslyLargeRod",
-          "TFT_Item_TearOfTheGoddess"
         ]
       },
       {
@@ -9280,27 +9240,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_Bloodthirster",
-        "name": "Bloodthirster",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_NegatronCloak"
-        ]
-      },
-      {
         "apiName": "DA_BlueBuff",
         "name": "Blue Buff",
         "from": [
           "DA_Component_TearOfTheGoddess",
           "DA_Component_TearOfTheGoddess"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_BlueBuff",
-        "name": "Blue Buff",
-        "from": [
-          "TFT_Item_TearOfTheGoddess",
-          "TFT_Item_TearOfTheGoddess"
         ]
       },
       {
@@ -9312,27 +9256,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_BrambleVest",
-        "name": "Bramble Vest",
-        "from": [
-          "TFT_Item_ChainVest",
-          "TFT_Item_ChainVest"
-        ]
-      },
-      {
         "apiName": "DA_Crownguard",
         "name": "Crownguard",
         "from": [
           "DA_Component_NeedlesslyLargeRod",
           "DA_Component_ChainVest"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_Crownguard",
-        "name": "Crownguard",
-        "from": [
-          "TFT_Item_NeedlesslyLargeRod",
-          "TFT_Item_ChainVest"
         ]
       },
       {
@@ -9344,27 +9272,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_Deathblade",
-        "name": "Deathblade",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_BFSword"
-        ]
-      },
-      {
         "apiName": "DA_DragonsClaw",
         "name": "Dragon's Claw",
         "from": [
           "DA_Component_NegatronCloak",
           "DA_Component_NegatronCloak"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_DragonsClaw",
-        "name": "Dragon's Claw",
-        "from": [
-          "TFT_Item_NegatronCloak",
-          "TFT_Item_NegatronCloak"
         ]
       },
       {
@@ -9376,27 +9288,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_GuardianAngel",
-        "name": "Edge of Night",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_ChainVest"
-        ]
-      },
-      {
         "apiName": "DA_Evenshroud",
         "name": "Evenshroud",
         "from": [
           "DA_Component_NegatronCloak",
           "DA_Component_GiantsBelt"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_SpectralGauntlet",
-        "name": "Evenshroud",
-        "from": [
-          "TFT_Item_NegatronCloak",
-          "TFT_Item_GiantsBelt"
         ]
       },
       {
@@ -9408,27 +9304,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_GargoyleStoneplate",
-        "name": "Gargoyle Stoneplate",
-        "from": [
-          "TFT_Item_ChainVest",
-          "TFT_Item_NegatronCloak"
-        ]
-      },
-      {
         "apiName": "DA_GiantSlayer",
         "name": "Giant Slayer",
         "from": [
           "DA_Component_RecurveBow",
           "DA_Component_BFSword"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_MadredsBloodrazor",
-        "name": "Giant Slayer",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_RecurveBow"
         ]
       },
       {
@@ -9440,27 +9320,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_GuinsoosRageblade",
-        "name": "Guinsoo's Rageblade",
-        "from": [
-          "TFT_Item_RecurveBow",
-          "TFT_Item_NeedlesslyLargeRod"
-        ]
-      },
-      {
         "apiName": "DA_HandOfJustice",
         "name": "Hand Of Justice",
         "from": [
           "DA_Component_TearOfTheGoddess",
           "DA_Component_SparringGloves"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_UnstableConcoction",
-        "name": "Hand Of Justice",
-        "from": [
-          "TFT_Item_TearOfTheGoddess",
-          "TFT_Item_SparringGloves"
         ]
       },
       {
@@ -9472,27 +9336,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_HextechGunblade",
-        "name": "Hextech Gunblade",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_NeedlesslyLargeRod"
-        ]
-      },
-      {
         "apiName": "DA_InfinityEdge",
         "name": "Infinity Edge",
         "from": [
           "DA_Component_BFSword",
           "DA_Component_SparringGloves"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_InfinityEdge",
-        "name": "Infinity Edge",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_SparringGloves"
         ]
       },
       {
@@ -9504,27 +9352,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_IonicSpark",
-        "name": "Ionic Spark",
-        "from": [
-          "TFT_Item_NeedlesslyLargeRod",
-          "TFT_Item_NegatronCloak"
-        ]
-      },
-      {
         "apiName": "DA_JeweledGauntlet",
         "name": "Jeweled Gauntlet",
         "from": [
           "DA_Component_SparringGloves",
           "DA_Component_NeedlesslyLargeRod"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_JeweledGauntlet",
-        "name": "Jeweled Gauntlet",
-        "from": [
-          "TFT_Item_NeedlesslyLargeRod",
-          "TFT_Item_SparringGloves"
         ]
       },
       {
@@ -9536,27 +9368,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_RunaansHurricane",
-        "name": "Kraken's Fury",
-        "from": [
-          "TFT_Item_NegatronCloak",
-          "TFT_Item_RecurveBow"
-        ]
-      },
-      {
         "apiName": "DA_LastWhisper",
         "name": "Last Whisper",
         "from": [
           "DA_Component_RecurveBow",
           "DA_Component_SparringGloves"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_LastWhisper",
-        "name": "Last Whisper",
-        "from": [
-          "TFT_Item_RecurveBow",
-          "TFT_Item_SparringGloves"
         ]
       },
       {
@@ -9568,27 +9384,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_Morellonomicon",
-        "name": "Morellonomicon",
-        "from": [
-          "TFT_Item_NeedlesslyLargeRod",
-          "TFT_Item_GiantsBelt"
-        ]
-      },
-      {
         "apiName": "DA_NashorsTooth",
         "name": "Nashor's Tooth",
         "from": [
           "DA_Component_RecurveBow",
           "DA_Component_GiantsBelt"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_Leviathan",
-        "name": "Nashor's Tooth",
-        "from": [
-          "TFT_Item_RecurveBow",
-          "TFT_Item_GiantsBelt"
         ]
       },
       {
@@ -9600,27 +9400,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_FrozenHeart",
-        "name": "Protector's Vow",
-        "from": [
-          "TFT_Item_TearOfTheGoddess",
-          "TFT_Item_ChainVest"
-        ]
-      },
-      {
         "apiName": "DA_Quicksilver",
         "name": "Quicksilver",
         "from": [
           "DA_Component_NegatronCloak",
           "DA_Component_SparringGloves"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_Quicksilver",
-        "name": "Quicksilver",
-        "from": [
-          "TFT_Item_SparringGloves",
-          "TFT_Item_NegatronCloak"
         ]
       },
       {
@@ -9632,27 +9416,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_RabadonsDeathcap",
-        "name": "Rabadon's Deathcap",
-        "from": [
-          "TFT_Item_NeedlesslyLargeRod",
-          "TFT_Item_NeedlesslyLargeRod"
-        ]
-      },
-      {
         "apiName": "DA_RedBuff",
         "name": "Red Buff",
         "from": [
           "DA_Component_RecurveBow",
           "DA_Component_RecurveBow"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_RapidFireCannon",
-        "name": "Red Buff",
-        "from": [
-          "TFT_Item_RecurveBow",
-          "TFT_Item_RecurveBow"
         ]
       },
       {
@@ -9664,27 +9432,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_SpearOfShojin",
-        "name": "Spear of Shojin",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_TearOfTheGoddess"
-        ]
-      },
-      {
         "apiName": "DA_SpiritVisage",
         "name": "Spirit Visage",
         "from": [
           "DA_Component_GiantsBelt",
           "DA_Component_TearOfTheGoddess"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_Redemption",
-        "name": "Spirit Visage",
-        "from": [
-          "TFT_Item_TearOfTheGoddess",
-          "TFT_Item_GiantsBelt"
         ]
       },
       {
@@ -9696,27 +9448,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_NightHarvester",
-        "name": "Steadfast Heart",
-        "from": [
-          "TFT_Item_ChainVest",
-          "TFT_Item_SparringGloves"
-        ]
-      },
-      {
         "apiName": "DA_SteraksGage",
         "name": "Sterak's Gage",
         "from": [
           "DA_Component_BFSword",
           "DA_Component_GiantsBelt"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_SteraksGage",
-        "name": "Sterak's Gage",
-        "from": [
-          "TFT_Item_BFSword",
-          "TFT_Item_GiantsBelt"
         ]
       },
       {
@@ -9728,27 +9464,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_PowerGauntlet",
-        "name": "Striker's Flail",
-        "from": [
-          "TFT_Item_GiantsBelt",
-          "TFT_Item_SparringGloves"
-        ]
-      },
-      {
         "apiName": "DA_SunfireCape",
         "name": "Sunfire Cape",
         "from": [
           "DA_Component_ChainVest",
           "DA_Component_GiantsBelt"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_RedBuff",
-        "name": "Sunfire Cape",
-        "from": [
-          "TFT_Item_ChainVest",
-          "TFT_Item_GiantsBelt"
         ]
       },
       {
@@ -9760,14 +9480,6 @@
         ]
       },
       {
-        "apiName": "TFT_Item_ThiefsGloves",
-        "name": "Thief's Gloves",
-        "from": [
-          "TFT_Item_SparringGloves",
-          "TFT_Item_SparringGloves"
-        ]
-      },
-      {
         "apiName": "DA_TitansResolve",
         "name": "Titan's Resolve",
         "from": [
@@ -9776,35 +9488,11 @@
         ]
       },
       {
-        "apiName": "TFT_Item_TitansResolve",
-        "name": "Titan's Resolve",
-        "from": [
-          "TFT_Item_ChainVest",
-          "TFT_Item_RecurveBow"
-        ]
-      },
-      {
         "apiName": "DA_VoidStaff",
         "name": "Void Staff",
         "from": [
           "DA_Component_RecurveBow",
           "DA_Component_TearOfTheGoddess"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_StatikkShiv",
-        "name": "Void Staff",
-        "from": [
-          "TFT_Item_RecurveBow",
-          "TFT_Item_TearOfTheGoddess"
-        ]
-      },
-      {
-        "apiName": "TFT_Item_WarmogsArmor",
-        "name": "Warmog's Armor",
-        "from": [
-          "TFT_Item_GiantsBelt",
-          "TFT_Item_GiantsBelt"
         ]
       },
       {
@@ -9913,11 +9601,66 @@
             "A": []
           }
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 3.98,
+          "games": 7632,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_RapidFireCannon",
-              "A"
+              3.8,
+              1339
+            ],
+            [
+              "DA_Artifact_Dawncore",
+              3.75,
+              1059
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_SeekersArmguard",
+              3.96,
+              898
+            ],
+            [
+              "DA_Artifact_LichBane",
+              4.07,
+              1442
+            ],
+            [
+              "DA_Artifact_LudensTempest",
+              3.82,
+              362
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.23,
+          "games": 1439,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemHunter",
+              4.57,
+              271
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.83,
+              92
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemRapidfire",
+              5.21,
+              205
+            ],
+            [
+              "DA_18_EmblemExecutioner",
+              5.15,
+              105
             ]
           ]
         }
@@ -9975,6 +9718,64 @@
               "DA_Bloodthirster",
               4.58,
               3033
+            ]
+          ]
+        },
+        "artifacts": {
+          "base": 4.02,
+          "games": 4641,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_Mittens",
+              3.75,
+              673
+            ],
+            [
+              "DA_Artifact_SilvermereDawn",
+              3.85,
+              935
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_TitanicHydra",
+              3.96,
+              472
+            ],
+            [
+              "DA_Artifact_InfinityForce",
+              4.06,
+              485
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.36,
+          "games": 1374,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemRapidfire",
+              4.62,
+              330
+            ],
+            [
+              "DA_18_EmblemDefender",
+              5.03,
+              94
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemInferno",
+              5.39,
+              239
+            ],
+            [
+              "DA_18_EmblemLunar",
+              5.02,
+              50
             ]
           ]
         }
@@ -10035,15 +9836,51 @@
             ]
           ]
         },
-        "holds": {
-          "radiant": [
+        "artifacts": {
+          "base": 5.08,
+          "games": 529,
+          "core": [],
+          "S": [
             [
-              "DA_BlueBuffRadiant",
-              "A"
+              "DA_Artifact_GoldCollector",
+              4.47,
+              76
             ],
             [
-              "DA_InfinityEdgeRadiant",
-              "A"
+              "DA_Artifact_Fishbones",
+              4.77,
+              94
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Manazane",
+              5.12,
+              72
+            ],
+            [
+              "DA_Artifact_LudensTempest",
+              4.8,
+              20
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.03,
+          "games": 1534,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemInvoker",
+              4.69,
+              442
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemRapidfire",
+              4.84,
+              74
             ]
           ]
         }
@@ -10118,6 +9955,30 @@
               777
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.76,
+          "games": 3124,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              4.37,
+              841
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.57,
+              359
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemFloraFatalis",
+              4.49,
+              128
+            ]
+          ]
         }
       },
       {
@@ -10188,6 +10049,64 @@
               "DA_AdaptiveHelm",
               4.68,
               317
+            ]
+          ]
+        },
+        "artifacts": {
+          "base": 5.05,
+          "games": 316,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.93,
+              43
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.59,
+              17
+            ],
+            [
+              "DA_Artifact_Hullcrusher",
+              4.71,
+              21
+            ],
+            [
+              "DA_Artifact_MogulsMail",
+              5.03,
+              58
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              5.0,
+              39
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.07,
+          "games": 995,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemElderwood",
+              4.5,
+              159
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              4.73,
+              212
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemDefender",
+              5.07,
+              146
             ]
           ]
         }
@@ -10267,6 +10186,74 @@
               1691
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.33,
+          "games": 1367,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              3.83,
+              349
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.31,
+              123
+            ],
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.35,
+              146
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.39,
+              166
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.57,
+          "games": 1258,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemJuggernaut",
+              4.27,
+              222
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              4.43,
+              191
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              4.36,
+              116
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.1,
+              63
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSlayer",
+              4.18,
+              55
+            ],
+            [
+              "DA_18_EmblemElderwood",
+              4.63,
+              178
+            ]
+          ]
         }
       },
       {
@@ -10320,15 +10307,61 @@
             ]
           ]
         },
-        "holds": {
-          "radiant": [
+        "artifacts": {
+          "base": 4.22,
+          "games": 19160,
+          "core": [],
+          "S": [
             [
-              "DA_GargoyleStoneplate_Radiant",
-              "B"
+              "DA_Artifact_LightshieldCrest",
+              3.96,
+              3602
             ],
             [
-              "DA_WarmogsArmorRadiant",
-              "B"
+              "DA_Artifact_ForbiddenIdol",
+              4.13,
+              3866
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.16,
+              3215
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.22,
+              2175
+            ],
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.16,
+              1438
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.41,
+          "games": 5460,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBrawler",
+              4.16,
+              1929
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSprykin",
+              4.35,
+              657
+            ],
+            [
+              "DA_18_EmblemSpellweaver",
+              4.44,
+              760
             ]
           ]
         }
@@ -10384,15 +10417,66 @@
             ]
           ]
         },
-        "holds": {
-          "radiant": [
+        "artifacts": {
+          "base": 4.72,
+          "games": 887,
+          "core": [],
+          "S": [
             [
-              "DA_ArchangelsStaffRadiant",
-              "S"
+              "DA_Artifact_EternalPact",
+              4.16,
+              237
             ],
             [
-              "DA_BlueBuffRadiant",
-              "S"
+              "DA_Item_Artifact_TalismanOfAscension",
+              4.24,
+              41
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_ZhonyasParadox",
+              4.4,
+              40
+            ],
+            [
+              "DA_Artifact_BlightingJewel",
+              4.79,
+              146
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.65,
+          "games": 1747,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemSpellweaver",
+              4.3,
+              283
+            ],
+            [
+              "DA_18_EmblemBlossom",
+              4.44,
+              290
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemLunar",
+              4.61,
+              213
+            ],
+            [
+              "DA_18_EmblemHunter",
+              4.51,
+              92
+            ],
+            [
+              "DA_18_EmblemFloraFatalis",
+              4.59,
+              100
             ]
           ]
         }
@@ -10463,6 +10547,78 @@
               1970
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.91,
+          "games": 532,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_ForbiddenIdol",
+              4.55,
+              69
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.73,
+              85
+            ],
+            [
+              "DA_Artifact_Hullcrusher",
+              4.43,
+              37
+            ],
+            [
+              "DA_Artifact_LightshieldCrest",
+              4.71,
+              68
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.82,
+              38
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.08,
+          "games": 3150,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemHunter",
+              4.82,
+              322
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.74,
+              255
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              4.8,
+              258
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.73,
+              211
+            ],
+            [
+              "DA_18_EmblemElderwood",
+              4.94,
+              357
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.96,
+              327
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -10545,6 +10701,84 @@
               3148
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.01,
+          "games": 6716,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              3.76,
+              922
+            ],
+            [
+              "DA_Artifact_HorizonFocus",
+              3.89,
+              1058
+            ],
+            [
+              "DA_Artifact_VoidGauntlet",
+              3.85,
+              776
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.02,
+              757
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.05,
+              920
+            ],
+            [
+              "DA_Artifact_Hullcrusher",
+              4.01,
+              527
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              3.99,
+              452
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.45,
+          "games": 6972,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemElderwood",
+              3.99,
+              865
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.05,
+              857
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSprykin",
+              4.49,
+              1323
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              4.2,
+              385
+            ],
+            [
+              "DA_18_EmblemSpellweaver",
+              4.52,
+              1632
+            ]
+          ]
         }
       },
       {
@@ -10613,11 +10847,71 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 4.09,
+          "games": 933,
+          "core": [],
+          "S": [
             [
-              "DA_Artifact_GoldCollector",
-              "B"
+              "DA_Artifact_LudensTempest",
+              3.77,
+              143
+            ],
+            [
+              "DA_Artifact_Manazane",
+              3.91,
+              195
+            ],
+            [
+              "DA_Artifact_NavoriFlickerblade",
+              3.84,
+              130
+            ],
+            [
+              "DA_Artifact_InfinityForce",
+              3.5,
+              40
+            ]
+          ],
+          "A": [
+            [
+              "DA_Item_Artifact_TalismanOfAscension",
+              3.84,
+              51
+            ],
+            [
+              "DA_Artifact_Fishbones",
+              4.04,
+              78
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.87,
+          "games": 2713,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemHunter",
+              4.54,
+              501
+            ],
+            [
+              "DA_18_EmblemSlayer",
+              4.44,
+              329
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.69,
+              561
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemPrimal",
+              4.7,
+              205
             ]
           ]
         }
@@ -10664,45 +10958,36 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemFloraFatalisAugment",
-              "S"
-            ],
-            [
-              "DA_18_EmblemBrawler",
-              "A"
-            ]
-          ],
-          "artifact": [
+        "artifacts": {
+          "base": 3.46,
+          "games": 42442,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_Dawncore",
-              "S"
-            ],
-            [
-              "DA_Artifact_EternalPact",
-              "S"
-            ],
-            [
-              "DA_Artifact_LichBane",
-              "A"
+              2.95,
+              11823
             ],
             [
               "DA_Artifact_LudensTempest",
-              "A"
+              3.23,
+              9396
             ]
           ],
-          "radiant": [
+          "A": []
+        },
+        "emblems": {
+          "base": 4.32,
+          "games": 12809,
+          "core": [],
+          "S": [
             [
-              "DA_AdaptiveHelm_Radiant",
-              "A"
-            ],
-            [
-              "DA_BlueBuffRadiant",
-              "A"
+              "DA_18_EmblemFloraFatalisAugment",
+              4.18,
+              8801
             ]
-          ]
+          ],
+          "A": []
         }
       },
       {
@@ -10766,6 +11051,73 @@
               6630
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.71,
+          "games": 1572,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_TitanicHydra",
+              4.48,
+              146
+            ],
+            [
+              "DA_Artifact_Fishbones",
+              4.71,
+              389
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Mittens",
+              4.62,
+              112
+            ],
+            [
+              "DA_Artifact_InfinityForce",
+              4.53,
+              83
+            ],
+            [
+              "DA_Artifact_HellfireHatchet",
+              4.36,
+              59
+            ],
+            [
+              "DA_Artifact_RapidFireCannon",
+              4.68,
+              127
+            ],
+            [
+              "DA_Artifact_GoldCollector",
+              4.56,
+              84
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.16,
+          "games": 1828,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemLunar",
+              4.79,
+              381
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.64,
+              122
+            ],
+            [
+              "DA_18_EmblemHunter",
+              5.11,
+              320
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -10840,11 +11192,42 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "emblems": {
+          "base": 4.99,
+          "games": 3432,
+          "core": [],
+          "S": [
             [
-              "DA_18_EmblemExecutioner",
-              "S"
+              "DA_18_EmblemPrimal",
+              4.42,
+              235
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              4.82,
+              489
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.78,
+              408
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemElderwood",
+              4.82,
+              191
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              5.0,
+              351
+            ],
+            [
+              "DA_18_EmblemHunter",
+              4.87,
+              165
             ]
           ]
         }
@@ -10910,21 +11293,71 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 3.6,
+          "games": 7605,
+          "core": [],
+          "S": [
             [
-              "DA_18_EmblemExecutioner",
-              "B"
-            ]
-          ],
-          "radiant": [
-            [
-              "DA_GargoyleStoneplate_Radiant",
-              "B"
+              "DA_Artifact_VoidGauntlet",
+              3.28,
+              1066
             ],
             [
-              "DA_WarmogsArmorRadiant",
-              "B"
+              "DA_Artifact_LightshieldCrest",
+              3.48,
+              1366
+            ],
+            [
+              "DA_Artifact_AegisOfDusk",
+              3.49,
+              1024
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              3.56,
+              1401
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Hullcrusher",
+              3.46,
+              601
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.46,
+          "games": 5526,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemDefender",
+              4.23,
+              901
+            ],
+            [
+              "DA_18_EmblemSprykin",
+              4.21,
+              756
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              4.23,
+              538
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemVanguard",
+              4.4,
+              671
+            ],
+            [
+              "DA_18_EmblemSpellweaver",
+              4.58,
+              1388
             ]
           ]
         }
@@ -10970,11 +11403,61 @@
           ],
           "A": []
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 4.8,
+          "games": 2190,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_NavoriFlickerblade",
-              "A"
+              4.61,
+              862
+            ],
+            [
+              "DA_Artifact_GamblersBlade",
+              4.59,
+              257
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_GoldCollector",
+              4.64,
+              181
+            ],
+            [
+              "DA_Artifact_Mittens",
+              4.55,
+              126
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.73,
+          "games": 966,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemFae",
+              5.24,
+              239
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              5.29,
+              163
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemRapidfire",
+              5.67,
+              109
+            ],
+            [
+              "DA_18_EmblemJuggernaut",
+              5.13,
+              30
             ]
           ]
         }
@@ -11015,6 +11498,48 @@
               "DA_GargoyleStoneplate",
               4.77,
               17008
+            ]
+          ],
+          "A": []
+        },
+        "artifacts": {
+          "base": 5.12,
+          "games": 2432,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_NavoriFlickerblade",
+              4.76,
+              393
+            ],
+            [
+              "DA_Artifact_Mittens",
+              4.34,
+              157
+            ],
+            [
+              "DA_Artifact_MogulsMail",
+              4.86,
+              414
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_WitsEnd",
+              5.09,
+              240
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.93,
+          "games": 6795,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemSlayer",
+              4.68,
+              4822
             ]
           ],
           "A": []
@@ -11166,6 +11691,59 @@
               ]
             ]
           }
+        },
+        "artifacts": {
+          "base": 5.23,
+          "games": 269,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_Dawncore",
+              4.7,
+              37
+            ],
+            [
+              "DA_Artifact_LudensTempest",
+              4.89,
+              36
+            ],
+            [
+              "DA_Artifact_EternalPact",
+              5.03,
+              34
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Manazane",
+              5.33,
+              43
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.05,
+          "games": 589,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemInvoker",
+              5.02,
+              289
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemRapidfire",
+              4.61,
+              23
+            ],
+            [
+              "DA_18_EmblemHunter",
+              5.02,
+              54
+            ]
+          ]
         }
       },
       {
@@ -11214,57 +11792,57 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 4.22,
+          "games": 6289,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_NavoriFlickerblade",
-              "S"
-            ],
-            [
-              "DA_Artifact_WitsEnd",
-              "S"
+              3.97,
+              1641
             ],
             [
               "DA_Artifact_SeekersArmguard",
-              "A"
+              3.94,
+              736
             ],
             [
-              "DA_Artifact_GamblersBlade",
-              "B"
+              "DA_Artifact_WitsEnd",
+              4.17,
+              1072
             ]
           ],
-          "emblem": [
+          "A": [
             [
-              "DA_18_EmblemLunar",
-              "B"
-            ]
-          ],
-          "radiant": [
-            [
-              "DA_GuinsoosRagebladeRadiant",
-              "A"
-            ],
-            [
-              "DA_ArchangelsStaffRadiant",
-              "B"
-            ],
-            [
-              "DA_GiantSlayer_Radiant",
-              "B"
-            ],
-            [
-              "DA_HextechGunbladeRadiant",
-              "B"
-            ],
-            [
-              "DA_JeweledGauntletRadiant",
-              "B"
-            ],
-            [
-              "DA_RabadonsDeathcap_Radiant",
-              "B"
+              "DA_Item_Artifact_TalismanOfAscension",
+              4.12,
+              340
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.49,
+          "games": 1217,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              3.95,
+              182
+            ],
+            [
+              "DA_18_EmblemFae",
+              4.16,
+              119
+            ],
+            [
+              "DA_18_EmblemInferno",
+              4.49,
+              365
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -11337,6 +11915,79 @@
               22498
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.17,
+          "games": 4807,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_EternalPact",
+              3.63,
+              623
+            ],
+            [
+              "DA_Artifact_LichBane",
+              3.8,
+              710
+            ],
+            [
+              "DA_Artifact_Dawncore",
+              3.7,
+              352
+            ],
+            [
+              "DA_Artifact_Manazane",
+              3.96,
+              526
+            ]
+          ],
+          "A": [
+            [
+              "DA_Item_Artifact_TalismanOfAscension",
+              3.85,
+              206
+            ],
+            [
+              "DA_Artifact_LudensTempest",
+              4.11,
+              313
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.51,
+          "games": 6585,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              4.34,
+              2181
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              4.02,
+              663
+            ],
+            [
+              "DA_18_EmblemFloraFatalis",
+              4.22,
+              510
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemRapidfire",
+              4.32,
+              475
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.51,
+              597
+            ]
+          ]
         }
       },
       {
@@ -11387,6 +12038,89 @@
               "DA_ThiefsGloves",
               4.62,
               1418
+            ]
+          ]
+        },
+        "artifacts": {
+          "base": 4.97,
+          "games": 541,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_Mittens",
+              4.39,
+              64
+            ],
+            [
+              "DA_Artifact_HellfireHatchet",
+              4.48,
+              67
+            ],
+            [
+              "DA_Artifact_GoldCollector",
+              4.62,
+              81
+            ],
+            [
+              "DA_Artifact_InfinityForce",
+              4.92,
+              73
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Hullcrusher",
+              4.24,
+              17
+            ],
+            [
+              "DA_Artifact_TitanicHydra",
+              4.89,
+              45
+            ],
+            [
+              "DA_Artifact_RapidFireCannon",
+              4.84,
+              25
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.73,
+          "games": 1364,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              4.17,
+              127
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              4.68,
+              423
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              4.24,
+              89
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemLunar",
+              4.47,
+              86
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.34,
+              47
+            ],
+            [
+              "DA_18_EmblemInvoker",
+              4.47,
+              57
             ]
           ]
         }
@@ -11449,6 +12183,64 @@
               "DA_WarmogsArmor",
               4.96,
               10269
+            ]
+          ]
+        },
+        "artifacts": {
+          "base": 5.16,
+          "games": 1575,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              4.97,
+              253
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.91,
+              191
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Hullcrusher",
+              4.91,
+              105
+            ],
+            [
+              "DA_Artifact_MogulsMail",
+              5.23,
+              385
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.8,
+          "games": 2702,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBrawler",
+              4.42,
+              542
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.54,
+              331
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              4.66,
+              506
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemElderwood",
+              4.45,
+              92
             ]
           ]
         }
@@ -11519,11 +12311,81 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 4.65,
+          "games": 2748,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.37,
+              312
+            ],
+            [
+              "DA_Artifact_LightshieldCrest",
+              4.58,
+              440
+            ],
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.36,
+              181
+            ],
+            [
+              "DA_Artifact_ForbiddenIdol",
+              4.61,
+              424
+            ],
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.44,
+              207
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_TheIndomitable",
+              4.66,
+              479
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.67,
+          "games": 1970,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              4.16,
+              289
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.49,
+              362
+            ],
+            [
+              "DA_18_EmblemElderwood",
+              4.17,
+              126
+            ]
+          ],
+          "A": [
             [
               "DA_18_EmblemRapidfire",
-              "B"
+              4.55,
+              126
+            ],
+            [
+              "DA_18_EmblemHunter",
+              4.71,
+              210
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.71,
+              188
             ]
           ]
         }
@@ -11586,6 +12448,69 @@
               "DA_DragonsClaw",
               5.11,
               733
+            ]
+          ]
+        },
+        "artifacts": {
+          "base": 5.95,
+          "games": 268,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.6,
+              10
+            ],
+            [
+              "DA_Artifact_LightshieldCrest",
+              5.83,
+              52
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              5.67,
+              27
+            ],
+            [
+              "DA_Artifact_ForbiddenIdol",
+              5.71,
+              28
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDusk",
+              5.9,
+              21
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 5.0,
+          "games": 2175,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemJuggernaut",
+              4.69,
+              500
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.38,
+              117
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              4.45,
+              100
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemHunter",
+              4.82,
+              104
             ]
           ]
         }
@@ -11655,6 +12580,64 @@
               3187
             ]
           ]
+        },
+        "artifacts": {
+          "base": 5.01,
+          "games": 652,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LichBane",
+              4.64,
+              59
+            ],
+            [
+              "DA_Artifact_Manazane",
+              4.78,
+              81
+            ],
+            [
+              "DA_Artifact_EternalPact",
+              4.85,
+              88
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_BlightingJewel",
+              5.07,
+              120
+            ],
+            [
+              "DA_Artifact_SeekersArmguard",
+              4.85,
+              34
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.96,
+          "games": 1115,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemSpellweaver",
+              4.85,
+              334
+            ],
+            [
+              "DA_18_EmblemFloraFatalis",
+              4.8,
+              131
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemBlackthorn",
+              4.89,
+              82
+            ]
+          ]
         }
       },
       {
@@ -11708,41 +12691,66 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
-            [
-              "DA_Artifact_Dawncore",
-              "C"
-            ],
+        "artifacts": {
+          "base": 4.87,
+          "games": 1282,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_HellfireHatchet",
-              "C"
+              4.47,
+              218
             ],
             [
               "DA_Artifact_Mittens",
-              "C"
+              4.49,
+              176
             ],
             [
-              "DA_Artifact_RapidFireCannon",
-              "C"
-            ],
-            [
-              "DA_Artifact_TitanicHydra",
-              "C"
+              "DA_Artifact_Dawncore",
+              4.52,
+              96
             ]
           ],
-          "radiant": [
+          "A": [
             [
-              "DA_SpearOfShojinRadiant",
-              "C"
+              "DA_Artifact_InfinityForce",
+              4.7,
+              70
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.91,
+          "games": 1278,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              4.57,
+              239
             ],
             [
-              "DA_SteraksGageRadiant",
-              "C"
+              "DA_18_EmblemBrawler",
+              4.81,
+              242
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemBlossom",
+              4.24,
+              42
             ],
             [
-              "DA_TitansResolve_Radiant",
-              "C"
+              "DA_18_EmblemVanguard",
+              4.73,
+              91
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.61,
+              57
             ]
           ]
         }
@@ -11808,39 +12816,46 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 4.82,
+          "games": 2007,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_Dawncore",
-              "S"
+              4.41,
+              449
             ],
             [
               "DA_Artifact_GoldCollector",
-              "S"
+              4.43,
+              382
             ]
           ],
-          "radiant": [
+          "A": []
+        },
+        "emblems": {
+          "base": 4.61,
+          "games": 3121,
+          "core": [],
+          "S": [
             [
-              "DA_BlueBuffRadiant",
-              "S"
+              "DA_18_EmblemBlackthorn",
+              4.15,
+              541
             ],
             [
-              "DA_SpearOfShojinRadiant",
-              "S"
+              "DA_18_EmblemPrimal",
+              4.34,
+              499
             ],
             [
-              "DA_DeathbladeRadiant",
-              "A"
-            ],
-            [
-              "DA_GiantSlayer_Radiant",
-              "A"
-            ],
-            [
-              "DA_StrikersFlailRadiant",
-              "A"
+              "DA_18_EmblemHunter",
+              4.5,
+              482
             ]
-          ]
+          ],
+          "A": []
         }
       },
       {
@@ -11900,41 +12915,67 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 4.71,
+          "games": 5282,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_NavoriFlickerblade",
-              "S"
+              4.28,
+              1083
+            ],
+            [
+              "DA_Artifact_WitsEnd",
+              4.54,
+              537
             ],
             [
               "DA_Artifact_LichBane",
-              "A"
-            ],
+              4.5,
+              444
+            ]
+          ],
+          "A": [
             [
               "DA_Artifact_StatikkShiv",
-              "A"
-            ]
-          ],
-          "emblem": [
-            [
-              "DA_18_EmblemPrimal",
-              "A"
-            ]
-          ],
-          "radiant": [
-            [
-              "DA_ArchangelsStaffRadiant",
-              "S"
+              4.77,
+              955
             ],
             [
-              "DA_RabadonsDeathcap_Radiant",
-              "S"
-            ],
-            [
-              "DA_HextechGunbladeRadiant",
-              "A"
+              "DA_Artifact_EternalPact",
+              4.63,
+              400
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.59,
+          "games": 8837,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemRapidfire",
+              4.26,
+              996
+            ],
+            [
+              "DA_18_EmblemSpellweaver",
+              4.27,
+              992
+            ],
+            [
+              "DA_18_EmblemInferno",
+              4.42,
+              1178
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.38,
+              832
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -11993,27 +13034,61 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 4.14,
+          "games": 7598,
+          "core": [],
+          "S": [
             [
-              "DA_Artifact_Dawncore",
-              "S"
+              "DA_Artifact_BlightingJewel",
+              3.97,
+              3248
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_LichBane",
+              3.99,
+              465
             ],
             [
               "DA_Artifact_EternalPact",
-              "S"
+              4.2,
+              780
+            ],
+            [
+              "DA_Artifact_Manazane",
+              4.19,
+              692
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.66,
+          "games": 7118,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBlackthorn",
+              3.59,
+              321
+            ],
+            [
+              "DA_18_EmblemFloraFatalis",
+              4.59,
+              1476
             ]
           ],
-          "emblem": [
+          "A": [
             [
-              "DA_18_EmblemDefender",
-              "S"
-            ]
-          ],
-          "radiant": [
+              "DA_18_EmblemLunar",
+              4.46,
+              448
+            ],
             [
-              "DA_ArchangelsStaffRadiant",
-              "S"
+              "DA_18_EmblemInvoker",
+              4.7,
+              1373
             ]
           ]
         }
@@ -12079,6 +13154,35 @@
               20756
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.34,
+          "games": 18799,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              3.86,
+              4910
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              4.13,
+              1445
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemElderwood",
+              4.32,
+              2894
+            ],
+            [
+              "DA_18_EmblemSpellweaver",
+              4.36,
+              1580
+            ]
+          ]
         }
       },
       {
@@ -12140,6 +13244,84 @@
               "DA_ThiefsGloves",
               4.12,
               14450
+            ]
+          ]
+        },
+        "artifacts": {
+          "base": 4.06,
+          "games": 2968,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              3.71,
+              447
+            ],
+            [
+              "DA_Artifact_SeekersArmguard",
+              3.88,
+              351
+            ],
+            [
+              "DA_Item_Artifact_TalismanOfAscension",
+              3.61,
+              171
+            ],
+            [
+              "DA_Artifact_AegisOfDusk",
+              3.93,
+              296
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Hullcrusher",
+              3.88,
+              156
+            ],
+            [
+              "DA_Artifact_ZhonyasParadox",
+              3.9,
+              142
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.46,
+          "games": 12591,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemElderwood",
+              4.25,
+              2261
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              4.24,
+              1305
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.0,
+              624
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              4.36,
+              1395
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              4.3,
+              1068
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSprykin",
+              4.5,
+              1149
             ]
           ]
         }
@@ -12209,6 +13391,59 @@
               15675
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.71,
+          "games": 4512,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              4.53,
+              867
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.54,
+              881
+            ],
+            [
+              "DA_Artifact_HorizonFocus",
+              4.46,
+              476
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.63,
+              321
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.62,
+          "games": 6606,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBrawler",
+              4.2,
+              1342
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.3,
+              1480
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemLunar",
+              4.5,
+              443
+            ]
+          ]
         }
       },
       {
@@ -12251,25 +13486,65 @@
           ],
           "A": []
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemExecutioner",
-              "S"
-            ],
-            [
-              "DA_18_EmblemBlackthorn",
-              "C"
-            ]
-          ],
-          "artifact": [
+        "artifacts": {
+          "base": 4.17,
+          "games": 10504,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_LichBane",
-              "S"
+              3.8,
+              2371
             ],
             [
               "DA_Artifact_SeekersArmguard",
-              "S"
+              4.14,
+              1993
+            ],
+            [
+              "DA_Artifact_LudensTempest",
+              4.1,
+              1306
+            ],
+            [
+              "DA_Artifact_Dawncore",
+              4.11,
+              1365
+            ]
+          ],
+          "A": []
+        },
+        "emblems": {
+          "base": 4.86,
+          "games": 9551,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBlackthorn",
+              4.71,
+              3610
+            ],
+            [
+              "DA_18_EmblemFloraFatalisAugment",
+              4.51,
+              742
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.59,
+              661
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemElderwood",
+              4.38,
+              344
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.78,
+              644
             ]
           ]
         }
@@ -12391,13 +13666,28 @@
             ]
           }
         },
-        "holds": {
-          "artifact": [
+        "emblems": {
+          "base": 4.34,
+          "games": 15310,
+          "core": [],
+          "S": [
             [
-              "DA_Artifact_SilvermereDawn",
-              "S"
+              "DA_18_EmblemRapidfire",
+              4.02,
+              2627
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.25,
+              2715
+            ],
+            [
+              "DA_18_EmblemHunter",
+              4.22,
+              2091
             ]
-          ]
+          ],
+          "A": []
         }
       },
       {
@@ -12466,11 +13756,61 @@
             ]
           ]
         },
-        "holds": {
-          "radiant": [
+        "artifacts": {
+          "base": 5.1,
+          "games": 1485,
+          "core": [],
+          "S": [
             [
-              "DA_BrambleVestRadiant",
-              "A"
+              "DA_Artifact_LightshieldCrest",
+              4.79,
+              277
+            ],
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.77,
+              159
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.92,
+              192
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_TheIndomitable",
+              5.14,
+              267
+            ],
+            [
+              "DA_Artifact_Hullcrusher",
+              4.99,
+              92
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.61,
+          "games": 5297,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              4.19,
+              1226
+            ],
+            [
+              "DA_18_EmblemJuggernaut",
+              4.44,
+              625
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemDefender",
+              4.44,
+              301
             ]
           ]
         }
@@ -12521,11 +13861,81 @@
           ],
           "A": []
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 5.01,
+          "games": 395,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_RapidFireCannon",
+              3.91,
+              23
+            ],
+            [
+              "DA_Artifact_GamblersBlade",
+              4.8,
+              75
+            ],
+            [
+              "DA_Artifact_GoldCollector",
+              4.59,
+              29
+            ],
+            [
+              "DA_Artifact_StatikkShiv",
+              4.55,
+              20
+            ]
+          ],
+          "A": [
             [
               "DA_Artifact_NavoriFlickerblade",
-              "A"
+              5.09,
+              105
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.59,
+          "games": 2900,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              4.38,
+              308
+            ],
+            [
+              "DA_18_EmblemInferno",
+              4.48,
+              313
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemLunar",
+              4.64,
+              712
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.29,
+              156
+            ],
+            [
+              "DA_18_EmblemFae",
+              4.4,
+              146
+            ],
+            [
+              "DA_18_EmblemSlayer",
+              4.61,
+              291
+            ],
+            [
+              "DA_18_EmblemExecutioner",
+              4.56,
+              209
             ]
           ]
         }
@@ -12609,41 +14019,47 @@
             ]
           }
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemBrawler",
-              "A"
-            ]
-          ],
-          "artifact": [
+        "artifacts": {
+          "base": 4.15,
+          "games": 6568,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_HellfireHatchet",
-              "S"
+              3.66,
+              770
             ],
             [
               "DA_Artifact_WitsEnd",
-              "S"
+              3.97,
+              1474
             ],
             [
               "DA_Artifact_NavoriFlickerblade",
-              "A"
-            ],
-            [
-              "DA_Artifact_RapidFireCannon",
-              "A"
-            ],
-            [
-              "DA_Artifact_Fishbones",
-              "B"
+              4.06,
+              1009
             ]
           ],
-          "radiant": [
+          "A": [
             [
-              "DA_GuinsoosRagebladeRadiant",
-              "B"
+              "DA_Artifact_RapidFireCannon",
+              4.27,
+              1535
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.52,
+          "games": 8286,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBrawler",
+              4.43,
+              7003
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -12721,6 +14137,63 @@
               11093
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.65,
+          "games": 1932,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              4.0,
+              417
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.49,
+              296
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.61,
+              184
+            ],
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.58,
+              158
+            ],
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.66,
+              191
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.64,
+          "games": 3098,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBrawler",
+              4.3,
+              715
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              4.32,
+              495
+            ],
+            [
+              "DA_18_EmblemJuggernaut",
+              4.36,
+              394
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -12774,43 +14247,56 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemExecutioner",
-              "S"
-            ],
-            [
-              "DA_18_EmblemRapidfire",
-              "S"
-            ],
-            [
-              "DA_18_EmblemSlayer",
-              "A"
-            ]
-          ],
-          "artifact": [
-            [
-              "DA_Artifact_Fishbones",
-              "A"
-            ],
+        "artifacts": {
+          "base": 4.61,
+          "games": 2586,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_HellfireHatchet",
-              "A"
+              4.22,
+              400
             ],
             [
               "DA_Artifact_Mittens",
-              "A"
-            ],
-            [
-              "DA_Artifact_RapidFireCannon",
-              "A"
+              4.39,
+              474
             ]
           ],
-          "radiant": [
+          "A": [
             [
-              "DA_GuinsoosRagebladeRadiant",
-              "S"
+              "DA_Artifact_InfinityForce",
+              4.54,
+              280
+            ],
+            [
+              "DA_Artifact_TitanicHydra",
+              4.54,
+              269
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.46,
+          "games": 16223,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemDefender",
+              4.15,
+              3671
+            ],
+            [
+              "DA_18_EmblemFae",
+              4.46,
+              4747
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSlayer",
+              4.27,
+              869
             ]
           ]
         }
@@ -12868,37 +14354,46 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemVanguard",
-              "A"
-            ],
-            [
-              "DA_18_EmblemBrawler",
-              "B"
-            ],
-            [
-              "DA_18_EmblemRapidfire",
-              "B"
-            ]
-          ],
-          "artifact": [
+        "artifacts": {
+          "base": 5.02,
+          "games": 1406,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_NavoriFlickerblade",
-              "A"
+              4.71,
+              411
             ],
             [
               "DA_Artifact_GoldCollector",
-              "B"
+              4.73,
+              160
             ]
           ],
-          "radiant": [
+          "A": []
+        },
+        "emblems": {
+          "base": 5.03,
+          "games": 3082,
+          "core": [],
+          "S": [
             [
-              "DA_GiantSlayer_Radiant",
-              "B"
+              "DA_18_EmblemRapidfire",
+              4.26,
+              423
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.84,
+              876
+            ],
+            [
+              "DA_18_EmblemJuggernaut",
+              4.67,
+              208
             ]
-          ]
+          ],
+          "A": []
         }
       },
       {
@@ -12961,6 +14456,79 @@
               13526
             ]
           ]
+        },
+        "artifacts": {
+          "base": 5.21,
+          "games": 4224,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              5.01,
+              705
+            ],
+            [
+              "DA_Artifact_MogulsMail",
+              5.08,
+              831
+            ],
+            [
+              "DA_Artifact_Hullcrusher",
+              5.01,
+              345
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDusk",
+              5.13,
+              355
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              5.27,
+              464
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.63,
+          "games": 15251,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemBrawler",
+              4.29,
+              2141
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              4.45,
+              2272
+            ],
+            [
+              "DA_18_EmblemHunter",
+              4.59,
+              2322
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemLunar",
+              4.47,
+              776
+            ],
+            [
+              "DA_18_EmblemSlayer",
+              4.35,
+              589
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.65,
+              1293
+            ]
+          ]
         }
       },
       {
@@ -13015,47 +14583,40 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemExecutioner",
-              "S"
-            ],
-            [
-              "DA_18_EmblemJuggernaut",
-              "S"
-            ],
-            [
-              "DA_18_EmblemBrawler",
-              "A"
-            ]
-          ],
-          "artifact": [
-            [
-              "DA_Artifact_EternalPact",
-              "S"
-            ],
+        "artifacts": {
+          "base": 4.46,
+          "games": 9227,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_LudensTempest",
-              "S"
+              4.24,
+              3077
+            ],
+            [
+              "DA_Artifact_EternalPact",
+              4.23,
+              1935
             ]
           ],
-          "radiant": [
+          "A": []
+        },
+        "emblems": {
+          "base": 4.25,
+          "games": 45229,
+          "core": [],
+          "S": [
             [
-              "DA_AdaptiveHelm_Radiant",
-              "S"
-            ],
+              "DA_18_EmblemInvoker",
+              4.18,
+              33359
+            ]
+          ],
+          "A": [
             [
-              "DA_BlueBuffRadiant",
-              "S"
-            ],
-            [
-              "DA_RabadonsDeathcap_Radiant",
-              "S"
-            ],
-            [
-              "DA_StrikersFlailRadiant",
-              "S"
+              "DA_18_EmblemExecutioner",
+              4.35,
+              6762
             ]
           ]
         }
@@ -13125,6 +14686,58 @@
               153998
             ]
           ]
+        },
+        "artifacts": {
+          "base": 4.54,
+          "games": 11711,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_LightshieldCrest",
+              4.24,
+              2111
+            ],
+            [
+              "DA_Artifact_MogulsMail",
+              4.47,
+              2400
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.53,
+              2102
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.56,
+              1429
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.16,
+          "games": 20035,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              3.98,
+              5808
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              4.01,
+              2381
+            ],
+            [
+              "DA_18_EmblemDefender",
+              4.08,
+              3007
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -13184,17 +14797,66 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemElderwood",
-              "A"
-            ]
-          ],
-          "artifact": [
+        "artifacts": {
+          "base": 4.55,
+          "games": 14257,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_GoldCollector",
-              "S"
+              4.01,
+              2359
+            ],
+            [
+              "DA_Artifact_Fishbones",
+              4.49,
+              3071
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_NavoriFlickerblade",
+              4.67,
+              4760
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.44,
+          "games": 18389,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemElderwood",
+              4.29,
+              5967
+            ],
+            [
+              "DA_18_EmblemExecutioner",
+              4.2,
+              2729
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSlayer",
+              4.25,
+              1343
+            ],
+            [
+              "DA_18_EmblemFae",
+              4.24,
+              1050
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              4.46,
+              1808
+            ],
+            [
+              "DA_18_EmblemHunter",
+              4.4,
+              1212
             ]
           ]
         }
@@ -13265,11 +14927,61 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 4.76,
+          "games": 2711,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_InfinityForce",
+              4.49,
+              381
+            ],
+            [
+              "DA_Artifact_HellfireHatchet",
+              4.63,
+              413
+            ],
+            [
+              "DA_Artifact_Mittens",
+              4.66,
+              407
+            ],
+            [
+              "DA_Artifact_RapidFireCannon",
+              4.64,
+              347
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_GoldCollector",
+              4.19,
+              90
+            ],
+            [
+              "DA_Artifact_TitanicHydra",
+              4.82,
+              342
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.52,
+          "games": 20307,
+          "core": [],
+          "S": [
             [
               "DA_18_EmblemRapidfire",
-              "A"
+              4.47,
+              13983
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemVanguard",
+              4.46,
+              1568
             ]
           ]
         }
@@ -13327,6 +15039,35 @@
               "DA_LastWhisper",
               4.2,
               38164
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.28,
+          "games": 12966,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemRapidfire",
+              3.97,
+              2135
+            ],
+            [
+              "DA_18_EmblemLunar",
+              4.1,
+              1864
+            ],
+            [
+              "DA_18_EmblemSlayer",
+              3.95,
+              788
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemHunter",
+              4.15,
+              1072
             ]
           ]
         }
@@ -13392,13 +15133,57 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 4.85,
+          "games": 1833,
+          "core": [],
+          "S": [
             [
-              "DA_18_EmblemRapidfire",
-              "A"
+              "DA_Artifact_LightshieldCrest",
+              4.38,
+              370
+            ],
+            [
+              "DA_Artifact_HorizonFocus",
+              4.73,
+              192
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.75,
+              118
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.4,
+          "games": 10248,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemJuggernaut",
+              3.96,
+              1138
+            ],
+            [
+              "DA_18_EmblemElderwood",
+              4.28,
+              2595
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              4.16,
+              1242
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              4.12,
+              836
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -13447,21 +15232,61 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
-            [
-              "DA_Artifact_AegisOfDawn",
-              "S"
-            ],
+        "artifacts": {
+          "base": 4.65,
+          "games": 11518,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_LightshieldCrest",
-              "S"
+              4.31,
+              1860
             ]
           ],
-          "emblem": [
+          "A": [
             [
-              "DA_18_EmblemPrimal",
-              "S"
+              "DA_Artifact_TheIndomitable",
+              4.66,
+              1889
+            ],
+            [
+              "DA_Artifact_MogulsMail",
+              4.72,
+              2733
+            ],
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.61,
+              893
+            ],
+            [
+              "DA_Artifact_AegisOfDawn",
+              4.64,
+              770
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.51,
+          "games": 9099,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              4.23,
+              2043
+            ],
+            [
+              "DA_18_EmblemJuggernaut",
+              4.36,
+              2404
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemBrawler",
+              4.54,
+              1813
             ]
           ]
         }
@@ -13518,25 +15343,50 @@
             ]
           ]
         },
-        "holds": {
-          "artifact": [
+        "artifacts": {
+          "base": 4.47,
+          "games": 9664,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_BlightingJewel",
-              "S"
+              4.22,
+              4601
+            ],
+            [
+              "DA_Artifact_SeekersArmguard",
+              4.39,
+              1464
             ]
           ],
-          "emblem": [
-            [
-              "DA_18_EmblemJuggernaut",
-              "A"
-            ],
+          "A": []
+        },
+        "emblems": {
+          "base": 4.43,
+          "games": 21561,
+          "core": [],
+          "S": [
             [
               "DA_18_EmblemSpellweaver",
-              "A"
+              4.3,
+              8114
             ],
             [
+              "DA_18_EmblemLunar",
+              4.28,
+              2004
+            ]
+          ],
+          "A": [
+            [
               "DA_18_EmblemVanguard",
-              "A"
+              4.21,
+              1480
+            ],
+            [
+              "DA_18_EmblemBlossom",
+              4.45,
+              3721
             ]
           ]
         }
@@ -13668,41 +15518,36 @@
             "A": []
           }
         },
-        "holds": {
-          "emblem": [
-            [
-              "DA_18_EmblemHunter",
-              "S"
-            ],
-            [
-              "DA_18_EmblemSlayer",
-              "S"
-            ],
-            [
-              "DA_18_EmblemInvoker",
-              "A"
-            ],
-            [
-              "DA_18_EmblemVanguard",
-              "A"
-            ],
-            [
-              "DA_18_EmblemSpellweaver",
-              "B"
-            ]
-          ],
-          "radiant": [
-            [
-              "DA_GuinsoosRagebladeRadiant",
-              "B"
-            ]
-          ],
-          "artifact": [
+        "artifacts": {
+          "base": 4.34,
+          "games": 16670,
+          "core": [],
+          "S": [
             [
               "DA_Artifact_SilvermereDawn",
-              "S"
+              3.86,
+              6705
             ]
-          ]
+          ],
+          "A": []
+        },
+        "emblems": {
+          "base": 4.42,
+          "games": 38532,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemSlayer",
+              4.08,
+              8914
+            ],
+            [
+              "DA_18_EmblemHunter",
+              4.39,
+              17730
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -13740,6 +15585,59 @@
             ]
           ],
           "A": []
+        },
+        "artifacts": {
+          "base": 4.57,
+          "games": 10485,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_HorizonFocus",
+              4.23,
+              2054
+            ],
+            [
+              "DA_Artifact_LightshieldCrest",
+              4.46,
+              1597
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_ForbiddenIdol",
+              4.55,
+              1251
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.58,
+              1455
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.35,
+          "games": 20119,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemJuggernaut",
+              4.09,
+              4297
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              4.12,
+              4150
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemLunar",
+              4.34,
+              1385
+            ]
+          ]
         }
       },
       {
@@ -13798,13 +15696,62 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 4.61,
+          "games": 8426,
+          "core": [],
+          "S": [
             [
-              "DA_18_EmblemInvoker",
-              "S"
+              "DA_Artifact_LightshieldCrest",
+              4.44,
+              1361
+            ],
+            [
+              "DA_Artifact_VoidGauntlet",
+              4.29,
+              825
+            ],
+            [
+              "DA_Artifact_MogulsMail",
+              4.57,
+              1452
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Hullcrusher",
+              4.52,
+              767
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              4.67,
+              1731
+            ],
+            [
+              "DA_Artifact_AegisOfDusk",
+              4.58,
+              877
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.39,
+          "games": 13991,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              4.06,
+              4054
+            ],
+            [
+              "DA_18_EmblemJuggernaut",
+              4.19,
+              2502
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -13858,13 +15805,62 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 4.9,
+          "games": 6336,
+          "core": [],
+          "S": [
             [
-              "DA_18_EmblemFae",
-              "A"
+              "DA_Artifact_GoldCollector",
+              4.58,
+              1274
+            ],
+            [
+              "DA_Artifact_Dawncore",
+              4.58,
+              415
+            ],
+            [
+              "DA_Artifact_Fishbones",
+              4.84,
+              985
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_GamblersBlade",
+              4.91,
+              492
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.74,
+          "games": 26579,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemFae",
+              4.39,
+              4598
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              4.1,
+              1562
+            ],
+            [
+              "DA_18_EmblemExecutioner",
+              4.36,
+              2085
+            ],
+            [
+              "DA_18_EmblemBlossom",
+              4.59,
+              3065
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -13928,13 +15924,47 @@
             ]
           ]
         },
-        "holds": {
-          "radiant": [
+        "artifacts": {
+          "base": 4.21,
+          "games": 11276,
+          "core": [],
+          "S": [
             [
-              "DA_SpearOfShojinRadiant",
-              "S"
+              "DA_Artifact_Dawncore",
+              3.86,
+              4023
+            ],
+            [
+              "DA_Artifact_EternalPact",
+              4.16,
+              1740
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_LichBane",
+              4.24,
+              1736
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.25,
+          "games": 16535,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemSpellweaver",
+              4.02,
+              6241
+            ],
+            [
+              "DA_18_EmblemLunar",
+              3.75,
+              1507
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -13988,27 +16018,57 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 4.74,
+          "games": 7229,
+          "core": [],
+          "S": [
             [
-              "DA_18_EmblemExecutioner",
-              "S"
+              "DA_Artifact_EternalPact",
+              4.49,
+              987
             ],
-            [
-              "DA_18_EmblemJuggernaut",
-              "S"
-            ],
-            [
-              "DA_18_EmblemSpellweaver",
-              "S"
-            ]
-          ],
-          "artifact": [
             [
               "DA_Item_Artifact_TalismanOfAscension",
-              "S"
+              4.1,
+              428
+            ],
+            [
+              "DA_Artifact_Manazane",
+              4.66,
+              1225
+            ],
+            [
+              "DA_Artifact_BlightingJewel",
+              4.75,
+              1600
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Dawncore",
+              4.78,
+              1008
+            ],
+            [
+              "DA_Artifact_SeekersArmguard",
+              4.66,
+              412
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.35,
+          "games": 40559,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              4.17,
+              24360
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -14082,6 +16142,69 @@
               37632
             ]
           ]
+        },
+        "artifacts": {
+          "base": 3.63,
+          "games": 6092,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_EternalPact",
+              3.29,
+              892
+            ],
+            [
+              "DA_Artifact_BlightingJewel",
+              3.37,
+              738
+            ],
+            [
+              "DA_Artifact_Manazane",
+              3.64,
+              1456
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_LichBane",
+              3.46,
+              495
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 3.74,
+          "games": 17125,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemInvoker",
+              3.67,
+              5220
+            ],
+            [
+              "DA_18_EmblemExecutioner",
+              3.6,
+              2443
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemFloraFatalis",
+              3.59,
+              1514
+            ],
+            [
+              "DA_18_EmblemElderwood",
+              3.63,
+              1195
+            ],
+            [
+              "DA_18_EmblemBlackthorn",
+              3.22,
+              543
+            ]
+          ]
         }
       },
       {
@@ -14136,11 +16259,27 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "emblems": {
+          "base": 3.96,
+          "games": 54699,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemInferno",
+              3.99,
+              40345
+            ]
+          ],
+          "A": [
             [
               "DA_18_EmblemExecutioner",
-              "S"
+              3.76,
+              3100
+            ],
+            [
+              "DA_18_EmblemPrimal",
+              3.88,
+              4045
             ]
           ]
         }
@@ -14196,13 +16335,57 @@
             ]
           ]
         },
-        "holds": {
-          "emblem": [
+        "artifacts": {
+          "base": 4.21,
+          "games": 8683,
+          "core": [],
+          "S": [
             [
-              "DA_18_EmblemExecutioner",
-              "S"
+              "DA_Artifact_GoldCollector",
+              3.69,
+              1226
+            ],
+            [
+              "DA_Artifact_Fishbones",
+              3.99,
+              1311
+            ],
+            [
+              "DA_Artifact_NavoriFlickerblade",
+              4.22,
+              2898
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_RapidFireCannon",
+              4.2,
+              872
             ]
           ]
+        },
+        "emblems": {
+          "base": 4.14,
+          "games": 15719,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              3.87,
+              5942
+            ],
+            [
+              "DA_18_EmblemHunter",
+              3.94,
+              1591
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              4.02,
+              1558
+            ]
+          ],
+          "A": []
         }
       },
       {
@@ -14264,6 +16447,49 @@
               "DA_LastWhisper",
               3.92,
               33640
+            ]
+          ]
+        },
+        "artifacts": {
+          "base": 4.19,
+          "games": 7548,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_SilvermereDawn",
+              3.49,
+              1793
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_Mittens",
+              4.09,
+              716
+            ],
+            [
+              "DA_Artifact_InfinityForce",
+              4.16,
+              966
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 4.09,
+          "games": 16920,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemHunter",
+              3.76,
+              5651
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSlayer",
+              3.97,
+              1138
             ]
           ]
         }
@@ -14329,6 +16555,69 @@
               4035
             ]
           ]
+        },
+        "artifacts": {
+          "base": 3.73,
+          "games": 2875,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_InfinityForce",
+              3.56,
+              392
+            ],
+            [
+              "DA_Artifact_HorizonFocus",
+              3.54,
+              312
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_HellfireHatchet",
+              3.65,
+              314
+            ],
+            [
+              "DA_Artifact_Mittens",
+              3.77,
+              313
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 3.8,
+          "games": 13938,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemDefender",
+              3.44,
+              1013
+            ],
+            [
+              "DA_18_EmblemVanguard",
+              3.57,
+              1072
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              3.5,
+              897
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemBlossom",
+              3.82,
+              2277
+            ],
+            [
+              "DA_18_EmblemHunter",
+              3.8,
+              1678
+            ]
+          ]
         }
       },
       {
@@ -14378,6 +16667,40 @@
               "DA_ArchangelsStaff",
               3.26,
               9678
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 3.61,
+          "games": 17141,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemInvoker",
+              3.35,
+              2409
+            ],
+            [
+              "DA_18_EmblemLunar",
+              3.41,
+              1354
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemSpellweaver",
+              3.52,
+              1465
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              3.43,
+              821
+            ],
+            [
+              "DA_18_EmblemFloraFatalis",
+              3.5,
+              847
             ]
           ]
         }
@@ -14440,6 +16763,35 @@
               "DA_StrikersFlail",
               3.43,
               14477
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 3.65,
+          "games": 30959,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemJuggernaut",
+              3.35,
+              6959
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemFloraFatalis",
+              3.5,
+              2183
+            ],
+            [
+              "DA_18_EmblemSpellweaver",
+              3.61,
+              2062
+            ],
+            [
+              "DA_18_EmblemDefender",
+              3.52,
+              1576
             ]
           ]
         }
@@ -14511,6 +16863,40 @@
               "DA_GiantSlayer",
               3.31,
               7823
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 3.45,
+          "games": 15904,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemExecutioner",
+              3.18,
+              3072
+            ],
+            [
+              "DA_18_EmblemSpellweaver",
+              3.31,
+              2622
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemInvoker",
+              3.45,
+              2332
+            ],
+            [
+              "DA_18_EmblemLunar",
+              3.34,
+              1166
+            ],
+            [
+              "DA_18_EmblemRapidfire",
+              3.28,
+              768
             ]
           ]
         }
@@ -14741,6 +17127,59 @@
               24325
             ]
           ]
+        },
+        "artifacts": {
+          "base": 3.81,
+          "games": 8858,
+          "core": [],
+          "S": [
+            [
+              "DA_Artifact_MogulsMail",
+              3.59,
+              2497
+            ],
+            [
+              "DA_Artifact_LightshieldCrest",
+              3.69,
+              1332
+            ],
+            [
+              "DA_Artifact_TheIndomitable",
+              3.8,
+              1613
+            ]
+          ],
+          "A": [
+            [
+              "DA_Artifact_AegisOfDawn",
+              3.85,
+              967
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 3.9,
+          "games": 13848,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemVanguard",
+              3.53,
+              4095
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              3.65,
+              3160
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemDefender",
+              3.86,
+              1287
+            ]
+          ]
         }
       },
       {
@@ -14816,6 +17255,35 @@
               "DA_DragonsClaw",
               3.53,
               11060
+            ]
+          ]
+        },
+        "emblems": {
+          "base": 3.67,
+          "games": 13467,
+          "core": [],
+          "S": [
+            [
+              "DA_18_EmblemJuggernaut",
+              3.38,
+              3066
+            ],
+            [
+              "DA_18_EmblemBrawler",
+              3.42,
+              1584
+            ],
+            [
+              "DA_18_EmblemElderwood",
+              3.63,
+              1978
+            ]
+          ],
+          "A": [
+            [
+              "DA_18_EmblemDefender",
+              3.69,
+              1079
             ]
           ]
         }
@@ -16160,7 +18628,7 @@
       "name": "MetaTFT",
       "url": "https://www.metatft.com"
     },
-    "lastUpdated": "2026-09-23 17:58:07",
+    "lastUpdated": "2026-09-23 18:12:50",
     "status": "live"
   }
 }

@@ -12,9 +12,12 @@ export let items = [];
 // Data variables
 export let metaSnapshotData = null;
 let currentSetData = null;
+let fullSnapshot = null;
 
 // Data of the set picked in the set selector; the transitions tab reads the same data as the tracker
 export const getCurrentSetData = () => currentSetData;
+// Every published set, keyed like the snapshot ("SET 18"); the set summary can browse them on its own
+export const getSnapshotSets = () => fullSnapshot || {};
 
 const compsContainer = document.getElementById('compos');
 const _originalLoadCompsFromJSON = loadCompsFromJSON;
@@ -97,6 +100,7 @@ function processSnapshotData(snapshot) {
         Url: getItemWEBPImageUrl(itemObj.apiName)
     }));
     metaSnapshotData = snapshot;
+    fullSnapshot = snapshot;
 }
 
 export function tryLoadDefaultData() {

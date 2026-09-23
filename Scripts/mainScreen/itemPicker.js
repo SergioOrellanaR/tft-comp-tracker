@@ -39,7 +39,10 @@ export function initItemPicker(setData) {
     pickedComponents.clear();
     picked.clear();
     recipes = (set.recipes || []).filter(r => !TEAM_SIZE_ITEMS.has(r.apiName) && r.from?.length === 2);
-    componentKeys = (set.components || []).map(c => c.apiName).filter(c => recipes.some(r => r.from.includes(c)));
+    // one button per component (older snapshots list the generic copies too)
+    const seenNames = new Set();
+    componentKeys = (set.components || []).filter(c => recipes.some(r => r.from.includes(c.apiName)))
+        .filter(c => !seenNames.has(c.name) && seenNames.add(c.name)).map(c => c.apiName);
     usage = new Map();
     (set.comps || []).forEach(comp => new Set([...(comp.champions || []), ...(comp.altBuilds || [])]
         .flatMap(ch => [...(ch.items || []), ...(ch.artifacts || [])])).forEach(it => usage.set(it, (usage.get(it) || 0) + 1)));

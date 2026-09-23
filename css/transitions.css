@@ -67,6 +67,17 @@
 .tv-phase-btn[aria-pressed="true"] { background: var(--primary-accent); color: #fff; }
 
 .tv-comp-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.tv-set-select {
+    margin-left: auto;
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 13px;
+}
 .tv-comp-combos { display: flex; gap: 5px; align-items: center; min-height: 34px; }
 .tv-comp-combos:not(:empty)::before { content: '='; color: var(--text-muted); margin-right: 4px; }
 .tv-comp-combos .tv-item-icon { width: 34px; height: 34px; border-color: var(--primary-accent); }
