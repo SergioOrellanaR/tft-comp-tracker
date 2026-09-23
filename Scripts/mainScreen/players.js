@@ -53,6 +53,12 @@ export function select(el, type) {
     }
 }
 
+// Drop any pending player/comp selection (its element may be about to be removed)
+export function clearSelection() {
+    if (selected) selected.el.classList.remove('selected');
+    selected = null;
+}
+
 export function enableDragAndDrop(isDoubleUp) {
     const selector = isDoubleUp
         ? '.team-container .item.player'
@@ -102,7 +108,8 @@ export function enableDragAndDrop(isDoubleUp) {
                 player.addEventListener(evt, e => {
                     if (evt === 'dragover') {
                         e.preventDefault();
-                        const dragging = document.querySelector('.dragging');
+                        const dragging = document.querySelector('.item.player.dragging');
+                        if (!dragging) return;
                         const afterEl = getDragAfterElement(playersContainer, e.clientY);
                         if (!afterEl) playersContainer.appendChild(dragging);
                         else playersContainer.insertBefore(dragging, afterEl);
@@ -161,6 +168,7 @@ export function createTeamContainer(player1, player2, icon, index) {
 
 export const resetPlayers = () => {
     // Clear all canvas links and redraw
+    clearSelection();
     links.splice(0, links.length);
     drawLines();
 
@@ -246,6 +254,7 @@ export function toggleDoubleUpMode() {
     document.body.classList.toggle('double-up', active);
 
     // Lógica de reinicio
+    clearSelection();
     links.splice(0, links.length);
     document.getElementById('players').innerHTML = '';
     preloadPlayers();

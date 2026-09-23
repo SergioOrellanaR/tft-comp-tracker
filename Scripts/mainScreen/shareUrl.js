@@ -7,11 +7,13 @@ import { drawLines, links } from './canvas.js';
 export function copyShareUrlToClipboard() {
     const shareUrl = getShareUrl();
     const notificationMsg = 'Link copied! Share it to show players and comps from this game.';
+    const promptMsg = 'Copy this link to share players and comps from this game:';
     if (navigator.clipboard?.writeText) {
         navigator.clipboard.writeText(shareUrl)
             .then(() => {
                 showNotification(notificationMsg);
             })
+            .catch(() => prompt(promptMsg, shareUrl));
     } else {
         prompt(promptMsg, shareUrl);
     }
@@ -48,6 +50,8 @@ export function applyQueryParams() {
             const key = `Player${i}`;
             playerNames.push(params[key] ? params[key] : defaultNames[i - 1]);
         }
+        // Rebuilding the player cards orphans any link made to the previous ones
+        links.splice(0, links.length);
         playersContainer.innerHTML = '';
         if (isDoubleUp) {
             for (let i = 0; i < 8; i += 2) {
@@ -64,6 +68,8 @@ export function applyQueryParams() {
         }
         enableDragAndDrop(isDoubleUp);
         updatePlayerColors();
+        // A cached MetaSnapshot can render the comps before these cards exist, so link here too
+        linkPlayersToCompsFromQuery();
     }, 0);
 }
 
@@ -164,9 +170,6 @@ function showNotification(message, duration = CONFIG.notificationDuration) {
 
 // --- New: Support for query params to set mode and player names ---
 export function getQueryParams() {
-    const params = {};
-    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-        params[decodeURIComponent(key)] = decodeURIComponent(value.replace(/\+/g, ' '));
-    });
-    return params;
+    // URLSearchParams tolerates malformed %-escapes that made decodeURIComponent throw
+    return Object.fromEntries(new URLSearchParams(window.location.search));
 }

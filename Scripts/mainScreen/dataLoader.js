@@ -11,6 +11,10 @@ export let items = [];
 // Data variables
 export let metaSnapshotData = null;
 let fullMetaSnapshot = null; // Keep full snapshot for source information
+let currentSetData = null;
+
+// Data of the set picked in the set selector; the transitions tab reads the same data as the tracker
+export const getCurrentSetData = () => currentSetData;
 
 const compsContainer = document.getElementById('compos');
 const _originalLoadCompsFromJSON = loadCompsFromJSON;
@@ -18,7 +22,8 @@ const _originalLoadCompsFromJSON = loadCompsFromJSON;
 const loadMetaSnapshot = async () => {
     try {
         // Add caching for the meta snapshot
-        const cacheKey = 'metaSnapshot';
+        // Versioned: the snapshot format gained champions/recipes/components (MetaTFT items)
+        const cacheKey = 'metaSnapshot:v3';
         const cached = sessionStorage.getItem(cacheKey);
         
         if (cached) {
@@ -49,10 +54,16 @@ const loadMetaSnapshot = async () => {
     }
 };
 
-// Extract function to process snapshot data
-function processSnapshotData(snapshot) {
-    // Extract unit data from all set compositions
-    Object.values(snapshot).forEach(setData => {
+// Fill unitImageMap/unitCostMap (mutated in place, other modules hold references) from the given sets.
+// Champion names repeat across sets with different apiNames/costs, so later sets overwrite earlier ones.
+function buildUnitMaps(setsData) {
+    Object.keys(unitImageMap).forEach(k => delete unitImageMap[k]);
+    Object.keys(unitCostMap).forEach(k => delete unitCostMap[k]);
+    setsData.forEach(setData => {
+        (setData.champions || []).forEach(champion => {
+            unitImageMap[champion.name] = getChampionImageUrl(champion.apiName);
+            unitCostMap[champion.name] = champion.cost || 1;
+        });
         (setData.comps || []).forEach(comp => {
             (comp.champions || []).forEach(champion => {
                 const unitName = champion.name;
@@ -61,6 +72,12 @@ function processSnapshotData(snapshot) {
             });
         });
     });
+}
+
+// Extract function to process snapshot data
+function processSnapshotData(snapshot) {
+    // Extract unit data from all set compositions
+    buildUnitMaps(Object.values(snapshot));
     // Load unique items data across all sets
     let allItems = [];
     Object.values(snapshot).forEach(setData => {
@@ -94,13 +111,17 @@ export function tryLoadDefaultData() {
                 keys.forEach(setKey => {
                     const option = document.createElement('option');
                     option.value = setKey;
-                    option.textContent = setKey;
+                    // A set still on the PBE sits next to the live one until it launches
+                    option.textContent = metaData[setKey]?.status === 'pbe' ? `${setKey} PBE` : setKey;
                     setSelector.appendChild(option);
                 });
                 // select set from URL param or last as default
                 const params = getQueryParams();
-                const defaultSet = params.set && keys.includes(params.set) ? params.set : keys[keys.length - 1];
+                const liveKeys = keys.filter(k => metaData[k]?.status !== 'pbe');
+                const defaultSet = params.set && keys.includes(params.set) ? params.set : (liveKeys.at(-1) || keys.at(-1));
                 setSelector.value = defaultSet;
+                // Nothing to choose outside a PBE cycle
+                setSelector.closest('.set-selector')?.toggleAttribute('hidden', keys.length < 2);
                 
                 let isInitialLoad = true;
                 // Reload compositions on set change
@@ -122,6 +143,8 @@ export function tryLoadDefaultData() {
                             window.history.replaceState({}, '', url);
                         }
                         
+                        // unit images/costs must match the selected set, not the newest one
+                        buildUnitMaps([setData]);
                         // update global items for suggestions to this set only
                         const sec = setData.items || {};
                         const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.trait||[])];
@@ -130,6 +153,8 @@ export function tryLoadDefaultData() {
                         loadCompsFromJSON(setData);
                         createCoreItemsButtons(setData.items);
                         initCompFilter(setData);
+                        currentSetData = setData;
+                        document.dispatchEvent(new CustomEvent('tft:setchange', { detail: setData }));
                         
                         // Only link players to comps from query on initial load
                         if (isInitialLoad) {
@@ -185,12 +210,12 @@ export function loadCompsFromJSON(metaData) {
             });
             // Store tags for filtering: champions, their items, and style
             const champNames = comp.champions.map(ch => ch.name);
-            const champItemNames = comp.champions.flatMap(ch => (ch.items || []).map(itemApi => {
+            const champItemNames = comp.champions.flatMap(ch => [...(ch.items || []), ...(ch.artifacts || [])].map(itemApi => {
                 const it = items.find(i => i.Item === itemApi);
                 return it ? it.Name : itemApi;
             }));
             // Include altBuilds items in tags
-            const altBuildItemNames = (comp.altBuilds || []).flatMap(ab => (ab.items || []).map(itemApi => {
+            const altBuildItemNames = (comp.altBuilds || []).flatMap(ab => [...(ab.items || []), ...(ab.artifacts || [])].map(itemApi => {
                 const it = items.find(i => i.Item === itemApi);
                 return it ? it.Name : itemApi;
             }));
@@ -229,7 +254,7 @@ function createCoreItemsButtons(metaItems) {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
 
-    Object.entries(metaItems).forEach(([section, sectionItems]) => {
+    Object.entries(metaItems || {}).forEach(([section, sectionItems]) => {
         // Skip this section if there are no items
         if (!Array.isArray(sectionItems) || sectionItems.length === 0) {
             return;
@@ -384,7 +409,7 @@ function createAugmentItemContainer(mainAugment, mainItem) {
     return container;
 }
 
-const updateItemsContainer = (itemsContainer) => {
+export const updateItemsContainer = (itemsContainer) => {
     itemsContainer.innerHTML = '';
 
     const activeItems = Array.from(
@@ -398,9 +423,9 @@ const updateItemsContainer = (itemsContainer) => {
     const itemToChampionsMap = {};
 
     // Base itemized champions: use this comp’s champions
-    compData.champions.forEach(champion => {
+    (compData.champions || []).forEach(champion => {
         const champName = champion.name;
-        champion.items.forEach(item => {
+        [...(champion.items || []), ...(champion.artifacts || [])].forEach(item => {
             if (item && activeItems.includes(item)) {
                 if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
                 itemToChampionsMap[item].push(champName);
@@ -409,9 +434,9 @@ const updateItemsContainer = (itemsContainer) => {
     });
 
     // Include altBuilds champions
-    compData.altBuilds.forEach(ab => {
+    (compData.altBuilds || []).forEach(ab => {
         const champ = ab.name;
-        ab.items.forEach(item => {
+        [...(ab.items || []), ...(ab.artifacts || [])].forEach(item => {
             if (activeItems.includes(item)) {
                 if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
                 itemToChampionsMap[item].push(champ);
@@ -474,9 +499,12 @@ function createUnitIcons(units, compIndex) {
 
         // build tooltip of item-icons via helper
         const champObj = champItemsList.find(ch => ch.name === unit);
-        const itemApiNames = champObj?.items || [];
+        // build items first, then the unit's best artifacts
+        const itemApiNames = [...(champObj?.items || []), ...(champObj?.artifacts || [])];
         if (itemApiNames.length) {
-            const tooltip = createUnitTooltip(itemApiNames);
+            const champion = (metaSnapshotData.champions || []).find(ch => ch.name === unit);
+            const coreItems = new Set((champion?.items?.core || []).map(row => row[0]));
+            const tooltip = createUnitTooltip(itemApiNames, coreItems);
             wrapper.appendChild(tooltip);
             wrapper.addEventListener('mouseenter', () => tooltip.style.display = 'flex');
             wrapper.addEventListener('mouseleave', () => tooltip.style.display = 'none');
@@ -489,7 +517,8 @@ function createUnitIcons(units, compIndex) {
 }
 
 // Nueva función auxiliar para crear el tooltip de items de una unidad
-function createUnitTooltip(itemApiNames) {
+// Core items (built in ~3/4 of the unit's full builds) get a gold ring
+function createUnitTooltip(itemApiNames, coreItems = new Set()) {
     const tooltip = document.createElement('div');
     tooltip.className = 'unit-tooltip';
 
@@ -499,6 +528,8 @@ function createUnitTooltip(itemApiNames) {
             const ti = document.createElement('img');
             ti.src = it.Url;
             ti.alt = it.Name;
+            ti.title = coreItems.has(api) ? `${it.Name} (core)` : it.Name;
+            if (coreItems.has(api)) ti.classList.add('is-core');
             tooltip.appendChild(ti);
         }
     });
