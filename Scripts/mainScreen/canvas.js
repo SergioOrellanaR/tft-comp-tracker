@@ -3,7 +3,8 @@ import { updateTierHeadersVisibility } from './compSearchBar.js';
 
 export const links = [];
 const canvas = document.getElementById('lineCanvas');
-var previousMultilines = {};
+// Keyed by player element (not name) so two players with the same name don't share state
+const previousMultilines = new WeakMap();
 const ctx = canvas.getContext('2d');
 
 canvas.addEventListener('contextmenu', e => {
@@ -108,9 +109,11 @@ function updateHeavilyContestedChampionsTable() {
 
         unitIcons.forEach(img => {
             const champName = img.alt;
-            contestedChampions[champName] = (contestedChampions[champName] || 0) + 1;
             championPlayers[champName] = championPlayers[champName] || [];
-            championPlayers[champName].push({ name: playerName, color: playerColor });
+            // A player linked to several comps sharing a champ only contests it once
+            if (championPlayers[champName].some(p => p.el === player)) return;
+            contestedChampions[champName] = (contestedChampions[champName] || 0) + 1;
+            championPlayers[champName].push({ el: player, name: playerName, color: playerColor });
         });
     });
 
@@ -222,25 +225,24 @@ function clearCanvasAndResetCompos() {
 }
 
 function countLinksPerPlayer() {
-    const counts = {};
+    const counts = new Map();
     links.forEach(link => {
-        const playerName = getPlayerName(link.player);
-        counts[playerName] = (counts[playerName] || 0) + 1;
+        counts.set(link.player, (counts.get(link.player) || 0) + 1);
     });
     return counts;
 }
 
 function updateLineStyles(playerLinkCounts) {
     links.forEach(link => {
-        const playerName = getPlayerName(link.player);
-        const count = playerLinkCounts[playerName];
+        const player = link.player;
+        const count = playerLinkCounts.get(player);
 
         if (count > 1) {
             link.dashed = true;
             link.manualDashed = true;
-            previousMultilines[playerName] = true;
+            previousMultilines.set(player, true);
         } else {
-            if (previousMultilines[playerName]) {
+            if (previousMultilines.get(player)) {
                 link.manualDashed = false;
             }
 
@@ -251,7 +253,7 @@ function updateLineStyles(playerLinkCounts) {
                 delete link.manualDashed;
             }
 
-            previousMultilines[playerName] = false;
+            previousMultilines.set(player, false);
         }
     });
 }

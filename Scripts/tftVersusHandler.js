@@ -12,14 +12,15 @@ async function fetchFromTFTVersusAPI(endpoint) {
             headers: { 'Content-Type': 'application/json' },
         });
 
-        const data = await response.json();
         if (!response.ok) {
+            // Error bodies aren't always JSON (e.g. an HTML 502 while the Render backend wakes up)
+            const data = await response.json().catch(() => ({ detail: `Server error (${response.status})` }));
             // Surface the real HTTP status alongside the error body (e.g. { detail: "..." })
             // so callers can distinguish "not found" from "rate limited", etc.
             return { ...data, status: response.status };
         }
 
-        return data;
+        return await response.json();
     } catch (error) {
         console.error(`Failed to fetch data from ${endpoint}:`, error);
         throw error;
@@ -41,7 +42,7 @@ export async function fetchPlayerSummary(playerName, server) {
 // Función para llamar a /find
 // http://127.0.0.1:5000/api/find/Made in Chile/1604/NyobZoo/NA1/NA
 export async function fetchFindGames(playerName, opponentName, server) {
-    console.log('Fetching find games for:', playerName, opponentName, server);
+
     const [name, tag] = playerName.split('#');
     const [opponent, opponentTag] = opponentName.split('#');
     if (!name || !tag || !opponent || !opponentTag) {

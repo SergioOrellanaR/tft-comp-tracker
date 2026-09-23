@@ -93,6 +93,21 @@ const loadMainCompanion = async (playerData, container) => {
     }
 };
 
+// fetchFromTFTVersusAPI resolves (not rejects) with {detail, status} on HTTP errors
+function assertApiOk(data, what) {
+    if (!data || data.detail !== undefined) {
+        throw new Error(`${what}: ${data?.detail ?? 'empty response'}`);
+    }
+    return data;
+}
+
+// Paged /common_matches response must carry a match_list array
+function assertMatchesOk(data) {
+    assertApiOk(data, 'common matches');
+    if (!Array.isArray(data.match_list)) throw new Error('common matches: missing match_list');
+    return data;
+}
+
 const applyBackgroundStyles = (container, imgUrl) => {
     Object.assign(container.style, {
         backgroundImage: `url(${imgUrl})`,
@@ -188,8 +203,10 @@ function createHeaderModal(playerData, duelsCache, player2Name, player2Color, se
 
         Promise.all([headerPromise, statsPromise])
             .then(([headerData, statsData]) => {
-                // Update cache with the obtained data.
-                duelsCache.set(player2Name, { header: headerData, stats: statsData });
+                assertApiOk(headerData, 'player summary');
+                assertApiOk(statsData, 'duel stats');
+                // Update cache with the obtained data (keep findGames/commonMatches).
+                duelsCache.set(player2Name, { ...(duelsCache.get(player2Name) || {}), header: headerData, stats: statsData });
                 headerModal.innerHTML = ''; // Clear spinner
                 headerModal.appendChild(createHeaderModalPlayer(playerData, CONFIG.mainPlayerColor, server));
                 headerModal.appendChild(createHeaderModalStats(playerData.name, player2Name, statsData, CONFIG.mainPlayerColor, player2Color));
@@ -212,6 +229,7 @@ function createHeaderModalPlayer(data, color, server) {
         element.id = `player_${data.id || data.name || 'unknown'}`;
         // Append the player card inside a wrapper div
         createPlayerCard(data, server, 'player-card-' + data.name).then(card => {
+            if (!card) return;
             const wrapper = document.createElement('div');
             wrapper.className = 'player-card-wrapper';
             wrapper.appendChild(card);
@@ -558,6 +576,9 @@ export function openDuelModal(playerData, duelsCache, player2Name, player2Color,
 
     Promise.all([headerPromise, statsPromise])
         .then(([headerData, statsData]) => {
+            // Don't cache or render API error bodies
+            assertApiOk(headerData, 'player summary');
+            assertApiOk(statsData, 'duel stats');
             // Update cache
             duelsCache.set(player2Name, {
                 ...cachedData,
@@ -627,10 +648,7 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
 
             historyModal.append(info, btn);
         } else {
-            console.log('duelsCache on createHistoryModal:', duelsCache);
-            console.log('player2Name on createHistoryModal:', player2Name);
-            console.log('duelsCache.get(player2Name) on createHistoryModal:', duelsCache.get(player2Name));
-            const container = buildMatchesContainer(match_list, historyModal, playerData.peak_ranks, duelsCache.get(player2Name).header?.peak_ranks || null);
+            const container = buildMatchesContainer(match_list, historyModal, playerData.peak_ranks, duelsCache.get(player2Name)?.header?.peak_ranks || null);
             historyModal.appendChild(container);
 
             if (current_page < total_pages) {
@@ -653,7 +671,7 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
 
         try {
             const nextPage = matchesState.current_page + 1;
-            const more = await fetchCommonMatches(playerData.name, player2Name, server, nextPage);
+            const more = assertMatchesOk(await fetchCommonMatches(playerData.name, player2Name, server, nextPage));
 
             matchesState.current_page = more.current_page;
             matchesState.total_pages = more.total_pages;
@@ -690,6 +708,7 @@ function createHistoryModal(playerData, duelsCache, player2Name, server) {
         historyModal.appendChild(spinner);
 
         fetchCommonMatches(playerData.name, player2Name, server)
+            .then(assertMatchesOk)
             .then(data => {
                 matchesState = data;
                 const cacheEntry = duelsCache.get(player2Name) || {};
@@ -716,6 +735,7 @@ function addPaginationScrollListener(historyModal, matchesData, playerData, play
                 historyModal.appendChild(spinner);
                 const nextPage = matchesData.current_page + 1;
                 fetchCommonMatches(playerData.name, player2Name, server, nextPage)
+                    .then(assertMatchesOk)
                     .then(newMatchesData => {
                         matchesData.current_page = newMatchesData.current_page;
                         matchesData.total_pages = newMatchesData.total_pages;
@@ -759,7 +779,7 @@ const buildMatchesContainer = (matches, state, player1PeakRanks, player2PeakRank
         state.previousTFTSet = state.TFTSet;
         if (state.TFTSet === null || state.TFTSet !== match.tft_set_number) {
             state.TFTSet = match.tft_set_number;
-            console.log('TFTSet changed:', state.previousTFTSet, state.TFTSet);
+
             // Append the set label created by the new helper method.
             matchesContainer.appendChild(createSetLabel(state.TFTSet, player1PeakRanks, player2PeakRanks));
         }

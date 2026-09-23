@@ -1,4 +1,4 @@
-import { items, unitImageMap, unitCostMap } from './dataLoader.js';
+import { items, unitImageMap, unitCostMap, updateItemsContainer } from './dataLoader.js';
 import { links, drawLines } from './canvas.js';
 
 const debounce = (func, delay) => { let timer; return (...args) => { clearTimeout(timer); timer = setTimeout(() => func.apply(this, args), delay); }; };
@@ -10,6 +10,9 @@ export const hideUnselectedBtn = document.getElementById('hide-unselected-comps-
 let compSuggestionIndex = -1;
 const compSearchInput = document.getElementById('comp-search-input');
 const compSuggestions = document.getElementById('comp-suggestions');
+// Rebuilt on every set change; the input/document listeners below are attached only once
+let optionsMap = new Map();
+let filterListenersAttached = false;
 
 export function initCompFilter(metaData) {
     // Build options map for champs, styles, and items
@@ -19,7 +22,7 @@ export function initCompFilter(metaData) {
     const artifactSet = new Set(metaData.items.artifact.map(it => it.name));
     const emblemSet = new Set(metaData.items.emblem.map(it => it.name));
     const traitSet = new Set(metaData.items.trait.map(it => it.name));
-    const optionsMap = new Map();
+    optionsMap = new Map();
     new Set([
         ...metaData.comps.flatMap(c => c.champions.map(ch => ch.name)),
         ...metaData.comps.map(c => c.style).filter(Boolean),
@@ -46,6 +49,7 @@ export function initCompFilter(metaData) {
     };
 
     const renderSuggestions = () => {
+        compSuggestionIndex = -1;
         const val = input.value.trim().toLowerCase();
         if (!val) return clearSuggestions();
         const frag = document.createDocumentFragment();
@@ -109,10 +113,13 @@ export function initCompFilter(metaData) {
         });
     };
 
-input.addEventListener('input', debounce(function() {
-    renderSuggestions();
-    drawLines();
-}, 300));
+    if (filterListenersAttached) return;
+    filterListenersAttached = true;
+
+    input.addEventListener('input', debounce(function() {
+        renderSuggestions();
+        drawLines();
+    }, 300));
 
     // --- New: Filter comps by comp-name as you type ---
     input.addEventListener('input', debounce(function () {
@@ -265,7 +272,7 @@ compSearchInput.addEventListener('keydown', (e) => {
     }
     else if (e.key === 'Enter') {
         e.preventDefault();
-        if (compSuggestionIndex >= 0) {
+        if (compSuggestionIndex >= 0 && compSuggestionIndex < suggestionItems.length) {
             // trigger the click on the highlighted item
             suggestionItems[compSuggestionIndex].click();
         }
@@ -274,7 +281,6 @@ compSearchInput.addEventListener('keydown', (e) => {
 
 function updateSuggestionHighlight(items) {
     items.forEach((li, idx) => {
-        console.log(`Highlighting item ${idx}: ${li.textContent}, selected index: ${compSuggestionIndex}`);
         li.classList.toggle('selected', idx === compSuggestionIndex);
     });
 }

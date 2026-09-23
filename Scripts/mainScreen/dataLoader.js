@@ -49,10 +49,12 @@ const loadMetaSnapshot = async () => {
     }
 };
 
-// Extract function to process snapshot data
-function processSnapshotData(snapshot) {
-    // Extract unit data from all set compositions
-    Object.values(snapshot).forEach(setData => {
+// Fill unitImageMap/unitCostMap (mutated in place, other modules hold references) from the given sets.
+// Champion names repeat across sets with different apiNames/costs, so later sets overwrite earlier ones.
+function buildUnitMaps(setsData) {
+    Object.keys(unitImageMap).forEach(k => delete unitImageMap[k]);
+    Object.keys(unitCostMap).forEach(k => delete unitCostMap[k]);
+    setsData.forEach(setData => {
         (setData.comps || []).forEach(comp => {
             (comp.champions || []).forEach(champion => {
                 const unitName = champion.name;
@@ -61,6 +63,12 @@ function processSnapshotData(snapshot) {
             });
         });
     });
+}
+
+// Extract function to process snapshot data
+function processSnapshotData(snapshot) {
+    // Extract unit data from all set compositions
+    buildUnitMaps(Object.values(snapshot));
     // Load unique items data across all sets
     let allItems = [];
     Object.values(snapshot).forEach(setData => {
@@ -122,6 +130,8 @@ export function tryLoadDefaultData() {
                             window.history.replaceState({}, '', url);
                         }
                         
+                        // unit images/costs must match the selected set, not the newest one
+                        buildUnitMaps([setData]);
                         // update global items for suggestions to this set only
                         const sec = setData.items || {};
                         const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.trait||[])];
@@ -229,7 +239,7 @@ function createCoreItemsButtons(metaItems) {
     const container = document.createElement('div');
     container.id = 'coreItemsContainer';
 
-    Object.entries(metaItems).forEach(([section, sectionItems]) => {
+    Object.entries(metaItems || {}).forEach(([section, sectionItems]) => {
         // Skip this section if there are no items
         if (!Array.isArray(sectionItems) || sectionItems.length === 0) {
             return;
@@ -384,7 +394,7 @@ function createAugmentItemContainer(mainAugment, mainItem) {
     return container;
 }
 
-const updateItemsContainer = (itemsContainer) => {
+export const updateItemsContainer = (itemsContainer) => {
     itemsContainer.innerHTML = '';
 
     const activeItems = Array.from(
@@ -398,9 +408,9 @@ const updateItemsContainer = (itemsContainer) => {
     const itemToChampionsMap = {};
 
     // Base itemized champions: use this comp’s champions
-    compData.champions.forEach(champion => {
+    (compData.champions || []).forEach(champion => {
         const champName = champion.name;
-        champion.items.forEach(item => {
+        (champion.items || []).forEach(item => {
             if (item && activeItems.includes(item)) {
                 if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
                 itemToChampionsMap[item].push(champName);
@@ -409,9 +419,9 @@ const updateItemsContainer = (itemsContainer) => {
     });
 
     // Include altBuilds champions
-    compData.altBuilds.forEach(ab => {
+    (compData.altBuilds || []).forEach(ab => {
         const champ = ab.name;
-        ab.items.forEach(item => {
+        (ab.items || []).forEach(item => {
             if (activeItems.includes(item)) {
                 if (!itemToChampionsMap[item]) itemToChampionsMap[item] = [];
                 itemToChampionsMap[item].push(champ);

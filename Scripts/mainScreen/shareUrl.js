@@ -7,11 +7,13 @@ import { drawLines, links } from './canvas.js';
 export function copyShareUrlToClipboard() {
     const shareUrl = getShareUrl();
     const notificationMsg = 'Link copied! Share it to show players and comps from this game.';
+    const promptMsg = 'Copy this link to share players and comps from this game:';
     if (navigator.clipboard?.writeText) {
         navigator.clipboard.writeText(shareUrl)
             .then(() => {
                 showNotification(notificationMsg);
             })
+            .catch(() => prompt(promptMsg, shareUrl));
     } else {
         prompt(promptMsg, shareUrl);
     }
@@ -164,9 +166,6 @@ function showNotification(message, duration = CONFIG.notificationDuration) {
 
 // --- New: Support for query params to set mode and player names ---
 export function getQueryParams() {
-    const params = {};
-    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
-        params[decodeURIComponent(key)] = decodeURIComponent(value.replace(/\+/g, ' '));
-    });
-    return params;
+    // URLSearchParams tolerates malformed %-escapes that made decodeURIComponent throw
+    return Object.fromEntries(new URLSearchParams(window.location.search));
 }

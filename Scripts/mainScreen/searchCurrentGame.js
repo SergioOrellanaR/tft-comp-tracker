@@ -2,10 +2,13 @@ import { drawLines } from './canvas.js';
 import { CONFIG } from '../config.js';
 import { createLoadingSpinner, openDuelModal } from '../components.js';
 import { fetchPlayerSummary, fetchLiveGame, fetchFindGames, getMiniRankIconUrl } from '../tftVersusHandler.js';
-import { duelsCache } from './players.js';
+import { duelsCache, resetPlayers, toggleDoubleUpMode } from './players.js';
+
+// Incremented on every search so duel-button loops from a previous search stop touching the UI
+let searchGeneration = 0;
 
 export const searchPlayer = async () => {
-    
+    const generation = ++searchGeneration;
     resetPlayers();
     // Remove any existing container
 
@@ -33,6 +36,7 @@ export const searchPlayer = async () => {
         showMessage('Invalid server selected.');
         return;
     }
+    const riotId = `${playerName.trim()}#${tag.trim()}`;
     const messageContainer = document.getElementById('messageContainer');
     // Clear any previous content and show the container
     messageContainer.innerHTML = '';
@@ -43,14 +47,15 @@ export const searchPlayer = async () => {
     const searchButton = document.getElementById('searchPlayerButton');
     searchButton.disabled = true;
     try {
-        const playerData = await fetchPlayerSummary(playerInput, server);
+        const playerData = await fetchPlayerSummary(riotId, server);
 
-        if (!playerData) {
+        if (!playerData || playerData.detail !== undefined) {
             resetLoadingState(spinner, searchButton);
+            showMessage(playerData?.detail || 'Player not found.');
             return;
         }
 
-        const spectatorData = await fetchLiveGame(playerInput, server);
+        const spectatorData = await fetchLiveGame(riotId, server);
 
         if (spectatorData.detail !== undefined) {
             resetLoadingState(spinner, searchButton);
@@ -58,13 +63,15 @@ export const searchPlayer = async () => {
             return;
         }
         resetLoadingState(spinner, searchButton);
-        handleSpectatorData(spectatorData, playerData, server);
+        handleSpectatorData(spectatorData, playerData, server, generation);
     } catch (error) {
         console.error('Error fetching data:', error);
         resetLoadingState(spinner, searchButton);
         showMessage('Failed to fetch data');
     }
 };
+
+let messageTimeout = null;
 
 function showMessage(message) {
     const messageContainer = document.getElementById('messageContainer');
@@ -73,7 +80,8 @@ function showMessage(message) {
 
     drawLines();
 
-    setTimeout(() => {
+    clearTimeout(messageTimeout);
+    messageTimeout = setTimeout(() => {
         messageContainer.style.display = 'none';
         drawLines();
     }, 3000);
@@ -84,7 +92,7 @@ const resetLoadingState = (spinner, searchButton) => {
     searchButton.disabled = false;
 };
 
-function handleSpectatorData(spectatorData, playerData, server) {
+function handleSpectatorData(spectatorData, playerData, server, generation) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
 
     const colorModeCheckbox = document.getElementById('color_mode');
@@ -99,10 +107,10 @@ function handleSpectatorData(spectatorData, playerData, server) {
     const participants = spectatorData.participants;
 
     updatePlayers(participants);
-    updatePlayersDuelButtons(playerData, server);
+    updatePlayersDuelButtons(playerData, server, generation);
 }
 
-async function updatePlayersDuelButtons(playerData, server) {
+async function updatePlayersDuelButtons(playerData, server, generation) {
     const delayBetweenPlayers = 1000; // delay in milliseconds
     // Remove the edit-icon from each player's action container
     document.querySelectorAll('.item.player .player-action-container').forEach(container => {
@@ -119,6 +127,8 @@ async function updatePlayersDuelButtons(playerData, server) {
         if (i > 0) {
             await new Promise(resolve => setTimeout(resolve, delayBetweenPlayers));
         }
+        // A new search or reset replaced these players; stop firing requests for them
+        if (generation !== searchGeneration || !player.isConnected) return;
 
         // Use the action container for all player actions
         const actionContainer = player.querySelector('.player-action-container');
@@ -150,6 +160,7 @@ async function updatePlayersDuelButtons(playerData, server) {
             } catch (error) {
                 result = null;
             }
+            if (generation !== searchGeneration || !player.isConnected) return;
 
             // Remove the spinner placeholder once a response is received.
             actionContainer.innerHTML = '';
