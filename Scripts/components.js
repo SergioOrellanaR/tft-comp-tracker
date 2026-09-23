@@ -319,7 +319,11 @@ function initializeDonutChart(canvas, player1Wins, player2Wins, player1Color, pl
 
     if (typeof Chart === 'undefined') {
         const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js';
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js';
+        // Subresource integrity: the browser refuses the file if the CDN copy was tampered with
+        script.integrity = 'sha512-WoViKhKD4qI2WruSZqv9+kvM4WfFhUMQCLN4QlDTt5aU56fLQy2gYoxWIqlEnXqJy/+Ac5q/hk1oWfqnMDhwMA==';
+        script.crossOrigin = 'anonymous';
+        script.referrerPolicy = 'no-referrer';
         script.onload = startChart;
         script.onerror = () => {
             const donutContainer = canvas.parentElement;

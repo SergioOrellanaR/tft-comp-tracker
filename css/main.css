@@ -28,7 +28,10 @@
 /* 9. Match history */
 @import url('./match-history.css');
 
-/* 10. Responsive styles last */
+/* 10. View tabs and the transitions view */
+@import url('./transitions.css');
+
+/* 11. Responsive styles last */
 @import url('./responsive.css');
 
 @import url('./copilot-notification.css');

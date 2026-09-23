@@ -13,6 +13,13 @@ const compSuggestions = document.getElementById('comp-suggestions');
 // Rebuilt on every set change; the input/document listeners below are attached only once
 let optionsMap = new Map();
 let filterListenersAttached = false;
+let addFilterTag = null; // selectOption of the current initCompFilter closure
+
+// Add a champ/item/style tag filter from outside the search box (e.g. the transitions tab)
+export function addCompFilter(name) {
+    if (!addFilterTag || selectedFilters.includes(name)) return;
+    addFilterTag(name);
+}
 
 export function initCompFilter(metaData) {
     // Build options map for champs, styles, and items
@@ -113,6 +120,7 @@ export function initCompFilter(metaData) {
         });
     };
 
+    addFilterTag = selectOption;
     if (filterListenersAttached) return;
     filterListenersAttached = true;
 

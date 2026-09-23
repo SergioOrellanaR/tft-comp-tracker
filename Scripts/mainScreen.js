@@ -3,6 +3,9 @@ import { applyQueryParams } from './mainScreen/shareUrl.js';
 import { resetPlayers, toggleDoubleUpMode} from './mainScreen/players.js';
 import { drawLines, resizeCanvas } from './mainScreen/canvas.js';
 import { createCompToggle, hideContestedBtn, hideUnselectedBtn } from './mainScreen/compSearchBar.js';
+import { initViewTabs } from './viewTabs.js';
+
+initViewTabs();
 
 window.addEventListener('resize', resizeCanvas);
 

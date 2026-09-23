@@ -41,10 +41,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     document.getElementById('resetButton')?.addEventListener('click', resetPlayers);
+    document.getElementById('copyPlayerNamesButton')?.addEventListener('click', copyPlayerNames);
 
     // Tooltips
     initHoverTooltips();
 });
+
+// Copy the lobby's player names, one per line
+function copyPlayerNames(e) {
+    const btn = e.currentTarget;
+    const names = [...document.querySelectorAll('.item.player .player-name')]
+        .map(span => span.textContent.replace(/ \(YOU\)$/, '').trim())
+        .filter(Boolean)
+        .join('\n');
+    const done = () => {
+        btn.textContent = '✓';
+        setTimeout(() => { btn.textContent = '⧉'; }, 1200);
+    };
+    if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(names).then(done).catch(() => prompt('Player names', names));
+    } else {
+        prompt('Player names', names);
+    }
+}
 
 function initHoverTooltips() {
     function setupHoverTooltip(labelSelector, inputSelector, checkedTitle, uncheckedTitle) {

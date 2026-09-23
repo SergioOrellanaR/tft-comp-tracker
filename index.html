@@ -20,6 +20,13 @@
 </head>
 
 <body>
+  <nav id="view-tabs" class="view-tabs" role="tablist" aria-label="Views">
+    <span class="view-tabs-brand">TFT Comp Tracker</span>
+    <button type="button" role="tab" id="tab-tracker" data-view="tracker" aria-controls="tracker-view" aria-selected="true">Lobby</button>
+    <button type="button" role="tab" id="tab-transitions" data-view="summary" aria-controls="transitions-view" aria-selected="false" tabindex="-1">Set Summary</button>
+  </nav>
+
+  <div id="tracker-view" role="tabpanel" aria-labelledby="tab-tracker">
   <div id="left">
     <div id="left-content">
       <div class="double-up-btn-container">
@@ -53,11 +60,12 @@
       </div>
       <div id="messageContainer" style="display: none; color: #ff4c4c; margin-bottom: 10px; text-align: center;"></div>
       <div id="players"></div>
-      <div style="margin-top: 0.5rem;">
+      <div class="players-actions">
         <button class="animated-button" onclick="resetPlayers()">
           <span>Reset</span>
           <span></span>
         </button>
+        <button type="button" id="copyPlayerNamesButton" class="copy-names-btn" title="Copy player names" aria-label="Copy player names">⧉</button>
       </div>
       <div id="infoTableContainer"></div>
       <!-- Share button moved to comp search bar -->
@@ -130,6 +138,9 @@
       <div id="compos"></div>
     </div>
   </div>
+  </div>
+
+  <section id="transitions-view" role="tabpanel" aria-labelledby="tab-transitions" hidden></section>
   
   <script type="module" src="Scripts/mainScreen/domContentLoad.js"></script>
   <script type="module" src="Scripts/mainScreen.js"></script>

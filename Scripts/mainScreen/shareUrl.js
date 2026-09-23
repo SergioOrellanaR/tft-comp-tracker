@@ -50,6 +50,8 @@ export function applyQueryParams() {
             const key = `Player${i}`;
             playerNames.push(params[key] ? params[key] : defaultNames[i - 1]);
         }
+        // Rebuilding the player cards orphans any link made to the previous ones
+        links.splice(0, links.length);
         playersContainer.innerHTML = '';
         if (isDoubleUp) {
             for (let i = 0; i < 8; i += 2) {
@@ -66,6 +68,8 @@ export function applyQueryParams() {
         }
         enableDragAndDrop(isDoubleUp);
         updatePlayerColors();
+        // A cached MetaSnapshot can render the comps before these cards exist, so link here too
+        linkPlayersToCompsFromQuery();
     }, 0);
 }
 
