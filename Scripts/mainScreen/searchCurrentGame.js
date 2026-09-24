@@ -1,8 +1,19 @@
 import { renderLinks } from './matrix.js';
 import { CONFIG } from '../config.js';
-import { createLoadingSpinner, openDuelModal } from '../components.js';
+import { createLoadingSpinner } from '../components.js';
+import { openGlance } from './versus.js';
 import { fetchPlayerSummary, fetchLiveGame, fetchFindGames, getMiniRankIconUrl } from '../tftVersusHandler.js';
 import { duelsCache, resetPlayers, toggleDoubleUpMode, setPlayerAvatar } from './players.js';
+import { showNotification } from './shareUrl.js';
+
+// Riot rate limits (429): the backend retries short waits itself; longer ones come back with the wait,
+// and these retry by themselves while telling the user, without blocking anything else
+const SEARCH_MAX_ATTEMPTS = 3;
+const DUEL_MAX_ATTEMPTS = 5;
+const DEFAULT_RETRY_SECONDS = 10;
+// Versus checks run a few at a time (the backend queues them behind lobby searches)
+const DUEL_CONCURRENCY = 3;
+const DUEL_TIMEOUT_MS = 60000;
 
 // Incremented on every search so duel-button loops from a previous search stop touching the UI
 let searchGeneration = 0;
@@ -47,23 +58,21 @@ export const searchPlayer = async () => {
     const searchButton = document.getElementById('searchPlayerButton');
     searchButton.disabled = true;
     try {
-        const playerData = await fetchPlayerSummary(riotId, server);
+        // The lobby comes first: the live game and the player's card load side by side
+        const summaryPromise = withRateLimitRetry(() => fetchPlayerSummary(riotId, server), generation, spinner);
+        const spectatorData = await withRateLimitRetry(() => fetchLiveGame(riotId, server), generation, spinner);
+        if (generation !== searchGeneration) return;
 
-        if (!playerData || playerData.detail !== undefined) {
+        if (!spectatorData || spectatorData.detail !== undefined) {
+            const summary = await summaryPromise.catch(() => null);
+            if (generation !== searchGeneration) return;
             resetLoadingState(spinner, searchButton);
-            showMessage(playerData?.detail || 'Player not found.');
-            return;
-        }
-
-        const spectatorData = await fetchLiveGame(riotId, server);
-
-        if (spectatorData.detail !== undefined) {
-            resetLoadingState(spinner, searchButton);
-            showMessage(spectatorData.detail);
+            // "player not found" explains more than "no live game"
+            showMessage(summary?.status === 404 ? summary.detail : (spectatorData?.detail || 'Failed to fetch data'));
             return;
         }
         resetLoadingState(spinner, searchButton);
-        handleSpectatorData(spectatorData, playerData, server, generation);
+        handleSpectatorData(spectatorData, summaryPromise, riotId, server, generation);
     } catch (error) {
         console.error('Error fetching data:', error);
         resetLoadingState(spinner, searchButton);
@@ -72,6 +81,42 @@ export const searchPlayer = async () => {
 };
 
 let messageTimeout = null;
+
+// Runs an API call, and while Riot rate-limits it (429) waits the time it asked for and tries again,
+// with a countdown next to the search spinner
+async function withRateLimitRetry(call, generation, spinner) {
+    for (let attempt = 1; ; attempt++) {
+        const result = await call();
+        if (result?.status !== 429 || attempt >= SEARCH_MAX_ATTEMPTS || generation !== searchGeneration) return result;
+        await countdown(result.retryAfter || DEFAULT_RETRY_SECONDS, left => {
+            if (!spinner) return;
+            let text = spinner.querySelector('.spinner-text');
+            if (!text) {
+                text = document.createElement('div');
+                text.className = 'spinner-text';
+                spinner.appendChild(text);
+            }
+            text.textContent = `Riot is busy, retrying in ${left}s`;
+        });
+        if (generation !== searchGeneration) return result;
+    }
+}
+
+function countdown(seconds, onTick) {
+    return new Promise(resolve => {
+        let left = Math.ceil(seconds);
+        onTick(left);
+        const timer = setInterval(() => {
+            left -= 1;
+            if (left <= 0) {
+                clearInterval(timer);
+                resolve();
+            } else {
+                onTick(left);
+            }
+        }, 1000);
+    });
+}
 
 function showMessage(message) {
     const messageContainer = document.getElementById('messageContainer');
@@ -92,7 +137,7 @@ const resetLoadingState = (spinner, searchButton) => {
     searchButton.disabled = false;
 };
 
-function handleSpectatorData(spectatorData, playerData, server, generation) {
+async function handleSpectatorData(spectatorData, summaryPromise, riotId, server, generation) {
     const isDoubleUp = spectatorData.gameQueueConfigId === 1160;
 
     const colorModeCheckbox = document.getElementById('color_mode');
@@ -107,76 +152,98 @@ function handleSpectatorData(spectatorData, playerData, server, generation) {
     const participants = spectatorData.participants;
 
     updatePlayers(participants);
+    // The versus needs the searched player's card; without it (e.g. rate limited), the name is enough
+    const summary = await summaryPromise.catch(() => null);
+    if (generation !== searchGeneration) return;
+    const playerData = summary && summary.detail === undefined ? summary : { name: riotId };
     updatePlayersDuelButtons(playerData, server, generation);
 }
 
 async function updatePlayersDuelButtons(playerData, server, generation) {
-    const delayBetweenPlayers = 1000; // delay in milliseconds
     // Remove the edit-icon from each player's action container
     document.querySelectorAll('.item.player .player-action-container').forEach(container => {
         const editIcon = container.querySelector('.edit-icon');
         if (editIcon) editIcon.remove();
     });
 
-    const players = document.querySelectorAll('.item.player');
-
-    for (let i = 0; i < players.length; i++) {
-        const player = players[i];
-
-        // Wait delayBetweenPlayers between players (except before the first)
-        if (i > 0) {
-            await new Promise(resolve => setTimeout(resolve, delayBetweenPlayers));
+    const queue = [...document.querySelectorAll('.item.player')].filter(player => {
+        const name = player.querySelector('.player-name').textContent.trim();
+        if (playerData.name === name) {
+            player.classList.add('is-you');
+            return false;
         }
-        // A new search or reset replaced these players; stop firing requests for them
-        if (generation !== searchGeneration || !player.isConnected) return;
-
-        // Use the action container for all player actions
-        const actionContainer = player.querySelector('.player-action-container');
-        if (!actionContainer.querySelector('.duel-button')) {
-            // Get the opponent's name from the player element.
-            const player2Name = player.querySelector('.player-name').textContent.trim();
-
-            if (playerData.name === player2Name) {
-                player.classList.add('is-you');
-                continue; // Skip the player if it's the same as the one in the duel button
-            }
-
-            // Create a spinner placeholder for the duel button
-            const spinner = createLoadingSpinner();
-            spinner.classList.add('duel-spinner');
-            actionContainer.innerHTML = '';
-            actionContainer.appendChild(spinner);
-
-            // Start fetching duel data with a maximum of 10 seconds.
-            const duelPromise = fetchFindGames(playerData.name, player2Name, server);
-            const timeoutPromise = new Promise(resolve => {
-                setTimeout(() => resolve("timeout"), 10000);
-            });
-
-            let result;
-            try {
-                result = await Promise.race([duelPromise, timeoutPromise]);
-            } catch (error) {
-                result = null;
-            }
-            if (generation !== searchGeneration || !player.isConnected) return;
-
-            // Remove the spinner placeholder once a response is received.
-            actionContainer.innerHTML = '';
-
-            // Create the actual duel button.
-            const duelButton = document.createElement('button');
-            duelButton.className = 'duel-button';
-            duelButton.title = 'Vs. History';
-            duelButton.innerText = '⚔️';
-            try {
-                processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
-            } catch (error) {
-                // On error, show red exclamation and continue
-                handleTimeoutOrFailedRetrieval(null, duelButton);
-            }
-            actionContainer.appendChild(duelButton);
+        return !player.querySelector('.player-action-container .duel-button');
+    });
+    // Whether you've played each of them before is what decides if a versus is worth opening, so every
+    // player is checked right away, a few at a time
+    const worker = async () => {
+        while (queue.length && generation === searchGeneration) {
+            const player = queue.shift();
+            if (player.isConnected) await checkDuel(player, playerData, server, generation, 1);
         }
+    };
+    await Promise.all(Array.from({ length: DUEL_CONCURRENCY }, worker));
+}
+
+async function checkDuel(player, playerData, server, generation, attempt) {
+    const actionContainer = player.querySelector('.player-action-container');
+    const player2Name = player.querySelector('.player-name').textContent.trim();
+
+    const spinner = createLoadingSpinner();
+    spinner.classList.add('duel-spinner');
+    actionContainer.innerHTML = '';
+    actionContainer.appendChild(spinner);
+
+    let result;
+    try {
+        const timeout = new Promise(resolve => setTimeout(() => resolve('timeout'), DUEL_TIMEOUT_MS));
+        result = await Promise.race([fetchFindGames(playerData.name, player2Name, server), timeout]);
+    } catch (error) {
+        result = null;
+    }
+    // A new search or reset replaced these players; stop touching them
+    if (generation !== searchGeneration || !player.isConnected) return;
+    actionContainer.innerHTML = '';
+
+    if (result?.status === 429 && attempt < DUEL_MAX_ATTEMPTS) {
+        waitAndRetryDuel(actionContainer, result.retryAfter || DEFAULT_RETRY_SECONDS, () => {
+            if (generation === searchGeneration && player.isConnected) {
+                checkDuel(player, playerData, server, generation, attempt + 1);
+            }
+        });
+        return;
+    }
+
+    const duelButton = document.createElement('button');
+    duelButton.type = 'button';
+    duelButton.className = 'duel-button';
+    try {
+        processFindGamesResult(result, duelButton, player2Name, player, playerData, server);
+    } catch (error) {
+        // On error, show red exclamation and continue
+        handleTimeoutOrFailedRetrieval(null, duelButton);
+    }
+    actionContainer.appendChild(duelButton);
+}
+
+// Rate limited: a small countdown where the versus button goes, then the check runs again by itself
+let rateLimitNoticeShown = false;
+function waitAndRetryDuel(actionContainer, seconds, retry) {
+    const badge = document.createElement('span');
+    badge.className = 'duel-wait';
+    badge.setAttribute('role', 'status');
+    actionContainer.appendChild(badge);
+    countdown(seconds, left => {
+        badge.textContent = `${left}s`;
+        badge.title = `Riot is rate-limiting requests: checking your games against this player again in ${left}s`;
+    }).then(() => {
+        badge.remove();
+        retry();
+    });
+    if (!rateLimitNoticeShown) {
+        rateLimitNoticeShown = true;
+        showNotification('Riot is busy right now: versus checks will retry by themselves.');
+        setTimeout(() => { rateLimitNoticeShown = false; }, 60000);
     }
 }
 
@@ -198,19 +265,27 @@ function isTimeoutOrFailedRetrieval(result) {
         result === "timeout" ||
         !result ||
         result.status !== undefined || // backend returned an HTTP error (404, 429, etc.)
-        (result.FAILED_RETRIEVAL.length > 0 &&
-            result.SUCCESSFUL_RETRIEVAL.length === 0 &&
-            result.ALREADY_ON_DB.length === 0)
+        (result.FAILED_RETRIEVAL.length > 0 && commonGamesCount(result) === 0)
     );
 }
 
-function isEmptySuccessAndDB(result) {
-    return result.SUCCESSFUL_RETRIEVAL.length === 0 && result.ALREADY_ON_DB.length === 0;
+// Games found together: saved already, just downloaded, or still downloading in the background
+function commonGamesCount(result) {
+    return result.SUCCESSFUL_RETRIEVAL.length + result.ALREADY_ON_DB.length + (result.PENDING_RETRIEVAL || []).length;
 }
+
+function isEmptySuccessAndDB(result) {
+    return commonGamesCount(result) === 0;
+}
+
+// Crossed swords (Lucide's "swords", ISC) and an alert mark, drawn in currentColor like the site's other icons
+const SWORDS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/></svg>';
+const ALERT_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" x2="12" y1="7.5" y2="13"/><line x1="12" x2="12.01" y1="16.5" y2="16.5"/></svg>';
 
 function handleTimeoutOrFailedRetrieval(result, duelButton) {
     duelButton.disabled = true;
-    duelButton.innerText = '❗';
+    duelButton.classList.add('is-error');
+    duelButton.innerHTML = ALERT_ICON;
     if (result && result.status === 429) {
         duelButton.title = 'Too many requests, try again later';
     } else if (!result || result === "timeout") {
@@ -218,26 +293,15 @@ function handleTimeoutOrFailedRetrieval(result, duelButton) {
     } else {
         duelButton.title = 'Failed to retrieve game data';
     }
-    duelButton.style.background = 'none';
-    duelButton.addEventListener('mouseenter', () => {
-        if (duelButton.disabled) {
-            duelButton.style.background = 'none';
-        }
-    });
-    duelButton.addEventListener('mouseleave', () => {
-        if (duelButton.disabled) {
-            duelButton.style.background = 'none';
-        }
-    });
+    duelButton.setAttribute('aria-label', duelButton.title);
 }
 
 function handleEmptySuccessAndDB(duelButton) {
     duelButton.disabled = true;
-    duelButton.innerHTML = `<img src="https://www.svgrepo.com/show/277711/excalibur.svg" alt="Excalibur Icon" style="width:19.78px;height:17px;">`;
-    duelButton.style.filter = 'grayscale(100%)';
+    duelButton.classList.add('is-new');
+    duelButton.innerHTML = SWORDS_ICON;
     duelButton.title = 'First time playing against this player';
-    duelButton.style.background = 'none';
-    duelButton.addEventListener('click', (e) => e.preventDefault());
+    duelButton.setAttribute('aria-label', duelButton.title);
 }
 
 function handleSuccessfulResult(result, duelButton, player2Name, player, playerData, server) {
@@ -245,18 +309,14 @@ function handleSuccessfulResult(result, duelButton, player2Name, player, playerD
     const duelData = duelsCache.get(player2Name) || {};
     duelData.findGames = result;
     duelsCache.set(player2Name, duelData);
-    // Restore the icon.
-    duelButton.innerText = '⚔️';
-    duelButton.style.filter = 'none';
-    // Attach click event to open duel modal.
+    // the swords and how many games you've shared (still downloading ones included)
+    const games = commonGamesCount(result);
+    duelButton.innerHTML = `${SWORDS_ICON}<span>${games}</span>`;
+    duelButton.title = `${games} ${games === 1 ? 'game' : 'games'} together: open your versus history`;
+    duelButton.setAttribute('aria-label', duelButton.title);
     duelButton.addEventListener('click', (e) => {
         e.stopPropagation();
-        const existingOverlay = document.getElementById('popupOverlay');
-        if (existingOverlay) {
-            existingOverlay.parentNode.removeChild(existingOverlay);
-        }
-        const playerColor = player.getAttribute('data-color');
-        openDuelModal(playerData, duelsCache, player2Name, playerColor, server);
+        openGlance(duelButton, playerData.name, player2Name, player.getAttribute('data-color'), server);
     });
 }
 

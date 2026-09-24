@@ -1,10 +1,16 @@
-const TFT_VERSUS_API_BASE_URL = 'https://tft-versus.onrender.com/api';
+// Local development: the backend serves the site itself on :5000 (FRONTEND_DIR), so it's the API too
+const LOCAL_BACKEND = location.port === '5000' && ['localhost', '127.0.0.1'].includes(location.hostname);
+const TFT_VERSUS_API_BASE_URL = LOCAL_BACKEND ? '/api' : 'https://140-238-151-155.sslip.io/api';
+// Accounts are always same-origin (Netlify proxies /api/auth/* to the backend, see netlify.toml), so the
+// session cookie is first-party
+export const AUTH_API_URL = '/api/auth';
 
 export const TFT_VERSUS_API_URL = {
     playerSummary: TFT_VERSUS_API_BASE_URL + '/header',
     findGames: TFT_VERSUS_API_BASE_URL + '/find',
     commonMatches: TFT_VERSUS_API_BASE_URL + '/common_matches',
     duel: TFT_VERSUS_API_BASE_URL + '/stats',
+    versus: TFT_VERSUS_API_BASE_URL + '/versus',
     specificMatch: TFT_VERSUS_API_BASE_URL + '/match',
     liveGame: TFT_VERSUS_API_BASE_URL + '/current_game'
 }

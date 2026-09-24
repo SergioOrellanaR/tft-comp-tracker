@@ -1,0 +1,7 @@
+# Accounts: /api/auth/* is served by the TFT Versus backend through this site, so its session cookie is
+# first-party (no third-party cookies involved). The rest of the API is called on the backend directly.
+[[redirects]]
+  from = "/api/auth/*"
+  to = "https://140-238-151-155.sslip.io/api/auth/:splat"
+  status = 200
+  force = true

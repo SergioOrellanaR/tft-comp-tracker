@@ -3,10 +3,12 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="theme-color" content="#15181D" />
-  <title>TFT Comp Tracker</title>
+  <title>TrackerTFT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.metatft.com">
@@ -22,6 +24,7 @@
 
 <body>
   <header class="app-header">
+    <a class="brand" href="/" aria-label="TrackerTFT home"><img src="/favicon.svg" alt="" width="24" height="24"><span>Tracker<b>TFT</b></span></a>
     <nav id="view-tabs" class="view-tabs" role="tablist" aria-label="Views">
       <button type="button" role="tab" id="tab-tracker" data-view="tracker" aria-controls="tracker-view" aria-selected="true">Lobby</button>
       <button type="button" role="tab" id="tab-transitions" data-view="summary" aria-controls="transitions-view" aria-selected="false" tabindex="-1">Set Summary</button>
@@ -40,12 +43,13 @@
     <div class="header-right">
       <div class="seg mode-switch" role="group" aria-label="Game mode">
         <button type="button" data-mode="solo" aria-pressed="true">Solo</button>
-        <button type="button" data-mode="double" aria-pressed="false">Double Up</button>
+        <button type="button" data-mode="double" aria-pressed="false">Double<span class="long"> Up</span></button>
       </div>
       <input type="checkbox" id="color_mode" hidden>
       <label class="set-selector" hidden><select id="setSelector" aria-label="Set"></select></label>
       <span class="patch-label" id="patchLabel"></span>
       <button type="button" id="copyShareUrlButton" class="btn-primary">Share</button>
+      <div id="accountSlot" class="acct-slot"></div>
     </div>
   </header>
 
@@ -71,7 +75,12 @@
 
       <div class="matrix" id="matrix">
         <div class="matrix-head">
-          <div class="mh-comp">Composition<button type="button" id="copyPlayerNamesButton" class="copy-names-btn" title="Copy player names" aria-label="Copy player names">⧉</button></div>
+          <div class="mh-comp">
+            <div class="source-switch" id="sourceSwitch" hidden></div>
+            <a class="source-credit" id="sourceCredit" target="_blank" rel="noopener" hidden></a>
+            <span class="source-note" id="sourceNote" hidden></span>
+            <button type="button" id="copyPlayerNamesButton" class="copy-names-btn" title="Copy player names" aria-label="Copy player names">⧉</button>
+          </div>
           <div id="players"></div>
         </div>
         <div id="compos"></div>
@@ -83,16 +92,18 @@
       <section class="card contested" id="contestedCard" aria-label="Contested carries" hidden>
         <h3>Contested carries <small>players on them</small></h3>
         <div class="bars" id="contestedBars"></div>
-        <div class="legend"><span><i class="dot"></i>Main comp</span><span><i class="dot ring"></i>Pivot</span></div>
+        <div class="legend"><span><i class="dot"></i>Confirmed</span><span><i class="dot ring"></i>Possible</span></div>
       </section>
       <section class="card potential" id="playerCard" aria-label="Potential comps" hidden></section>
     </aside>
   </main>
 
   <section id="transitions-view" role="tabpanel" aria-labelledby="tab-transitions" hidden></section>
+  <div class="stat-card" id="statCard" role="tooltip" hidden></div>
 
   <script type="module" src="Scripts/mainScreen/domContentLoad.js"></script>
   <script type="module" src="Scripts/mainScreen.js"></script>
+  <script type="module" src="Scripts/account/header.js"></script>
 </body>
 
 </html>

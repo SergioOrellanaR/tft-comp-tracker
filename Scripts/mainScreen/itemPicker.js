@@ -17,7 +17,8 @@ const TABS = [
     { key: 'radiants', label: 'Radiants' },
 ];
 // Built from team-size components only; they say nothing about a comp
-const TEAM_SIZE_ITEMS = new Set(['DA_TacticiansCrown', 'DA_TacticiansCape', 'DA_TacticiansShield']);
+// Matched by the end of the apiName: the prefix changes every set (DA_, TFT_Item_...)
+const TEAM_SIZE_ITEMS = /(TacticiansCrown|TacticiansCape|TacticiansShield)$/;
 export const STATE_RANK = { open: 0, shared: 1, linked: 2, crowded: 3 };
 export const TIER_RANK = { S: 0, A: 1, B: 2, C: 3, X: 4 };
 // A recipe with only one of its components picked still hints at the comps that build it
@@ -38,7 +39,7 @@ export function initItemPicker(setData) {
     initCompFit(set);
     pickedComponents.clear();
     picked.clear();
-    recipes = (set.recipes || []).filter(r => !TEAM_SIZE_ITEMS.has(r.apiName) && r.from?.length === 2);
+    recipes = (set.recipes || []).filter(r => !TEAM_SIZE_ITEMS.test(r.apiName) && r.from?.length === 2);
     // one button per component (older snapshots list the generic copies too)
     const seenNames = new Set();
     componentKeys = (set.components || []).filter(c => recipes.some(r => r.from.includes(c.apiName)))

@@ -1,0 +1,204 @@
+/* =====================================================================
+    Versus: the glance next to a player's column and the full report
+    (Scripts/mainScreen/versus.js). Classes prefixed vs-.
+===================================================================== */
+
+/* ---------- shared pieces ---------- */
+.vs-avatar { position: relative; flex: none; width: var(--s, 40px); height: var(--s, 40px); border-radius: 50%; background: var(--sunk); box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--pc); }
+.vs-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
+.vs-who { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vs-who b { font: 700 15px var(--font-cond); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vs-rank { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: 11.5px; white-space: nowrap; }
+.vs-rank img { width: 15px; height: 15px; }
+.vs-lbl { color: var(--muted); font-size: 11.5px; }
+.vs-kpi { font: 700 28px/1 var(--font-cond); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vs-x { width: 30px; height: 30px; flex: none; border: none; border-radius: 6px; background: none; color: var(--muted); font-size: 19px; line-height: 1; }
+.vs-x:hover { background: var(--sunk); color: var(--ink); }
+.vs-loading { padding: 14px 4px; color: var(--muted); }
+.vs-pl { display: inline-grid; place-items: center; min-width: 30px; height: 21px; padding: 0 6px; border-radius: 5px; font: 700 12px var(--font-cond); }
+.vs-pl.p1 { background: #FFF1D6; color: #8A5A00; box-shadow: inset 0 0 0 1px #F2C572; }
+.vs-pl.top { background: var(--open-soft); color: var(--open); }
+.vs-pl.bot { background: var(--sunk); color: var(--muted); }
+
+.vs-unit { position: relative; flex: none; width: var(--u, 26px); height: var(--u, 26px); }
+.vs-unit > img { width: 100%; height: 100%; border-radius: 5px; object-fit: cover; outline: 2px solid var(--cc); outline-offset: -2px; background: var(--sunk); display: block; }
+.vs-unit .st { position: absolute; top: -7px; left: 0; right: 0; z-index: 1; text-align: center; font-size: 7.5px; letter-spacing: -1px; color: var(--c5); text-shadow: 0 0 2px #fff, 0 0 2px #fff; }
+.vs-unit .its { position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); display: flex; }
+.vs-unit .its img { width: 10px; height: 10px; border-radius: 2px; box-shadow: 0 0 0 1px var(--surface); }
+/* both players had this unit on their final board */
+.vs-unit.shared > img { outline: 2px solid var(--contest); outline-offset: 1px; }
+.vs-unit.shared::after { content: ''; position: absolute; top: -3px; right: -3px; width: 7px; height: 7px; border-radius: 50%; background: var(--contest); box-shadow: 0 0 0 1.5px var(--surface); }
+.vs-board { display: flex; flex-wrap: wrap; gap: 9px 4px; padding: 6px 0; }
+
+.vs-seg { display: inline-flex; padding: 2px; background: var(--sunk); border-radius: 7px; flex-wrap: wrap; }
+.vs-seg button { border: none; background: none; padding: 5px 11px; border-radius: 5px; font: 600 12.5px var(--font); color: var(--muted); }
+.vs-seg button span { margin-left: 5px; font-weight: 500; color: var(--faint); }
+.vs-seg button:hover { color: var(--ink); }
+.vs-seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(21, 24, 29, 0.1); }
+.vs-seg.small { flex-wrap: nowrap; }
+.vs-seg.small button { padding: 3px 9px; font-size: 11.5px; white-space: nowrap; }
+
+/* ---------- glance ---------- */
+.vs-glance {
+    position: fixed;
+    z-index: 70;
+    width: 330px;
+    padding: 14px;
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--shadow-pop);
+}
+.vs-glance::before { content: ''; position: absolute; top: -7px; left: var(--arrow, 40px); width: 14px; height: 14px; background: var(--surface); transform: rotate(45deg); }
+.vs-g-head { display: flex; align-items: center; gap: 12px; }
+.vs-g-head .vs-x { margin-left: auto; }
+.vs-g-rec { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 2px; color: var(--muted); font-size: 12.5px; }
+.vs-g-last { display: flex; gap: 4px; margin: 10px 0 4px; }
+.vs-g-last i { flex: 1; max-width: 30px; height: 22px; display: grid; place-items: center; border-radius: 4px; background: #C9CFD6; color: #fff; font: 700 10.5px var(--font-cond); font-style: normal; }
+.vs-g-last i.won { background: var(--c-you, #E5484D); }
+.vs-g-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule-soft); }
+.vs-g-grid b { display: block; font: 700 15px var(--font-cond); }
+.vs-g-foot { display: flex; justify-content: flex-end; margin-top: 14px; }
+
+/* ---------- report ---------- */
+body.vs-open { overflow: hidden; }
+.vs-overlay { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 20px; background: rgba(21, 24, 29, 0.42); }
+.vs-report {
+    width: min(1040px, 100%);
+    max-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--surface);
+    border-radius: 14px;
+    box-shadow: var(--shadow-pop);
+}
+.vs-top { position: relative; display: grid; grid-template-columns: 1fr 1fr; flex: none; }
+.vs-top > .l, .vs-top > .r { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 12px; align-items: center; padding: 18px 24px 14px; }
+.vs-top > .l { background: linear-gradient(90deg, color-mix(in srgb, var(--p1) 9%, var(--surface)), var(--surface)); }
+.vs-top > .r { background: linear-gradient(270deg, color-mix(in srgb, var(--p2) 9%, var(--surface)), var(--surface)); grid-template-columns: 1fr auto; padding-right: 54px; }
+.vs-top > .r .vs-avatar { grid-column: 2; grid-row: 1; }
+.vs-top > .r .vs-who { grid-column: 1; grid-row: 1; align-items: flex-end; text-align: right; }
+.vs-big { grid-column: 1 / -1; margin-top: 12px; font: 700 36px/1 var(--font-cond); font-variant-numeric: tabular-nums; }
+.vs-big small { margin: 0 6px; font: 500 12px var(--font); color: var(--muted); }
+.vs-top > .r .vs-big { text-align: right; }
+.vs-badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: #fff; font: 700 13px var(--font-cond); box-shadow: 0 0 0 4px var(--surface); }
+.vs-top > .vs-x { position: absolute; top: 10px; right: 10px; }
+.vs-body { flex: 1; overflow: auto; padding-bottom: 12px; }
+.vs-bar-row { display: flex; align-items: center; gap: 10px; padding: 12px 24px 0; }
+.vs-mirror { display: grid; gap: 8px; padding: 14px 24px 2px; }
+.vs-mrow { display: grid; grid-template-columns: 54px 1fr 100px 1fr 54px; align-items: center; gap: 10px; }
+.vs-mrow .v { font: 700 14px var(--font-cond); font-variant-numeric: tabular-nums; }
+.vs-mrow .v.r { text-align: right; }
+.vs-mrow .k { text-align: center; color: var(--muted); font-size: 12px; }
+.vs-mrow .bar { display: flex; height: 8px; border-radius: 4px; background: var(--sunk); }
+.vs-mrow .bar.l { justify-content: flex-end; }
+.vs-mrow .bar i { display: block; height: 100%; border-radius: 4px; background: var(--pc); }
+.vs-empty { padding: 30px 24px; color: var(--muted); }
+
+.vs-chart { position: relative; margin: 12px 24px 0; padding: 10px 12px 10px; border: 1px solid var(--rule-soft); border-radius: 8px; }
+.vs-chart-hd { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 6px; color: var(--muted); font-size: 11.5px; }
+.vs-svg { display: block; width: 100%; height: 170px; overflow: visible; }
+.vs-svg text { font-family: var(--font-cond); }
+.vs-hit { cursor: pointer; }
+.vs-tip { position: absolute; z-index: 2; width: 270px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; box-shadow: var(--shadow-pop); pointer-events: none; font-size: 12px; }
+.vs-tip-hd { display: flex; justify-content: space-between; margin-bottom: 6px; color: var(--muted); }
+.vs-tip-hd b { color: var(--ink); }
+.vs-tip-ln { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.vs-tip-ln .vs-board { flex-wrap: nowrap; }
+.vs-tip-ln .vs-unit { --u: 22px; }
+
+/* finishes: one column per game, your place above theirs */
+.vs-fset { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 8px; align-items: start; padding: 6px 0; border-top: 1px solid var(--rule-soft); }
+.vs-fset:first-of-type { border-top: none; }
+.vs-fset-name { width: 58px; font: 700 12.5px var(--font-cond); padding-top: 3px; }
+.vs-fset-name small { display: block; font: 500 11px var(--font); color: var(--muted); }
+.vs-rows-lbl { display: grid; grid-template-rows: 20px 20px; gap: 2px; padding: 2px 0; font: 600 10.5px var(--font-cond); color: var(--muted); white-space: nowrap; }
+.vs-rows-lbl span { display: flex; align-items: center; gap: 4px; }
+.vs-rows-lbl i { width: 8px; height: 8px; border-radius: 50%; background: var(--pc); }
+.vs-cols { display: flex; flex-wrap: wrap; gap: 6px 3px; }
+.vs-gcol { display: grid; grid-template-rows: 20px 20px; gap: 2px; padding: 2px; border-radius: 5px; cursor: pointer; }
+.vs-gcol:hover { background: var(--focus-soft); box-shadow: inset 0 0 0 1px #B9D0F2; }
+.vs-t { width: 20px; display: grid; place-items: center; border-radius: 4px; font: 700 11px var(--font-cond); }
+.vs-t.p1 { background: #F7C75A; color: #5C3D00; }
+.vs-t.top { background: #BFE5CD; color: #0E5E3A; }
+.vs-t.bot { background: #E6E9ED; color: #6B7380; }
+.vs-t.won { box-shadow: inset 0 0 0 2px var(--pc); }
+
+/* the games */
+.vs-games { margin-top: 14px; border-top: 1px solid var(--rule-soft); }
+.vs-set-hd { position: sticky; top: 0; z-index: 1; margin: 0; padding: 7px 24px; background: #F7F9FB; border-bottom: 1px solid var(--rule-soft); font: 700 12.5px var(--font-cond); color: var(--ink-2); }
+.vs-set-hd span { margin-left: 8px; font: 500 11.5px var(--font); color: var(--muted); }
+.vs-game { display: grid; grid-template-columns: 96px 1fr 1fr; gap: 14px; padding: 10px 24px; border-bottom: 1px solid var(--rule-soft); }
+.vs-game.hl { box-shadow: inset 3px 0 0 var(--focus); }
+.vs-when { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: var(--muted); }
+.vs-when b { color: var(--ink-2); font-weight: 600; }
+.vs-ct { align-self: flex-start; margin-top: 4px; padding: 1px 6px; border-radius: 4px; font: 600 11px var(--font-cond); }
+/* contested share as a traffic light: little overlap, some, a lot */
+.ct-low { color: var(--open); background: var(--open-soft); }
+.ct-mid { color: var(--shared); background: var(--shared-soft); }
+.ct-high { color: var(--contest); background: var(--contest-soft); }
+.vs-g-grid b.ct-low, .vs-g-grid b.ct-mid, .vs-g-grid b.ct-high { background: none; }
+.vs-side { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 10px; align-items: center; min-width: 0; padding: 6px 10px 2px; border-radius: 8px; }
+.vs-side > .vs-ll.big { grid-row: 1 / 3; align-self: start; margin-top: 2px; }
+.vs-side > .vs-side-hd, .vs-side > .vs-board { grid-column: 2; }
+/* the side that finished higher gets its player's color, softly */
+.vs-game.you-won .vs-side.me, .vs-game.they-won .vs-side.them { background: color-mix(in srgb, var(--pc) 10%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pc) 24%, transparent); }
+.vs-side-hd { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.vs-ll { width: 22px; height: 22px; flex: none; }
+.vs-ll img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; display: block; }
+/* in the game rows the Little Legend is the player's face, ringed in their color */
+.vs-ll.big { width: 40px; height: 40px; border-radius: 50%; background: var(--sunk); box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--pc); }
+.vs-ll.big img { width: 40px; height: 40px; }
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 900px) {
+    .vs-overlay { padding: 10px; }
+    .vs-report { max-height: calc(100vh - 20px); }
+    .vs-game { grid-template-columns: 1fr; gap: 6px; }
+    .vs-when { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+    .vs-ct { margin-top: 0; }
+}
+@media (max-width: 640px) {
+    /* the glance becomes a bottom sheet */
+    .vs-glance { left: 0 !important; right: 0; bottom: 0; top: auto !important; width: auto; border-radius: 14px 14px 0 0; }
+    .vs-glance::before { display: none; }
+    .vs-overlay { padding: 0; place-items: stretch; }
+    .vs-report { max-height: 100vh; height: 100vh; border-radius: 0; }
+    .vs-top > .l, .vs-top > .r { padding: 14px 12px 10px; column-gap: 8px; }
+    .vs-top > .r { padding-right: 40px; }
+    .vs-avatar { --s: 34px !important; }
+    .vs-big { font-size: 28px; }
+    .vs-bar-row, .vs-mirror { padding-left: 12px; padding-right: 12px; }
+    .vs-mrow { grid-template-columns: 44px 1fr 74px 1fr 44px; gap: 6px; }
+    .vs-chart { margin: 12px 12px 0; }
+    .vs-game, .vs-set-hd { padding-left: 12px; padding-right: 12px; }
+    .vs-unit { --u: 23px; }
+    .vs-ll.big, .vs-ll.big img { width: 32px; height: 32px; }
+    .vs-tip { display: none; }
+    /* the names need the room; the colored halves already say who is who */
+    .vs-badge { display: none; }
+    /* finishes stay on two lines (you / them) and scroll sideways, opening on the newest */
+    .vs-cols { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+    .vs-fset-name { width: auto; }
+}
+
+/* ---------- a game's whole lobby, expanded under its row ---------- */
+.vs-game { cursor: pointer; }
+.vs-game:hover { background: var(--focus-soft, #F3F7FD); }
+.vs-game[aria-expanded="true"] { border-bottom-color: transparent; }
+.vs-lobby { display: grid; gap: 4px; padding: 4px 24px 14px 134px; border-bottom: 1px solid var(--rule-soft); background: var(--sunk); }
+.vs-lobby .vs-loading { padding: 10px 0; }
+.vs-lp { display: grid; grid-template-columns: 38px 26px 150px 1fr; align-items: center; gap: 8px; padding: 4px 8px; border-radius: 7px; }
+.vs-lp.you, .vs-lp.them { background: color-mix(in srgb, var(--pc) 10%, var(--surface)); box-shadow: inset 3px 0 0 var(--pc); }
+.vs-lp-name { display: flex; flex-direction: column; min-width: 0; font: 600 12.5px var(--font); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vs-lp-name i { color: var(--muted); font-weight: 500; }
+.vs-lp-name small { font-size: 10.5px; font-weight: 500; color: var(--muted); }
+.vs-lobby-note { padding: 4px 8px 0; }
+@media (max-width: 900px) {
+    .vs-lobby { padding-left: 24px; }
+}
+@media (max-width: 640px) {
+    .vs-lobby { padding: 4px 8px 12px; }
+    .vs-lp { grid-template-columns: 34px 24px 1fr; }
+    .vs-lp .vs-board { grid-column: 1 / -1; }
+}

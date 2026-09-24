@@ -34,17 +34,25 @@
 .mini-rank-text { font-size: 0.8em; opacity: 0.85; position: absolute; bottom: 0; right: 0; }
 .mini-rank-lp-text { font-size: 0.8em; opacity: 0.6; margin-left: 5px; }
 
+/* CommunityDragon's Diamond mini crest is purple and reads as Master's at this size; Riot's Diamond is blue */
+img[src*="ranked-mini-crests/diamond"] { filter: hue-rotate(-30deg); }
+
 /* ---------- duel button ---------- */
 .duel-button {
-    background: transparent;
+    display: inline-flex; align-items: center; gap: 3px;
+    height: 20px; padding: 0 6px;
+    border: 1px solid var(--rule); border-radius: 5px;
+    background: var(--surface); color: var(--ink-2);
+    font: 600 11px var(--font-cond); font-variant-numeric: tabular-nums; line-height: 1;
     cursor: pointer;
-    padding: 2px 4px;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    line-height: 1;
 }
-.duel-button:disabled { cursor: default; }
-.duel-button:not(:disabled):hover { background: var(--sunk); border-color: var(--rule); }
+.duel-button svg { width: 12px; height: 12px; flex: none; }
+.duel-button:not(:disabled):hover { border-color: var(--ink-2); color: var(--ink); background: var(--sunk); }
+.duel-button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+/* never played together: nothing to open */
+.duel-button.is-new { border-style: dashed; color: var(--faint); background: transparent; cursor: default; }
+/* the check failed */
+.duel-button.is-error { border-color: transparent; background: transparent; color: var(--contest); cursor: help; padding: 0 3px; }
 
 /* ---------- duel modal: player cards and rank history ---------- */
 .player-data-container {
@@ -97,7 +105,6 @@
     .match-player-placement { width: 22px; height: 22px; font-size: 11px; }
 }
 @media (max-width: 768px) {
-    #popupOverlay { display: none !important; }
     .rank-icon-data-container, .titleStatDiv { display: none !important; }
     .rank-data-container { flex-direction: column; align-items: center; justify-content: center; }
 }

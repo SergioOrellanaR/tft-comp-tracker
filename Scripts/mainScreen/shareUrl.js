@@ -4,6 +4,7 @@ import { createPlayerDiv, getDefaultNames, enableDragAndDrop, playersContainer, 
 
 import { renderLinks, links } from './matrix.js';
 import { getPlayerItems, setPlayerItems, refreshPlayerItems } from './playerItems.js';
+import { getSourceId } from './compSource.js';
 
 export function copyShareUrlToClipboard() {
     const shareUrl = getShareUrl();
@@ -89,15 +90,17 @@ export function linkPlayersToCompsFromQuery() {
     for (let i = 1; i <= 8; i++) {
         const key = `Player${i}Comps`;
         if (params[key]) {
-            const compIndexes = params[key].split(',').map(s => parseInt(s.trim(), 10)).filter(n => !isNaN(n));
-            compIndexes.forEach(idx => {
+            // "3*" is a main comp, "3" a pivot
+            const entries = params[key].split(',').map(s => s.trim()).filter(s => !isNaN(parseInt(s, 10)));
+            entries.forEach(entry => {
+                const idx = parseInt(entry, 10);
                 // Find comp element by data-id (compo-INDEX)
                 const compEl = document.querySelector(`.item.compo[data-id="compo-${idx}"]`);
                 const playerEl = playerDivs[i - 1];
                 if (compEl && playerEl) {
                     // Avoid duplicate links
                     if (!links.some(l => l.compo === compEl && l.player === playerEl)) {
-                        links.push({ compo: compEl, player: playerEl });
+                        links.push({ compo: compEl, player: playerEl, pivot: !entry.endsWith('*') });
                     }
                 }
             });
@@ -121,6 +124,9 @@ function getShareUrl() {
     if (setSelector && setSelector.value) {
         url.searchParams.set('set', setSelector.value);
     }
+    // Comp indexes belong to a source, and each viewer may have a different one remembered: always carry it
+    const source = getSourceId();
+    if (source) url.searchParams.set('source', source);
     // Players
     const playerDivs = Array.from(document.querySelectorAll('.item.player'));
     // Get default names for current mode
@@ -145,7 +151,7 @@ function getShareUrl() {
                 // Get comp index from data-id="compo-X"
                 const id = l.compo?.dataset?.id;
                 if (id && id.startsWith('compo-')) {
-                    return parseInt(id.replace('compo-', ''), 10);
+                    return `${parseInt(id.replace('compo-', ''), 10)}${l.pivot ? '' : '*'}`;
                 }
                 return null;
             })
@@ -160,7 +166,7 @@ function getShareUrl() {
 }
 
 // Notification helper
-function showNotification(message, duration = CONFIG.notificationDuration) {
+export function showNotification(message, duration = CONFIG.notificationDuration) {
     let notification = document.getElementById('copilot-notification');
     if (!notification) {
         notification = document.createElement('div');

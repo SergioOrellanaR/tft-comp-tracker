@@ -4,7 +4,9 @@ import { unitImageMap, unitCostMap } from './dataLoader.js';
 import { applyCompVisibility } from './compSearchBar.js';
 
 // { compo: comp row element, player: player column element, pivot: boolean }
-// A player on one comp plays it as their main one; on several, every one of them is a pivot.
+// pivot false = "Confirmed" (the player plays it), true = "Possible" (the player may play it).
+// Click: link as confirmed, or unlink. A player on 2+ comps has them all as possible.
+// Right-click: confirmed ⇄ possible; confirming drops the player's other comps.
 export const links = [];
 
 const compsContainer = document.getElementById('compos');
@@ -12,20 +14,41 @@ const contestedCard = document.getElementById('contestedCard');
 const contestedBars = document.getElementById('contestedBars');
 
 export const playerColumns = () => [...document.querySelectorAll('#players .item.player')];
-const unitNames = compo => [...compo.querySelectorAll('.unit-icons .unit-icon-wrapper > img')].map(img => img.alt);
+// Only carries count for contested (not tanks with items, nor the rest of the board)
+const unitNames = compo => [...compo.querySelectorAll('.unit-icons .unit-icon-wrapper[data-carry] > img')].map(img => img.alt);
 
 export function toggleLink(player, compo) {
     const i = links.findIndex(l => l.player === player && l.compo === compo);
-    if (i >= 0) links.splice(i, 1);
-    else links.push({ compo, player });
+    if (i >= 0) {
+        links.splice(i, 1);
+    } else {
+        const others = links.filter(l => l.player === player);
+        others.forEach(l => { l.pivot = true; });
+        links.push({ compo, player, pivot: others.length > 0 });
+    }
+    renderLinks();
+}
+
+// Right-click: switch a link between confirmed and possible (an unlinked cell becomes possible)
+export function toggleLinkCertainty(player, compo) {
+    const link = links.find(l => l.player === player && l.compo === compo);
+    if (!link) {
+        links.push({ compo, player, pivot: true });
+    } else if (link.pivot) {
+        // confirmed: the player's other possible comps go
+        for (let k = links.length - 1; k >= 0; k--) {
+            if (links[k].player === player && links[k] !== link) links.splice(k, 1);
+        }
+        link.pivot = false;
+    } else {
+        link.pivot = true;
+    }
     renderLinks();
 }
 
 export function renderLinks() {
     const players = playerColumns();
-    const perPlayer = new Map();
-    links.forEach(l => perPlayer.set(l.player, (perPlayer.get(l.player) || 0) + 1));
-    links.forEach(l => { l.pivot = perPlayer.get(l.player) > 1; });
+    links.forEach(l => { l.pivot = l.pivot !== false; });
     const byCompo = new Map();
     links.forEach(l => {
         if (!byCompo.has(l.compo)) byCompo.set(l.compo, []);
@@ -50,12 +73,14 @@ export function renderLinks() {
             cell.classList.toggle('pivot', !!link?.pivot);
             cell.style.setProperty('--pc', player?.dataset.color || 'transparent');
             cell.setAttribute('aria-pressed', String(!!link));
-            cell.title = link ? (link.pivot ? 'Pivot' : 'Main comp') : '';
+            cell.title = link
+                ? (link.pivot ? 'Possible · right-click to confirm, click to clear' : 'Confirmed · right-click for possible, click to clear')
+                : 'Click: confirmed · right-click: possible';
         });
 
         // a carry is taken when a player who isn't on this comp plays it elsewhere
         let taken = 0;
-        compo.querySelectorAll('.unit-icons .unit-icon-wrapper').forEach(wrapper => {
+        compo.querySelectorAll('.unit-icons .unit-icon-wrapper[data-carry]').forEach(wrapper => {
             const others = [...(champPlayers.get(wrapper.querySelector('img').alt) || [])].filter(p => !onComp.has(p));
             wrapper.classList.toggle('hot', others.length > 0);
             if (others.length) taken++;
@@ -117,6 +142,12 @@ function cellTarget(e) {
 compsContainer.addEventListener('click', e => {
     const t = cellTarget(e);
     if (t) toggleLink(t.player, t.compo);
+});
+compsContainer.addEventListener('contextmenu', e => {
+    const t = cellTarget(e);
+    if (!t) return;
+    e.preventDefault();
+    toggleLinkCertainty(t.player, t.compo);
 });
 
 // Crosshair: hovering a cell lights up its player column

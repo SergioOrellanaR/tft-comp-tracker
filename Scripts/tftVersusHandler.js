@@ -7,17 +7,17 @@ import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL, TRAIT_BACKGROUND_
  */
 async function fetchFromTFTVersusAPI(endpoint) {
     try {
-        const response = await fetch(endpoint, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-        });
+        // A plain GET (no Content-Type header) skips the CORS preflight: one round trip less per call
+        const response = await fetch(endpoint);
 
         if (!response.ok) {
-            // Error bodies aren't always JSON (e.g. an HTML 502 while the Render backend wakes up)
+            // Error bodies aren't always JSON (e.g. an HTML 502 from the proxy while the backend restarts)
             const data = await response.json().catch(() => ({ detail: `Server error (${response.status})` }));
             // Surface the real HTTP status alongside the error body (e.g. { detail: "..." })
-            // so callers can distinguish "not found" from "rate limited", etc.
-            return { ...data, status: response.status };
+            // so callers can distinguish "not found" from "rate limited", etc.; on a 429, how many
+            // seconds Riot asked to wait (the backend already retried what it could)
+            const retryAfter = Number(response.headers.get('Retry-After')) || null;
+            return { ...data, status: response.status, retryAfter };
         }
 
         return await response.json();
@@ -50,6 +50,14 @@ export async function fetchFindGames(playerName, opponentName, server) {
     }
 
     const url = `${TFT_VERSUS_API_URL.findGames}/${name}/${tag}/${opponent}/${opponentTag}/${server}`;
+    return await fetchFromTFTVersusAPI(url);
+}
+
+// Everything the versus report shows: every common game (all sets), ranks at the time, seasons
+export async function fetchVersus(playerName, opponentName, server) {
+    const [name, tag] = playerName.split('#');
+    const [opponent, opponentTag] = opponentName.split('#');
+    const url = `${TFT_VERSUS_API_URL.versus}/${encodeURIComponent(name)}/${encodeURIComponent(tag)}/${encodeURIComponent(opponent)}/${encodeURIComponent(opponentTag)}/${server}`;
     return await fetchFromTFTVersusAPI(url);
 }
 
@@ -93,7 +101,7 @@ export async function fetchCommonMatches(playerName, opponentName, server, pageN
 
 // Función para llamar a /match
 // http://127.0.0.1:5000/api/match/NA1_5268688884
-async function fetchSpecificMatch(matchId) {
+export async function fetchSpecificMatch(matchId) {
     const url = `${TFT_VERSUS_API_URL.specificMatch}/${matchId}`;
     return await fetchFromTFTVersusAPI(url);
 }

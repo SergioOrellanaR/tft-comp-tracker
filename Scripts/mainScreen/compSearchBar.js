@@ -22,7 +22,8 @@ export function addCompFilter(name) {
     selectOption(name, { focus: false });
 }
 
-// Which comp rows are shown. Linked comps always stay visible.
+// Which comp rows are shown. Linked comps stay visible, except under Uncontested: only open comps
+// (nobody on them and none of their carries taken) are left there.
 export function applyCompVisibility() {
     const text = selectedFilters.length ? '' : compSearchInput.value.trim().toLowerCase();
     document.querySelectorAll('#compos .item.compo').forEach(compEl => {
@@ -31,7 +32,8 @@ export function applyCompVisibility() {
         const tagMatch = !selectedFilters.length || selectedFilters.some(f => tags.includes(f));
         const textMatch = !text || compEl.querySelector('.comp-name')?.textContent.toLowerCase().includes(text);
         const viewMatch = viewFilter === 'all' || (viewFilter === 'open' && compEl.dataset.state === 'open');
-        compEl.hidden = !(isLinked || (tagMatch && textMatch && viewMatch && viewFilter !== 'linked'));
+        const pinned = isLinked && viewFilter !== 'open';
+        compEl.hidden = !(pinned || (tagMatch && textMatch && viewMatch && viewFilter !== 'linked'));
     });
     updateTierHeadersVisibility();
 }

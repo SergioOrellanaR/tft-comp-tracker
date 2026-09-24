@@ -15,8 +15,9 @@ const ROLE_ORDER = {
 };
 const CAT_LABEL = { AD: 'Attack damage', AP: 'Ability power', Tank: 'Tank' };
 // Fits any unit, so it says nothing about who hands items to whom
-const GENERIC_ITEMS = new Set(['DA_ThiefsGloves']);
-const TEAM_SIZE_ITEMS = new Set(['DA_TacticiansCrown', 'DA_TacticiansCape', 'DA_TacticiansShield']);
+// Matched by the end of the apiName: the prefix changes every set (DA_, TFT_Item_...)
+const GENERIC_ITEMS = /ThiefsGloves$/;
+const TEAM_SIZE_ITEMS = /(TacticiansCrown|TacticiansCape|TacticiansShield)$/;
 // Core (built in ~3/4 of full builds) ranks above S; all three are "ideal" items
 const TIERS = ['core', 'S', 'A'];
 const TIER_LABEL = { core: 'Core', S: 'S', A: 'A' };
@@ -98,7 +99,7 @@ function buildData(set) {
     });
 
     // component pair → completed item. Team-size items don't count, so Spatula and Frying Pan get no button.
-    const buildable = (set.recipes || []).filter(r => !TEAM_SIZE_ITEMS.has(r.apiName));
+    const buildable = (set.recipes || []).filter(r => !TEAM_SIZE_ITEMS.test(r.apiName));
     const recipes = new Map(buildable.map(r => [[...r.from].sort().join('|'), r.apiName]));
     const components = (set.components || []).map(c => c.apiName)
         .filter(c => buildable.some(r => r.from.includes(c)));
@@ -254,7 +255,7 @@ function saMap(key) {
 function bestItems(key, size = 3) {
     const t = champTiers(key);
     if (!t) return [];
-    return ranked(t).map(r => r[0]).filter(it => !GENERIC_ITEMS.has(it)).slice(0, size);
+    return ranked(t).map(r => r[0]).filter(it => !GENERIC_ITEMS.test(it)).slice(0, size);
 }
 
 const variantTag = variant => variant ? ` <span class="tv-variant-tag ${variant}">${variant}</span>` : '';
@@ -345,7 +346,7 @@ function buildRoleRow(role, entries) {
 function itemOwners() {
     const map = new Map();
     DATA.champions.forEach(c => ranked(c.tiers).forEach(([it]) => {
-        if (DATA.tankItems.has(it) || GENERIC_ITEMS.has(it)) return;
+        if (DATA.tankItems.has(it) || GENERIC_ITEMS.test(it)) return;
         map.set(it, (map.get(it) || 0) + 1);
     }));
     return map;
