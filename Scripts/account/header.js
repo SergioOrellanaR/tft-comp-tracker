@@ -1,7 +1,7 @@
 // The account button in the app header: "Sign in" when signed out; avatar, username and plan when signed in,
 // with a small menu (account, Riot ID, sign out). Also finishes Google/Riot sign-ins that come back to the page.
 import { authCall, getUser, setUser, refreshUser, avatarHtml, escapeHtml as esc } from './session.js';
-import { openAccountDialog } from './dialog.js';
+import { openAccountDialog, isAccountDialogOpen } from './dialog.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
 
 const slot = document.getElementById('accountSlot');
@@ -75,7 +75,11 @@ function closeMenu() {
 const outside = e => { if (menu && !menu.contains(e.target)) closeMenu(); };
 const escape = e => { if (e.key === 'Escape') { closeMenu(); slot?.querySelector('.acct-chip')?.focus(); } };
 
-document.addEventListener('tft:userchange', e => render(e.detail));
+document.addEventListener('tft:userchange', e => {
+    render(e.detail);
+    // an account without a verified Riot ID is asked for it (the dialog walks through it once it's open)
+    if (e.detail?.needs_riot_link && !isAccountDialogOpen()) openAccountDialog('riot');
+});
 window.addEventListener('resize', closeMenu);
 
 // Coming back from Google / Riot: say what went wrong, if anything, and tidy the address bar

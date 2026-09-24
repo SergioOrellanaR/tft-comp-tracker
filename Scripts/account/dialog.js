@@ -1,5 +1,7 @@
 // The account dialog: sign in, create an account, confirm the email with a code, reset a forgotten password,
 // and (signed in) the account settings with the Riot ID link. Classes prefixed acct-.
+// Every account must link a Riot ID it owns: until it does (user.needs_riot_link) the dialog can't be closed,
+// only left by signing out, and it opens on the Riot ID step.
 import { CDRAGON_URL, CONFIG } from '../config.js';
 import { authCall, authConfig, getUser, setUser, avatarHtml, escapeHtml as esc } from './session.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
@@ -33,8 +35,13 @@ export async function openAccountDialog(which = 'signin') {
     await go(which);
 }
 
+export const isAccountDialogOpen = () => !!overlay;
+
+// Signed in without a verified Riot ID: the dialog stays until it's linked (or the user signs out)
+const mustLinkRiot = () => !!getUser()?.needs_riot_link;
+
 export function closeAccountDialog() {
-    if (!overlay) return;
+    if (!overlay || mustLinkRiot()) return;
     dropTurnstile();
     overlay.remove();
     overlay = box = null;
@@ -50,8 +57,8 @@ async function go(next) {
     const cfg = await authConfig();
     if (!box) return;
     const render = VIEWS[view] || VIEWS.signin;
-    box.innerHTML = `<button type="button" class="acct-x" aria-label="Close">×</button>${render(cfg)}`;
-    box.querySelector('.acct-x').onclick = closeAccountDialog;
+    box.innerHTML = `${mustLinkRiot() ? '' : '<button type="button" class="acct-x" aria-label="Close">×</button>'}${render(cfg)}`;
+    box.querySelector('.acct-x')?.addEventListener('click', closeAccountDialog);
     WIRE[view]?.(cfg);
     const slot = box.querySelector('.acct-turnstile');
     if (slot && cfg.turnstile_site_key) mountTurnstile(slot, cfg.turnstile_site_key);
@@ -136,8 +143,16 @@ function wireProviders() {
 
 function signedIn(user, message) {
     setUser(user);
-    closeAccountDialog();
     showNotification(message || `Signed in as ${user.username}`);
+    if (user.needs_riot_link) go('riot');
+    else closeAccountDialog();
+}
+
+async function signOut() {
+    try { await authCall('/logout', { method: 'POST' }); } catch { /* signed out locally anyway */ }
+    setUser(null);
+    closeAccountDialog();
+    showNotification('Signed out');
 }
 
 // ---------- Cloudflare Turnstile (bot check) ----------
@@ -179,7 +194,7 @@ const VIEWS = {
         </form>
         <p class="acct-switch">New here? <a href="#" data-go="signup">Create an account</a></p>${legal}`,
 
-    signup: cfg => `${header('Create your account', 'Free. Link your Riot account whenever you want.')}
+    signup: cfg => `${header('Create your account', 'Free. Next, you\'ll link the Riot account you play with.')}
         ${providers(cfg)}
         <div class="acct-or"><span>or with email</span></div>
         <form class="acct-form" novalidate>
@@ -292,25 +307,35 @@ const VIEWS = {
         if (c) {
             return `${header('Change your profile icon', `To prove <b>${esc(c.riot_id)}</b> is yours, switch its profile icon to this one:`)}
             <div class="acct-challenge"><img src="${CDRAGON_URL.profileIcons}/${c.icon_id}.jpg" alt="Profile icon ${c.icon_id}" width="96" height="96"></div>
-            <ol class="acct-steps"><li>In the League of Legends client, open your profile and click your icon.</li>
+            <ol class="acct-steps"><li>In the League of Legends client or TFT mobile, open your profile and tap your icon.</li>
                 <li>Pick this icon (it's one of the free default ones) and save.</li>
                 <li>Come back and press <b>Verify</b>. You can switch back afterwards.</li></ol>
             <form class="acct-form" novalidate>${errorBox}
                 <button type="submit" class="btn-primary acct-submit">Verify</button></form>
-            <p class="acct-switch"><a href="#" data-act="riot-restart">Use another Riot ID</a> · <a href="#" data-go="settings">Back to your account</a></p>`;
+            <p class="acct-switch"><a href="#" data-act="riot-restart">Use another Riot ID</a> · ${riotExit()}</p>`;
         }
         const u = getUser();
         const current = document.getElementById('serverSelector')?.value;
-        return `${header('Link your Riot ID', 'We\'ll ask you to change your profile icon for a moment, to check the account is yours.')}
+        const sub = u?.needs_riot_link
+            ? 'Every TrackerTFT account belongs to the Riot account you play with. We\'ll ask you to change your profile icon for a moment, to check it\'s yours.'
+            : 'We\'ll ask you to change your profile icon for a moment, to check the account is yours.';
+        return `${header('Link your Riot ID', sub)}
         <form class="acct-form" novalidate>
             ${field('Riot ID', `<input name="riot_id" placeholder="Name#TAG" required autofocus autocomplete="off" spellcheck="false" value="${esc(u?.riot && !u.riot.verified ? u.riot.riot_id : '')}">`)}
             ${field('Region', `<select name="server">${Object.keys(CONFIG.serverRegionMap).map(r => `<option ${r === current ? 'selected' : ''}>${r}</option>`).join('')}</select>`)}
             ${errorBox}
             <button type="submit" class="btn-primary acct-submit">Continue</button>
         </form>
-        <p class="acct-switch"><a href="#" data-go="settings">Back to your account</a></p>`;
+        <p class="acct-switch">${riotExit()}</p>`;
     },
 };
+
+// Leaving the Riot ID step: back to the account, or (while the link is required) sign out
+function riotExit() {
+    return mustLinkRiot()
+        ? '<a href="#" data-go="settings">Account settings</a> · <a href="#" data-act="signout">Sign out</a>'
+        : '<a href="#" data-go="settings">Back to your account</a>';
+}
 
 // ---------- behaviour ----------
 const WIRE = {
@@ -381,7 +406,7 @@ const WIRE = {
             const b = box.querySelector(`[data-act=${name}]`);
             if (b) b.onclick = async () => { b.disabled = true; try { await fn(); } catch (err) { showNotification(err.message); b.disabled = false; } };
         };
-        act('unlink-riot', async () => { setUser((await authCall('/riot-link', { method: 'DELETE' })).user); go('settings'); });
+        act('unlink-riot', async () => { setUser((await authCall('/riot-link', { method: 'DELETE' })).user); go('riot'); });
         act('drop-google', async () => { setUser((await authCall('/identity/google', { method: 'DELETE' })).user); go('settings'); });
         act('drop-riot', async () => { setUser((await authCall('/identity/riot', { method: 'DELETE' })).user); go('settings'); });
         act('logout-all', async () => { await authCall('/logout-all', { method: 'POST' }); setUser(null); closeAccountDialog(); showNotification('Signed out of every device'); });
@@ -399,6 +424,8 @@ const WIRE = {
         wireProviders();
         const restart = box.querySelector('[data-act=riot-restart]');
         if (restart) restart.onclick = e => { e.preventDefault(); state.riot = null; go('riot'); };
+        const out = box.querySelector('[data-act=signout]');
+        if (out) out.onclick = e => { e.preventDefault(); state.riot = null; signOut(); };
         onSubmit(box.querySelector('form'), async data => {
             if (!state.riot) {
                 const res = await authCall('/riot-link/start', { method: 'POST', body: { riot_id: data.riot_id, server: data.server } });
@@ -410,7 +437,7 @@ const WIRE = {
             state.riot = null;
             setUser(res.user);
             showNotification(`${res.user.riot.riot_id} is linked to your account`);
-            go('settings');
+            closeAccountDialog();
         });
     },
 };
