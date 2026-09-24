@@ -1,6 +1,6 @@
 // Local development: the backend serves the site itself on :5000 (FRONTEND_DIR), so it's the API too
 const LOCAL_BACKEND = location.port === '5000' && ['localhost', '127.0.0.1'].includes(location.hostname);
-const TFT_VERSUS_API_BASE_URL = LOCAL_BACKEND ? '/api' : 'https://140-238-151-155.sslip.io/api';
+const TFT_VERSUS_API_BASE_URL = LOCAL_BACKEND ? '/api' : 'https://api.trackertft.com/api';
 // Accounts are always same-origin (Netlify proxies /api/auth/* to the backend, see netlify.toml), so the
 // session cookie is first-party
 export const AUTH_API_URL = '/api/auth';
