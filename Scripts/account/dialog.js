@@ -175,7 +175,7 @@ const VIEWS = {
             ${field('Password', passwordInput('password', 'current-password'))}
             <a href="#" class="acct-link acct-forgot" data-go="forgot">Forgot password?</a>
             ${honeypot}<div class="acct-turnstile"></div>${errorBox}
-            <button type="submit" class="btn-primary acct-submit" ${cfg.email ? '' : 'disabled title="Email sign-in is coming soon"'}>Sign in</button>
+            <button type="submit" class="btn-primary acct-submit">Sign in</button>
         </form>
         <p class="acct-switch">New here? <a href="#" data-go="signup">Create an account</a></p>${legal}`,
 
