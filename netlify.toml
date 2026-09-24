@@ -1,3 +1,10 @@
+# The netlify.app address sends visitors to the domain (sign-in only accepts requests from trackertft.com)
+[[redirects]]
+  from = "https://tft-comp-tracker.netlify.app/*"
+  to = "https://trackertft.com/:splat"
+  status = 301
+  force = true
+
 # Accounts: /api/auth/* is served by the TFT Versus backend through this site, so its session cookie is
 # first-party (no third-party cookies involved). The rest of the API is called on the backend directly.
 [[redirects]]
