@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const input = document.getElementById('playerNameInput');
-    // The live game lookup is VIP-only (the backend enforces it); everyone else fills the lobby by hand
+    // Only accounts with the live_game feature see the search (the backend enforces it too)
     const search = document.querySelector('.player-search');
     document.addEventListener('tft:userchange', () => { search.hidden = !hasFeature('live_game'); });
     document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
