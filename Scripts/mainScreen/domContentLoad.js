@@ -2,6 +2,7 @@ import { CONFIG } from '../config.js';
 import { preloadPlayers, resetPlayers, toggleDoubleUpMode } from './players.js';
 import { copyShareUrlToClipboard } from './shareUrl.js';
 import { searchPlayer } from './searchCurrentGame.js';
+import { hasFeature } from '../account/session.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('copyShareUrlButton')?.addEventListener('click', copyShareUrlToClipboard);
@@ -24,6 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const input = document.getElementById('playerNameInput');
+    // The live game lookup is VIP-only (the backend enforces it); everyone else fills the lobby by hand
+    const search = document.querySelector('.player-search');
+    document.addEventListener('tft:userchange', () => { search.hidden = !hasFeature('live_game'); });
     document.getElementById('searchPlayerButton').addEventListener('click', searchPlayer);
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -36,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // "/" jumps to the player search from anywhere
     document.addEventListener('keydown', e => {
         if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
-        if (e.target.closest('input, textarea, select, [contenteditable]')) return;
+        if (search.hidden || e.target.closest('input, textarea, select, [contenteditable]')) return;
         e.preventDefault();
         input.focus();
         input.select();

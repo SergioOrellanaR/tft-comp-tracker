@@ -1,14 +1,16 @@
 import { TFT_VERSUS_API_URL, CDRAGON_URL, THIRD_PARTY_IMG_URL, TRAIT_BACKGROUND_URL } from './config.js';
+import { authHeaders } from './account/session.js';
 
 /**
  * Función genérica para realizar solicitudes a la API de TFT Versus.
  * @param {string} endpoint - La URL del endpoint.
  * @returns {Promise<object>} - Los datos de la respuesta en formato JSON.
  */
-async function fetchFromTFTVersusAPI(endpoint) {
+async function fetchFromTFTVersusAPI(endpoint, headers = {}) {
     try {
         // A plain GET (no Content-Type header) skips the CORS preflight: one round trip less per call
-        const response = await fetch(endpoint);
+        // (routes behind a plan add the Authorization header, and with it a preflight)
+        const response = await fetch(endpoint, { headers });
 
         if (!response.ok) {
             // Error bodies aren't always JSON (e.g. an HTML 502 from the proxy while the backend restarts)
@@ -83,7 +85,7 @@ export async function fetchLiveGame(playerName, server) {
     }
 
     const url = `${TFT_VERSUS_API_URL.liveGame}/${name}/${tag}/${server}`;
-    return await fetchFromTFTVersusAPI(url);
+    return await fetchFromTFTVersusAPI(url, await authHeaders());
 }
 
 // Función para llamar a /common_matches
