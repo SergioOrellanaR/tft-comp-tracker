@@ -5,6 +5,7 @@ import { openGlance } from './versus.js';
 import { fetchPlayerSummary, fetchLiveGame, fetchFindGames, getMiniRankIconUrl } from '../tftVersusHandler.js';
 import { duelsCache, resetPlayers, toggleDoubleUpMode, setPlayerAvatar } from './players.js';
 import { showNotification } from './shareUrl.js';
+import { getUser } from '../account/session.js';
 
 // Riot rate limits (429): the backend retries short waits itself; longer ones come back with the wait,
 // and these retry by themselves while telling the user, without blocking anything else
@@ -18,7 +19,37 @@ const DUEL_TIMEOUT_MS = 60000;
 // Incremented on every search so duel-button loops from a previous search stop touching the UI
 let searchGeneration = 0;
 
+// Searches are spaced out except for VIP accounts (the backend enforces the same wait);
+// the button counts down in place of its icon
+const SEARCH_COOLDOWN_MS = 30000;
+let nextSearchAt = 0;
+let cooldownTimer = null;
+const searchIcon = document.getElementById('searchPlayerButton')?.innerHTML;
+const isVip = () => getUser()?.plan === 'vip';
+const cooldownLeft = () => (isVip() ? 0 : Math.max(0, Math.ceil((nextSearchAt - Date.now()) / 1000)));
+
+function tickCooldown() {
+    clearTimeout(cooldownTimer);
+    const button = document.getElementById('searchPlayerButton');
+    if (!button) return;
+    const left = cooldownLeft();
+    button.classList.toggle('cooling', left > 0);
+    if (left > 0) {
+        button.textContent = `${left}s`;
+        button.title = `You can search again in ${left}s`;
+        cooldownTimer = setTimeout(tickCooldown, 1000);
+    } else {
+        button.innerHTML = searchIcon;
+        button.removeAttribute('title');
+    }
+}
+
 export const searchPlayer = async () => {
+    const wait = cooldownLeft();
+    if (wait > 0) {
+        showMessage(`You can search again in ${wait}s.`);
+        return;
+    }
     const generation = ++searchGeneration;
     resetPlayers();
     // Remove any existing container
@@ -57,6 +88,8 @@ export const searchPlayer = async () => {
     messageContainer.appendChild(spinner);
     const searchButton = document.getElementById('searchPlayerButton');
     searchButton.disabled = true;
+    nextSearchAt = Date.now() + SEARCH_COOLDOWN_MS;
+    tickCooldown();
     try {
         // The lobby comes first: the live game and the player's card load side by side
         const summaryPromise = withRateLimitRetry(() => fetchPlayerSummary(riotId, server), generation, spinner);

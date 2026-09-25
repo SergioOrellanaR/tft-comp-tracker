@@ -131,7 +131,8 @@ function getShareUrl() {
     const playerDivs = Array.from(document.querySelectorAll('.item.player'));
     // Get default names for current mode
     const isDoubleUpMode = document.body.classList.contains('double-up');
-    const defaultNames = getDefaultNames(isDoubleUpMode);
+    // against the plain defaults: your own Riot ID in the first column is written, so others see whose lobby it is
+    const defaultNames = getDefaultNames(isDoubleUpMode, false);
     playerDivs.forEach((player, idx) => {
         let name = player.querySelector('.player-name')?.textContent || '';
         // Remove trailing ' (YOU)' if present

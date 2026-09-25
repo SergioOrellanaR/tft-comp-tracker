@@ -183,8 +183,6 @@ function dropTurnstile() { if (turnstile) { try { window.turnstile?.remove(turns
 // ---------- views ----------
 const VIEWS = {
     signin: cfg => `${header('Sign in to TrackerTFT', 'Your lobbies, your rivals and your Riot account in one place.')}
-        ${providers(cfg)}
-        <div class="acct-or"><span>or with email</span></div>
         <form class="acct-form" novalidate>
             ${field('Email', `<input name="email" type="email" autocomplete="email" required autofocus value="${esc(state.email)}">`)}
             ${field('Password', passwordInput('password', 'current-password'))}
@@ -192,11 +190,11 @@ const VIEWS = {
             ${honeypot}<div class="acct-turnstile"></div>${errorBox}
             <button type="submit" class="btn-primary acct-submit">Sign in</button>
         </form>
+        <div class="acct-or"><span>or</span></div>
+        ${providers(cfg)}
         <p class="acct-switch">New here? <a href="#" data-go="signup">Create an account</a></p>${legal}`,
 
     signup: cfg => `${header('Create your account', 'Free. Next, you\'ll link the Riot account you play with.')}
-        ${providers(cfg)}
-        <div class="acct-or"><span>or with email</span></div>
         <form class="acct-form" novalidate>
             ${field('Username', `<input name="username" autocomplete="username" required minlength="3" maxlength="20" autofocus>`, '3 to 20 characters. Shown on your account.')}
             ${field('Email', `<input name="email" type="email" autocomplete="email" required value="${esc(state.email)}">`)}
@@ -205,6 +203,8 @@ const VIEWS = {
             ${honeypot}<div class="acct-turnstile"></div>${errorBox}
             <button type="submit" class="btn-primary acct-submit" ${cfg.email ? '' : 'disabled title="Email sign-up is coming soon"'}>Create account</button>
         </form>
+        <div class="acct-or"><span>or</span></div>
+        ${providers(cfg)}
         <p class="acct-switch">Already have an account? <a href="#" data-go="signin">Sign in</a></p>`,
 
     verify: () => `${header('Check your inbox', `We sent a 6-digit code to <b>${esc(state.email)}</b>. It expires in 15 minutes.`)}

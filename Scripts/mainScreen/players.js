@@ -2,6 +2,7 @@ import { CONFIG, CDRAGON_URL } from '../config.js';
 import { throttle } from '../utils.js';
 import { renderLinks, links } from './matrix.js';
 import { resetCompFilters } from './compSearchBar.js';
+import { getUser } from '../account/session.js';
 
 export let duelsCache = new Map();
 
@@ -34,7 +35,26 @@ export function createPlayerDiv(name, index, isDoubleUp) {
     itemBox.innerHTML = '<span class="slot"></span>'.repeat(6);
 
     div.append(actionContainer, avatar, span, itemBox);
+    if (!isDoubleUp && index === 0 && name === ownRiotId()) setPlayerAvatar(div, getUser().riot.profile_icon_id);
     return div;
+}
+
+// The signed-in user's verified Riot ID: the first column's default name instead of "YOU"
+export function ownRiotId() {
+    const riot = getUser()?.riot;
+    return riot?.verified ? riot.riot_id : null;
+}
+
+// A Riot ID shows its tag dimmed, as the live game does; textContent stays the full name
+function showName(span, name) {
+    const [gameName, tagLine] = name.split('#');
+    span.textContent = tagLine ? gameName : name;
+    if (tagLine) {
+        const tag = document.createElement('span');
+        tag.className = 'riot-tag';
+        tag.textContent = '#' + tagLine;
+        span.appendChild(tag);
+    }
 }
 
 // Profile icon from the live game (Riot spectator participants carry profileIconId)
@@ -174,11 +194,30 @@ export function updatePlayerColors() {
     });
 }
 
-export function getDefaultNames(isDoubleUp) {
+// withOwn: the first solo column is the signed-in user's Riot ID (share URLs compare against the plain "YOU")
+export function getDefaultNames(isDoubleUp, withOwn = true) {
     return isDoubleUp
         ? ['Team 1 - A', 'Team 1 - B', 'Team 2 - A', 'Team 2 - B', 'Team 3 - A', 'Team 3 - B', 'Team 4 - A', 'Team 4 - B']
-        : ['YOU', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8'];
+        : [(withOwn && ownRiotId()) || 'YOU', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7', 'Player 8'];
 }
+
+// Signing in, linking or signing out renames the first column while it still has its default name
+let shownOwnName = 'YOU';
+document.addEventListener('tft:userchange', () => {
+    const next = ownRiotId() || 'YOU';
+    const first = playersContainer?.querySelector('.item.player');
+    const span = first?.querySelector('.player-name');
+    if (!span || document.body.classList.contains('double-up') || next === shownOwnName) return;
+    if (span.textContent.trim() === shownOwnName) {
+        showName(span, next);
+        first.title = next;
+        const img = first.querySelector('.player-avatar img');
+        if (next === 'YOU') { if (img) { img.hidden = true; img.removeAttribute('src'); } }
+        else setPlayerAvatar(first, getUser().riot.profile_icon_id);
+        renderLinks();
+    }
+    shownOwnName = next;
+});
 
 export function toggleDoubleUpMode() {
     const checkbox = document.getElementById('color_mode');
@@ -203,7 +242,7 @@ function getPlayerColor(index, isDoubleUp) {
 function createEditableSpan(name) {
     const span = document.createElement('span');
     span.classList.add('player-name');
-    span.textContent = name;
+    showName(span, name);
 
     const editHandler = () => {
         const input = document.createElement('input');
@@ -213,12 +252,12 @@ function createEditableSpan(name) {
         Object.assign(input, {
             type: 'text',
             value: '',
-            maxLength: 20,
+            maxLength: 22,
             placeholder: original,
         });
 
         input.onblur = () => {
-            span.textContent = input.value.trim().substring(0, 20) || original;
+            showName(span, input.value.trim().substring(0, 22) || original);
             span.closest('.item.player')?.setAttribute('title', span.textContent);
             span.style.display = '';
             input.remove();
