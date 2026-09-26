@@ -453,7 +453,7 @@
 .item.player .mini-rank-text { position: static; margin-left: 1px; font-size: 10.5px; opacity: 1; }
 .item.player .mini-rank-lp-text { margin-left: 3px; font-size: 10.5px; opacity: 1; }
 
-.player-action-container { position: absolute; top: 3px; right: 3px; display: flex; font-size: 12px; }
+.player-action-container { position: absolute; top: 3px; right: 3px; display: flex; align-items: center; gap: 2px; font-size: 12px; }
 .player-action-container .loading-spinner div { width: 12px; height: 12px; border-width: 2px; color: var(--muted); }
 /* rate limited: seconds until the versus check runs again */
 .duel-wait { padding: 1px 4px; border-radius: 4px; background: var(--shared-soft); color: var(--shared); font: 600 10px var(--font-cond); cursor: help; }

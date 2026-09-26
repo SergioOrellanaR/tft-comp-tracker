@@ -57,6 +57,15 @@ function showName(span, name) {
     }
 }
 
+// A new name for a column (e.g. the Riot ID found for a name typed by hand), and what depends on it repainted
+export function renamePlayer(player, name) {
+    const span = player.querySelector('.player-name');
+    if (!span) return;
+    showName(span, name);
+    player.title = name;
+    renderLinks();
+}
+
 // Profile icon from the live game (Riot spectator participants carry profileIconId)
 export function setPlayerAvatar(player, profileIconId) {
     const img = player.querySelector('.player-avatar img');
@@ -257,11 +266,16 @@ function createEditableSpan(name) {
         });
 
         input.onblur = () => {
-            showName(span, input.value.trim().substring(0, 22) || original);
+            const name = input.value.trim().substring(0, 22) || original;
+            showName(span, name);
             span.closest('.item.player')?.setAttribute('title', span.textContent);
             span.style.display = '';
             input.remove();
             renderLinks();
+            // a name typed by hand may be looked up (see nameLookup.js)
+            if (name !== original) {
+                document.dispatchEvent(new CustomEvent('tft:playerrename', { detail: { player: span.closest('.item.player'), name } }));
+            }
         };
 
         input.addEventListener('keydown', (e) => {

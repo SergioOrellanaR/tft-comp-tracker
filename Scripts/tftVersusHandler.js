@@ -55,6 +55,13 @@ export async function fetchFindGames(playerName, opponentName, server) {
     return await fetchFromTFTVersusAPI(url);
 }
 
+// Who a game name typed without its tag is, among the signed-in player's own games (VIP):
+// { server, players: [{ riot_id, games, last_played }] }, most recent first
+export async function fetchOpponents(gameName, server) {
+    const url = `${TFT_VERSUS_API_URL.opponents}/${encodeURIComponent(gameName)}/${server}`;
+    return await fetchFromTFTVersusAPI(url, await authHeaders());
+}
+
 // Everything the versus report shows: every common game (all sets), ranks at the time, seasons
 export async function fetchVersus(playerName, opponentName, server) {
     const [name, tag] = playerName.split('#');

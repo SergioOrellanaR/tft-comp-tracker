@@ -3,6 +3,7 @@ import { preloadPlayers, resetPlayers, toggleDoubleUpMode } from './players.js';
 import { copyShareUrlToClipboard } from './shareUrl.js';
 import { searchPlayer } from './searchCurrentGame.js';
 import { hasFeature } from '../account/session.js';
+import './nameLookup.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('copyShareUrlButton')?.addEventListener('click', copyShareUrlToClipboard);

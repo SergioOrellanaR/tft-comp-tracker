@@ -3,7 +3,7 @@ import { CONFIG } from '../config.js';
 import { createLoadingSpinner } from '../components.js';
 import { openGlance } from './versus.js';
 import { fetchPlayerSummary, fetchLiveGame, fetchFindGames, getMiniRankIconUrl } from '../tftVersusHandler.js';
-import { duelsCache, resetPlayers, toggleDoubleUpMode, setPlayerAvatar } from './players.js';
+import { duelsCache, resetPlayers, toggleDoubleUpMode, setPlayerAvatar, ownRiotId } from './players.js';
 import { showNotification } from './shareUrl.js';
 import { getUser } from '../account/session.js';
 
@@ -218,13 +218,24 @@ async function updatePlayersDuelButtons(playerData, server, generation) {
     await Promise.all(Array.from({ length: DUEL_CONCURRENCY }, worker));
 }
 
+// A column renamed by hand (see nameLookup.js): your games against it are checked as the live search does
+export function checkVersus(player, server) {
+    const me = ownRiotId();
+    if (me && player.isConnected) checkDuel(player, { name: me }, server, searchGeneration, 1);
+}
+
+// Empties a column's actions, but a column still named by hand keeps its edit icon
+export function clearPlayerActions(actionContainer) {
+    [...actionContainer.children].forEach(child => { if (!child.classList.contains('edit-icon')) child.remove(); });
+}
+
 async function checkDuel(player, playerData, server, generation, attempt) {
     const actionContainer = player.querySelector('.player-action-container');
     const player2Name = player.querySelector('.player-name').textContent.trim();
 
     const spinner = createLoadingSpinner();
     spinner.classList.add('duel-spinner');
-    actionContainer.innerHTML = '';
+    clearPlayerActions(actionContainer);
     actionContainer.appendChild(spinner);
 
     let result;
@@ -236,7 +247,9 @@ async function checkDuel(player, playerData, server, generation, attempt) {
     }
     // A new search or reset replaced these players; stop touching them
     if (generation !== searchGeneration || !player.isConnected) return;
-    actionContainer.innerHTML = '';
+    // renamed again while this ran: the newer check owns the column
+    if (player.querySelector('.player-name').textContent.trim() !== player2Name) return;
+    clearPlayerActions(actionContainer);
 
     if (result?.status === 429 && attempt < DUEL_MAX_ATTEMPTS) {
         waitAndRetryDuel(actionContainer, result.retryAfter || DEFAULT_RETRY_SECONDS, () => {

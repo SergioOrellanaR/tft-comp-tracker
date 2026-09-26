@@ -58,6 +58,13 @@
 .vs-g-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule-soft); }
 .vs-g-grid b { display: block; font: 700 15px var(--font-cond); }
 .vs-g-foot { display: flex; justify-content: flex-end; margin-top: 14px; }
+/* which player a name typed by hand is (nameLookup.js) */
+.vs-pick-list { list-style: none; margin: 12px 0 0; padding: 0; max-height: 300px; overflow-y: auto; }
+.vs-pick-list button { width: 100%; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 8px 10px; border: none; border-radius: 8px; background: none; color: var(--ink); text-align: left; cursor: pointer; }
+.vs-pick-list button:hover, .vs-pick-list button:focus-visible { background: var(--sunk); outline: none; }
+.vs-pick-list b { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vs-pick-list .riot-tag { color: var(--faint); font-weight: 500; }
+.vs-pick-list span:last-child { flex: none; color: var(--muted); font-size: 12px; }
 
 /* ---------- report ---------- */
 body.vs-open { overflow: hidden; }
