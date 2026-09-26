@@ -1,11 +1,11 @@
 // VIP stand-in while Riot's spectator API is off: rename a column with the name seen in game (the game doesn't
 // show tags) and the backend finds who it is among your own games. One match fills in the Riot ID and checks your
 // games against them; several open a picker under the column. A full Name#TAG skips the lookup.
-import { fetchOpponents } from '../tftVersusHandler.js';
+import { fetchOpponents, fetchPlayerSummary } from '../tftVersusHandler.js';
 import { createLoadingSpinner } from '../components.js';
 import { hasFeature, escapeHtml, getUser } from '../account/session.js';
-import { renamePlayer, ownRiotId } from './players.js';
-import { checkVersus, clearPlayerActions } from './searchCurrentGame.js';
+import { renamePlayer, ownRiotId, setPlayerAvatar } from './players.js';
+import { checkVersus, clearPlayerActions, createAndInsertPlayerRankDiv } from './searchCurrentGame.js';
 import { showNotification } from './shareUrl.js';
 
 let picker = null;
@@ -21,8 +21,10 @@ async function lookup(player, name) {
     const actions = player.querySelector('.player-action-container');
     // your games are on your Riot ID's server (Riot Sign On links don't say which: the region picked then)
     const server = getUser()?.riot?.server || document.getElementById('serverSelector').value;
+    clearProfile(player);
     if (name.includes('#')) {
         checkVersus(player, server);
+        loadProfile(player, name, server);
         return;
     }
     const spinner = createLoadingSpinner();
@@ -63,6 +65,31 @@ function pick(player, riotId, server) {
     closePicker();
     renamePlayer(player, riotId);
     checkVersus(player, server);
+    loadProfile(player, riotId, server);
+}
+
+// The column shows the player as the live game does: their profile icon in place of the number, and their rank
+async function loadProfile(player, riotId, server) {
+    const summary = await fetchPlayerSummary(riotId, server).catch(() => null);
+    if (!summary || summary.detail !== undefined || !player.isConnected || currentName(player) !== riotId) return;
+    setPlayerAvatar(player, summary.profile_icon_id);
+    const rank = summary.rank_info;
+    if (!rank?.tier) return;
+    let info = player.querySelector('.participant-info-container');
+    if (!info) {
+        info = document.createElement('div');
+        info.className = 'participant-info-container';
+        player.insertBefore(info, player.querySelector('.player-items'));
+        info.appendChild(player.querySelector('.player-name'));
+    }
+    info.appendChild(createAndInsertPlayerRankDiv(rank.tier, rank.rank, rank.lp));
+}
+
+// A new name: the previous player's icon and rank go
+function clearProfile(player) {
+    const img = player.querySelector('.player-avatar img');
+    if (img) { img.onload = null; img.hidden = true; img.removeAttribute('src'); }
+    player.querySelectorAll('.mini-rank-div').forEach(rank => rank.remove());
 }
 
 function openPicker(player, name, found, server) {
