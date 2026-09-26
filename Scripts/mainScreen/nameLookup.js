@@ -1,5 +1,6 @@
 // VIP stand-in while Riot's spectator API is off: rename a column with the name seen in game (the game doesn't
-// show tags) and the backend finds who it is among your own games. One match fills in the Riot ID and checks your
+// show tags) and the backend finds its tag (your games first, then players it knows and the server's default tags,
+// all from Riot data). One match fills in the Riot ID and checks your
 // games against them; several open a picker under the column. A full Name#TAG skips the lookup.
 import { fetchOpponents, fetchPlayerSummary } from '../tftVersusHandler.js';
 import { createLoadingSpinner } from '../components.js';
@@ -29,7 +30,7 @@ async function lookup(player, name) {
     }
     const spinner = createLoadingSpinner();
     spinner.classList.add('duel-spinner');
-    spinner.title = `Looking for ${name} in your games`;
+    spinner.title = `Looking for ${name}'s tag`;
     clearPlayerActions(actions);
     actions.appendChild(spinner);
 
@@ -51,7 +52,7 @@ async function lookup(player, name) {
     }
     const found = result.players || [];
     if (!found.length) {
-        showNotification(`No ${name} in your recent games. Type their full Riot ID (Name#TAG) to check it.`, 5000);
+        showNotification(`Couldn't find ${name}'s tag. Type their full Riot ID (Name#TAG).`, 5000);
     } else if (found.length === 1) {
         pick(player, found[0].riot_id, result.server);
     } else {
@@ -99,13 +100,14 @@ function openPicker(player, name, found, server) {
     picker.setAttribute('aria-label', `Players named ${name}`);
     picker.innerHTML = `
         <div class="vs-g-head"><div class="vs-who"><b>Which ${escapeHtml(name)}?</b>
-            <span class="vs-lbl">${found.length} players with this name in your games</span></div>
+            <span class="vs-lbl">${found.length} players with this name</span></div>
             <button type="button" class="vs-x" aria-label="Close">×</button></div>
         <ul class="vs-pick-list">${found.map((p, i) => {
             const [gameName, tag] = p.riot_id.split('#');
             const when = p.last_played ? ` · last ${lastPlayed(p.last_played)}` : '';
+            const met = p.games ? `${p.games} ${p.games === 1 ? 'game' : 'games'}${when}` : 'never played together';
             return `<li><button type="button" data-i="${i}"><b>${escapeHtml(gameName)}<span class="riot-tag">#${escapeHtml(tag)}</span></b>
-                <span>${p.games} ${p.games === 1 ? 'game' : 'games'}${when}</span></button></li>`;
+                <span>${met}</span></button></li>`;
         }).join('')}</ul>`;
     document.body.appendChild(picker);
     place(player);
