@@ -114,6 +114,9 @@ function openPicker(player, name, found, server) {
 
     picker.querySelector('.vs-x').onclick = closePicker;
     picker.querySelectorAll('.vs-pick-list button').forEach(button => {
+        // their current rank, to tell players with the same name apart
+        const rank = found[button.dataset.i].rank;
+        if (rank?.tier) button.querySelector('b').after(createAndInsertPlayerRankDiv(rank.tier, rank.rank, rank.lp));
         button.onclick = () => pick(player, found[button.dataset.i].riot_id, server);
     });
     const onOutside = e => { if (picker && !picker.contains(e.target)) closePicker(); };
