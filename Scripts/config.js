@@ -13,7 +13,8 @@ export const TFT_VERSUS_API_URL = {
     versus: TFT_VERSUS_API_BASE_URL + '/versus',
     specificMatch: TFT_VERSUS_API_BASE_URL + '/match',
     liveGame: TFT_VERSUS_API_BASE_URL + '/current_game',
-    opponents: TFT_VERSUS_API_BASE_URL + '/opponents'
+    opponents: TFT_VERSUS_API_BASE_URL + '/opponents',
+    visit: TFT_VERSUS_API_BASE_URL + '/visit'
 }
 
 export const THIRD_PARTY_IMG_URL = {

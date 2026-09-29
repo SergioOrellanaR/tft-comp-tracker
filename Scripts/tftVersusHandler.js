@@ -29,6 +29,18 @@ async function fetchFromTFTVersusAPI(endpoint, headers = {}) {
     }
 }
 
+// One visit per browser and day, on the live site only: the backend keeps just the day and the country.
+// A POST without body or headers skips the CORS preflight, and nothing is read back.
+export function countVisit() {
+    if (location.hostname !== 'trackertft.com') return;
+    const today = new Date().toISOString().slice(0, 10);
+    try {
+        if (localStorage.getItem('visitDay') === today) return;
+        localStorage.setItem('visitDay', today);
+    } catch { /* storage blocked: the backend still counts one per day */ }
+    fetch(TFT_VERSUS_API_URL.visit, { method: 'POST', mode: 'no-cors', keepalive: true }).catch(() => {});
+}
+
 // Función para llamar a /header
 // http://127.0.0.1:5000/api/header/Made in Chile/1604/na
 export async function fetchPlayerSummary(playerName, server) {
