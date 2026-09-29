@@ -11,13 +11,20 @@ import { getSnapshotSets } from './dataLoader.js';
 
 const YOU = CONFIG.colors[0];
 const PLACEMENTS_MAX_GAMES = 10; // more games than this open on the finishes grid instead of the line chart
-const cache = new Map(); // opponent → versus data (the lobby lasts one game)
+const cache = new Map(); // opponent → versus data, until their next /find check
 const lobbies = new Map(); // match id → its full lobby (a promise)
 let companions = null; // the Little Legends list (large): fetched once, when a report first needs it
 
 // ---------- data ----------
+const versusKey = (me, opponent, server) => `${server}|${me}|${opponent}`;
+
+// A new /find check may have saved games played since (a new game with the same lobby): read them again
+export function forgetVersus(me, opponent, server) {
+    cache.delete(versusKey(me, opponent, server));
+}
+
 async function loadVersus(me, opponent, server) {
-    const key = `${server}|${me}|${opponent}`;
+    const key = versusKey(me, opponent, server);
     if (cache.has(key)) return cache.get(key);
     const promise = fetchVersus(me, opponent, server).then(data => {
         if (!data || data.detail !== undefined) throw data;

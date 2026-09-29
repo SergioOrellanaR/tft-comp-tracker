@@ -1,7 +1,7 @@
 import { renderLinks } from './matrix.js';
 import { CONFIG } from '../config.js';
 import { createLoadingSpinner } from '../components.js';
-import { openGlance } from './versus.js';
+import { openGlance, forgetVersus } from './versus.js';
 import { fetchPlayerSummary, fetchLiveGame, fetchFindGames, getMiniRankIconUrl } from '../tftVersusHandler.js';
 import { duelsCache, resetPlayers, toggleDoubleUpMode, setPlayerAvatar, ownRiotId } from './players.js';
 import { showNotification } from './shareUrl.js';
@@ -355,6 +355,7 @@ function handleSuccessfulResult(result, duelButton, player2Name, player, playerD
     const duelData = duelsCache.get(player2Name) || {};
     duelData.findGames = result;
     duelsCache.set(player2Name, duelData);
+    forgetVersus(playerData.name, player2Name, server);
     // the swords and how many games you've shared (still downloading ones included)
     const games = commonGamesCount(result);
     duelButton.innerHTML = `${SWORDS_ICON}<span>${games}</span>`;
