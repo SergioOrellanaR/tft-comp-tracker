@@ -330,8 +330,8 @@ function createUnitIcons(comp) {
         img.src = `${unitImageMap[ch.name]}?w=64`;
         img.alt = ch.name;
         img.loading = 'lazy';
-        // The source's own build, as the site shows it (items, artifacts, emblems, radiants)
-        const build = ch.build || ch.items || [];
+        // The source's own build (items, artifacts, emblems, radiants), in the catalog's order whatever the source
+        const build = [...(ch.build || ch.items || [])].sort(byCatalog);
         const names = build.map(itemNameOf);
         img.title = names.length ? `${ch.name}: ${names.join(', ')}` : ch.name;
         wrapper.appendChild(img);
@@ -377,6 +377,13 @@ function createUnitIcons(comp) {
 }
 
 const itemNameOf = api => items.find(i => i.Item === api)?.Name || api;
+
+// Items, then artifacts, emblems and radiants, each group as the catalog lists it (by name); unknown ones last
+const catalogIndex = api => {
+    const i = items.findIndex(it => it.Item === api);
+    return i < 0 ? Infinity : i;
+};
+const byCatalog = (a, b) => catalogIndex(a) - catalogIndex(b) || a.localeCompare(b);
 
 function updatePatchLabel(setKey, setData) {
     const label = document.getElementById('patchLabel');
