@@ -3,7 +3,7 @@ import { CONFIG } from '../config.js';
 import { createLoadingSpinner } from '../components.js';
 import { openGlance, forgetVersus } from './versus.js';
 import { fetchPlayerSummary, fetchLiveGame, fetchFindGames, getMiniRankIconUrl } from '../tftVersusHandler.js';
-import { duelsCache, resetPlayers, toggleDoubleUpMode, setPlayerAvatar, ownRiotId } from './players.js';
+import { resetPlayers, toggleDoubleUpMode, setPlayerAvatar, ownRiotId } from './players.js';
 import { showNotification } from './shareUrl.js';
 import { getUser } from '../account/session.js';
 
@@ -50,10 +50,6 @@ export const searchPlayer = async () => {
         showMessage(`You can search again in ${wait}s.`);
         return;
     }
-    const generation = ++searchGeneration;
-    resetPlayers();
-    // Remove any existing container
-
     const server = document.getElementById('serverSelector').value;
     const playerInput = document.getElementById('playerNameInput').value.trim();
 
@@ -78,6 +74,9 @@ export const searchPlayer = async () => {
         showMessage('Invalid server selected.');
         return;
     }
+    // Only a valid search clears the lobby
+    const generation = ++searchGeneration;
+    resetPlayers();
     const riotId = `${playerName.trim()}#${tag.trim()}`;
     const messageContainer = document.getElementById('messageContainer');
     // Clear any previous content and show the container
@@ -93,6 +92,8 @@ export const searchPlayer = async () => {
     try {
         // The lobby comes first: the live game and the player's card load side by side
         const summaryPromise = withRateLimitRetry(() => fetchPlayerSummary(riotId, server), generation, spinner);
+        // Awaited later (or never, if the live game fails first): don't leave its rejection unhandled
+        summaryPromise.catch(() => {});
         const spectatorData = await withRateLimitRetry(() => fetchLiveGame(riotId, server), generation, spinner);
         if (generation !== searchGeneration) return;
 
@@ -351,10 +352,6 @@ function handleEmptySuccessAndDB(duelButton) {
 }
 
 function handleSuccessfulResult(result, duelButton, player2Name, player, playerData, server) {
-    // Update cache with the duel data.
-    const duelData = duelsCache.get(player2Name) || {};
-    duelData.findGames = result;
-    duelsCache.set(player2Name, duelData);
     forgetVersus(playerData.name, player2Name, server);
     // the swords and how many games you've shared (still downloading ones included)
     const games = commonGamesCount(result);
@@ -398,8 +395,6 @@ function updatePlayers(participants) {
             playerEl.insertBefore(participantInfoContainer, playerEl.querySelector('.player-items'));
             playerEl.title = participant.riotId;
             setPlayerAvatar(playerEl, participant.profileIconId);
-
-            duelsCache.set(participant.riotId, initializeDuelCacheObject(participant.riotId));
             }
         }
     });
@@ -445,14 +440,4 @@ export function createAndInsertPlayerRankDiv(tier, playerRank, lp, numberOfGames
     rankDiv.append(iconAndRankDiv, lpText);
 
     return rankDiv;
-}
-
-function initializeDuelCacheObject(riotId) {
-    return {
-        riotId,
-        header: null,
-        stats: null,
-        commonMatches: null,
-        findGames: null,
-    };
 }

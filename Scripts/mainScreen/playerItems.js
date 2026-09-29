@@ -2,7 +2,7 @@
 // picker, or from another player's box). From them we guess the player's potential comps: the best
 // unlinked ones get a hint in the player's column, and the side card lists them with the unit that
 // should hold each item. On linked comps, artifacts and emblems are shown on their holder.
-import { getItemWEBPImageUrl } from '../tftVersusHandler.js';
+import { getItemImageUrl } from '../tftVersusHandler.js';
 import { getCurrentSetData } from './dataLoader.js';
 import { playerColumns, links } from './matrix.js';
 import { ITEM_DRAG_TYPE, scoreComp, rankResults, suggestionButton } from './itemPicker.js';
@@ -35,7 +35,7 @@ function renderBox(player) {
         slot.className = 'slot';
         if (list[i]) {
             const img = document.createElement('img');
-            img.src = getItemWEBPImageUrl(list[i]);
+            img.src = getItemImageUrl(list[i]);
             img.alt = itemName(list[i]);
             img.title = `${itemName(list[i])} (click to remove)`;
             img.draggable = true;
@@ -105,7 +105,7 @@ function repaint() {
                 // wrapped in a span: the wrapper's direct <img> is the champion portrait
                 const badge = document.createElement('span');
                 badge.className = 'holder-badge';
-                badge.innerHTML = `<img src="${getItemWEBPImageUrl(it)}" alt="">`;
+                badge.innerHTML = `<img src="${getItemImageUrl(it)}" alt="">`;
                 badge.title = `${itemName(it)} on ${holder.name} (${player.querySelector('.player-name')?.textContent.trim()})`;
                 badge.style.setProperty('--pc', player.dataset.color);
                 badge.style.setProperty('--i', unit.querySelectorAll('.holder-badge').length);

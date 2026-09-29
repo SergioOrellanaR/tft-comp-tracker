@@ -2,8 +2,6 @@
 @import url('./variables.css');
 @import url('./base.css');
 @import url('./shared.css');
-@import url('./modal.css');
-@import url('./match-history.css');
 @import url('./lobby.css');
 @import url('./transitions.css');
 @import url('./versus.css');

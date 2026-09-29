@@ -129,14 +129,10 @@ function getShareUrl() {
     if (source) url.searchParams.set('source', source);
     // Players
     const playerDivs = Array.from(document.querySelectorAll('.item.player'));
-    // Get default names for current mode
-    const isDoubleUpMode = document.body.classList.contains('double-up');
     // against the plain defaults: your own Riot ID in the first column is written, so others see whose lobby it is
-    const defaultNames = getDefaultNames(isDoubleUpMode, false);
+    const defaultNames = getDefaultNames(isDoubleUp, false);
     playerDivs.forEach((player, idx) => {
-        let name = player.querySelector('.player-name')?.textContent || '';
-        // Remove trailing ' (YOU)' if present
-        name = name.replace(/ \(YOU\)$/, '');
+        const name = player.querySelector('.player-name')?.textContent || '';
         // Only add PlayerX param if name differs from default
         if (name !== defaultNames[idx]) {
             url.searchParams.set(`Player${idx + 1}`, name);

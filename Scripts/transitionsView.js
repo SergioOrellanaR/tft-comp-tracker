@@ -3,7 +3,7 @@
 // S/A item tiers (MetaTFT), plus components and recipes. Re-renders when the set selector changes.
 import { links } from './mainScreen/matrix.js';
 import { getCurrentSetData, getSnapshotSets } from './mainScreen/dataLoader.js';
-import { getChampionImageUrl, getItemWEBPImageUrl } from './tftVersusHandler.js';
+import { getChampionImageUrl, getItemImageUrl } from './tftVersusHandler.js';
 
 let DATA = null;
 let root = null;
@@ -229,7 +229,7 @@ function portraitImg(name, size) {
 function itemImg(api, size) {
     const img = document.createElement('img');
     img.className = 'tv-item-icon' + (size ? ' ' + size : '');
-    img.src = getItemWEBPImageUrl(api);
+    img.src = getItemImageUrl(api);
     img.alt = itemName(api);
     img.title = itemName(api);
     img.loading = 'lazy';
@@ -622,7 +622,7 @@ function openChampionDrawer(key) {
         : `<span class="tv-stat tv-num" title="Average placement, games">${avg.toFixed(2)} <small>${games.toLocaleString('en')}</small></span>`;
     html += `<div class="tv-d-section"><div class="tv-d-label">Best items ${baseNote}</div>`;
     TIERS.forEach(t => (tiers[t] || []).forEach(([item, avg, games]) => {
-        html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${TIER_LABEL[t]}</span><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
+        html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${TIER_LABEL[t]}</span><img class="tv-item-icon" src="${getItemImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
     }));
     html += `</div>`;
     // artifacts and emblems: MetaTFT tiers, each against the champion's others of the same kind
@@ -631,7 +631,7 @@ function openChampionDrawer(key) {
         if (!special || !['S', 'A'].some(t => special[t]?.length)) return;
         html += `<div class="tv-d-section"><div class="tv-d-label">${label}</div>`;
         ['S', 'A'].forEach(t => (special[t] || []).forEach(([item, avg, games]) => {
-            html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${t}</span><img class="tv-item-icon" src="${getItemWEBPImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
+            html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${t}</span><img class="tv-item-icon" src="${getItemImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
         }));
         html += `</div>`;
     });

@@ -1,8 +1,9 @@
 // Side panel: pick components, items, artifacts or emblems and get the comps that want them.
 // Components toggle (up to 3, like the set summary); items, artifacts, emblems and radiants toggle and can be
 // dragged onto a player. Matching comp rows show the matched items and the rest of the sheet fades back.
-import { getItemWEBPImageUrl, getChampionImageUrl } from '../tftVersusHandler.js';
+import { getItemImageUrl, getChampionImageUrl } from '../tftVersusHandler.js';
 import { initCompFit, fit, itemName } from './compFit.js';
+import { escapeHtml } from '../account/session.js';
 
 export const ITEM_DRAG_TYPE = 'application/x-tft-item';
 
@@ -20,9 +21,11 @@ const TABS = [
 // Matched by the end of the apiName: the prefix changes every set (DA_, TFT_Item_...)
 const TEAM_SIZE_ITEMS = /(TacticiansCrown|TacticiansCape|TacticiansShield)$/;
 export const STATE_RANK = { open: 0, shared: 1, linked: 2, crowded: 3 };
-export const TIER_RANK = { S: 0, A: 1, B: 2, C: 3, X: 4 };
+export const TIER_RANK = { S: 0, A: 1, B: 2, C: 3, D: 4, X: 5 };
 // A recipe with only one of its components picked still hints at the comps that build it
 const PARTIAL_RECIPE_WEIGHT = 0.35;
+// Names from the snapshot's sources go into markup
+const safeName = api => escapeHtml(itemName(api));
 const MAX_COMPONENTS = 3;
 const SUGGESTIONS = 6;
 
@@ -107,7 +110,7 @@ function iconButton(api, cls) {
     b.type = 'button';
     b.className = cls;
     b.title = itemName(api);
-    b.innerHTML = `<img src="${getItemWEBPImageUrl(api)}" alt="${itemName(api)}" draggable="false">`;
+    b.innerHTML = `<img src="${getItemImageUrl(api)}" alt="${safeName(api)}" draggable="false">`;
     return b;
 }
 
@@ -180,8 +183,8 @@ function render() {
     if (isComponents && pickedComponents.size > 1) {
         const row = document.createElement('div');
         row.className = 'picker-bench';
-        row.innerHTML = [...pickedComponents].map(c => `<img src="${getItemWEBPImageUrl(c)}" alt="${itemName(c)}" title="${itemName(c)}">`).join('')
-            + `<span class="picker-built">${built.map(it => `<img src="${getItemWEBPImageUrl(it)}" alt="${itemName(it)}" title="${itemName(it)}">`).join('')}</span>`;
+        row.innerHTML = [...pickedComponents].map(c => `<img src="${getItemImageUrl(c)}" alt="${safeName(c)}" title="${safeName(c)}">`).join('')
+            + `<span class="picker-built">${built.map(it => `<img src="${getItemImageUrl(it)}" alt="${safeName(it)}" title="${safeName(it)}">`).join('')}</span>`;
         root.appendChild(row);
     }
 
@@ -203,7 +206,7 @@ function paintRows(results, active) {
         box.innerHTML = '';
         if (!active || !hit) return;
         matched.slice(0, 4).forEach(m => box.insertAdjacentHTML('beforeend',
-            `<img src="${getItemWEBPImageUrl(m.item)}" alt="${itemName(m.item)}" title="${itemName(m.item)}${m.holder ? ` → ${m.holder.name}` : ''}"${m.full ? '' : ' class="partial"'}>`));
+            `<img src="${getItemImageUrl(m.item)}" alt="${safeName(m.item)}" title="${safeName(m.item)}${m.holder ? ` → ${escapeHtml(m.holder.name)}` : ''}"${m.full ? '' : ' class="partial"'}>`));
     });
 }
 
@@ -216,10 +219,10 @@ export function suggestionButton({ comp, index, matched }, { holders = false } =
     a.type = 'button';
     a.className = 'suggested-comp';
     const items = holders
-        ? matched.slice(0, 3).map(m => `<span class="holder-pair" title="${itemName(m.item)}${m.holder ? ` → ${m.holder.name}` : ''}"><img src="${getItemWEBPImageUrl(m.item)}" alt="">${m.holder ? `<i>›</i><img class="holder-unit" src="${getChampionImageUrl(m.holder.apiName)}?w=40" alt="${m.holder.name}">` : ''}</span>`).join('')
-        : matched.slice(0, 3).map(m => `<img src="${getItemWEBPImageUrl(m.item)}" alt=""${m.full ? '' : ' class="partial"'}>`).join('');
+        ? matched.slice(0, 3).map(m => `<span class="holder-pair" title="${safeName(m.item)}${m.holder ? ` → ${escapeHtml(m.holder.name)}` : ''}"><img src="${getItemImageUrl(m.item)}" alt="">${m.holder ? `<i>›</i><img class="holder-unit" src="${getChampionImageUrl(m.holder.apiName)}?w=40" alt="${escapeHtml(m.holder.name)}">` : ''}</span>`).join('')
+        : matched.slice(0, 3).map(m => `<img src="${getItemImageUrl(m.item)}" alt=""${m.full ? '' : ' class="partial"'}>`).join('');
     a.innerHTML = `<span class="tier-badge t-${comp.tier}">${comp.tier}</span>
-        <span class="sc-name"><b>${comp.title}</b><small>${comp.style || ''}</small></span>
+        <span class="sc-name"><b>${escapeHtml(comp.title)}</b><small>${escapeHtml(comp.style)}</small></span>
         <span class="sc-items">${items}</span>
         <span class="sc-state s-${st}" title="${st === 'shared' ? 'Carries taken' : st[0].toUpperCase() + st.slice(1)}"></span>`;
     a.addEventListener('click', () => focusRow(index));

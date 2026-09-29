@@ -1,18 +1,16 @@
 import { initCompFilter } from './compSearchBar.js';
 import { linkPlayersToCompsFromQuery, getQueryParams, showNotification } from './shareUrl.js';
 import { CONFIG } from '../config.js';
-import { getChampionImageUrl, getItemWEBPImageUrl, getAugmentWEBPImageUrl } from '../tftVersusHandler.js';
+import { getChampionImageUrl, getItemImageUrl, getAugmentImageUrl } from '../tftVersusHandler.js';
 import { resetPlayers } from './players.js';
-import { renderLinks, links } from './matrix.js';
+import { links } from './matrix.js';
 import { initItemPicker } from './itemPicker.js';
-import { sourceView, initialSource, getSourceId, renderSourceSwitch, sourceLogo } from './compSource.js';
+import { sourceView, initialSource, getSourceId, renderSourceSwitch } from './compSource.js';
 import './compStatCard.js';
 
 export let unitImageMap = {};
 export let unitCostMap = {};
 export let items = [];
-// Data variables
-export let metaSnapshotData = null;
 let currentSetData = null;
 let fullSnapshot = null;
 
@@ -23,7 +21,6 @@ export const getCurrentSetData = () => currentSetData;
 export const getSnapshotSets = () => fullSnapshot || {};
 
 const compsContainer = document.getElementById('compos');
-const _originalLoadCompsFromJSON = loadCompsFromJSON;
 
 const loadMetaSnapshot = async () => {
     try {
@@ -60,49 +57,24 @@ const loadMetaSnapshot = async () => {
     }
 };
 
-// Fill unitImageMap/unitCostMap (mutated in place, other modules hold references) from the given sets.
-// Champion names repeat across sets with different apiNames/costs, so later sets overwrite earlier ones.
-function buildUnitMaps(setsData) {
+// Fill unitImageMap/unitCostMap (mutated in place, other modules hold references) from one set's data
+function buildUnitMaps(setData) {
     Object.keys(unitImageMap).forEach(k => delete unitImageMap[k]);
     Object.keys(unitCostMap).forEach(k => delete unitCostMap[k]);
-    setsData.forEach(setData => {
-        (setData.champions || []).forEach(champion => {
+    (setData.champions || []).forEach(champion => {
+        unitImageMap[champion.name] = getChampionImageUrl(champion.apiName);
+        unitCostMap[champion.name] = champion.cost || 1;
+    });
+    (setData.comps || []).forEach(comp => {
+        (comp.champions || []).forEach(champion => {
             unitImageMap[champion.name] = getChampionImageUrl(champion.apiName);
             unitCostMap[champion.name] = champion.cost || 1;
-        });
-        (setData.comps || []).forEach(comp => {
-            (comp.champions || []).forEach(champion => {
-                const unitName = champion.name;
-                unitImageMap[unitName] = getChampionImageUrl(champion.apiName);
-                unitCostMap[unitName] = champion.cost || 1;
-            });
         });
     });
 }
 
-// Extract function to process snapshot data
+// The unit maps and the item list are built per set by renderLobby
 function processSnapshotData(snapshot) {
-    // Extract unit data from all set compositions
-    buildUnitMaps(Object.values(snapshot));
-    // Load unique items data across all sets
-    let allItems = [];
-    Object.values(snapshot).forEach(setData => {
-        const it = setData.items || {};
-        allItems.push(...(it.default || []), ...(it.artifact || []), ...(it.emblem || []), ...(it.radiant || []), ...(it.trait || []));
-    });
-    // Deduplicate items by apiName
-    const unique = new Map();
-    allItems.forEach(itemObj => {
-        if (itemObj.apiName && !unique.has(itemObj.apiName)) {
-            unique.set(itemObj.apiName, itemObj);
-        }
-    });
-    items = Array.from(unique.values()).map(itemObj => ({
-        Item: itemObj.apiName,
-        Name: itemObj.name,
-        Url: getItemWEBPImageUrl(itemObj.apiName)
-    }));
-    metaSnapshotData = snapshot;
     fullSnapshot = snapshot;
 }
 
@@ -147,12 +119,7 @@ export function tryLoadDefaultData() {
                         initialSource(setData);
                         renderLobby(selected, setData);
                         document.dispatchEvent(new CustomEvent('tft:setchange', { detail: currentSetData }));
-                        
-                        // Only link players to comps from query on initial load
-                        if (isInitialLoad) {
-                            linkPlayersToCompsFromQuery();
-                            isInitialLoad = false;
-                        }
+                        isInitialLoad = false;
                     }
                 });
                 // Immediately dispatch change to load default or URL set
@@ -166,16 +133,18 @@ export function tryLoadDefaultData() {
 function renderLobby(setKey, setData) {
     const view = sourceView(setData, getSourceId());
     // unit images/costs must match the selected set, not the newest one
-    buildUnitMaps([view]);
+    buildUnitMaps(view);
     // update global items for suggestions to this set only
     const sec = view.items || {};
     const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.radiant||[]), ...(sec.trait||[])];
-    items = arr.map(it => ({ Item: it.apiName, Name: it.name, Url: getItemWEBPImageUrl(it.apiName) }));
+    items = arr.map(it => ({ Item: it.apiName, Name: it.name, Url: getItemImageUrl(it.apiName) }));
     currentSetData = view;
     loadCompsFromJSON(view);
     initCompFilter(view);
     initItemPicker(view);
     updatePatchLabel(setKey, view);
+    // the comps a share URL links (on a set or source change the URL no longer carries any)
+    linkPlayersToCompsFromQuery();
     renderSourceSwitch(setData, () => {
         // comp indexes belong to a source: its links and the shared ones in the URL go
         links.splice(0, links.length);
@@ -197,9 +166,7 @@ function clearCompParams({ items: withItems }) {
     window.history.replaceState({}, '', url);
 }
 
-export function loadCompsFromJSON(metaData) {
-    // Update global snapshot to current set so tooltips and icons reference correct data
-    metaSnapshotData = metaData;
+function loadCompsFromJSON(metaData) {
     compsContainer.innerHTML = '';
     const tiers = { S: [], A: [], B: [], C: [], D: [], X: [] };
     const itemName = api => items.find(i => i.Item === api)?.Name || api;
@@ -232,12 +199,6 @@ export function loadCompsFromJSON(metaData) {
 
 }
 
-loadCompsFromJSON = function (metaData) {
-    _originalLoadCompsFromJSON(metaData);
-    linkPlayersToCompsFromQuery();
-    renderLinks();
-};
-
 // One matrix row: the comp and one cell per lobby player
 function createCompoElement(comp, index) {
     const div = document.createElement('div');
@@ -266,7 +227,7 @@ function createCompoElement(comp, index) {
     if (keyItem) style.prepend(keyItem);
     info.append(name, style);
     // placement stats (MetaTFT, Tactics Tools): a compact line, the full card on hover
-    if (comp.stats) {
+    if (comp.stats?.avg != null) {
         const stats = document.createElement('small');
         stats.className = 'comp-stats';
         stats.innerHTML = `<b>${comp.stats.avg.toFixed(2)}</b> avg<span class="cs-top4"><i>·</i>${pct(comp.stats.top4)} top 4</span>${comp.stats.play != null ? `<span class="cs-play"><i>·</i>${pct(comp.stats.play, 1)} play</span>` : ''}`;
@@ -340,7 +301,7 @@ function createKeyItem(mainAugment, mainItem) {
     if (!api) return null;
     const img = document.createElement('img');
     img.className = 'key-item';
-    img.src = mainAugment?.apiName ? getAugmentWEBPImageUrl(api) : getItemWEBPImageUrl(api);
+    img.src = mainAugment?.apiName ? getAugmentImageUrl(api) : getItemImageUrl(api);
     img.alt = '';
     img.title = items.find(i => i.Item === api)?.Name || api;
     return img;
@@ -353,7 +314,7 @@ function createUnitIcons(comp) {
     const main = comp.mainChampion?.name;
     const champs = [...comp.champions].sort((a, b) =>
         (b.name === main) - (a.name === main) || (a.cost ?? 9) - (b.cost ?? 9) || a.name.localeCompare(b.name));
-    const setChamps = metaSnapshotData.champions || [];
+    const setChamps = currentSetData.champions || [];
 
     champs.forEach(ch => {
         if (!unitImageMap[ch.name]) return;
@@ -381,7 +342,7 @@ function createUnitIcons(comp) {
         its.className = 'unit-items';
         build.slice(0, 3).forEach(api => {
             const it = document.createElement('img');
-            it.src = getItemWEBPImageUrl(api);
+            it.src = getItemImageUrl(api);
             it.alt = '';
             it.title = itemNameOf(api);
             if (core.has(api)) it.classList.add('is-core');

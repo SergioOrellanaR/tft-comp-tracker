@@ -1,6 +1,7 @@
 // Hover card with a comp's placement stats (MetaTFT, Tactics Tools): average, top 4, win and play rate,
 // games, and how its games spread over 1st-8th. Rows carry the comp's index in `data-stats`.
 import { getCurrentSetData } from './dataLoader.js';
+import { escapeHtml } from '../account/session.js';
 
 const card = document.getElementById('statCard');
 const compsContainer = document.getElementById('compos');
@@ -12,11 +13,11 @@ function show(info) {
     const set = getCurrentSetData();
     const comp = set?.comps?.[+info.dataset.stats];
     const stats = comp?.stats;
-    if (!stats) return;
+    if (stats?.avg == null || !Array.isArray(stats.places)) return;
     anchor = info;
     const top = Math.max(...stats.places);
     card.innerHTML = `
-        <div class="sc-head"><b>${comp.title}</b><span>${set.source?.name || ''}</span></div>
+        <div class="sc-head"><b>${escapeHtml(comp.title)}</b><span>${escapeHtml(set.source?.name)}</span></div>
         <dl class="sc-grid">
             <div><dt>Avg place</dt><dd>${stats.avg.toFixed(2)}</dd></div>
             <div><dt>Top 4</dt><dd>${pct(stats.top4, 1)}</dd></div>

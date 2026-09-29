@@ -4,8 +4,6 @@ import { renderLinks, links } from './matrix.js';
 import { resetCompFilters } from './compSearchBar.js';
 import { getUser } from '../account/session.js';
 
-export let duelsCache = new Map();
-
 export const playersContainer = document.getElementById('players');
 
 // A player is a column header of the lobby matrix
@@ -184,12 +182,6 @@ export const resetPlayers = () => {
     document.getElementById('players').innerHTML = '';
     preloadPlayers();
     renderLinks();
-
-    duelsCache = new Map();
-
-    // Close any open modal
-    const modal = document.getElementById('popupOverlay');
-    if (modal) modal.parentNode.removeChild(modal);
 
     const messageContainer = document.getElementById('messageContainer');
     if (messageContainer) messageContainer.style.display = 'none';

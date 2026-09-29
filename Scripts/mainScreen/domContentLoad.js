@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function copyPlayerNames(e) {
     const btn = e.currentTarget;
     const names = [...document.querySelectorAll('.item.player .player-name')]
-        .map(span => span.textContent.replace(/ \(YOU\)$/, '').trim())
+        .map(span => span.textContent.trim())
         .filter(Boolean)
         .join('\n');
     const done = () => {

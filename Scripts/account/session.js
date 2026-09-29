@@ -7,6 +7,7 @@ import { AUTH_API_URL, CDRAGON_URL } from '../config.js';
 let user = null;
 let config = null;
 let tokenAt = 0;
+let refreshing = null;
 const TOKEN_REFRESH_MS = 12 * 60 * 1000; // api tokens last 15 minutes
 
 export class AuthError extends Error {
@@ -55,14 +56,15 @@ export async function authConfig() {
     return config;
 }
 
-export async function refreshUser() {
-    try {
-        const data = await authCall('/me');
-        setUser(data?.user);
-    } catch {
-        setUser(null);
-    }
-    return user;
+// /me answers { user: null } when signed out; an error (offline, the backend restarting) keeps who we had,
+// except a 401. Concurrent callers share one request.
+export function refreshUser() {
+    refreshing ??= authCall('/me')
+        .then(data => setUser(data?.user))
+        .catch(e => { if (e.status === 401) setUser(null); })
+        .then(() => user)
+        .finally(() => { refreshing = null; });
+    return refreshing;
 }
 
 // For API routes that check the plan: { Authorization: 'Bearer …' } when signed in, else {}

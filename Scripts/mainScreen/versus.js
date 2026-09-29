@@ -5,9 +5,10 @@
 // One call (/versus) feeds both; it only reads what /find already saved, plus stored rank histories.
 // Clicking a game expands its whole lobby (/match/{id}: the boards come from the database, and names too
 // for players saved before; the rest are asked to Riot once by puuid and saved, so it's asked once per game).
-import { fetchVersus, fetchSpecificMatch, getChampionImageUrl, getItemWEBPImageUrl, getMiniRankIconUrl, CDragonBaseUrl } from '../tftVersusHandler.js';
+import { fetchVersus, fetchSpecificMatch, getChampionImageUrl, getItemImageUrl, getMiniRankIconUrl, CDragonBaseUrl } from '../tftVersusHandler.js';
 import { CDRAGON_URL, CONFIG } from '../config.js';
 import { getSnapshotSets } from './dataLoader.js';
+import { escapeHtml as esc } from '../account/session.js';
 
 const YOU = CONFIG.colors[0];
 const PLACEMENTS_MAX_GAMES = 10; // more games than this open on the finishes grid instead of the line chart
@@ -74,7 +75,6 @@ function stats(list) {
 }
 
 // ---------- small pieces ----------
-const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const nm = name => esc((name || '').split('#')[0]);
 const ord = n => n + (['st', 'nd', 'rd'][n - 1] || 'th');
 const placeClass = n => n === 1 ? 'p1' : n <= 4 ? 'top' : 'bot';
@@ -99,7 +99,7 @@ function unitHtml(u, shared) {
     const both = shared?.has(u.character_id);
     return `<span class="vs-unit${both ? ' shared' : ''}" style="--cc:var(--c${Math.min(unitCost(u), 5)})" title="${esc(unitName(u.character_id))}${both ? ' (you both played it)' : ''}">
         ${u.tier >= 2 ? `<span class="st">${'★'.repeat(u.tier)}</span>` : ''}<img src="${getChampionImageUrl(u.character_id)}?w=48" alt="" loading="lazy">
-        ${u.item_names?.length ? `<span class="its">${u.item_names.slice(0, 3).map(i => `<img src="${getItemWEBPImageUrl(i)}" alt="">`).join('')}</span>` : ''}</span>`;
+        ${u.item_names?.length ? `<span class="its">${u.item_names.slice(0, 3).map(i => `<img src="${getItemImageUrl(i)}" alt="">`).join('')}</span>` : ''}</span>`;
 }
 const boardOf = side => [...(side.units || [])].sort((a, b) => (b.item_names?.length > 0) - (a.item_names?.length > 0) || unitCost(b) - unitCost(a));
 const carriesOf = side => boardOf(side).filter(u => u.item_names?.length).slice(0, 3);
