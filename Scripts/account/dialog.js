@@ -5,7 +5,7 @@
 import { CDRAGON_URL, CONFIG } from '../config.js';
 import { authCall, authConfig, getUser, setUser, avatarHtml, escapeHtml as esc } from './session.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
-import { ROLES, ROLE_LABEL, ROLE_TAGLINE, FEATURES, OPEN_FEATURES, currentRole } from './plans.js';
+import { ROLES, ROLE_LABEL, ROLE_TAGLINE, FEATURES, OPEN_FEATURES, currentRole, roleClass } from './plans.js';
 
 let overlay = null;
 let box = null;
@@ -251,7 +251,7 @@ const VIEWS = {
         return `${header('Your account')}
         <section class="acct-card acct-me">${avatarHtml(u, 52)}
             <div><b>${esc(u.username)}</b><span>${esc(u.email || (riot ? riot.riot_id : ''))}</span></div>
-            <span class="acct-plan ${u.premium ? 'pro' : ''}">${ROLE_LABEL[u.plan] || 'Free'}</span></section>
+            <span class="acct-plan ${roleClass(u)}">${ROLE_LABEL[u.plan] || 'Free'}</span></section>
 
         <section class="acct-sec"><h3>Profile</h3>
             <form class="acct-inline" data-form="profile" novalidate>
@@ -314,7 +314,7 @@ const VIEWS = {
                 ? '<button type="button" class="acct-btn" data-go="signup">Create a free account</button> <a href="#" class="acct-link" data-go="signin">Sign in</a>'
                 : r === 'premium' && role !== 'premium' && role !== 'vip' ? "<span class=\"acct-note\">Payments aren't open yet.</span>" : '';
             const below = r === 'visitor' ? '' : `<p class="acct-plan-inc">Everything in ${ROLE_LABEL[ROLES[ROLES.indexOf(r) - 1]]}, plus:</p>`;
-            return `<section class="acct-plan-card${r === role ? ' current' : ''}${wanted && r === need ? ' wanted' : ''}">
+            return `<section class="acct-plan-card role-${r}${r === role ? ' current' : ''}${wanted && r === need ? ' wanted' : ''}">
                 <h3>${ROLE_LABEL[r]}${r === role ? '<i>You</i>' : ''}<small>${ROLE_TAGLINE[r]}</small></h3>${below}
                 <ul>${items.map(([t, x]) => `<li><b>${t}</b><span>${x}</span></li>`).join('')}</ul>${cta ? `<div class="acct-plan-cta">${cta}</div>` : ''}
             </section>`;

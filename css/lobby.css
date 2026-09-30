@@ -1013,8 +1013,8 @@ body.dragging-item .item.player .player-items .slot { box-shadow: inset 0 0 0 1p
 .text-btn:not(.locked) .lock-tag { display: none; }
 .btn-primary .lock-tag { display: inline-block; border-color: currentColor; color: inherit; opacity: 0.85; }
 .source-switch.locked .source-menu [aria-checked="false"] .source-name::after {
-    content: "Free account"; margin-left: 6px; padding: 0 5px; border: 1px solid var(--core); border-radius: 4px;
-    color: var(--core); font: 700 9.5px/1.5 var(--font-cond); letter-spacing: 0.4px;
+    content: "Free account"; margin-left: 6px; padding: 0 5px; border: 1px solid var(--role-free); border-radius: 4px;
+    color: #5B6472; font: 700 9.5px/1.5 var(--font-cond); letter-spacing: 0.4px;
 }
 .sc-lock { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
 .sc-lock i {

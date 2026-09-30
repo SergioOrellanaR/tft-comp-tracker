@@ -2,6 +2,7 @@
 // with a small menu (account, Riot ID, sign out). Also finishes Google/Riot sign-ins that come back to the page.
 import { authCall, getUser, setUser, refreshUser, avatarHtml, escapeHtml as esc } from './session.js';
 import { openAccountDialog, openPlans, isAccountDialogOpen } from './dialog.js';
+import { roleClass, roleText } from './plans.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
 
 const slot = document.getElementById('accountSlot');
@@ -25,7 +26,7 @@ function render(user) {
         return;
     }
     slot.innerHTML = `<button type="button" class="acct-chip" aria-haspopup="menu" aria-expanded="false" title="Your account">
-        ${avatarHtml(user, 26)}<span class="acct-chip-name">${esc(user.username)}</span>${user.premium ? `<span class="acct-pro">${user.plan === 'vip' ? 'VIP' : 'PRO'}</span>` : ''}
+        ${avatarHtml(user, 26)}<span class="acct-chip-name">${esc(user.username)}</span><span class="acct-pro ${roleClass(user)}">${roleText(user)}</span>
         <svg class="acct-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>`;
     slot.firstElementChild.onclick = e => { e.stopPropagation(); menu ? closeMenu() : openMenu(); };
 }
@@ -40,7 +41,7 @@ function openMenu() {
     const riot = user.riot?.verified ? user.riot.riot_id : null;
     menu.innerHTML = `
         <div class="acct-menu-hd">${avatarHtml(user, 40)}<div><b>${esc(user.username)}</b><span>${esc(user.email || riot || '')}</span></div></div>
-        <div class="acct-menu-plan"><span class="acct-plan ${user.premium ? 'pro' : ''}">${user.plan === 'vip' ? 'VIP' : user.premium ? 'PRO' : 'Free'}</span>
+        <div class="acct-menu-plan"><span class="acct-plan ${roleClass(user)}">${roleText(user)}</span>
             ${riot ? `<span class="acct-menu-riot" title="Linked Riot account">${esc(riot)}</span>` : ''}</div>
         <button type="button" role="menuitem" data-open="settings">Account settings</button>
         <button type="button" role="menuitem" data-open="plans">Plans</button>

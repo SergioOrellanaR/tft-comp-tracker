@@ -3,6 +3,12 @@
     color is game meaning (unit cost, tier, player, open/contested state).
 ===================================================================== */
 :root {
+    /* roles: Free silver, PRO gold, VIP violet */
+    --role-free: #8A93A0;
+    --role-free-soft: #EEF0F3;
+    --role-pro: var(--core);
+    --role-vip: #7A5AF8;
+    --role-vip-soft: #EFEAFF;
     /* surfaces */
     --bg: #E9ECEF;
     --surface: #FFFFFF;
