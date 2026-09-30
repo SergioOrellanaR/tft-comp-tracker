@@ -461,7 +461,9 @@
 }
 .player-name .riot-tag { color: var(--faint); font-weight: 500; }
 .item.player.is-you .player-name { color: var(--focus); }
-.item.player .mini-rank-div { color: var(--muted); font-size: 11px; min-width: 0; }
+.item.player .mini-rank-div { color: var(--muted); font-size: 11px; min-width: 0; height: 16px; }
+/* the rank line is always reserved (16px + the 1px gap), so the item boxes line up whether or not a column has a rank */
+.item.player > .player-name { margin-bottom: 17px; }
 .item.player .mini-rank-img { width: 16px; height: 16px; }
 .item.player .mini-rank-text { position: static; margin-left: 1px; font-size: 10.5px; opacity: 1; }
 .item.player .mini-rank-lp-text { margin-left: 3px; font-size: 10.5px; opacity: 1; }
@@ -926,6 +928,7 @@
     .player-avatar { width: 26px; height: 26px; font-size: 11px; }
     .player-name { font-size: 10.5px; }
     .item.player .mini-rank-div, .player-items { display: none; }
+    .item.player > .player-name { margin-bottom: 0; }
     .mh-comp { padding: 8px; }
     .source-credit, .copy-names-btn { display: none; }
     .app-header { gap: 8px; padding: 8px; }
@@ -1027,3 +1030,13 @@ body.dragging-item .item.player .player-items .slot { box-shadow: inset 0 0 0 1p
     margin-right: 6px; padding: 0 5px; border: 1px solid var(--core); border-radius: 4px;
     color: var(--core); font: 700 9.5px/1.5 var(--font-cond); font-style: normal; letter-spacing: 0.6px;
 }
+
+/* visitors: the filters and the item picker show what a free account unlocks */
+body.tools-locked #comp-search-div, body.tools-locked #itemPicker { position: relative; cursor: pointer; }
+body.tools-locked #comp-search-div::after, body.tools-locked #itemPicker::after {
+    content: "Free account"; position: absolute; top: 6px; right: 8px; padding: 0 5px 0 18px; border: 1px solid var(--role-free); border-radius: 4px;
+    background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235B6472' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='11' width='16' height='10' rx='2'/%3E%3Cpath d='M8 11V7.5a4 4 0 0 1 8 0V11'/%3E%3C/svg%3E") no-repeat 4px 50% / 11px;
+    color: #5B6472; font: 700 9.5px/1.5 var(--font-cond); letter-spacing: 0.4px; pointer-events: none;
+}
+body.tools-locked #comp-search-div::after { top: 50%; transform: translateY(-50%); right: 10px; }
+body.tools-locked #comp-search-div input { cursor: pointer; }

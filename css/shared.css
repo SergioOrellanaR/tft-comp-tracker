@@ -66,3 +66,6 @@ img[src*="ranked-mini-crests/diamond"] { filter: hue-rotate(-30deg); }
     transition: opacity 0.2s;
     pointer-events: none;
 }
+
+/* a feature of the next plan: the button is there, with a lock */
+.duel-button.is-locked { border-color: var(--core); color: var(--core); font-weight: 700; letter-spacing: 0.4px; }

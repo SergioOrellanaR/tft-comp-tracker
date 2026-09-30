@@ -283,3 +283,6 @@
     .tv-drawer, .tv-backdrop, .tv-chip { transition: none; }
     .tv-loading[aria-busy="true"]::after { animation-duration: 2s; }
 }
+
+.tv-role-empty { opacity: .55; }
+.tv-role-none { font-size: 12px; font-style: italic; color: var(--muted, #777); }

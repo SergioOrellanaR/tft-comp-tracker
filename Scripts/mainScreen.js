@@ -5,6 +5,7 @@ import { initViewTabs } from './viewTabs.js';
 import { countVisit } from './tftVersusHandler.js';
 import './mainScreen/playerItems.js';
 import './mainScreen/sortByRank.js';
+import './account/lockedTools.js';
 
 initViewTabs();
 countVisit();

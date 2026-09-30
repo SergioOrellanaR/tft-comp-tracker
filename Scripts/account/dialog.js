@@ -306,7 +306,7 @@ const VIEWS = {
         const roleFor = f => roles[f] || FEATURES[f].role;
         const wanted = state.wanted && FEATURES[state.wanted];
         const need = wanted && roleFor(state.wanted);
-        const banner = wanted ? `<p class="acct-want"><b>${wanted.label}</b> ${need === 'vip' ? 'is by invitation only.' : `needs a ${ROLE_LABEL[need]} ${need === 'free' ? 'account' : 'plan'}.`}</p>` : '';
+        const banner = wanted ? `<p class="acct-want"><b>${wanted.label}</b> ${need === 'vip' ? "isn't available on your plan." : `needs a ${ROLE_LABEL[need]} ${need === 'free' ? 'account' : 'plan'}.`}</p>` : '';
         const card = r => {
             const items = r === 'visitor' ? OPEN_FEATURES
                 : Object.keys(FEATURES).filter(f => roleFor(f) === r).map(f => [FEATURES[f].label, FEATURES[f].text]);
@@ -319,7 +319,7 @@ const VIEWS = {
                 <ul>${items.map(([t, x]) => `<li><b>${t}</b><span>${x}</span></li>`).join('')}</ul>${cta ? `<div class="acct-plan-cta">${cta}</div>` : ''}
             </section>`;
         };
-        return `${header('Plans', 'What each kind of account can do.')}${banner}${ROLES.map(card).join('')}
+        return `${header('Plans', 'What each kind of account can do.')}${banner}${ROLES.filter(r => r !== 'vip' || role === 'vip').map(card).join('')}
             ${getUser() ? '<p class="acct-switch"><a href="#" data-go="settings">Back to your account</a></p>' : ''}`;
     },
 

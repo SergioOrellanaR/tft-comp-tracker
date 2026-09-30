@@ -49,6 +49,11 @@ export async function fetchPlayerSummary(playerName, server) {
     return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.playerSummary}/${riotIdPath(playerName)}/${server}`, await authHeaders());
 }
 
+// Just the profile icon and current rank; `fresh` skips the backend's 5-minute rank cache (your own LP on sign-in and reset)
+export async function fetchPlayerRank(playerName, server, fresh = false) {
+    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.playerRank}/${riotIdPath(playerName)}/${server}${fresh ? '?fresh=1' : ''}`, await authHeaders());
+}
+
 // Whether two players shared games (see the backend's "Frontend contract")
 export async function fetchFindGames(playerName, opponentName, server) {
     return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.findGames}/${riotIdPath(playerName)}/${riotIdPath(opponentName)}/${server}`, await authHeaders());

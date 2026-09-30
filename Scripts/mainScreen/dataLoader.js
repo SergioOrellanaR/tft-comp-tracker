@@ -144,6 +144,8 @@ function renderLobby(setKey, setData) {
     const sec = view.items || {};
     const arr = [...(sec.default||[]), ...(sec.artifact||[]), ...(sec.emblem||[]), ...(sec.radiant||[]), ...(sec.trait||[])];
     items = arr.map(it => ({ Item: it.apiName, Name: it.name, Url: getItemImageUrl(it.apiName) }));
+    itemGroup = new Map();
+    ['default', 'artifact', 'emblem', 'radiant', 'trait'].forEach((key, g) => (sec[key] || []).forEach(it => itemGroup.has(it.apiName) || itemGroup.set(it.apiName, g)));
     currentSetData = view;
     loadCompsFromJSON(view);
     initCompFilter(view);
@@ -248,7 +250,7 @@ function createCompoElement(comp, index) {
     const star = document.createElement('span');
     star.className = 'star-icon';
     star.title = 'Uncontested';
-    star.innerHTML = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="17" height="10.5" rx="2"/><path d="M7.5 11V7.5a4.5 4.5 0 0 1 8.6-1.8"/></svg>';
+    star.innerHTML = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M7.8 12.4l3 3 5.6-6.2"/></svg>';
     name.prepend(star);
     const style = document.createElement('small');
     style.className = 'comp-style';
@@ -417,12 +419,11 @@ function createUnitIcons(comp) {
 
 const itemNameOf = api => items.find(i => i.Item === api)?.Name || api;
 
-// Items, then artifacts, emblems and radiants, each group as the catalog lists it (by name); unknown ones last
-const catalogIndex = api => {
-    const i = items.findIndex(it => it.Item === api);
-    return i < 0 ? Infinity : i;
-};
-const byCatalog = (a, b) => catalogIndex(a) - catalogIndex(b) || a.localeCompare(b);
+// Items, then artifacts, emblems, radiants and traits, each group by name: nothing here depends on the order a
+// comp source lists its builds or its catalog in, so the same build reads the same on every source
+let itemGroup = new Map();
+const byCatalog = (a, b) => (itemGroup.get(a) ?? 9) - (itemGroup.get(b) ?? 9)
+    || itemNameOf(a).localeCompare(itemNameOf(b)) || a.localeCompare(b);
 
 function updatePatchLabel(setKey, setData) {
     const label = document.getElementById('patchLabel');

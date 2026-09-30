@@ -9,23 +9,23 @@ export const ROLE_TAGLINE = {
     visitor: 'No account needed',
     free: 'A free account with your Riot ID',
     premium: 'Coming soon',
-    vip: 'By invitation only',
+    vip: '',
 };
 
 // What a visitor already has: nothing here is gated
 export const OPEN_FEATURES = [
     ['Scout sheet', 'Link each player to the comps they play and spot the contested carries.'],
-    ['Filters and item picker', 'Find comps by champion, item or style, and what your items fit.'],
     ['Share links and set summary', "Send a lobby as a link and browse the set's champions and items."],
 ];
 
 // Gated features, in the order the plans page lists them. The role comes from the backend; `role` here is only the
 // fallback while /config hasn't answered (or is unreachable).
 export const FEATURES = {
+    filters: { label: 'Filters and item picker', text: 'Find comps by champion, item or style, and what your items fit.', role: 'free' },
     favorite_comps: { label: 'Favorite comps', text: 'Star up to 3 comps: they stay above Tier S, on every device.', role: 'free' },
     comp_sources: { label: 'Comp sources', text: 'Switch between MetaTFT, TFT Flow, Tactics Tools and TFT Academy comps.', role: 'free' },
     player_items: { label: 'Player items', text: 'Drop items on a player to see the comps they fit.', role: 'free' },
-    versus_glance: { label: 'Versus glance', text: 'Your record against a player: your last 10 games and the averages.', role: 'free' },
+    versus_glance: { label: 'Versus glance', text: 'Your record against a player: your last 10 games and the averages.', role: 'premium' },
     favorites_unlimited: { label: 'Unlimited favorites', text: 'Star as many comps as you like.', role: 'premium' },
     player_profile: { label: 'Player profiles', text: 'Your rank under your name, plus the avatar and rank of any Riot ID you type.', role: 'premium' },
     versus_report: { label: 'Versus report', text: 'Every set and every game together, with both final boards.', role: 'premium' },

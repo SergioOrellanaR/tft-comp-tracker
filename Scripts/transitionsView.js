@@ -306,6 +306,13 @@ function connector(width) {
     return conn;
 }
 
+function buildEmptyRoleRow(role) {
+    const row = document.createElement('div');
+    row.className = 'tv-role-row tv-role-empty';
+    row.innerHTML = `<div class="tv-role-label">${role}</div><div class="tv-chip-flow"><span class="tv-role-none">No champions this set</span></div>`;
+    return row;
+}
+
 // One row per role: chips ordered by cost, with a dashed placeholder for missing costs
 function buildRoleRow(role, entries) {
     const row = document.createElement('div');
@@ -473,11 +480,15 @@ function renderTransitions() {
 
         let rowsAdded = 0;
         const roles = DATA.transitions[cat];
-        const order = cat === 'Tank' ? ['Attack', 'Magic'] : ROLE_ORDER[cat].filter(r => roles[r]);
+        const order = cat === 'Tank' ? ['Attack', 'Magic'] : [...ROLE_ORDER[cat]];
         Object.keys(roles).forEach(r => { if (!order.includes(r)) order.push(r); });
         order.forEach(role => {
             const visible = (roles[role] || []).filter(e => passesPhase(e.cost));
-            if (!visible.length) return;
+            if (!visible.length) {
+                // a listed role nobody plays this set still shows, so the categories don't shift between sets
+                if (!(roles[role] || []).length && ROLE_ORDER[cat]?.includes(role)) block.appendChild(buildEmptyRoleRow(role));
+                return;
+            }
             block.appendChild(buildRoleRow(role, visible));
             rowsAdded++;
         });

@@ -7,6 +7,7 @@ export const AUTH_API_URL = '/api/auth';
 
 export const TFT_VERSUS_API_URL = {
     playerSummary: TFT_VERSUS_API_BASE_URL + '/header',
+    playerRank: TFT_VERSUS_API_BASE_URL + '/rank',
     findGames: TFT_VERSUS_API_BASE_URL + '/find',
     versus: TFT_VERSUS_API_BASE_URL + '/versus',
     specificMatch: TFT_VERSUS_API_BASE_URL + '/match',

@@ -42,12 +42,13 @@ export function createPlayerDiv(name, index, isDoubleUp) {
     return div;
 }
 
-// Your own column shows your rank under the name, like a searched player's. nameLookup.js imports this file, so it
+// Your own column shows your rank under the name, like a searched player's, always fresh (sign-in and lobby reset
+// land here; the backend spaces real Riot refreshes 30s apart). nameLookup.js imports this file, so it
 // is loaded on demand; the column is attached to the sheet by the time the answer arrives.
 function showOwnRank(div, riotId) {
     const server = getUser()?.riot?.server || document.getElementById('serverSelector')?.value;
     if (!server || !hasFeature('player_profile')) return;
-    import('./nameLookup.js').then(m => m.loadProfile(div, riotId, server)).catch(() => {});
+    import('./nameLookup.js').then(m => m.loadProfile(div, riotId, server, true)).catch(() => {});
 }
 
 // The signed-in user's verified Riot ID: the first column's default name instead of "YOU"

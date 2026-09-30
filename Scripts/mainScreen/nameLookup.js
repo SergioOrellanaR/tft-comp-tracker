@@ -2,12 +2,15 @@
 // show tags) and the backend finds its tag (your games first, then players it knows and the server's default tags,
 // all from Riot data). One match fills in the Riot ID and checks your
 // games against them; several open a picker under the column. A full Name#TAG skips the lookup.
-import { fetchOpponents, fetchPlayerSummary } from '../tftVersusHandler.js';
+import { fetchOpponents, fetchPlayerRank } from '../tftVersusHandler.js';
 import { createLoadingSpinner } from '../components.js';
 import { hasFeature, escapeHtml, getUser } from '../account/session.js';
 import { renamePlayer, ownRiotId, setPlayerAvatar } from './players.js';
 import { checkVersus, clearPlayerActions, createAndInsertPlayerRankDiv } from './searchCurrentGame.js';
 import { showNotification } from './shareUrl.js';
+import { requireFeature } from '../account/plans.js';
+
+const LOCK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg>';
 
 let picker = null;
 
@@ -18,10 +21,10 @@ document.addEventListener('tft:playerrename', e => {
 
 async function lookup(player, name) {
     if (!ownRiotId() || name === ownRiotId()) return;
-    // a full Riot ID typed by hand needs no lookup: Free accounts get its profile and the versus glance;
-    // finding the tag of a game name is the VIP lookup
+    // a full Riot ID typed by hand needs no lookup: PRO accounts get its profile and the versus glance (Free ones a
+    // locked button that says so); finding the tag of a game name is the VIP lookup
     const typed = name.includes('#');
-    if (!hasFeature('name_lookup') && !(typed && (hasFeature('versus_glance') || hasFeature('player_profile')))) return;
+    if (!hasFeature('name_lookup') && !typed) return;
     closePicker();
     const actions = player.querySelector('.player-action-container');
     // your games are on your Riot ID's server (Riot Sign On links don't say which: the region picked then)
@@ -29,6 +32,7 @@ async function lookup(player, name) {
     clearProfile(player);
     if (name.includes('#')) {
         if (hasFeature('versus_glance')) checkVersus(player, server);
+        else lockedVersusButton(actions);
         if (hasFeature('player_profile')) loadProfile(player, name, server);
         return;
     }
@@ -73,9 +77,21 @@ function pick(player, riotId, server) {
     loadProfile(player, riotId, server);
 }
 
+// Without the versus glance (PRO) the swords are there but locked, and a click opens the plans page on it
+function lockedVersusButton(actions) {
+    clearPlayerActions(actions);
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'duel-button is-locked';
+    button.title = 'Versus glance: a PRO feature';
+    button.innerHTML = `${LOCK_SVG}PRO`;
+    button.addEventListener('click', () => requireFeature('versus_glance'));
+    actions.appendChild(button);
+}
+
 // The column shows the player as the live game does: their profile icon in place of the number, and their rank
-export async function loadProfile(player, riotId, server) {
-    const summary = await fetchPlayerSummary(riotId, server).catch(() => null);
+export async function loadProfile(player, riotId, server, fresh = false) {
+    const summary = await fetchPlayerRank(riotId, server, fresh).catch(() => null);
     if (!summary || summary.detail !== undefined || !player.isConnected || currentName(player) !== riotId) return;
     setPlayerAvatar(player, summary.profile_icon_id);
     const rank = summary.rank_info;
