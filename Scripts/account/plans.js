@@ -22,9 +22,11 @@ export const OPEN_FEATURES = [
 // Gated features, in the order the plans page lists them. The role comes from the backend; `role` here is only the
 // fallback while /config hasn't answered (or is unreachable).
 export const FEATURES = {
+    favorite_comps: { label: 'Favorite comps', text: 'Star up to 3 comps: they stay above Tier S, on every device.', role: 'free' },
     comp_sources: { label: 'Comp sources', text: 'Switch between MetaTFT, TFT Flow, Tactics Tools and TFT Academy comps.', role: 'free' },
     player_items: { label: 'Player items', text: 'Drop items on a player to see the comps they fit.', role: 'free' },
     versus_glance: { label: 'Versus glance', text: 'Your record against a player: your last 10 games and the averages.', role: 'free' },
+    favorites_unlimited: { label: 'Unlimited favorites', text: 'Star as many comps as you like.', role: 'premium' },
     player_profile: { label: 'Player profiles', text: 'Your rank under your name, plus the avatar and rank of any Riot ID you type.', role: 'premium' },
     versus_report: { label: 'Versus report', text: 'Every set and every game together, with both final boards.', role: 'premium' },
     versus_lobby: { label: 'Game lobbies', text: 'Open any shared game to see the whole lobby.', role: 'premium' },

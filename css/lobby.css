@@ -254,8 +254,8 @@
 .pill:hover { border-color: #B8C0CA; }
 .pill[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
 .pill .sw { width: 8px; height: 8px; border-radius: 50%; }
-.pill .star { color: var(--c5); font-size: 12px; line-height: 1; }
-.pill[aria-pressed="true"] .star { color: #FFD166; }
+.pill .star { display: inline-flex; color: var(--open); font-size: 12px; line-height: 1; margin-right: 4px; vertical-align: -1px; }
+.pill[aria-pressed="true"] .star { color: #8FE0B5; }
 .sw.open { background: var(--open); }
 .sw.linked { background: var(--focus); }
 
@@ -548,6 +548,7 @@
     color: #fff;
     font: 700 12px var(--font-cond);
 }
+.t-fav { background: var(--c5); font-size: 13px; }
 .t-S { background: var(--t-S); } .t-A { background: var(--t-A); } .t-B { background: var(--t-B); }
 .t-C { background: var(--t-C); } .t-D { background: var(--t-D); } .t-X { background: var(--t-X); }
 .tier-count { color: var(--muted); font-weight: 500; }
@@ -576,7 +577,7 @@
 }
 .comp-info { flex: 0 0 176px; min-width: 0; display: flex; flex-direction: column; }
 .comp-name { color: var(--ink); font-weight: 600; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.star-icon { display: inline-block; width: 0; margin-right: 0; overflow: hidden; color: var(--c5); vertical-align: -1px; transition: width var(--duration-fast) ease, margin var(--duration-fast) ease; }
+.star-icon { display: inline-block; width: 0; margin-right: 0; overflow: hidden; color: var(--open); vertical-align: -1px; transition: width var(--duration-fast) ease, margin var(--duration-fast) ease; }
 .item.compo[data-state="open"] .star-icon { width: 0.9em; margin-right: 4px; }
 .comp-style { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 12px; }
 .key-item { width: 15px; height: 15px; border-radius: 3px; }
@@ -678,6 +679,11 @@
 }
 .item.compo:hover .teambuilder-btn, .teambuilder-btn:focus-visible { opacity: 1; }
 .teambuilder-btn:hover { background: var(--sunk); color: var(--ink); }
+.fav-btn { padding: 0; border: none; background: none; cursor: pointer; }
+.fav-btn svg { fill: none; }
+.fav-btn:hover { color: var(--c5); }
+.fav-btn[aria-pressed="true"] { opacity: 1; color: var(--c5); }
+.fav-btn[aria-pressed="true"] svg { fill: currentColor; }
 .planner-btn { padding: 0; border: none; background: none; }
 .planner-btn.copied { color: var(--open); opacity: 1; }
 

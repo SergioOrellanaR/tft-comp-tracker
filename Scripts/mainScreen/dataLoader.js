@@ -1,4 +1,4 @@
-import { initCompFilter } from './compSearchBar.js';
+import { initCompFilter, applyCompVisibility } from './compSearchBar.js';
 import { linkPlayersToCompsFromQuery, getQueryParams, showNotification } from './shareUrl.js';
 import { CONFIG } from '../config.js';
 import { getChampionImageUrl, getItemImageUrl, getAugmentImageUrl } from '../tftVersusHandler.js';
@@ -6,7 +6,12 @@ import { resetPlayers } from './players.js';
 import { links } from './matrix.js';
 import { initItemPicker } from './itemPicker.js';
 import { sourceView, initialSource, getSourceId, renderSourceSwitch } from './compSource.js';
+import { favoriteKey, isFavorite, toggleFavorite } from '../account/favorites.js';
 import './compStatCard.js';
+
+// the rows of the current set and source, to regroup them when a favorite changes (the row elements stay, so links do)
+let compRows = [];
+let currentSetKey = '';
 
 export let unitImageMap = {};
 export let unitCostMap = {};
@@ -131,6 +136,7 @@ export function tryLoadDefaultData() {
 
 // Build the lobby for a set with the chosen comp source
 function renderLobby(setKey, setData) {
+    currentSetKey = setKey;
     const view = sourceView(setData, getSourceId());
     // unit images/costs must match the selected set, not the newest one
     buildUnitMaps(view);
@@ -167,12 +173,11 @@ function clearCompParams({ items: withItems }) {
 }
 
 function loadCompsFromJSON(metaData) {
-    compsContainer.innerHTML = '';
-    const tiers = { S: [], A: [], B: [], C: [], D: [], X: [] };
+    compRows = [];
     const itemName = api => items.find(i => i.Item === api)?.Name || api;
 
     metaData.comps.forEach((comp, index) => {
-        if (!tiers[comp.tier]) return;
+        if (!TIER_ORDER.includes(comp.tier)) return;
         const compoElement = createCompoElement(comp, index);
         // Tags for filtering: every unit of the board, the builds (alt builds too), key item and style
         const tags = [
@@ -182,22 +187,46 @@ function loadCompsFromJSON(metaData) {
             ...(comp.style ? [comp.style] : []),
         ];
         compoElement.dataset.tags = tags.join('|');
-        tiers[comp.tier].push({ name: comp.title, avg: comp.stats?.avg, element: compoElement });
+        compRows.push({ tier: comp.tier, name: comp.title, avg: comp.stats?.avg, element: compoElement, key: compoElement.dataset.favKey });
     });
+    arrangeComps();
+}
 
-    ['S', 'A', 'B', 'C', 'D', 'X'].forEach(t => {
-        if (!tiers[t].length) return;
-        // comps with placement stats keep the source's order (best average first), the rest go by name
-        tiers[t].sort((a, b) => (a.avg ?? 0) - (b.avg ?? 0) || a.name.localeCompare(b.name));
+const TIER_ORDER = ['S', 'A', 'B', 'C', 'D', 'X'];
+// comps with placement stats keep the source's order (best average first), the rest go by name
+const byAverage = (a, b) => (a.avg ?? 0) - (b.avg ?? 0) || a.name.localeCompare(b.name);
+
+// The sheet's groups: Favorites first (by tier, then as usual), then each tier without its favorites
+function arrangeComps() {
+    compsContainer.innerHTML = '';
+    const favorites = compRows.filter(r => isFavorite(r.key)).sort((a, b) => TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier) || byAverage(a, b));
+    compRows.forEach(r => {
+        const on = isFavorite(r.key);
+        r.element.classList.toggle('is-fav', on);
+        const btn = r.element.querySelector('.fav-btn');
+        btn?.setAttribute('aria-pressed', String(on));
+        if (btn) btn.title = on ? 'Remove from favorites' : 'Add to favorites';
+    });
+    const addGroup = (id, badge, label, rows) => {
+        if (!rows.length) return;
         const header = document.createElement('div');
         header.className = 'tier-header';
-        header.dataset.tier = t;
-        header.innerHTML = `<b class="tier-badge t-${t}">${t}</b><span class="tier-label">${t === 'X' ? 'Situational' : `Tier ${t}`}</span><span class="tier-count"></span>`;
+        header.dataset.tier = id;
+        header.innerHTML = `<b class="tier-badge t-${id}">${badge}</b><span class="tier-label">${label}</span><span class="tier-count"></span>`;
         compsContainer.appendChild(header);
-        tiers[t].forEach(({ element }) => compsContainer.appendChild(element));
-    });
-
+        rows.forEach(({ element }) => compsContainer.appendChild(element));
+    };
+    addGroup('fav', '★', 'Favorites', favorites);
+    TIER_ORDER.forEach(t => addGroup(t, t, t === 'X' ? 'Situational' : `Tier ${t}`,
+        compRows.filter(r => r.tier === t && !isFavorite(r.key)).sort(byAverage)));
 }
+
+// a star was toggled (or the account's list arrived): regroup, then recount what's visible
+document.addEventListener('tft:favoriteschange', () => {
+    if (!compRows.length) return;
+    arrangeComps();
+    applyCompVisibility();
+});
 
 // One matrix row: the comp and one cell per lobby player
 function createCompoElement(comp, index) {
@@ -205,6 +234,7 @@ function createCompoElement(comp, index) {
     div.className = 'item compo';
     div.dataset.id = 'compo-' + index;
     div.dataset.tier = comp.tier;
+    div.dataset.favKey = favoriteKey(currentSetKey, getSourceId(), comp.title);
 
     const cell = document.createElement('div');
     cell.className = 'comp-cell';
@@ -218,7 +248,7 @@ function createCompoElement(comp, index) {
     const star = document.createElement('span');
     star.className = 'star-icon';
     star.title = 'Uncontested';
-    star.textContent = '★';
+    star.innerHTML = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="11" width="17" height="10.5" rx="2"/><path d="M7.5 11V7.5a4.5 4.5 0 0 1 8.6-1.8"/></svg>';
     name.prepend(star);
     const style = document.createElement('small');
     style.className = 'comp-style';
@@ -239,6 +269,15 @@ function createCompoElement(comp, index) {
     itemsContainer.className = 'items-container';
 
     cell.append(info, createUnitIcons(comp), itemsContainer);
+    const fav = document.createElement('button');
+    fav.type = 'button';
+    fav.className = 'teambuilder-btn fav-btn';
+    fav.setAttribute('aria-pressed', 'false');
+    fav.title = 'Add to favorites';
+    fav.setAttribute('aria-label', `Favorite ${comp.title}`);
+    fav.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>';
+    fav.addEventListener('click', () => toggleFavorite(div.dataset.favKey));
+    cell.appendChild(fav);
     const planner = createPlannerButton(comp.plannerCode);
     if (planner) cell.appendChild(planner);
     const tb = createTeambuilderButton(comp.url);
