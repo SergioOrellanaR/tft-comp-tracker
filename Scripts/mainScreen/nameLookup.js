@@ -70,7 +70,7 @@ function pick(player, riotId, server) {
 }
 
 // The column shows the player as the live game does: their profile icon in place of the number, and their rank
-async function loadProfile(player, riotId, server) {
+export async function loadProfile(player, riotId, server) {
     const summary = await fetchPlayerSummary(riotId, server).catch(() => null);
     if (!summary || summary.detail !== undefined || !player.isConnected || currentName(player) !== riotId) return;
     setPlayerAvatar(player, summary.profile_icon_id);

@@ -33,8 +33,19 @@ export function createPlayerDiv(name, index, isDoubleUp) {
     itemBox.innerHTML = '<span class="slot"></span>'.repeat(6);
 
     div.append(actionContainer, avatar, span, itemBox);
-    if (!isDoubleUp && index === 0 && name === ownRiotId()) setPlayerAvatar(div, getUser().riot.profile_icon_id);
+    if (!isDoubleUp && index === 0 && name === ownRiotId()) {
+        setPlayerAvatar(div, getUser().riot.profile_icon_id);
+        showOwnRank(div, name);
+    }
     return div;
+}
+
+// Your own column shows your rank under the name, like a searched player's. nameLookup.js imports this file, so it
+// is loaded on demand; the column is attached to the sheet by the time the answer arrives.
+function showOwnRank(div, riotId) {
+    const server = getUser()?.riot?.server || document.getElementById('serverSelector')?.value;
+    if (!server) return;
+    import('./nameLookup.js').then(m => m.loadProfile(div, riotId, server)).catch(() => {});
 }
 
 // The signed-in user's verified Riot ID: the first column's default name instead of "YOU"
