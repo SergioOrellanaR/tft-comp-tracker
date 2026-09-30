@@ -9,6 +9,8 @@ import { fetchVersus, fetchSpecificMatch, getChampionImageUrl, getItemImageUrl, 
 import { CDRAGON_URL, CONFIG } from '../config.js';
 import { getSnapshotSets } from './dataLoader.js';
 import { escapeHtml as esc } from '../account/session.js';
+import { requireFeature } from '../account/plans.js';
+import { hasFeature } from '../account/session.js';
 
 const YOU = CONFIG.colors[0];
 const PLACEMENTS_MAX_GAMES = 10; // more games than this open on the finishes grid instead of the line chart
@@ -147,9 +149,9 @@ export async function openGlance(button, myName, opponentName, opponentColor, se
         <div class="vs-lbl">Your last ${Math.min(10, list.length)} finishes against them, newest first</div>
         <div class="vs-g-grid"><div><span class="vs-lbl">Your avg</span><b>${all.avg1.toFixed(2)}</b></div><div><span class="vs-lbl">Their avg</span><b>${all.avg2.toFixed(2)}</b></div>
             <div><span class="vs-lbl">Contested</span><b class="${ctClass(contested)}">${contested}%</b></div></div>
-        <div class="vs-g-foot"><button type="button" class="btn-primary vs-open">Open full history</button></div>`;
+        <div class="vs-g-foot"><button type="button" class="btn-primary vs-open">Open full history${hasFeature('versus_report') ? '' : '<i class="lock-tag">PRO</i>'}</button></div>`;
     glance.querySelector('.vs-x').onclick = closeGlance;
-    glance.querySelector('.vs-open').onclick = () => { closeGlance(); openReport(data, opponentColor); };
+    glance.querySelector('.vs-open').onclick = () => { if (!requireFeature('versus_report')) return; closeGlance(); openReport(data, opponentColor); };
     place(column);
 }
 
@@ -228,7 +230,7 @@ export function openReport(data, opponentColor) {
         report.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { chart = b.dataset.mode; render(); });
         wireTips(report, list, THEM);
         report.querySelectorAll('.vs-game').forEach(row => {
-            const toggle = () => toggleLobby(row, all.find(g => g.match_id === row.dataset.id), THEM);
+            const toggle = () => { if (requireFeature('versus_lobby')) toggleLobby(row, all.find(g => g.match_id === row.dataset.id), THEM); };
             row.addEventListener('click', toggle);
             row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
         });

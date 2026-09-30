@@ -17,15 +17,19 @@ document.addEventListener('tft:playerrename', e => {
 });
 
 async function lookup(player, name) {
-    if (!hasFeature('name_lookup') || !ownRiotId() || name === ownRiotId()) return;
+    if (!ownRiotId() || name === ownRiotId()) return;
+    // a full Riot ID typed by hand needs no lookup: Free accounts get its profile and the versus glance;
+    // finding the tag of a game name is the VIP lookup
+    const typed = name.includes('#');
+    if (!hasFeature('name_lookup') && !(typed && (hasFeature('versus_glance') || hasFeature('player_profile')))) return;
     closePicker();
     const actions = player.querySelector('.player-action-container');
     // your games are on your Riot ID's server (Riot Sign On links don't say which: the region picked then)
     const server = getUser()?.riot?.server || document.getElementById('serverSelector').value;
     clearProfile(player);
     if (name.includes('#')) {
-        checkVersus(player, server);
-        loadProfile(player, name, server);
+        if (hasFeature('versus_glance')) checkVersus(player, server);
+        if (hasFeature('player_profile')) loadProfile(player, name, server);
         return;
     }
     const spinner = createLoadingSpinner();

@@ -5,7 +5,7 @@ import { authHeaders } from './account/session.js';
 async function fetchFromTFTVersusAPI(endpoint, headers = {}) {
     try {
         // A plain GET (no Content-Type header) skips the CORS preflight: one round trip less per call
-        // (routes behind a plan add the Authorization header, and with it a preflight)
+        // (routes behind a role add the Authorization header, and with it a preflight)
         const response = await fetch(endpoint, { headers });
 
         if (!response.ok) {
@@ -46,12 +46,12 @@ function riotIdPath(riotId) {
 
 // A player's card: profile icon, rank
 export async function fetchPlayerSummary(playerName, server) {
-    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.playerSummary}/${riotIdPath(playerName)}/${server}`);
+    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.playerSummary}/${riotIdPath(playerName)}/${server}`, await authHeaders());
 }
 
 // Whether two players shared games (see the backend's "Frontend contract")
 export async function fetchFindGames(playerName, opponentName, server) {
-    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.findGames}/${riotIdPath(playerName)}/${riotIdPath(opponentName)}/${server}`);
+    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.findGames}/${riotIdPath(playerName)}/${riotIdPath(opponentName)}/${server}`, await authHeaders());
 }
 
 // Who a game name typed without its tag is (VIP): { server, players: [{ riot_id, games, last_played }] }, players
@@ -63,7 +63,7 @@ export async function fetchOpponents(gameName, server) {
 
 // Everything the versus report shows: every common game (all sets), ranks at the time, seasons
 export async function fetchVersus(playerName, opponentName, server) {
-    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.versus}/${riotIdPath(playerName)}/${riotIdPath(opponentName)}/${server}`);
+    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.versus}/${riotIdPath(playerName)}/${riotIdPath(opponentName)}/${server}`, await authHeaders());
 }
 
 // The live game of a player (VIP: Riot's spectator API)
@@ -73,7 +73,7 @@ export async function fetchLiveGame(playerName, server) {
 
 // One game's whole lobby, for the versus report
 export async function fetchSpecificMatch(matchId) {
-    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.specificMatch}/${encodeURIComponent(matchId)}`);
+    return await fetchFromTFTVersusAPI(`${TFT_VERSUS_API_URL.specificMatch}/${encodeURIComponent(matchId)}`, await authHeaders());
 }
 
 // ---------- image URLs ----------

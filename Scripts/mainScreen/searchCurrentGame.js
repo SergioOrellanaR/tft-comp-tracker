@@ -404,6 +404,10 @@ function updatePlayers(participants) {
 export function createAndInsertPlayerRankDiv(tier, playerRank, lp, numberOfGames = 0) {
     const rankDiv = document.createElement('div');
     rankDiv.classList.add('mini-rank-div');
+    // read by sortByRank.js
+    rankDiv.dataset.tier = tier || '';
+    rankDiv.dataset.division = playerRank || '';
+    rankDiv.dataset.lp = lp || 0;
 
     // Create a container for the icon and first rank text
     const iconAndRankDiv = document.createElement('div');

@@ -5,11 +5,12 @@
 import { CDRAGON_URL, CONFIG } from '../config.js';
 import { authCall, authConfig, getUser, setUser, avatarHtml, escapeHtml as esc } from './session.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
+import { ROLES, ROLE_LABEL, ROLE_TAGLINE, FEATURES, OPEN_FEATURES, currentRole } from './plans.js';
 
 let overlay = null;
 let box = null;
 let view = 'signin';
-const state = { email: '', resendAt: 0, riot: null };
+const state = { email: '', resendAt: 0, riot: null, wanted: null };
 let turnstile = null; // { id } of the rendered widget
 
 const ICONS = {
@@ -33,6 +34,12 @@ export async function openAccountDialog(which = 'signin') {
         box = overlay.firstElementChild;
     }
     await go(which);
+}
+
+// The plans page, opened from a locked feature (`feature`) or from the menu
+export async function openPlans(feature = null) {
+    state.wanted = feature;
+    await openAccountDialog('plans');
 }
 
 export const isAccountDialogOpen = () => !!overlay;
@@ -244,7 +251,7 @@ const VIEWS = {
         return `${header('Your account')}
         <section class="acct-card acct-me">${avatarHtml(u, 52)}
             <div><b>${esc(u.username)}</b><span>${esc(u.email || (riot ? riot.riot_id : ''))}</span></div>
-            <span class="acct-plan ${u.premium ? 'pro' : ''}">${u.premium ? 'Premium' : 'Free plan'}</span></section>
+            <span class="acct-plan ${u.premium ? 'pro' : ''}">${ROLE_LABEL[u.plan] || 'Free'}</span></section>
 
         <section class="acct-sec"><h3>Profile</h3>
             <form class="acct-inline" data-form="profile" novalidate>
@@ -272,9 +279,12 @@ const VIEWS = {
         </ul></section>
 
         <section class="acct-sec"><h3>Plan</h3>
-            ${u.premium
-                ? `<p class="acct-note">You're on <b>Premium</b>${u.plan_expires_at ? ` until ${new Date(u.plan_expires_at).toLocaleDateString()}` : ''}. Thanks for supporting TrackerTFT.</p>`
-                : '<p class="acct-note">You\'re on the <b>Free</b> plan. Premium is coming soon.</p>'}
+            ${u.plan === 'vip'
+                ? '<p class="acct-note">You have <b>VIP</b> access: every feature, by invitation. Thank you!</p>'
+                : u.premium
+                ? `<p class="acct-note">You're on <b>PRO</b>${u.plan_expires_at ? ` until ${new Date(u.plan_expires_at).toLocaleDateString()}` : ''}. Thanks for supporting TrackerTFT.</p>`
+                : '<p class="acct-note">You\'re on the <b>Free</b> plan. PRO is coming soon.</p>'}
+            <button type="button" class="acct-btn ghost" data-go="plans">Compare plans</button>
         </section>
 
         <section class="acct-sec"><h3>Security</h3>
@@ -288,6 +298,29 @@ const VIEWS = {
                     : field(`Type <b>${esc(u.username)}</b> to confirm`, '<input name="confirm" required autocomplete="off">')}
                 <button type="submit" class="acct-btn danger">Delete account</button>${errorBox}
             </form></section>`;
+    },
+
+    plans: cfg => {
+        const role = currentRole();
+        const roles = cfg.feature_roles || {};
+        const roleFor = f => roles[f] || FEATURES[f].role;
+        const wanted = state.wanted && FEATURES[state.wanted];
+        const need = wanted && roleFor(state.wanted);
+        const banner = wanted ? `<p class="acct-want"><b>${wanted.label}</b> ${need === 'vip' ? 'is by invitation only.' : `needs a ${ROLE_LABEL[need]} ${need === 'free' ? 'account' : 'plan'}.`}</p>` : '';
+        const card = r => {
+            const items = r === 'visitor' ? OPEN_FEATURES
+                : Object.keys(FEATURES).filter(f => roleFor(f) === r).map(f => [FEATURES[f].label, FEATURES[f].text]);
+            const cta = r === 'free' && role === 'visitor'
+                ? '<button type="button" class="acct-btn" data-go="signup">Create a free account</button> <a href="#" class="acct-link" data-go="signin">Sign in</a>'
+                : r === 'premium' && role !== 'premium' && role !== 'vip' ? "<span class=\"acct-note\">Payments aren't open yet.</span>" : '';
+            const below = r === 'visitor' ? '' : `<p class="acct-plan-inc">Everything in ${ROLE_LABEL[ROLES[ROLES.indexOf(r) - 1]]}, plus:</p>`;
+            return `<section class="acct-plan-card${r === role ? ' current' : ''}${wanted && r === need ? ' wanted' : ''}">
+                <h3>${ROLE_LABEL[r]}${r === role ? '<i>You</i>' : ''}<small>${ROLE_TAGLINE[r]}</small></h3>${below}
+                <ul>${items.map(([t, x]) => `<li><b>${t}</b><span>${x}</span></li>`).join('')}</ul>${cta ? `<div class="acct-plan-cta">${cta}</div>` : ''}
+            </section>`;
+        };
+        return `${header('Plans', 'What each kind of account can do.')}${banner}${ROLES.map(card).join('')}
+            ${getUser() ? '<p class="acct-switch"><a href="#" data-go="settings">Back to your account</a></p>' : ''}`;
     },
 
     password: () => {
@@ -383,6 +416,8 @@ const WIRE = {
             signedIn(res.user, 'Password changed. You\'re signed in.');
         });
     },
+    plans: () => wireProviders(),
+
     settings: () => {
         wireProviders();
         const u = getUser();

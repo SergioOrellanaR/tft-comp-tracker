@@ -89,7 +89,7 @@ export function renderLinks() {
         const n = onComp.size;
         const state = n > 1 ? 'crowded' : n === 1 ? 'linked' : taken ? 'shared' : 'open';
         compo.dataset.state = state;
-        compo.classList.toggle('mine', compLinks.some(l => l.player === players[0]));
+        compo.classList.toggle('mine', compLinks.some(l => l.player === (players.find(p => 'you' in p.dataset) || players[0])));
     });
 
     renderContested(champPlayers, players);

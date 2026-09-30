@@ -7,6 +7,7 @@ import { getCurrentSetData } from './dataLoader.js';
 import { playerColumns, links } from './matrix.js';
 import { ITEM_DRAG_TYPE, scoreComp, rankResults, suggestionButton } from './itemPicker.js';
 import { itemName, isArtifact, isEmblem, isRadiant, isSpecial, fit } from './compFit.js';
+import { requireFeature } from '../account/plans.js';
 
 const MAX_ITEMS = 6;
 const HINTS_PER_PLAYER = 3;
@@ -176,6 +177,7 @@ playersContainer.addEventListener('drop', e => {
     document.body.classList.remove('dragging-item');
     if (!player) return;
     e.preventDefault();
+    if (!requireFeature('player_items')) return;
     let data;
     try { data = JSON.parse(e.dataTransfer.getData(ITEM_DRAG_TYPE)); } catch { return; }
     const source = data.from != null ? playerColumns()[data.from] : null;

@@ -2,7 +2,7 @@ import { CONFIG, CDRAGON_URL } from '../config.js';
 import { throttle } from '../utils.js';
 import { renderLinks, links } from './matrix.js';
 import { resetCompFilters } from './compSearchBar.js';
-import { getUser } from '../account/session.js';
+import { getUser, hasFeature } from '../account/session.js';
 
 export const playersContainer = document.getElementById('players');
 
@@ -10,6 +10,8 @@ export const playersContainer = document.getElementById('players');
 export function createPlayerDiv(name, index, isDoubleUp) {
     const div = document.createElement('div');
     div.classList.add('item', 'player', 'player-card');
+    // your column keeps this after the columns are reordered (matrix.js marks the comps you're linked to)
+    if (!isDoubleUp && index === 0) div.dataset.you = '';
 
     const avatar = document.createElement('span');
     avatar.className = 'player-avatar';
@@ -44,7 +46,7 @@ export function createPlayerDiv(name, index, isDoubleUp) {
 // is loaded on demand; the column is attached to the sheet by the time the answer arrives.
 function showOwnRank(div, riotId) {
     const server = getUser()?.riot?.server || document.getElementById('serverSelector')?.value;
-    if (!server) return;
+    if (!server || !hasFeature('player_profile')) return;
     import('./nameLookup.js').then(m => m.loadProfile(div, riotId, server)).catch(() => {});
 }
 
@@ -224,8 +226,12 @@ document.addEventListener('tft:userchange', () => {
         showName(span, next);
         first.title = next;
         const img = first.querySelector('.player-avatar img');
+        first.querySelectorAll('.mini-rank-div').forEach(rank => rank.remove());
         if (next === 'YOU') { if (img) { img.hidden = true; img.removeAttribute('src'); } }
-        else setPlayerAvatar(first, getUser().riot.profile_icon_id);
+        else {
+            setPlayerAvatar(first, getUser().riot.profile_icon_id);
+            showOwnRank(first, next);
+        }
         renderLinks();
     }
     shownOwnName = next;

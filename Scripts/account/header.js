@@ -1,7 +1,7 @@
 // The account button in the app header: "Sign in" when signed out; avatar, username and plan when signed in,
 // with a small menu (account, Riot ID, sign out). Also finishes Google/Riot sign-ins that come back to the page.
 import { authCall, getUser, setUser, refreshUser, avatarHtml, escapeHtml as esc } from './session.js';
-import { openAccountDialog, isAccountDialogOpen } from './dialog.js';
+import { openAccountDialog, openPlans, isAccountDialogOpen } from './dialog.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
 
 const slot = document.getElementById('accountSlot');
@@ -25,7 +25,7 @@ function render(user) {
         return;
     }
     slot.innerHTML = `<button type="button" class="acct-chip" aria-haspopup="menu" aria-expanded="false" title="Your account">
-        ${avatarHtml(user, 26)}<span class="acct-chip-name">${esc(user.username)}</span>${user.premium ? '<span class="acct-pro">PRO</span>' : ''}
+        ${avatarHtml(user, 26)}<span class="acct-chip-name">${esc(user.username)}</span>${user.premium ? `<span class="acct-pro">${user.plan === 'vip' ? 'VIP' : 'PRO'}</span>` : ''}
         <svg class="acct-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>`;
     slot.firstElementChild.onclick = e => { e.stopPropagation(); menu ? closeMenu() : openMenu(); };
 }
@@ -40,9 +40,10 @@ function openMenu() {
     const riot = user.riot?.verified ? user.riot.riot_id : null;
     menu.innerHTML = `
         <div class="acct-menu-hd">${avatarHtml(user, 40)}<div><b>${esc(user.username)}</b><span>${esc(user.email || riot || '')}</span></div></div>
-        <div class="acct-menu-plan"><span class="acct-plan ${user.premium ? 'pro' : ''}">${user.premium ? 'Premium' : 'Free plan'}</span>
+        <div class="acct-menu-plan"><span class="acct-plan ${user.premium ? 'pro' : ''}">${user.plan === 'vip' ? 'VIP' : user.premium ? 'PRO' : 'Free'}</span>
             ${riot ? `<span class="acct-menu-riot" title="Linked Riot account">${esc(riot)}</span>` : ''}</div>
         <button type="button" role="menuitem" data-open="settings">Account settings</button>
+        <button type="button" role="menuitem" data-open="plans">Plans</button>
         ${riot ? '' : '<button type="button" role="menuitem" data-open="riot">Link your Riot ID</button>'}
         <button type="button" role="menuitem" class="acct-signout">Sign out</button>`;
     document.body.appendChild(menu);
@@ -50,7 +51,7 @@ function openMenu() {
     menu.style.top = `${r.bottom + 8}px`;
     menu.style.right = `${Math.max(8, window.innerWidth - r.right)}px`;
     chip.setAttribute('aria-expanded', 'true');
-    menu.querySelectorAll('[data-open]').forEach(b => b.onclick = () => { closeMenu(); openAccountDialog(b.dataset.open); });
+    menu.querySelectorAll('[data-open]').forEach(b => b.onclick = () => { closeMenu(); if (b.dataset.open === 'plans') openPlans(); else openAccountDialog(b.dataset.open); });
     menu.querySelector('.acct-signout').onclick = async () => {
         closeMenu();
         try { await authCall('/logout', { method: 'POST' }); } catch { /* signed out locally anyway */ }

@@ -2,6 +2,8 @@
 // TFT Academy (`compSources` in each set). The choice is remembered, and a share URL carries it.
 import { links } from './matrix.js';
 import { getQueryParams } from './shareUrl.js';
+import { requireFeature } from '../account/plans.js';
+import { hasFeature } from '../account/session.js';
 
 const ORDER = ['tftflow', 'metatft', 'tactics', 'tftacademy'];
 // First visit: MetaTFT; after that, whatever the user last picked (localStorage)
@@ -67,6 +69,7 @@ export function renderSourceSwitch(set, onSwitch) {
     const sources = sourcesOf(set);
     const active = sources.find(s => s.id === current) || sources[0];
     root.hidden = sources.length < 2;
+    root.classList.toggle('locked', !hasFeature('comp_sources'));
     root.innerHTML = `
         <button type="button" class="source-btn" aria-haspopup="menu" aria-expanded="false">
             <span class="source-from">Comps from</span>${sourceLogo(active.id)}<b>${active.name}</b>
@@ -116,6 +119,7 @@ export function renderSourceSwitch(set, onSwitch) {
         const id = e.target.closest('[data-source]')?.dataset.source;
         if (!id) return;
         if (id === current) return close();
+        if (!requireFeature('comp_sources')) return close();
         const target = sources.find(s => s.id === id);
         const linked = links.length;
         if (!linked) return switchTo(id);
@@ -166,3 +170,6 @@ document.addEventListener('click', e => {
     root.querySelector('.source-confirm')?.setAttribute('hidden', '');
     root.querySelector('.source-btn')?.setAttribute('aria-expanded', 'false');
 });
+
+// the other sources show a lock until the account can switch
+document.addEventListener('tft:userchange', () => root?.classList.toggle('locked', !hasFeature('comp_sources')));
