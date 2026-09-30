@@ -229,9 +229,15 @@ export function suggestionButton({ comp, index, matched }, { holders = false } =
     return a;
 }
 
+// Item synergy first, then the stronger tier; the weighted score and how contested a comp is only break
+// what's left. Synergy is counted, not summed (a 0.8 vs 0.5 rating shouldn't put a C comp above an S one):
+// the items the picks fully give that the comp uses, or, with none, the half-covered recipes it uses.
+const synergy = r => { const full = r.matched.filter(m => m.full).length; return full ? 100 * full : r.matched.length; };
 export function rankResults(results) {
-    return results.sort((a, b) => b.score - a.score || STATE_RANK[compState(a.index)] - STATE_RANK[compState(b.index)]
-        || (TIER_RANK[a.comp.tier] ?? 9) - (TIER_RANK[b.comp.tier] ?? 9));
+    return results.sort((a, b) => synergy(b) - synergy(a)
+        || (TIER_RANK[a.comp.tier] ?? 9) - (TIER_RANK[b.comp.tier] ?? 9)
+        || b.score - a.score
+        || STATE_RANK[compState(a.index)] - STATE_RANK[compState(b.index)]);
 }
 
 function renderSuggestions(results) {
