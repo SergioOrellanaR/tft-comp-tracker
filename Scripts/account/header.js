@@ -2,7 +2,7 @@
 // with a small menu (account, Riot ID, sign out). Also finishes Google/Riot sign-ins that come back to the page.
 import { authCall, getUser, setUser, refreshUser, avatarHtml, escapeHtml as esc } from './session.js';
 import { openAccountDialog, openPlans, isAccountDialogOpen } from './dialog.js';
-import { roleClass, roleText } from './plans.js';
+import { roleClass, roleText, ROLES, ROLE_LABEL } from './plans.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
 
 const slot = document.getElementById('accountSlot');
@@ -26,7 +26,7 @@ function render(user) {
         return;
     }
     slot.innerHTML = `<button type="button" class="acct-chip" aria-haspopup="menu" aria-expanded="false" title="Your account">
-        ${avatarHtml(user, 26)}<span class="acct-chip-name">${esc(user.username)}</span><span class="acct-pro ${roleClass(user)}">${roleText(user)}</span>
+        ${avatarHtml(user, 26)}<span class="acct-chip-name">${esc(user.username)}</span><span class="acct-pro ${roleClass(user)}${user.view_as ? ' viewing' : ''}"${user.view_as ? ` title="Looking at the site as ${roleText(user)} (you're VIP)"` : ''}>${roleText(user)}</span>
         <svg class="acct-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>`;
     slot.firstElementChild.onclick = e => { e.stopPropagation(); menu ? closeMenu() : openMenu(); };
 }
@@ -43,6 +43,7 @@ function openMenu() {
         <div class="acct-menu-hd">${avatarHtml(user, 40)}<div><b>${esc(user.username)}</b><span>${esc(user.email || riot || '')}</span></div></div>
         <div class="acct-menu-plan"><span class="acct-plan ${roleClass(user)}">${roleText(user)}</span>
             ${riot ? `<span class="acct-menu-riot" title="Linked Riot account">${esc(riot)}</span>` : ''}</div>
+        ${user.can_view_as ? viewAsHtml(user) : ''}
         <button type="button" role="menuitem" data-open="settings">Account settings</button>
         <button type="button" role="menuitem" data-open="plans">Plans</button>
         ${riot ? '' : '<button type="button" role="menuitem" data-open="riot">Link your Riot ID</button>'}
@@ -53,6 +54,7 @@ function openMenu() {
     menu.style.right = `${Math.max(8, window.innerWidth - r.right)}px`;
     chip.setAttribute('aria-expanded', 'true');
     menu.querySelectorAll('[data-open]').forEach(b => b.onclick = () => { closeMenu(); if (b.dataset.open === 'plans') openPlans(); else openAccountDialog(b.dataset.open); });
+    menu.querySelectorAll('[data-view-as]').forEach(b => b.onclick = () => viewAs(b.dataset.viewAs));
     menu.querySelector('.acct-signout').onclick = async () => {
         closeMenu();
         try { await authCall('/logout', { method: 'POST' }); } catch { /* signed out locally anyway */ }
@@ -64,6 +66,27 @@ function openMenu() {
         document.addEventListener('click', outside);
         document.addEventListener('keydown', escape);
     }, 0);
+}
+
+// VIP accounts (the owner and the QA profiles) can look at the site as any role, to test what each one gets
+function viewAsHtml(user) {
+    const current = user.view_as || 'vip';
+    return `<div class="acct-viewas" role="group" aria-label="View the site as">
+        <span>View the site as</span>
+        <div>${ROLES.map(r => `<button type="button" data-view-as="${r}" aria-pressed="${r === current}">${ROLE_LABEL[r]}</button>`).join('')}</div>
+    </div>`;
+}
+
+async function viewAs(role) {
+    if ((getUser()?.view_as || 'vip') === role) return;
+    try {
+        const data = await authCall('/view-as', { method: 'POST', body: { role } });
+        closeMenu();
+        setUser(data.user);
+        showNotification(role === 'vip' ? 'Back to VIP' : `Looking at the site as ${ROLE_LABEL[role]}`);
+    } catch (e) {
+        showNotification(e.message || "Couldn't switch roles.");
+    }
 }
 
 function closeMenu() {

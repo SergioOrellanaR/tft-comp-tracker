@@ -220,3 +220,12 @@ button.acct-link:disabled { color: var(--faint); cursor: default; text-decoratio
 .acct-plan-card.role-free h3 { color: #5B6472; }
 .acct-plan-card.role-premium h3 { color: #8A5A00; }
 .acct-plan-card.role-vip h3 { color: var(--role-vip); }
+
+/* VIP: look at the site as another role (testing) */
+.acct-pro.viewing { border-style: dashed; }
+.acct-viewas { padding: 6px 8px 8px; border-bottom: 1px solid var(--rule-soft); margin-bottom: 4px; }
+.acct-viewas > span { display: block; margin-bottom: 4px; font: 600 11px var(--font-cond); letter-spacing: 0.3px; color: var(--muted); }
+.acct-viewas > div { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; padding: 2px; border-radius: 7px; background: var(--sunk); }
+.acct-viewas button { min-height: 26px; padding: 0 4px; border: none; border-radius: 5px; background: none; color: var(--ink-2); font: 600 12px var(--font); cursor: pointer; }
+.acct-viewas button:hover { background: var(--surface); }
+.acct-viewas button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(21, 24, 29, 0.14); }

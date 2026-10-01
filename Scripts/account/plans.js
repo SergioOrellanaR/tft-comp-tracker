@@ -36,9 +36,10 @@ export const FEATURES = {
     name_lookup: { label: 'Name lookup', text: 'Find a Riot ID from the name you see in game.', role: 'vip' },
 };
 
-// CSS class (free, pro, vip) and label of a signed-in user's role badge
+// CSS class (free, pro, vip) and label of a signed-in user's role badge. A VIP looking at the site as another
+// role (user.view_as, to test) shows that role.
 export const roleClass = user => (user.plan === 'vip' ? 'vip' : user.premium ? 'pro' : 'free');
-export const roleText = user => (user.plan === 'vip' ? 'VIP' : user.premium ? 'PRO' : 'Free');
+export const roleText = user => ROLE_LABEL[user.plan] || 'Free';
 
 // The signed-in user's role, or 'visitor'
 export const roleOf = user => (user ? user.plan || 'free' : 'visitor');

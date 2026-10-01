@@ -285,7 +285,9 @@ const VIEWS = {
         </ul></section>
 
         <section class="acct-sec"><h3>Plan</h3>
-            ${u.plan === 'vip'
+            ${u.view_as
+                ? `<p class="acct-note">You have <b>VIP</b> access and are looking at the site as <b>${ROLE_LABEL[u.plan]}</b>. Switch back from the account menu.</p>`
+                : u.plan === 'vip'
                 ? '<p class="acct-note">You have <b>VIP</b> access: every feature, by invitation. Thank you!</p>'
                 : u.premium
                 ? `<p class="acct-note">You're on <b>PRO</b>${u.plan_expires_at ? ` until ${new Date(u.plan_expires_at).toLocaleDateString()}` : ''}. Thanks for supporting TrackerTFT.</p>`
