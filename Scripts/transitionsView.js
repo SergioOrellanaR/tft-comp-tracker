@@ -4,6 +4,7 @@
 import { links } from './mainScreen/matrix.js';
 import { getCurrentSetData, getSnapshotSets } from './mainScreen/dataLoader.js';
 import { getChampionImageUrl, getItemImageUrl } from './tftVersusHandler.js';
+import { escapeHtml as esc } from './account/session.js';
 
 let DATA = null;
 let root = null;
@@ -149,7 +150,7 @@ function renderSetSelect(set) {
     const sets = getSnapshotSets();
     const keys = Object.keys(sets);
     select.hidden = keys.length < 2;
-    select.innerHTML = keys.map(k => `<option value="${k}">${k.replace(/^SET\s*/i, 'Set ')} · ${sets[k]?.status === 'pbe' ? 'PBE' : 'Live'}</option>`).join('');
+    select.innerHTML = keys.map(k => `<option value="${esc(k)}">${esc(k.replace(/^SET\s*/i, 'Set '))} · ${sets[k]?.status === 'pbe' ? 'PBE' : 'Live'}</option>`).join('');
     const current = keys.find(k => sets[k] === set);
     if (current) select.value = current;
 }
@@ -167,7 +168,7 @@ function loadSet(set) {
         $('.tv-foot').textContent = '';
         return;
     }
-    const src = s => s ? `<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>` : '';
+    const src = s => s ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : '';
     $('.tv-foot').innerHTML = `Items, artifacts and emblems from ${src(DATA.itemsSource)}${DATA.patch ? `, patch ${DATA.patch}` : ''}.`;
     renderTransitions();
 }
@@ -543,7 +544,7 @@ function synergyRow(c, sharedItems, sharedTraits) {
     row.appendChild(portraitImg(c.name));
     const info = document.createElement('div');
     info.className = 'tv-synergy-info';
-    info.insertAdjacentHTML('beforeend', `<span class="tv-synergy-name">${c.name}${variantTag(c.variant)}<span class="tv-synergy-cost tv-num">${c.cost}★</span></span>`);
+    info.insertAdjacentHTML('beforeend', `<span class="tv-synergy-name">${esc(c.name)}${variantTag(c.variant)}<span class="tv-synergy-cost tv-num">${c.cost}★</span></span>`);
     if (sharedItems.length) {
         const itemsLine = document.createElement('div');
         itemsLine.className = 'tv-synergy-items';
@@ -557,7 +558,7 @@ function synergyRow(c, sharedItems, sharedTraits) {
         info.appendChild(itemsLine);
     }
     if (sharedTraits.length) {
-        info.insertAdjacentHTML('beforeend', `<div class="tv-synergy-reasons">${sharedTraits.map(t => `<span class="tv-reason-tag">${t}</span>`).join('')}</div>`);
+        info.insertAdjacentHTML('beforeend', `<div class="tv-synergy-reasons">${sharedTraits.map(t => `<span class="tv-reason-tag">${esc(t)}</span>`).join('')}</div>`);
     }
     row.appendChild(info);
     row.addEventListener('click', () => openChampionDrawer(c.key));
@@ -591,7 +592,7 @@ function openChampionDrawer(key) {
     const head = document.createElement('div');
     head.className = 'tv-d-head';
     head.appendChild(portraitImg(champ.name, 'xl'));
-    head.insertAdjacentHTML('beforeend', `<div><h3>${champ.name}</h3><div class="tv-drawer-sub">${champ.cost}★ <span style="color:var(--tv-${color})">${type}</span></div></div>`);
+    head.insertAdjacentHTML('beforeend', `<div><h3>${esc(champ.name)}</h3><div class="tv-drawer-sub">${champ.cost}★ <span style="color:var(--tv-${color})">${type}</span></div></div>`);
     // Adaptive champions: switch between their AD and AP builds
     const builds = champ.variant ? VARIANTS.filter(v => DATA.byKey.has(`${champ.name}|${v}`)) : [];
     if (builds.length) {
@@ -624,7 +625,7 @@ function openChampionDrawer(key) {
     const st = champ.stats;
     const stat = (label, v) => v === undefined ? '' : `<span>${label} ${v}</span>`;
     let html = `<div class="tv-d-section"><div class="tv-ab-stats tv-num">${stat('HP', st.hp)}${stat('AD', st.ad)}${stat('AS', st.as)}${stat('Armor', st.ar)}${stat('MR', st.mr)}${stat('Range', st.range)}</div></div>`;
-    html += `<div class="tv-d-section"><div class="tv-trait-pills">${champ.traits.map(t => `<span class="tv-trait-pill">${t}</span>`).join('')}</div></div>`;
+    html += `<div class="tv-d-section"><div class="tv-trait-pills">${champ.traits.map(t => `<span class="tv-trait-pill">${esc(t)}</span>`).join('')}</div></div>`;
     const tiers = champ.tiers;
     // Without live stats (PBE) the tiers come from guide builds: count of builds instead of placement
     const baseNote = tiers.base == null ? '' : `<span class="tv-ab-note tv-num" title="Average placement with any items">avg ${tiers.base.toFixed(2)}</span>`;
@@ -633,7 +634,7 @@ function openChampionDrawer(key) {
         : `<span class="tv-stat tv-num" title="Average placement, games">${avg.toFixed(2)} <small>${games.toLocaleString('en')}</small></span>`;
     html += `<div class="tv-d-section"><div class="tv-d-label">Best items ${baseNote}</div>`;
     TIERS.forEach(t => (tiers[t] || []).forEach(([item, avg, games]) => {
-        html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${TIER_LABEL[t]}</span><img class="tv-item-icon" src="${getItemImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
+        html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${TIER_LABEL[t]}</span><img class="tv-item-icon" src="${getItemImageUrl(item)}" alt=""><span class="tv-item-name">${esc(itemName(item))}</span>${statCell(avg, games)}</div>`;
     }));
     html += `</div>`;
     // artifacts and emblems: MetaTFT tiers, each against the champion's others of the same kind
@@ -642,7 +643,7 @@ function openChampionDrawer(key) {
         if (!special || !['S', 'A'].some(t => special[t]?.length)) return;
         html += `<div class="tv-d-section"><div class="tv-d-label">${label}</div>`;
         ['S', 'A'].forEach(t => (special[t] || []).forEach(([item, avg, games]) => {
-            html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${t}</span><img class="tv-item-icon" src="${getItemImageUrl(item)}" alt=""><span class="tv-item-name">${itemName(item)}</span>${statCell(avg, games)}</div>`;
+            html += `<div class="tv-item-row"><span class="tv-tier-badge tier-${t}">${t}</span><img class="tv-item-icon" src="${getItemImageUrl(item)}" alt=""><span class="tv-item-name">${esc(itemName(item))}</span>${statCell(avg, games)}</div>`;
         }));
         html += `</div>`;
     });

@@ -1,5 +1,5 @@
 import { initCompFilter, applyCompVisibility } from './compSearchBar.js';
-import { linkPlayersToCompsFromQuery, getQueryParams, showNotification } from './shareUrl.js';
+import { linkPlayersToCompsFromQuery, getQueryParams, showNotification, copyText } from './shareUrl.js';
 import { CONFIG } from '../config.js';
 import { getChampionImageUrl, getItemImageUrl, getAugmentImageUrl } from '../tftVersusHandler.js';
 import { resetPlayers } from './players.js';
@@ -27,40 +27,39 @@ export const getSnapshotSets = () => fullSnapshot || {};
 
 const compsContainer = document.getElementById('compos');
 
+// The browser revalidates the file with its ETag (a few KB over the wire when unchanged), so there's no cache
+// of our own: a tab left open for hours would never see a newer snapshot. Failing shows a retry in the sheet.
 const loadMetaSnapshot = async () => {
     try {
-        // Add caching for the meta snapshot
-        // Versioned: bump when the format changes (v5: comp sources)
-        const cacheKey = 'metaSnapshot:v5';
-        const cached = sessionStorage.getItem(cacheKey);
-        
-        if (cached) {
-            try {
-                const snapshot = JSON.parse(cached);
-                processSnapshotData(snapshot);
-                return snapshot;
-            } catch (e) {
-                sessionStorage.removeItem(cacheKey);
-            }
-        }
-
+        sessionStorage.removeItem('metaSnapshot:v5'); // the old cache
+    } catch { /* storage unavailable */ }
+    try {
         const response = await fetch(CONFIG.routes.metaSnapshot);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const snapshot = await response.json();
-        
-        // Cache the response
-        try {
-            sessionStorage.setItem(cacheKey, JSON.stringify(snapshot));
-        } catch (e) {
-            console.warn('Could not cache meta snapshot:', e);
-        }
-        
         processSnapshotData(snapshot);
         return snapshot;
     } catch (error) {
         console.error('Error loading MetaSnapshot.json:', error);
+        showLoadError();
         return null;
     }
 };
+
+function showLoadError() {
+    compsContainer.innerHTML = '';
+    const box = document.createElement('div');
+    box.className = 'load-error';
+    box.setAttribute('role', 'alert');
+    box.innerHTML = "<p><b>The comps didn't load.</b> Check your connection and try again.</p>";
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'btn-primary';
+    retry.textContent = 'Try again';
+    retry.addEventListener('click', () => { box.remove(); tryLoadDefaultData(); });
+    box.appendChild(retry);
+    compsContainer.appendChild(box);
+}
 
 // Fill unitImageMap/unitCostMap (mutated in place, other modules hold references) from one set's data
 function buildUnitMaps(setData) {
@@ -236,6 +235,7 @@ function createCompoElement(comp, index) {
     div.className = 'item compo';
     div.dataset.id = 'compo-' + index;
     div.dataset.tier = comp.tier;
+    div.dataset.title = comp.title; // what share URLs name the comp by
     div.dataset.favKey = favoriteKey(currentSetKey, getSourceId(), comp.title);
 
     const cell = document.createElement('div');
@@ -279,11 +279,15 @@ function createCompoElement(comp, index) {
     fav.setAttribute('aria-label', `Favorite ${comp.title}`);
     fav.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>';
     fav.addEventListener('click', () => toggleFavorite(div.dataset.favKey));
-    cell.appendChild(fav);
+    // the row's buttons float over the end of the comp cell, so they never reach the player cells
+    const actions = document.createElement('div');
+    actions.className = 'comp-actions';
     const planner = createPlannerButton(comp.plannerCode);
-    if (planner) cell.appendChild(planner);
+    if (planner) actions.appendChild(planner);
     const tb = createTeambuilderButton(comp.url);
-    if (tb) cell.appendChild(tb);
+    if (tb) actions.appendChild(tb);
+    actions.appendChild(fav);
+    cell.appendChild(actions);
     div.appendChild(cell);
 
     for (let k = 0; k < 8; k++) {
@@ -311,14 +315,10 @@ function createPlannerButton(code) {
     b.setAttribute('aria-label', 'Copy Team Planner code');
     b.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>';
     b.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(code);
-            showNotification('Team Planner code copied. Paste it in the Team Planner in game.');
-            b.classList.add('copied');
-            setTimeout(() => b.classList.remove('copied'), 1200);
-        } catch {
-            prompt('Team Planner code', code);
-        }
+        if (!await copyText(code, 'Team Planner code (paste it in the Team Planner in game):')) return;
+        showNotification('Team Planner code copied. Paste it in the Team Planner in game.');
+        b.classList.add('copied');
+        setTimeout(() => b.classList.remove('copied'), 1200);
     });
     return b;
 }

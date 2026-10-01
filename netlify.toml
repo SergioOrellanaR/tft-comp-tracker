@@ -12,3 +12,40 @@
   to = "https://api.trackertft.com/api/auth/:splat"
   status = 200
   force = true
+
+# Repo files that aren't part of the site
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.claude/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Security headers. Inline styles are everywhere (style="" built by the scripts), hence 'unsafe-inline' for styles only;
+# scripts are all same-origin modules, plus Cloudflare Turnstile. Images come from MetaTFT's and CommunityDragon's CDNs
+# and from an account's Google picture. Keep this list in sync with the origins in Scripts/config.js.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://api.trackertft.com https://raw.communitydragon.org https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Fonts never change under the same name: cache them for good. Scripts and styles keep revalidating (no hashed names).
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

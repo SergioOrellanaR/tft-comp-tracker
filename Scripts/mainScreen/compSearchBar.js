@@ -8,6 +8,7 @@ const debounce = (func, delay) => { let timer; return (...args) => { clearTimeou
 export let selectedFilters = [];
 let viewFilter = 'all'; // 'all' | 'open' | 'linked'
 let compSuggestionIndex = -1;
+let compSuggestionCount = 0;
 const compSearchInput = document.getElementById('comp-search-input');
 const compSuggestions = document.getElementById('comp-suggestions');
 const tagsContainer = document.getElementById('comp-tags-container');
@@ -115,10 +116,20 @@ export function initCompFilter(metaData) {
 function clearSuggestions() {
     compSuggestions.innerHTML = '';
     compSuggestions.style.display = 'none';
+    compSearchInput.setAttribute('aria-expanded', 'false');
+    compSearchInput.removeAttribute('aria-activedescendant');
+}
+
+// the highlighted suggestion, for screen readers (focus stays in the input)
+function setActiveSuggestion(li) {
+    compSuggestions.querySelectorAll('li').forEach(item => item.classList.toggle('selected', item === li));
+    if (li) compSearchInput.setAttribute('aria-activedescendant', li.id);
+    else compSearchInput.removeAttribute('aria-activedescendant');
 }
 
 function renderSuggestions() {
     compSuggestionIndex = -1;
+    compSuggestionCount = 0;
     const val = compSearchInput.value.trim().toLowerCase();
     if (!val) return clearSuggestions();
     const frag = document.createDocumentFragment();
@@ -129,6 +140,8 @@ function renderSuggestions() {
             : name.toLowerCase().split(' ').some(word => word.startsWith(val));
         if (!show) return;
         const li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        li.id = `comp-suggestion-${compSuggestionCount++}`;
         if (iconUrl) {
             const img = document.createElement('img');
             img.src = iconUrl;
@@ -144,14 +157,15 @@ function renderSuggestions() {
         li.append(nameSpan, catSpan);
         li.addEventListener('click', () => selectOption(name));
         li.addEventListener('mouseenter', () => {
-            compSuggestions.querySelectorAll('li').forEach(item => item.classList.remove('selected'));
-            li.classList.add('selected');
+            setActiveSuggestion(li);
         });
         frag.appendChild(li);
     });
     compSuggestions.innerHTML = '';
     compSuggestions.appendChild(frag);
     compSuggestions.style.display = compSuggestions.childElementCount ? 'block' : 'none';
+    compSearchInput.setAttribute('aria-expanded', String(compSuggestions.childElementCount > 0));
+    compSearchInput.removeAttribute('aria-activedescendant');
 }
 
 function selectOption(opt, { focus = true } = {}) {
@@ -206,7 +220,7 @@ compSearchInput.addEventListener('keydown', (e) => {
         compSuggestionIndex = e.key === 'ArrowDown'
             ? (compSuggestionIndex + 1) % suggestionItems.length
             : (compSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length;
-        suggestionItems.forEach((li, idx) => li.classList.toggle('selected', idx === compSuggestionIndex));
+        setActiveSuggestion(suggestionItems[compSuggestionIndex]);
         suggestionItems[compSuggestionIndex].scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'Enter') {
         e.preventDefault();

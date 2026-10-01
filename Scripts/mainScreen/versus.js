@@ -6,6 +6,7 @@
 // Clicking a game expands its whole lobby (/match/{id}: the boards come from the database, and names too
 // for players saved before; the rest are asked to Riot once by puuid and saved, so it's asked once per game).
 import { fetchVersus, fetchSpecificMatch, getChampionImageUrl, getItemImageUrl, getMiniRankIconUrl, CDragonBaseUrl } from '../tftVersusHandler.js';
+import { trapFocus } from '../focusTrap.js';
 import { CDRAGON_URL, CONFIG } from '../config.js';
 import { getSnapshotSets } from './dataLoader.js';
 import { escapeHtml as esc } from '../account/session.js';
@@ -187,7 +188,9 @@ export function openReport(data, opponentColor) {
     document.body.appendChild(overlay);
     document.body.classList.add('vs-open');
     const report = overlay.firstElementChild;
-    const close = () => { overlay.remove(); document.body.classList.remove('vs-open'); document.removeEventListener('keydown', onKey); };
+    report.tabIndex = -1;
+    const release = trapFocus(report);
+    const close = () => { overlay.remove(); document.body.classList.remove('vs-open'); document.removeEventListener('keydown', onKey); release(); };
     const onKey = e => { if (e.key === 'Escape') close(); };
     document.addEventListener('keydown', onKey);
     overlay.addEventListener('click', e => { if (e.target === overlay) close(); });

@@ -32,7 +32,7 @@
 
 .vs-seg { display: inline-flex; padding: 2px; background: var(--sunk); border-radius: 7px; flex-wrap: wrap; }
 .vs-seg button { border: none; background: none; padding: 5px 11px; border-radius: 5px; font: 600 12.5px var(--font); color: var(--muted); }
-.vs-seg button span { margin-left: 5px; font-weight: 500; color: var(--faint); }
+.vs-seg button span { margin-left: 5px; font-weight: 500; color: var(--muted); }
 .vs-seg button:hover { color: var(--ink); }
 .vs-seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(21, 24, 29, 0.1); }
 .vs-seg.small { flex-wrap: nowrap; }
@@ -63,7 +63,7 @@
 .vs-pick-list button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; border: none; border-radius: 8px; background: none; color: var(--ink); text-align: left; cursor: pointer; }
 .vs-pick-list button:hover, .vs-pick-list button:focus-visible { background: var(--sunk); outline: none; }
 .vs-pick-list b { flex: 1; min-width: 0; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.vs-pick-list .riot-tag { color: var(--faint); font-weight: 500; }
+.vs-pick-list .riot-tag { color: var(--muted); font-weight: 500; }
 .vs-pick-list .mini-rank-div { font-size: 12px; color: var(--muted); }
 .vs-pick-list .mini-rank-img { width: 22px; height: 22px; }
 .vs-pick-list > li > button > span:last-child { flex: none; color: var(--muted); font-size: 12px; }

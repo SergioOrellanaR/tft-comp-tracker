@@ -1,8 +1,0 @@
-/* TFT Comp Tracker styles, in cascade order */
-@import url('./variables.css');
-@import url('./base.css');
-@import url('./shared.css');
-@import url('./lobby.css');
-@import url('./transitions.css');
-@import url('./versus.css');
-@import url('./account.css');

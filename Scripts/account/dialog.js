@@ -5,10 +5,12 @@
 import { CDRAGON_URL, CONFIG } from '../config.js';
 import { authCall, authConfig, getUser, setUser, avatarHtml, escapeHtml as esc } from './session.js';
 import { showNotification } from '../mainScreen/shareUrl.js';
+import { trapFocus } from '../focusTrap.js';
 import { ROLES, ROLE_LABEL, ROLE_TAGLINE, FEATURES, OPEN_FEATURES, currentRole, roleClass } from './plans.js';
 
 let overlay = null;
 let box = null;
+let releaseFocus = null;
 let view = 'signin';
 const state = { email: '', resendAt: 0, riot: null, wanted: null };
 let turnstile = null; // { id } of the rendered widget
@@ -32,6 +34,8 @@ export async function openAccountDialog(which = 'signin') {
         document.body.appendChild(overlay);
         document.body.classList.add('acct-open');
         box = overlay.firstElementChild;
+        box.tabIndex = -1;
+        releaseFocus = trapFocus(box);
     }
     await go(which);
 }
@@ -52,6 +56,8 @@ export function closeAccountDialog() {
     dropTurnstile();
     overlay.remove();
     overlay = box = null;
+    releaseFocus?.();
+    releaseFocus = null;
     document.body.classList.remove('acct-open');
     document.removeEventListener('keydown', onKey);
 }

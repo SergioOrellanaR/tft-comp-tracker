@@ -34,15 +34,47 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.metatft.com">
   <link rel="preconnect" href="https://raw.communitydragon.org">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preload" href="fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/plex-sans-condensed-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- in cascade order -->
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/lobby.css" />
+  <link rel="stylesheet" href="css/transitions.css" />
+  <link rel="stylesheet" href="css/versus.css" />
+  <link rel="stylesheet" href="css/account.css" />
 
-  <link rel="modulepreload" href="Scripts/mainScreen/domContentLoad.js">
-  <link rel="modulepreload" href="Scripts/mainScreen.js">
+  <!-- every module the entry scripts import, so they download together instead of one import level at a time
+       (add new modules here; transitionsView.js is loaded on demand) -->
+  <link rel="modulepreload" href="Scripts/config.js">
+  <link rel="modulepreload" href="Scripts/utils.js">
+  <link rel="modulepreload" href="Scripts/components.js">
+  <link rel="modulepreload" href="Scripts/tftVersusHandler.js">
+  <link rel="modulepreload" href="Scripts/viewTabs.js">
+  <link rel="modulepreload" href="Scripts/focusTrap.js">
+  <link rel="modulepreload" href="Scripts/account/session.js">
+  <link rel="modulepreload" href="Scripts/account/plans.js">
+  <link rel="modulepreload" href="Scripts/account/dialog.js">
+  <link rel="modulepreload" href="Scripts/account/favorites.js">
+  <link rel="modulepreload" href="Scripts/account/lockedTools.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/players.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/matrix.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/dataLoader.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/compSearchBar.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/itemPicker.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/compFit.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/shareUrl.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/playerItems.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/compSource.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/compStatCard.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/searchCurrentGame.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/versus.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/nameLookup.js">
+  <link rel="modulepreload" href="Scripts/mainScreen/sortByRank.js">
 </head>
 
 <body>
@@ -84,8 +116,8 @@
         <div id="comp-search-div" class="comp-filter">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
           <div id="comp-tags-container" class="tags-container"></div>
-          <input id="comp-search-input" type="text" placeholder="Filter by champion, item or style" aria-label="Filter compositions" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          <ul id="comp-suggestions" class="suggestions" style="display:none;"></ul>
+          <input id="comp-search-input" type="text" placeholder="Filter by champion, item or style" aria-label="Filter compositions" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="comp-suggestions" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          <ul id="comp-suggestions" class="suggestions" role="listbox" aria-label="Suggestions" style="display:none;"></ul>
         </div>
         <div class="view-filter" role="group" aria-label="Show">
           <button type="button" class="pill" data-filter="all" aria-pressed="true">All</button>

@@ -94,6 +94,7 @@ export function renderLinks() {
 
     renderContested(champPlayers, players);
     applyCompVisibility();
+    syncRovingFocus();
     document.dispatchEvent(new CustomEvent('tft:linkschange'));
 }
 
@@ -157,3 +158,57 @@ compsContainer.addEventListener('mouseover', e => {
     players.forEach((p, k) => p.classList.toggle('col-hot', !!cell && k === +cell.dataset.slot));
 });
 compsContainer.addEventListener('mouseleave', () => playerColumns().forEach(p => p.classList.remove('col-hot')));
+
+// ---------- keyboard: the matrix is one tab stop, arrows move between cells ----------
+// Tab enters on the last cell used (the first visible one at the start); the arrows, Home and End move around;
+// Enter/Space links (a click) and the context-menu key switches confirmed ⇄ possible. The active row's buttons
+// (favorite, planner code, guide) are the only ones in the tab order too.
+let activeCell = null;
+const visibleRows = () => [...compsContainer.querySelectorAll('.item.compo:not([hidden])')];
+
+function syncRovingFocus() {
+    const rows = visibleRows();
+    if (!activeCell?.isConnected || activeCell.closest('.item.compo')?.hidden) {
+        activeCell = rows[0]?.querySelector('.link-cell') || null;
+    }
+    const activeRow = activeCell?.closest('.item.compo');
+    compsContainer.querySelectorAll('.link-cell').forEach(cell => { cell.tabIndex = cell === activeCell ? 0 : -1; });
+    compsContainer.querySelectorAll('.comp-actions .teambuilder-btn').forEach(btn => {
+        btn.tabIndex = btn.closest('.item.compo') === activeRow ? 0 : -1;
+    });
+}
+
+compsContainer.addEventListener('focusin', e => {
+    const cell = e.target.closest('.link-cell');
+    if (cell && cell !== activeCell) {
+        activeCell = cell;
+        syncRovingFocus();
+    }
+});
+
+compsContainer.addEventListener('keydown', e => {
+    const cell = e.target.closest('.link-cell');
+    if (!cell || e.altKey || e.ctrlKey || e.metaKey) return;
+    const rows = visibleRows();
+    const row = cell.closest('.item.compo');
+    const r = rows.indexOf(row);
+    const slot = +cell.dataset.slot;
+    const last = playerColumns().length - 1;
+    let target = null;
+    switch (e.key) {
+        case 'ArrowRight': target = [r, Math.min(slot + 1, last)]; break;
+        case 'ArrowLeft': target = [r, Math.max(slot - 1, 0)]; break;
+        case 'ArrowDown': target = [Math.min(r + 1, rows.length - 1), slot]; break;
+        case 'ArrowUp': target = [Math.max(r - 1, 0), slot]; break;
+        case 'Home': target = e.shiftKey ? [0, slot] : [r, 0]; break;
+        case 'End': target = e.shiftKey ? [rows.length - 1, slot] : [r, last]; break;
+        case 'PageDown': target = [Math.min(r + 8, rows.length - 1), slot]; break;
+        case 'PageUp': target = [Math.max(r - 8, 0), slot]; break;
+        default: return;
+    }
+    e.preventDefault();
+    const next = rows[target[0]]?.querySelectorAll('.link-cell')[target[1]];
+    if (!next) return;
+    next.focus();
+    next.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+});

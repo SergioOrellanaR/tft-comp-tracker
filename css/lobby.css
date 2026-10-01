@@ -196,7 +196,7 @@
     outline: none;
     color: var(--ink);
 }
-#comp-search-input::placeholder { color: var(--faint); }
+#comp-search-input::placeholder { color: var(--muted); opacity: 1; }
 
 .tag-item {
     display: inline-flex;
@@ -277,7 +277,7 @@
 .icon-btn.sm { width: 24px; height: 24px; font-size: 15px; }
 
 /* ---------- matrix ---------- */
-.matrix { flex: 1; min-height: 0; overflow: auto; position: relative; }
+.matrix { flex: 1; min-height: 0; overflow: auto; position: relative; scroll-padding: 130px 400px 20px 20px; }
 
 .matrix-head {
     position: sticky;
@@ -319,6 +319,7 @@
     white-space: nowrap;
 }
 .source-switch, .source-credit { flex: none; }
+.source-credit { min-height: 24px; }
 .source-btn b { color: var(--ink); font-size: 12.5px; }
 .source-btn:hover, .source-btn[aria-expanded="true"] { background: var(--sunk); border-color: var(--rule); }
 .source-btn svg { color: var(--faint); }
@@ -335,7 +336,7 @@
 }
 .source-credit:hover { color: var(--focus); text-decoration: underline; }
 /* on its own line under the menu, quiet */
-.source-note { order: 1; flex-basis: 100%; margin-top: 6px; color: var(--muted); opacity: 0.6; font: 400 11px var(--font); }
+.source-note { order: 1; flex-basis: 100%; margin-top: 6px; color: var(--muted); font: 400 11px var(--font); }
 .source-note time { cursor: help; }
 
 .source-menu, .source-confirm {
@@ -408,6 +409,7 @@
 .text-btn[hidden] { display: none; }
 
 .copy-names-btn {
+    min-width: 24px; min-height: 24px;
     border: none;
     background: none;
     padding: 0 2px;
@@ -459,7 +461,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.player-name .riot-tag { color: var(--faint); font-weight: 500; }
+.player-name .riot-tag { color: var(--muted); font-weight: 500; }
 .item.player.is-you .player-name { color: var(--focus); }
 .item.player .mini-rank-div { color: var(--muted); font-size: 11px; min-width: 0; height: 16px; }
 /* the rank line is always reserved (16px + the 1px gap), so the item boxes line up whether or not a column has a rank */
@@ -473,7 +475,7 @@
 /* rate limited: seconds until the versus check runs again */
 .duel-wait { padding: 1px 4px; border-radius: 4px; background: var(--shared-soft); color: var(--shared); font: 600 10px var(--font-cond); cursor: help; }
 .edit-icon {
-    width: 20px; height: 20px;
+    width: 24px; height: 24px;
     display: grid; place-items: center;
     padding: 0;
     border: none;
@@ -553,7 +555,7 @@
 .t-fav { background: var(--c5); font-size: 13px; }
 .t-S { background: var(--t-S); } .t-A { background: var(--t-A); } .t-B { background: var(--t-B); }
 .t-C { background: var(--t-C); } .t-D { background: var(--t-D); } .t-X { background: var(--t-X); }
-.tier-count { color: var(--muted); font-weight: 500; }
+.tier-count { color: #5C6370; font-weight: 500; }
 
 .item.compo {
     position: relative;
@@ -576,6 +578,8 @@
     min-width: 0;
     padding: 6px 14px;
     background: inherit;
+    /* nothing of a comp may cover the player cells next to it */
+    overflow: hidden;
 }
 .comp-info { flex: 0 0 176px; min-width: 0; display: flex; flex-direction: column; }
 .comp-name { color: var(--ink); font-weight: 600; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -603,7 +607,7 @@
 }
 .sc-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
 .sc-head b { color: var(--ink); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sc-head span { flex: none; color: var(--faint); font-size: 11px; }
+.sc-head span { flex: none; color: var(--muted); font-size: 11px; }
 .sc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin: 0 0 12px; }
 .sc-grid dt { color: var(--muted); font-size: 11px; }
 .sc-grid dd { margin: 0; color: var(--ink); font: 600 16px var(--font-cond); }
@@ -611,8 +615,8 @@
 .sc-bar { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; min-height: 0; }
 .sc-bar i { display: block; width: 100%; border-radius: 2px 2px 0 0; background: var(--rule); }
 .sc-bar.top4 i { background: var(--open); opacity: 0.8; }
-.sc-bar small { color: var(--faint); font: 500 10px var(--font-cond); line-height: 1; }
-.sc-foot { margin: 8px 0 0; color: var(--faint); font-size: 11px; }
+.sc-bar small { color: var(--muted); font: 500 10px var(--font-cond); line-height: 1; }
+.sc-foot { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
 
 .unit-icons { display: flex; gap: 6px; flex: none; }
 .unit-icon-wrapper { position: relative; padding: 5px 0 6px; }
@@ -670,6 +674,24 @@
 .items-container img { width: 22px; height: 22px; border-radius: 4px; }
 .items-container img.partial { opacity: 0.45; }
 
+/* favorite, planner code and guide: out of the flow at the end of the comp cell, over the row's tail on hover */
+.comp-actions {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    z-index: 3;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 2px;
+    padding: 2px;
+    border-radius: 6px;
+    pointer-events: none;
+}
+.item.compo:hover .comp-actions, .comp-actions:focus-within {
+    background: var(--surface);
+    box-shadow: 0 0 0 1px var(--rule);
+    pointer-events: auto;
+}
 .teambuilder-btn {
     display: grid; place-items: center;
     width: 24px; height: 24px;
@@ -684,7 +706,8 @@
 .fav-btn { padding: 0; border: none; background: none; cursor: pointer; }
 .fav-btn svg { fill: none; }
 .fav-btn:hover { color: var(--c5); }
-.fav-btn[aria-pressed="true"] { opacity: 1; color: var(--c5); }
+/* a favorite already sits in the Favorites group, so its star waits for the hover like the rest */
+.fav-btn[aria-pressed="true"] { color: var(--c5); }
 .fav-btn[aria-pressed="true"] svg { fill: currentColor; }
 .planner-btn { padding: 0; border: none; background: none; }
 .planner-btn.copied { color: var(--open); opacity: 1; }
@@ -923,7 +946,7 @@
     .unit-icon-wrapper:nth-child(n+4) { display: none; }
     .unit-icon-wrapper > img { width: 26px; height: 26px; }
     .unit-items img { width: 9px; height: 9px; }
-    .teambuilder-btn { display: none; }
+    .comp-actions { display: none; }
     .item.player { padding: 8px 2px 6px; cursor: default; }
     .player-avatar { width: 26px; height: 26px; font-size: 11px; }
     .player-name { font-size: 10.5px; }
@@ -1040,3 +1063,7 @@ body.tools-locked #comp-search-div::after, body.tools-locked #itemPicker::after 
 }
 body.tools-locked #comp-search-div::after { top: 50%; transform: translateY(-50%); right: 10px; }
 body.tools-locked #comp-search-div input { cursor: pointer; }
+
+/* ---------- the comps didn't load ---------- */
+.load-error { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 64px 16px; color: var(--ink-2); text-align: center; }
+.load-error p { margin: 0; }

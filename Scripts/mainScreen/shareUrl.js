@@ -6,18 +6,53 @@ import { renderLinks, links } from './matrix.js';
 import { getPlayerItems, setPlayerItems, refreshPlayerItems } from './playerItems.js';
 import { getSourceId } from './compSource.js';
 
-export function copyShareUrlToClipboard() {
+// between the comps of a player in a share URL (titles can hold commas, not this)
+const COMP_SEPARATOR = '~';
+
+// Copies `text`; when the browser refuses (no clipboard access), shows it in a field already selected to copy by hand.
+// Resolves true when it was copied.
+export async function copyText(text, label) {
+    try {
+        await navigator.clipboard.writeText(text);
+        return true;
+    } catch {
+        showManualCopy(label, text);
+        return false;
+    }
+}
+
+function showManualCopy(label, text) {
+    document.getElementById('manual-copy')?.remove();
+    const box = document.createElement('div');
+    box.id = 'manual-copy';
+    box.className = 'manual-copy';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-label', label);
+    const caption = document.createElement('label');
+    caption.textContent = label;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.readOnly = true;
+    input.value = text;
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'btn-ghost';
+    close.textContent = 'Close';
+    const dismiss = () => { box.remove(); document.removeEventListener('keydown', onKey); };
+    const onKey = e => { if (e.key === 'Escape') dismiss(); };
+    close.addEventListener('click', dismiss);
+    document.addEventListener('keydown', onKey);
+    caption.appendChild(input);
+    box.append(caption, close);
+    document.body.appendChild(box);
+    input.focus();
+    input.select();
+}
+
+export async function copyShareUrlToClipboard() {
     const shareUrl = getShareUrl();
-    const notificationMsg = 'Link copied! Share it to show players and comps from this game.';
-    const promptMsg = 'Copy this link to share players and comps from this game:';
-    if (navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(shareUrl)
-            .then(() => {
-                showNotification(notificationMsg);
-            })
-            .catch(() => prompt(promptMsg, shareUrl));
-    } else {
-        prompt(promptMsg, shareUrl);
+    if (await copyText(shareUrl, 'Copy this link to share players and comps from this game:')) {
+        showNotification('Link copied! Share it to show players and comps from this game.');
     }
 }
 
@@ -90,18 +125,20 @@ export function linkPlayersToCompsFromQuery() {
     for (let i = 1; i <= 8; i++) {
         const key = `Player${i}Comps`;
         if (params[key]) {
-            // "3*" is a main comp, "3" a pivot
-            const entries = params[key].split(',').map(s => s.trim()).filter(s => !isNaN(parseInt(s, 10)));
+            // entries: a comp's title ("Invoker Morgana*"), or, in links made before titles, its index ("3*").
+            // "*" marks a main comp, anything else a pivot. A title survives the comp list being reordered.
+            // links made before titles: "3,5*", comma separated
+            const legacy = /^(\d+\*?,?)+$/.test(params[key].trim());
+            const entries = params[key].split(legacy ? ',' : COMP_SEPARATOR).map(s => s.trim()).filter(Boolean);
             entries.forEach(entry => {
-                const idx = parseInt(entry, 10);
-                // Find comp element by data-id (compo-INDEX)
-                const compEl = document.querySelector(`.item.compo[data-id="compo-${idx}"]`);
+                const main = entry.endsWith('*');
+                const ref = main ? entry.slice(0, -1) : entry;
+                const compEl = /^\d+$/.test(ref)
+                    ? document.querySelector(`.item.compo[data-id="compo-${parseInt(ref, 10)}"]`)
+                    : [...document.querySelectorAll('.item.compo')].find(el => el.dataset.title === ref);
                 const playerEl = playerDivs[i - 1];
-                if (compEl && playerEl) {
-                    // Avoid duplicate links
-                    if (!links.some(l => l.compo === compEl && l.player === playerEl)) {
-                        links.push({ compo: compEl, player: playerEl, pivot: !entry.endsWith('*') });
-                    }
+                if (compEl && playerEl && !links.some(l => l.compo === compEl && l.player === playerEl)) {
+                    links.push({ compo: compEl, player: playerEl, pivot: !main });
                 }
             });
         }
@@ -144,17 +181,10 @@ function getShareUrl() {
     playerDivs.forEach((player, idx) => {
         const linkedComps = links
             .filter(l => l.player === player)
-            .map(l => {
-                // Get comp index from data-id="compo-X"
-                const id = l.compo?.dataset?.id;
-                if (id && id.startsWith('compo-')) {
-                    return `${parseInt(id.replace('compo-', ''), 10)}${l.pivot ? '' : '*'}`;
-                }
-                return null;
-            })
-            .filter(n => n !== null);
+            .filter(l => l.compo?.dataset?.title)
+            .map(l => `${l.compo.dataset.title}${l.pivot ? '' : '*'}`);
         if (linkedComps.length > 0) {
-            url.searchParams.set(`Player${idx + 1}Comps`, linkedComps.join(','));
+            url.searchParams.set(`Player${idx + 1}Comps`, linkedComps.join(COMP_SEPARATOR));
         }
         const playerItems = getPlayerItems(player);
         if (playerItems.length) url.searchParams.set(`Player${idx + 1}Items`, playerItems.join(','));
@@ -170,6 +200,9 @@ export function showNotification(message, duration = CONFIG.notificationDuration
         notification.id = 'copilot-notification';
         // Only class, no inline style
         notification.className = 'copilot-notification';
+        // announced by screen readers without taking the focus
+        notification.setAttribute('role', 'status');
+        notification.setAttribute('aria-live', 'polite');
         document.body.appendChild(notification);
     }
     notification.textContent = message;

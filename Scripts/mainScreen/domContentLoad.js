@@ -1,6 +1,6 @@
 import { CONFIG } from '../config.js';
 import { preloadPlayers, resetPlayers, toggleDoubleUpMode } from './players.js';
-import { copyShareUrlToClipboard } from './shareUrl.js';
+import { copyShareUrlToClipboard, copyText } from './shareUrl.js';
 import { searchPlayer } from './searchCurrentGame.js';
 import { hasFeature } from '../account/session.js';
 import './nameLookup.js';
@@ -61,19 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Copy the lobby's player names, one per line
-function copyPlayerNames(e) {
+async function copyPlayerNames(e) {
     const btn = e.currentTarget;
     const names = [...document.querySelectorAll('.item.player .player-name')]
         .map(span => span.textContent.trim())
         .filter(Boolean)
         .join('\n');
-    const done = () => {
-        btn.textContent = '✓';
-        setTimeout(() => { btn.textContent = '⧉'; }, 1200);
-    };
-    if (navigator.clipboard?.writeText) {
-        navigator.clipboard.writeText(names).then(done).catch(() => prompt('Player names', names));
-    } else {
-        prompt('Player names', names);
-    }
+    if (!await copyText(names, 'Player names:')) return;
+    btn.textContent = '✓';
+    setTimeout(() => { btn.textContent = '⧉'; }, 1200);
 }

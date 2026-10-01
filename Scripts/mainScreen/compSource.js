@@ -3,7 +3,7 @@
 import { links } from './matrix.js';
 import { getQueryParams } from './shareUrl.js';
 import { requireFeature } from '../account/plans.js';
-import { hasFeature } from '../account/session.js';
+import { hasFeature, escapeHtml as esc } from '../account/session.js';
 
 const ORDER = ['tftflow', 'metatft', 'tactics', 'tftacademy'];
 // First visit: MetaTFT; after that, whatever the user last picked (localStorage)
@@ -72,14 +72,14 @@ export function renderSourceSwitch(set, onSwitch) {
     root.classList.toggle('locked', !hasFeature('comp_sources'));
     root.innerHTML = `
         <button type="button" class="source-btn" aria-haspopup="menu" aria-expanded="false">
-            <span class="source-from">Comps from</span>${sourceLogo(active.id)}<b>${active.name}</b>
+            <span class="source-from">Comps from</span>${sourceLogo(active.id)}<b>${esc(active.name)}</b>
             <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div class="source-menu" role="menu" hidden>
             ${sources.map(s => `
                 <button type="button" role="menuitemradio" aria-checked="${s.id === active.id}" data-source="${s.id}">
                     ${sourceLogo(s.id, 'source-logo lg')}
-                    <span class="source-name">${s.name}${s.stats ? '<i class="source-tag">Stats</i>' : ''}</span>
+                    <span class="source-name">${esc(s.name)}${s.stats ? '<i class="source-tag">Stats</i>' : ''}</span>
                     <small>${CAPTIONS[s.id] || ''}${` · ${(s.comps || set.comps || []).length} comps`}</small>
                 </button>`).join('')}
         </div>
@@ -90,7 +90,7 @@ export function renderSourceSwitch(set, onSwitch) {
         credit.hidden = !active.url;
         credit.href = active.url || '#';
         credit.title = `Open ${active.name}`;
-        credit.innerHTML = `${hostOf(active.url)}<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/></svg>`;
+        credit.innerHTML = `${esc(hostOf(active.url))}<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/></svg>`;
     }
     if (note) {
         // small print: which patch and when the data is from, and whether the source has stats
@@ -98,7 +98,7 @@ export function renderSourceSwitch(set, onSwitch) {
         const parts = [
             set.patch && (set.patch === 'PBE' ? 'PBE' : `Patch ${set.patch}`),
             updated && `updated <time datetime="${updated}" title="${new Date(updated).toLocaleString()}">${timeAgo(updated)}</time>`,
-            !active.stats && `${active.name} doesn't publish placement stats`,
+            !active.stats && `${esc(active.name)} doesn't publish placement stats`,
         ].filter(Boolean);
         note.hidden = !parts.length;
         note.innerHTML = parts.join(' · ');
@@ -127,7 +127,7 @@ export function renderSourceSwitch(set, onSwitch) {
         menu.hidden = true;
         confirmBox.hidden = false;
         confirmBox.innerHTML = `
-            <p><b>Switch to ${target.name}?</b> The ${linked} comp ${linked === 1 ? 'link' : 'links'} in this lobby will be cleared. Players and their items stay.</p>
+            <p><b>Switch to ${esc(target.name)}?</b> The ${linked} comp ${linked === 1 ? 'link' : 'links'} in this lobby will be cleared. Players and their items stay.</p>
             <div class="source-confirm-actions">
                 <button type="button" class="btn-ghost" data-act="cancel">Cancel</button>
                 <button type="button" class="btn-primary" data-act="switch">Switch and clear</button>

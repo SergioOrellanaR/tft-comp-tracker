@@ -44,7 +44,7 @@ img[src*="ranked-mini-crests/diamond"] { filter: hue-rotate(-30deg); }
 .duel-button:not(:disabled):hover { border-color: var(--ink-2); color: var(--ink); background: var(--sunk); }
 .duel-button:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
 /* never played together: nothing to open */
-.duel-button.is-new { border-style: dashed; color: var(--faint); background: transparent; cursor: default; }
+.duel-button.is-new { border-style: dashed; color: var(--muted); background: transparent; cursor: default; }
 /* the check failed */
 .duel-button.is-error { border-color: transparent; background: transparent; color: var(--contest); cursor: help; padding: 0 3px; }
 
@@ -69,3 +69,23 @@ img[src*="ranked-mini-crests/diamond"] { filter: hue-rotate(-30deg); }
 
 /* a feature of the next plan: the button is there, with a lock */
 .duel-button.is-locked { border-color: var(--core); color: var(--core); font-weight: 700; letter-spacing: 0.4px; }
+
+/* ---------- copy by hand, when the browser won't let the page use the clipboard ---------- */
+.manual-copy {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    width: min(560px, calc(100vw - 32px));
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-pop);
+}
+.manual-copy label { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; color: var(--ink-2); font-size: 12.5px; }
+.manual-copy input { width: 100%; height: 32px; padding: 0 8px; border: 1px solid var(--rule); border-radius: var(--radius-sm); background: var(--sunk); color: var(--ink); font: 13px var(--font); }
