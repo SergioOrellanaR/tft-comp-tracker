@@ -279,15 +279,15 @@ function createCompoElement(comp, index) {
     fav.setAttribute('aria-label', `Favorite ${comp.title}`);
     fav.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>';
     fav.addEventListener('click', () => toggleFavorite(div.dataset.favKey));
-    // the row's buttons float over the end of the comp cell, so they never reach the player cells
-    const actions = document.createElement('div');
+    // the row's buttons sit on the style line, in the room it leaves next to the comp's name: nothing is covered
+    const actions = document.createElement('span');
     actions.className = 'comp-actions';
+    actions.appendChild(fav);
     const planner = createPlannerButton(comp.plannerCode);
     if (planner) actions.appendChild(planner);
     const tb = createTeambuilderButton(comp.url);
     if (tb) actions.appendChild(tb);
-    actions.appendChild(fav);
-    cell.appendChild(actions);
+    style.appendChild(actions);
     div.appendChild(cell);
 
     for (let k = 0; k < 8; k++) {

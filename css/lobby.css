@@ -674,27 +674,12 @@
 .items-container img { width: 22px; height: 22px; border-radius: 4px; }
 .items-container img.partial { opacity: 0.45; }
 
-/* favorite, planner code and guide: out of the flow at the end of the comp cell, over the row's tail on hover */
-.comp-actions {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    z-index: 3;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 2px;
-    padding: 2px;
-    border-radius: 6px;
-    pointer-events: none;
-}
-.item.compo:hover .comp-actions, .comp-actions:focus-within {
-    background: var(--surface);
-    box-shadow: 0 0 0 1px var(--rule);
-    pointer-events: auto;
-}
+/* favorite, planner code and guide: at the end of the style line, in the room the short style label leaves under
+   the comp's name. They take no room of their own and cover nothing (the negative margin keeps the line's height). */
+.comp-actions { display: flex; gap: 2px; margin: -3px 0 -3px auto; }
 .teambuilder-btn {
     display: grid; place-items: center;
-    width: 24px; height: 24px;
+    width: 22px; height: 22px;
     flex: none;
     border-radius: 4px;
     color: var(--faint);
@@ -706,8 +691,7 @@
 .fav-btn { padding: 0; border: none; background: none; cursor: pointer; }
 .fav-btn svg { fill: none; }
 .fav-btn:hover { color: var(--c5); }
-/* a favorite already sits in the Favorites group, so its star waits for the hover like the rest */
-.fav-btn[aria-pressed="true"] { color: var(--c5); }
+.fav-btn[aria-pressed="true"] { opacity: 1; color: var(--c5); }
 .fav-btn[aria-pressed="true"] svg { fill: currentColor; }
 .planner-btn { padding: 0; border: none; background: none; }
 .planner-btn.copied { color: var(--open); opacity: 1; }
@@ -929,6 +913,8 @@
     .lobby { --cols: minmax(290px, 1fr) repeat(8, minmax(50px, 64px)); --matrix-min: 690px; padding: 12px; gap: 12px; }
     .board-rest, .items-container { display: none; }
     .comp-info { flex-basis: 124px; }
+    /* the narrower name column has room for two buttons */
+    .comp-actions a.teambuilder-btn { display: none; }
     .comp-cell { overflow: hidden; }
     .unit-icon-wrapper:nth-child(n+4) { display: none; }
 }

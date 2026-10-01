@@ -48,7 +48,8 @@ function hide() {
 
 if (card && compsContainer) {
     compsContainer.addEventListener('mouseover', e => {
-        const info = e.target.closest('.comp-info[data-stats]');
+        // not while aiming at the row's buttons, which sit inside the comp's info
+        const info = e.target.closest('.comp-actions') ? null : e.target.closest('.comp-info[data-stats]');
         if (info === anchor) return;
         if (info) show(info);
         else hide();
